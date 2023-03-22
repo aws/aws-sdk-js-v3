@@ -29,9 +29,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RecognizeUtteranceCommand}.
  */
-type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
+export type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
   /**
    * For *`RecognizeUtteranceRequest["inputStream"]`*, see {@link RecognizeUtteranceRequest.inputStream}.
    */
@@ -42,6 +44,8 @@ type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "input
  */
 export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link RecognizeUtteranceCommand}.
  */
 export interface RecognizeUtteranceCommandOutput
@@ -49,6 +53,7 @@ export interface RecognizeUtteranceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
  *          this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
  *          interprets the user input using the machine learning model built for
@@ -122,6 +127,8 @@ export interface RecognizeUtteranceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RecognizeUtteranceCommandInput - {@link RecognizeUtteranceCommandInput}
+ * @returns {@link RecognizeUtteranceCommandOutput}
  * @see {@link RecognizeUtteranceCommandInput} for command's `input` shape.
  * @see {@link RecognizeUtteranceCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
@@ -169,6 +176,9 @@ export class RecognizeUtteranceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecognizeUtteranceCommandInput) {
     // Start section: command_constructor
     super();
@@ -208,10 +218,16 @@ export class RecognizeUtteranceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecognizeUtteranceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RecognizeUtteranceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

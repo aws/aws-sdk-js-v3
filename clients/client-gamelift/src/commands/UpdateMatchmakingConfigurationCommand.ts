@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMatchmakingConfigurationCommand}.
  */
 export interface UpdateMatchmakingConfigurationCommandInput extends UpdateMatchmakingConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMatchmakingConfigurationCommand}.
  */
 export interface UpdateMatchmakingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all
  *             matches and game sessions that are created after the update. To update settings, specify
  *             the configuration name to be updated and provide the new settings. </p>
@@ -57,6 +62,8 @@ export interface UpdateMatchmakingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMatchmakingConfigurationCommandInput - {@link UpdateMatchmakingConfigurationCommandInput}
+ * @returns {@link UpdateMatchmakingConfigurationCommandOutput}
  * @see {@link UpdateMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMatchmakingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateMatchmakingConfigurationCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
     return serializeAws_json1_1UpdateMatchmakingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

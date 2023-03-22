@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrainingJobCommand}.
  */
 export interface DescribeTrainingJobCommandInput extends DescribeTrainingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrainingJobCommand}.
  */
 export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a training job. </p>
  *          <p>Some of the attributes below only appear if the training job successfully starts.
  *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
@@ -52,6 +57,8 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrainingJobCommandInput - {@link DescribeTrainingJobCommandInput}
+ * @returns {@link DescribeTrainingJobCommandOutput}
  * @see {@link DescribeTrainingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeTrainingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeTrainingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTrainingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrainingJobCommandOutput> {
     return deserializeAws_json1_1DescribeTrainingJobCommand(output, context);
   }

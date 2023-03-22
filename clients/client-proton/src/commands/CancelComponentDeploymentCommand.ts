@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelComponentDeploymentCommand}.
  */
 export interface CancelComponentDeploymentCommandInput extends CancelComponentDeploymentInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelComponentDeploymentCommand}.
  */
 export interface CancelComponentDeploymentCommandOutput extends CancelComponentDeploymentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -49,6 +54,8 @@ export interface CancelComponentDeploymentCommandOutput extends CancelComponentD
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelComponentDeploymentCommandInput - {@link CancelComponentDeploymentCommandInput}
+ * @returns {@link CancelComponentDeploymentCommandOutput}
  * @see {@link CancelComponentDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelComponentDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -90,6 +97,9 @@ export class CancelComponentDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelComponentDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CancelComponentDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelComponentDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CancelComponentDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayMulticastDomainsCommand}.
  */
 export interface DescribeTransitGatewayMulticastDomainsCommandInput
   extends DescribeTransitGatewayMulticastDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayMulticastDomainsCommand}.
  */
 export interface DescribeTransitGatewayMulticastDomainsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeTransitGatewayMulticastDomainsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateway multicast domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeTransitGatewayMulticastDomainsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayMulticastDomainsCommandInput - {@link DescribeTransitGatewayMulticastDomainsCommandInput}
+ * @returns {@link DescribeTransitGatewayMulticastDomainsCommandOutput}
  * @see {@link DescribeTransitGatewayMulticastDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayMulticastDomainsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayMulticastDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayMulticastDomainsCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

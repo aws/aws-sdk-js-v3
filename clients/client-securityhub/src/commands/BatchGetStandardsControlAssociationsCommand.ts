@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetStandardsControlAssociationsCommand}.
  */
 export interface BatchGetStandardsControlAssociationsCommandInput extends BatchGetStandardsControlAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetStandardsControlAssociationsCommand}.
  */
 export interface BatchGetStandardsControlAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
  *       </p>
@@ -50,6 +55,8 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetStandardsControlAssociationsCommandInput - {@link BatchGetStandardsControlAssociationsCommandInput}
+ * @returns {@link BatchGetStandardsControlAssociationsCommandOutput}
  * @see {@link BatchGetStandardsControlAssociationsCommandInput} for command's `input` shape.
  * @see {@link BatchGetStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchGetStandardsControlAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class BatchGetStandardsControlAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetStandardsControlAssociationsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class BatchGetStandardsControlAssociationsCommand extends $Command<
     return serializeAws_restJson1BatchGetStandardsControlAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

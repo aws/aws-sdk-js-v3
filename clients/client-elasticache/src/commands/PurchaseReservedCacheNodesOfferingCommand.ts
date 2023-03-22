@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedCacheNodesOfferingCommand}.
  */
 export interface PurchaseReservedCacheNodesOfferingCommandInput extends PurchaseReservedCacheNodesOfferingMessage {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedCacheNodesOfferingCommand}.
  */
 export interface PurchaseReservedCacheNodesOfferingCommandOutput
@@ -37,6 +41,7 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase a reserved
  *             cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information,
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or
@@ -51,6 +56,8 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedCacheNodesOfferingCommandInput - {@link PurchaseReservedCacheNodesOfferingCommandInput}
+ * @returns {@link PurchaseReservedCacheNodesOfferingCommandOutput}
  * @see {@link PurchaseReservedCacheNodesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedCacheNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -103,6 +110,9 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedCacheNodesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedCacheNodesOfferingCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     return serializeAws_queryPurchaseReservedCacheNodesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

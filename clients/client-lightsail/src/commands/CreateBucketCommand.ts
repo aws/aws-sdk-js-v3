@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lightsail bucket.</p>
  *          <p>A bucket is a cloud storage resource available in the Lightsail object storage service.
  *       Use buckets to store objects such as data and its descriptive metadata. For more information
@@ -50,6 +55,8 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
+ * @returns {@link CreateBucketCommandOutput}
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
     return deserializeAws_json1_1CreateBucketCommand(output, context);
   }

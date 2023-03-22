@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverRuleAssociationCommand}.
  */
 export interface GetResolverRuleAssociationCommandInput extends GetResolverRuleAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverRuleAssociationCommand}.
  */
 export interface GetResolverRuleAssociationCommandOutput extends GetResolverRuleAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverRuleAssociationCommandInput - {@link GetResolverRuleAssociationCommandInput}
+ * @returns {@link GetResolverRuleAssociationCommandOutput}
  * @see {@link GetResolverRuleAssociationCommandInput} for command's `input` shape.
  * @see {@link GetResolverRuleAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetResolverRuleAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverRuleAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetResolverRuleAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverRuleAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResolverRuleAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

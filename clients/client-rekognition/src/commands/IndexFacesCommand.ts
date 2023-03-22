@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link IndexFacesCommand}.
  */
 export interface IndexFacesCommandInput extends IndexFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link IndexFacesCommand}.
  */
 export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects faces in the input image and adds them to the specified collection. </p>
  *          <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying
  *       detection algorithm first detects the faces in the input image. For each face, the algorithm
@@ -136,6 +141,8 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param IndexFacesCommandInput - {@link IndexFacesCommandInput}
+ * @returns {@link IndexFacesCommandOutput}
  * @see {@link IndexFacesCommandInput} for command's `input` shape.
  * @see {@link IndexFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -338,6 +345,9 @@ export class IndexFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IndexFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -375,10 +385,16 @@ export class IndexFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IndexFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1IndexFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexFacesCommandOutput> {
     return deserializeAws_json1_1IndexFacesCommand(output, context);
   }

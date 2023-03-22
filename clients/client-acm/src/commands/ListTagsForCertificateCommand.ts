@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForCertificateCommand}.
  */
 export interface ListTagsForCertificateCommandInput extends ListTagsForCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForCertificateCommand}.
  */
 export interface ListTagsForCertificateCommandOutput extends ListTagsForCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's
  *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
  *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
@@ -48,6 +53,8 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForCertificateCommandInput - {@link ListTagsForCertificateCommandInput}
+ * @returns {@link ListTagsForCertificateCommandOutput}
  * @see {@link ListTagsForCertificateCommandInput} for command's `input` shape.
  * @see {@link ListTagsForCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListTagsForCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListTagsForCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForCertificateCommandOutput> {
     return deserializeAws_json1_1ListTagsForCertificateCommand(output, context);
   }

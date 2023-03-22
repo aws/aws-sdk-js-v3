@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartEntitiesDetectionV2JobCommand}.
  */
 export interface StartEntitiesDetectionV2JobCommandInput extends StartEntitiesDetectionV2JobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartEntitiesDetectionV2JobCommand}.
  */
 export interface StartEntitiesDetectionV2JobCommandOutput
@@ -41,6 +45,7 @@ export interface StartEntitiesDetectionV2JobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the
  *         <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
  * @example
@@ -53,6 +58,8 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEntitiesDetectionV2JobCommandInput - {@link StartEntitiesDetectionV2JobCommandInput}
+ * @returns {@link StartEntitiesDetectionV2JobCommandOutput}
  * @see {@link StartEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link StartEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -92,6 +99,9 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEntitiesDetectionV2JobCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEntitiesDetectionV2JobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartEntitiesDetectionV2JobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

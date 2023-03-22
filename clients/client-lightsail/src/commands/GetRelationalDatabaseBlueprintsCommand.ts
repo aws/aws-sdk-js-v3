@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseBlueprintsCommand}.
  */
 export interface GetRelationalDatabaseBlueprintsCommandInput extends GetRelationalDatabaseBlueprintsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseBlueprintsCommand}.
  */
 export interface GetRelationalDatabaseBlueprintsCommandOutput
@@ -37,6 +41,7 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes
  *       the major engine version of a database.</p>
  *          <p>You can use a blueprint ID to create a new database that runs a specific database
@@ -51,6 +56,8 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseBlueprintsCommandInput - {@link GetRelationalDatabaseBlueprintsCommandInput}
+ * @returns {@link GetRelationalDatabaseBlueprintsCommandOutput}
  * @see {@link GetRelationalDatabaseBlueprintsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseBlueprintsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseBlueprintsCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     return serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

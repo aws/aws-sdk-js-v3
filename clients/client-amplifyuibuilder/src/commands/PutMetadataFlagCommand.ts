@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetadataFlagCommand}.
  */
 export interface PutMetadataFlagCommandInput extends PutMetadataFlagRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMetadataFlagCommand}.
  */
 export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores the metadata information about a feature on a form or view.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetadataFlagCommandInput - {@link PutMetadataFlagCommandInput}
+ * @returns {@link PutMetadataFlagCommandOutput}
  * @see {@link PutMetadataFlagCommandInput} for command's `input` shape.
  * @see {@link PutMetadataFlagCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -70,6 +77,9 @@ export class PutMetadataFlagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetadataFlagCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class PutMetadataFlagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetadataFlagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutMetadataFlagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetadataFlagCommandOutput> {
     return deserializeAws_restJson1PutMetadataFlagCommand(output, context);
   }

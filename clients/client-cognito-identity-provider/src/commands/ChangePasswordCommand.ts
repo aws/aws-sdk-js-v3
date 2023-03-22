@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the password for a specified user in a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
+ * @returns {@link ChangePasswordCommandOutput}
  * @see {@link ChangePasswordCommandInput} for command's `input` shape.
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -110,6 +117,9 @@ export class ChangePasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class ChangePasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ChangePasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangePasswordCommandOutput> {
     return deserializeAws_json1_1ChangePasswordCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCapacityProviderCommand}.
  */
 export interface DeleteCapacityProviderCommandInput extends DeleteCapacityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCapacityProviderCommand}.
  */
 export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified capacity provider.</p>
  *          <note>
  *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
@@ -60,6 +65,8 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCapacityProviderCommandInput - {@link DeleteCapacityProviderCommandInput}
+ * @returns {@link DeleteCapacityProviderCommandOutput}
  * @see {@link DeleteCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteCapacityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteCapacityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCapacityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCapacityProviderCommandOutput> {
     return deserializeAws_json1_1DeleteCapacityProviderCommand(output, context);
   }

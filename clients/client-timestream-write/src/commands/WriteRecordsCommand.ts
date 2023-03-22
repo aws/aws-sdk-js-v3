@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link WriteRecordsCommand}.
  */
 export interface WriteRecordsCommandInput extends WriteRecordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link WriteRecordsCommand}.
  */
 export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables you to write your time-series data into Timestream. You can specify a
  *          single data point or a batch of data points to be inserted into the system. Timestream offers you a flexible schema that auto detects the column names and data
  *          types for your Timestream tables based on the dimension names and data types of
@@ -85,6 +90,8 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param WriteRecordsCommandInput - {@link WriteRecordsCommandInput}
+ * @returns {@link WriteRecordsCommandOutput}
  * @see {@link WriteRecordsCommandInput} for command's `input` shape.
  * @see {@link WriteRecordsCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -162,6 +169,9 @@ export class WriteRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: WriteRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -202,10 +212,16 @@ export class WriteRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: WriteRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0WriteRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteRecordsCommandOutput> {
     return deserializeAws_json1_0WriteRecordsCommand(output, context);
   }

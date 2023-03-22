@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartInstanceCommand}.
  */
 export interface StartInstanceCommandInput extends StartInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartInstanceCommand}.
  */
 export interface StartInstanceCommandOutput extends StartInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
  *       use the <code>reboot instance</code> operation.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface StartInstanceCommandOutput extends StartInstanceResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInstanceCommandInput - {@link StartInstanceCommandInput}
+ * @returns {@link StartInstanceCommandOutput}
  * @see {@link StartInstanceCommandInput} for command's `input` shape.
  * @see {@link StartInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -108,6 +115,9 @@ export class StartInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class StartInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstanceCommandOutput> {
     return deserializeAws_json1_1StartInstanceCommand(output, context);
   }

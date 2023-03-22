@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcConnectorsCommand}.
  */
 export interface ListVpcConnectorsCommandInput extends ListVpcConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcConnectorsCommand}.
  */
 export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of App Runner VPC connectors in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcConnectorsCommandInput - {@link ListVpcConnectorsCommandInput}
+ * @returns {@link ListVpcConnectorsCommandOutput}
  * @see {@link ListVpcConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListVpcConnectorsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListVpcConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListVpcConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListVpcConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcConnectorsCommandOutput> {
     return deserializeAws_json1_0ListVpcConnectorsCommand(output, context);
   }

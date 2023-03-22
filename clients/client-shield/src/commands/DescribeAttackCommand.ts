@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAttackCommand}.
  */
 export interface DescribeAttackCommandInput extends DescribeAttackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAttackCommand}.
  */
 export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of a DDoS attack. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAttackCommandInput - {@link DescribeAttackCommandInput}
+ * @returns {@link DescribeAttackCommandOutput}
  * @see {@link DescribeAttackCommandInput} for command's `input` shape.
  * @see {@link DescribeAttackCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeAttackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAttackCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeAttackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAttackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAttackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAttackCommandOutput> {
     return deserializeAws_json1_1DescribeAttackCommand(output, context);
   }

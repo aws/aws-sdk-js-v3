@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ACMServiceException as __BaseException } from "./ACMServiceException";
 
 /**
+ * @public
  * <p>You do not have access required to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
  */
 export interface Tag {
@@ -39,6 +41,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to which the tag is to be applied.
@@ -57,6 +62,7 @@ export interface AddTagsToCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
 export class InvalidArnException extends __BaseException {
@@ -76,6 +82,7 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input parameter was invalid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -95,6 +102,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or both of the values that make up the key-value pair is not valid. For example, you
  *       cannot specify a tag value that begins with <code>aws:</code>.</p>
  */
@@ -115,6 +123,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  */
@@ -135,6 +144,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
  */
 export class TagPolicyException extends __BaseException {
@@ -154,6 +164,7 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because it exceeded a quota.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -173,6 +184,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -191,11 +203,15 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RecordType {
   CNAME = "CNAME",
 }
 
 /**
+ * @public
  * <p>Contains a DNS record value that you can use to validate ownership or control of a domain.
  *       This is used by the <a>DescribeCertificate</a> action. </p>
  */
@@ -217,11 +233,17 @@ export interface ResourceRecord {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationMethod {
   DNS = "DNS",
   EMAIL = "EMAIL",
 }
 
+/**
+ * @public
+ */
 export enum DomainStatus {
   FAILED = "FAILED",
   PENDING_VALIDATION = "PENDING_VALIDATION",
@@ -229,6 +251,7 @@ export enum DomainStatus {
 }
 
 /**
+ * @public
  * <p>Contains information about the validation of each domain name in the certificate.</p>
  */
 export interface DomainValidation {
@@ -284,6 +307,9 @@ export interface DomainValidation {
   ValidationMethod?: ValidationMethod | string;
 }
 
+/**
+ * @public
+ */
 export enum ExtendedKeyUsageName {
   ANY = "ANY",
   CODE_SIGNING = "CODE_SIGNING",
@@ -300,6 +326,7 @@ export enum ExtendedKeyUsageName {
 }
 
 /**
+ * @public
  * <p>The Extended Key Usage X.509 v3 extension defines one or more purposes for which the
  *       public key can be used. This is in addition to or in place of the basic purposes specified by
  *       the Key Usage extension. </p>
@@ -364,6 +391,9 @@ export interface ExtendedKeyUsage {
   OID?: string;
 }
 
+/**
+ * @public
+ */
 export enum FailureReason {
   ADDITIONAL_VERIFICATION_REQUIRED = "ADDITIONAL_VERIFICATION_REQUIRED",
   CAA_ERROR = "CAA_ERROR",
@@ -384,6 +414,9 @@ export enum FailureReason {
   SLR_NOT_FOUND = "SLR_NOT_FOUND",
 }
 
+/**
+ * @public
+ */
 export enum KeyAlgorithm {
   EC_prime256v1 = "EC_prime256v1",
   EC_secp384r1 = "EC_secp384r1",
@@ -394,6 +427,9 @@ export enum KeyAlgorithm {
   RSA_4096 = "RSA_4096",
 }
 
+/**
+ * @public
+ */
 export enum KeyUsageName {
   ANY = "ANY",
   CERTIFICATE_SIGNING = "CERTIFICATE_SIGNING",
@@ -409,6 +445,7 @@ export enum KeyUsageName {
 }
 
 /**
+ * @public
  * <p>The Key Usage X.509 v3 extension defines the purpose of the public key contained in the
  *       certificate.</p>
  */
@@ -419,12 +456,16 @@ export interface KeyUsage {
   Name?: KeyUsageName | string;
 }
 
+/**
+ * @public
+ */
 export enum CertificateTransparencyLoggingPreference {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Structure that contains options for your certificate. Currently, you can use this only to
  *       specify whether to opt in to or out of certificate transparency logging. Some browsers require
  *       that public certificates issued for your domain be recorded in a log. Certificates that are
@@ -441,11 +482,17 @@ export interface CertificateOptions {
   CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
 }
 
+/**
+ * @public
+ */
 export enum RenewalEligibility {
   ELIGIBLE = "ELIGIBLE",
   INELIGIBLE = "INELIGIBLE",
 }
 
+/**
+ * @public
+ */
 export enum RenewalStatus {
   FAILED = "FAILED",
   PENDING_AUTO_RENEWAL = "PENDING_AUTO_RENEWAL",
@@ -454,6 +501,7 @@ export enum RenewalStatus {
 }
 
 /**
+ * @public
  * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This
  *       structure exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
  */
@@ -483,6 +531,9 @@ export interface RenewalSummary {
   UpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RevocationReason {
   AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
   A_A_COMPROMISE = "A_A_COMPROMISE",
@@ -496,6 +547,9 @@ export enum RevocationReason {
   UNSPECIFIED = "UNSPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum CertificateStatus {
   EXPIRED = "EXPIRED",
   FAILED = "FAILED",
@@ -506,6 +560,9 @@ export enum CertificateStatus {
   VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT",
 }
 
+/**
+ * @public
+ */
 export enum CertificateType {
   AMAZON_ISSUED = "AMAZON_ISSUED",
   IMPORTED = "IMPORTED",
@@ -513,6 +570,7 @@ export enum CertificateType {
 }
 
 /**
+ * @public
  * <p>Contains metadata about an ACM certificate. This structure is returned in the response
  *       to a <a>DescribeCertificate</a> request. </p>
  */
@@ -690,6 +748,7 @@ export interface CertificateDetail {
 }
 
 /**
+ * @public
  * <p>You are trying to update a resource or configuration that is already being created or
  *       updated. Wait for the previous operation to finish and try again.</p>
  */
@@ -709,6 +768,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to be deleted. This must be of the
@@ -722,6 +784,7 @@ export interface DeleteCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the
  *       association and try again.</p>
  */
@@ -741,6 +804,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following
@@ -753,6 +819,9 @@ export interface DescribeCertificateRequest {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateResponse {
   /**
    * <p>Metadata about an ACM certificate.</p>
@@ -760,6 +829,9 @@ export interface DescribeCertificateResponse {
   Certificate?: CertificateDetail;
 }
 
+/**
+ * @public
+ */
 export interface ExportCertificateRequest {
   /**
    * <p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</p>
@@ -784,6 +856,9 @@ export interface ExportCertificateRequest {
   Passphrase: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportCertificateResponse {
   /**
    * <p>The base64 PEM-encoded certificate.</p>
@@ -804,6 +879,7 @@ export interface ExportCertificateResponse {
 }
 
 /**
+ * @public
  * <p>The certificate request is in process and the certificate in your account has not yet been
  *       issued.</p>
  */
@@ -824,6 +900,7 @@ export class RequestInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object containing expiration events options associated with an Amazon Web Services account.</p>
  */
 export interface ExpiryEventsConfiguration {
@@ -836,6 +913,9 @@ export interface ExpiryEventsConfiguration {
   DaysBeforeExpiry?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountConfigurationResponse {
   /**
    * <p>Expiration events configuration options associated with the Amazon Web Services account.</p>
@@ -843,6 +923,9 @@ export interface GetAccountConfigurationResponse {
   ExpiryEvents?: ExpiryEventsConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateRequest {
   /**
    * <p>String that contains a certificate ARN in the following format:</p>
@@ -854,6 +937,9 @@ export interface GetCertificateRequest {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateResponse {
   /**
    * <p>The ACM-issued certificate corresponding to the ARN specified as input.</p>
@@ -868,6 +954,9 @@ export interface GetCertificateResponse {
   CertificateChain?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
@@ -898,6 +987,9 @@ export interface ImportCertificateRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateResponse {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
@@ -907,6 +999,7 @@ export interface ImportCertificateResponse {
 }
 
 /**
+ * @public
  * <p>An ACM quota has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -926,6 +1019,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of of request parameters specified is not valid.</p>
  */
 export class InvalidArgsException extends __BaseException {
@@ -945,6 +1039,7 @@ export class InvalidArgsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This structure can be used in the <a>ListCertificates</a> action to filter the
  *       output of the certificate list. </p>
  */
@@ -970,15 +1065,24 @@ export interface Filters {
   keyTypes?: (KeyAlgorithm | string)[];
 }
 
+/**
+ * @public
+ */
 export enum SortBy {
   CREATED_AT = "CREATED_AT",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface ListCertificatesRequest {
   /**
    * <p>Filter the certificate list by status value.</p>
@@ -1020,6 +1124,7 @@ export interface ListCertificatesRequest {
 }
 
 /**
+ * @public
  * <p>This structure is returned in the response object of <a>ListCertificates</a>
  *       action. </p>
  */
@@ -1151,6 +1256,9 @@ export interface CertificateSummary {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListCertificatesResponse {
   /**
    * <p>When the list is truncated, this value is present and contains the value to use for the
@@ -1165,6 +1273,7 @@ export interface ListCertificatesResponse {
 }
 
 /**
+ * @public
  * <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -1183,6 +1292,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate for which you want to list the tags.
@@ -1195,6 +1307,9 @@ export interface ListTagsForCertificateRequest {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForCertificateResponse {
   /**
    * <p>The key-value pairs that define the applied tags.</p>
@@ -1202,6 +1317,9 @@ export interface ListTagsForCertificateResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutAccountConfigurationRequest {
   /**
    * <p>Specifies expiration events associated with an account.</p>
@@ -1218,6 +1336,9 @@ export interface PutAccountConfigurationRequest {
   IdempotencyToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM Certificate with one or more tags that you want
@@ -1235,6 +1356,9 @@ export interface RemoveTagsFromCertificateRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RenewCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the
@@ -1248,6 +1372,7 @@ export interface RenewCertificateRequest {
 }
 
 /**
+ * @public
  * <p>One or more values in the <a>DomainValidationOption</a> structure is
  *       incorrect.</p>
  */
@@ -1268,6 +1393,7 @@ export class InvalidDomainValidationOptionsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about the domain names that you want ACM to use to send you emails
  *       that enable you to validate domain ownership.</p>
  */
@@ -1305,6 +1431,9 @@ export interface DomainValidationOption {
   ValidationDomain: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RequestCertificateRequest {
   /**
    * <p>Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with
@@ -1409,6 +1538,9 @@ export interface RequestCertificateRequest {
   KeyAlgorithm?: KeyAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface RequestCertificateResponse {
   /**
    * <p>String that contains the ARN of the issued certificate. This must be of the form:</p>
@@ -1420,6 +1552,7 @@ export interface RequestCertificateResponse {
 }
 
 /**
+ * @public
  * <p>Processing has reached an invalid state.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -1438,6 +1571,9 @@ export class InvalidStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResendValidationEmailRequest {
   /**
    * <p>String that contains the ARN of the requested certificate. The certificate ARN is
@@ -1484,6 +1620,9 @@ export interface ResendValidationEmailRequest {
   ValidationDomain: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCertificateOptionsRequest {
   /**
    * <p>ARN of the requested certificate to update. This must be of the form:</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePublicIpv4PoolsCommand}.
  */
 export interface DescribePublicIpv4PoolsCommandInput extends DescribePublicIpv4PoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePublicIpv4PoolsCommand}.
  */
 export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4PoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified IPv4 address pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePublicIpv4PoolsCommandInput - {@link DescribePublicIpv4PoolsCommandInput}
+ * @returns {@link DescribePublicIpv4PoolsCommandOutput}
  * @see {@link DescribePublicIpv4PoolsCommandInput} for command's `input` shape.
  * @see {@link DescribePublicIpv4PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePublicIpv4PoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePublicIpv4PoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribePublicIpv4PoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePublicIpv4PoolsCommandOutput> {
     return deserializeAws_ec2DescribePublicIpv4PoolsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConnectionFromLagCommand}.
  */
 export interface DisassociateConnectionFromLagCommandInput extends DisassociateConnectionFromLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConnectionFromLagCommand}.
  */
 export interface DisassociateConnectionFromLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a connection from a link aggregation group (LAG). The connection is
  *       interrupted and re-established as a standalone connection (the connection is not
  *       deleted; to delete the connection, use the <a>DeleteConnection</a> request).
@@ -55,6 +60,8 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectionFromLagCommandInput - {@link DisassociateConnectionFromLagCommandInput}
+ * @returns {@link DisassociateConnectionFromLagCommandOutput}
  * @see {@link DisassociateConnectionFromLagCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionFromLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectionFromLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectionFromLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateConnectionFromLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCatalogItemsCommand}.
  */
 export interface ListCatalogItemsCommandInput extends ListCatalogItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCatalogItemsCommand}.
  */
 export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the items in the catalog.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -49,6 +54,8 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCatalogItemsCommandInput - {@link ListCatalogItemsCommandInput}
+ * @returns {@link ListCatalogItemsCommandOutput}
  * @see {@link ListCatalogItemsCommandInput} for command's `input` shape.
  * @see {@link ListCatalogItemsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListCatalogItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCatalogItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListCatalogItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCatalogItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCatalogItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCatalogItemsCommandOutput> {
     return deserializeAws_restJson1ListCatalogItemsCommand(output, context);
   }

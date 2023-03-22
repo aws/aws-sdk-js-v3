@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkteamsCommand}.
  */
 export interface ListWorkteamsCommandInput extends ListWorkteamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkteamsCommand}.
  */
 export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
  *             no work team satisfies the filter specified in the <code>NameContains</code>
  *             parameter.</p>
@@ -48,6 +53,8 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkteamsCommandInput - {@link ListWorkteamsCommandInput}
+ * @returns {@link ListWorkteamsCommandOutput}
  * @see {@link ListWorkteamsCommandInput} for command's `input` shape.
  * @see {@link ListWorkteamsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListWorkteamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkteamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListWorkteamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkteamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWorkteamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkteamsCommandOutput> {
     return deserializeAws_json1_1ListWorkteamsCommand(output, context);
   }

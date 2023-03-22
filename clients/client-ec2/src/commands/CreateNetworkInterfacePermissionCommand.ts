@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkInterfacePermissionCommand}.
  */
 export interface CreateNetworkInterfacePermissionCommandInput extends CreateNetworkInterfacePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkInterfacePermissionCommand}.
  */
 export interface CreateNetworkInterfacePermissionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateNetworkInterfacePermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
  *             an instance in their account.</p>
  *          <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
@@ -50,6 +55,8 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkInterfacePermissionCommandInput - {@link CreateNetworkInterfacePermissionCommandInput}
+ * @returns {@link CreateNetworkInterfacePermissionCommandOutput}
  * @see {@link CreateNetworkInterfacePermissionCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInterfacePermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkInterfacePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateNetworkInterfacePermissionCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     return serializeAws_ec2CreateNetworkInterfacePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

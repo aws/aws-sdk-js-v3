@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutOrganizationConfigRuleCommand}.
  */
 export interface PutOrganizationConfigRuleCommandInput extends PutOrganizationConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutOrganizationConfigRuleCommand}.
  */
 export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationConfigRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an Config rule for your entire organization to evaluate if your Amazon Web Services resources comply with your
  * 			desired configurations. For information on how many organization Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -80,6 +85,8 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * const response = await client.send(command);
  * ```
  *
+ * @param PutOrganizationConfigRuleCommandInput - {@link PutOrganizationConfigRuleCommandInput}
+ * @returns {@link PutOrganizationConfigRuleCommandOutput}
  * @see {@link PutOrganizationConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -195,6 +202,9 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutOrganizationConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -234,10 +244,16 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutOrganizationConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutOrganizationConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachFromIndexCommand}.
  */
 export interface DetachFromIndexCommandInput extends DetachFromIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachFromIndexCommand}.
  */
 export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the specified object from the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachFromIndexCommandInput - {@link DetachFromIndexCommandInput}
+ * @returns {@link DetachFromIndexCommandOutput}
  * @see {@link DetachFromIndexCommandInput} for command's `input` shape.
  * @see {@link DetachFromIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +107,9 @@ export class DetachFromIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachFromIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DetachFromIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachFromIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetachFromIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachFromIndexCommandOutput> {
     return deserializeAws_restJson1DetachFromIndexCommand(output, context);
   }

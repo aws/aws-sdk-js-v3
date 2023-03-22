@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTunnelCommand}.
  */
 export interface DescribeTunnelCommandInput extends DescribeTunnelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTunnelCommand}.
  */
 export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
  * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeTunnel</a> action.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTunnelCommandInput - {@link DescribeTunnelCommandInput}
+ * @returns {@link DescribeTunnelCommandOutput}
  * @see {@link DescribeTunnelCommandInput} for command's `input` shape.
  * @see {@link DescribeTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeTunnelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTunnelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeTunnelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTunnelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTunnelCommandOutput> {
     return deserializeAws_json1_1DescribeTunnelCommand(output, context);
   }

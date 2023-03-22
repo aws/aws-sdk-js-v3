@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWhatIfForecastExportsCommand}.
  */
 export interface ListWhatIfForecastExportsCommandInput extends ListWhatIfForecastExportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWhatIfForecastExportsCommand}.
  */
 export interface ListWhatIfForecastExportsCommandOutput extends ListWhatIfForecastExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of what-if forecast exports created using the <a>CreateWhatIfForecastExport</a> operation. For each what-if forecast export, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast export ARN with the <a>DescribeWhatIfForecastExport</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWhatIfForecastExportsCommandOutput extends ListWhatIfForeca
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWhatIfForecastExportsCommandInput - {@link ListWhatIfForecastExportsCommandInput}
+ * @returns {@link ListWhatIfForecastExportsCommandOutput}
  * @see {@link ListWhatIfForecastExportsCommandInput} for command's `input` shape.
  * @see {@link ListWhatIfForecastExportsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListWhatIfForecastExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWhatIfForecastExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListWhatIfForecastExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWhatIfForecastExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWhatIfForecastExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

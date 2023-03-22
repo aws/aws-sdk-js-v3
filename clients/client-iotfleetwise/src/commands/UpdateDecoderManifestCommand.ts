@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDecoderManifestCommand}.
  */
 export interface UpdateDecoderManifestCommandInput extends UpdateDecoderManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDecoderManifestCommand}.
  */
 export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a decoder manifest.</p>
  *         <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only
  *                 <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
@@ -48,6 +53,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDecoderManifestCommandInput - {@link UpdateDecoderManifestCommandInput}
+ * @returns {@link UpdateDecoderManifestCommandOutput}
  * @see {@link UpdateDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link UpdateDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateDecoderManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDecoderManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateDecoderManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateDecoderManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDecoderManifestCommandOutput> {
     return deserializeAws_json1_0UpdateDecoderManifestCommand(output, context);
   }

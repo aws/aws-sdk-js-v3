@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PostTextCommand}.
  */
 export interface PostTextCommandInput extends PostTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link PostTextCommand}.
  */
 export interface PostTextCommandOutput extends PostTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends user input to Amazon Lex. Client applications can use this API to
  *       send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
  *       using the machine learning model it built for the bot. </p>
@@ -125,6 +130,8 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param PostTextCommandInput - {@link PostTextCommandInput}
+ * @returns {@link PostTextCommandOutput}
  * @see {@link PostTextCommandInput} for command's `input` shape.
  * @see {@link PostTextCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
@@ -193,6 +200,9 @@ export class PostTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -230,10 +240,16 @@ export class PostTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PostTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostTextCommandOutput> {
     return deserializeAws_restJson1PostTextCommand(output, context);
   }

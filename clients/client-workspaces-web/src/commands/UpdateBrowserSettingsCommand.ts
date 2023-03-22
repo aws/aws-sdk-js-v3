@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBrowserSettingsCommand}.
  */
 export interface UpdateBrowserSettingsCommandInput extends UpdateBrowserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBrowserSettingsCommand}.
  */
 export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBrowserSettingsCommandInput - {@link UpdateBrowserSettingsCommandInput}
+ * @returns {@link UpdateBrowserSettingsCommandOutput}
  * @see {@link UpdateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrowserSettingsCommandOutput> {
     return deserializeAws_restJson1UpdateBrowserSettingsCommand(output, context);
   }

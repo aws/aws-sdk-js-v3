@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationsForBudgetCommand}.
  */
 export interface DescribeNotificationsForBudgetCommandInput extends DescribeNotificationsForBudgetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationsForBudgetCommand}.
  */
 export interface DescribeNotificationsForBudgetCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeNotificationsForBudgetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the notifications that are associated with a budget.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeNotificationsForBudgetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationsForBudgetCommandInput - {@link DescribeNotificationsForBudgetCommandInput}
+ * @returns {@link DescribeNotificationsForBudgetCommandOutput}
  * @see {@link DescribeNotificationsForBudgetCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationsForBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationsForBudgetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationsForBudgetCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     return serializeAws_json1_1DescribeNotificationsForBudgetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReportPlanCommand}.
  */
 export interface DescribeReportPlanCommandInput extends DescribeReportPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReportPlanCommand}.
  */
 export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all report plans for an Amazon Web Services account and Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReportPlanCommandInput - {@link DescribeReportPlanCommandInput}
+ * @returns {@link DescribeReportPlanCommandOutput}
  * @see {@link DescribeReportPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeReportPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeReportPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeReportPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportPlanCommandOutput> {
     return deserializeAws_restJson1DescribeReportPlanCommand(output, context);
   }

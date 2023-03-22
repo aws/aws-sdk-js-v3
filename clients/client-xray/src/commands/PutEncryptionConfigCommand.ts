@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutEncryptionConfigCommand}.
  */
 export interface PutEncryptionConfigCommandInput extends PutEncryptionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEncryptionConfigCommand}.
  */
 export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the encryption configuration for X-Ray data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEncryptionConfigCommandInput - {@link PutEncryptionConfigCommandInput}
+ * @returns {@link PutEncryptionConfigCommandOutput}
  * @see {@link PutEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link PutEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class PutEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class PutEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEncryptionConfigCommandOutput> {
     return deserializeAws_restJson1PutEncryptionConfigCommand(output, context);
   }

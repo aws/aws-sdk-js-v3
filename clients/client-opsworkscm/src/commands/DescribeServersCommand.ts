@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServersCommand}.
  */
 export interface DescribeServersCommandInput extends DescribeServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServersCommand}.
  */
 export interface DescribeServersCommandOutput extends DescribeServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Lists all configuration management servers that are identified with your account.
  *       Only the stored results from Amazon DynamoDB
@@ -57,6 +62,8 @@ export interface DescribeServersCommandOutput extends DescribeServersResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServersCommandInput - {@link DescribeServersCommandInput}
+ * @returns {@link DescribeServersCommandOutput}
  * @see {@link DescribeServersCommandInput} for command's `input` shape.
  * @see {@link DescribeServersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServersCommandOutput> {
     return deserializeAws_json1_1DescribeServersCommand(output, context);
   }

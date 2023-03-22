@@ -40,10 +40,12 @@ import {
 import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
  * <fullname>Resource Groups Tagging API</fullname>
  */
 export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   /**
+   * @public
    * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
    *         <p>You can call this operation only from the organization's
    *     management account and from the us-east-1 Region.</p>
@@ -78,6 +80,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
+   * @public
    * <p>Returns a table that shows counts of resources that are noncompliant with their tag
    *             policies.</p>
    *         <p>For more information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
@@ -122,6 +125,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
+   * @public
    * <p>Returns all the tagged or previously tagged resources that are located in the
    *             specified Amazon Web Services Region for the account.</p>
    *         <p>Depending on what information you want returned, you can also specify the
@@ -174,6 +178,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
+   * @public
    * <p>Returns all tag keys currently in use in the specified Amazon Web Services Region for the calling
    *             account.</p>
    *         <p>This operation supports pagination, where the response can be sent in
@@ -207,6 +212,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
+   * @public
    * <p>Returns all tag values for the specified key that are used in the specified Amazon Web Services
    *             Region for the calling account.</p>
    *         <p>This operation supports pagination, where the response can be sent in
@@ -243,6 +249,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
+   * @public
    * <p>Generates a report that lists all tagged resources in the accounts across your
    *             organization and tells whether each resource is compliant with the effective tag policy.
    *             Compliance data is refreshed daily. The report is generated asynchronously.</p>
@@ -283,6 +290,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
+   * @public
    * <p>Applies one or more tags to the specified resources. Note the following:</p>
    *         <ul>
    *             <li>
@@ -361,6 +369,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resources. When you specify a tag key,
    *             the action removes both that key and its associated value. The operation succeeds even
    *             if you attempt to remove tags from a resource that were already removed. Note the

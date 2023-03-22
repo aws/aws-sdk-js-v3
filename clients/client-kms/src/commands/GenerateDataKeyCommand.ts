@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyCommand}.
  */
 export interface GenerateDataKeyCommandInput extends GenerateDataKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyCommand}.
  */
 export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
  *       plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
  *       key that you specify. The bytes in the plaintext key are random; they are not related
@@ -139,6 +144,8 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyCommandInput - {@link GenerateDataKeyCommandInput}
+ * @returns {@link GenerateDataKeyCommandOutput}
  * @see {@link GenerateDataKeyCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -242,6 +249,9 @@ export class GenerateDataKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -281,10 +291,16 @@ export class GenerateDataKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateDataKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateDataKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyCommandOutput> {
     return deserializeAws_json1_1GenerateDataKeyCommand(output, context);
   }

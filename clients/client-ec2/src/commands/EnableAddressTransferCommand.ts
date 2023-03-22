@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAddressTransferCommand}.
  */
 export interface EnableAddressTransferCommandInput extends EnableAddressTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableAddressTransferCommand}.
  */
 export interface EnableAddressTransferCommandOutput extends EnableAddressTransferResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface EnableAddressTransferCommandOutput extends EnableAddressTransfe
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAddressTransferCommandInput - {@link EnableAddressTransferCommandInput}
+ * @returns {@link EnableAddressTransferCommandOutput}
  * @see {@link EnableAddressTransferCommandInput} for command's `input` shape.
  * @see {@link EnableAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class EnableAddressTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAddressTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class EnableAddressTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAddressTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EnableAddressTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAddressTransferCommandOutput> {
     return deserializeAws_ec2EnableAddressTransferCommand(output, context);
   }

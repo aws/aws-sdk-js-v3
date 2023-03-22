@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandInput extends CreateAliasInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for a fleet. In most situations, you can use an alias ID in place of
  *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
  *             redirecting player traffic from one fleet to another, such as when updating your game
@@ -65,6 +70,8 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
+ * @returns {@link CreateAliasCommandOutput}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -114,6 +121,9 @@ export class CreateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class CreateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
     return deserializeAws_json1_1CreateAliasCommand(output, context);
   }

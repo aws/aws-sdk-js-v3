@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSAMLProviderCommand}.
  */
 export interface CreateSAMLProviderCommandInput extends CreateSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSAMLProviderCommand}.
  */
 export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML
  *             2.0.</p>
  *          <p>The SAML provider resource that you create with this operation can be used as a
@@ -63,6 +68,8 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSAMLProviderCommandInput - {@link CreateSAMLProviderCommandInput}
+ * @returns {@link CreateSAMLProviderCommandOutput}
  * @see {@link CreateSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link CreateSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSAMLProviderCommandOutput> {
     return deserializeAws_queryCreateSAMLProviderCommand(output, context);
   }

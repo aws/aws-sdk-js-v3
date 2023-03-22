@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionConfigCommand}.
  */
 export interface GetDistributionConfigCommandInput extends GetDistributionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionConfigCommand}.
  */
 export interface GetDistributionConfigCommandOutput extends GetDistributionConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the configuration information about a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDistributionConfigCommandOutput extends GetDistributionConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionConfigCommandInput - {@link GetDistributionConfigCommandInput}
+ * @returns {@link GetDistributionConfigCommandOutput}
  * @see {@link GetDistributionConfigCommandInput} for command's `input` shape.
  * @see {@link GetDistributionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetDistributionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetDistributionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDistributionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetDistributionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionConfigCommandOutput> {
     return deserializeAws_restXmlGetDistributionConfigCommand(output, context);
   }

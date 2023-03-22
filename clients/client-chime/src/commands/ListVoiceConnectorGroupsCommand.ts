@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVoiceConnectorGroupsCommand}.
  */
 export interface ListVoiceConnectorGroupsCommandInput extends ListVoiceConnectorGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVoiceConnectorGroupsCommand}.
  */
 export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnectorGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnecto
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVoiceConnectorGroupsCommandInput - {@link ListVoiceConnectorGroupsCommandInput}
+ * @returns {@link ListVoiceConnectorGroupsCommandOutput}
  * @see {@link ListVoiceConnectorGroupsCommandInput} for command's `input` shape.
  * @see {@link ListVoiceConnectorGroupsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListVoiceConnectorGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVoiceConnectorGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListVoiceConnectorGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVoiceConnectorGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVoiceConnectorGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVoiceConnectorGroupsCommandOutput> {
     return deserializeAws_restJson1ListVoiceConnectorGroupsCommand(output, context);
   }

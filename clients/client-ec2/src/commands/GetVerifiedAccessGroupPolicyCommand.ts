@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetVerifiedAccessGroupPolicyCommand}.
  */
 export interface GetVerifiedAccessGroupPolicyCommandInput extends GetVerifiedAccessGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVerifiedAccessGroupPolicyCommand}.
  */
 export interface GetVerifiedAccessGroupPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shows the contents of the Verified Access policy associated with the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVerifiedAccessGroupPolicyCommandInput - {@link GetVerifiedAccessGroupPolicyCommandInput}
+ * @returns {@link GetVerifiedAccessGroupPolicyCommandOutput}
  * @see {@link GetVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVerifiedAccessGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVerifiedAccessGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetVerifiedAccessGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

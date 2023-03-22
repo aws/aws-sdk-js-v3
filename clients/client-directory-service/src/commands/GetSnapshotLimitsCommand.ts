@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSnapshotLimitsCommand}.
  */
 export interface GetSnapshotLimitsCommandInput extends GetSnapshotLimitsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSnapshotLimitsCommand}.
  */
 export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains the manual snapshot limits for a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnapshotLimitsCommandInput - {@link GetSnapshotLimitsCommandInput}
+ * @returns {@link GetSnapshotLimitsCommandOutput}
  * @see {@link GetSnapshotLimitsCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotLimitsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetSnapshotLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnapshotLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetSnapshotLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnapshotLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSnapshotLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotLimitsCommandOutput> {
     return deserializeAws_json1_1GetSnapshotLimitsCommand(output, context);
   }

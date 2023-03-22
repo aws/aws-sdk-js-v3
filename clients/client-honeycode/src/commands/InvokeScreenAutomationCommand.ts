@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InvokeScreenAutomationCommand}.
  */
 export interface InvokeScreenAutomationCommandInput extends InvokeScreenAutomationRequest {}
 /**
+ * @public
+ *
  * The output of {@link InvokeScreenAutomationCommand}.
  */
 export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The InvokeScreenAutomation API allows invoking an action defined in a screen in a Honeycode app.
  *             The API allows setting local variables, which can then be used in the automation being invoked.
@@ -50,6 +55,8 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeScreenAutomationCommandInput - {@link InvokeScreenAutomationCommandInput}
+ * @returns {@link InvokeScreenAutomationCommandOutput}
  * @see {@link InvokeScreenAutomationCommandInput} for command's `input` shape.
  * @see {@link InvokeScreenAutomationCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -110,6 +117,9 @@ export class InvokeScreenAutomationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeScreenAutomationCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class InvokeScreenAutomationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeScreenAutomationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InvokeScreenAutomationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeScreenAutomationCommandOutput> {
     return deserializeAws_restJson1InvokeScreenAutomationCommand(output, context);
   }

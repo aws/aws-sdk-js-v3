@@ -95,10 +95,12 @@ import {
 import { MediaPackageClient } from "./MediaPackageClient";
 
 /**
+ * @public
  * AWS Elemental MediaPackage
  */
 export class MediaPackage extends MediaPackageClient {
   /**
+   * @public
    * Changes the Channel's properities to configure log subscription
    */
   public configureLogs(
@@ -131,6 +133,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Creates a new Channel.
    */
   public createChannel(
@@ -163,6 +166,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Creates a new HarvestJob record.
    */
   public createHarvestJob(
@@ -195,6 +199,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Creates a new OriginEndpoint record.
    */
   public createOriginEndpoint(
@@ -227,6 +232,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Deletes an existing Channel.
    */
   public deleteChannel(
@@ -259,6 +265,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Deletes an existing OriginEndpoint.
    */
   public deleteOriginEndpoint(
@@ -291,6 +298,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Gets details about a Channel.
    */
   public describeChannel(
@@ -323,6 +331,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Gets details about an existing HarvestJob.
    */
   public describeHarvestJob(
@@ -355,6 +364,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Gets details about an existing OriginEndpoint.
    */
   public describeOriginEndpoint(
@@ -387,6 +397,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Returns a collection of Channels.
    */
   public listChannels(
@@ -416,6 +427,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Returns a collection of HarvestJob records.
    */
   public listHarvestJobs(
@@ -448,6 +460,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Returns a collection of OriginEndpoint records.
    */
   public listOriginEndpoints(
@@ -479,6 +492,9 @@ export class MediaPackage extends MediaPackageClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -509,6 +525,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
@@ -543,6 +560,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
    */
   public rotateIngestEndpointCredentials(
@@ -574,6 +592,9 @@ export class MediaPackage extends MediaPackageClient {
     }
   }
 
+  /**
+   * @public
+   */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
@@ -597,6 +618,9 @@ export class MediaPackage extends MediaPackageClient {
     }
   }
 
+  /**
+   * @public
+   */
   public untagResource(
     args: UntagResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -627,6 +651,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Updates an existing Channel.
    */
   public updateChannel(
@@ -659,6 +684,7 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
+   * @public
    * Updates an existing OriginEndpoint.
    */
   public updateOriginEndpoint(

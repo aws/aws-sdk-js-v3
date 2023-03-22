@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyWorkspaceCreationPropertiesCommand}.
  */
 export interface ModifyWorkspaceCreationPropertiesCommandInput extends ModifyWorkspaceCreationPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyWorkspaceCreationPropertiesCommand}.
  */
 export interface ModifyWorkspaceCreationPropertiesCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the default properties used to create WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyWorkspaceCreationPropertiesCommandInput - {@link ModifyWorkspaceCreationPropertiesCommandInput}
+ * @returns {@link ModifyWorkspaceCreationPropertiesCommandOutput}
  * @see {@link ModifyWorkspaceCreationPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceCreationPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -83,6 +90,9 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyWorkspaceCreationPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyWorkspaceCreationPropertiesCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
     return serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

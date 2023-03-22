@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDomainCommand}.
  */
 export interface RegisterDomainCommandInput extends RegisterDomainInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDomainCommand}.
  */
 export interface RegisterDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new domain.</p>
  *          <p>
  *             <b>Access Control</b>
@@ -64,6 +69,8 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDomainCommandInput - {@link RegisterDomainCommandInput}
+ * @returns {@link RegisterDomainCommandOutput}
  * @see {@link RegisterDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -99,6 +106,9 @@ export class RegisterDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class RegisterDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RegisterDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDomainCommandOutput> {
     return deserializeAws_json1_0RegisterDomainCommand(output, context);
   }

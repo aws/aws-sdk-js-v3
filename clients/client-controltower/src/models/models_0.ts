@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ControlTowerServiceException as __BaseException } from "./ControlTowerServiceException";
 
 /**
+ * @public
  * <p>User does not have sufficient access to perform this action.
  *       </p>
  */
@@ -24,6 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -42,6 +44,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisableControlInput {
   /**
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted,
@@ -55,6 +60,9 @@ export interface DisableControlInput {
   targetIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableControlOutput {
   /**
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
@@ -64,6 +72,7 @@ export interface DisableControlOutput {
 }
 
 /**
+ * @public
  * <p>Unexpected error during processing of request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -84,6 +93,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request references a resource which does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -103,6 +113,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request would cause a service quota to be exceeded. The limit is 10 concurrent operations. </p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -122,6 +133,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -162,6 +174,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -180,6 +193,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface EnableControlInput {
   /**
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted,
@@ -193,6 +209,9 @@ export interface EnableControlInput {
   targetIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableControlOutput {
   /**
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
@@ -201,6 +220,9 @@ export interface EnableControlOutput {
   operationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetControlOperationInput {
   /**
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
@@ -209,11 +231,17 @@ export interface GetControlOperationInput {
   operationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ControlOperationType {
   DISABLE_CONTROL = "DISABLE_CONTROL",
   ENABLE_CONTROL = "ENABLE_CONTROL",
 }
 
+/**
+ * @public
+ */
 export enum ControlOperationStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -221,6 +249,7 @@ export enum ControlOperationStatus {
 }
 
 /**
+ * @public
  * <p>An operation performed by the control.</p>
  */
 export interface ControlOperation {
@@ -250,6 +279,9 @@ export interface ControlOperation {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetControlOperationOutput {
   /**
    * <p/>
@@ -257,6 +289,9 @@ export interface GetControlOperationOutput {
   controlOperation: ControlOperation | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnabledControlsInput {
   /**
    * <p>The ARN of the organizational unit.</p>
@@ -275,6 +310,7 @@ export interface ListEnabledControlsInput {
 }
 
 /**
+ * @public
  * <p>A summary of enabled controls.</p>
  */
 export interface EnabledControlSummary {
@@ -285,6 +321,9 @@ export interface EnabledControlSummary {
   controlIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnabledControlsOutput {
   /**
    * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and

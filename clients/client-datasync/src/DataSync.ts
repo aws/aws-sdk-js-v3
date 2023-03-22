@@ -188,6 +188,7 @@ import {
 import { DataSyncClient } from "./DataSyncClient";
 
 /**
+ * @public
  * <fullname>DataSync</fullname>
  *          <p>DataSync is a managed data transfer service that makes it simpler for you
  *       to automate moving data between on-premises storage and Amazon Web Services storage services. You also can use DataSync to transfer data between other cloud providers and Amazon Web Services storage services.</p>
@@ -199,6 +200,7 @@ import { DataSyncClient } from "./DataSyncClient";
  */
 export class DataSync extends DataSyncClient {
   /**
+   * @public
    * <p>Stops an DataSync task execution that's in progress. The transfer of some
    *       files are abruptly interrupted. File contents that're transferred to the destination might be
    *       incomplete or inconsistent with the source files.</p>
@@ -237,6 +239,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Activates an DataSync agent that you have deployed in your storage
    *       environment. The activation process associates your agent with your account. In the activation
    *       process, you specify information such as the Amazon Web Services Region that you want to
@@ -274,6 +277,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for an Amazon EFS file system that DataSync
    *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Creating a location for Amazon EFS</a>.</p>
    */
@@ -307,6 +311,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for an Amazon FSx for Lustre file system.</p>
    */
   public createLocationFsxLustre(
@@ -339,6 +344,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
    *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
    */
@@ -372,6 +378,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync
    *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
    *          <note>
@@ -409,6 +416,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
    */
   public createLocationFsxWindows(
@@ -441,6 +449,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for a Hadoop Distributed File System (HDFS). </p>
    */
   public createLocationHdfs(
@@ -473,6 +482,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Defines a file system on a Network File System (NFS) server that can be read from or
    *       written to.</p>
    */
@@ -506,6 +516,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for an object storage system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
    */
   public createLocationObjectStorage(
@@ -538,6 +549,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
    *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
    */
@@ -571,6 +583,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for a Server Message Block (SMB) file server that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating an SMB location</a>.</p>
    */
   public createLocationSmb(
@@ -603,6 +616,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Configures a task, which defines where and how DataSync transfers your
    *       data.</p>
    *          <p>A task includes a source location, a destination location, and the preferences for how and
@@ -633,6 +647,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
    *       of the agent in your request. The operation disassociates the agent from your Amazon Web Services account.
    *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
@@ -662,6 +677,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes the configuration of a location used by DataSync. </p>
    */
   public deleteLocation(
@@ -694,6 +710,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes an DataSync task.</p>
    */
   public deleteTask(args: DeleteTaskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTaskCommandOutput>;
@@ -720,6 +737,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about an DataSync agent, such as its name, endpoint type, and status.</p>
    */
   public describeAgent(
@@ -752,6 +770,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about your DataSync location for an Amazon EFS file system.</p>
    */
   public describeLocationEfs(
@@ -784,6 +803,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Provides details about how an DataSync location for an Amazon FSx for Lustre file system is configured.</p>
    */
   public describeLocationFsxLustre(
@@ -816,6 +836,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
    *          <note>
    *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
@@ -852,6 +873,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Provides details about how an DataSync location for an Amazon FSx for OpenZFS file system is configured.</p>
    *          <note>
    *             <p>Response elements related to <code>SMB</code> aren't supported with the
@@ -888,6 +910,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about an Amazon FSx for Windows File Server
    *       location, such as information about its path.</p>
    */
@@ -921,6 +944,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata, such as the authentication information about the Hadoop Distributed File
    *       System (HDFS) location. </p>
    */
@@ -954,6 +978,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata, such as the path information, about an NFS location.</p>
    */
   public describeLocationNfs(
@@ -986,6 +1011,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about your DataSync location for an object storage system.</p>
    */
   public describeLocationObjectStorage(
@@ -1018,6 +1044,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
    */
   public describeLocationS3(
@@ -1050,6 +1077,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata, such as the path and user information about an SMB location.</p>
    */
   public describeLocationSmb(
@@ -1082,6 +1110,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about a task.</p>
    */
   public describeTask(
@@ -1111,6 +1140,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed metadata about a task that is being executed.</p>
    */
   public describeTaskExecution(
@@ -1143,6 +1173,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
    *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
    *       a truncated list of agents in a response, the response contains a marker that you can specify
@@ -1179,6 +1210,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of source and destination locations.</p>
    *          <p>If you have more locations than are returned in a response (that is, the response
    *       returns only a truncated list of your agents), the response contains a token that you can
@@ -1214,6 +1246,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns all the tags associated with an Amazon Web Services resource.</p>
    */
   public listTagsForResource(
@@ -1246,6 +1279,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of executed tasks.</p>
    */
   public listTaskExecutions(
@@ -1278,6 +1312,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the DataSync tasks you created.</p>
    */
   public listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
@@ -1304,6 +1339,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Starts an DataSync task. For each task, you can only run one task execution at a time.</p>
    *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
    */
@@ -1337,6 +1373,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Applies a <i>tag</i> to an Amazon Web Services
    *       resource. Tags are key-value pairs that can help you manage, filter, and search for your resources.</p>
    *          <p>These include DataSync resources, such as locations, tasks, and task executions.</p>
@@ -1365,6 +1402,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from an Amazon Web Services resource.</p>
    */
   public untagResource(
@@ -1397,6 +1435,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates the name of an agent.</p>
    */
   public updateAgent(args: UpdateAgentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAgentCommandOutput>;
@@ -1423,6 +1462,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates some parameters of a previously created location for a Hadoop Distributed File
    *       System cluster.</p>
    */
@@ -1456,6 +1496,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates some of the parameters of a previously created location for Network File System (NFS) access.
    *       For information about creating an NFS location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Creating a location for NFS</a>.</p>
    */
@@ -1489,6 +1530,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates some parameters of an existing object storage location that DataSync
    *       accesses for a transfer. For information about creating a self-managed object storage
    *       location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object
@@ -1524,6 +1566,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates some of the parameters of a previously created location for Server Message Block
    *       (SMB) file system access. For information about creating an SMB location, see
    *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating a location for SMB</a>.</p>
@@ -1558,6 +1601,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates the metadata associated with a task.</p>
    */
   public updateTask(args: UpdateTaskCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTaskCommandOutput>;
@@ -1584,6 +1628,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates execution of a task.</p>
    *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
    *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>

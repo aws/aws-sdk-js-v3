@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSmartHomeApplianceDiscoveryCommand}.
  */
 export interface StartSmartHomeApplianceDiscoveryCommandInput extends StartSmartHomeApplianceDiscoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSmartHomeApplianceDiscoveryCommand}.
  */
 export interface StartSmartHomeApplianceDiscoveryCommandOutput
@@ -37,6 +41,7 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the discovery of any smart home appliances associated with the
  *          room.</p>
  * @example
@@ -49,6 +54,8 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSmartHomeApplianceDiscoveryCommandInput - {@link StartSmartHomeApplianceDiscoveryCommandInput}
+ * @returns {@link StartSmartHomeApplianceDiscoveryCommandOutput}
  * @see {@link StartSmartHomeApplianceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link StartSmartHomeApplianceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSmartHomeApplianceDiscoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartSmartHomeApplianceDiscoveryCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     return serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

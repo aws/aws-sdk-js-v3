@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIndicesCommand}.
  */
 export interface ListIndicesCommandInput extends ListIndicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIndicesCommand}.
  */
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Kendra indexes that you created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIndicesCommandInput - {@link ListIndicesCommandInput}
+ * @returns {@link ListIndicesCommandOutput}
  * @see {@link ListIndicesCommandInput} for command's `input` shape.
  * @see {@link ListIndicesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListIndicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIndicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListIndicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIndicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListIndicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndicesCommandOutput> {
     return deserializeAws_json1_1ListIndicesCommand(output, context);
   }

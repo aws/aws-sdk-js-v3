@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateComponentCommand}.
  */
 export interface CreateComponentCommandInput extends CreateComponentInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateComponentCommand}.
  */
 export interface CreateComponentCommandOutput extends CreateComponentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an Proton component. A component is an infrastructure extension for a service instance.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -49,6 +54,8 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
+ * @returns {@link CreateComponentCommandOutput}
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentCommandOutput> {
     return deserializeAws_json1_0CreateComponentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceInstancesCommand}.
  */
 export interface ListServiceInstancesCommandInput extends ListServiceInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceInstancesCommand}.
  */
 export interface ListServiceInstancesCommandOutput extends ListServiceInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List service instances with summary data. This action lists service instances of all services in the
  *    Amazon Web Services account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceInstancesCommandInput - {@link ListServiceInstancesCommandInput}
+ * @returns {@link ListServiceInstancesCommandOutput}
  * @see {@link ListServiceInstancesCommandInput} for command's `input` shape.
  * @see {@link ListServiceInstancesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListServiceInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListServiceInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListServiceInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceInstancesCommandOutput> {
     return deserializeAws_json1_0ListServiceInstancesCommand(output, context);
   }

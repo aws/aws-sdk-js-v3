@@ -72,6 +72,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateScalingPlanCommandInput
   | DeleteScalingPlanCommandInput
@@ -80,6 +83,9 @@ export type ServiceInputTypes =
   | GetScalingPlanResourceForecastDataCommandInput
   | UpdateScalingPlanCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateScalingPlanCommandOutput
   | DeleteScalingPlanCommandOutput
@@ -88,6 +94,9 @@ export type ServiceOutputTypes =
   | GetScalingPlanResourceForecastDataCommandOutput
   | UpdateScalingPlanCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -95,7 +104,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -204,11 +213,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AutoScalingPlansClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -219,10 +231,15 @@ type AutoScalingPlansClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AutoScalingPlansClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AutoScalingPlansClient class constructor that set the region, credentials and other options.
  */
 export interface AutoScalingPlansClientConfig extends AutoScalingPlansClientConfigType {}
 
+/**
+ * @public
+ */
 type AutoScalingPlansClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -233,11 +250,14 @@ type AutoScalingPlansClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AutoScalingPlansClient class. This is resolved and normalized from the {@link AutoScalingPlansClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AutoScalingPlansClient class. This is resolved and normalized from the {@link AutoScalingPlansClientConfig | constructor configuration interface}.
  */
 export interface AutoScalingPlansClientResolvedConfig extends AutoScalingPlansClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>AWS Auto Scaling</fullname>
  *
  *

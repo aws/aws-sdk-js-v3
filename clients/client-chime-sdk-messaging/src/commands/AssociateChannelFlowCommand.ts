@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateChannelFlowCommand}.
  */
 export interface AssociateChannelFlowCommandInput extends AssociateChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateChannelFlowCommand}.
  */
 export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
  *          <code>DisassociateChannelFlow</code> API.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateChannelFlowCommandInput - {@link AssociateChannelFlowCommandInput}
+ * @returns {@link AssociateChannelFlowCommandOutput}
  * @see {@link AssociateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link AssociateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -98,6 +105,9 @@ export class AssociateChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class AssociateChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateChannelFlowCommandOutput> {
     return deserializeAws_restJson1AssociateChannelFlowCommand(output, context);
   }

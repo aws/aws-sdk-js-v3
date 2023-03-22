@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReusableDelegationSetCommand}.
  */
 export interface DeleteReusableDelegationSetCommandInput extends DeleteReusableDelegationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReusableDelegationSetCommand}.
  */
 export interface DeleteReusableDelegationSetCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteReusableDelegationSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a reusable delegation set.</p>
  *          <important>
  *             <p>You can delete a reusable delegation set only if it isn't associated with any
@@ -56,6 +61,8 @@ export interface DeleteReusableDelegationSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReusableDelegationSetCommandInput - {@link DeleteReusableDelegationSetCommandInput}
+ * @returns {@link DeleteReusableDelegationSetCommandOutput}
  * @see {@link DeleteReusableDelegationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteReusableDelegationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReusableDelegationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteReusableDelegationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReusableDelegationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteReusableDelegationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

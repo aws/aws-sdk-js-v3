@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorTerminationHealthCommand}.
  */
 export interface GetVoiceConnectorTerminationHealthCommandInput extends GetVoiceConnectorTerminationHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorTerminationHealthCommand}.
  */
 export interface GetVoiceConnectorTerminationHealthCommandOutput
@@ -37,6 +41,7 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received from
  *             your SIP infrastructure for the specified Amazon Chime Voice Connector.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorTerminationHealthCommandInput - {@link GetVoiceConnectorTerminationHealthCommandInput}
+ * @returns {@link GetVoiceConnectorTerminationHealthCommandOutput}
  * @see {@link GetVoiceConnectorTerminationHealthCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorTerminationHealthCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorTerminationHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVoiceConnectorTerminationHealthCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     return serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

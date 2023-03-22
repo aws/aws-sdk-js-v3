@@ -24,15 +24,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterSecurityGroupCommand}.
  */
 export interface DeleteClusterSecurityGroupCommandInput extends DeleteClusterSecurityGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterSecurityGroupCommand}.
  */
 export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Redshift security group.</p>
  *          <note>
  *             <p>You cannot delete a security group that is associated with any clusters. You
@@ -52,6 +57,8 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterSecurityGroupCommandInput - {@link DeleteClusterSecurityGroupCommandInput}
+ * @returns {@link DeleteClusterSecurityGroupCommandOutput}
  * @see {@link DeleteClusterSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteClusterSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

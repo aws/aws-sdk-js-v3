@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAnomalyDetectorCommand}.
  */
 export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAnomalyDetectorCommand}.
  */
 export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any
  *       configured datasets and alerts.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnomalyDetectorCommandInput - {@link DeleteAnomalyDetectorCommandInput}
+ * @returns {@link DeleteAnomalyDetectorCommandOutput}
  * @see {@link DeleteAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnomalyDetectorCommandOutput> {
     return deserializeAws_restJson1DeleteAnomalyDetectorCommand(output, context);
   }

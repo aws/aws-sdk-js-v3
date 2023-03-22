@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetIdentityFeedbackForwardingEnabledCommand}.
  */
 export interface SetIdentityFeedbackForwardingEnabledCommandInput extends SetIdentityFeedbackForwardingEnabledRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetIdentityFeedbackForwardingEnabledCommand}.
  */
 export interface SetIdentityFeedbackForwardingEnabledCommandOutput
@@ -37,6 +41,7 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
  *             forwards bounce and complaint notifications as email. Feedback forwarding can only be
  *             disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and
@@ -58,6 +63,8 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityFeedbackForwardingEnabledCommandInput - {@link SetIdentityFeedbackForwardingEnabledCommandInput}
+ * @returns {@link SetIdentityFeedbackForwardingEnabledCommandOutput}
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -93,6 +100,9 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityFeedbackForwardingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetIdentityFeedbackForwardingEnabledCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     return serializeAws_querySetIdentityFeedbackForwardingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

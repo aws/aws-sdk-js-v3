@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceTemplateVersionCommand}.
  */
 export interface DeleteServiceTemplateVersionCommandInput extends DeleteServiceTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceTemplateVersionCommand}.
  */
 export interface DeleteServiceTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the <code>Recommended</code>
  *       version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions of the service template exist. A
  *       major version of a service template is a version that <i>isn't</i> backwards compatible.</p>
@@ -53,6 +58,8 @@ export interface DeleteServiceTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceTemplateVersionCommandInput - {@link DeleteServiceTemplateVersionCommandInput}
+ * @returns {@link DeleteServiceTemplateVersionCommandOutput}
  * @see {@link DeleteServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteServiceTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteServiceTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteServiceTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

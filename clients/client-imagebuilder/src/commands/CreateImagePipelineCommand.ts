@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImagePipelineCommand}.
  */
 export interface CreateImagePipelineCommandInput extends CreateImagePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImagePipelineCommand}.
  */
 export interface CreateImagePipelineCommandOutput extends CreateImagePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
  * 			distribution of images.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImagePipelineCommandInput - {@link CreateImagePipelineCommandInput}
+ * @returns {@link CreateImagePipelineCommandOutput}
  * @see {@link CreateImagePipelineCommandInput} for command's `input` shape.
  * @see {@link CreateImagePipelineCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateImagePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImagePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateImagePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImagePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateImagePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImagePipelineCommandOutput> {
     return deserializeAws_restJson1CreateImagePipelineCommand(output, context);
   }

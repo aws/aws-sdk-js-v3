@@ -25,16 +25,21 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccessPointConfigurationForObjectLambdaCommand}.
  */
 export interface PutAccessPointConfigurationForObjectLambdaCommandInput
   extends PutAccessPointConfigurationForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccessPointConfigurationForObjectLambdaCommand}.
  */
 export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces configuration for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *             <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
@@ -55,6 +60,8 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccessPointConfigurationForObjectLambdaCommandInput - {@link PutAccessPointConfigurationForObjectLambdaCommandInput}
+ * @returns {@link PutAccessPointConfigurationForObjectLambdaCommandOutput}
  * @see {@link PutAccessPointConfigurationForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link PutAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccessPointConfigurationForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccessPointConfigurationForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

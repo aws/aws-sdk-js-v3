@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateFileSystemCommand}.
  */
 export interface AssociateFileSystemCommandInput extends AssociateFileSystemInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateFileSystemCommand}.
  */
 export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate an Amazon FSx file system with the FSx File Gateway. After the
  *          association process is complete, the file shares on the Amazon FSx file system are
  *          available for access through the gateway. This operation only supports the FSx File Gateway
@@ -49,6 +54,8 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateFileSystemCommandInput - {@link AssociateFileSystemCommandInput}
+ * @returns {@link AssociateFileSystemCommandOutput}
  * @see {@link AssociateFileSystemCommandInput} for command's `input` shape.
  * @see {@link AssociateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -80,6 +87,9 @@ export class AssociateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AssociateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateFileSystemCommandOutput> {
     return deserializeAws_json1_1AssociateFileSystemCommand(output, context);
   }

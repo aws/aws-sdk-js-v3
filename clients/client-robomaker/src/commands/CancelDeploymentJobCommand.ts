@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDeploymentJobCommand}.
  */
 export interface CancelDeploymentJobCommandInput extends CancelDeploymentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDeploymentJobCommand}.
  */
 export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Cancels the specified deployment job.</p>
@@ -51,6 +56,8 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDeploymentJobCommandInput - {@link CancelDeploymentJobCommandInput}
+ * @returns {@link CancelDeploymentJobCommandOutput}
  * @see {@link CancelDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link CancelDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class CancelDeploymentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDeploymentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CancelDeploymentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelDeploymentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelDeploymentJobCommandOutput> {
     return deserializeAws_restJson1CancelDeploymentJobCommand(output, context);
   }

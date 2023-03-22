@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetProvisionedProductOutputsCommand}.
  */
 export interface GetProvisionedProductOutputsCommandInput extends GetProvisionedProductOutputsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetProvisionedProductOutputsCommand}.
  */
 export interface GetProvisionedProductOutputsCommandOutput
@@ -37,6 +41,7 @@ export interface GetProvisionedProductOutputsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API takes either a <code>ProvisonedProductId</code> or a <code>ProvisionedProductName</code>, along with a list of one or more output keys, and responds with the key/value pairs of those outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetProvisionedProductOutputsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProvisionedProductOutputsCommandInput - {@link GetProvisionedProductOutputsCommandInput}
+ * @returns {@link GetProvisionedProductOutputsCommandOutput}
  * @see {@link GetProvisionedProductOutputsCommandInput} for command's `input` shape.
  * @see {@link GetProvisionedProductOutputsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetProvisionedProductOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProvisionedProductOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetProvisionedProductOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProvisionedProductOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetProvisionedProductOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

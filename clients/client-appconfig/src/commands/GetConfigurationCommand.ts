@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandOutput extends Configuration, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>(Deprecated) Retrieves the latest deployed configuration.</p>
@@ -62,6 +67,8 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
+ * @returns {@link GetConfigurationCommandOutput}
  * @see {@link GetConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -114,6 +121,9 @@ export class GetConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class GetConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationCommandOutput> {
     return deserializeAws_restJson1GetConfigurationCommand(output, context);
   }

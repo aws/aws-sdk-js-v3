@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopProjectVersionCommand}.
  */
 export interface StopProjectVersionCommandInput extends StopProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopProjectVersionCommand}.
  */
 export interface StopProjectVersionCommandOutput extends StopProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running model. The operation might take a while to complete. To
  *          check the current status, call <a>DescribeProjectVersions</a>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StopProjectVersionCommandInput - {@link StopProjectVersionCommandInput}
+ * @returns {@link StopProjectVersionCommandOutput}
  * @see {@link StopProjectVersionCommandInput} for command's `input` shape.
  * @see {@link StopProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -93,6 +100,9 @@ export class StopProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class StopProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopProjectVersionCommandOutput> {
     return deserializeAws_json1_1StopProjectVersionCommand(output, context);
   }

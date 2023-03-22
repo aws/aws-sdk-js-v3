@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateResolverRuleCommand}.
  */
 export interface AssociateResolverRuleCommandInput extends AssociateResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateResolverRuleCommand}.
  */
 export interface AssociateResolverRuleCommandOutput extends AssociateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries
  * 			for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the
  * 			IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see
@@ -49,6 +54,8 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResolverRuleCommandInput - {@link AssociateResolverRuleCommandInput}
+ * @returns {@link AssociateResolverRuleCommandOutput}
  * @see {@link AssociateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link AssociateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -96,6 +103,9 @@ export class AssociateResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AssociateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResolverRuleCommandOutput> {
     return deserializeAws_json1_1AssociateResolverRuleCommand(output, context);
   }

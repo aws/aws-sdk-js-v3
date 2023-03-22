@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListHypervisorsCommand}.
  */
 export interface ListHypervisorsCommandInput extends ListHypervisorsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListHypervisorsCommand}.
  */
 export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your hypervisors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHypervisorsCommandInput - {@link ListHypervisorsCommandInput}
+ * @returns {@link ListHypervisorsCommandOutput}
  * @see {@link ListHypervisorsCommandInput} for command's `input` shape.
  * @see {@link ListHypervisorsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListHypervisorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHypervisorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListHypervisorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHypervisorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListHypervisorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHypervisorsCommandOutput> {
     return deserializeAws_json1_0ListHypervisorsCommand(output, context);
   }

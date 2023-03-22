@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFileSystemCommand}.
  */
 export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFileSystemCommand}.
  */
 export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to update the configuration of an existing Amazon FSx file
  *       system. You can update multiple properties in a single request.</p>
  *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
@@ -198,6 +203,8 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
+ * @returns {@link UpdateFileSystemCommandOutput}
  * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -294,6 +301,9 @@ export class UpdateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -333,10 +343,16 @@ export class UpdateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileSystemCommandOutput> {
     return deserializeAws_json1_1UpdateFileSystemCommand(output, context);
   }

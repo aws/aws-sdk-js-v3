@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThingRuntimeConfigurationCommand}.
  */
 export interface UpdateThingRuntimeConfigurationCommandInput extends UpdateThingRuntimeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThingRuntimeConfigurationCommand}.
  */
 export interface UpdateThingRuntimeConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Updates the runtime configuration of a thing.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThingRuntimeConfigurationCommandInput - {@link UpdateThingRuntimeConfigurationCommandInput}
+ * @returns {@link UpdateThingRuntimeConfigurationCommandOutput}
  * @see {@link UpdateThingRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateThingRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThingRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateThingRuntimeConfigurationCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateThingRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

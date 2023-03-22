@@ -10,7 +10,7 @@ import { MemoryDBClient } from "../MemoryDBClient";
 import { MemoryDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MemoryDBClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeServiceUpdatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeServiceUpdates(
   config: MemoryDBPaginationConfiguration,
   input: DescribeServiceUpdatesCommandInput,

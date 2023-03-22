@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetCustomDataIdentifiersCommand}.
  */
 export interface BatchGetCustomDataIdentifiersCommandInput extends BatchGetCustomDataIdentifiersRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetCustomDataIdentifiersCommand}.
  */
 export interface BatchGetCustomDataIdentifiersCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetCustomDataIdentifiersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about one or more custom data identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchGetCustomDataIdentifiersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCustomDataIdentifiersCommandInput - {@link BatchGetCustomDataIdentifiersCommandInput}
+ * @returns {@link BatchGetCustomDataIdentifiersCommandOutput}
  * @see {@link BatchGetCustomDataIdentifiersCommandInput} for command's `input` shape.
  * @see {@link BatchGetCustomDataIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCustomDataIdentifiersCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCustomDataIdentifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetCustomDataIdentifiersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

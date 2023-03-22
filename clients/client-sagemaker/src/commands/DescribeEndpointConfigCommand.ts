@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointConfigCommand}.
  */
 export interface DescribeEndpointConfigCommandInput extends DescribeEndpointConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointConfigCommand}.
  */
 export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of an endpoint configuration created using the
  *                 <code>CreateEndpointConfig</code> API.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointCon
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointConfigCommandInput - {@link DescribeEndpointConfigCommandInput}
+ * @returns {@link DescribeEndpointConfigCommandOutput}
  * @see {@link DescribeEndpointConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeEndpointConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeEndpointConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEndpointConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointConfigCommandOutput> {
     return deserializeAws_json1_1DescribeEndpointConfigCommand(output, context);
   }

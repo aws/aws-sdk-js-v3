@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWirelessGatewayCertificateCommand}.
  */
 export interface GetWirelessGatewayCertificateCommandInput extends GetWirelessGatewayCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWirelessGatewayCertificateCommand}.
  */
 export interface GetWirelessGatewayCertificateCommandOutput
@@ -37,6 +41,7 @@ export interface GetWirelessGatewayCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the ID of the certificate that is currently associated with a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetWirelessGatewayCertificateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayCertificateCommandInput - {@link GetWirelessGatewayCertificateCommandInput}
+ * @returns {@link GetWirelessGatewayCertificateCommandOutput}
  * @see {@link GetWirelessGatewayCertificateCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetWirelessGatewayCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetWirelessGatewayCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWirelessGatewayCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWirelessGatewayCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutGatewayResponseCommand}.
  */
 export interface PutGatewayResponseCommandInput extends PutGatewayResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutGatewayResponseCommand}.
  */
 export interface PutGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a customization of a GatewayResponse of a specified response type and status code on the given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * const response = await client.send(command);
  * ```
  *
+ * @param PutGatewayResponseCommandInput - {@link PutGatewayResponseCommandInput}
+ * @returns {@link PutGatewayResponseCommandOutput}
  * @see {@link PutGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link PutGatewayResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutGatewayResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutGatewayResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutGatewayResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutGatewayResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutGatewayResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGatewayResponseCommandOutput> {
     return deserializeAws_restJson1PutGatewayResponseCommand(output, context);
   }

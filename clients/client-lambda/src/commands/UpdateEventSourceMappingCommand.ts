@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventSourceMappingCommand}.
  */
 export interface UpdateEventSourceMappingCommandInput extends UpdateEventSourceMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventSourceMappingCommand}.
  */
 export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause
  *       invocation and resume later from the same location.</p>
  *          <p>For details about how to configure different event sources, see the following topics. </p>
@@ -148,6 +153,8 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventSourceMappingCommandInput - {@link UpdateEventSourceMappingCommandInput}
+ * @returns {@link UpdateEventSourceMappingCommandOutput}
  * @see {@link UpdateEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateEventSourceMappingCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -190,6 +197,9 @@ export class UpdateEventSourceMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventSourceMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -229,10 +239,16 @@ export class UpdateEventSourceMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEventSourceMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventSourceMappingCommandOutput> {
     return deserializeAws_restJson1UpdateEventSourceMappingCommand(output, context);
   }

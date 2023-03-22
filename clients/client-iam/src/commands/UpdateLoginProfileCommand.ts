@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLoginProfileCommand}.
  */
 export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLoginProfileCommand}.
  */
 export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services
  *             API, or the <b>Users</b> page in the IAM console to change
  *             the password for any IAM user. Use <a>ChangePassword</a> to change your own
@@ -47,6 +52,8 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLoginProfileCommandInput - {@link UpdateLoginProfileCommandInput}
+ * @returns {@link UpdateLoginProfileCommandOutput}
  * @see {@link UpdateLoginProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateLoginProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class UpdateLoginProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateLoginProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLoginProfileCommandOutput> {
     return deserializeAws_queryUpdateLoginProfileCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkflowStepGroupCommand}.
  */
 export interface UpdateWorkflowStepGroupCommandInput extends UpdateWorkflowStepGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkflowStepGroupCommand}.
  */
 export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkflowStepGroupCommandInput - {@link UpdateWorkflowStepGroupCommandInput}
+ * @returns {@link UpdateWorkflowStepGroupCommandOutput}
  * @see {@link UpdateWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateWorkflowStepGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkflowStepGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateWorkflowStepGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWorkflowStepGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowStepGroupCommandOutput> {
     return deserializeAws_restJson1UpdateWorkflowStepGroupCommand(output, context);
   }

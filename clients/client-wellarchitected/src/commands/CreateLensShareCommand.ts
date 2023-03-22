@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLensShareCommand}.
  */
 export interface CreateLensShareCommandInput extends CreateLensShareInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLensShareCommand}.
  */
 export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a lens share.</p>
  *         <p>The owner of a lens can share it with other Amazon Web Services accounts, IAM users, an organization,
  *             and organizational units (OUs) in the same Amazon Web Services Region.
@@ -60,6 +65,8 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLensShareCommandInput - {@link CreateLensShareCommandInput}
+ * @returns {@link CreateLensShareCommandOutput}
  * @see {@link CreateLensShareCommandInput} for command's `input` shape.
  * @see {@link CreateLensShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateLensShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLensShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateLensShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLensShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLensShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLensShareCommandOutput> {
     return deserializeAws_restJson1CreateLensShareCommand(output, context);
   }

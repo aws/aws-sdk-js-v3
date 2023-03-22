@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterPackageVersionCommand}.
  */
 export interface RegisterPackageVersionCommandInput extends RegisterPackageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterPackageVersionCommand}.
  */
 export interface RegisterPackageVersionCommandOutput extends RegisterPackageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a package version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RegisterPackageVersionCommandOutput extends RegisterPackageVers
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterPackageVersionCommandInput - {@link RegisterPackageVersionCommandInput}
+ * @returns {@link RegisterPackageVersionCommandOutput}
  * @see {@link RegisterPackageVersionCommandInput} for command's `input` shape.
  * @see {@link RegisterPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +88,9 @@ export class RegisterPackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterPackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RegisterPackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterPackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterPackageVersionCommandOutput> {
     return deserializeAws_restJson1RegisterPackageVersionCommand(output, context);
   }

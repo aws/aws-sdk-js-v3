@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePlacementCommand}.
  */
 export interface UpdatePlacementCommandInput extends UpdatePlacementRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePlacementCommand}.
  */
 export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value
  *       (i.e., "").</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePlacementCommandInput - {@link UpdatePlacementCommandInput}
+ * @returns {@link UpdatePlacementCommandOutput}
  * @see {@link UpdatePlacementCommandInput} for command's `input` shape.
  * @see {@link UpdatePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdatePlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdatePlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlacementCommandOutput> {
     return deserializeAws_restJson1UpdatePlacementCommand(output, context);
   }

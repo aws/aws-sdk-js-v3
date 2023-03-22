@@ -10,7 +10,7 @@ import {
 import { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCopyJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCopyJobs(
   config: BackupPaginationConfiguration,
   input: ListCopyJobsCommandInput,

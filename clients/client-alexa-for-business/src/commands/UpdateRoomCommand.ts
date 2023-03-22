@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates room details by room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
+ * @returns {@link UpdateRoomCommandOutput}
  * @see {@link UpdateRoomCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomCommandOutput> {
     return deserializeAws_json1_1UpdateRoomCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRelationalDatabaseCommand}.
  */
 export interface DeleteRelationalDatabaseCommandInput extends DeleteRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRelationalDatabaseCommand}.
  */
 export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a database in Amazon Lightsail.</p>
  *          <p>The <code>delete relational database</code> operation supports tag-based access control
  *       via resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -49,6 +54,8 @@ export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalD
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRelationalDatabaseCommandInput - {@link DeleteRelationalDatabaseCommandInput}
+ * @returns {@link DeleteRelationalDatabaseCommandOutput}
  * @see {@link DeleteRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DeleteRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRelationalDatabaseCommandOutput> {
     return deserializeAws_json1_1DeleteRelationalDatabaseCommand(output, context);
   }

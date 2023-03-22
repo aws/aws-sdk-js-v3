@@ -228,6 +228,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelLegalHoldCommandInput
   | CreateBackupPlanCommandInput
@@ -302,6 +305,9 @@ export type ServiceInputTypes =
   | UpdateRegionSettingsCommandInput
   | UpdateReportPlanCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelLegalHoldCommandOutput
   | CreateBackupPlanCommandOutput
@@ -376,6 +382,9 @@ export type ServiceOutputTypes =
   | UpdateRegionSettingsCommandOutput
   | UpdateReportPlanCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -383,7 +392,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -492,11 +501,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type BackupClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -507,10 +519,15 @@ type BackupClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of BackupClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of BackupClient class constructor that set the region, credentials and other options.
  */
 export interface BackupClientConfig extends BackupClientConfigType {}
 
+/**
+ * @public
+ */
 type BackupClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -521,11 +538,14 @@ type BackupClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of BackupClient class. This is resolved and normalized from the {@link BackupClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of BackupClient class. This is resolved and normalized from the {@link BackupClientConfig | constructor configuration interface}.
  */
 export interface BackupClientResolvedConfig extends BackupClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Backup</fullname>
  *          <p>Backup is a unified backup service designed to protect Amazon Web Services
  *          services and their associated data. Backup simplifies the creation, migration,

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDashboardPermissionsCommand}.
  */
 export interface UpdateDashboardPermissionsCommandInput extends UpdateDashboardPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDashboardPermissionsCommand}.
  */
 export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboardPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates read and write permissions on a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDashboardPermissionsCommandInput - {@link UpdateDashboardPermissionsCommandInput}
+ * @returns {@link UpdateDashboardPermissionsCommandOutput}
  * @see {@link UpdateDashboardPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateDashboardPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDashboardPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateDashboardPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDashboardPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDashboardPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

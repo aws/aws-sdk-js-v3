@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SupportServiceException as __BaseException } from "./SupportServiceException";
 
 /**
+ * @public
  * <p>An attachment to a case communication. The attachment consists of the file name and
  *             the content of the file.</p>
  */
@@ -19,6 +20,9 @@ export interface Attachment {
   data?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface AddAttachmentsToSetRequest {
   /**
    * <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified, a
@@ -41,6 +45,7 @@ export interface AddAttachmentsToSetRequest {
 }
 
 /**
+ * @public
  * <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
  */
 export interface AddAttachmentsToSetResponse {
@@ -59,6 +64,7 @@ export interface AddAttachmentsToSetResponse {
 }
 
 /**
+ * @public
  * <p>The limit for the number of attachment sets created in a short period of time has been
  *             exceeded.</p>
  */
@@ -79,6 +85,7 @@ export class AttachmentLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
  *             is created.</p>
  */
@@ -99,6 +106,7 @@ export class AttachmentSetExpired extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An attachment set with the specified ID could not be found.</p>
  */
 export class AttachmentSetIdNotFound extends __BaseException {
@@ -118,6 +126,7 @@ export class AttachmentSetIdNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A limit for the size of an attachment set has been exceeded. The limits are three
  *             attachments and 5 MB per attachment.</p>
  */
@@ -138,6 +147,7 @@ export class AttachmentSetSizeLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal server error occurred.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -156,6 +166,9 @@ export class InternalServerError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AddCommunicationToCaseRequest {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
@@ -184,6 +197,7 @@ export interface AddCommunicationToCaseRequest {
 }
 
 /**
+ * @public
  * <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
  */
 export interface AddCommunicationToCaseResponse {
@@ -195,6 +209,7 @@ export interface AddCommunicationToCaseResponse {
 }
 
 /**
+ * @public
  * <p>The requested <code>caseId</code> couldn't be located.</p>
  */
 export class CaseIdNotFound extends __BaseException {
@@ -214,6 +229,7 @@ export class CaseIdNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The file name and ID of an attachment to a case communication. You can use the ID to
  *             retrieve the attachment with the <a>DescribeAttachment</a> operation.</p>
  */
@@ -230,6 +246,7 @@ export interface AttachmentDetails {
 }
 
 /**
+ * @public
  * <p>An attachment with the specified ID could not be found.</p>
  */
 export class AttachmentIdNotFound extends __BaseException {
@@ -249,6 +266,7 @@ export class AttachmentIdNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The case creation limit for the account has been exceeded.</p>
  */
 export class CaseCreationLimitExceeded extends __BaseException {
@@ -267,6 +285,9 @@ export class CaseCreationLimitExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCaseRequest {
   /**
    * <p>The title of the support case. The title appears in the <b>Subject</b> field on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
@@ -333,6 +354,7 @@ export interface CreateCaseRequest {
 }
 
 /**
+ * @public
  * <p>The support case ID returned by a successful completion of the <a>CreateCase</a> operation.</p>
  */
 export interface CreateCaseResponse {
@@ -346,6 +368,7 @@ export interface CreateCaseResponse {
 }
 
 /**
+ * @public
  * <p>The limit for the number of <a>DescribeAttachment</a> requests in a short
  *             period of time has been exceeded.</p>
  */
@@ -365,6 +388,9 @@ export class DescribeAttachmentLimitExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAttachmentRequest {
   /**
    * <p>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a> operation.</p>
@@ -373,6 +399,7 @@ export interface DescribeAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>The content and file name of the attachment returned by the <a>DescribeAttachment</a> operation.</p>
  */
 export interface DescribeAttachmentResponse {
@@ -386,6 +413,9 @@ export interface DescribeAttachmentResponse {
   attachment?: Attachment;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCasesRequest {
   /**
    * <p>A list of ID numbers of the support cases you want returned. The maximum number of
@@ -440,6 +470,7 @@ export interface DescribeCasesRequest {
 }
 
 /**
+ * @public
  * <p>A communication associated with a support case. The communication consists of the case
  *             ID, the message body, attachment information, the submitter of the communication, and
  *             the date and time of the communication.</p>
@@ -479,6 +510,7 @@ export interface Communication {
 }
 
 /**
+ * @public
  * <p>The five most recent communications associated with the case.</p>
  */
 export interface RecentCaseCommunications {
@@ -494,6 +526,7 @@ export interface RecentCaseCommunications {
 }
 
 /**
+ * @public
  * <p>A JSON-formatted object that contains the metadata for a support case. It is contained
  *             in the response from a <a>DescribeCases</a> request. <b>CaseDetails</b> contains the following fields:</p>
  *          <ul>
@@ -701,6 +734,7 @@ export interface CaseDetails {
 }
 
 /**
+ * @public
  * <p>Returns an array of <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a>
  *             objects and a <code>nextToken</code> that defines a point for pagination in the result
  *             set.</p>
@@ -717,6 +751,9 @@ export interface DescribeCasesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCommunicationsRequest {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
@@ -750,6 +787,7 @@ export interface DescribeCommunicationsRequest {
 }
 
 /**
+ * @public
  * <p>The communications returned by the <a>DescribeCommunications</a>
  *             operation.</p>
  */
@@ -765,6 +803,9 @@ export interface DescribeCommunicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServicesRequest {
   /**
    * <p>A JSON-formatted list of service codes available for Amazon Web Services services.</p>
@@ -779,6 +820,7 @@ export interface DescribeServicesRequest {
 }
 
 /**
+ * @public
  * <p>A JSON-formatted name/value pair that represents the category name and category code
  *             of the problem, selected from the <a>DescribeServices</a> response for each
  *             Amazon Web Services service.</p>
@@ -796,6 +838,7 @@ export interface Category {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon Web Services service returned by the <a>DescribeServices</a>
  *             operation.</p>
  */
@@ -821,6 +864,7 @@ export interface Service {
 }
 
 /**
+ * @public
  * <p>The list of Amazon Web Services services returned by the <a>DescribeServices</a>
  *             operation.</p>
  */
@@ -831,6 +875,9 @@ export interface DescribeServicesResponse {
   services?: Service[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSeverityLevelsRequest {
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
@@ -840,6 +887,7 @@ export interface DescribeSeverityLevelsRequest {
 }
 
 /**
+ * @public
  * <p>A code and name pair that represents the severity level of a support case. The
  *             available values depend on the support plan for the account. For more information, see
  *                 <a href="https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity">Choosing a
@@ -891,6 +939,7 @@ export interface SeverityLevel {
 }
 
 /**
+ * @public
  * <p>The list of severity levels returned by the <a>DescribeSeverityLevels</a>
  *             operation.</p>
  */
@@ -902,6 +951,9 @@ export interface DescribeSeverityLevelsResponse {
   severityLevels?: SeverityLevel[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   /**
    * <p>The IDs of the Trusted Advisor checks to get the status.</p>
@@ -914,6 +966,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 }
 
 /**
+ * @public
  * <p>The refresh status of a Trusted Advisor check.</p>
  */
 export interface TrustedAdvisorCheckRefreshStatus {
@@ -961,6 +1014,7 @@ export interface TrustedAdvisorCheckRefreshStatus {
 }
 
 /**
+ * @public
  * <p>The statuses of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
@@ -971,6 +1025,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeTrustedAdvisorCheckResultRequest {
@@ -1034,6 +1089,7 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
 }
 
 /**
+ * @public
  * <p>The estimated cost savings that might be realized if the recommended operations are
  *             taken.</p>
  */
@@ -1052,6 +1108,7 @@ export interface TrustedAdvisorCostOptimizingSummary {
 }
 
 /**
+ * @public
  * <p>The container for summary information that relates to the category of the Trusted Advisor
  *             check.</p>
  */
@@ -1064,6 +1121,7 @@ export interface TrustedAdvisorCategorySpecificSummary {
 }
 
 /**
+ * @public
  * <p>Contains information about a resource identified by a Trusted Advisor check.</p>
  */
 export interface TrustedAdvisorResourceDetail {
@@ -1098,6 +1156,7 @@ export interface TrustedAdvisorResourceDetail {
 }
 
 /**
+ * @public
  * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
  */
 export interface TrustedAdvisorResourcesSummary {
@@ -1125,6 +1184,7 @@ export interface TrustedAdvisorResourcesSummary {
 }
 
 /**
+ * @public
  * <p>The results of a Trusted Advisor check returned by <a>DescribeTrustedAdvisorCheckResult</a>.</p>
  */
 export interface TrustedAdvisorCheckResult {
@@ -1162,6 +1222,7 @@ export interface TrustedAdvisorCheckResult {
 }
 
 /**
+ * @public
  * <p>The result of the Trusted Advisor check returned by the <a>DescribeTrustedAdvisorCheckResult</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorCheckResultResponse {
@@ -1171,6 +1232,9 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
   result?: TrustedAdvisorCheckResult;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrustedAdvisorChecksRequest {
   /**
    * <p>The ISO 639-1 code for the language that you want your checks to appear in.</p>
@@ -1226,6 +1290,7 @@ export interface DescribeTrustedAdvisorChecksRequest {
 }
 
 /**
+ * @public
  * <p>The description and metadata for a Trusted Advisor check.</p>
  */
 export interface TrustedAdvisorCheckDescription {
@@ -1261,6 +1326,7 @@ export interface TrustedAdvisorCheckDescription {
 }
 
 /**
+ * @public
  * <p>Information about the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorChecksResponse {
@@ -1270,6 +1336,9 @@ export interface DescribeTrustedAdvisorChecksResponse {
   checks: TrustedAdvisorCheckDescription[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrustedAdvisorCheckSummariesRequest {
   /**
    * <p>The IDs of the Trusted Advisor checks.</p>
@@ -1278,6 +1347,7 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a Trusted Advisor check result, including the alert status, last refresh, and
  *             number of resources examined.</p>
  */
@@ -1316,6 +1386,7 @@ export interface TrustedAdvisorCheckSummary {
 }
 
 /**
+ * @public
  * <p>The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorCheckSummariesResponse {
@@ -1326,6 +1397,7 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RefreshTrustedAdvisorCheckRequest {
@@ -1340,6 +1412,7 @@ export interface RefreshTrustedAdvisorCheckRequest {
 }
 
 /**
+ * @public
  * <p>The current refresh status of a Trusted Advisor check.</p>
  */
 export interface RefreshTrustedAdvisorCheckResponse {
@@ -1350,6 +1423,9 @@ export interface RefreshTrustedAdvisorCheckResponse {
   status: TrustedAdvisorCheckRefreshStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResolveCaseRequest {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
@@ -1361,6 +1437,7 @@ export interface ResolveCaseRequest {
 }
 
 /**
+ * @public
  * <p>The status of the case returned by the <a>ResolveCase</a> operation.</p>
  */
 export interface ResolveCaseResponse {

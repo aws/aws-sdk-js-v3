@@ -28,15 +28,20 @@ import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCo
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectCommand}.
  */
 export interface GetObjectCommandInput extends GetObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectCommand}.
  */
 export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOutput, "Body">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>
  *          access to the object. If you grant <code>READ</code> access to the anonymous user, you can
  *          return the object without using an authorization header.</p>
@@ -209,6 +214,8 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectCommandInput - {@link GetObjectCommandInput}
+ * @returns {@link GetObjectCommandOutput}
  * @see {@link GetObjectCommandInput} for command's `input` shape.
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -289,6 +296,9 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -335,10 +345,16 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

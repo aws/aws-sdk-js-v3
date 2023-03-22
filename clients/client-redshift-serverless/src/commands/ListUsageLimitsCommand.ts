@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsageLimitsCommand}.
  */
 export interface ListUsageLimitsCommandInput extends ListUsageLimitsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsageLimitsCommand}.
  */
 export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all usage limits within Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsageLimitsCommandInput - {@link ListUsageLimitsCommandInput}
+ * @returns {@link ListUsageLimitsCommandOutput}
  * @see {@link ListUsageLimitsCommandInput} for command's `input` shape.
  * @see {@link ListUsageLimitsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListUsageLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsageLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListUsageLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsageLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUsageLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsageLimitsCommandOutput> {
     return deserializeAws_json1_1ListUsageLimitsCommand(output, context);
   }

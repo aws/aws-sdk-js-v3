@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProfilingGroupCommand}.
  */
 export interface DescribeProfilingGroupCommandInput extends DescribeProfilingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProfilingGroupCommand}.
  */
 export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
  *                <code>ProfilingGroupDescription</code>
@@ -51,6 +56,8 @@ export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProfilingGroupCommandInput - {@link DescribeProfilingGroupCommandInput}
+ * @returns {@link DescribeProfilingGroupCommandOutput}
  * @see {@link DescribeProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeProfilingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProfilingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeProfilingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeProfilingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProfilingGroupCommandOutput> {
     return deserializeAws_restJson1DescribeProfilingGroupCommand(output, context);
   }

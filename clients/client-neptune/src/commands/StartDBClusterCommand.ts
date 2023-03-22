@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StartDBClusterCommand}.
  */
 export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartDBClusterCommand}.
  */
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon Neptune  DB cluster that was stopped using the Amazon
  *       console, the Amazon CLI stop-db-cluster command, or the StopDBCluster API.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBClusterCommandInput - {@link StartDBClusterCommandInput}
+ * @returns {@link StartDBClusterCommandOutput}
  * @see {@link StartDBClusterCommandInput} for command's `input` shape.
  * @see {@link StartDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -80,6 +87,9 @@ export class StartDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class StartDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBClusterCommandOutput> {
     return deserializeAws_queryStartDBClusterCommand(output, context);
   }

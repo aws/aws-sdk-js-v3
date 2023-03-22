@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrialCommand}.
  */
 export interface DeleteTrialCommandInput extends DeleteTrialRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrialCommand}.
  */
 export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified trial. All trial components that make up the trial must be deleted
  *       first. Use the <a>DescribeTrialComponent</a> API to get the list of trial
  *       components.</p>
@@ -48,6 +53,8 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrialCommandInput - {@link DeleteTrialCommandInput}
+ * @returns {@link DeleteTrialCommandOutput}
  * @see {@link DeleteTrialCommandInput} for command's `input` shape.
  * @see {@link DeleteTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteTrialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrialCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteTrialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTrialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrialCommandOutput> {
     return deserializeAws_json1_1DeleteTrialCommand(output, context);
   }

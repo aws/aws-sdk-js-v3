@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationSubnetGroupCommand}.
  */
 export interface ModifyReplicationSubnetGroupCommandInput extends ModifyReplicationSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationSubnetGroupCommand}.
  */
 export interface ModifyReplicationSubnetGroupCommandOutput
@@ -41,6 +45,7 @@ export interface ModifyReplicationSubnetGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for the specified replication subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationSubnetGroupCommandInput - {@link ModifyReplicationSubnetGroupCommandInput}
+ * @returns {@link ModifyReplicationSubnetGroupCommandOutput}
  * @see {@link ModifyReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -112,6 +119,9 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyReplicationSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

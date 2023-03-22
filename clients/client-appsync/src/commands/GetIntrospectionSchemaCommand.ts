@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIntrospectionSchemaCommand}.
  */
 export interface GetIntrospectionSchemaCommandInput extends GetIntrospectionSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIntrospectionSchemaCommand}.
  */
 export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the introspection schema for a GraphQL API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntrospectionSchemaCommandInput - {@link GetIntrospectionSchemaCommandInput}
+ * @returns {@link GetIntrospectionSchemaCommandOutput}
  * @see {@link GetIntrospectionSchemaCommandInput} for command's `input` shape.
  * @see {@link GetIntrospectionSchemaCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetIntrospectionSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntrospectionSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetIntrospectionSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntrospectionSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIntrospectionSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntrospectionSchemaCommandOutput> {
     return deserializeAws_restJson1GetIntrospectionSchemaCommand(output, context);
   }

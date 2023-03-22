@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMessageBatchCommand}.
  */
 export interface DeleteMessageBatchCommandInput extends DeleteMessageBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMessageBatchCommand}.
  */
 export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>
  *                <a>DeleteMessage</a>.</code> The result of the action on each message is reported individually in the response.</p>
  *          <important>
@@ -57,6 +62,8 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMessageBatchCommandInput - {@link DeleteMessageBatchCommandInput}
+ * @returns {@link DeleteMessageBatchCommandOutput}
  * @see {@link DeleteMessageBatchCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteMessageBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMessageBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteMessageBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteMessageBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageBatchCommandOutput> {
     return deserializeAws_queryDeleteMessageBatchCommand(output, context);
   }

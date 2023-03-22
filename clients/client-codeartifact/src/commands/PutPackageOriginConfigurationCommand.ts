@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPackageOriginConfigurationCommand}.
  */
 export interface PutPackageOriginConfigurationCommandInput extends PutPackageOriginConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPackageOriginConfigurationCommand}.
  */
 export interface PutPackageOriginConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutPackageOriginConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the package origin configuration for a package.</p>
  *          <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
  *     publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
@@ -56,6 +61,8 @@ export interface PutPackageOriginConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPackageOriginConfigurationCommandInput - {@link PutPackageOriginConfigurationCommandInput}
+ * @returns {@link PutPackageOriginConfigurationCommandOutput}
  * @see {@link PutPackageOriginConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPackageOriginConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -102,6 +109,9 @@ export class PutPackageOriginConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPackageOriginConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class PutPackageOriginConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPackageOriginConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutPackageOriginConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

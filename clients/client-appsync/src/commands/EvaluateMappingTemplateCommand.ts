@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EvaluateMappingTemplateCommand}.
  */
 export interface EvaluateMappingTemplateCommandInput extends EvaluateMappingTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link EvaluateMappingTemplateCommand}.
  */
 export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
  *          template.</p>
  *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
@@ -51,6 +56,8 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateMappingTemplateCommandInput - {@link EvaluateMappingTemplateCommandInput}
+ * @returns {@link EvaluateMappingTemplateCommandOutput}
  * @see {@link EvaluateMappingTemplateCommandInput} for command's `input` shape.
  * @see {@link EvaluateMappingTemplateCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -84,6 +91,9 @@ export class EvaluateMappingTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateMappingTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class EvaluateMappingTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateMappingTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EvaluateMappingTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateMappingTemplateCommandOutput> {
     return deserializeAws_restJson1EvaluateMappingTemplateCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteArtifactCommand}.
  */
 export interface DeleteArtifactCommandInput extends DeleteArtifactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteArtifactCommand}.
  */
 export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
  *         specified.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteArtifactCommandInput - {@link DeleteArtifactCommandInput}
+ * @returns {@link DeleteArtifactCommandOutput}
  * @see {@link DeleteArtifactCommandInput} for command's `input` shape.
  * @see {@link DeleteArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArtifactCommandOutput> {
     return deserializeAws_json1_1DeleteArtifactCommand(output, context);
   }

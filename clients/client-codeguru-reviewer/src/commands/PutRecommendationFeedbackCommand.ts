@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecommendationFeedbackCommand}.
  */
 export interface PutRecommendationFeedbackCommandInput extends PutRecommendationFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRecommendationFeedbackCommand}.
  */
 export interface PutRecommendationFeedbackCommandOutput extends PutRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with
  *          different reactions the previous feedback is overwritten.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecommendationFeedbackCommandInput - {@link PutRecommendationFeedbackCommandInput}
+ * @returns {@link PutRecommendationFeedbackCommandOutput}
  * @see {@link PutRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutRecommendationFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutRecommendationFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecommendationFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutRecommendationFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecommendationFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutRecommendationFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

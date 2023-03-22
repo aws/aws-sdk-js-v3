@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyAquaConfigurationCommand}.
  */
 export interface ModifyAquaConfigurationCommandInput extends ModifyAquaInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyAquaConfigurationCommand}.
  */
 export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation is retired. Calling this operation does not change AQUA configuration. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyAquaConfigurationCommandInput - {@link ModifyAquaConfigurationCommandInput}
+ * @returns {@link ModifyAquaConfigurationCommandOutput}
  * @see {@link ModifyAquaConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyAquaConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +86,9 @@ export class ModifyAquaConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyAquaConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ModifyAquaConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyAquaConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyAquaConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAquaConfigurationCommandOutput> {
     return deserializeAws_queryModifyAquaConfigurationCommand(output, context);
   }

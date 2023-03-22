@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDataQualityResultCommand}.
  */
 export interface BatchGetDataQualityResultCommandInput extends BatchGetDataQualityResultRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDataQualityResultCommand}.
  */
 export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQualityResultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of data quality results for the specified result IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDataQualityResultCommandInput - {@link BatchGetDataQualityResultCommandInput}
+ * @returns {@link BatchGetDataQualityResultCommandOutput}
  * @see {@link BatchGetDataQualityResultCommandInput} for command's `input` shape.
  * @see {@link BatchGetDataQualityResultCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class BatchGetDataQualityResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDataQualityResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class BatchGetDataQualityResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDataQualityResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDataQualityResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

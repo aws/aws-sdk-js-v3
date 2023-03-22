@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPipelineExecutionsCommand}.
  */
 export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPipelineExecutionsCommand}.
  */
 export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the pipeline executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
+ * @returns {@link ListPipelineExecutionsCommandOutput}
  * @see {@link ListPipelineExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListPipelineExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelineExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListPipelineExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelineExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPipelineExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelineExecutionsCommandOutput> {
     return deserializeAws_json1_1ListPipelineExecutionsCommand(output, context);
   }

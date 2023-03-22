@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetricDataCommand}.
  */
 export interface PutMetricDataCommandInput extends PutMetricDataInput {}
 /**
+ * @public
+ *
  * The output of {@link PutMetricDataCommand}.
  */
 export interface PutMetricDataCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
  * 			the data points with the specified metric. If the specified metric does not exist,
  * 			CloudWatch creates the metric. When CloudWatch creates a metric, it can
@@ -83,6 +88,8 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricDataCommandInput - {@link PutMetricDataCommandInput}
+ * @returns {@link PutMetricDataCommandOutput}
  * @see {@link PutMetricDataCommandInput} for command's `input` shape.
  * @see {@link PutMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -118,6 +125,9 @@ export class PutMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class PutMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricDataCommandOutput> {
     return deserializeAws_queryPutMetricDataCommand(output, context);
   }

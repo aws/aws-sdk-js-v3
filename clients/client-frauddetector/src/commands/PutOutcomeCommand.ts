@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutOutcomeCommand}.
  */
 export interface PutOutcomeCommandInput extends PutOutcomeRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutOutcomeCommand}.
  */
 export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an outcome. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutOutcomeCommandInput - {@link PutOutcomeCommandInput}
+ * @returns {@link PutOutcomeCommandOutput}
  * @see {@link PutOutcomeCommandInput} for command's `input` shape.
  * @see {@link PutOutcomeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class PutOutcomeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutOutcomeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutOutcomeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutOutcomeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutOutcomeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutOutcomeCommandOutput> {
     return deserializeAws_json1_1PutOutcomeCommand(output, context);
   }

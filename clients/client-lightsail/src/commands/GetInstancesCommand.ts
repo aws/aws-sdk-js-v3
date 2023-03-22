@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstancesCommand}.
  */
 export interface GetInstancesCommandInput extends GetInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstancesCommand}.
  */
 export interface GetInstancesCommandOutput extends GetInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all Amazon Lightsail virtual private servers, or
  *         <i>instances</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstancesCommandInput - {@link GetInstancesCommandInput}
+ * @returns {@link GetInstancesCommandOutput}
  * @see {@link GetInstancesCommandInput} for command's `input` shape.
  * @see {@link GetInstancesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstancesCommandOutput> {
     return deserializeAws_json1_1GetInstancesCommand(output, context);
   }

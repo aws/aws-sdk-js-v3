@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBootstrapBrokersCommand}.
  */
 export interface GetBootstrapBrokersCommandInput extends GetBootstrapBrokersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBootstrapBrokersCommand}.
  */
 export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of brokers that a client application can use to bootstrap.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBootstrapBrokersCommandInput - {@link GetBootstrapBrokersCommandInput}
+ * @returns {@link GetBootstrapBrokersCommandOutput}
  * @see {@link GetBootstrapBrokersCommandInput} for command's `input` shape.
  * @see {@link GetBootstrapBrokersCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetBootstrapBrokersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBootstrapBrokersCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetBootstrapBrokersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBootstrapBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBootstrapBrokersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBootstrapBrokersCommandOutput> {
     return deserializeAws_restJson1GetBootstrapBrokersCommand(output, context);
   }

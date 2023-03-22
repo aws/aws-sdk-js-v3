@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetsCommand}.
  */
 export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetsCommand}.
  */
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetsCommandInput - {@link DescribeFleetsCommandInput}
+ * @returns {@link DescribeFleetsCommandOutput}
  * @see {@link DescribeFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetsCommandOutput> {
     return deserializeAws_json1_1DescribeFleetsCommand(output, context);
   }

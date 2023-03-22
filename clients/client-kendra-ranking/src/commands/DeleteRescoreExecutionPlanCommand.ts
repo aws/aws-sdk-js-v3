@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRescoreExecutionPlanCommand}.
  */
 export interface DeleteRescoreExecutionPlanCommandInput extends DeleteRescoreExecutionPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRescoreExecutionPlanCommand}.
  */
 export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a rescore execution plan. A rescore execution
  *             plan is an Amazon Kendra Intelligent Ranking resource
  *             used for provisioning the <code>Rescore</code> API.</p>
@@ -46,6 +51,8 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRescoreExecutionPlanCommandInput - {@link DeleteRescoreExecutionPlanCommandInput}
+ * @returns {@link DeleteRescoreExecutionPlanCommandOutput}
  * @see {@link DeleteRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeleteRescoreExecutionPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRescoreExecutionPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeleteRescoreExecutionPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteRescoreExecutionPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

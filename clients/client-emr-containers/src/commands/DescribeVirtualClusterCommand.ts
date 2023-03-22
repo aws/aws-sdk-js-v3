@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualClusterCommand}.
  */
 export interface DescribeVirtualClusterCommandInput extends DescribeVirtualClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualClusterCommand}.
  */
 export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a specified virtual cluster. Virtual cluster is a
  *          managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
  *          clusters. They do not consume any additional resource in your system. A single virtual
@@ -51,6 +56,8 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualClusterCommandInput - {@link DescribeVirtualClusterCommandInput}
+ * @returns {@link DescribeVirtualClusterCommandOutput}
  * @see {@link DescribeVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeVirtualClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeVirtualClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVirtualClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualClusterCommandOutput> {
     return deserializeAws_restJson1DescribeVirtualClusterCommand(output, context);
   }

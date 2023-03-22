@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExportCommand}.
  */
 export interface DescribeExportCommandInput extends DescribeExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExportCommand}.
  */
 export interface DescribeExportCommandOutput extends DescribeExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specific export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeExportCommandOutput extends DescribeExportResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExportCommandInput - {@link DescribeExportCommandInput}
+ * @returns {@link DescribeExportCommandOutput}
  * @see {@link DescribeExportCommandInput} for command's `input` shape.
  * @see {@link DescribeExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportCommandOutput> {
     return deserializeAws_restJson1DescribeExportCommand(output, context);
   }

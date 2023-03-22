@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNodegroupConfigCommand}.
  */
 export interface UpdateNodegroupConfigCommandInput extends UpdateNodegroupConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNodegroupConfigCommand}.
  */
 export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EKS managed node group configuration. Your node group
  *             continues to function during the update. The response output includes an update ID that
  *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. Currently you can update the Kubernetes
@@ -49,6 +54,8 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNodegroupConfigCommandInput - {@link UpdateNodegroupConfigCommandInput}
+ * @returns {@link UpdateNodegroupConfigCommandOutput}
  * @see {@link UpdateNodegroupConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateNodegroupConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNodegroupConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateNodegroupConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNodegroupConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateNodegroupConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodegroupConfigCommandOutput> {
     return deserializeAws_restJson1UpdateNodegroupConfigCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPublicKeyCommand}.
  */
 export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPublicKeyCommand}.
  */
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
  *       KMS key, which never leaves KMS unencrypted, callers with <code>kms:GetPublicKey</code>
  *       permission can download the public key of an asymmetric KMS key. You can share the public key
@@ -94,6 +99,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
+ * @returns {@link GetPublicKeyCommandOutput}
  * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -209,6 +216,9 @@ export class GetPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -246,10 +256,16 @@ export class GetPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyCommandOutput> {
     return deserializeAws_json1_1GetPublicKeyCommand(output, context);
   }

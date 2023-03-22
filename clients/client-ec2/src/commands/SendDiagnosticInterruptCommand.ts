@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SendDiagnosticInterruptCommand}.
  */
 export interface SendDiagnosticInterruptCommandInput extends SendDiagnosticInterruptRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendDiagnosticInterruptCommand}.
  */
 export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a
  *                 <i>kernel panic</i> (on Linux instances), or a <i>blue
  *                 screen</i>/<i>stop error</i> (on Windows instances). For
@@ -55,6 +60,8 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param SendDiagnosticInterruptCommandInput - {@link SendDiagnosticInterruptCommandInput}
+ * @returns {@link SendDiagnosticInterruptCommandOutput}
  * @see {@link SendDiagnosticInterruptCommandInput} for command's `input` shape.
  * @see {@link SendDiagnosticInterruptCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +85,9 @@ export class SendDiagnosticInterruptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendDiagnosticInterruptCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class SendDiagnosticInterruptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendDiagnosticInterruptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2SendDiagnosticInterruptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendDiagnosticInterruptCommandOutput> {
     return deserializeAws_ec2SendDiagnosticInterruptCommand(output, context);
   }

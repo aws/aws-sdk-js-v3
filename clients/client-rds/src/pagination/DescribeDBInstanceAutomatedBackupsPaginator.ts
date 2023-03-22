@@ -10,7 +10,7 @@ import { RDSClient } from "../RDSClient";
 import { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RDSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDBInstanceAutomatedBackupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeDBInstanceAutomatedBackups(
   config: RDSPaginationConfiguration,
   input: DescribeDBInstanceAutomatedBackupsCommandInput,

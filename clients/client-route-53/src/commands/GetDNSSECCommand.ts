@@ -24,15 +24,20 @@ import { deserializeAws_restXmlGetDNSSECCommand, serializeAws_restXmlGetDNSSECCo
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDNSSECCommand}.
  */
 export interface GetDNSSECCommandInput extends GetDNSSECRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDNSSECCommand}.
  */
 export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing
  * 			keys (KSKs) in the hosted zone.</p>
  * @example
@@ -45,6 +50,8 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDNSSECCommandInput - {@link GetDNSSECCommandInput}
+ * @returns {@link GetDNSSECCommandOutput}
  * @see {@link GetDNSSECCommandInput} for command's `input` shape.
  * @see {@link GetDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -77,6 +84,9 @@ export class GetDNSSECCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDNSSECCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetDNSSECCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetDNSSECCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDNSSECCommandOutput> {
     return deserializeAws_restXmlGetDNSSECCommand(output, context);
   }

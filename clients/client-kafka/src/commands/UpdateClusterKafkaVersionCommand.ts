@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterKafkaVersionCommand}.
  */
 export interface UpdateClusterKafkaVersionCommandInput extends UpdateClusterKafkaVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterKafkaVersionCommand}.
  */
 export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKafkaVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Apache Kafka version for the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKaf
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterKafkaVersionCommandInput - {@link UpdateClusterKafkaVersionCommandInput}
+ * @returns {@link UpdateClusterKafkaVersionCommandOutput}
  * @see {@link UpdateClusterKafkaVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterKafkaVersionCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterKafkaVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterKafkaVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateClusterKafkaVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DescribeVpcEndpointServiceConfigurationsCommandInput
   extends DescribeVpcEndpointServiceConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointServiceConfigurationsCommandInput - {@link DescribeVpcEndpointServiceConfigurationsCommandInput}
+ * @returns {@link DescribeVpcEndpointServiceConfigurationsCommandOutput}
  * @see {@link DescribeVpcEndpointServiceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointServiceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

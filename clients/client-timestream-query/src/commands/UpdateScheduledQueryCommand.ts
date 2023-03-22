@@ -22,15 +22,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScheduledQueryCommand}.
  */
 export interface UpdateScheduledQueryCommandInput extends UpdateScheduledQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScheduledQueryCommand}.
  */
 export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a scheduled query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScheduledQueryCommandInput - {@link UpdateScheduledQueryCommandInput}
+ * @returns {@link UpdateScheduledQueryCommandOutput}
  * @see {@link UpdateScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateScheduledQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScheduledQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateScheduledQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateScheduledQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduledQueryCommandOutput> {
     return deserializeAws_json1_0UpdateScheduledQueryCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecoveryPointsByLegalHoldCommand}.
  */
 export interface ListRecoveryPointsByLegalHoldCommandInput extends ListRecoveryPointsByLegalHoldInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRecoveryPointsByLegalHoldCommand}.
  */
 export interface ListRecoveryPointsByLegalHoldCommandOutput
@@ -37,6 +41,7 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns recovery point ARNs (Amazon Resource Names) of the
  *          specified legal hold.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsByLegalHoldCommandInput - {@link ListRecoveryPointsByLegalHoldCommandInput}
+ * @returns {@link ListRecoveryPointsByLegalHoldCommandOutput}
  * @see {@link ListRecoveryPointsByLegalHoldCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListRecoveryPointsByLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsByLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListRecoveryPointsByLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecoveryPointsByLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

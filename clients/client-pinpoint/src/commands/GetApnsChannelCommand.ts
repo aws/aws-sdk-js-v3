@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApnsChannelCommand}.
  */
 export interface GetApnsChannelCommandInput extends GetApnsChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApnsChannelCommand}.
  */
 export interface GetApnsChannelCommandOutput extends GetApnsChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the APNs channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApnsChannelCommandOutput extends GetApnsChannelResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApnsChannelCommandInput - {@link GetApnsChannelCommandInput}
+ * @returns {@link GetApnsChannelCommandOutput}
  * @see {@link GetApnsChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetApnsChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApnsChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetApnsChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApnsChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApnsChannelCommandOutput> {
     return deserializeAws_restJson1GetApnsChannelCommand(output, context);
   }

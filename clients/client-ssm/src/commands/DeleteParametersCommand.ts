@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteParametersCommand}.
  */
 export interface DeleteParametersCommandInput extends DeleteParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteParametersCommand}.
  */
 export interface DeleteParametersCommandOutput extends DeleteParametersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
  *    create a parameter with the same name.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteParametersCommandInput - {@link DeleteParametersCommandInput}
+ * @returns {@link DeleteParametersCommandOutput}
  * @see {@link DeleteParametersCommandInput} for command's `input` shape.
  * @see {@link DeleteParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParametersCommandOutput> {
     return deserializeAws_json1_1DeleteParametersCommand(output, context);
   }

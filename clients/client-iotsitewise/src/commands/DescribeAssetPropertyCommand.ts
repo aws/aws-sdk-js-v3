@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssetPropertyCommand}.
  */
 export interface DescribeAssetPropertyCommandInput extends DescribeAssetPropertyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssetPropertyCommand}.
  */
 export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropertyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an asset property.</p>
  *          <note>
  *             <p>When you call this operation for an attribute property, this response includes the
@@ -53,6 +58,8 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssetPropertyCommandInput - {@link DescribeAssetPropertyCommandInput}
+ * @returns {@link DescribeAssetPropertyCommandOutput}
  * @see {@link DescribeAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeAssetPropertyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssetPropertyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeAssetPropertyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssetPropertyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAssetPropertyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetPropertyCommandOutput> {
     return deserializeAws_restJson1DescribeAssetPropertyCommand(output, context);
   }

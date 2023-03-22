@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProvisioningTemplateCommand}.
  */
 export interface DeleteProvisioningTemplateCommandInput extends DeleteProvisioningTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProvisioningTemplateCommand}.
  */
 export interface DeleteProvisioningTemplateCommandOutput extends DeleteProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteProvisioningTemplateCommandOutput extends DeleteProvision
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisioningTemplateCommandInput - {@link DeleteProvisioningTemplateCommandInput}
+ * @returns {@link DeleteProvisioningTemplateCommandOutput}
  * @see {@link DeleteProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisioningTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProvisioningTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

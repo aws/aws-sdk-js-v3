@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServerCatalogCommand}.
  */
 export interface DeleteServerCatalogCommandInput extends DeleteServerCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServerCatalogCommand}.
  */
 export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all servers from your server catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServerCatalogCommandInput - {@link DeleteServerCatalogCommandInput}
+ * @returns {@link DeleteServerCatalogCommandOutput}
  * @see {@link DeleteServerCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteServerCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteServerCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteServerCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCatalogCommandOutput> {
     return deserializeAws_json1_1DeleteServerCatalogCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueueAttributesCommand}.
  */
 export interface GetQueueAttributesCommandInput extends GetQueueAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueueAttributesCommand}.
  */
 export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets attributes for the specified queue.</p>
  *          <note>
  *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
@@ -49,6 +54,8 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueueAttributesCommandInput - {@link GetQueueAttributesCommandInput}
+ * @returns {@link GetQueueAttributesCommandOutput}
  * @see {@link GetQueueAttributesCommandInput} for command's `input` shape.
  * @see {@link GetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetQueueAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueueAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetQueueAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueueAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetQueueAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueAttributesCommandOutput> {
     return deserializeAws_queryGetQueueAttributesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDimensionCommand}.
  */
 export interface DeleteDimensionCommandInput extends DeleteDimensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDimensionCommand}.
  */
 export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified dimension from your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDimension</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDimensionCommandInput - {@link DeleteDimensionCommandInput}
+ * @returns {@link DeleteDimensionCommandOutput}
  * @see {@link DeleteDimensionCommandInput} for command's `input` shape.
  * @see {@link DeleteDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteDimensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDimensionCommandOutput> {
     return deserializeAws_restJson1DeleteDimensionCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetTestCommand, serializeAws_json1_1GetTestCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTestCommand}.
  */
 export interface GetTestCommandInput extends GetTestRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTestCommand}.
  */
 export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTestCommandInput - {@link GetTestCommandInput}
+ * @returns {@link GetTestCommandOutput}
  * @see {@link GetTestCommandInput} for command's `input` shape.
  * @see {@link GetTestCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestCommandOutput> {
     return deserializeAws_json1_1GetTestCommand(output, context);
   }

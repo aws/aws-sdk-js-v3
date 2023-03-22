@@ -27,10 +27,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketLifecycleConfigurationCommand}.
  */
 export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketLifecycleConfigurationCommand}.
  */
 export interface GetBucketLifecycleConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an S3
  *             bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
@@ -96,6 +101,8 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketLifecycleConfigurationCommandInput - {@link GetBucketLifecycleConfigurationCommandInput}
+ * @returns {@link GetBucketLifecycleConfigurationCommandOutput}
  * @see {@link GetBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -123,6 +130,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,6 +173,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
@@ -170,6 +183,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

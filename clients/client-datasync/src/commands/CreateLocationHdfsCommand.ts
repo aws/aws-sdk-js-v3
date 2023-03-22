@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationHdfsCommand}.
  */
 export interface CreateLocationHdfsCommandInput extends CreateLocationHdfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationHdfsCommand}.
  */
 export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for a Hadoop Distributed File System (HDFS). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationHdfsCommandInput - {@link CreateLocationHdfsCommandInput}
+ * @returns {@link CreateLocationHdfsCommandOutput}
  * @see {@link CreateLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationHdfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateLocationHdfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationHdfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateLocationHdfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationHdfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationHdfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationHdfsCommandOutput> {
     return deserializeAws_json1_1CreateLocationHdfsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetadataCommand}.
  */
 export interface GetMetadataCommandInput extends GetMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMetadataCommand}.
  */
 export interface GetMetadataCommandOutput extends GetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns existing metadata for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetadataCommandInput - {@link GetMetadataCommandInput}
+ * @returns {@link GetMetadataCommandOutput}
  * @see {@link GetMetadataCommandInput} for command's `input` shape.
  * @see {@link GetMetadataCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetadataCommandOutput> {
     return deserializeAws_restJson1GetMetadataCommand(output, context);
   }

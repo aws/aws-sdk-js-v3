@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMediaConcatenationPipelineCommand}.
  */
 export interface CreateMediaConcatenationPipelineCommandInput extends CreateMediaConcatenationPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMediaConcatenationPipelineCommand}.
  */
 export interface CreateMediaConcatenationPipelineCommandOutput
@@ -41,6 +45,7 @@ export interface CreateMediaConcatenationPipelineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a media concatenation pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMediaConcatenationPipelineCommandInput - {@link CreateMediaConcatenationPipelineCommandInput}
+ * @returns {@link CreateMediaConcatenationPipelineCommandOutput}
  * @see {@link CreateMediaConcatenationPipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaConcatenationPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateMediaConcatenationPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMediaConcatenationPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class CreateMediaConcatenationPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateMediaConcatenationPipelineCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class CreateMediaConcatenationPipelineCommand extends $Command<
     return serializeAws_restJson1CreateMediaConcatenationPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

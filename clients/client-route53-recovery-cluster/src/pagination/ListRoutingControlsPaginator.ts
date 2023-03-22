@@ -10,7 +10,7 @@ import { Route53RecoveryClusterClient } from "../Route53RecoveryClusterClient";
 import { Route53RecoveryClusterPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53RecoveryClusterClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRoutingControlsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRoutingControls(
   config: Route53RecoveryClusterPaginationConfiguration,
   input: ListRoutingControlsCommandInput,

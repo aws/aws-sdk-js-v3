@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKnowledgeBaseCommand}.
  */
 export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKnowledgeBaseCommand}.
  */
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a knowledge base.</p>
  *          <note>
  *             <p>When using this API, you cannot reuse <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
@@ -69,6 +74,8 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKnowledgeBaseCommandInput - {@link CreateKnowledgeBaseCommandInput}
+ * @returns {@link CreateKnowledgeBaseCommandOutput}
  * @see {@link CreateKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link CreateKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateKnowledgeBaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKnowledgeBaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class CreateKnowledgeBaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKnowledgeBaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateKnowledgeBaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKnowledgeBaseCommandOutput> {
     return deserializeAws_restJson1CreateKnowledgeBaseCommand(output, context);
   }

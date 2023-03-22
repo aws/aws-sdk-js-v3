@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelTransactionCommand}.
  */
 export interface CancelTransactionCommandInput extends CancelTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelTransactionCommand}.
  */
 export interface CancelTransactionCommandOutput extends CancelTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel the specified transaction. Returns an exception if the transaction was previously committed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelTransactionCommandInput - {@link CancelTransactionCommandInput}
+ * @returns {@link CancelTransactionCommandOutput}
  * @see {@link CancelTransactionCommandInput} for command's `input` shape.
  * @see {@link CancelTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -90,6 +97,9 @@ export class CancelTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CancelTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTransactionCommandOutput> {
     return deserializeAws_restJson1CancelTransactionCommand(output, context);
   }

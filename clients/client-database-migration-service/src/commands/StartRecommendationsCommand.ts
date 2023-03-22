@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRecommendationsCommand}.
  */
 export interface StartRecommendationsCommandInput extends StartRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRecommendationsCommand}.
  */
 export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the analysis of your source database to provide recommendations of target
  *             engines.</p>
  *          <p>You can create recommendations for multiple source databases using <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html">BatchStartRecommendations</a>.</p>
@@ -47,6 +52,8 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRecommendationsCommandInput - {@link StartRecommendationsCommandInput}
+ * @returns {@link StartRecommendationsCommandOutput}
  * @see {@link StartRecommendationsCommandInput} for command's `input` shape.
  * @see {@link StartRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -80,6 +87,9 @@ export class StartRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class StartRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecommendationsCommandOutput> {
     return deserializeAws_json1_1StartRecommendationsCommand(output, context);
   }

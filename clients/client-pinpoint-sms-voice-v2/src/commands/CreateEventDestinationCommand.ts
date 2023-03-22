@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventDestinationCommand}.
  */
 export interface CreateEventDestinationCommandInput extends CreateEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventDestinationCommand}.
  */
 export interface CreateEventDestinationCommandOutput extends CreateEventDestinationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event destination in a configuration set.</p>
  *         <p>An event destination is a location where you send message events. The event options
  *             are Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example,
@@ -58,6 +63,8 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventDestinationCommandInput - {@link CreateEventDestinationCommandInput}
+ * @returns {@link CreateEventDestinationCommandOutput}
  * @see {@link CreateEventDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -108,6 +115,9 @@ export class CreateEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class CreateEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventDestinationCommandOutput> {
     return deserializeAws_json1_0CreateEventDestinationCommand(output, context);
   }

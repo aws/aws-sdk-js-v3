@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
   extends DisableAwsNetworkPerformanceMetricSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
@@ -38,6 +42,7 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Infrastructure Performance metric subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAwsNetworkPerformanceMetricSubscriptionCommandInput - {@link DisableAwsNetworkPerformanceMetricSubscriptionCommandInput}
+ * @returns {@link DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput}
  * @see {@link DisableAwsNetworkPerformanceMetricSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
     return serializeAws_ec2DisableAwsNetworkPerformanceMetricSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

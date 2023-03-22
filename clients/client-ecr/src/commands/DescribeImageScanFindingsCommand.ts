@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageScanFindingsCommand}.
  */
 export interface DescribeImageScanFindingsCommandInput extends DescribeImageScanFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageScanFindingsCommand}.
  */
 export interface DescribeImageScanFindingsCommandOutput extends DescribeImageScanFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the scan findings for the specified image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageScanFindingsCommandInput - {@link DescribeImageScanFindingsCommandInput}
+ * @returns {@link DescribeImageScanFindingsCommandOutput}
  * @see {@link DescribeImageScanFindingsCommandInput} for command's `input` shape.
  * @see {@link DescribeImageScanFindingsCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeImageScanFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageScanFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeImageScanFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageScanFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImageScanFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

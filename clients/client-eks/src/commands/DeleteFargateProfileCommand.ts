@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFargateProfileCommand}.
  */
 export interface DeleteFargateProfileCommandInput extends DeleteFargateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFargateProfileCommand}.
  */
 export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Fargate profile.</p>
  *          <p>When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. If those pods match
  *             another Fargate profile, then they are scheduled on Fargate with that profile. If they no longer match any Fargate profiles, then
@@ -54,6 +59,8 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFargateProfileCommandInput - {@link DeleteFargateProfileCommandInput}
+ * @returns {@link DeleteFargateProfileCommandOutput}
  * @see {@link DeleteFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteFargateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFargateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteFargateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFargateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFargateProfileCommandOutput> {
     return deserializeAws_restJson1DeleteFargateProfileCommand(output, context);
   }

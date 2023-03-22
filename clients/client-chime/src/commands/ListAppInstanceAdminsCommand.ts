@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInstanceAdminsCommand}.
  */
 export interface ListAppInstanceAdminsCommandInput extends ListAppInstanceAdminsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInstanceAdminsCommand}.
  */
 export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdminsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInstanceAdminsCommandInput - {@link ListAppInstanceAdminsCommandInput}
+ * @returns {@link ListAppInstanceAdminsCommandOutput}
  * @see {@link ListAppInstanceAdminsCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceAdminsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListAppInstanceAdminsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInstanceAdminsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListAppInstanceAdminsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInstanceAdminsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAppInstanceAdminsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInstanceAdminsCommandOutput> {
     return deserializeAws_restJson1ListAppInstanceAdminsCommand(output, context);
   }

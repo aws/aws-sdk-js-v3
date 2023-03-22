@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutomationStepExecutionsCommand}.
  */
 export interface DescribeAutomationStepExecutionsCommandInput extends DescribeAutomationStepExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutomationStepExecutionsCommand}.
  */
 export interface DescribeAutomationStepExecutionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAutomationStepExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about all active and terminated step executions in an Automation
  *    workflow.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutomationStepExecutionsCommandInput - {@link DescribeAutomationStepExecutionsCommandInput}
+ * @returns {@link DescribeAutomationStepExecutionsCommandOutput}
  * @see {@link DescribeAutomationStepExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutomationStepExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutomationStepExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAutomationStepExecutionsCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     return serializeAws_json1_1DescribeAutomationStepExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

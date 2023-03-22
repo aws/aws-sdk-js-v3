@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountAliasesCommand}.
  */
 export interface ListAccountAliasesCommandInput extends ListAccountAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountAliasesCommand}.
  */
 export interface ListAccountAliasesCommandOutput extends ListAccountAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the account alias associated with the Amazon Web Services account (Note: you can have only
  *             one). For information about using an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your
  *                 Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountAliasesCommandInput - {@link ListAccountAliasesCommandInput}
+ * @returns {@link ListAccountAliasesCommandOutput}
  * @see {@link ListAccountAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAccountAliasesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListAccountAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListAccountAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAccountAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAliasesCommandOutput> {
     return deserializeAws_queryListAccountAliasesCommand(output, context);
   }

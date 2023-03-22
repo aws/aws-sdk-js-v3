@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservationUtilizationCommand}.
  */
 export interface GetReservationUtilizationCommandInput extends GetReservationUtilizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReservationUtilizationCommand}.
  */
 export interface GetReservationUtilizationCommandOutput extends GetReservationUtilizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the reservation utilization for your account. Management account in an
  *       organization have access to member accounts. You can filter data by dimensions in a time
  *       period. You can use <code>GetDimensionValues</code> to determine the possible dimension
@@ -49,6 +54,8 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservationUtilizationCommandInput - {@link GetReservationUtilizationCommandInput}
+ * @returns {@link GetReservationUtilizationCommandOutput}
  * @see {@link GetReservationUtilizationCommandInput} for command's `input` shape.
  * @see {@link GetReservationUtilizationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetReservationUtilizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservationUtilizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetReservationUtilizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReservationUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReservationUtilizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

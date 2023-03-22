@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeProcessesCommand}.
  */
 export interface ResumeProcessesCommandInput extends ScalingProcessQuery {}
 /**
+ * @public
+ *
  * The output of {@link ResumeProcessesCommand}.
  */
 export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes the specified suspended auto scaling processes, or all suspended process, for
  *             the specified Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
@@ -44,6 +49,8 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeProcessesCommandInput - {@link ResumeProcessesCommandInput}
+ * @returns {@link ResumeProcessesCommandOutput}
  * @see {@link ResumeProcessesCommandInput} for command's `input` shape.
  * @see {@link ResumeProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -88,6 +95,9 @@ export class ResumeProcessesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeProcessesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ResumeProcessesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeProcessesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResumeProcessesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeProcessesCommandOutput> {
     return deserializeAws_queryResumeProcessesCommand(output, context);
   }

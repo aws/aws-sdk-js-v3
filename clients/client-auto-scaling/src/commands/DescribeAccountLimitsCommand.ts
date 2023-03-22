@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountLimitsCommand}.
  */
 export interface DescribeAccountLimitsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountLimitsCommand}.
  */
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
  *          <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum
  *             number of Auto Scaling groups and launch configurations that you can create in a given Region.
@@ -45,6 +50,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
+ * @returns {@link DescribeAccountLimitsCommandOutput}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeAccountLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAccountLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountLimitsCommandOutput> {
     return deserializeAws_queryDescribeAccountLimitsCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetSecurityConfigCommand}.
  */
 export interface GetSecurityConfigCommandInput extends GetSecurityConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSecurityConfigCommand}.
  */
 export interface GetSecurityConfigCommandOutput extends GetSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an OpenSearch Serverless security configuration. For more information, see
  *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -52,6 +57,8 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSecurityConfigCommandInput - {@link GetSecurityConfigCommandInput}
+ * @returns {@link GetSecurityConfigCommandOutput}
  * @see {@link GetSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link GetSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecurityConfigCommandOutput> {
     return deserializeAws_json1_0GetSecurityConfigCommand(output, context);
   }

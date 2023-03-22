@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelVariantImportJobCommand}.
  */
 export interface CancelVariantImportJobCommandInput extends CancelVariantImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelVariantImportJobCommand}.
  */
 export interface CancelVariantImportJobCommandOutput extends CancelVariantImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a variant import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelVariantImportJobCommandInput - {@link CancelVariantImportJobCommandInput}
+ * @returns {@link CancelVariantImportJobCommandOutput}
  * @see {@link CancelVariantImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelVariantImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelVariantImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelVariantImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CancelVariantImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelVariantImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelVariantImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelVariantImportJobCommandOutput> {
     return deserializeAws_restJson1CancelVariantImportJobCommand(output, context);
   }

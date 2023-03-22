@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUsagePlanKeyCommand}.
  */
 export interface CreateUsagePlanKeyCommandInput extends CreateUsagePlanKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUsagePlanKeyCommand}.
  */
 export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a usage plan key for adding an existing API key to a usage plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUsagePlanKeyCommandInput - {@link CreateUsagePlanKeyCommandInput}
+ * @returns {@link CreateUsagePlanKeyCommandOutput}
  * @see {@link CreateUsagePlanKeyCommandInput} for command's `input` shape.
  * @see {@link CreateUsagePlanKeyCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateUsagePlanKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUsagePlanKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateUsagePlanKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUsagePlanKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateUsagePlanKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUsagePlanKeyCommandOutput> {
     return deserializeAws_restJson1CreateUsagePlanKeyCommand(output, context);
   }

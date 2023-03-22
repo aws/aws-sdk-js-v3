@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceAccessCommand}.
  */
 export interface GetInstanceAccessCommandInput extends GetInstanceAccessInput {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceAccessCommand}.
  */
 export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
  *             gathering benchmarking data, or observing activity in real time. </p>
  *         <p>To remotely access an instance, you need credentials that match the operating system
@@ -74,6 +79,8 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceAccessCommandInput - {@link GetInstanceAccessCommandInput}
+ * @returns {@link GetInstanceAccessCommandOutput}
  * @see {@link GetInstanceAccessCommandInput} for command's `input` shape.
  * @see {@link GetInstanceAccessCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -111,6 +118,9 @@ export class GetInstanceAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class GetInstanceAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceAccessCommandOutput> {
     return deserializeAws_json1_1GetInstanceAccessCommand(output, context);
   }

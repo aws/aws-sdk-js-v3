@@ -4,6 +4,9 @@ import { Readable } from "stream";
 
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
+/**
+ * @public
+ */
 export interface DeleteLexiconInput {
   /**
    * <p>The name of the lexicon to delete. Must be an existing lexicon in
@@ -12,9 +15,13 @@ export interface DeleteLexiconInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLexiconOutput {}
 
 /**
+ * @public
  * <p>Amazon Polly can't find the specified lexicon. This could be caused by a
  *       lexicon that is missing, its name is misspelled or specifying a lexicon
  *       that is in a different region.</p>
@@ -38,6 +45,7 @@ export class LexiconNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An unknown condition has caused a service failure.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -56,11 +64,17 @@ export class ServiceFailureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Engine {
   NEURAL = "neural",
   STANDARD = "standard",
 }
 
+/**
+ * @public
+ */
 export enum LanguageCode {
   ar_AE = "ar-AE",
   arb = "arb",
@@ -100,6 +114,9 @@ export enum LanguageCode {
   yue_CN = "yue-CN",
 }
 
+/**
+ * @public
+ */
 export interface DescribeVoicesInput {
   /**
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
@@ -133,11 +150,17 @@ export interface DescribeVoicesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum Gender {
   Female = "Female",
   Male = "Male",
 }
 
+/**
+ * @public
+ */
 export enum VoiceId {
   Aditi = "Aditi",
   Adriano = "Adriano",
@@ -230,6 +253,7 @@ export enum VoiceId {
 }
 
 /**
+ * @public
  * <p>Description of the voice.</p>
  */
 export interface Voice {
@@ -278,6 +302,9 @@ export interface Voice {
   SupportedEngines?: (Engine | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVoicesOutput {
   /**
    * <p>A list of voices with their properties.</p>
@@ -293,6 +320,7 @@ export interface DescribeVoicesOutput {
 }
 
 /**
+ * @public
  * <p>The NextToken is invalid. Verify that it's spelled correctly, and
  *       then try again.</p>
  */
@@ -313,6 +341,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This engine is not compatible with the voice that you have designated.
  *       Choose a new voice that is compatible with the engine or change the engine
  *       and restart the operation.</p>
@@ -333,6 +362,9 @@ export class EngineNotSupportedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetLexiconInput {
   /**
    * <p>Name of the lexicon.</p>
@@ -341,6 +373,7 @@ export interface GetLexiconInput {
 }
 
 /**
+ * @public
  * <p>Provides lexicon name and lexicon content in string format. For
  *       more information, see <a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon
  *         Specification (PLS) Version 1.0</a>.</p>
@@ -359,6 +392,7 @@ export interface Lexicon {
 }
 
 /**
+ * @public
  * <p>Contains metadata describing the lexicon such as the number of
  *       lexemes, language code, and so on. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  */
@@ -397,6 +431,9 @@ export interface LexiconAttributes {
   Size?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetLexiconOutput {
   /**
    * <p>Lexicon object that provides name and the string content of the
@@ -412,6 +449,9 @@ export interface GetLexiconOutput {
   LexiconAttributes?: LexiconAttributes;
 }
 
+/**
+ * @public
+ */
 export interface GetSpeechSynthesisTaskInput {
   /**
    * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
@@ -419,6 +459,9 @@ export interface GetSpeechSynthesisTaskInput {
   TaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OutputFormat {
   JSON = "json",
   MP3 = "mp3",
@@ -426,6 +469,9 @@ export enum OutputFormat {
   PCM = "pcm",
 }
 
+/**
+ * @public
+ */
 export enum SpeechMarkType {
   SENTENCE = "sentence",
   SSML = "ssml",
@@ -433,6 +479,9 @@ export enum SpeechMarkType {
   WORD = "word",
 }
 
+/**
+ * @public
+ */
 export enum TaskStatus {
   COMPLETED = "completed",
   FAILED = "failed",
@@ -440,12 +489,16 @@ export enum TaskStatus {
   SCHEDULED = "scheduled",
 }
 
+/**
+ * @public
+ */
 export enum TextType {
   SSML = "ssml",
   TEXT = "text",
 }
 
 /**
+ * @public
  * <p>SynthesisTask object that provides information about a speech
  *       synthesis task.</p>
  */
@@ -548,6 +601,9 @@ export interface SynthesisTask {
   LanguageCode?: LanguageCode | string;
 }
 
+/**
+ * @public
+ */
 export interface GetSpeechSynthesisTaskOutput {
   /**
    * <p>SynthesisTask object that provides information from the requested
@@ -558,6 +614,7 @@ export interface GetSpeechSynthesisTaskOutput {
 }
 
 /**
+ * @public
  * <p>The provided Task ID is not valid. Please provide a valid Task ID and
  *       try again.</p>
  */
@@ -578,6 +635,7 @@ export class InvalidTaskIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Speech Synthesis task with requested Task ID cannot be
  *       found.</p>
  */
@@ -598,6 +656,7 @@ export class SynthesisTaskNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's
  *       name is spelled correctly, and then try again.</p>
  */
@@ -618,6 +677,7 @@ export class InvalidLexiconException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided Amazon S3 bucket name is invalid. Please check your input
  *       with S3 bucket naming requirements and try again.</p>
  */
@@ -638,6 +698,7 @@ export class InvalidS3BucketException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided Amazon S3 key prefix is invalid. Please provide a valid
  *       S3 object key name.</p>
  */
@@ -658,6 +719,7 @@ export class InvalidS3KeyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified sample rate is not valid.</p>
  */
 export class InvalidSampleRateException extends __BaseException {
@@ -677,6 +739,7 @@ export class InvalidSampleRateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided SNS topic ARN is invalid. Please provide a valid SNS
  *       topic ARN and try again.</p>
  */
@@ -697,6 +760,7 @@ export class InvalidSnsTopicArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The SSML you provided is invalid. Verify the SSML syntax, spelling
  *       of tags and values, and then try again.</p>
  */
@@ -717,6 +781,7 @@ export class InvalidSsmlException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The language specified is not currently supported by Amazon Polly in this
  *       capacity.</p>
  */
@@ -737,6 +802,7 @@ export class LanguageNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the content of the lexicon.</p>
  */
 export interface LexiconDescription {
@@ -752,6 +818,7 @@ export interface LexiconDescription {
 }
 
 /**
+ * @public
  * <p>The maximum size of the specified lexicon would be exceeded by this
  *       operation.</p>
  */
@@ -771,6 +838,9 @@ export class LexiconSizeExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListLexiconsInput {
   /**
    * <p>An opaque pagination token returned from previous
@@ -780,6 +850,9 @@ export interface ListLexiconsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLexiconsOutput {
   /**
    * <p>A list of lexicon names and attributes.</p>
@@ -794,6 +867,9 @@ export interface ListLexiconsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeechSynthesisTasksInput {
   /**
    * <p>Maximum number of speech synthesis tasks returned in a List
@@ -814,6 +890,9 @@ export interface ListSpeechSynthesisTasksInput {
   Status?: TaskStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeechSynthesisTasksOutput {
   /**
    * <p>An opaque pagination token returned from the previous List operation
@@ -831,6 +910,7 @@ export interface ListSpeechSynthesisTasksOutput {
 }
 
 /**
+ * @public
  * <p>Speech marks are not supported for the <code>OutputFormat</code>
  *       selected. Speech marks are only available for content in <code>json</code>
  *       format.</p>
@@ -852,6 +932,7 @@ export class MarksNotSupportedForFormatException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum size of the lexeme would be exceeded by this
  *       operation.</p>
  */
@@ -872,6 +953,7 @@ export class MaxLexemeLengthExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of lexicons would be exceeded by this
  *       operation.</p>
  */
@@ -891,10 +973,13 @@ export class MaxLexiconsNumberExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutLexiconInput {
   /**
    * <p>Name of the lexicon. The name must follow the regular express
-   *       format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive
+   *       format [0-9A-Za-z]\{1,20\}. That is, the name is a case-sensitive
    *       alphanumeric string up to 20 characters long. </p>
    */
   Name: string | undefined;
@@ -905,9 +990,13 @@ export interface PutLexiconInput {
   Content: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLexiconOutput {}
 
 /**
+ * @public
  * <p>The alphabet specified by the lexicon is not a supported alphabet.
  *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
  */
@@ -928,6 +1017,7 @@ export class UnsupportedPlsAlphabetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  */
@@ -948,6 +1038,7 @@ export class UnsupportedPlsLanguageException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>SSML speech marks are not supported for plain text-type
  *       input.</p>
  */
@@ -967,6 +1058,9 @@ export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartSpeechSynthesisTaskInput {
   /**
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
@@ -1051,6 +1145,9 @@ export interface StartSpeechSynthesisTaskInput {
   VoiceId: VoiceId | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSpeechSynthesisTaskOutput {
   /**
    * <p>SynthesisTask object that provides information and attributes about a
@@ -1060,6 +1157,7 @@ export interface StartSpeechSynthesisTaskOutput {
 }
 
 /**
+ * @public
  * <p>The value of the "Text" parameter is longer than the accepted
  *       limits. For the <code>SynthesizeSpeech</code> API, the limit for input
  *       text is a maximum of 6000 characters total, of which no more than 3000 can
@@ -1084,6 +1182,9 @@ export class TextLengthExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SynthesizeSpeechInput {
   /**
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
@@ -1176,6 +1277,9 @@ export interface SynthesizeSpeechInput {
   VoiceId: VoiceId | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SynthesizeSpeechOutput {
   /**
    * <p> Stream containing the synthesized speech. </p>

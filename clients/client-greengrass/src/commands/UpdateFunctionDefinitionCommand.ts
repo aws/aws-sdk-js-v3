@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionDefinitionCommand}.
  */
 export interface UpdateFunctionDefinitionCommandInput extends UpdateFunctionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionDefinitionCommand}.
  */
 export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a Lambda function definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionDefinitionCommandInput - {@link UpdateFunctionDefinitionCommandInput}
+ * @returns {@link UpdateFunctionDefinitionCommandOutput}
  * @see {@link UpdateFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFunctionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionDefinitionCommandOutput> {
     return deserializeAws_restJson1UpdateFunctionDefinitionCommand(output, context);
   }

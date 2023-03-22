@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdminAccountCommand}.
  */
 export interface GetAdminAccountCommandInput extends GetAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdminAccountCommand}.
  */
 export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Organizations account that is associated with Firewall Manager
  *       as the Firewall Manager administrator.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdminAccountCommandInput - {@link GetAdminAccountCommandInput}
+ * @returns {@link GetAdminAccountCommandOutput}
  * @see {@link GetAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdminAccountCommandOutput> {
     return deserializeAws_json1_1GetAdminAccountCommand(output, context);
   }

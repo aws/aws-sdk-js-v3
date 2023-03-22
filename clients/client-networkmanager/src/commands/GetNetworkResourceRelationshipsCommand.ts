@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkResourceRelationshipsCommand}.
  */
 export interface GetNetworkResourceRelationshipsCommandInput extends GetNetworkResourceRelationshipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkResourceRelationshipsCommand}.
  */
 export interface GetNetworkResourceRelationshipsCommandOutput
@@ -37,6 +41,7 @@ export interface GetNetworkResourceRelationshipsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the network resource relationships for the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkResourceRelationshipsCommandInput - {@link GetNetworkResourceRelationshipsCommandInput}
+ * @returns {@link GetNetworkResourceRelationshipsCommandOutput}
  * @see {@link GetNetworkResourceRelationshipsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceRelationshipsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkResourceRelationshipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetNetworkResourceRelationshipsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
     return serializeAws_restJson1GetNetworkResourceRelationshipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

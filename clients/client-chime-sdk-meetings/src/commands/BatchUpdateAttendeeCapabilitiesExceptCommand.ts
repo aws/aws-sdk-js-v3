@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
  */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandInput
   extends BatchUpdateAttendeeCapabilitiesExceptRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
  */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
@@ -65,6 +70,8 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateAttendeeCapabilitiesExceptCommandInput - {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput}
+ * @returns {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput}
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -106,6 +113,9 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateAttendeeCapabilitiesExceptCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     return serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

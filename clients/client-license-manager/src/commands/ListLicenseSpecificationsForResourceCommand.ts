@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLicenseSpecificationsForResourceCommand}.
  */
 export interface ListLicenseSpecificationsForResourceCommandInput extends ListLicenseSpecificationsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLicenseSpecificationsForResourceCommand}.
  */
 export interface ListLicenseSpecificationsForResourceCommandOutput
@@ -37,6 +41,7 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the license configurations for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLicenseSpecificationsForResourceCommandInput - {@link ListLicenseSpecificationsForResourceCommandInput}
+ * @returns {@link ListLicenseSpecificationsForResourceCommandOutput}
  * @see {@link ListLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseSpecificationsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListLicenseSpecificationsForResourceCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     return serializeAws_json1_1ListLicenseSpecificationsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

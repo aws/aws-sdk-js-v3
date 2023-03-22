@@ -107,6 +107,7 @@ import {
 } from "./commands/UpdateCertificateAuthorityCommand";
 
 /**
+ * @public
  * <p>This is the <i>Amazon Web Services Private Certificate Authority API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing a private certificate authority (CA) for your organization.</p>
@@ -126,6 +127,7 @@ import {
  */
 export class ACMPCA extends ACMPCAClient {
   /**
+   * @public
    * <p>Creates a root or subordinate private certificate authority (CA). You must specify the
    * 			CA configuration, an optional configuration for Online Certificate Status Protocol
    * 			(OCSP) and/or a certificate revocation list (CRL), the CA type, and an optional
@@ -178,6 +180,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Creates an audit report that lists every time that your CA private key is used. The
    * 			report is saved in the Amazon S3 bucket that you specify on input. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
    * 			the private key. </p>
@@ -227,6 +230,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
    * 			principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
    * 			renew ACM certificates that reside in the same Amazon Web Services account as the CA.</p>
@@ -285,6 +289,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource
    * 			Name (ARN) of the private CA that you want to delete. You can find the ARN by calling
    * 			the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. </p>
@@ -336,6 +341,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Revokes permissions on a private CA granted to the Certificate Manager (ACM) service principal
    * 			(acm.amazonaws.com). </p>
    *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
@@ -396,6 +402,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Deletes the resource-based policy attached to a private CA. Deletion will remove any
    * 			access that the policy has granted. If there is no policy attached to the private CA,
    * 			this action will return successful.</p>
@@ -459,6 +466,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Lists information about your private certificate authority (CA) or one that has been
    * 			shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
    * 			The output contains the status of your CA. This can be any of the following: </p>
@@ -531,6 +539,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action. Audit information is created
    * 			every time the certificate authority (CA) private key is used. The private key is used
    * 			when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action or the
@@ -568,6 +577,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a certificate from your private CA or one that has been shared with you. The
    * 			ARN of the certificate is returned when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action. You
    * 			must specify both the ARN of your private CA and the ARN of the issued certificate when
@@ -607,6 +617,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the certificate and certificate chain for your private certificate authority
    * 			(CA) or one that has been shared with you. Both the certificate and the chain are base64
    * 			PEM-encoded. The chain does not include the CA certificate. Each certificate in the
@@ -642,6 +653,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the certificate signing request (CSR) for your private certificate authority
    * 			(CA). The CSR is created when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. Sign the CSR with your Amazon Web Services Private CA-hosted
    * 			or on-premises root or subordinate CA. Then import the signed certificate back into
@@ -678,6 +690,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource-based policy attached to a private CA. If either the private CA
    * 			resource or the policy cannot be found, this action returns a
    * 				<code>ResourceNotFoundException</code>. </p>
@@ -734,6 +747,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Imports a signed private CA certificate into Amazon Web Services Private CA. This action is used when you
    * 			are using a chain of trust whose root is located outside Amazon Web Services Private CA. Before you can call
    * 			this action, the following preparations must in place:</p>
@@ -895,6 +909,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Uses your private certificate authority (CA), or one that has been shared with you, to
    * 			issue a client certificate. This action returns the Amazon Resource Name (ARN) of the
    * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
@@ -934,6 +949,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action.</p>
    */
   public listCertificateAuthorities(
@@ -966,6 +982,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>List all permissions on a private CA, if any, granted to the Certificate Manager (ACM) service
    * 			principal (acm.amazonaws.com). </p>
    *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
@@ -1025,6 +1042,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags, if any, that are associated with your private CA or one that has been
    * 			shared with you. Tags are labels that you can use to identify and organize your CAs.
    * 			Each tag consists of a key and an optional value. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>
@@ -1054,6 +1072,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Attaches a resource-based policy to a private CA. </p>
    *          <p>A policy can also be applied by sharing a private CA through Amazon Web Services Resource Access
    * 			Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
@@ -1111,6 +1130,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Restores a certificate authority (CA) that is in the <code>DELETED</code> state. You
    * 			can restore a CA during the period that you defined in the <b>PermanentDeletionTimeInDays</b> parameter of the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a> action. Currently, you can specify 7 to 30 days.
    * 			If you did not specify a <b>PermanentDeletionTimeInDays</b>
@@ -1153,6 +1173,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Revokes a certificate that was issued inside Amazon Web Services Private CA. If you enable a certificate
    * 			revocation list (CRL) when you create or update your private CA, information about the
    * 			revoked certificates will be included in the CRL. Amazon Web Services Private CA writes the CRL to an S3
@@ -1204,6 +1225,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify
    * 			and organize your Amazon Web Services resources. Each tag consists of a key and an optional value. You
    * 			specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag
@@ -1250,6 +1272,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If
    * 			you do not specify the value portion of the tag when calling this action, the tag will
    * 			be removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -1286,6 +1309,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
+   * @public
    * <p>Updates the status or configuration of a private certificate authority (CA). Your
    * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
    * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or

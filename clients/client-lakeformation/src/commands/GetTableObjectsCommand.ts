@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableObjectsCommand}.
  */
 export interface GetTableObjectsCommandInput extends GetTableObjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTableObjectsCommand}.
  */
 export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the set of Amazon S3 objects that make up the specified governed table. A transaction ID or timestamp can be specified for time-travel queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableObjectsCommandInput - {@link GetTableObjectsCommandInput}
+ * @returns {@link GetTableObjectsCommandOutput}
  * @see {@link GetTableObjectsCommandInput} for command's `input` shape.
  * @see {@link GetTableObjectsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetTableObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetTableObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTableObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableObjectsCommandOutput> {
     return deserializeAws_restJson1GetTableObjectsCommand(output, context);
   }

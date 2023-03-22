@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnalyzersCommand}.
  */
 export interface ListAnalyzersCommandInput extends ListAnalyzersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnalyzersCommand}.
  */
 export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of analyzers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnalyzersCommandInput - {@link ListAnalyzersCommandInput}
+ * @returns {@link ListAnalyzersCommandOutput}
  * @see {@link ListAnalyzersCommandInput} for command's `input` shape.
  * @see {@link ListAnalyzersCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListAnalyzersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnalyzersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListAnalyzersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnalyzersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnalyzersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnalyzersCommandOutput> {
     return deserializeAws_restJson1ListAnalyzersCommand(output, context);
   }

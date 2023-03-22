@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
 
 /**
+ * @public
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
  */
 export interface AccountLimit {
@@ -37,6 +38,7 @@ export interface AccountLimit {
 }
 
 /**
+ * @public
  * <p>The number of functions and amount of storage in use.</p>
  */
 export interface AccountUsage {
@@ -51,6 +53,9 @@ export interface AccountUsage {
   FunctionCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface AddLayerVersionPermissionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -93,6 +98,9 @@ export interface AddLayerVersionPermissionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddLayerVersionPermissionResponse {
   /**
    * <p>The permission statement.</p>
@@ -106,6 +114,7 @@ export interface AddLayerVersionPermissionResponse {
 }
 
 /**
+ * @public
  * <p>One of the parameters in the request is not valid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -131,6 +140,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  */
 export class PolicyLengthExceededException extends __BaseException {
@@ -152,6 +162,7 @@ export class PolicyLengthExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
  *       API operation to retrieve the latest RevisionId for your resource.</p>
  */
@@ -178,6 +189,7 @@ export class PreconditionFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource already exists, or another operation is in progress.</p>
  */
 export class ResourceConflictException extends __BaseException {
@@ -203,6 +215,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -226,6 +239,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda service encountered an internal error.</p>
  */
 export class ServiceException extends __BaseException {
@@ -248,6 +262,9 @@ export class ServiceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ThrottleReason {
   CallerRateLimitExceeded = "CallerRateLimitExceeded",
   ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
@@ -258,6 +275,7 @@ export enum ThrottleReason {
 }
 
 /**
+ * @public
  * <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -286,11 +304,17 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FunctionUrlAuthType {
   AWS_IAM = "AWS_IAM",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export interface AddPermissionRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -378,6 +402,9 @@ export interface AddPermissionRequest {
   FunctionUrlAuthType?: FunctionUrlAuthType | string;
 }
 
+/**
+ * @public
+ */
 export interface AddPermissionResponse {
   /**
    * <p>The permission statement that's added to the function policy.</p>
@@ -386,6 +413,7 @@ export interface AddPermissionResponse {
 }
 
 /**
+ * @public
  * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">traffic-shifting</a> configuration of a Lambda function alias.</p>
  */
 export interface AliasRoutingConfiguration {
@@ -396,6 +424,7 @@ export interface AliasRoutingConfiguration {
 }
 
 /**
+ * @public
  * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  */
 export interface AliasConfiguration {
@@ -432,6 +461,7 @@ export interface AliasConfiguration {
 }
 
 /**
+ * @public
  * <p>List of signing profiles that can sign a code package. </p>
  */
 export interface AllowedPublishers {
@@ -443,6 +473,7 @@ export interface AllowedPublishers {
 }
 
 /**
+ * @public
  * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
  */
 export interface AmazonManagedKafkaEventSourceConfig {
@@ -454,11 +485,17 @@ export interface AmazonManagedKafkaEventSourceConfig {
   ConsumerGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export enum Architecture {
   arm64 = "arm64",
   x86_64 = "x86_64",
 }
 
+/**
+ * @public
+ */
 export interface CreateAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -506,12 +543,16 @@ export interface CreateAliasRequest {
   RoutingConfig?: AliasRoutingConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum CodeSigningPolicy {
   Enforce = "Enforce",
   Warn = "Warn",
 }
 
 /**
+ * @public
  * <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or
  *        expiry.</p>
  */
@@ -526,6 +567,9 @@ export interface CodeSigningPolicies {
   UntrustedArtifactOnDeployment?: CodeSigningPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCodeSigningConfigRequest {
   /**
    * <p>Descriptive name for this code signing configuration.</p>
@@ -544,6 +588,7 @@ export interface CreateCodeSigningConfigRequest {
 }
 
 /**
+ * @public
  * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
  */
 export interface CodeSigningConfig {
@@ -578,6 +623,9 @@ export interface CodeSigningConfig {
   LastModified: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration.</p>
@@ -586,6 +634,7 @@ export interface CreateCodeSigningConfigResponse {
 }
 
 /**
+ * @public
  * <p>A destination for events that failed processing.</p>
  */
 export interface OnFailure {
@@ -596,6 +645,7 @@ export interface OnFailure {
 }
 
 /**
+ * @public
  * <p>A destination for events that were processed successfully.</p>
  */
 export interface OnSuccess {
@@ -606,6 +656,7 @@ export interface OnSuccess {
 }
 
 /**
+ * @public
  * <p>A configuration object that specifies the destination of an event after Lambda processes it.</p>
  */
 export interface DestinationConfig {
@@ -620,12 +671,16 @@ export interface DestinationConfig {
   OnFailure?: OnFailure;
 }
 
+/**
+ * @public
+ */
 export enum FullDocument {
   Default = "Default",
   UpdateLookup = "UpdateLookup",
 }
 
 /**
+ * @public
  * <p>
  *       Specific configuration settings for a DocumentDB event source.
  *     </p>
@@ -654,6 +709,7 @@ export interface DocumentDBEventSourceConfig {
 }
 
 /**
+ * @public
  * <p>
  *       A structure within a <code>FilterCriteria</code> object that defines an event filtering pattern.
  *     </p>
@@ -670,6 +726,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>
  *       An object that contains the filters for an event source.
  *     </p>
@@ -683,11 +740,15 @@ export interface FilterCriteria {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export enum FunctionResponseType {
   ReportBatchItemFailures = "ReportBatchItemFailures",
 }
 
 /**
+ * @public
  * <p>(Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.</p>
  */
 export interface ScalingConfig {
@@ -697,11 +758,15 @@ export interface ScalingConfig {
   MaximumConcurrency?: number;
 }
 
+/**
+ * @public
+ */
 export enum EndPointType {
   KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
 }
 
 /**
+ * @public
  * <p>The self-managed Apache Kafka cluster for your event source.</p>
  */
 export interface SelfManagedEventSource {
@@ -713,6 +778,7 @@ export interface SelfManagedEventSource {
 }
 
 /**
+ * @public
  * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
  */
 export interface SelfManagedKafkaEventSourceConfig {
@@ -724,6 +790,9 @@ export interface SelfManagedKafkaEventSourceConfig {
   ConsumerGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export enum SourceAccessType {
   BASIC_AUTH = "BASIC_AUTH",
   CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH",
@@ -736,6 +805,7 @@ export enum SourceAccessType {
 }
 
 /**
+ * @public
  * <p>To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.</p>
  */
 export interface SourceAccessConfiguration {
@@ -791,12 +861,18 @@ export interface SourceAccessConfiguration {
   URI?: string;
 }
 
+/**
+ * @public
+ */
 export enum EventSourcePosition {
   AT_TIMESTAMP = "AT_TIMESTAMP",
   LATEST = "LATEST",
   TRIM_HORIZON = "TRIM_HORIZON",
 }
 
+/**
+ * @public
+ */
 export interface CreateEventSourceMappingRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
@@ -997,6 +1073,7 @@ export interface CreateEventSourceMappingRequest {
 }
 
 /**
+ * @public
  * <p>A mapping between an Amazon Web Services resource and a Lambda function. For details, see <a>CreateEventSourceMapping</a>.</p>
  */
 export interface EventSourceMappingConfiguration {
@@ -1151,6 +1228,7 @@ export interface EventSourceMappingConfiguration {
 }
 
 /**
+ * @public
  * <p>The specified code signing configuration does not exist.</p>
  */
 export class CodeSigningConfigNotFoundException extends __BaseException {
@@ -1174,6 +1252,7 @@ export class CodeSigningConfigNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  */
 export class CodeStorageExceededException extends __BaseException {
@@ -1199,6 +1278,7 @@ export class CodeStorageExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code
  *       signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
  */
@@ -1223,6 +1303,7 @@ export class CodeVerificationFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a
  *       .zip file archive deployment package directly, or specify the URI of a container image.</p>
  */
@@ -1256,6 +1337,7 @@ export interface FunctionCode {
 }
 
 /**
+ * @public
  * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for
  *       failed asynchronous invocations.</p>
  */
@@ -1267,6 +1349,7 @@ export interface DeadLetterConfig {
 }
 
 /**
+ * @public
  * <p>A function's environment variable settings. You can use environment variables to adjust your function's
  *       behavior without updating code. An environment variable is a pair of strings that are stored in a function's
  *       version-specific configuration.</p>
@@ -1279,6 +1362,7 @@ export interface Environment {
 }
 
 /**
+ * @public
  * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any
  *       whole number between 512 and 10,240 MB.</p>
  */
@@ -1290,6 +1374,7 @@ export interface EphemeralStorage {
 }
 
 /**
+ * @public
  * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
  */
 export interface FileSystemConfig {
@@ -1306,6 +1391,7 @@ export interface FileSystemConfig {
 }
 
 /**
+ * @public
  * <p>Configuration values that override the container image Dockerfile settings. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image
  *       settings</a>.</p>
  */
@@ -1327,11 +1413,17 @@ export interface ImageConfig {
   WorkingDirectory?: string;
 }
 
+/**
+ * @public
+ */
 export enum PackageType {
   Image = "Image",
   Zip = "Zip",
 }
 
+/**
+ * @public
+ */
 export enum Runtime {
   dotnet6 = "dotnet6",
   dotnetcore10 = "dotnetcore1.0",
@@ -1363,12 +1455,16 @@ export enum Runtime {
   ruby27 = "ruby2.7",
 }
 
+/**
+ * @public
+ */
 export enum SnapStartApplyOn {
   None = "None",
   PublishedVersions = "PublishedVersions",
 }
 
 /**
+ * @public
  * <p>The function's Lambda SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
  *       snapshot of the initialized execution environment when you publish a function version.</p>
  *          <p>SnapStart is supported with the <code>java11</code> runtime. For more information, see
@@ -1382,12 +1478,16 @@ export interface SnapStart {
   ApplyOn?: SnapStartApplyOn | string;
 }
 
+/**
+ * @public
+ */
 export enum TracingMode {
   Active = "Active",
   PassThrough = "PassThrough",
 }
 
 /**
+ * @public
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a> tracing configuration.
  *       To sample and record incoming requests, set <code>Mode</code> to <code>Active</code>.</p>
  */
@@ -1399,6 +1499,7 @@ export interface TracingConfig {
 }
 
 /**
+ * @public
  * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information,
  *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda
  *         function to access resources in a VPC</a>.</p>
@@ -1415,6 +1516,9 @@ export interface VpcConfig {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -1568,6 +1672,7 @@ export interface CreateFunctionRequest {
 }
 
 /**
+ * @public
  * <p>Error messages for environment variables that couldn't be applied.</p>
  */
 export interface EnvironmentError {
@@ -1583,6 +1688,7 @@ export interface EnvironmentError {
 }
 
 /**
+ * @public
  * <p>The results of an operation to update or read environment variables. If the operation succeeds, the response
  *       contains the environment variables. If it fails, the response contains details about the error.</p>
  */
@@ -1599,6 +1705,7 @@ export interface EnvironmentResponse {
 }
 
 /**
+ * @public
  * <p>Error response to <code>GetFunctionConfiguration</code>.</p>
  */
 export interface ImageConfigError {
@@ -1614,6 +1721,7 @@ export interface ImageConfigError {
 }
 
 /**
+ * @public
  * <p>Response to a <code>GetFunctionConfiguration</code> request.</p>
  */
 export interface ImageConfigResponse {
@@ -1628,12 +1736,18 @@ export interface ImageConfigResponse {
   Error?: ImageConfigError;
 }
 
+/**
+ * @public
+ */
 export enum LastUpdateStatus {
   Failed = "Failed",
   InProgress = "InProgress",
   Successful = "Successful",
 }
 
+/**
+ * @public
+ */
 export enum LastUpdateStatusReasonCode {
   DisabledKMSKey = "DisabledKMSKey",
   EFSIOError = "EFSIOError",
@@ -1659,6 +1773,7 @@ export enum LastUpdateStatusReasonCode {
 }
 
 /**
+ * @public
  * <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -1685,6 +1800,7 @@ export interface Layer {
 }
 
 /**
+ * @public
  * <p>Any error returned when the runtime version information for the function could not be retrieved.</p>
  */
 export interface RuntimeVersionError {
@@ -1700,6 +1816,7 @@ export interface RuntimeVersionError {
 }
 
 /**
+ * @public
  * <p>The ARN of the runtime and any errors that occured.</p>
  */
 export interface RuntimeVersionConfig {
@@ -1714,12 +1831,16 @@ export interface RuntimeVersionConfig {
   Error?: RuntimeVersionError;
 }
 
+/**
+ * @public
+ */
 export enum SnapStartOptimizationStatus {
   Off = "Off",
   On = "On",
 }
 
 /**
+ * @public
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
  */
 export interface SnapStartResponse {
@@ -1734,6 +1855,9 @@ export interface SnapStartResponse {
   OptimizationStatus?: SnapStartOptimizationStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum State {
   Active = "Active",
   Failed = "Failed",
@@ -1741,6 +1865,9 @@ export enum State {
   Pending = "Pending",
 }
 
+/**
+ * @public
+ */
 export enum StateReasonCode {
   Creating = "Creating",
   DisabledKMSKey = "DisabledKMSKey",
@@ -1769,6 +1896,7 @@ export enum StateReasonCode {
 }
 
 /**
+ * @public
  * <p>The function's X-Ray tracing configuration.</p>
  */
 export interface TracingConfigResponse {
@@ -1779,6 +1907,7 @@ export interface TracingConfigResponse {
 }
 
 /**
+ * @public
  * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
  */
 export interface VpcConfigResponse {
@@ -1799,6 +1928,7 @@ export interface VpcConfigResponse {
 }
 
 /**
+ * @public
  * <p>Details about a function's configuration.</p>
  */
 export interface FunctionConfiguration {
@@ -1986,6 +2116,7 @@ export interface FunctionConfiguration {
 }
 
 /**
+ * @public
  * <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks
  *       deployment, even if the code signing policy is set to WARN.</p>
  */
@@ -2010,6 +2141,7 @@ export class InvalidCodeSignatureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing
  *         (CORS)</a> settings for your Lambda function URL. Use CORS to grant access to your function URL
  *       from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your
@@ -2054,6 +2186,9 @@ export interface Cors {
   MaxAge?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2098,6 +2233,9 @@ export interface CreateFunctionUrlConfigRequest {
   Cors?: Cors;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>
@@ -2128,6 +2266,9 @@ export interface CreateFunctionUrlConfigResponse {
   CreationTime: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2159,6 +2300,9 @@ export interface DeleteAliasRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -2166,8 +2310,14 @@ export interface DeleteCodeSigningConfigRequest {
   CodeSigningConfigArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCodeSigningConfigResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
@@ -2176,6 +2326,7 @@ export interface DeleteEventSourceMappingRequest {
 }
 
 /**
+ * @public
  * <p>The operation conflicts with the resource's availability. For example, you tried to update an event source
  *       mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
  */
@@ -2199,6 +2350,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionRequest {
   /**
    * <p>The name of the Lambda function or version.</p>
@@ -2230,6 +2384,9 @@ export interface DeleteFunctionRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionCodeSigningConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2256,6 +2413,9 @@ export interface DeleteFunctionCodeSigningConfigRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2282,6 +2442,9 @@ export interface DeleteFunctionConcurrencyRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2313,6 +2476,9 @@ export interface DeleteFunctionEventInvokeConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2344,6 +2510,9 @@ export interface DeleteFunctionUrlConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -2356,6 +2525,9 @@ export interface DeleteLayerVersionRequest {
   VersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProvisionedConcurrencyConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2387,8 +2559,14 @@ export interface DeleteProvisionedConcurrencyConfigRequest {
   Qualifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsResponse {
   /**
    * <p>Limits that are related to concurrency and code storage.</p>
@@ -2401,6 +2579,9 @@ export interface GetAccountSettingsResponse {
   AccountUsage?: AccountUsage;
 }
 
+/**
+ * @public
+ */
 export interface GetAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2432,6 +2613,9 @@ export interface GetAliasRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
@@ -2439,6 +2623,9 @@ export interface GetCodeSigningConfigRequest {
   CodeSigningConfigArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration</p>
@@ -2446,6 +2633,9 @@ export interface GetCodeSigningConfigResponse {
   CodeSigningConfig: CodeSigningConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
@@ -2453,6 +2643,9 @@ export interface GetEventSourceMappingRequest {
   UUID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2485,6 +2678,7 @@ export interface GetFunctionRequest {
 }
 
 /**
+ * @public
  * <p>Details about a function's deployment package.</p>
  */
 export interface FunctionCodeLocation {
@@ -2509,6 +2703,9 @@ export interface FunctionCodeLocation {
   ResolvedImageUri?: string;
 }
 
+/**
+ * @public
+ */
 export interface Concurrency {
   /**
    * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved
@@ -2517,6 +2714,9 @@ export interface Concurrency {
   ReservedConcurrentExecutions?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionResponse {
   /**
    * <p>The configuration of the function or version.</p>
@@ -2540,6 +2740,9 @@ export interface GetFunctionResponse {
   Concurrency?: Concurrency;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionCodeSigningConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2566,6 +2769,9 @@ export interface GetFunctionCodeSigningConfigRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionCodeSigningConfigResponse {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -2597,6 +2803,9 @@ export interface GetFunctionCodeSigningConfigResponse {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2623,6 +2832,9 @@ export interface GetFunctionConcurrencyRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionConcurrencyResponse {
   /**
    * <p>The number of simultaneous executions that are reserved for the function.</p>
@@ -2630,6 +2842,9 @@ export interface GetFunctionConcurrencyResponse {
   ReservedConcurrentExecutions?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionConfigurationRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2661,6 +2876,9 @@ export interface GetFunctionConfigurationRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface FunctionEventInvokeConfig {
   /**
    * <p>The date and time that the configuration was last updated.</p>
@@ -2709,6 +2927,9 @@ export interface FunctionEventInvokeConfig {
   DestinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2740,6 +2961,9 @@ export interface GetFunctionEventInvokeConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2771,6 +2995,9 @@ export interface GetFunctionUrlConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>
@@ -2806,6 +3033,9 @@ export interface GetFunctionUrlConfigResponse {
   LastModifiedTime: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -2819,6 +3049,7 @@ export interface GetLayerVersionRequest {
 }
 
 /**
+ * @public
  * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -2849,6 +3080,9 @@ export interface LayerVersionContentOutput {
   SigningJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionResponse {
   /**
    * <p>Details about the layer version.</p>
@@ -2897,6 +3131,9 @@ export interface GetLayerVersionResponse {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionByArnRequest {
   /**
    * <p>The ARN of the layer version.</p>
@@ -2904,6 +3141,9 @@ export interface GetLayerVersionByArnRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionPolicyRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -2916,6 +3156,9 @@ export interface GetLayerVersionPolicyRequest {
   VersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionPolicyResponse {
   /**
    * <p>The policy document.</p>
@@ -2928,6 +3171,9 @@ export interface GetLayerVersionPolicyResponse {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2959,6 +3205,9 @@ export interface GetPolicyRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyResponse {
   /**
    * <p>The resource-based policy.</p>
@@ -2971,6 +3220,9 @@ export interface GetPolicyResponse {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetProvisionedConcurrencyConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3002,12 +3254,18 @@ export interface GetProvisionedConcurrencyConfigRequest {
   Qualifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProvisionedConcurrencyStatusEnum {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   READY = "READY",
 }
 
+/**
+ * @public
+ */
 export interface GetProvisionedConcurrencyConfigResponse {
   /**
    * <p>The amount of provisioned concurrency requested.</p>
@@ -3041,6 +3299,7 @@ export interface GetProvisionedConcurrencyConfigResponse {
 }
 
 /**
+ * @public
  * <p>The specified configuration does not exist.</p>
  */
 export class ProvisionedConcurrencyConfigNotFoundException extends __BaseException {
@@ -3061,6 +3320,9 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
   }
 }
 
+/**
+ * @public
+ */
 export interface GetRuntimeManagementConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3093,12 +3355,18 @@ export interface GetRuntimeManagementConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export enum UpdateRuntimeOn {
   Auto = "Auto",
   FunctionUpdate = "FunctionUpdate",
   Manual = "Manual",
 }
 
+/**
+ * @public
+ */
 export interface GetRuntimeManagementConfigResponse {
   /**
    * <p>The current runtime update mode of the function.</p>
@@ -3118,6 +3386,7 @@ export interface GetRuntimeManagementConfigResponse {
 }
 
 /**
+ * @public
  * <p>Need additional permissions to configure VPC settings.</p>
  */
 export class EC2AccessDeniedException extends __BaseException {
@@ -3141,6 +3410,7 @@ export class EC2AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon EC2 throttled Lambda during Lambda function initialization using
  *       the execution role provided for the function.</p>
  */
@@ -3165,6 +3435,7 @@ export class EC2ThrottledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the
  *         Lambda function.</p>
  */
@@ -3191,6 +3462,7 @@ export class EC2UnexpectedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error occurred when reading from or writing to a connected file system.</p>
  */
 export class EFSIOException extends __BaseException {
@@ -3214,6 +3486,7 @@ export class EFSIOException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda function couldn't make a network connection to the configured file system.</p>
  */
 export class EFSMountConnectivityException extends __BaseException {
@@ -3237,6 +3510,7 @@ export class EFSMountConnectivityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda function couldn't mount the configured file system due to a permission or configuration
  *       issue.</p>
  */
@@ -3261,6 +3535,7 @@ export class EFSMountFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda function made a network connection to the configured file system, but the mount
  *       operation timed out.</p>
  */
@@ -3285,6 +3560,7 @@ export class EFSMountTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more
  *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
  *         quotas</a>.</p>
@@ -3310,6 +3586,7 @@ export class ENILimitReachedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request body could not be parsed as JSON.</p>
  */
 export class InvalidRequestContentException extends __BaseException {
@@ -3335,6 +3612,7 @@ export class InvalidRequestContentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The runtime or runtime version specified is not supported.</p>
  */
 export class InvalidRuntimeException extends __BaseException {
@@ -3358,6 +3636,7 @@ export class InvalidRuntimeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
  */
 export class InvalidSecurityGroupIDException extends __BaseException {
@@ -3381,6 +3660,7 @@ export class InvalidSecurityGroupIDException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
  */
 export class InvalidSubnetIDException extends __BaseException {
@@ -3404,6 +3684,7 @@ export class InvalidSubnetIDException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda could not unzip the deployment package.</p>
  */
 export class InvalidZipFileException extends __BaseException {
@@ -3426,17 +3707,26 @@ export class InvalidZipFileException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum InvocationType {
   DryRun = "DryRun",
   Event = "Event",
   RequestResponse = "RequestResponse",
 }
 
+/**
+ * @public
+ */
 export enum LogType {
   None = "None",
   Tail = "Tail",
 }
 
+/**
+ * @public
+ */
 export interface InvocationRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -3498,7 +3788,7 @@ export interface InvocationRequest {
 
   /**
    * <p>The JSON that you want to provide to your Lambda function as input.</p>
-   *          <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also
+   *          <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also
    *       specify a file path. For example, <code>--payload file://payload.json</code>.</p>
    */
   Payload?: Uint8Array;
@@ -3509,6 +3799,9 @@ export interface InvocationRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface InvocationResponse {
   /**
    * <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code>
@@ -3541,6 +3834,7 @@ export interface InvocationResponse {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because KMS access was denied.
  *       Check the Lambda function's KMS permissions.</p>
  */
@@ -3565,6 +3859,7 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because the KMS key used is
  *       disabled. Check the Lambda function's KMS key settings.</p>
  */
@@ -3589,6 +3884,7 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
  */
 export class KMSInvalidStateException extends __BaseException {
@@ -3612,6 +3908,7 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because the KMS key was not
  *       found. Check the function's KMS key settings.</p>
  */
@@ -3636,6 +3933,7 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
  *       quotas</a>.</p>
  */
@@ -3658,6 +3956,7 @@ export class RequestTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to
  *       reestablish and try again.</p>
  */
@@ -3684,6 +3983,7 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>afterRestore()</code>
  *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
  */
@@ -3708,6 +4008,7 @@ export class SnapStartException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
  */
 export class SnapStartNotReadyException extends __BaseException {
@@ -3731,6 +4032,7 @@ export class SnapStartNotReadyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
  */
 export class SnapStartTimeoutException extends __BaseException {
@@ -3754,6 +4056,7 @@ export class SnapStartTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't set up VPC access for the Lambda function because one or more
  *       configured subnets has no available IP addresses.</p>
  */
@@ -3778,6 +4081,7 @@ export class SubnetIPAddressLimitReachedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  */
 export class UnsupportedMediaTypeException extends __BaseException {
@@ -3798,6 +4102,9 @@ export class UnsupportedMediaTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface InvokeAsyncRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3830,6 +4137,7 @@ export interface InvokeAsyncRequest {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
@@ -3841,6 +4149,9 @@ export interface InvokeAsyncResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3882,6 +4193,9 @@ export interface ListAliasesRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -3894,6 +4208,9 @@ export interface ListAliasesResponse {
   Aliases?: AliasConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListCodeSigningConfigsRequest {
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
@@ -3906,6 +4223,9 @@ export interface ListCodeSigningConfigsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeSigningConfigsResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -3918,6 +4238,9 @@ export interface ListCodeSigningConfigsResponse {
   CodeSigningConfigs?: CodeSigningConfig[];
 }
 
+/**
+ * @public
+ */
 export interface ListEventSourceMappingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
@@ -3986,6 +4309,9 @@ export interface ListEventSourceMappingsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSourceMappingsResponse {
   /**
    * <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
@@ -3998,6 +4324,9 @@ export interface ListEventSourceMappingsResponse {
   EventSourceMappings?: EventSourceMappingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionEventInvokeConfigsRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4034,6 +4363,9 @@ export interface ListFunctionEventInvokeConfigsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionEventInvokeConfigsResponse {
   /**
    * <p>A list of configurations.</p>
@@ -4046,10 +4378,16 @@ export interface ListFunctionEventInvokeConfigsResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export enum FunctionVersion {
   ALL = "ALL",
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsRequest {
   /**
    * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example,
@@ -4077,6 +4415,7 @@ export interface ListFunctionsRequest {
 }
 
 /**
+ * @public
  * <p>A list of Lambda functions.</p>
  */
 export interface ListFunctionsResponse {
@@ -4091,6 +4430,9 @@ export interface ListFunctionsResponse {
   Functions?: FunctionConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsByCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -4108,6 +4450,9 @@ export interface ListFunctionsByCodeSigningConfigRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsByCodeSigningConfigResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -4120,6 +4465,9 @@ export interface ListFunctionsByCodeSigningConfigResponse {
   FunctionArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionUrlConfigsRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4158,6 +4506,7 @@ export interface ListFunctionUrlConfigsRequest {
 }
 
 /**
+ * @public
  * <p>Details about a Lambda function URL.</p>
  */
 export interface FunctionUrlConfig {
@@ -4195,6 +4544,9 @@ export interface FunctionUrlConfig {
   AuthType: FunctionUrlAuthType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionUrlConfigsResponse {
   /**
    * <p>A list of function URL configurations.</p>
@@ -4207,6 +4559,9 @@ export interface ListFunctionUrlConfigsResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLayersRequest {
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -4231,6 +4586,7 @@ export interface ListLayersRequest {
 }
 
 /**
+ * @public
  * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -4273,6 +4629,7 @@ export interface LayerVersionsListItem {
 }
 
 /**
+ * @public
  * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -4293,6 +4650,9 @@ export interface LayersListItem {
   LatestMatchingVersion?: LayerVersionsListItem;
 }
 
+/**
+ * @public
+ */
 export interface ListLayersResponse {
   /**
    * <p>A pagination token returned when the response doesn't contain all layers.</p>
@@ -4305,6 +4665,9 @@ export interface ListLayersResponse {
   Layers?: LayersListItem[];
 }
 
+/**
+ * @public
+ */
 export interface ListLayerVersionsRequest {
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -4333,6 +4696,9 @@ export interface ListLayerVersionsRequest {
   CompatibleArchitecture?: Architecture | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLayerVersionsResponse {
   /**
    * <p>A pagination token returned when the response doesn't contain all versions.</p>
@@ -4345,6 +4711,9 @@ export interface ListLayerVersionsResponse {
   LayerVersions?: LayerVersionsListItem[];
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedConcurrencyConfigsRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4382,6 +4751,7 @@ export interface ListProvisionedConcurrencyConfigsRequest {
 }
 
 /**
+ * @public
  * <p>Details about the provisioned concurrency configuration for a function alias or version.</p>
  */
 export interface ProvisionedConcurrencyConfigListItem {
@@ -4421,6 +4791,9 @@ export interface ProvisionedConcurrencyConfigListItem {
   LastModified?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedConcurrencyConfigsResponse {
   /**
    * <p>A list of provisioned concurrency configurations.</p>
@@ -4433,6 +4806,9 @@ export interface ListProvisionedConcurrencyConfigsResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).
@@ -4441,6 +4817,9 @@ export interface ListTagsRequest {
   Resource: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>The function's tags.</p>
@@ -4448,6 +4827,9 @@ export interface ListTagsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListVersionsByFunctionRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4485,6 +4867,9 @@ export interface ListVersionsByFunctionRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListVersionsByFunctionResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -4498,6 +4883,7 @@ export interface ListVersionsByFunctionResponse {
 }
 
 /**
+ * @public
  * <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. You can specify either an Amazon S3 location,
  *       or upload a layer archive directly.</p>
@@ -4525,6 +4911,9 @@ export interface LayerVersionContentInput {
   ZipFile?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface PublishLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -4572,6 +4961,9 @@ export interface PublishLayerVersionRequest {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface PublishLayerVersionResponse {
   /**
    * <p>Details about the layer version.</p>
@@ -4620,6 +5012,9 @@ export interface PublishLayerVersionResponse {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface PublishVersionRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4664,6 +5059,9 @@ export interface PublishVersionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -4695,6 +5093,9 @@ export interface PutFunctionCodeSigningConfigRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionCodeSigningConfigResponse {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -4726,6 +5127,9 @@ export interface PutFunctionCodeSigningConfigResponse {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4757,6 +5161,9 @@ export interface PutFunctionConcurrencyRequest {
   ReservedConcurrentExecutions: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -4824,6 +5231,9 @@ export interface PutFunctionEventInvokeConfigRequest {
   DestinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface PutProvisionedConcurrencyConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4860,6 +5270,9 @@ export interface PutProvisionedConcurrencyConfigRequest {
   ProvisionedConcurrentExecutions: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutProvisionedConcurrencyConfigResponse {
   /**
    * <p>The amount of provisioned concurrency requested.</p>
@@ -4892,6 +5305,9 @@ export interface PutProvisionedConcurrencyConfigResponse {
   LastModified?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRuntimeManagementConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4956,6 +5372,9 @@ export interface PutRuntimeManagementConfigRequest {
   RuntimeVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRuntimeManagementConfigResponse {
   /**
    * <p>The runtime update mode.</p>
@@ -4974,6 +5393,9 @@ export interface PutRuntimeManagementConfigResponse {
   RuntimeVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveLayerVersionPermissionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -4997,6 +5419,9 @@ export interface RemoveLayerVersionPermissionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemovePermissionRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -5039,6 +5464,9 @@ export interface RemovePermissionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).</p>
@@ -5051,6 +5479,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).</p>
@@ -5063,6 +5494,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5116,6 +5550,9 @@ export interface UpdateAliasRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -5138,6 +5575,9 @@ export interface UpdateCodeSigningConfigRequest {
   CodeSigningPolicies?: CodeSigningPolicies;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration</p>
@@ -5145,6 +5585,9 @@ export interface UpdateCodeSigningConfigResponse {
   CodeSigningConfig: CodeSigningConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
@@ -5284,6 +5727,9 @@ export interface UpdateEventSourceMappingRequest {
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionCodeRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5362,6 +5808,9 @@ export interface UpdateFunctionCodeRequest {
   Architectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionConfigurationRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5488,6 +5937,9 @@ export interface UpdateFunctionConfigurationRequest {
   SnapStart?: SnapStart;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -5555,6 +6007,9 @@ export interface UpdateFunctionEventInvokeConfigRequest {
   DestinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5599,6 +6054,9 @@ export interface UpdateFunctionUrlConfigRequest {
   Cors?: Cors;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>

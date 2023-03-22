@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBlueGreenDeploymentCommand}.
  */
 export interface CreateBlueGreenDeploymentCommandInput extends CreateBlueGreenDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBlueGreenDeploymentCommand}.
  */
 export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a blue/green deployment.</p>
  *          <p>A blue/green deployment creates a staging environment that copies the production environment.
  *             In a blue/green deployment, the blue environment is the current production environment.
@@ -60,6 +65,8 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBlueGreenDeploymentCommandInput - {@link CreateBlueGreenDeploymentCommandInput}
+ * @returns {@link CreateBlueGreenDeploymentCommandOutput}
  * @see {@link CreateBlueGreenDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -124,6 +131,9 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBlueGreenDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBlueGreenDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateBlueGreenDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

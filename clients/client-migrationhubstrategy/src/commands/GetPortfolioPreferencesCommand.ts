@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPortfolioPreferencesCommand}.
  */
 export interface GetPortfolioPreferencesCommandInput extends GetPortfolioPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPortfolioPreferencesCommand}.
  */
 export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves your migration and modernization preferences. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPortfolioPreferencesCommandInput - {@link GetPortfolioPreferencesCommandInput}
+ * @returns {@link GetPortfolioPreferencesCommandOutput}
  * @see {@link GetPortfolioPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetPortfolioPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPortfolioPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetPortfolioPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPortfolioPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPortfolioPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPortfolioPreferencesCommandOutput> {
     return deserializeAws_restJson1GetPortfolioPreferencesCommand(output, context);
   }

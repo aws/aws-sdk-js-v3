@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopClockCommand}.
  */
 export interface StopClockCommandInput extends StopClockInput {}
 /**
+ * @public
+ *
  * The output of {@link StopClockCommand}.
  */
 export interface StopClockCommandOutput extends StopClockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the simulation clock.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StopClockCommandInput - {@link StopClockCommandInput}
+ * @returns {@link StopClockCommandOutput}
  * @see {@link StopClockCommandInput} for command's `input` shape.
  * @see {@link StopClockCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopClockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopClockCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StopClockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopClockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopClockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopClockCommandOutput> {
     return deserializeAws_restJson1StopClockCommand(output, context);
   }

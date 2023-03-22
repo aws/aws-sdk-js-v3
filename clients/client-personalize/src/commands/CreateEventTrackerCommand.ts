@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventTrackerCommand}.
  */
 export interface CreateEventTrackerCommandInput extends CreateEventTrackerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventTrackerCommand}.
  */
 export interface CreateEventTrackerCommandOutput extends CreateEventTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an event tracker that you use when adding event data to a specified dataset
  *       group using the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
@@ -91,6 +96,8 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventTrackerCommandInput - {@link CreateEventTrackerCommandInput}
+ * @returns {@link CreateEventTrackerCommandOutput}
  * @see {@link CreateEventTrackerCommandInput} for command's `input` shape.
  * @see {@link CreateEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -132,6 +139,9 @@ export class CreateEventTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class CreateEventTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEventTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventTrackerCommandOutput> {
     return deserializeAws_json1_1CreateEventTrackerCommand(output, context);
   }

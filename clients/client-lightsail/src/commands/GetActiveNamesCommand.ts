@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetActiveNamesCommand}.
  */
 export interface GetActiveNamesCommandInput extends GetActiveNamesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetActiveNamesCommand}.
  */
 export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the names of all active (not deleted) resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetActiveNamesCommandInput - {@link GetActiveNamesCommandInput}
+ * @returns {@link GetActiveNamesCommandOutput}
  * @see {@link GetActiveNamesCommandInput} for command's `input` shape.
  * @see {@link GetActiveNamesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetActiveNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetActiveNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetActiveNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetActiveNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetActiveNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActiveNamesCommandOutput> {
     return deserializeAws_json1_1GetActiveNamesCommand(output, context);
   }

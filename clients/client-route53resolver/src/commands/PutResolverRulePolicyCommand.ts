@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutResolverRulePolicyCommand}.
  */
 export interface PutResolverRulePolicyCommandInput extends PutResolverRulePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResolverRulePolicyCommand}.
  */
 export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies an Amazon Web Services rule that you want to share with another account, the account that you want to share the rule with,
  * 			and the operations that you want the account to be able to perform on the rule.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResolverRulePolicyCommandInput - {@link PutResolverRulePolicyCommandInput}
+ * @returns {@link PutResolverRulePolicyCommandOutput}
  * @see {@link PutResolverRulePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResolverRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutResolverRulePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResolverRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutResolverRulePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResolverRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutResolverRulePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResolverRulePolicyCommandOutput> {
     return deserializeAws_json1_1PutResolverRulePolicyCommand(output, context);
   }

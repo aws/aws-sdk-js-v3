@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSubnetCidrBlockCommand}.
  */
 export interface DisassociateSubnetCidrBlockCommandInput extends DisassociateSubnetCidrBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSubnetCidrBlockCommand}.
  */
 export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSubnetCidrBlockCommandInput - {@link DisassociateSubnetCidrBlockCommandInput}
+ * @returns {@link DisassociateSubnetCidrBlockCommandOutput}
  * @see {@link DisassociateSubnetCidrBlockCommandInput} for command's `input` shape.
  * @see {@link DisassociateSubnetCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSubnetCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSubnetCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateSubnetCidrBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

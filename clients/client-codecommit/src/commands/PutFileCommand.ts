@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PutFileCommand, serializeAws_json1_1PutFileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFileCommand}.
  */
 export interface PutFileCommandInput extends PutFileInput {}
 /**
+ * @public
+ *
  * The output of {@link PutFileCommand}.
  */
 export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFileCommandInput - {@link PutFileCommandInput}
+ * @returns {@link PutFileCommandOutput}
  * @see {@link PutFileCommandInput} for command's `input` shape.
  * @see {@link PutFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -175,6 +182,9 @@ export class PutFileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFileCommandInput) {
     // Start section: command_constructor
     super();
@@ -212,10 +222,16 @@ export class PutFileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutFileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFileCommandOutput> {
     return deserializeAws_json1_1PutFileCommand(output, context);
   }

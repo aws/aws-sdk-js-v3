@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ClearQuerySuggestionsCommand}.
  */
 export interface ClearQuerySuggestionsCommandInput extends ClearQuerySuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ClearQuerySuggestionsCommand}.
  */
 export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Clears existing query suggestions from an index.</p>
  *          <p>This deletes existing suggestions only, not the queries
  *             in the query log. After you clear suggestions, Amazon Kendra learns
@@ -50,6 +55,8 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ClearQuerySuggestionsCommandInput - {@link ClearQuerySuggestionsCommandInput}
+ * @returns {@link ClearQuerySuggestionsCommandOutput}
  * @see {@link ClearQuerySuggestionsCommandInput} for command's `input` shape.
  * @see {@link ClearQuerySuggestionsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -97,6 +104,9 @@ export class ClearQuerySuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClearQuerySuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ClearQuerySuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClearQuerySuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ClearQuerySuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClearQuerySuggestionsCommandOutput> {
     return deserializeAws_json1_1ClearQuerySuggestionsCommand(output, context);
   }

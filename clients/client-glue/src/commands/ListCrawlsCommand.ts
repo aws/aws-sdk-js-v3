@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCrawlsCommand}.
  */
 export interface ListCrawlsCommandInput extends ListCrawlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCrawlsCommand}.
  */
 export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
  *          <p>You may use this API to:</p>
  *          <ul>
@@ -61,6 +66,8 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCrawlsCommandInput - {@link ListCrawlsCommandInput}
+ * @returns {@link ListCrawlsCommandOutput}
  * @see {@link ListCrawlsCommandInput} for command's `input` shape.
  * @see {@link ListCrawlsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListCrawlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCrawlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListCrawlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCrawlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCrawlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCrawlsCommandOutput> {
     return deserializeAws_json1_1ListCrawlsCommand(output, context);
   }

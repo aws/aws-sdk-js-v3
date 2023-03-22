@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPagesByContactCommand}.
  */
 export interface ListPagesByContactCommandInput extends ListPagesByContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPagesByContactCommand}.
  */
 export interface ListPagesByContactCommandOutput extends ListPagesByContactResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the engagements to a contact's contact channels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPagesByContactCommandOutput extends ListPagesByContactResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPagesByContactCommandInput - {@link ListPagesByContactCommandInput}
+ * @returns {@link ListPagesByContactCommandOutput}
  * @see {@link ListPagesByContactCommandInput} for command's `input` shape.
  * @see {@link ListPagesByContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -112,6 +119,9 @@ export class ListPagesByContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPagesByContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class ListPagesByContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPagesByContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPagesByContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPagesByContactCommandOutput> {
     return deserializeAws_json1_1ListPagesByContactCommand(output, context);
   }

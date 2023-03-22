@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountCustomizationCommand}.
  */
 export interface CreateAccountCustomizationCommandInput extends CreateAccountCustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountCustomizationCommand}.
  */
 export interface CreateAccountCustomizationCommandOutput extends CreateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, you can add a custom default theme by using the
  *                 <code>CreateAccountCustomization</code> or <code>UpdateAccountCustomization</code>
  *             API operation. To further customize Amazon QuickSight by removing Amazon QuickSight
@@ -68,6 +73,8 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountCustomizationCommandInput - {@link CreateAccountCustomizationCommandInput}
+ * @returns {@link CreateAccountCustomizationCommandOutput}
  * @see {@link CreateAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -118,6 +125,9 @@ export class CreateAccountCustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class CreateAccountCustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccountCustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

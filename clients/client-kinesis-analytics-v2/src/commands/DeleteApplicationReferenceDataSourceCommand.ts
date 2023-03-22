@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationReferenceDataSourceCommand}.
  */
 export interface DeleteApplicationReferenceDataSourceCommandInput extends DeleteApplicationReferenceDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationReferenceDataSourceCommand}.
  */
 export interface DeleteApplicationReferenceDataSourceCommandOutput
@@ -41,6 +45,7 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p>
  *          <p>If the application is running, Kinesis Data Analytics immediately removes the in-application table
  *       that you created using the <a>AddApplicationReferenceDataSource</a> operation.  </p>
@@ -54,6 +59,8 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationReferenceDataSourceCommandInput - {@link DeleteApplicationReferenceDataSourceCommandInput}
+ * @returns {@link DeleteApplicationReferenceDataSourceCommandOutput}
  * @see {@link DeleteApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationReferenceDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationReferenceDataSourceCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     return serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

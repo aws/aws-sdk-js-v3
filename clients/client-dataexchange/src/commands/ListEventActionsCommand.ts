@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventActionsCommand}.
  */
 export interface ListEventActionsCommandInput extends ListEventActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventActionsCommand}.
  */
 export interface ListEventActionsCommandOutput extends ListEventActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists your event actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventActionsCommandInput - {@link ListEventActionsCommandInput}
+ * @returns {@link ListEventActionsCommandOutput}
  * @see {@link ListEventActionsCommandInput} for command's `input` shape.
  * @see {@link ListEventActionsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListEventActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListEventActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEventActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventActionsCommandOutput> {
     return deserializeAws_restJson1ListEventActionsCommand(output, context);
   }

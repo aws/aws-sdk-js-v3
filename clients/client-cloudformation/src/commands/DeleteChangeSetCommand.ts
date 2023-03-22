@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChangeSetCommand}.
  */
 export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChangeSetCommand}.
  */
 export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the
  *          wrong change set.</p>
  *          <p>If the call successfully completes, CloudFormation successfully deleted the change
@@ -53,6 +58,8 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChangeSetCommandInput - {@link DeleteChangeSetCommandInput}
+ * @returns {@link DeleteChangeSetCommandOutput}
  * @see {@link DeleteChangeSetCommandInput} for command's `input` shape.
  * @see {@link DeleteChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChangeSetCommandOutput> {
     return deserializeAws_queryDeleteChangeSetCommand(output, context);
   }

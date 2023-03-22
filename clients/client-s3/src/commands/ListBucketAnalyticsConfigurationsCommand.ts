@@ -26,10 +26,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListBucketAnalyticsConfigurationsCommand}.
  */
 export interface ListBucketAnalyticsConfigurationsCommandInput extends ListBucketAnalyticsConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBucketAnalyticsConfigurationsCommand}.
  */
 export interface ListBucketAnalyticsConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the analytics configurations for the bucket. You can have up to 1,000 analytics
  *          configurations per bucket.</p>
  *          <p>This action supports list pagination and does not return more than 100 configurations
@@ -83,6 +88,8 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketAnalyticsConfigurationsCommandInput - {@link ListBucketAnalyticsConfigurationsCommandInput}
+ * @returns {@link ListBucketAnalyticsConfigurationsCommandOutput}
  * @see {@link ListBucketAnalyticsConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketAnalyticsConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -112,6 +119,9 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketAnalyticsConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBucketAnalyticsConfigurationsCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     return serializeAws_restXmlListBucketAnalyticsConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHsmClientCertificatesCommand}.
  */
 export interface DescribeHsmClientCertificatesCommandInput extends DescribeHsmClientCertificatesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHsmClientCertificatesCommand}.
  */
 export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCertificateMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified HSM client certificate. If no certificate
  *             ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.</p>
  *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
@@ -55,6 +60,8 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHsmClientCertificatesCommandInput - {@link DescribeHsmClientCertificatesCommandInput}
+ * @returns {@link DescribeHsmClientCertificatesCommandOutput}
  * @see {@link DescribeHsmClientCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeHsmClientCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHsmClientCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHsmClientCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeHsmClientCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

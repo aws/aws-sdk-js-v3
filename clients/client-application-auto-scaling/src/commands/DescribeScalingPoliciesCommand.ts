@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>
  *          <p>You can filter the results using <code>ResourceId</code>,
  *          <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p>
@@ -53,6 +58,8 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingPoliciesCommandInput - {@link DescribeScalingPoliciesCommandInput}
+ * @returns {@link DescribeScalingPoliciesCommandOutput}
  * @see {@link DescribeScalingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -139,6 +146,9 @@ export class DescribeScalingPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class DescribeScalingPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScalingPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalingPoliciesCommandOutput> {
     return deserializeAws_json1_1DescribeScalingPoliciesCommand(output, context);
   }

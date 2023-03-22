@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackageVersionAssetsCommand}.
  */
 export interface ListPackageVersionAssetsCommandInput extends ListPackageVersionAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackageVersionAssetsCommand}.
  */
 export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersionAssetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *        Returns a list of
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a>
@@ -50,6 +55,8 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackageVersionAssetsCommandInput - {@link ListPackageVersionAssetsCommandInput}
+ * @returns {@link ListPackageVersionAssetsCommandOutput}
  * @see {@link ListPackageVersionAssetsCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionAssetsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListPackageVersionAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackageVersionAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListPackageVersionAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackageVersionAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPackageVersionAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackageVersionAssetsCommandOutput> {
     return deserializeAws_restJson1ListPackageVersionAssetsCommand(output, context);
   }

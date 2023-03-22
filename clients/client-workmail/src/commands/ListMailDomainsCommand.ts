@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMailDomainsCommand}.
  */
 export interface ListMailDomainsCommandInput extends ListMailDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMailDomainsCommand}.
  */
 export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mail domains in a given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMailDomainsCommandInput - {@link ListMailDomainsCommandInput}
+ * @returns {@link ListMailDomainsCommandOutput}
  * @see {@link ListMailDomainsCommandInput} for command's `input` shape.
  * @see {@link ListMailDomainsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListMailDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMailDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListMailDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMailDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMailDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailDomainsCommandOutput> {
     return deserializeAws_json1_1ListMailDomainsCommand(output, context);
   }

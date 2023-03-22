@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ConnectParticipantServiceException as __BaseException } from "./ConnectParticipantServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CompleteAttachmentUploadRequest {
   /**
    * <p>A list of unique identifiers for the attachments.</p>
@@ -44,9 +48,13 @@ export interface CompleteAttachmentUploadRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CompleteAttachmentUploadResponse {}
 
 /**
+ * @public
  * <p>An attachment with that identifier is already being uploaded.</p>
  */
 export class ConflictException extends __BaseException {
@@ -68,6 +76,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -89,6 +98,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of attachments per contact exceeds the quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -110,6 +120,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -131,6 +142,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  */
 export class ValidationException extends __BaseException {
@@ -151,11 +163,17 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConnectionType {
   CONNECTION_CREDENTIALS = "CONNECTION_CREDENTIALS",
   WEBSOCKET = "WEBSOCKET",
 }
 
+/**
+ * @public
+ */
 export interface CreateParticipantConnectionRequest {
   /**
    * <p>Type of connection information required. This can be omitted if
@@ -178,6 +196,7 @@ export interface CreateParticipantConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Connection credentials. </p>
  */
 export interface ConnectionCredentials {
@@ -195,6 +214,7 @@ export interface ConnectionCredentials {
 }
 
 /**
+ * @public
  * <p>The websocket for the participant's connection.</p>
  */
 export interface Websocket {
@@ -211,6 +231,9 @@ export interface Websocket {
   ConnectionExpiry?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateParticipantConnectionResponse {
   /**
    * <p>Creates the participant's websocket connection.</p>
@@ -224,6 +247,9 @@ export interface CreateParticipantConnectionResponse {
   ConnectionCredentials?: ConnectionCredentials;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectParticipantRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -239,8 +265,14 @@ export interface DisconnectParticipantRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectParticipantResponse {}
 
+/**
+ * @public
+ */
 export interface GetAttachmentRequest {
   /**
    * <p>A unique identifier for the attachment.</p>
@@ -253,6 +285,9 @@ export interface GetAttachmentRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAttachmentResponse {
   /**
    * <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response
@@ -266,17 +301,24 @@ export interface GetAttachmentResponse {
   UrlExpiry?: string;
 }
 
+/**
+ * @public
+ */
 export enum ScanDirection {
   BACKWARD = "BACKWARD",
   FORWARD = "FORWARD",
 }
 
+/**
+ * @public
+ */
 export enum SortKey {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
 /**
+ * @public
  * <p>A filtering option for where to start. For example, if you sent 100 messages, start
  *             with message 50. </p>
  */
@@ -299,6 +341,9 @@ export interface StartPosition {
   MostRecent?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetTranscriptRequest {
   /**
    * <p>The contactId from the current contact chain for which transcript is needed.</p>
@@ -338,6 +383,9 @@ export interface GetTranscriptRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ArtifactStatus {
   APPROVED = "APPROVED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -345,6 +393,7 @@ export enum ArtifactStatus {
 }
 
 /**
+ * @public
  * <p>The case-insensitive input to indicate standard MIME type that describes the format of the file
  *             that will be uploaded.</p>
  */
@@ -371,6 +420,7 @@ export interface AttachmentItem {
 }
 
 /**
+ * @public
  * <p>The receipt for the message delivered to the recipient.</p>
  */
 export interface Receipt {
@@ -391,6 +441,7 @@ export interface Receipt {
 }
 
 /**
+ * @public
  * <p>Contains metadata related to a message.</p>
  */
 export interface MessageMetadata {
@@ -405,12 +456,18 @@ export interface MessageMetadata {
   Receipts?: Receipt[];
 }
 
+/**
+ * @public
+ */
 export enum ParticipantRole {
   AGENT = "AGENT",
   CUSTOMER = "CUSTOMER",
   SYSTEM = "SYSTEM",
 }
 
+/**
+ * @public
+ */
 export enum ChatItemType {
   ATTACHMENT = "ATTACHMENT",
   CHAT_ENDED = "CHAT_ENDED",
@@ -427,6 +484,7 @@ export enum ChatItemType {
 }
 
 /**
+ * @public
  * <p>An item - message or event - that has been sent. </p>
  */
 export interface Item {
@@ -498,6 +556,9 @@ export interface Item {
   ContactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTranscriptResponse {
   /**
    * <p>The initial contact ID for the contact. </p>
@@ -516,6 +577,9 @@ export interface GetTranscriptResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendEventRequest {
   /**
    * <p>The content type of the request. Supported types are:</p>
@@ -539,7 +603,7 @@ export interface SendEventRequest {
   /**
    * <p>The content of the event to be sent (for example, message text). For content related
    *             to message receipts, this is supported in the form of a JSON string.</p>
-   *          <p>Sample Content: "{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"}"</p>
+   *          <p>Sample Content: "\{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"\}"</p>
    */
   Content?: string;
 
@@ -557,6 +621,9 @@ export interface SendEventRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendEventResponse {
   /**
    * <p>The ID of the response.</p>
@@ -571,6 +638,9 @@ export interface SendEventResponse {
   AbsoluteTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendMessageRequest {
   /**
    * <p>The type of the content. Supported types are <code>text/plain</code>,
@@ -607,6 +677,9 @@ export interface SendMessageRequest {
   ConnectionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendMessageResponse {
   /**
    * <p>The ID of the message.</p>
@@ -621,6 +694,9 @@ export interface SendMessageResponse {
   AbsoluteTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAttachmentUploadRequest {
   /**
    * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -652,6 +728,7 @@ export interface StartAttachmentUploadRequest {
 }
 
 /**
+ * @public
  * <p>Fields to be used while uploading the attachment.</p>
  */
 export interface UploadMetadata {
@@ -672,6 +749,9 @@ export interface UploadMetadata {
   HeadersToInclude?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartAttachmentUploadResponse {
   /**
    * <p>A unique identifier for the attachment.</p>

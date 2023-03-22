@@ -22,15 +22,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketReplicationCommand}.
  */
 export interface DeleteBucketReplicationCommandInput extends DeleteBucketReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketReplicationCommand}.
  */
 export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This operation deletes an Amazon S3 on Outposts bucket's replication configuration. To
  *             delete an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -76,6 +81,8 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketReplicationCommandInput - {@link DeleteBucketReplicationCommandInput}
+ * @returns {@link DeleteBucketReplicationCommandOutput}
  * @see {@link DeleteBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -103,6 +110,9 @@ export class DeleteBucketReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteBucketReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketReplicationCommandOutput> {
     return deserializeAws_restXmlDeleteBucketReplicationCommand(output, context);
   }

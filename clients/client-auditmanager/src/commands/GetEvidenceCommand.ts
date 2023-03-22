@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvidenceCommand}.
  */
 export interface GetEvidenceCommandInput extends GetEvidenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEvidenceCommand}.
  */
 export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns evidence from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvidenceCommandInput - {@link GetEvidenceCommandInput}
+ * @returns {@link GetEvidenceCommandOutput}
  * @see {@link GetEvidenceCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetEvidenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvidenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetEvidenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEvidenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEvidenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEvidenceCommandOutput> {
     return deserializeAws_restJson1GetEvidenceCommand(output, context);
   }

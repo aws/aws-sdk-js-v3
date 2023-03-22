@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMitigationActionsCommand}.
  */
 export interface ListMitigationActionsCommandInput extends ListMitigationActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMitigationActionsCommand}.
  */
 export interface ListMitigationActionsCommandOutput extends ListMitigationActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMitigationActionsCommandInput - {@link ListMitigationActionsCommandInput}
+ * @returns {@link ListMitigationActionsCommandOutput}
  * @see {@link ListMitigationActionsCommandInput} for command's `input` shape.
  * @see {@link ListMitigationActionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListMitigationActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMitigationActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListMitigationActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMitigationActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMitigationActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMitigationActionsCommandOutput> {
     return deserializeAws_restJson1ListMitigationActionsCommand(output, context);
   }

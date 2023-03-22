@@ -88,10 +88,12 @@ import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput }
 import { MediaConvertClient } from "./MediaConvertClient";
 
 /**
+ * @public
  * AWS Elemental MediaConvert
  */
 export class MediaConvert extends MediaConvertClient {
   /**
+   * @public
    * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
    */
   public associateCertificate(
@@ -124,6 +126,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Permanently cancel a job. Once you have canceled a job, you can't start it again.
    */
   public cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
@@ -150,6 +153,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Create a new transcoding job. For information about jobs and job settings, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
@@ -176,6 +180,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Create a new job template. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   public createJobTemplate(
@@ -208,6 +213,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   public createPreset(
@@ -237,6 +243,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
    */
   public createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
@@ -263,6 +270,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Permanently delete a job template you have created.
    */
   public deleteJobTemplate(
@@ -295,6 +303,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Permanently delete a policy that you created.
    */
   public deletePolicy(
@@ -324,6 +333,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Permanently delete a preset you have created.
    */
   public deletePreset(
@@ -353,6 +363,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Permanently delete a queue you have created.
    */
   public deleteQueue(args: DeleteQueueCommandInput, options?: __HttpHandlerOptions): Promise<DeleteQueueCommandOutput>;
@@ -379,6 +390,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Send an request with an empty body to the regional API endpoint to get your account API endpoint.
    */
   public describeEndpoints(
@@ -411,6 +423,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert resource.
    */
   public disassociateCertificate(
@@ -443,6 +456,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve the JSON for a specific completed transcoding job.
    */
   public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
@@ -469,6 +483,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve the JSON for a specific job template.
    */
   public getJobTemplate(
@@ -501,6 +516,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve the JSON for your policy.
    */
   public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
@@ -527,6 +543,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve the JSON for a specific preset.
    */
   public getPreset(args: GetPresetCommandInput, options?: __HttpHandlerOptions): Promise<GetPresetCommandOutput>;
@@ -553,6 +570,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve the JSON for a specific queue.
    */
   public getQueue(args: GetQueueCommandInput, options?: __HttpHandlerOptions): Promise<GetQueueCommandOutput>;
@@ -579,6 +597,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array.
    */
   public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
@@ -605,6 +624,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
    */
   public listJobTemplates(
@@ -637,6 +657,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve a JSON array of up to twenty of your presets. This will return the presets themselves, not just a list of them. To retrieve the next twenty presets, use the nextToken string returned with the array.
    */
   public listPresets(args: ListPresetsCommandInput, options?: __HttpHandlerOptions): Promise<ListPresetsCommandOutput>;
@@ -663,6 +684,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
    */
   public listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
@@ -689,6 +711,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Retrieve the tags for a MediaConvert resource.
    */
   public listTagsForResource(
@@ -721,6 +744,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Create or change your policy. For more information about policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   public putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
@@ -747,6 +771,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Add tags to a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -773,6 +798,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Remove tags from a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
    */
   public untagResource(
@@ -805,6 +831,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Modify one of your existing job templates.
    */
   public updateJobTemplate(
@@ -837,6 +864,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Modify one of your existing presets.
    */
   public updatePreset(
@@ -866,6 +894,7 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * @public
    * Modify one of your existing queues.
    */
   public updateQueue(args: UpdateQueueCommandInput, options?: __HttpHandlerOptions): Promise<UpdateQueueCommandOutput>;

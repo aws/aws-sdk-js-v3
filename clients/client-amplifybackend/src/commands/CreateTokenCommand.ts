@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandInput extends CreateTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
+ * @returns {@link CreateTokenCommandOutput}
  * @see {@link CreateTokenCommandInput} for command's `input` shape.
  * @see {@link CreateTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenCommandOutput> {
     return deserializeAws_restJson1CreateTokenCommand(output, context);
   }

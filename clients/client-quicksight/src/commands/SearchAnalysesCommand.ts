@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchAnalysesCommand}.
  */
 export interface SearchAnalysesCommandInput extends SearchAnalysesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchAnalysesCommand}.
  */
 export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for analyses that belong to the user specified in the filter.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -49,6 +54,8 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchAnalysesCommandInput - {@link SearchAnalysesCommandInput}
+ * @returns {@link SearchAnalysesCommandOutput}
  * @see {@link SearchAnalysesCommandInput} for command's `input` shape.
  * @see {@link SearchAnalysesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class SearchAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class SearchAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAnalysesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchAnalysesCommandOutput> {
     return deserializeAws_restJson1SearchAnalysesCommand(output, context);
   }

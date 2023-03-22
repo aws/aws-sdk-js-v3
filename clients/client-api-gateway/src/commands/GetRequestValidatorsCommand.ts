@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRequestValidatorsCommand}.
  */
 export interface GetRequestValidatorsCommandInput extends GetRequestValidatorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRequestValidatorsCommand}.
  */
 export interface GetRequestValidatorsCommandOutput extends RequestValidators, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the RequestValidators collection of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRequestValidatorsCommandInput - {@link GetRequestValidatorsCommandInput}
+ * @returns {@link GetRequestValidatorsCommandOutput}
  * @see {@link GetRequestValidatorsCommandInput} for command's `input` shape.
  * @see {@link GetRequestValidatorsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRequestValidatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRequestValidatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetRequestValidatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRequestValidatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRequestValidatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRequestValidatorsCommandOutput> {
     return deserializeAws_restJson1GetRequestValidatorsCommand(output, context);
   }

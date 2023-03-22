@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFrameworkCommand}.
  */
 export interface CreateFrameworkCommandInput extends CreateFrameworkInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateFrameworkCommand}.
  */
 export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a framework with one or more controls. A framework is a collection of controls
  *          that you can use to evaluate your backup practices. By using pre-built customizable
  *          controls to define your policies, you can evaluate whether your backup practices comply
@@ -49,6 +54,8 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFrameworkCommandInput - {@link CreateFrameworkCommandInput}
+ * @returns {@link CreateFrameworkCommandOutput}
  * @see {@link CreateFrameworkCommandInput} for command's `input` shape.
  * @see {@link CreateFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFrameworkCommandOutput> {
     return deserializeAws_restJson1CreateFrameworkCommand(output, context);
   }

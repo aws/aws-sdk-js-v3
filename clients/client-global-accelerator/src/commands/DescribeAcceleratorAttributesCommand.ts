@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAcceleratorAttributesCommand}.
  */
 export interface DescribeAcceleratorAttributesCommandInput extends DescribeAcceleratorAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAcceleratorAttributesCommand}.
  */
 export interface DescribeAcceleratorAttributesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe the attributes of an accelerator.
  * 		</p>
  * @example
@@ -53,6 +58,8 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAcceleratorAttributesCommandInput - {@link DescribeAcceleratorAttributesCommandInput}
+ * @returns {@link DescribeAcceleratorAttributesCommandOutput}
  * @see {@link DescribeAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAcceleratorAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAcceleratorAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAcceleratorAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

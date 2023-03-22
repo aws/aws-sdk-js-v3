@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AbortEnvironmentUpdateCommand}.
  */
 export interface AbortEnvironmentUpdateCommandInput extends AbortEnvironmentUpdateMessage {}
 /**
+ * @public
+ *
  * The output of {@link AbortEnvironmentUpdateCommand}.
  */
 export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels in-progress environment configuration update or application version
  *       deployment.</p>
  * @example
@@ -42,6 +47,8 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortEnvironmentUpdateCommandInput - {@link AbortEnvironmentUpdateCommandInput}
+ * @returns {@link AbortEnvironmentUpdateCommandOutput}
  * @see {@link AbortEnvironmentUpdateCommandInput} for command's `input` shape.
  * @see {@link AbortEnvironmentUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -80,6 +87,9 @@ export class AbortEnvironmentUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortEnvironmentUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AbortEnvironmentUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortEnvironmentUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAbortEnvironmentUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortEnvironmentUpdateCommandOutput> {
     return deserializeAws_queryAbortEnvironmentUpdateCommand(output, context);
   }

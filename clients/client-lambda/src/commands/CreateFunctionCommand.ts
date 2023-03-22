@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
  *       deployment package is a .zip file archive or container image that contains your function code. The execution role
  *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
@@ -83,6 +88,8 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionCommandInput - {@link CreateFunctionCommandInput}
+ * @returns {@link CreateFunctionCommandOutput}
  * @see {@link CreateFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -135,6 +142,9 @@ export class CreateFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class CreateFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
     return deserializeAws_restJson1CreateFunctionCommand(output, context);
   }

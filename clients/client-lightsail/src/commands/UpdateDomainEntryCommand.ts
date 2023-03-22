@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainEntryCommand}.
  */
 export interface UpdateDomainEntryCommandInput extends UpdateDomainEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainEntryCommand}.
  */
 export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a domain recordset after it is created.</p>
  *          <p>The <code>update domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -49,6 +54,8 @@ export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainEntryCommandInput - {@link UpdateDomainEntryCommandInput}
+ * @returns {@link UpdateDomainEntryCommandOutput}
  * @see {@link UpdateDomainEntryCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateDomainEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateDomainEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDomainEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainEntryCommandOutput> {
     return deserializeAws_json1_1UpdateDomainEntryCommand(output, context);
   }

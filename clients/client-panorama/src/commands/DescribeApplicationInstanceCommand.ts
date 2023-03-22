@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicationInstanceCommand}.
  */
 export interface DescribeApplicationInstanceCommandInput extends DescribeApplicationInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicationInstanceCommand}.
  */
 export interface DescribeApplicationInstanceCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeApplicationInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an application instance on a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeApplicationInstanceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationInstanceCommandInput - {@link DescribeApplicationInstanceCommandInput}
+ * @returns {@link DescribeApplicationInstanceCommandOutput}
  * @see {@link DescribeApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeApplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeApplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeApplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

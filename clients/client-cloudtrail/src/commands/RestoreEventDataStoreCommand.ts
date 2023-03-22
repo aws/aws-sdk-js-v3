@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreEventDataStoreCommand}.
  */
 export interface RestoreEventDataStoreCommandInput extends RestoreEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreEventDataStoreCommand}.
  */
 export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which
  *          accepts an event data store ARN. You can only restore a deleted event data store within the
  *          seven-day wait period after deletion. Restoring an event data store can take several
@@ -49,6 +54,8 @@ export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStor
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreEventDataStoreCommandInput - {@link RestoreEventDataStoreCommandInput}
+ * @returns {@link RestoreEventDataStoreCommandOutput}
  * @see {@link RestoreEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link RestoreEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -121,6 +128,9 @@ export class RestoreEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class RestoreEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreEventDataStoreCommandOutput> {
     return deserializeAws_json1_1RestoreEventDataStoreCommand(output, context);
   }

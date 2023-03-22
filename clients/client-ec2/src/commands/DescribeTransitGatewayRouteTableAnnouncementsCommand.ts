@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayRouteTableAnnouncementsCommand}.
  */
 export interface DescribeTransitGatewayRouteTableAnnouncementsCommandInput
   extends DescribeTransitGatewayRouteTableAnnouncementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayRouteTableAnnouncementsCommand}.
  */
 export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateway route table advertisements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayRouteTableAnnouncementsCommandInput - {@link DescribeTransitGatewayRouteTableAnnouncementsCommandInput}
+ * @returns {@link DescribeTransitGatewayRouteTableAnnouncementsCommandOutput}
  * @see {@link DescribeTransitGatewayRouteTableAnnouncementsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayRouteTableAnnouncementsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
     return serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

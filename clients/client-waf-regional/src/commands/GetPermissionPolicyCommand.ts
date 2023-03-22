@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPermissionPolicyCommand}.
  */
 export interface GetPermissionPolicyCommandInput extends GetPermissionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPermissionPolicyCommand}.
  */
 export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPermissionPolicyCommandInput - {@link GetPermissionPolicyCommandInput}
+ * @returns {@link GetPermissionPolicyCommandOutput}
  * @see {@link GetPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetPermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionPolicyCommandOutput> {
     return deserializeAws_json1_1GetPermissionPolicyCommand(output, context);
   }

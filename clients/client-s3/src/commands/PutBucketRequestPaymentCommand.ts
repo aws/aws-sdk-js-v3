@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketRequestPaymentCommand}.
  */
 export interface PutBucketRequestPaymentCommandInput extends PutBucketRequestPaymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketRequestPaymentCommand}.
  */
 export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
  *          for downloads from the bucket. This configuration parameter enables the bucket owner (only)
  *          to specify that the person requesting the download will be charged for the download. For
@@ -59,6 +64,8 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketRequestPaymentCommandInput - {@link PutBucketRequestPaymentCommandInput}
+ * @returns {@link PutBucketRequestPaymentCommandOutput}
  * @see {@link PutBucketRequestPaymentCommandInput} for command's `input` shape.
  * @see {@link PutBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -102,6 +109,9 @@ export class PutBucketRequestPaymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketRequestPaymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class PutBucketRequestPaymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketRequestPaymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketRequestPaymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketRequestPaymentCommandOutput> {
     return deserializeAws_restXmlPutBucketRequestPaymentCommand(output, context);
   }

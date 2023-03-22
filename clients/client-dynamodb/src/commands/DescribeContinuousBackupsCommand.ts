@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContinuousBackupsCommand}.
  */
 export interface DescribeContinuousBackupsCommandInput extends DescribeContinuousBackupsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContinuousBackupsCommand}.
  */
 export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuousBackupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the status of continuous backups and point in time recovery on the specified
  *             table. Continuous backups are <code>ENABLED</code> on all tables at table creation. If
  *             point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will be set to
@@ -57,6 +62,8 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContinuousBackupsCommandInput - {@link DescribeContinuousBackupsCommandInput}
+ * @returns {@link DescribeContinuousBackupsCommandOutput}
  * @see {@link DescribeContinuousBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeContinuousBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeContinuousBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContinuousBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeContinuousBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContinuousBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeContinuousBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

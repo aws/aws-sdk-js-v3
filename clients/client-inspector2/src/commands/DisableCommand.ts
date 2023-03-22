@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableCommand}.
  */
 export interface DisableCommandInput extends DisableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableCommand}.
  */
 export interface DisableCommandOutput extends DisableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Amazon Inspector scans for one or more Amazon Web Services accounts. Disabling all scan types in an account
  *          disables the Amazon Inspector service.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableCommandInput - {@link DisableCommandInput}
+ * @returns {@link DisableCommandOutput}
  * @see {@link DisableCommandInput} for command's `input` shape.
  * @see {@link DisableCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -86,6 +93,9 @@ export class DisableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableCommandOutput> {
     return deserializeAws_restJson1DisableCommand(output, context);
   }

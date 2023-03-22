@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandInput extends CreateBackupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandOutput extends CreateBackupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup for an existing table.</p>
  *          <p> Each time you create an on-demand backup, the entire table data is backed up. There
  *             is no limit to the number of on-demand backups that can be taken. </p>
@@ -75,6 +80,8 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
+ * @returns {@link CreateBackupCommandOutput}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -131,6 +138,9 @@ export class CreateBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class CreateBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
     return deserializeAws_json1_0CreateBackupCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionConfigurationsCommand}.
  */
 export interface ListDistributionConfigurationsCommandInput extends ListDistributionConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionConfigurationsCommand}.
  */
 export interface ListDistributionConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDistributionConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of distribution configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListDistributionConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionConfigurationsCommandInput - {@link ListDistributionConfigurationsCommandInput}
+ * @returns {@link ListDistributionConfigurationsCommandOutput}
  * @see {@link ListDistributionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListDistributionConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListDistributionConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class ListDistributionConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionConfigurationsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class ListDistributionConfigurationsCommand extends $Command<
     return serializeAws_restJson1ListDistributionConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

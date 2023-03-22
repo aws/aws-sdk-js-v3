@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCurrentUserCommand}.
  */
 export interface GetCurrentUserCommandInput extends GetCurrentUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCurrentUserCommand}.
  */
 export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details of the current user for whom the authentication token was
  *             generated. This is not a valid action for SigV4 (administrative API) clients.</p>
  *          <p>This action requires an authentication token. To get an authentication token,
@@ -52,6 +57,8 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCurrentUserCommandInput - {@link GetCurrentUserCommandInput}
+ * @returns {@link GetCurrentUserCommandOutput}
  * @see {@link GetCurrentUserCommandInput} for command's `input` shape.
  * @see {@link GetCurrentUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetCurrentUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCurrentUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetCurrentUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCurrentUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCurrentUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentUserCommandOutput> {
     return deserializeAws_restJson1GetCurrentUserCommand(output, context);
   }

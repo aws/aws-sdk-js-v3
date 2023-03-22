@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualMachinesCommand}.
  */
 export interface ListVirtualMachinesCommandInput extends ListVirtualMachinesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualMachinesCommand}.
  */
 export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your virtual machines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualMachinesCommandInput - {@link ListVirtualMachinesCommandInput}
+ * @returns {@link ListVirtualMachinesCommandOutput}
  * @see {@link ListVirtualMachinesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualMachinesCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListVirtualMachinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualMachinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListVirtualMachinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualMachinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListVirtualMachinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualMachinesCommandOutput> {
     return deserializeAws_json1_0ListVirtualMachinesCommand(output, context);
   }

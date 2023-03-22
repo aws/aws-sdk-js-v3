@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterElasticIpCommand}.
  */
 export interface DeregisterElasticIpCommandInput extends DeregisterElasticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterElasticIpCommand}.
  */
 export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a specified Elastic IP address. The address can then be registered by another
  *       stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
@@ -47,6 +52,8 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterElasticIpCommandInput - {@link DeregisterElasticIpCommandInput}
+ * @returns {@link DeregisterElasticIpCommandOutput}
  * @see {@link DeregisterElasticIpCommandInput} for command's `input` shape.
  * @see {@link DeregisterElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeregisterElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeregisterElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterElasticIpCommandOutput> {
     return deserializeAws_json1_1DeregisterElasticIpCommand(output, context);
   }

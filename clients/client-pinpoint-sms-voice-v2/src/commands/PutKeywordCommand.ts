@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutKeywordCommand}.
  */
 export interface PutKeywordCommandInput extends PutKeywordRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutKeywordCommand}.
  */
 export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a keyword configuration on an origination phone number or
  *             pool.</p>
  *         <p> A keyword is a word that you can search for on a particular phone number or pool. It
@@ -57,6 +62,8 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutKeywordCommandInput - {@link PutKeywordCommandInput}
+ * @returns {@link PutKeywordCommandOutput}
  * @see {@link PutKeywordCommandInput} for command's `input` shape.
  * @see {@link PutKeywordCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -107,6 +114,9 @@ export class PutKeywordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutKeywordCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class PutKeywordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutKeywordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PutKeywordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeywordCommandOutput> {
     return deserializeAws_json1_0PutKeywordCommand(output, context);
   }

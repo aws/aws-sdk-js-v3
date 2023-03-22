@@ -22,15 +22,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterEndpointCommand}.
  */
 export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterEndpointCommand}.
  */
 export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p>
  *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
@@ -45,6 +50,8 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterEndpointCommandInput - {@link ModifyDBClusterEndpointCommandInput}
+ * @returns {@link ModifyDBClusterEndpointCommandOutput}
  * @see {@link ModifyDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -84,6 +91,9 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterEndpointCommandOutput> {
     return deserializeAws_queryModifyDBClusterEndpointCommand(output, context);
   }

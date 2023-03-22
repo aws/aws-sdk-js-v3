@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyMountTargetSecurityGroupsCommand}.
  */
 export interface ModifyMountTargetSecurityGroupsCommandInput extends ModifyMountTargetSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyMountTargetSecurityGroupsCommand}.
  */
 export interface ModifyMountTargetSecurityGroupsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the set of security groups in effect for a mount target.</p>
  *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
  *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
@@ -63,6 +68,8 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyMountTargetSecurityGroupsCommandInput - {@link ModifyMountTargetSecurityGroupsCommandInput}
+ * @returns {@link ModifyMountTargetSecurityGroupsCommandOutput}
  * @see {@link ModifyMountTargetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link ModifyMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -123,6 +130,9 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyMountTargetSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,6 +172,9 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
@@ -169,6 +182,9 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     return serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

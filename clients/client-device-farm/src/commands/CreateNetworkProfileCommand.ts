@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkProfileCommand}.
  */
 export interface CreateNetworkProfileCommandInput extends CreateNetworkProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkProfileCommand}.
  */
 export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkProfileCommandInput - {@link CreateNetworkProfileCommandInput}
+ * @returns {@link CreateNetworkProfileCommandOutput}
  * @see {@link CreateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkProfileCommandOutput> {
     return deserializeAws_json1_1CreateNetworkProfileCommand(output, context);
   }

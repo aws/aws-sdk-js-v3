@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThemePermissionsCommand}.
  */
 export interface DescribeThemePermissionsCommandInput extends DescribeThemePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThemePermissionsCommand}.
  */
 export interface DescribeThemePermissionsCommandOutput extends DescribeThemePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the read and write permissions for a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeThemePermissionsCommandOutput extends DescribeThemePerm
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThemePermissionsCommandInput - {@link DescribeThemePermissionsCommandInput}
+ * @returns {@link DescribeThemePermissionsCommandOutput}
  * @see {@link DescribeThemePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeThemePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeThemePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThemePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeThemePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThemePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeThemePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThemePermissionsCommandOutput> {
     return deserializeAws_restJson1DescribeThemePermissionsCommand(output, context);
   }

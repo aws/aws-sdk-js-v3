@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomKeyStoreCommand}.
  */
 export interface UpdateCustomKeyStoreCommandInput extends UpdateCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomKeyStoreCommand}.
  */
 export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the properties of a custom key store. You can use this operation to change the
  *       properties of an CloudHSM key store or an external key store.</p>
  *          <p>Use the required <code>CustomKeyStoreId</code> parameter to identify the custom key store.
@@ -138,6 +143,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomKeyStoreCommandInput - {@link UpdateCustomKeyStoreCommandInput}
+ * @returns {@link UpdateCustomKeyStoreCommandOutput}
  * @see {@link UpdateCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -394,6 +401,9 @@ export class UpdateCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -433,10 +443,16 @@ export class UpdateCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomKeyStoreCommandOutput> {
     return deserializeAws_json1_1UpdateCustomKeyStoreCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComplianceStatusCommand}.
  */
 export interface ListComplianceStatusCommandInput extends ListComplianceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComplianceStatusCommand}.
  */
 export interface ListComplianceStatusCommandOutput extends ListComplianceStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
  *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
  *       by the specified policy. </p>
@@ -48,6 +53,8 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComplianceStatusCommandInput - {@link ListComplianceStatusCommandInput}
+ * @returns {@link ListComplianceStatusCommandOutput}
  * @see {@link ListComplianceStatusCommandInput} for command's `input` shape.
  * @see {@link ListComplianceStatusCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListComplianceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComplianceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListComplianceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComplianceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListComplianceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComplianceStatusCommandOutput> {
     return deserializeAws_json1_1ListComplianceStatusCommand(output, context);
   }

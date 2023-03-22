@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ProvideAnomalyFeedbackCommand}.
  */
 export interface ProvideAnomalyFeedbackCommandInput extends ProvideAnomalyFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvideAnomalyFeedbackCommand}.
  */
 export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the feedback property of a given cost anomaly. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvideAnomalyFeedbackCommandInput - {@link ProvideAnomalyFeedbackCommandInput}
+ * @returns {@link ProvideAnomalyFeedbackCommandOutput}
  * @see {@link ProvideAnomalyFeedbackCommandInput} for command's `input` shape.
  * @see {@link ProvideAnomalyFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvideAnomalyFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvideAnomalyFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ProvideAnomalyFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvideAnomalyFeedbackCommandOutput> {
     return deserializeAws_json1_1ProvideAnomalyFeedbackCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateComputeEnvironmentCommand}.
  */
 export interface UpdateComputeEnvironmentCommandInput extends UpdateComputeEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateComputeEnvironmentCommand}.
  */
 export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Batch compute environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComputeEnvironmentCommandInput - {@link UpdateComputeEnvironmentCommandInput}
+ * @returns {@link UpdateComputeEnvironmentCommandOutput}
  * @see {@link UpdateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComputeEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateComputeEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComputeEnvironmentCommandOutput> {
     return deserializeAws_restJson1UpdateComputeEnvironmentCommand(output, context);
   }

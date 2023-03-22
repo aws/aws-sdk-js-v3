@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSlotTypeVersionCommand}.
  */
 export interface CreateSlotTypeVersionCommandInput extends CreateSlotTypeVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSlotTypeVersionCommand}.
  */
 export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of a slot type based on the
  *         <code>$LATEST</code> version of the specified slot type. If the
  *         <code>$LATEST</code> version of this resource has not changed since the
@@ -65,6 +70,8 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSlotTypeVersionCommandInput - {@link CreateSlotTypeVersionCommandInput}
+ * @returns {@link CreateSlotTypeVersionCommandOutput}
  * @see {@link CreateSlotTypeVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSlotTypeVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -112,6 +119,9 @@ export class CreateSlotTypeVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSlotTypeVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class CreateSlotTypeVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSlotTypeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSlotTypeVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSlotTypeVersionCommandOutput> {
     return deserializeAws_restJson1CreateSlotTypeVersionCommand(output, context);
   }

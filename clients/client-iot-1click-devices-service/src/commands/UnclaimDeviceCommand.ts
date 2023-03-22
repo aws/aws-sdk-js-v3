@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UnclaimDeviceCommand}.
  */
 export interface UnclaimDeviceCommandInput extends UnclaimDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnclaimDeviceCommand}.
  */
 export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a device from your AWS account using its device ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UnclaimDeviceCommandInput - {@link UnclaimDeviceCommandInput}
+ * @returns {@link UnclaimDeviceCommandOutput}
  * @see {@link UnclaimDeviceCommandInput} for command's `input` shape.
  * @see {@link UnclaimDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -79,6 +86,9 @@ export class UnclaimDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnclaimDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UnclaimDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnclaimDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnclaimDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnclaimDeviceCommandOutput> {
     return deserializeAws_restJson1UnclaimDeviceCommand(output, context);
   }

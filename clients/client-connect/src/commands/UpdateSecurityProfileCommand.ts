@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityProfileCommand}.
  */
 export interface UpdateSecurityProfileCommandInput extends UpdateSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityProfileCommand}.
  */
 export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates a security profile.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityProfileCommandInput - {@link UpdateSecurityProfileCommandInput}
+ * @returns {@link UpdateSecurityProfileCommandOutput}
  * @see {@link UpdateSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityProfileCommandOutput> {
     return deserializeAws_restJson1UpdateSecurityProfileCommand(output, context);
   }

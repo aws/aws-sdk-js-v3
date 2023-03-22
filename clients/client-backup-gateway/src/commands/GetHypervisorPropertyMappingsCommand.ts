@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetHypervisorPropertyMappingsCommand}.
  */
 export interface GetHypervisorPropertyMappingsCommandInput extends GetHypervisorPropertyMappingsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHypervisorPropertyMappingsCommand}.
  */
 export interface GetHypervisorPropertyMappingsCommandOutput
@@ -37,6 +41,7 @@ export interface GetHypervisorPropertyMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action retrieves the property mappings for the specified hypervisor.
  *       A hypervisor property mapping displays the relationship of entity properties
  *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
@@ -50,6 +55,8 @@ export interface GetHypervisorPropertyMappingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHypervisorPropertyMappingsCommandInput - {@link GetHypervisorPropertyMappingsCommandInput}
+ * @returns {@link GetHypervisorPropertyMappingsCommandOutput}
  * @see {@link GetHypervisorPropertyMappingsCommandInput} for command's `input` shape.
  * @see {@link GetHypervisorPropertyMappingsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetHypervisorPropertyMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHypervisorPropertyMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetHypervisorPropertyMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHypervisorPropertyMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetHypervisorPropertyMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

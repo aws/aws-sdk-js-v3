@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMeshesCommand}.
  */
 export interface ListMeshesCommandInput extends ListMeshesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMeshesCommand}.
  */
 export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing service meshes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMeshesCommandInput - {@link ListMeshesCommandInput}
+ * @returns {@link ListMeshesCommandOutput}
  * @see {@link ListMeshesCommandInput} for command's `input` shape.
  * @see {@link ListMeshesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListMeshesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMeshesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListMeshesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMeshesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMeshesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeshesCommandOutput> {
     return deserializeAws_restJson1ListMeshesCommand(output, context);
   }

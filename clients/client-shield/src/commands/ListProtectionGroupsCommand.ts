@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtectionGroupsCommand}.
  */
 export interface ListProtectionGroupsCommandInput extends ListProtectionGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProtectionGroupsCommand}.
  */
 export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves <a>ProtectionGroup</a> objects for the account. You can retrieve all protection groups or you can provide
  *        filtering criteria and retrieve just the subset of protection groups that match the criteria. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectionGroupsCommandInput - {@link ListProtectionGroupsCommandInput}
+ * @returns {@link ListProtectionGroupsCommandOutput}
  * @see {@link ListProtectionGroupsCommandInput} for command's `input` shape.
  * @see {@link ListProtectionGroupsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListProtectionGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectionGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListProtectionGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProtectionGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectionGroupsCommandOutput> {
     return deserializeAws_json1_1ListProtectionGroupsCommand(output, context);
   }

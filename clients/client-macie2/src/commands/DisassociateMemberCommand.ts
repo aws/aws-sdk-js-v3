@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMemberCommand}.
  */
 export interface DisassociateMemberCommandInput extends DisassociateMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMemberCommand}.
  */
 export interface DisassociateMemberCommandOutput extends DisassociateMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Amazon Macie administrator account from a member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMemberCommandInput - {@link DisassociateMemberCommandInput}
+ * @returns {@link DisassociateMemberCommandOutput}
  * @see {@link DisassociateMemberCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DisassociateMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DisassociateMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMemberCommandOutput> {
     return deserializeAws_restJson1DisassociateMemberCommand(output, context);
   }

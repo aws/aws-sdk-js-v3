@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MgnServiceException as __BaseException } from "./MgnServiceException";
 
 /**
+ * @public
  * <p>Operating denied due to a file permission or access check error.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ActionCategory {
   BACKUP = "BACKUP",
   CONFIGURATION = "CONFIGURATION",
@@ -37,12 +41,18 @@ export enum ActionCategory {
   VALIDATION = "VALIDATION",
 }
 
+/**
+ * @public
+ */
 export enum ApplicationHealthStatus {
   ERROR = "ERROR",
   HEALTHY = "HEALTHY",
   LAGGING = "LAGGING",
 }
 
+/**
+ * @public
+ */
 export enum ApplicationProgressStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -50,6 +60,7 @@ export enum ApplicationProgressStatus {
 }
 
 /**
+ * @public
  * <p>Application aggregated status.</p>
  */
 export interface ApplicationAggregatedStatus {
@@ -74,6 +85,9 @@ export interface ApplicationAggregatedStatus {
   totalSourceServers?: number;
 }
 
+/**
+ * @public
+ */
 export interface Application {
   /**
    * <p>Application ID.</p>
@@ -126,6 +140,9 @@ export interface Application {
   waveID?: string;
 }
 
+/**
+ * @public
+ */
 export interface ArchiveApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -134,6 +151,7 @@ export interface ArchiveApplicationRequest {
 }
 
 /**
+ * @public
  * <p>Error details.</p>
  */
 export interface ErrorDetails {
@@ -159,6 +177,7 @@ export interface ErrorDetails {
 }
 
 /**
+ * @public
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -198,6 +217,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource not found exception.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -231,6 +251,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be completed because its exceeded the service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -282,6 +303,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Uninitialized account exception.</p>
  */
 export class UninitializedAccountException extends __BaseException {
@@ -302,6 +324,9 @@ export class UninitializedAccountException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateSourceServersRequest {
   /**
    * <p>Application ID.</p>
@@ -314,8 +339,14 @@ export interface AssociateSourceServersRequest {
   sourceServerIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSourceServersResponse {}
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>Application name.</p>
@@ -333,6 +364,9 @@ export interface CreateApplicationRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -340,8 +374,14 @@ export interface DeleteApplicationRequest {
   applicationID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateSourceServersRequest {
   /**
    * <p>Application ID.</p>
@@ -354,9 +394,13 @@ export interface DisassociateSourceServersRequest {
   sourceServerIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSourceServersResponse {}
 
 /**
+ * @public
  * <p>Applications list filters.</p>
  */
 export interface ListApplicationsRequestFilters {
@@ -376,6 +420,9 @@ export interface ListApplicationsRequestFilters {
   waveIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>Applications list filters.</p>
@@ -393,6 +440,9 @@ export interface ListApplicationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>Applications list.</p>
@@ -405,6 +455,9 @@ export interface ListApplicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UnarchiveApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -412,6 +465,9 @@ export interface UnarchiveApplicationRequest {
   applicationID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -430,6 +486,7 @@ export interface UpdateApplicationRequest {
 }
 
 /**
+ * @public
  * <p>List export errors request.</p>
  */
 export interface ListExportErrorsRequest {
@@ -450,6 +507,7 @@ export interface ListExportErrorsRequest {
 }
 
 /**
+ * @public
  * <p>Export errors data.</p>
  */
 export interface ExportErrorData {
@@ -460,6 +518,7 @@ export interface ExportErrorData {
 }
 
 /**
+ * @public
  * <p>Export task error.</p>
  */
 export interface ExportTaskError {
@@ -475,6 +534,7 @@ export interface ExportTaskError {
 }
 
 /**
+ * @public
  * <p>List export errors response.</p>
  */
 export interface ListExportErrorsResponse {
@@ -490,6 +550,7 @@ export interface ListExportErrorsResponse {
 }
 
 /**
+ * @public
  * <p>Validate exception field.</p>
  */
 export interface ValidationExceptionField {
@@ -504,6 +565,9 @@ export interface ValidationExceptionField {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -512,6 +576,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>Validate exception.</p>
  */
 export class ValidationException extends __BaseException {
@@ -545,6 +610,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>List exports request filters.</p>
  */
 export interface ListExportsRequestFilters {
@@ -555,6 +621,7 @@ export interface ListExportsRequestFilters {
 }
 
 /**
+ * @public
  * <p>List export request.</p>
  */
 export interface ListExportsRequest {
@@ -574,6 +641,9 @@ export interface ListExportsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExportStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
@@ -582,6 +652,7 @@ export enum ExportStatus {
 }
 
 /**
+ * @public
  * <p>Export task summary.</p>
  */
 export interface ExportTaskSummary {
@@ -602,6 +673,7 @@ export interface ExportTaskSummary {
 }
 
 /**
+ * @public
  * <p>Export task.</p>
  */
 export interface ExportTask {
@@ -652,6 +724,7 @@ export interface ExportTask {
 }
 
 /**
+ * @public
  * <p>List export response.</p>
  */
 export interface ListExportsResponse {
@@ -667,6 +740,7 @@ export interface ListExportsResponse {
 }
 
 /**
+ * @public
  * <p>Start export request.</p>
  */
 export interface StartExportRequest {
@@ -687,6 +761,7 @@ export interface StartExportRequest {
 }
 
 /**
+ * @public
  * <p>Start export response.</p>
  */
 export interface StartExportResponse {
@@ -697,6 +772,7 @@ export interface StartExportResponse {
 }
 
 /**
+ * @public
  * <p>List import errors request.</p>
  */
 export interface ListImportErrorsRequest {
@@ -717,6 +793,7 @@ export interface ListImportErrorsRequest {
 }
 
 /**
+ * @public
  * <p>Import error data.</p>
  */
 export interface ImportErrorData {
@@ -751,12 +828,16 @@ export interface ImportErrorData {
   rawError?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImportErrorType {
   PROCESSING_ERROR = "PROCESSING_ERROR",
   VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
 /**
+ * @public
  * <p>Import task error.</p>
  */
 export interface ImportTaskError {
@@ -777,6 +858,7 @@ export interface ImportTaskError {
 }
 
 /**
+ * @public
  * <p>List imports errors response.</p>
  */
 export interface ListImportErrorsResponse {
@@ -792,6 +874,7 @@ export interface ListImportErrorsResponse {
 }
 
 /**
+ * @public
  * <p>List imports request filters.</p>
  */
 export interface ListImportsRequestFilters {
@@ -802,6 +885,7 @@ export interface ListImportsRequestFilters {
 }
 
 /**
+ * @public
  * <p>List imports request.</p>
  */
 export interface ListImportsRequest {
@@ -822,6 +906,7 @@ export interface ListImportsRequest {
 }
 
 /**
+ * @public
  * <p>S3 bucket source.</p>
  */
 export interface S3BucketSource {
@@ -841,6 +926,9 @@ export interface S3BucketSource {
   s3BucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImportStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
@@ -849,6 +937,7 @@ export enum ImportStatus {
 }
 
 /**
+ * @public
  * <p>Import task summary applications.</p>
  */
 export interface ImportTaskSummaryApplications {
@@ -864,6 +953,7 @@ export interface ImportTaskSummaryApplications {
 }
 
 /**
+ * @public
  * <p>Import task summary servers.</p>
  */
 export interface ImportTaskSummaryServers {
@@ -879,6 +969,7 @@ export interface ImportTaskSummaryServers {
 }
 
 /**
+ * @public
  * <p>Import task summery waves.</p>
  */
 export interface ImportTaskSummaryWaves {
@@ -894,6 +985,7 @@ export interface ImportTaskSummaryWaves {
 }
 
 /**
+ * @public
  * <p>Import task summary.</p>
  */
 export interface ImportTaskSummary {
@@ -914,6 +1006,7 @@ export interface ImportTaskSummary {
 }
 
 /**
+ * @public
  * <p>Import task.</p>
  */
 export interface ImportTask {
@@ -954,6 +1047,7 @@ export interface ImportTask {
 }
 
 /**
+ * @public
  * <p>List import response.</p>
  */
 export interface ListImportsResponse {
@@ -969,6 +1063,7 @@ export interface ListImportsResponse {
 }
 
 /**
+ * @public
  * <p>Start import request.</p>
  */
 export interface StartImportRequest {
@@ -984,6 +1079,7 @@ export interface StartImportRequest {
 }
 
 /**
+ * @public
  * <p>Start import response.</p>
  */
 export interface StartImportResponse {
@@ -993,10 +1089,19 @@ export interface StartImportResponse {
   importTask?: ImportTask;
 }
 
+/**
+ * @public
+ */
 export interface InitializeServiceRequest {}
 
+/**
+ * @public
+ */
 export interface InitializeServiceResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>Request to delete Job from service by Job ID.</p>
@@ -1004,8 +1109,14 @@ export interface DeleteJobRequest {
   jobID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsRequest {
   /**
    * <p>Request to describe Job log job ID.</p>
@@ -1023,6 +1134,9 @@ export interface DescribeJobLogItemsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum JobLogEvent {
   CLEANUP_END = "CLEANUP_END",
   CLEANUP_FAIL = "CLEANUP_FAIL",
@@ -1043,6 +1157,7 @@ export enum JobLogEvent {
 }
 
 /**
+ * @public
  * <p>Job log data</p>
  */
 export interface JobLogEventData {
@@ -1068,6 +1183,7 @@ export interface JobLogEventData {
 }
 
 /**
+ * @public
  * <p>Job log.</p>
  */
 export interface JobLog {
@@ -1087,6 +1203,9 @@ export interface JobLog {
   eventData?: JobLogEventData;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsResponse {
   /**
    * <p>Request to describe Job log response items.</p>
@@ -1100,6 +1219,7 @@ export interface DescribeJobLogItemsResponse {
 }
 
 /**
+ * @public
  * <p>Request to describe Job log filters.</p>
  */
 export interface DescribeJobsRequestFilters {
@@ -1119,6 +1239,9 @@ export interface DescribeJobsRequestFilters {
   toDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsRequest {
   /**
    * <p>Request to describe Job log filters.</p>
@@ -1136,6 +1259,9 @@ export interface DescribeJobsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum InitiatedBy {
   DIAGNOSTIC = "DIAGNOSTIC",
   START_CUTOVER = "START_CUTOVER",
@@ -1143,6 +1269,9 @@ export enum InitiatedBy {
   TERMINATE = "TERMINATE",
 }
 
+/**
+ * @public
+ */
 export enum LaunchStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1151,6 +1280,9 @@ export enum LaunchStatus {
   TERMINATED = "TERMINATED",
 }
 
+/**
+ * @public
+ */
 export enum PostLaunchActionExecutionStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1158,10 +1290,14 @@ export enum PostLaunchActionExecutionStatus {
 }
 
 /**
+ * @public
  * <p>AWS Systems Manager Document external parameter.</p>
  */
 export type SsmExternalParameter = SsmExternalParameter.DynamicPathMember | SsmExternalParameter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SsmExternalParameter {
   /**
    * <p>AWS Systems Manager Document external parameters dynamic path.</p>
@@ -1187,11 +1323,15 @@ export namespace SsmExternalParameter {
   };
 }
 
+/**
+ * @public
+ */
 export enum SsmParameterStoreParameterType {
   STRING = "STRING",
 }
 
 /**
+ * @public
  * <p>AWS Systems Manager Parameter Store parameter.</p>
  */
 export interface SsmParameterStoreParameter {
@@ -1207,6 +1347,7 @@ export interface SsmParameterStoreParameter {
 }
 
 /**
+ * @public
  * <p>AWS Systems Manager Document.</p>
  */
 export interface SsmDocument {
@@ -1241,12 +1382,16 @@ export interface SsmDocument {
   externalParameters?: Record<string, SsmExternalParameter>;
 }
 
+/**
+ * @public
+ */
 export enum SsmDocumentType {
   AUTOMATION = "AUTOMATION",
   COMMAND = "COMMAND",
 }
 
 /**
+ * @public
  * <p>Launch Status of the Job Post Launch Actions.</p>
  */
 export interface JobPostLaunchActionsLaunchStatus {
@@ -1277,6 +1422,7 @@ export interface JobPostLaunchActionsLaunchStatus {
 }
 
 /**
+ * @public
  * <p>Status of the Post Launch Actions running on the Test or Cutover instance.</p>
  */
 export interface PostLaunchActionsStatus {
@@ -1292,6 +1438,7 @@ export interface PostLaunchActionsStatus {
 }
 
 /**
+ * @public
  * <p>Server participating in Job.</p>
  */
 export interface ParticipatingServer {
@@ -1316,18 +1463,25 @@ export interface ParticipatingServer {
   postLaunchActionsStatus?: PostLaunchActionsStatus;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   COMPLETED = "COMPLETED",
   PENDING = "PENDING",
   STARTED = "STARTED",
 }
 
+/**
+ * @public
+ */
 export enum JobType {
   LAUNCH = "LAUNCH",
   TERMINATE = "TERMINATE",
 }
 
 /**
+ * @public
  * <p>Job.</p>
  */
 export interface Job {
@@ -1377,6 +1531,9 @@ export interface Job {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsResponse {
   /**
    * <p>Request to describe Job log items.</p>
@@ -1389,11 +1546,17 @@ export interface DescribeJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum BootMode {
   LEGACY_BIOS = "LEGACY_BIOS",
   UEFI = "UEFI",
 }
 
+/**
+ * @public
+ */
 export enum VolumeType {
   gp2 = "gp2",
   gp3 = "gp3",
@@ -1405,6 +1568,7 @@ export enum VolumeType {
 }
 
 /**
+ * @public
  * <p>Launch template disk configuration.</p>
  */
 export interface LaunchTemplateDiskConf {
@@ -1424,12 +1588,16 @@ export interface LaunchTemplateDiskConf {
   throughput?: number;
 }
 
+/**
+ * @public
+ */
 export enum LaunchDisposition {
   STARTED = "STARTED",
   STOPPED = "STOPPED",
 }
 
 /**
+ * @public
  * <p>Configure Licensing.</p>
  */
 export interface Licensing {
@@ -1439,6 +1607,9 @@ export interface Licensing {
   osByol?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum PostLaunchActionsDeploymentType {
   CUTOVER_ONLY = "CUTOVER_ONLY",
   TEST_AND_CUTOVER = "TEST_AND_CUTOVER",
@@ -1446,6 +1617,7 @@ export enum PostLaunchActionsDeploymentType {
 }
 
 /**
+ * @public
  * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
  */
 export interface PostLaunchActions {
@@ -1475,11 +1647,17 @@ export interface PostLaunchActions {
   ssmDocuments?: SsmDocument[];
 }
 
+/**
+ * @public
+ */
 export enum TargetInstanceTypeRightSizingMethod {
   BASIC = "BASIC",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch configuration template post launch actions.</p>
@@ -1552,6 +1730,9 @@ export interface CreateLaunchConfigurationTemplateRequest {
   largeVolumeConf?: LaunchTemplateDiskConf;
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfigurationTemplate {
   /**
    * <p>ID of the Launch Configuration Template.</p>
@@ -1639,6 +1820,9 @@ export interface LaunchConfigurationTemplate {
   largeVolumeConf?: LaunchTemplateDiskConf;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchConfigurationTemplateRequest {
   /**
    * <p>ID of resource to be deleted.</p>
@@ -1646,8 +1830,14 @@ export interface DeleteLaunchConfigurationTemplateRequest {
   launchConfigurationTemplateID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchConfigurationTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeLaunchConfigurationTemplatesRequest {
   /**
    * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
@@ -1665,6 +1855,9 @@ export interface DescribeLaunchConfigurationTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLaunchConfigurationTemplatesResponse {
   /**
    * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
@@ -1678,6 +1871,7 @@ export interface DescribeLaunchConfigurationTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>Template post migration custom action filters.</p>
  */
 export interface TemplateActionsRequestFilters {
@@ -1687,6 +1881,9 @@ export interface TemplateActionsRequestFilters {
   actionIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateActionsRequest {
   /**
    * <p>Launch configuration template ID.</p>
@@ -1709,6 +1906,9 @@ export interface ListTemplateActionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TemplateActionDocument {
   /**
    * <p>Template post migration custom action ID.</p>
@@ -1776,6 +1976,9 @@ export interface TemplateActionDocument {
   category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateActionsResponse {
   /**
    * <p>List of template post migration custom actions.</p>
@@ -1788,6 +1991,9 @@ export interface ListTemplateActionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutTemplateActionRequest {
   /**
    * <p>Launch configuration template ID.</p>
@@ -1860,6 +2066,9 @@ export interface PutTemplateActionRequest {
   category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTemplateActionRequest {
   /**
    * <p>Launch configuration template ID of the post migration custom action to remove.</p>
@@ -1872,8 +2081,14 @@ export interface RemoveTemplateActionRequest {
   actionID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTemplateActionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch Configuration Template ID.</p>
@@ -1947,6 +2162,7 @@ export interface UpdateLaunchConfigurationTemplateRequest {
 }
 
 /**
+ * @public
  * <p>The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -1971,6 +2187,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>List tags for resource request by ARN.</p>
@@ -1978,6 +2197,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>List tags for resource response.</p>
@@ -1986,6 +2208,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Reached throttling quota exception.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -2022,22 +2245,34 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationDataPlaneRouting {
   PRIVATE_IP = "PRIVATE_IP",
   PUBLIC_IP = "PUBLIC_IP",
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationDefaultLargeStagingDiskType {
   GP2 = "GP2",
   GP3 = "GP3",
   ST1 = "ST1",
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationEbsEncryption {
   CUSTOM = "CUSTOM",
   DEFAULT = "DEFAULT",
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>Request to configure the Staging Area subnet ID during Replication Settings template creation.</p>
@@ -2105,6 +2340,9 @@ export interface CreateReplicationConfigurationTemplateRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfigurationTemplate {
   /**
    * <p>Replication Configuration template ID.</p>
@@ -2182,6 +2420,9 @@ export interface ReplicationConfigurationTemplate {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateRequest {
   /**
    * <p>Request to delete Replication Configuration Template from service by Replication Configuration Template ID.</p>
@@ -2189,8 +2430,14 @@ export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
    * <p>Request to describe Replication Configuration template by template IDs.</p>
@@ -2208,6 +2455,9 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesResponse {
   /**
    * <p>Request to describe Replication Configuration template by items.</p>
@@ -2220,6 +2470,9 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>Update replication configuration template template ID request.</p>
@@ -2292,6 +2545,9 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   stagingAreaTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ChangeServerLifeCycleStateSourceServerLifecycleState {
   CUTOVER = "CUTOVER",
   READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
@@ -2299,6 +2555,7 @@ export enum ChangeServerLifeCycleStateSourceServerLifecycleState {
 }
 
 /**
+ * @public
  * <p>The request to change the source server migration lifecycle state.</p>
  */
 export interface ChangeServerLifeCycleStateSourceServerLifecycle {
@@ -2308,6 +2565,9 @@ export interface ChangeServerLifeCycleStateSourceServerLifecycle {
   state: ChangeServerLifeCycleStateSourceServerLifecycleState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ChangeServerLifeCycleStateRequest {
   /**
    * <p>The request to change the source server migration lifecycle state by source server ID.</p>
@@ -2320,6 +2580,9 @@ export interface ChangeServerLifeCycleStateRequest {
   lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycle | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationErrorString {
   AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
   FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
@@ -2340,6 +2603,7 @@ export enum DataReplicationErrorString {
 }
 
 /**
+ * @public
  * <p>Error in data replication.</p>
  */
 export interface DataReplicationError {
@@ -2354,6 +2618,9 @@ export interface DataReplicationError {
   rawError?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationInitiationStepName {
   ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
   AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
@@ -2368,6 +2635,9 @@ export enum DataReplicationInitiationStepName {
   WAIT = "WAIT",
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationInitiationStepStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -2377,6 +2647,7 @@ export enum DataReplicationInitiationStepStatus {
 }
 
 /**
+ * @public
  * <p>Data replication initiation step.</p>
  */
 export interface DataReplicationInitiationStep {
@@ -2392,6 +2663,7 @@ export interface DataReplicationInitiationStep {
 }
 
 /**
+ * @public
  * <p>Data replication initiation.</p>
  */
 export interface DataReplicationInitiation {
@@ -2411,6 +2683,9 @@ export interface DataReplicationInitiation {
   steps?: DataReplicationInitiationStep[];
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationState {
   BACKLOG = "BACKLOG",
   CONTINUOUS = "CONTINUOUS",
@@ -2427,6 +2702,7 @@ export enum DataReplicationState {
 }
 
 /**
+ * @public
  * <p>Request to query disks replicated.</p>
  */
 export interface DataReplicationInfoReplicatedDisk {
@@ -2457,6 +2733,7 @@ export interface DataReplicationInfoReplicatedDisk {
 }
 
 /**
+ * @public
  * <p>Request data replication info.</p>
  */
 export interface DataReplicationInfo {
@@ -2496,6 +2773,9 @@ export interface DataReplicationInfo {
   lastSnapshotDateTime?: string;
 }
 
+/**
+ * @public
+ */
 export enum FirstBoot {
   STOPPED = "STOPPED",
   SUCCEEDED = "SUCCEEDED",
@@ -2504,6 +2784,7 @@ export enum FirstBoot {
 }
 
 /**
+ * @public
  * <p>Launched instance.</p>
  */
 export interface LaunchedInstance {
@@ -2524,6 +2805,7 @@ export interface LaunchedInstance {
 }
 
 /**
+ * @public
  * <p>Lifecycle Cutover finalized</p>
  */
 export interface LifeCycleLastCutoverFinalized {
@@ -2534,6 +2816,7 @@ export interface LifeCycleLastCutoverFinalized {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Cutover initiated.</p>
  */
 export interface LifeCycleLastCutoverInitiated {
@@ -2549,6 +2832,7 @@ export interface LifeCycleLastCutoverInitiated {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Cutover reverted.</p>
  */
 export interface LifeCycleLastCutoverReverted {
@@ -2559,6 +2843,7 @@ export interface LifeCycleLastCutoverReverted {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Cutover .</p>
  */
 export interface LifeCycleLastCutover {
@@ -2579,6 +2864,7 @@ export interface LifeCycleLastCutover {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test finalized.</p>
  */
 export interface LifeCycleLastTestFinalized {
@@ -2589,6 +2875,7 @@ export interface LifeCycleLastTestFinalized {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test initiated.</p>
  */
 export interface LifeCycleLastTestInitiated {
@@ -2604,6 +2891,7 @@ export interface LifeCycleLastTestInitiated {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test reverted.</p>
  */
 export interface LifeCycleLastTestReverted {
@@ -2614,6 +2902,7 @@ export interface LifeCycleLastTestReverted {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test.</p>
  */
 export interface LifeCycleLastTest {
@@ -2633,6 +2922,9 @@ export interface LifeCycleLastTest {
   finalized?: LifeCycleLastTestFinalized;
 }
 
+/**
+ * @public
+ */
 export enum LifeCycleState {
   CUTOVER = "CUTOVER",
   CUTTING_OVER = "CUTTING_OVER",
@@ -2647,6 +2939,7 @@ export enum LifeCycleState {
 }
 
 /**
+ * @public
  * <p>Lifecycle.</p>
  */
 export interface LifeCycle {
@@ -2686,12 +2979,16 @@ export interface LifeCycle {
   state?: LifeCycleState | string;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationType {
   AGENT_BASED = "AGENT_BASED",
   SNAPSHOT_SHIPPING = "SNAPSHOT_SHIPPING",
 }
 
 /**
+ * @public
  * <p>Source server CPU information.</p>
  */
 export interface CPU {
@@ -2707,6 +3004,7 @@ export interface CPU {
 }
 
 /**
+ * @public
  * <p>The disk identifier.</p>
  */
 export interface Disk {
@@ -2722,6 +3020,7 @@ export interface Disk {
 }
 
 /**
+ * @public
  * <p>Identification hints.</p>
  */
 export interface IdentificationHints {
@@ -2752,6 +3051,7 @@ export interface IdentificationHints {
 }
 
 /**
+ * @public
  * <p>Network interface.</p>
  */
 export interface NetworkInterface {
@@ -2772,6 +3072,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>Operating System.</p>
  */
 export interface OS {
@@ -2782,6 +3083,7 @@ export interface OS {
 }
 
 /**
+ * @public
  * <p>Source server properties.</p>
  */
 export interface SourceProperties {
@@ -2826,6 +3128,9 @@ export interface SourceProperties {
   os?: OS;
 }
 
+/**
+ * @public
+ */
 export interface SourceServer {
   /**
    * <p>Source server ID.</p>
@@ -2893,6 +3198,9 @@ export interface SourceServer {
   fqdnForActionFramework?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerRequest {
   /**
    * <p>Request to delete Source Server from service by Server ID.</p>
@@ -2900,9 +3208,13 @@ export interface DeleteSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerResponse {}
 
 /**
+ * @public
  * <p>Request to filter Source Servers list.</p>
  */
 export interface DescribeSourceServersRequestFilters {
@@ -2932,6 +3244,9 @@ export interface DescribeSourceServersRequestFilters {
   applicationIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersRequest {
   /**
    * <p>Request to filter Source Servers list.</p>
@@ -2949,6 +3264,9 @@ export interface DescribeSourceServersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersResponse {
   /**
    * <p>Request to filter Source Servers list by item.</p>
@@ -2961,6 +3279,9 @@ export interface DescribeSourceServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectFromServiceRequest {
   /**
    * <p>Request to disconnect Source Server from service by Server ID.</p>
@@ -2968,6 +3289,9 @@ export interface DisconnectFromServiceRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface FinalizeCutoverRequest {
   /**
    * <p>Request to finalize Cutover by Source Server ID.</p>
@@ -2975,6 +3299,9 @@ export interface FinalizeCutoverRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchConfigurationRequest {
   /**
    * <p>Request to get Launch Configuration information by Source Server ID.</p>
@@ -2982,6 +3309,9 @@ export interface GetLaunchConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfiguration {
   /**
    * <p>Launch configuration Source Server ID.</p>
@@ -3044,6 +3374,9 @@ export interface LaunchConfiguration {
   mapAutoTaggingMpeID?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationConfigurationRequest {
   /**
    * <p>Request to get Replication Configuration by Source Server ID.</p>
@@ -3051,6 +3384,9 @@ export interface GetReplicationConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
   AUTO = "AUTO",
   GP2 = "GP2",
@@ -3063,6 +3399,7 @@ export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
 }
 
 /**
+ * @public
  * <p>Replication Configuration replicated disk.</p>
  */
 export interface ReplicationConfigurationReplicatedDisk {
@@ -3092,6 +3429,9 @@ export interface ReplicationConfigurationReplicatedDisk {
   throughput?: number;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfiguration {
   /**
    * <p>Replication Configuration Source Server ID.</p>
@@ -3170,6 +3510,7 @@ export interface ReplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Source server post migration custom action filters.</p>
  */
 export interface SourceServerActionsRequestFilters {
@@ -3179,6 +3520,9 @@ export interface SourceServerActionsRequestFilters {
   actionIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListSourceServerActionsRequest {
   /**
    * <p>Source server ID.</p>
@@ -3201,6 +3545,9 @@ export interface ListSourceServerActionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SourceServerActionDocument {
   /**
    * <p>Source server post migration custom action ID.</p>
@@ -3263,6 +3610,9 @@ export interface SourceServerActionDocument {
   category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceServerActionsResponse {
   /**
    * <p>List of source server post migration custom actions.</p>
@@ -3275,6 +3625,9 @@ export interface ListSourceServerActionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface MarkAsArchivedRequest {
   /**
    * <p>Mark as archived by Source Server ID.</p>
@@ -3282,6 +3635,9 @@ export interface MarkAsArchivedRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutSourceServerActionRequest {
   /**
    * <p>Source server ID.</p>
@@ -3349,6 +3705,9 @@ export interface PutSourceServerActionRequest {
   category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSourceServerActionRequest {
   /**
    * <p>Source server ID of the post migration custom action to remove.</p>
@@ -3361,8 +3720,14 @@ export interface RemoveSourceServerActionRequest {
   actionID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSourceServerActionResponse {}
 
+/**
+ * @public
+ */
 export interface RetryDataReplicationRequest {
   /**
    * <p>Retry data replication for Source Server ID.</p>
@@ -3370,6 +3735,9 @@ export interface RetryDataReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartCutoverRequest {
   /**
    * <p>Start Cutover by Source Server IDs.</p>
@@ -3382,6 +3750,9 @@ export interface StartCutoverRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartCutoverResponse {
   /**
    * <p>Start Cutover Job response.</p>
@@ -3389,6 +3760,9 @@ export interface StartCutoverResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface StartReplicationRequest {
   /**
    * <p>ID of source server on which to start replication.</p>
@@ -3396,6 +3770,9 @@ export interface StartReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartTestRequest {
   /**
    * <p>Start Test for Source Server IDs.</p>
@@ -3408,6 +3785,9 @@ export interface StartTestRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartTestResponse {
   /**
    * <p>Start Test Job response.</p>
@@ -3415,6 +3795,9 @@ export interface StartTestResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface TerminateTargetInstancesRequest {
   /**
    * <p>Terminate Target instance by Source Server IDs.</p>
@@ -3427,6 +3810,9 @@ export interface TerminateTargetInstancesRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TerminateTargetInstancesResponse {
   /**
    * <p>Terminate Target instance Job response.</p>
@@ -3434,6 +3820,9 @@ export interface TerminateTargetInstancesResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchConfigurationRequest {
   /**
    * <p>Update Launch configuration by Source Server ID request.</p>
@@ -3491,6 +3880,9 @@ export interface UpdateLaunchConfigurationRequest {
   mapAutoTaggingMpeID?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>Update replication configuration Source Server ID request.</p>
@@ -3568,6 +3960,9 @@ export interface UpdateReplicationConfigurationRequest {
   stagingAreaTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceServerReplicationTypeRequest {
   /**
    * <p>ID of source server on which to update replication type.</p>
@@ -3580,6 +3975,9 @@ export interface UpdateSourceServerReplicationTypeRequest {
   replicationType: ReplicationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Tag resource by ARN.</p>
@@ -3592,6 +3990,9 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Untag resource by ARN.</p>
@@ -3604,6 +4005,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVcenterClientRequest {
   /**
    * <p>ID of resource to be deleted.</p>
@@ -3611,6 +4015,9 @@ export interface DeleteVcenterClientRequest {
   vcenterClientID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVcenterClientsRequest {
   /**
    * <p>Maximum results to be returned in DescribeVcenterClients.</p>
@@ -3624,6 +4031,7 @@ export interface DescribeVcenterClientsRequest {
 }
 
 /**
+ * @public
  * <p>vCenter client.</p>
  */
 export interface VcenterClient {
@@ -3668,6 +4076,9 @@ export interface VcenterClient {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVcenterClientsResponse {
   /**
    * <p>List of items returned by DescribeVcenterClients.</p>
@@ -3680,6 +4091,9 @@ export interface DescribeVcenterClientsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ArchiveWaveRequest {
   /**
    * <p>Wave ID.</p>
@@ -3687,12 +4101,18 @@ export interface ArchiveWaveRequest {
   waveID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum WaveHealthStatus {
   ERROR = "ERROR",
   HEALTHY = "HEALTHY",
   LAGGING = "LAGGING",
 }
 
+/**
+ * @public
+ */
 export enum WaveProgressStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -3700,6 +4120,7 @@ export enum WaveProgressStatus {
 }
 
 /**
+ * @public
  * <p>Wave aggregated status.</p>
  */
 export interface WaveAggregatedStatus {
@@ -3729,6 +4150,9 @@ export interface WaveAggregatedStatus {
   totalApplications?: number;
 }
 
+/**
+ * @public
+ */
 export interface Wave {
   /**
    * <p>Wave ID.</p>
@@ -3776,6 +4200,9 @@ export interface Wave {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationsRequest {
   /**
    * <p>Wave ID.</p>
@@ -3788,8 +4215,14 @@ export interface AssociateApplicationsRequest {
   applicationIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationsResponse {}
 
+/**
+ * @public
+ */
 export interface CreateWaveRequest {
   /**
    * <p>Wave name.</p>
@@ -3807,6 +4240,9 @@ export interface CreateWaveRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWaveRequest {
   /**
    * <p>Wave ID.</p>
@@ -3814,8 +4250,14 @@ export interface DeleteWaveRequest {
   waveID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWaveResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationsRequest {
   /**
    * <p>Wave ID.</p>
@@ -3828,9 +4270,13 @@ export interface DisassociateApplicationsRequest {
   applicationIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationsResponse {}
 
 /**
+ * @public
  * <p>Waves list filters.</p>
  */
 export interface ListWavesRequestFilters {
@@ -3845,6 +4291,9 @@ export interface ListWavesRequestFilters {
   isArchived?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListWavesRequest {
   /**
    * <p>Waves list filters.</p>
@@ -3862,6 +4311,9 @@ export interface ListWavesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWavesResponse {
   /**
    * <p>Waves list.</p>
@@ -3874,6 +4326,9 @@ export interface ListWavesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UnarchiveWaveRequest {
   /**
    * <p>Wave ID.</p>
@@ -3881,6 +4336,9 @@ export interface UnarchiveWaveRequest {
   waveID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWaveRequest {
   /**
    * <p>Wave ID.</p>

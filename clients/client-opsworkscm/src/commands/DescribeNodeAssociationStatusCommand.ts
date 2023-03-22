@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNodeAssociationStatusCommand}.
  */
 export interface DescribeNodeAssociationStatusCommandInput extends DescribeNodeAssociationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNodeAssociationStatusCommand}.
  */
 export interface DescribeNodeAssociationStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeNodeAssociationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns the current status of an existing association or disassociation request.
  *     </p>
@@ -54,6 +59,8 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNodeAssociationStatusCommandInput - {@link DescribeNodeAssociationStatusCommandInput}
+ * @returns {@link DescribeNodeAssociationStatusCommandOutput}
  * @see {@link DescribeNodeAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeAssociationStatusCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodeAssociationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodeAssociationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeNodeAssociationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

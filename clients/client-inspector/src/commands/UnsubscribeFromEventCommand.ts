@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnsubscribeFromEventCommand}.
  */
 export interface UnsubscribeFromEventCommandInput extends UnsubscribeFromEventRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnsubscribeFromEventCommand}.
  */
 export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
  *          notifications about a specified event to a specified SNS topic.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UnsubscribeFromEventCommandInput - {@link UnsubscribeFromEventCommandInput}
+ * @returns {@link UnsubscribeFromEventCommandOutput}
  * @see {@link UnsubscribeFromEventCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeFromEventCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -95,6 +102,9 @@ export class UnsubscribeFromEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnsubscribeFromEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UnsubscribeFromEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnsubscribeFromEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnsubscribeFromEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromEventCommandOutput> {
     return deserializeAws_json1_1UnsubscribeFromEventCommand(output, context);
   }

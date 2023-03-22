@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelPackageCommand}.
  */
 export interface DescribeModelPackageCommandInput extends DescribeModelPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelPackageCommand}.
  */
 export interface DescribeModelPackageCommandOutput extends DescribeModelPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the specified model package, which is used to create SageMaker
  *             models or list them on Amazon Web Services Marketplace.</p>
  *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
@@ -49,6 +54,8 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelPackageCommandInput - {@link DescribeModelPackageCommandInput}
+ * @returns {@link DescribeModelPackageCommandOutput}
  * @see {@link DescribeModelPackageCommandInput} for command's `input` shape.
  * @see {@link DescribeModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeModelPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeModelPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeModelPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelPackageCommandOutput> {
     return deserializeAws_json1_1DescribeModelPackageCommand(output, context);
   }

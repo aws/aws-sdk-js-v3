@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityControlDefinitionsCommand}.
  */
 export interface ListSecurityControlDefinitionsCommandInput extends ListSecurityControlDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityControlDefinitionsCommand}.
  */
 export interface ListSecurityControlDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListSecurityControlDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Lists all of the security controls that apply to a specified standard.
  *       </p>
@@ -50,6 +55,8 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityControlDefinitionsCommandInput - {@link ListSecurityControlDefinitionsCommandInput}
+ * @returns {@link ListSecurityControlDefinitionsCommandOutput}
  * @see {@link ListSecurityControlDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityControlDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityControlDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSecurityControlDefinitionsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListSecurityControlDefinitionsCommand extends $Command<
     return serializeAws_restJson1ListSecurityControlDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

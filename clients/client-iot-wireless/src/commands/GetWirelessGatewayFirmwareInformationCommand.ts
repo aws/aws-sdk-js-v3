@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWirelessGatewayFirmwareInformationCommand}.
  */
 export interface GetWirelessGatewayFirmwareInformationCommandInput
   extends GetWirelessGatewayFirmwareInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWirelessGatewayFirmwareInformationCommand}.
  */
 export interface GetWirelessGatewayFirmwareInformationCommandOutput
@@ -38,6 +42,7 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the firmware version and other information about a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayFirmwareInformationCommandInput - {@link GetWirelessGatewayFirmwareInformationCommandInput}
+ * @returns {@link GetWirelessGatewayFirmwareInformationCommandOutput}
  * @see {@link GetWirelessGatewayFirmwareInformationCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayFirmwareInformationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayFirmwareInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetWirelessGatewayFirmwareInformationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
     return serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

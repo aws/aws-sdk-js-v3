@@ -26,11 +26,15 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
  */
 export interface ListTrainingJobsForHyperParameterTuningJobCommandInput
   extends ListTrainingJobsForHyperParameterTuningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
  */
 export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
@@ -38,6 +42,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
  *             jobs that a hyperparameter tuning job launched.</p>
  * @example
@@ -50,6 +55,8 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrainingJobsForHyperParameterTuningJobCommandInput - {@link ListTrainingJobsForHyperParameterTuningJobCommandInput}
+ * @returns {@link ListTrainingJobsForHyperParameterTuningJobCommandOutput}
  * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrainingJobsForHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListTrainingJobsForHyperParameterTuningJobCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
     return serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

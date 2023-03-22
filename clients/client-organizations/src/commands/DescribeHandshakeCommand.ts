@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHandshakeCommand}.
  */
 export interface DescribeHandshakeCommandInput extends DescribeHandshakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHandshakeCommand}.
  */
 export interface DescribeHandshakeCommandOutput extends DescribeHandshakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a previously requested handshake. The handshake ID comes
  *             from the response to the original <a>InviteAccountToOrganization</a>
  *             operation that generated the handshake.</p>
@@ -52,6 +57,8 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHandshakeCommandInput - {@link DescribeHandshakeCommandInput}
+ * @returns {@link DescribeHandshakeCommandOutput}
  * @see {@link DescribeHandshakeCommandInput} for command's `input` shape.
  * @see {@link DescribeHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -257,6 +264,9 @@ export class DescribeHandshakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHandshakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -296,10 +306,16 @@ export class DescribeHandshakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeHandshakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHandshakeCommandOutput> {
     return deserializeAws_json1_1DescribeHandshakeCommand(output, context);
   }

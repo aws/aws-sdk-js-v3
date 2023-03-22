@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReceivedLicensesCommand}.
  */
 export interface ListReceivedLicensesCommandInput extends ListReceivedLicensesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReceivedLicensesCommand}.
  */
 export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists received licenses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceivedLicensesCommandInput - {@link ListReceivedLicensesCommandInput}
+ * @returns {@link ListReceivedLicensesCommandOutput}
  * @see {@link ListReceivedLicensesCommandInput} for command's `input` shape.
  * @see {@link ListReceivedLicensesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListReceivedLicensesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceivedLicensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListReceivedLicensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReceivedLicensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReceivedLicensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceivedLicensesCommandOutput> {
     return deserializeAws_json1_1ListReceivedLicensesCommand(output, context);
   }

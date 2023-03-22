@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceDefinitionCommand}.
  */
 export interface CreateResourceDefinitionCommandInput extends CreateResourceDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceDefinitionCommand}.
  */
 export interface CreateResourceDefinitionCommandOutput extends CreateResourceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateResourceDefinitionCommandOutput extends CreateResourceDef
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceDefinitionCommandInput - {@link CreateResourceDefinitionCommandInput}
+ * @returns {@link CreateResourceDefinitionCommandOutput}
  * @see {@link CreateResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateResourceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateResourceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResourceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceDefinitionCommandOutput> {
     return deserializeAws_restJson1CreateResourceDefinitionCommand(output, context);
   }

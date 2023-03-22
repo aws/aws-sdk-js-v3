@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelCapacityReservationFleetsCommand}.
  */
 export interface CancelCapacityReservationFleetsCommandInput extends CancelCapacityReservationFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelCapacityReservationFleetsCommand}.
  */
 export interface CancelCapacityReservationFleetsCommandOutput
@@ -37,6 +41,7 @@ export interface CancelCapacityReservationFleetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
  * 			Fleet, the following happens:</p>
  *          <ul>
@@ -62,6 +67,8 @@ export interface CancelCapacityReservationFleetsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelCapacityReservationFleetsCommandInput - {@link CancelCapacityReservationFleetsCommandInput}
+ * @returns {@link CancelCapacityReservationFleetsCommandOutput}
  * @see {@link CancelCapacityReservationFleetsCommandInput} for command's `input` shape.
  * @see {@link CancelCapacityReservationFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +92,9 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCapacityReservationFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelCapacityReservationFleetsCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
     return serializeAws_ec2CancelCapacityReservationFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

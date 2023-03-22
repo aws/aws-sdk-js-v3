@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPipelineExecutionCommand}.
  */
 export interface GetPipelineExecutionCommandInput extends GetPipelineExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPipelineExecutionCommand}.
  */
 export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an execution of a pipeline, including details about
  *             artifacts, the pipeline execution ID, and the name, version, and status of the
  *             pipeline.</p>
@@ -48,6 +53,8 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPipelineExecutionCommandInput - {@link GetPipelineExecutionCommandInput}
+ * @returns {@link GetPipelineExecutionCommandOutput}
  * @see {@link GetPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link GetPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetPipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetPipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPipelineExecutionCommandOutput> {
     return deserializeAws_json1_1GetPipelineExecutionCommand(output, context);
   }

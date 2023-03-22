@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVpcLinkCommand}.
  */
 export interface GetVpcLinkCommandInput extends GetVpcLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVpcLinkCommand}.
  */
 export interface GetVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a specified VPC link under the caller's account in a region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpcLinkCommandInput - {@link GetVpcLinkCommandInput}
+ * @returns {@link GetVpcLinkCommandOutput}
  * @see {@link GetVpcLinkCommandInput} for command's `input` shape.
  * @see {@link GetVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetVpcLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpcLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetVpcLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVpcLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVpcLinkCommandOutput> {
     return deserializeAws_restJson1GetVpcLinkCommand(output, context);
   }

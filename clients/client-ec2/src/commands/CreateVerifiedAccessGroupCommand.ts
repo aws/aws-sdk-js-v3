@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVerifiedAccessGroupCommand}.
  */
 export interface CreateVerifiedAccessGroupCommandInput extends CreateVerifiedAccessGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVerifiedAccessGroupCommand}.
  */
 export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
  *          similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For
  *          example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and
@@ -49,6 +54,8 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVerifiedAccessGroupCommandInput - {@link CreateVerifiedAccessGroupCommandInput}
+ * @returns {@link CreateVerifiedAccessGroupCommandOutput}
  * @see {@link CreateVerifiedAccessGroupCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateVerifiedAccessGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVerifiedAccessGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateVerifiedAccessGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVerifiedAccessGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVerifiedAccessGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSkillWithUsersCommand}.
  */
 export interface AssociateSkillWithUsersCommandInput extends AssociateSkillWithUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSkillWithUsersCommand}.
  */
 export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWithUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Makes a private skill available for enrolled users to enable on their devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSkillWithUsersCommandInput - {@link AssociateSkillWithUsersCommandInput}
+ * @returns {@link AssociateSkillWithUsersCommandOutput}
  * @see {@link AssociateSkillWithUsersCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillWithUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class AssociateSkillWithUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSkillWithUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class AssociateSkillWithUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSkillWithUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateSkillWithUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSkillWithUsersCommandOutput> {
     return deserializeAws_json1_1AssociateSkillWithUsersCommand(output, context);
   }

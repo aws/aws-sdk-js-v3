@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrailCommand}.
  */
 export interface DeleteTrailCommandInput extends DeleteTrailRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrailCommand}.
  */
 export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a trail. This operation must be called from the region in which the trail was
  *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
  *          in other regions) of a trail that is enabled in all regions.</p>
@@ -48,6 +53,8 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrailCommandInput - {@link DeleteTrailCommandInput}
+ * @returns {@link DeleteTrailCommandOutput}
  * @see {@link DeleteTrailCommandInput} for command's `input` shape.
  * @see {@link DeleteTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -141,6 +148,9 @@ export class DeleteTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class DeleteTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrailCommandOutput> {
     return deserializeAws_json1_1DeleteTrailCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFlywheelCommand}.
  */
 export interface UpdateFlywheelCommandInput extends UpdateFlywheelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFlywheelCommand}.
  */
 export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the configuration information for an existing flywheel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFlywheelCommandInput - {@link UpdateFlywheelCommandInput}
+ * @returns {@link UpdateFlywheelCommandOutput}
  * @see {@link UpdateFlywheelCommandInput} for command's `input` shape.
  * @see {@link UpdateFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateFlywheelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFlywheelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateFlywheelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFlywheelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlywheelCommandOutput> {
     return deserializeAws_json1_1UpdateFlywheelCommand(output, context);
   }

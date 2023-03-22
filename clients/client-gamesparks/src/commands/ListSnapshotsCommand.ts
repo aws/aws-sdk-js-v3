@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSnapshotsCommand}.
  */
 export interface ListSnapshotsCommandInput extends ListSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSnapshotsCommand}.
  */
 export interface ListSnapshotsCommandOutput extends ListSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of snapshot summaries from the game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSnapshotsCommandInput - {@link ListSnapshotsCommandInput}
+ * @returns {@link ListSnapshotsCommandOutput}
  * @see {@link ListSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSnapshotsCommandOutput> {
     return deserializeAws_restJson1ListSnapshotsCommand(output, context);
   }

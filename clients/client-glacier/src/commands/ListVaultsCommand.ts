@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVaultsCommand}.
  */
 export interface ListVaultsCommandInput extends ListVaultsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVaultsCommand}.
  */
 export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists all vaults owned by the calling user's account. The list
  *          returned in the response is ASCII-sorted by vault name.</p>
  *
@@ -64,6 +69,8 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVaultsCommandInput - {@link ListVaultsCommandInput}
+ * @returns {@link ListVaultsCommandOutput}
  * @see {@link ListVaultsCommandInput} for command's `input` shape.
  * @see {@link ListVaultsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -127,6 +134,9 @@ export class ListVaultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVaultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class ListVaultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVaultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVaultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVaultsCommandOutput> {
     return deserializeAws_restJson1ListVaultsCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryClusterClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingControlStatesCommand}.
  */
 export interface UpdateRoutingControlStatesCommandInput extends UpdateRoutingControlStatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingControlStatesCommand}.
  */
 export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingControlStatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set multiple routing control states. You can set the value for each state to be On or Off.
  * 			When the state is On, traffic flows to a cell. When it's Off, traffic does not
  * 			flow.</p>
@@ -83,6 +88,8 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingControlStatesCommandInput - {@link UpdateRoutingControlStatesCommandInput}
+ * @returns {@link UpdateRoutingControlStatesCommandOutput}
  * @see {@link UpdateRoutingControlStatesCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlStatesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
@@ -130,6 +137,9 @@ export class UpdateRoutingControlStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingControlStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class UpdateRoutingControlStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingControlStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateRoutingControlStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

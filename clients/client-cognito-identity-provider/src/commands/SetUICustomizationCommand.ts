@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetUICustomizationCommand}.
  */
 export interface SetUICustomizationCommandInput extends SetUICustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetUICustomizationCommand}.
  */
 export interface SetUICustomizationCommandOutput extends SetUICustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the user interface (UI) customization information for a user pool's built-in app
  *             UI.</p>
  *         <p>You can specify app UI customization settings for a single client (with a specific
@@ -63,6 +68,8 @@ export interface SetUICustomizationCommandOutput extends SetUICustomizationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUICustomizationCommandInput - {@link SetUICustomizationCommandInput}
+ * @returns {@link SetUICustomizationCommandOutput}
  * @see {@link SetUICustomizationCommandInput} for command's `input` shape.
  * @see {@link SetUICustomizationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -104,6 +111,9 @@ export class SetUICustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUICustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class SetUICustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUICustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetUICustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUICustomizationCommandOutput> {
     return deserializeAws_json1_1SetUICustomizationCommand(output, context);
   }

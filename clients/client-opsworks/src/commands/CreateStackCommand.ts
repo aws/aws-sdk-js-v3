@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStackCommand}.
  */
 export interface CreateStackCommandInput extends CreateStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStackCommand}.
  */
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New
  *         Stack</a>.</p>
  *          <p>
@@ -51,6 +56,8 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackCommandInput - {@link CreateStackCommandInput}
+ * @returns {@link CreateStackCommandOutput}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
     return deserializeAws_json1_1CreateStackCommand(output, context);
   }

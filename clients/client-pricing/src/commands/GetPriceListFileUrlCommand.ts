@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPriceListFileUrlCommand}.
  */
 export interface GetPriceListFileUrlCommandInput extends GetPriceListFileUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPriceListFileUrlCommand}.
  */
 export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <i>
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
@@ -54,6 +59,8 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPriceListFileUrlCommandInput - {@link GetPriceListFileUrlCommandInput}
+ * @returns {@link GetPriceListFileUrlCommandOutput}
  * @see {@link GetPriceListFileUrlCommandInput} for command's `input` shape.
  * @see {@link GetPriceListFileUrlCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetPriceListFileUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPriceListFileUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetPriceListFileUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPriceListFileUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPriceListFileUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPriceListFileUrlCommandOutput> {
     return deserializeAws_json1_1GetPriceListFileUrlCommand(output, context);
   }

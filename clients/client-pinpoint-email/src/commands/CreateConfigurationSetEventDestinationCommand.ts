@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetEventDestinationCommand}.
  */
 export interface CreateConfigurationSetEventDestinationCommandInput
   extends CreateConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetEventDestinationCommand}.
  */
 export interface CreateConfigurationSetEventDestinationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an event destination. In Amazon Pinpoint, <i>events</i> include message
  *             sends, deliveries, opens, clicks, bounces, and complaints. <i>Event
  *                 destinations</i> are places that you can send information about these events
@@ -55,6 +60,8 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetEventDestinationCommandInput - {@link CreateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link CreateConfigurationSetEventDestinationCommandOutput}
  * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     return serializeAws_restJson1CreateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

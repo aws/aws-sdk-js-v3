@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { GroundStationServiceException as __BaseException } from "./GroundStationServiceException";
 
 /**
+ * @public
  * <p>Dependency encountered an error.</p>
  */
 export class DependencyException extends __BaseException {
@@ -28,6 +29,9 @@ export class DependencyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAgentConfigurationRequest {
   /**
    * <p>UUID of agent to get configuration information for.</p>
@@ -35,6 +39,9 @@ export interface GetAgentConfigurationRequest {
   agentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAgentConfigurationResponse {
   /**
    * <p>UUID of agent.</p>
@@ -48,6 +55,7 @@ export interface GetAgentConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>One or more parameters are not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -73,6 +81,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -91,6 +100,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ComponentType {
   DIGITIZER = "DIGITIZER",
   LAMINAR_FLOW = "LAMINAR_FLOW",
@@ -98,6 +110,7 @@ export enum ComponentType {
 }
 
 /**
+ * @public
  * <p>Version information for agent components.</p>
  */
 export interface ComponentVersion {
@@ -113,6 +126,7 @@ export interface ComponentVersion {
 }
 
 /**
+ * @public
  * <p>Detailed information about the agent.</p>
  */
 export interface AgentDetails {
@@ -143,6 +157,7 @@ export interface AgentDetails {
 }
 
 /**
+ * @public
  * <p>Data for agent discovery.</p>
  */
 export interface DiscoveryData {
@@ -162,6 +177,9 @@ export interface DiscoveryData {
   capabilityArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAgentRequest {
   /**
    * <p>Data for associating and agent with the capabilities it is managing.</p>
@@ -174,6 +192,9 @@ export interface RegisterAgentRequest {
   agentDetails: AgentDetails | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAgentResponse {
   /**
    * <p>UUID of registered agent.</p>
@@ -181,6 +202,9 @@ export interface RegisterAgentResponse {
   agentId?: string;
 }
 
+/**
+ * @public
+ */
 export enum AgentStatus {
   ACTIVE = "ACTIVE",
   FAILED = "FAILED",
@@ -189,6 +213,7 @@ export enum AgentStatus {
 }
 
 /**
+ * @public
  * <p>Aggregate status of Agent components.</p>
  */
 export interface AggregateStatus {
@@ -204,6 +229,7 @@ export interface AggregateStatus {
 }
 
 /**
+ * @public
  * <p>Data on the status of agent components.</p>
  */
 export interface ComponentStatusData {
@@ -243,6 +269,9 @@ export interface ComponentStatusData {
   dataflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgentStatusRequest {
   /**
    * <p>UUID of agent to update.</p>
@@ -265,6 +294,9 @@ export interface UpdateAgentStatusRequest {
   componentStatuses: ComponentStatusData[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgentStatusResponse {
   /**
    * <p>UUID of updated agent.</p>
@@ -272,12 +304,16 @@ export interface UpdateAgentStatusResponse {
   agentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AngleUnits {
   DEGREE_ANGLE = "DEGREE_ANGLE",
   RADIAN = "RADIAN",
 }
 
 /**
+ * @public
  * <p>Details about an antenna demod decode <code>Config</code> used in a contact.</p>
  */
 export interface AntennaDemodDecodeDetails {
@@ -287,6 +323,9 @@ export interface AntennaDemodDecodeDetails {
   outputNode?: string;
 }
 
+/**
+ * @public
+ */
 export enum BandwidthUnits {
   GHZ = "GHz",
   KHZ = "kHz",
@@ -294,6 +333,7 @@ export enum BandwidthUnits {
 }
 
 /**
+ * @public
  * <p>Object that describes the frequency bandwidth. </p>
  */
 export interface FrequencyBandwidth {
@@ -319,6 +359,9 @@ export interface FrequencyBandwidth {
   units: BandwidthUnits | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FrequencyUnits {
   GHZ = "GHz",
   KHZ = "kHz",
@@ -326,6 +369,7 @@ export enum FrequencyUnits {
 }
 
 /**
+ * @public
  * <p>Object that describes the frequency.</p>
  */
 export interface Frequency {
@@ -340,6 +384,9 @@ export interface Frequency {
   units: FrequencyUnits | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Polarization {
   LEFT_HAND = "LEFT_HAND",
   NONE = "NONE",
@@ -347,6 +394,7 @@ export enum Polarization {
 }
 
 /**
+ * @public
  * <p>Object that describes a spectral <code>Config</code>.</p>
  */
 export interface SpectrumConfig {
@@ -378,6 +426,7 @@ export interface SpectrumConfig {
 }
 
 /**
+ * @public
  * <p>Information about how AWS Ground Station should configure an
  *          antenna for downlink during a contact.</p>
  */
@@ -389,6 +438,7 @@ export interface AntennaDownlinkConfig {
 }
 
 /**
+ * @public
  * <p>Information about the decode <code>Config</code>.</p>
  */
 export interface DecodeConfig {
@@ -399,6 +449,7 @@ export interface DecodeConfig {
 }
 
 /**
+ * @public
  * <p>Information about the demodulation <code>Config</code>.</p>
  */
 export interface DemodulationConfig {
@@ -409,6 +460,7 @@ export interface DemodulationConfig {
 }
 
 /**
+ * @public
  * <p>Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact.</p>
  */
 export interface AntennaDownlinkDemodDecodeConfig {
@@ -429,6 +481,7 @@ export interface AntennaDownlinkDemodDecodeConfig {
 }
 
 /**
+ * @public
  * <p>Information about the uplink spectral <code>Config</code>.</p>
  */
 export interface UplinkSpectrumConfig {
@@ -443,11 +496,15 @@ export interface UplinkSpectrumConfig {
   polarization?: Polarization | string;
 }
 
+/**
+ * @public
+ */
 export enum EirpUnits {
   DBW = "dBW",
 }
 
 /**
+ * @public
  * <p>Object that represents EIRP.</p>
  */
 export interface Eirp {
@@ -463,6 +520,7 @@ export interface Eirp {
 }
 
 /**
+ * @public
  * <p>Information about the uplink <code>Config</code> of an antenna.</p>
  */
 export interface AntennaUplinkConfig {
@@ -482,12 +540,16 @@ export interface AntennaUplinkConfig {
   targetEirp: Eirp | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AuditResults {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
 }
 
 /**
+ * @public
  * <p>Information about the socket address.</p>
  */
 export interface SocketAddress {
@@ -503,6 +565,7 @@ export interface SocketAddress {
 }
 
 /**
+ * @public
  * <p>Egress address of AgentEndpoint with an optional mtu.</p>
  */
 export interface ConnectionDetails {
@@ -518,6 +581,7 @@ export interface ConnectionDetails {
 }
 
 /**
+ * @public
  * <p>An integer range that has a minimum and maximum value.</p>
  */
 export interface IntegerRange {
@@ -533,6 +597,7 @@ export interface IntegerRange {
 }
 
 /**
+ * @public
  * <p>A socket address with a port range.</p>
  */
 export interface RangedSocketAddress {
@@ -548,6 +613,7 @@ export interface RangedSocketAddress {
 }
 
 /**
+ * @public
  * <p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>
  */
 export interface RangedConnectionDetails {
@@ -563,6 +629,7 @@ export interface RangedConnectionDetails {
 }
 
 /**
+ * @public
  * <p>Information about AwsGroundStationAgentEndpoint.</p>
  */
 export interface AwsGroundStationAgentEndpoint {
@@ -593,6 +660,7 @@ export interface AwsGroundStationAgentEndpoint {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CancelContactRequest {
@@ -603,6 +671,7 @@ export interface CancelContactRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ContactIdResponse {
@@ -612,6 +681,9 @@ export interface ContactIdResponse {
   contactId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ConfigCapabilityType {
   ANTENNA_DOWNLINK = "antenna-downlink",
   ANTENNA_DOWNLINK_DEMOD_DECODE = "antenna-downlink-demod-decode",
@@ -623,6 +695,7 @@ export enum ConfigCapabilityType {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ConfigIdResponse {
@@ -643,6 +716,7 @@ export interface ConfigIdResponse {
 }
 
 /**
+ * @public
  * <p>Information about the dataflow endpoint <code>Config</code>.</p>
  */
 export interface DataflowEndpointConfig {
@@ -658,6 +732,7 @@ export interface DataflowEndpointConfig {
 }
 
 /**
+ * @public
  * <p>Information about an S3 recording <code>Config</code>.</p>
  */
 export interface S3RecordingConfig {
@@ -677,6 +752,9 @@ export interface S3RecordingConfig {
   prefix?: string;
 }
 
+/**
+ * @public
+ */
 export enum Criticality {
   PREFERRED = "PREFERRED",
   REMOVED = "REMOVED",
@@ -684,6 +762,7 @@ export enum Criticality {
 }
 
 /**
+ * @public
  * <p>Object that determines whether tracking should be used during a contact
  *          executed with this <code>Config</code> in the mission profile.</p>
  */
@@ -695,6 +774,7 @@ export interface TrackingConfig {
 }
 
 /**
+ * @public
  * <p>Information about an uplink echo <code>Config</code>.</p>
  *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the
  *          specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code>
@@ -713,6 +793,7 @@ export interface UplinkEchoConfig {
 }
 
 /**
+ * @public
  * <p>Object containing the parameters of a <code>Config</code>.</p>
  *          <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>
  */
@@ -726,6 +807,9 @@ export type ConfigTypeData =
   | ConfigTypeData.UplinkEchoConfigMember
   | ConfigTypeData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfigTypeData {
   /**
    * <p>Information about how AWS Ground Station should configure an antenna for downlink during a contact.</p>
@@ -862,6 +946,7 @@ export namespace ConfigTypeData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CreateConfigRequest {
@@ -882,6 +967,7 @@ export interface CreateConfigRequest {
 }
 
 /**
+ * @public
  * <p>Account limits for this resource have been exceeded.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -907,6 +993,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DeleteConfigRequest {
@@ -922,6 +1009,7 @@ export interface DeleteConfigRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetConfigRequest {
@@ -937,6 +1025,7 @@ export interface GetConfigRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetConfigResponse {
@@ -973,6 +1062,7 @@ export interface GetConfigResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListConfigsRequest {
@@ -988,6 +1078,7 @@ export interface ListConfigsRequest {
 }
 
 /**
+ * @public
  * <p>An item in a list of <code>Config</code> objects.</p>
  */
 export interface ConfigListItem {
@@ -1013,6 +1104,7 @@ export interface ConfigListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListConfigsResponse {
@@ -1028,6 +1120,7 @@ export interface ListConfigsResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface UpdateConfigRequest {
@@ -1052,6 +1145,9 @@ export interface UpdateConfigRequest {
   configData: ConfigTypeData | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EndpointStatus {
   created = "created",
   creating = "creating",
@@ -1061,6 +1157,7 @@ export enum EndpointStatus {
 }
 
 /**
+ * @public
  * <p>Information about a dataflow endpoint.</p>
  */
 export interface DataflowEndpoint {
@@ -1086,6 +1183,7 @@ export interface DataflowEndpoint {
 }
 
 /**
+ * @public
  * <p>Information about endpoints.</p>
  */
 export interface SecurityDetails {
@@ -1106,6 +1204,7 @@ export interface SecurityDetails {
 }
 
 /**
+ * @public
  * <p>Information about the endpoint details.</p>
  */
 export interface EndpointDetails {
@@ -1126,6 +1225,7 @@ export interface EndpointDetails {
 }
 
 /**
+ * @public
  * <p>Details about an S3 recording <code>Config</code> used in a contact.</p>
  */
 export interface S3RecordingDetails {
@@ -1141,6 +1241,7 @@ export interface S3RecordingDetails {
 }
 
 /**
+ * @public
  * <p>Details for certain <code>Config</code> object types in a contact.</p>
  */
 export type ConfigDetails =
@@ -1149,6 +1250,9 @@ export type ConfigDetails =
   | ConfigDetails.S3RecordingDetailsMember
   | ConfigDetails.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfigDetails {
   /**
    * <p>Information about the endpoint details.</p>
@@ -1204,6 +1308,7 @@ export namespace ConfigDetails {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DescribeContactRequest {
@@ -1213,6 +1318,9 @@ export interface DescribeContactRequest {
   contactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContactStatus {
   AVAILABLE = "AVAILABLE",
   AWS_CANCELLED = "AWS_CANCELLED",
@@ -1230,6 +1338,7 @@ export enum ContactStatus {
 }
 
 /**
+ * @public
  * <p>Dataflow details for the destination side.</p>
  */
 export interface Destination {
@@ -1255,6 +1364,7 @@ export interface Destination {
 }
 
 /**
+ * @public
  * <p>Dataflow details for the source side.</p>
  */
 export interface Source {
@@ -1281,6 +1391,7 @@ export interface Source {
 }
 
 /**
+ * @public
  * <p>Information about a dataflow edge used in a contact.</p>
  */
 export interface DataflowDetail {
@@ -1301,6 +1412,7 @@ export interface DataflowDetail {
 }
 
 /**
+ * @public
  * <p>Elevation angle of the satellite in the sky during a contact.</p>
  */
 export interface Elevation {
@@ -1316,6 +1428,7 @@ export interface Elevation {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DescribeContactResponse {
@@ -1391,6 +1504,7 @@ export interface DescribeContactResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListContactsRequest {
@@ -1436,6 +1550,7 @@ export interface ListContactsRequest {
 }
 
 /**
+ * @public
  * <p>Data describing a contact.</p>
  */
 export interface ContactData {
@@ -1506,6 +1621,7 @@ export interface ContactData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListContactsResponse {
@@ -1521,6 +1637,7 @@ export interface ListContactsResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ReserveContactRequest {
@@ -1556,6 +1673,7 @@ export interface ReserveContactRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CreateDataflowEndpointGroupRequest {
@@ -1581,6 +1699,7 @@ export interface CreateDataflowEndpointGroupRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DataflowEndpointGroupIdResponse {
@@ -1591,6 +1710,7 @@ export interface DataflowEndpointGroupIdResponse {
 }
 
 /**
+ * @public
  * <p>Object stored in S3 containing ephemeris data.</p>
  */
 export interface S3Object {
@@ -1611,6 +1731,7 @@ export interface S3Object {
 }
 
 /**
+ * @public
  * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
  */
 export interface OEMEphemeris {
@@ -1626,6 +1747,7 @@ export interface OEMEphemeris {
 }
 
 /**
+ * @public
  * <p>A time range with a start and end time.</p>
  */
 export interface TimeRange {
@@ -1641,6 +1763,7 @@ export interface TimeRange {
 }
 
 /**
+ * @public
  * <p>Two-line element set (TLE) data.</p>
  */
 export interface TLEData {
@@ -1661,6 +1784,7 @@ export interface TLEData {
 }
 
 /**
+ * @public
  * <p>Two-line element set (TLE) ephemeris.</p>
  */
 export interface TLEEphemeris {
@@ -1676,10 +1800,14 @@ export interface TLEEphemeris {
 }
 
 /**
+ * @public
  * <p>Ephemeris data.</p>
  */
 export type EphemerisData = EphemerisData.OemMember | EphemerisData.TleMember | EphemerisData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace EphemerisData {
   /**
    * <p>Two-line element set (TLE) ephemeris.</p>
@@ -1718,6 +1846,9 @@ export namespace EphemerisData {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateEphemerisRequest {
   /**
    * <p>AWS Ground Station satellite ID for this ephemeris.</p>
@@ -1763,6 +1894,9 @@ export interface CreateEphemerisRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface EphemerisIdResponse {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -1771,10 +1905,14 @@ export interface EphemerisIdResponse {
 }
 
 /**
+ * @public
  * <p>AWS Key Management Service (KMS) Key.</p>
  */
 export type KmsKey = KmsKey.KmsAliasArnMember | KmsKey.KmsKeyArnMember | KmsKey.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace KmsKey {
   /**
    * <p>KMS Key Arn.</p>
@@ -1814,6 +1952,7 @@ export namespace KmsKey {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CreateMissionProfileRequest {
@@ -1866,6 +2005,7 @@ export interface CreateMissionProfileRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface MissionProfileIdResponse {
@@ -1876,6 +2016,7 @@ export interface MissionProfileIdResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DeleteDataflowEndpointGroupRequest {
@@ -1886,6 +2027,7 @@ export interface DeleteDataflowEndpointGroupRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetDataflowEndpointGroupRequest {
@@ -1896,6 +2038,7 @@ export interface GetDataflowEndpointGroupRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetDataflowEndpointGroupResponse {
@@ -1931,6 +2074,7 @@ export interface GetDataflowEndpointGroupResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListDataflowEndpointGroupsRequest {
@@ -1946,6 +2090,7 @@ export interface ListDataflowEndpointGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Item in a list of <code>DataflowEndpoint</code> groups.</p>
  */
 export interface DataflowEndpointListItem {
@@ -1961,6 +2106,7 @@ export interface DataflowEndpointListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListDataflowEndpointGroupsResponse {
@@ -1975,6 +2121,9 @@ export interface ListDataflowEndpointGroupsResponse {
   dataflowEndpointGroupList?: DataflowEndpointListItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteEphemerisRequest {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -1983,6 +2132,7 @@ export interface DeleteEphemerisRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface DeleteMissionProfileRequest {
@@ -1992,6 +2142,9 @@ export interface DeleteMissionProfileRequest {
   missionProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEphemerisRequest {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -1999,6 +2152,9 @@ export interface DescribeEphemerisRequest {
   ephemerisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EphemerisInvalidReason {
   /**
    * Provided KMS key is invalid
@@ -2022,6 +2178,9 @@ export enum EphemerisInvalidReason {
   VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
+/**
+ * @public
+ */
 export enum EphemerisStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -2032,6 +2191,7 @@ export enum EphemerisStatus {
 }
 
 /**
+ * @public
  * <p>Description of ephemeris.</p>
  */
 export interface EphemerisDescription {
@@ -2047,6 +2207,7 @@ export interface EphemerisDescription {
 }
 
 /**
+ * @public
  * <p/>
  */
 export type EphemerisTypeDescription =
@@ -2054,6 +2215,9 @@ export type EphemerisTypeDescription =
   | EphemerisTypeDescription.TleMember
   | EphemerisTypeDescription.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace EphemerisTypeDescription {
   /**
    * <p>Description of ephemeris.</p>
@@ -2092,6 +2256,9 @@ export namespace EphemerisTypeDescription {
   };
 }
 
+/**
+ * @public
+ */
 export interface DescribeEphemerisResponse {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -2147,6 +2314,7 @@ export interface DescribeEphemerisResponse {
 }
 
 /**
+ * @public
  * <p>Ephemeris item.</p>
  */
 export interface EphemerisItem {
@@ -2188,6 +2356,9 @@ export interface EphemerisItem {
   sourceS3Object?: S3Object;
 }
 
+/**
+ * @public
+ */
 export interface ListEphemeridesRequest {
   /**
    * <p>The AWS Ground Station satellite ID to list ephemeris for.</p>
@@ -2220,6 +2391,9 @@ export interface ListEphemeridesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEphemeridesResponse {
   /**
    * <p>Pagination token.</p>
@@ -2232,6 +2406,9 @@ export interface ListEphemeridesResponse {
   ephemerides?: EphemerisItem[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateEphemerisRequest {
   /**
    * <p>The AWS Ground Station ephemeris ID.</p>
@@ -2256,12 +2433,16 @@ export interface UpdateEphemerisRequest {
   priority?: number;
 }
 
+/**
+ * @public
+ */
 export enum EphemerisSource {
   CUSTOMER_PROVIDED = "CUSTOMER_PROVIDED",
   SPACE_TRACK = "SPACE_TRACK",
 }
 
 /**
+ * @public
  * <p>Metadata describing a particular ephemeris.</p>
  */
 export interface EphemerisMetaData {
@@ -2290,6 +2471,7 @@ export interface EphemerisMetaData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMinuteUsageRequest {
@@ -2305,6 +2487,7 @@ export interface GetMinuteUsageRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMinuteUsageResponse {
@@ -2335,6 +2518,7 @@ export interface GetMinuteUsageResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMissionProfileRequest {
@@ -2345,6 +2529,7 @@ export interface GetMissionProfileRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetMissionProfileResponse {
@@ -2412,6 +2597,7 @@ export interface GetMissionProfileResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetSatelliteRequest {
@@ -2422,6 +2608,7 @@ export interface GetSatelliteRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface GetSatelliteResponse {
@@ -2452,6 +2639,7 @@ export interface GetSatelliteResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListGroundStationsRequest {
@@ -2472,6 +2660,7 @@ export interface ListGroundStationsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the ground station data.</p>
  */
 export interface GroundStationData {
@@ -2492,6 +2681,7 @@ export interface GroundStationData {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListGroundStationsResponse {
@@ -2507,6 +2697,7 @@ export interface ListGroundStationsResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListTagsForResourceRequest {
@@ -2517,6 +2708,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListTagsForResourceResponse {
@@ -2527,6 +2719,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListMissionProfilesRequest {
@@ -2542,6 +2735,7 @@ export interface ListMissionProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Item in a list of mission profiles.</p>
  */
 export interface MissionProfileListItem {
@@ -2567,6 +2761,7 @@ export interface MissionProfileListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListMissionProfilesResponse {
@@ -2582,6 +2777,7 @@ export interface ListMissionProfilesResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface UpdateMissionProfileRequest {
@@ -2634,6 +2830,7 @@ export interface UpdateMissionProfileRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListSatellitesRequest {
@@ -2649,6 +2846,7 @@ export interface ListSatellitesRequest {
 }
 
 /**
+ * @public
  * <p>Item in a list of satellites.</p>
  */
 export interface SatelliteListItem {
@@ -2679,6 +2877,7 @@ export interface SatelliteListItem {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ListSatellitesResponse {
@@ -2694,6 +2893,7 @@ export interface ListSatellitesResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface TagResourceRequest {
@@ -2709,11 +2909,13 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p/>
  */
 export interface UntagResourceRequest {
@@ -2729,6 +2931,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface UntagResourceResponse {}

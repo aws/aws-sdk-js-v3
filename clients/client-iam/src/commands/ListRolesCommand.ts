@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryListRolesCommand, serializeAws_queryListRolesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListRolesCommand}.
  */
 export interface ListRolesCommandInput extends ListRolesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRolesCommand}.
  */
 export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
  *             operation returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with
  *                 roles</a>.</p>
@@ -51,6 +56,8 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRolesCommandInput - {@link ListRolesCommandInput}
+ * @returns {@link ListRolesCommandOutput}
  * @see {@link ListRolesCommandInput} for command's `input` shape.
  * @see {@link ListRolesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRolesCommandOutput> {
     return deserializeAws_queryListRolesCommand(output, context);
   }

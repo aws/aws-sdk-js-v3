@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSharesForProducerCommand}.
  */
 export interface DescribeDataSharesForProducerCommandInput extends DescribeDataSharesForProducerMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSharesForProducerCommand}.
  */
 export interface DescribeDataSharesForProducerCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDataSharesForProducerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of datashares when the account identifier being called is a producer account identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeDataSharesForProducerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSharesForProducerCommandInput - {@link DescribeDataSharesForProducerCommandInput}
+ * @returns {@link DescribeDataSharesForProducerCommandOutput}
  * @see {@link DescribeDataSharesForProducerCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesForProducerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeDataSharesForProducerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSharesForProducerCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeDataSharesForProducerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSharesForProducerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDataSharesForProducerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -52,6 +52,7 @@ import {
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 /**
+ * @public
  * <p>Describes an OpsItem filter.</p>
  */
 export interface OpsItemFilter {
@@ -71,6 +72,9 @@ export interface OpsItemFilter {
   Operator: OpsItemFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOpsItemsRequest {
   /**
    * <p>One or more filters to limit the response.</p>
@@ -132,7 +136,7 @@ export interface DescribeOpsItemsRequest {
    *    100 characters, they system returns an error that the filter value exceeds the length
    *    limit.</p>
    *          <p>**If you filter the response by using the OperationalData operator, specify a key-value pair
-   *    by using the following JSON format: {"key":"key_name","value":"a_value"}</p>
+   *    by using the following JSON format: \{"key":"key_name","value":"a_value"\}</p>
    */
   OpsItemFilters?: OpsItemFilter[];
 
@@ -148,6 +152,9 @@ export interface DescribeOpsItemsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OpsItemStatus {
   APPROVED = "Approved",
   CANCELLED = "Cancelled",
@@ -171,6 +178,7 @@ export enum OpsItemStatus {
 }
 
 /**
+ * @public
  * <p>A count of OpsItems.</p>
  */
 export interface OpsItemSummary {
@@ -290,6 +298,9 @@ export interface OpsItemSummary {
   PlannedEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOpsItemsResponse {
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -303,6 +314,9 @@ export interface DescribeOpsItemsResponse {
   OpsItemSummaries?: OpsItemSummary[];
 }
 
+/**
+ * @public
+ */
 export enum ParametersFilterKey {
   KEY_ID = "KeyId",
   NAME = "Name",
@@ -310,6 +324,7 @@ export enum ParametersFilterKey {
 }
 
 /**
+ * @public
  * <p>This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.</p>
  */
 export interface ParametersFilter {
@@ -325,6 +340,7 @@ export interface ParametersFilter {
 }
 
 /**
+ * @public
  * <p>One or more filters. Use a filter to return a more specific list of results.</p>
  */
 export interface ParameterStringFilter {
@@ -361,6 +377,9 @@ export interface ParameterStringFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeParametersRequest {
   /**
    * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
@@ -386,6 +405,7 @@ export interface DescribeParametersRequest {
 }
 
 /**
+ * @public
  * <p>One or more policies assigned to a parameter.</p>
  */
 export interface ParameterInlinePolicy {
@@ -408,12 +428,18 @@ export interface ParameterInlinePolicy {
   PolicyStatus?: string;
 }
 
+/**
+ * @public
+ */
 export enum ParameterTier {
   ADVANCED = "Advanced",
   INTELLIGENT_TIERING = "Intelligent-Tiering",
   STANDARD = "Standard",
 }
 
+/**
+ * @public
+ */
 export enum ParameterType {
   SECURE_STRING = "SecureString",
   STRING = "String",
@@ -421,6 +447,7 @@ export enum ParameterType {
 }
 
 /**
+ * @public
  * <p>Metadata includes information like the ARN of the last user and the date/time the parameter
  *    was last used.</p>
  */
@@ -484,6 +511,9 @@ export interface ParameterMetadata {
   DataType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeParametersResult {
   /**
    * <p>Parameters returned by the request.</p>
@@ -497,6 +527,7 @@ export interface DescribeParametersResult {
 }
 
 /**
+ * @public
  * <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
  *    filter, valid options are Recursive and OneLevel.</p>
  */
@@ -516,6 +547,9 @@ export class InvalidFilterOption extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchBaselinesRequest {
   /**
    * <p>Each element in the array is a structure containing a key-value pair.</p>
@@ -565,6 +599,7 @@ export interface DescribePatchBaselinesRequest {
 }
 
 /**
+ * @public
  * <p>Defines the basic information about a patch baseline.</p>
  */
 export interface PatchBaselineIdentity {
@@ -596,6 +631,9 @@ export interface PatchBaselineIdentity {
   DefaultBaseline?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchBaselinesResult {
   /**
    * <p>An array of <code>PatchBaselineIdentity</code> elements.</p>
@@ -609,6 +647,9 @@ export interface DescribePatchBaselinesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchGroupsRequest {
   /**
    * <p>The maximum number of patch groups to return (per page).</p>
@@ -648,6 +689,7 @@ export interface DescribePatchGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The mapping between a patch group and the patch baseline the patch group is registered
  *    with.</p>
  */
@@ -663,6 +705,9 @@ export interface PatchGroupPatchBaselineMapping {
   BaselineIdentity?: PatchBaselineIdentity;
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchGroupsResult {
   /**
    * <p>Each entry in the array contains:</p>
@@ -670,7 +715,7 @@ export interface DescribePatchGroupsResult {
    *             <li>
    *                <p>
    *                   <code>PatchGroup</code>: string (between 1 and 256 characters. Regex:
-   *       <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code>
+   *       <code>^([\p\{L\}\p\{Z\}\p\{N\}_.:/=+\-@]*)$)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -688,6 +733,9 @@ export interface DescribePatchGroupsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchGroupStateRequest {
   /**
    * <p>The name of the patch group whose patch snapshot should be retrieved.</p>
@@ -695,6 +743,9 @@ export interface DescribePatchGroupStateRequest {
   PatchGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchGroupStateResult {
   /**
    * <p>The number of managed nodes in the patch group.</p>
@@ -777,11 +828,17 @@ export interface DescribePatchGroupStateResult {
   InstancesWithOtherNonCompliantPatches?: number;
 }
 
+/**
+ * @public
+ */
 export enum PatchSet {
   Application = "APPLICATION",
   Os = "OS",
 }
 
+/**
+ * @public
+ */
 export enum PatchProperty {
   PatchClassification = "CLASSIFICATION",
   PatchMsrcSeverity = "MSRC_SEVERITY",
@@ -791,6 +848,9 @@ export enum PatchProperty {
   Product = "PRODUCT",
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchPropertiesRequest {
   /**
    * <p>The operating system type for which to list patches.</p>
@@ -821,6 +881,9 @@ export interface DescribePatchPropertiesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePatchPropertiesResult {
   /**
    * <p>A list of the properties for patches matching the filter request parameters.</p>
@@ -833,6 +896,9 @@ export interface DescribePatchPropertiesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SessionFilterKey {
   INVOKED_AFTER = "InvokedAfter",
   INVOKED_BEFORE = "InvokedBefore",
@@ -843,6 +909,7 @@ export enum SessionFilterKey {
 }
 
 /**
+ * @public
  * <p>Describes a filter for Session Manager information.</p>
  */
 export interface SessionFilter {
@@ -900,11 +967,17 @@ export interface SessionFilter {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SessionState {
   ACTIVE = "Active",
   HISTORY = "History",
 }
 
+/**
+ * @public
+ */
 export interface DescribeSessionsRequest {
   /**
    * <p>The session status to retrieve a list of sessions for. For example, "Active".</p>
@@ -930,6 +1003,7 @@ export interface DescribeSessionsRequest {
 }
 
 /**
+ * @public
  * <p>Reserved for future use.</p>
  */
 export interface SessionManagerOutputUrl {
@@ -944,6 +1018,9 @@ export interface SessionManagerOutputUrl {
   CloudWatchOutputUrl?: string;
 }
 
+/**
+ * @public
+ */
 export enum SessionStatus {
   CONNECTED = "Connected",
   CONNECTING = "Connecting",
@@ -954,6 +1031,7 @@ export enum SessionStatus {
 }
 
 /**
+ * @public
  * <p>Information about a Session Manager connection to a managed node.</p>
  */
 export interface Session {
@@ -1014,6 +1092,9 @@ export interface Session {
   MaxSessionDuration?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSessionsResponse {
   /**
    * <p>A list of sessions meeting the request parameters.</p>
@@ -1027,6 +1108,9 @@ export interface DescribeSessionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateOpsItemRelatedItemRequest {
   /**
    * <p>The ID of the OpsItem for which you want to delete an association between the OpsItem and a
@@ -1041,9 +1125,13 @@ export interface DisassociateOpsItemRelatedItemRequest {
   AssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateOpsItemRelatedItemResponse {}
 
 /**
+ * @public
  * <p>The association wasn't found using the parameters you specified in the call. Verify the
  *    information and try again.</p>
  */
@@ -1065,6 +1153,9 @@ export class OpsItemRelatedItemAssociationNotFoundException extends __BaseExcept
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAutomationExecutionRequest {
   /**
    * <p>The unique identifier for an existing automation execution to examine. The execution ID is
@@ -1075,6 +1166,7 @@ export interface GetAutomationExecutionRequest {
 }
 
 /**
+ * @public
  * <p>An aggregate of step execution statuses displayed in the Amazon Web Services Systems Manager console for a
  *    multi-Region and multi-account Automation execution.</p>
  */
@@ -1111,6 +1203,7 @@ export interface ProgressCounters {
 }
 
 /**
+ * @public
  * <p>Detailed information about the current state of an individual Automation execution.</p>
  */
 export interface AutomationExecution {
@@ -1291,6 +1384,9 @@ export interface AutomationExecution {
   ChangeRequestName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAutomationExecutionResult {
   /**
    * <p>Detailed information about the current state of an automation execution.</p>
@@ -1298,6 +1394,9 @@ export interface GetAutomationExecutionResult {
   AutomationExecution?: AutomationExecution;
 }
 
+/**
+ * @public
+ */
 export interface GetCalendarStateRequest {
   /**
    * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents) that
@@ -1312,11 +1411,17 @@ export interface GetCalendarStateRequest {
   AtTime?: string;
 }
 
+/**
+ * @public
+ */
 export enum CalendarState {
   CLOSED = "CLOSED",
   OPEN = "OPEN",
 }
 
+/**
+ * @public
+ */
 export interface GetCalendarStateResponse {
   /**
    * <p>The state of the calendar. An <code>OPEN</code> calendar indicates that actions are allowed
@@ -1342,6 +1447,7 @@ export interface GetCalendarStateResponse {
 }
 
 /**
+ * @public
  * <p>The SSM document type isn't valid. Valid document types are described in the
  *     <code>DocumentType</code> property.</p>
  */
@@ -1364,6 +1470,7 @@ export class InvalidDocumentType extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The calendar entry contained in the specified SSM document isn't supported.</p>
  */
 export class UnsupportedCalendarException extends __BaseException {
@@ -1384,6 +1491,9 @@ export class UnsupportedCalendarException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetCommandInvocationRequest {
   /**
    * <p>(Required) The parent command ID of the invocation plugin.</p>
@@ -1413,6 +1523,7 @@ export interface GetCommandInvocationRequest {
 }
 
 /**
+ * @public
  * <p>Configuration options for sending command output to Amazon CloudWatch Logs.</p>
  */
 export interface CloudWatchOutputConfig {
@@ -1433,6 +1544,9 @@ export interface CloudWatchOutputConfig {
   CloudWatchOutputEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum CommandInvocationStatus {
   CANCELLED = "Cancelled",
   CANCELLING = "Cancelling",
@@ -1444,6 +1558,9 @@ export enum CommandInvocationStatus {
   TIMED_OUT = "TimedOut",
 }
 
+/**
+ * @public
+ */
 export interface GetCommandInvocationResult {
   /**
    * <p>The parent command ID of the invocation plugin.</p>
@@ -1608,6 +1725,7 @@ export interface GetCommandInvocationResult {
 }
 
 /**
+ * @public
  * <p>The plugin name isn't valid.</p>
  */
 export class InvalidPluginName extends __BaseException {
@@ -1627,6 +1745,7 @@ export class InvalidPluginName extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The command ID and managed node ID you specified didn't match any invocations. Verify the
  *    command ID and the managed node ID and try again. </p>
  */
@@ -1646,6 +1765,9 @@ export class InvocationDoesNotExist extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionStatusRequest {
   /**
    * <p>The managed node ID.</p>
@@ -1653,11 +1775,17 @@ export interface GetConnectionStatusRequest {
   Target: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConnectionStatus {
   CONNECTED = "Connected",
   NOT_CONNECTED = "NotConnected",
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionStatusResponse {
   /**
    * <p>The ID of the managed node to check connection status. </p>
@@ -1671,6 +1799,9 @@ export interface GetConnectionStatusResponse {
   Status?: ConnectionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetDefaultPatchBaselineRequest {
   /**
    * <p>Returns the default patch baseline for the specified operating system.</p>
@@ -1678,6 +1809,9 @@ export interface GetDefaultPatchBaselineRequest {
   OperatingSystem?: OperatingSystem | string;
 }
 
+/**
+ * @public
+ */
 export interface GetDefaultPatchBaselineResult {
   /**
    * <p>The ID of the default patch baseline.</p>
@@ -1691,6 +1825,7 @@ export interface GetDefaultPatchBaselineResult {
 }
 
 /**
+ * @public
  * <p>Defines the basic information about a patch baseline override.</p>
  */
 export interface BaselineOverride {
@@ -1752,6 +1887,9 @@ export interface BaselineOverride {
   Sources?: PatchSource[];
 }
 
+/**
+ * @public
+ */
 export interface GetDeployablePatchSnapshotForInstanceRequest {
   /**
    * <p>The ID of the managed node for which the appropriate patch snapshot should be
@@ -1770,6 +1908,9 @@ export interface GetDeployablePatchSnapshotForInstanceRequest {
   BaselineOverride?: BaselineOverride;
 }
 
+/**
+ * @public
+ */
 export interface GetDeployablePatchSnapshotForInstanceResult {
   /**
    * <p>The managed node ID.</p>
@@ -1795,6 +1936,7 @@ export interface GetDeployablePatchSnapshotForInstanceResult {
 }
 
 /**
+ * @public
  * <p>Patching for applications released by Microsoft is only available on EC2 instances and
  *    advanced instances. To patch applications released by Microsoft on on-premises servers and VMs,
  *    you must enable advanced instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Enabling
@@ -1818,6 +1960,9 @@ export class UnsupportedFeatureRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentRequest {
   /**
    * <p>The name of the SSM document.</p>
@@ -1843,11 +1988,15 @@ export interface GetDocumentRequest {
   DocumentFormat?: DocumentFormat | string;
 }
 
+/**
+ * @public
+ */
 export enum AttachmentHashType {
   SHA256 = "Sha256",
 }
 
 /**
+ * @public
  * <p>A structure that includes attributes that describe a document attachment.</p>
  */
 export interface AttachmentContent {
@@ -1877,6 +2026,9 @@ export interface AttachmentContent {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentResult {
   /**
    * <p>The name of the SSM document.</p>
@@ -1956,6 +2108,9 @@ export interface GetDocumentResult {
   ReviewStatus?: ReviewStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum InventoryQueryOperatorType {
   BEGIN_WITH = "BeginWith",
   EQUAL = "Equal",
@@ -1966,6 +2121,7 @@ export enum InventoryQueryOperatorType {
 }
 
 /**
+ * @public
  * <p>One or more filters. Use a filter to return a more specific list of results.</p>
  */
 export interface InventoryFilter {
@@ -1993,6 +2149,7 @@ export interface InventoryFilter {
 }
 
 /**
+ * @public
  * <p>A user-defined set of one or more filters on which to aggregate inventory data. Groups
  *    return a count of resources that match and don't match the specified criteria.</p>
  */
@@ -2011,6 +2168,7 @@ export interface InventoryGroup {
 }
 
 /**
+ * @public
  * <p>The inventory item result attribute.</p>
  */
 export interface ResultAttribute {
@@ -2022,6 +2180,7 @@ export interface ResultAttribute {
 }
 
 /**
+ * @public
  * <p>The inventory result item.</p>
  */
 export interface InventoryResultItem {
@@ -2055,6 +2214,7 @@ export interface InventoryResultItem {
 }
 
 /**
+ * @public
  * <p>Inventory query results.</p>
  */
 export interface InventoryResultEntity {
@@ -2070,6 +2230,9 @@ export interface InventoryResultEntity {
   Data?: Record<string, InventoryResultItem>;
 }
 
+/**
+ * @public
+ */
 export interface GetInventoryResult {
   /**
    * <p>Collection of inventory entities such as a collection of managed node inventory. </p>
@@ -2084,6 +2247,7 @@ export interface GetInventoryResult {
 }
 
 /**
+ * @public
  * <p>The specified aggregator isn't valid for inventory groups. Verify that the aggregator uses a
  *    valid inventory type such as <code>AWS:Application</code> or
  *    <code>AWS:InstanceInformation</code>.</p>
@@ -2107,6 +2271,7 @@ export class InvalidAggregatorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified inventory group isn't valid.</p>
  */
 export class InvalidInventoryGroupException extends __BaseException {
@@ -2128,6 +2293,7 @@ export class InvalidInventoryGroupException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified inventory item result attribute isn't valid.</p>
  */
 export class InvalidResultAttributeException extends __BaseException {
@@ -2148,6 +2314,9 @@ export class InvalidResultAttributeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetInventorySchemaRequest {
   /**
    * <p>The type of inventory item to return.</p>
@@ -2180,12 +2349,16 @@ export interface GetInventorySchemaRequest {
   SubType?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum InventoryAttributeDataType {
   NUMBER = "number",
   STRING = "string",
 }
 
 /**
+ * @public
  * <p>Attributes are the entries within the inventory item content. It contains name and
  *    value.</p>
  */
@@ -2202,6 +2375,7 @@ export interface InventoryItemAttribute {
 }
 
 /**
+ * @public
  * <p>The inventory item schema definition. Users can use this to compose inventory query
  *    filters.</p>
  */
@@ -2231,6 +2405,9 @@ export interface InventoryItemSchema {
   DisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInventorySchemaResult {
   /**
    * <p>Inventory schemas returned by the request.</p>
@@ -2244,6 +2421,9 @@ export interface GetInventorySchemaResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window for which you want to retrieve information.</p>
@@ -2251,6 +2431,9 @@ export interface GetMaintenanceWindowRequest {
   WindowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowResult {
   /**
    * <p>The ID of the created maintenance window.</p>
@@ -2337,6 +2520,9 @@ export interface GetMaintenanceWindowResult {
   ModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowExecutionRequest {
   /**
    * <p>The ID of the maintenance window execution that includes the task.</p>
@@ -2344,6 +2530,9 @@ export interface GetMaintenanceWindowExecutionRequest {
   WindowExecutionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowExecutionResult {
   /**
    * <p>The ID of the maintenance window execution.</p>
@@ -2376,6 +2565,9 @@ export interface GetMaintenanceWindowExecutionResult {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowExecutionTaskRequest {
   /**
    * <p>The ID of the maintenance window execution that includes the task.</p>
@@ -2389,6 +2581,9 @@ export interface GetMaintenanceWindowExecutionTaskRequest {
   TaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowExecutionTaskResult {
   /**
    * <p>The ID of the maintenance window execution that includes the task.</p>
@@ -2487,6 +2682,9 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   TriggeredAlarms?: AlarmStateInformation[];
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
   /**
    * <p>The ID of the maintenance window execution for which the task is a part.</p>
@@ -2504,6 +2702,9 @@ export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
   InvocationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   /**
    * <p>The maintenance window execution ID.</p>
@@ -2568,6 +2769,9 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   WindowTargetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowTaskRequest {
   /**
    * <p>The maintenance window ID that includes the task to retrieve.</p>
@@ -2581,6 +2785,7 @@ export interface GetMaintenanceWindowTaskRequest {
 }
 
 /**
+ * @public
  * <p>The parameters for an <code>AUTOMATION</code> task type.</p>
  */
 export interface MaintenanceWindowAutomationParameters {
@@ -2611,6 +2816,7 @@ export interface MaintenanceWindowAutomationParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for a <code>LAMBDA</code> task type.</p>
  *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
  *          <note>
@@ -2650,6 +2856,9 @@ export interface MaintenanceWindowLambdaParameters {
   Payload?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export enum NotificationEvent {
   ALL = "All",
   CANCELLED = "Cancelled",
@@ -2659,12 +2868,16 @@ export enum NotificationEvent {
   TIMED_OUT = "TimedOut",
 }
 
+/**
+ * @public
+ */
 export enum NotificationType {
   Command = "Command",
   Invocation = "Invocation",
 }
 
 /**
+ * @public
  * <p>Configurations for sending notifications.</p>
  */
 export interface NotificationConfig {
@@ -2700,6 +2913,7 @@ export interface NotificationConfig {
 }
 
 /**
+ * @public
  * <p>The parameters for a <code>RUN_COMMAND</code> task type.</p>
  *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
  *          <note>
@@ -2792,6 +3006,7 @@ export interface MaintenanceWindowRunCommandParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for a <code>STEP_FUNCTIONS</code> task.</p>
  *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
  *          <note>
@@ -2822,6 +3037,7 @@ export interface MaintenanceWindowStepFunctionsParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for task execution.</p>
  */
 export interface MaintenanceWindowTaskInvocationParameters {
@@ -2846,6 +3062,9 @@ export interface MaintenanceWindowTaskInvocationParameters {
   Lambda?: MaintenanceWindowLambdaParameters;
 }
 
+/**
+ * @public
+ */
 export interface GetMaintenanceWindowTaskResult {
   /**
    * <p>The retrieved maintenance window ID.</p>
@@ -2965,6 +3184,9 @@ export interface GetMaintenanceWindowTaskResult {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetOpsItemRequest {
   /**
    * <p>The ID of the OpsItem that you want to get.</p>
@@ -2978,6 +3200,7 @@ export interface GetOpsItemRequest {
 }
 
 /**
+ * @public
  * <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  *    remediate operational work items (OpsItems) impacting the performance and health of their Amazon Web Services
  *    resources. OpsCenter is integrated with Amazon EventBridge and Amazon CloudWatch. This
@@ -3154,6 +3377,9 @@ export interface OpsItem {
   OpsItemArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOpsItemResponse {
   /**
    * <p>The OpsItem.</p>
@@ -3161,6 +3387,9 @@ export interface GetOpsItemResponse {
   OpsItem?: OpsItem;
 }
 
+/**
+ * @public
+ */
 export interface GetOpsMetadataRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</p>
@@ -3179,6 +3408,9 @@ export interface GetOpsMetadataRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOpsMetadataResult {
   /**
    * <p>The resource ID of the Application Manager application.</p>
@@ -3197,6 +3429,9 @@ export interface GetOpsMetadataResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OpsFilterOperatorType {
   BEGIN_WITH = "BeginWith",
   EQUAL = "Equal",
@@ -3207,6 +3442,7 @@ export enum OpsFilterOperatorType {
 }
 
 /**
+ * @public
  * <p>A filter for viewing OpsData summaries.</p>
  */
 export interface OpsFilter {
@@ -3227,6 +3463,7 @@ export interface OpsFilter {
 }
 
 /**
+ * @public
  * <p>The OpsItem data type to return.</p>
  */
 export interface OpsResultAttribute {
@@ -3239,6 +3476,7 @@ export interface OpsResultAttribute {
 }
 
 /**
+ * @public
  * <p>The OpsData summary.</p>
  */
 export interface OpsEntityItem {
@@ -3254,6 +3492,7 @@ export interface OpsEntityItem {
 }
 
 /**
+ * @public
  * <p>The result of the query.</p>
  */
 export interface OpsEntity {
@@ -3268,6 +3507,9 @@ export interface OpsEntity {
   Data?: Record<string, OpsEntityItem>;
 }
 
+/**
+ * @public
+ */
 export interface GetOpsSummaryResult {
   /**
    * <p>The list of aggregated details and filtered OpsData.</p>
@@ -3281,6 +3523,9 @@ export interface GetOpsSummaryResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetParameterRequest {
   /**
    * <p>The name of the parameter you want to query.</p>
@@ -3297,6 +3542,7 @@ export interface GetParameterRequest {
 }
 
 /**
+ * @public
  * <p>An Amazon Web Services Systems Manager parameter in Parameter Store.</p>
  */
 export interface Parameter {
@@ -3360,6 +3606,9 @@ export interface Parameter {
   DataType?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetParameterResult {
   /**
    * <p>Information about a parameter.</p>
@@ -3368,6 +3617,7 @@ export interface GetParameterResult {
 }
 
 /**
+ * @public
  * <p>The query key ID isn't valid.</p>
  */
 export class InvalidKeyId extends __BaseException {
@@ -3387,6 +3637,7 @@ export class InvalidKeyId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
  *    again.</p>
  */
@@ -3406,6 +3657,9 @@ export class ParameterVersionNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetParameterHistoryRequest {
   /**
    * <p>The name of the parameter for which you want to review history.</p>
@@ -3432,6 +3686,7 @@ export interface GetParameterHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Information about parameter usage.</p>
  */
 export interface ParameterHistory {
@@ -3506,6 +3761,9 @@ export interface ParameterHistory {
   DataType?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetParameterHistoryResult {
   /**
    * <p>A list of parameters returned by the request.</p>
@@ -3519,6 +3777,9 @@ export interface GetParameterHistoryResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetParametersRequest {
   /**
    * <p>Names of the parameters for which you want to query information.</p>
@@ -3534,6 +3795,9 @@ export interface GetParametersRequest {
   WithDecryption?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetParametersResult {
   /**
    * <p>A list of details for a parameter.</p>
@@ -3547,6 +3811,9 @@ export interface GetParametersResult {
   InvalidParameters?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetParametersByPathRequest {
   /**
    * <p>The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy
@@ -3599,6 +3866,9 @@ export interface GetParametersByPathRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetParametersByPathResult {
   /**
    * <p>A list of parameters found in the specified hierarchy.</p>
@@ -3612,6 +3882,9 @@ export interface GetParametersByPathResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPatchBaselineRequest {
   /**
    * <p>The ID of the patch baseline to retrieve.</p>
@@ -3626,6 +3899,9 @@ export interface GetPatchBaselineRequest {
   BaselineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPatchBaselineResult {
   /**
    * <p>The ID of the retrieved patch baseline.</p>
@@ -3709,6 +3985,9 @@ export interface GetPatchBaselineResult {
   Sources?: PatchSource[];
 }
 
+/**
+ * @public
+ */
 export interface GetPatchBaselineForPatchGroupRequest {
   /**
    * <p>The name of the patch group whose patch baseline should be retrieved.</p>
@@ -3722,6 +4001,9 @@ export interface GetPatchBaselineForPatchGroupRequest {
   OperatingSystem?: OperatingSystem | string;
 }
 
+/**
+ * @public
+ */
 export interface GetPatchBaselineForPatchGroupResult {
   /**
    * <p>The ID of the patch baseline that should be used for the patch group.</p>
@@ -3739,6 +4021,9 @@ export interface GetPatchBaselineForPatchGroupResult {
   OperatingSystem?: OperatingSystem | string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
@@ -3758,6 +4043,7 @@ export interface GetResourcePoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A resource policy helps you to define the IAM entity (for example, an
  *    Amazon Web Services account) that can manage your Systems Manager resources. Currently, <code>OpsItemGroup</code> is the
  *    only resource that supports Systems Manager resource policies. The resource policy for
@@ -3787,6 +4073,9 @@ export interface GetResourcePoliciesResponseEntry {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesResponse {
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -3801,6 +4090,7 @@ export interface GetResourcePoliciesResponse {
 }
 
 /**
+ * @public
  * <p>The request body of the GetServiceSetting API operation.</p>
  */
 export interface GetServiceSettingRequest {
@@ -3853,6 +4143,7 @@ export interface GetServiceSettingRequest {
 }
 
 /**
+ * @public
  * <p>The service setting data structure.</p>
  *          <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
@@ -3916,6 +4207,7 @@ export interface ServiceSetting {
 }
 
 /**
+ * @public
  * <p>The query result body of the GetServiceSetting API operation.</p>
  */
 export interface GetServiceSettingResult {
@@ -3926,6 +4218,7 @@ export interface GetServiceSettingResult {
 }
 
 /**
+ * @public
  * <p>The specified service setting wasn't found. Either the service name or the setting hasn't
  *    been provisioned by the Amazon Web Services service team.</p>
  */
@@ -3947,6 +4240,9 @@ export class ServiceSettingNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface LabelParameterVersionRequest {
   /**
    * <p>The parameter name on which you want to attach one or more labels.</p>
@@ -3965,6 +4261,9 @@ export interface LabelParameterVersionRequest {
   Labels: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface LabelParameterVersionResult {
   /**
    * <p>The label doesn't meet the requirements. For information about parameter label requirements,
@@ -3980,6 +4279,7 @@ export interface LabelParameterVersionResult {
 }
 
 /**
+ * @public
  * <p>A parameter version can have a maximum of ten labels.</p>
  */
 export class ParameterVersionLabelLimitExceeded extends __BaseException {
@@ -3998,6 +4298,9 @@ export class ParameterVersionLabelLimitExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AssociationFilterKey {
   AssociationId = "AssociationId",
   AssociationName = "AssociationName",
@@ -4010,6 +4313,7 @@ export enum AssociationFilterKey {
 }
 
 /**
+ * @public
  * <p>Describes a filter.</p>
  */
 export interface AssociationFilter {
@@ -4028,6 +4332,9 @@ export interface AssociationFilter {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociationsRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
@@ -4054,6 +4361,7 @@ export interface ListAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association of a Amazon Web Services Systems Manager document (SSM document) and a managed node.</p>
  */
 export interface Association {
@@ -4132,6 +4440,9 @@ export interface Association {
   TargetMaps?: Record<string, string[]>[];
 }
 
+/**
+ * @public
+ */
 export interface ListAssociationsResult {
   /**
    * <p>The associations.</p>
@@ -4145,6 +4456,9 @@ export interface ListAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociationVersionsRequest {
   /**
    * <p>The association ID for which you want to view all versions.</p>
@@ -4164,6 +4478,7 @@ export interface ListAssociationVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the association version.</p>
  */
 export interface AssociationVersionInfo {
@@ -4300,6 +4615,9 @@ export interface AssociationVersionInfo {
   TargetMaps?: Record<string, string[]>[];
 }
 
+/**
+ * @public
+ */
 export interface ListAssociationVersionsResult {
   /**
    * <p>Information about all versions of the association for the specified association ID.</p>
@@ -4313,6 +4631,9 @@ export interface ListAssociationVersionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum CommandFilterKey {
   DOCUMENT_NAME = "DocumentName",
   EXECUTION_STAGE = "ExecutionStage",
@@ -4322,6 +4643,7 @@ export enum CommandFilterKey {
 }
 
 /**
+ * @public
  * <p>Describes a command filter.</p>
  *          <note>
  *             <p>A managed node ID can't be specified when a command status is <code>Pending</code> because
@@ -4516,6 +4838,9 @@ export interface CommandFilter {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCommandInvocationsRequest {
   /**
    * <p>(Optional) The invocations for a specific command ID.</p>
@@ -4552,6 +4877,9 @@ export interface ListCommandInvocationsRequest {
   Details?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum CommandPluginStatus {
   CANCELLED = "Cancelled",
   FAILED = "Failed",
@@ -4562,6 +4890,7 @@ export enum CommandPluginStatus {
 }
 
 /**
+ * @public
  * <p>Describes plugin details.</p>
  */
 export interface CommandPlugin {
@@ -4708,6 +5037,7 @@ export interface CommandPlugin {
 }
 
 /**
+ * @public
  * <p>An invocation is a copy of a command sent to a specific managed node. A command can apply to
  *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
  *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
@@ -4860,6 +5190,9 @@ export interface CommandInvocation {
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
 }
 
+/**
+ * @public
+ */
 export interface ListCommandInvocationsResult {
   /**
    * <p>(Optional) A list of all invocations. </p>
@@ -4873,6 +5206,9 @@ export interface ListCommandInvocationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCommandsRequest {
   /**
    * <p>(Optional) If provided, lists only the specified command.</p>
@@ -4908,6 +5244,9 @@ export interface ListCommandsRequest {
   Filters?: CommandFilter[];
 }
 
+/**
+ * @public
+ */
 export enum CommandStatus {
   CANCELLED = "Cancelled",
   CANCELLING = "Cancelling",
@@ -4919,6 +5258,7 @@ export enum CommandStatus {
 }
 
 /**
+ * @public
  * <p>Describes a command request.</p>
  */
 export interface Command {
@@ -5123,6 +5463,9 @@ export interface Command {
   TriggeredAlarms?: AlarmStateInformation[];
 }
 
+/**
+ * @public
+ */
 export interface ListCommandsResult {
   /**
    * <p>(Optional) The list of commands requested by the user. </p>
@@ -5136,6 +5479,9 @@ export interface ListCommandsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComplianceQueryOperatorType {
   BeginWith = "BEGIN_WITH",
   Equal = "EQUAL",
@@ -5145,6 +5491,7 @@ export enum ComplianceQueryOperatorType {
 }
 
 /**
+ * @public
  * <p>One or more filters. Use a filter to return a more specific list of results.</p>
  */
 export interface ComplianceStringFilter {
@@ -5165,6 +5512,9 @@ export interface ComplianceStringFilter {
   Type?: ComplianceQueryOperatorType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListComplianceItemsRequest {
   /**
    * <p>One or more compliance filters. Use a filter to return a more specific list of
@@ -5197,6 +5547,7 @@ export interface ListComplianceItemsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the call execution that includes an execution ID, the type of execution (for
  *    example, <code>Command</code>), and the date/time of the execution using a datetime object that
  *    is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.</p>
@@ -5220,6 +5571,9 @@ export interface ComplianceExecutionSummary {
   ExecutionType?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComplianceSeverity {
   Critical = "CRITICAL",
   High = "HIGH",
@@ -5229,12 +5583,16 @@ export enum ComplianceSeverity {
   Unspecified = "UNSPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum ComplianceStatus {
   Compliant = "COMPLIANT",
   NonCompliant = "NON_COMPLIANT",
 }
 
 /**
+ * @public
  * <p>Information about the compliance as defined by the resource type. For example, for a patch
  *    resource type, <code>Items</code> includes information about the PatchSeverity, Classification,
  *    and so on.</p>
@@ -5294,6 +5652,9 @@ export interface ComplianceItem {
   Details?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListComplianceItemsResult {
   /**
    * <p>A list of compliance information for the specified resource ID. </p>
@@ -5307,6 +5668,9 @@ export interface ListComplianceItemsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComplianceSummariesRequest {
   /**
    * <p>One or more compliance or inventory filters. Use a filter to return a more specific list of
@@ -5328,6 +5692,7 @@ export interface ListComplianceSummariesRequest {
 }
 
 /**
+ * @public
  * <p>The number of managed nodes found for each patch severity level defined in the request
  *    filter.</p>
  */
@@ -5373,6 +5738,7 @@ export interface SeveritySummary {
 }
 
 /**
+ * @public
  * <p>A summary of resources that are compliant. The summary is organized according to the
  *    resource count for each compliance type.</p>
  */
@@ -5389,6 +5755,7 @@ export interface CompliantSummary {
 }
 
 /**
+ * @public
  * <p>A summary of resources that aren't compliant. The summary is organized according to resource
  *    type.</p>
  */
@@ -5405,6 +5772,7 @@ export interface NonCompliantSummary {
 }
 
 /**
+ * @public
  * <p>A summary of compliance information by compliance type.</p>
  */
 export interface ComplianceSummaryItem {
@@ -5425,6 +5793,9 @@ export interface ComplianceSummaryItem {
   NonCompliantSummary?: NonCompliantSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListComplianceSummariesResult {
   /**
    * <p>A list of compliant and non-compliant summary counts based on compliance types. For example,
@@ -5440,10 +5811,16 @@ export interface ListComplianceSummariesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DocumentMetadataEnum {
   DocumentReviews = "DocumentReviews",
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentMetadataHistoryRequest {
   /**
    * <p>The name of the change template.</p>
@@ -5474,11 +5851,15 @@ export interface ListDocumentMetadataHistoryRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum DocumentReviewCommentType {
   Comment = "Comment",
 }
 
 /**
+ * @public
  * <p>Information about comments added to a document review request.</p>
  */
 export interface DocumentReviewCommentSource {
@@ -5496,6 +5877,7 @@ export interface DocumentReviewCommentSource {
 }
 
 /**
+ * @public
  * <p>Information about a reviewer's response to a document review request.</p>
  */
 export interface DocumentReviewerResponseSource {
@@ -5531,6 +5913,7 @@ export interface DocumentReviewerResponseSource {
 }
 
 /**
+ * @public
  * <p>Details about the response to a document review request.</p>
  */
 export interface DocumentMetadataResponseInfo {
@@ -5540,6 +5923,9 @@ export interface DocumentMetadataResponseInfo {
   ReviewerResponse?: DocumentReviewerResponseSource[];
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentMetadataHistoryResponse {
   /**
    * <p>The name of the change template.</p>
@@ -5569,6 +5955,9 @@ export interface ListDocumentMetadataHistoryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DocumentFilterKey {
   DocumentType = "DocumentType",
   Name = "Name",
@@ -5577,6 +5966,7 @@ export enum DocumentFilterKey {
 }
 
 /**
+ * @public
  * <p>This data type is deprecated. Instead, use <a>DocumentKeyValuesFilter</a>.</p>
  */
 export interface DocumentFilter {
@@ -5592,6 +5982,7 @@ export interface DocumentFilter {
 }
 
 /**
+ * @public
  * <p>One or more filters. Use a filter to return a more specific list of documents.</p>
  *          <p>For keys, you can specify one or more tags that have been applied to a document. </p>
  *          <p>You can also use Amazon Web Services-provided keys, some of which have specific allowed values. These keys
@@ -5724,6 +6115,9 @@ export interface DocumentKeyValuesFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentsRequest {
   /**
    * <p>This data type is deprecated. Instead, use <code>Filters</code>.</p>
@@ -5759,6 +6153,7 @@ export interface ListDocumentsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the name of a SSM document.</p>
  */
 export interface DocumentIdentifier {
@@ -5845,6 +6240,9 @@ export interface DocumentIdentifier {
   Author?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentsResult {
   /**
    * <p>The names of the SSM documents.</p>
@@ -5858,6 +6256,9 @@ export interface ListDocumentsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentVersionsRequest {
   /**
    * <p>The name of the document. You can specify an Amazon Resource Name (ARN).</p>
@@ -5878,6 +6279,7 @@ export interface ListDocumentVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Version information about the document.</p>
  */
 export interface DocumentVersionInfo {
@@ -5937,6 +6339,9 @@ export interface DocumentVersionInfo {
   ReviewStatus?: ReviewStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentVersionsResult {
   /**
    * <p>The document versions.</p>
@@ -5950,6 +6355,9 @@ export interface ListDocumentVersionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInventoryEntriesRequest {
   /**
    * <p>The managed node ID for which you want inventory information.</p>
@@ -5979,6 +6387,9 @@ export interface ListInventoryEntriesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInventoryEntriesResult {
   /**
    * <p>The type of inventory item returned by the request.</p>
@@ -6012,15 +6423,22 @@ export interface ListInventoryEntriesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OpsItemEventFilterKey {
   OPSITEM_ID = "OpsItemId",
 }
 
+/**
+ * @public
+ */
 export enum OpsItemEventFilterOperator {
   EQUAL = "Equal",
 }
 
 /**
+ * @public
  * <p>Describes a filter for a specific list of OpsItem events. You can filter event information
  *    by using tags. You specify tags by using a key-value pair mapping. </p>
  */
@@ -6043,6 +6461,9 @@ export interface OpsItemEventFilter {
   Operator: OpsItemEventFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListOpsItemEventsRequest {
   /**
    * <p>One or more OpsItem filters. Use a filter to return a more specific list of results. </p>
@@ -6062,6 +6483,7 @@ export interface ListOpsItemEventsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the user or resource that created an OpsItem event.</p>
  */
 export interface OpsItemIdentity {
@@ -6073,6 +6495,7 @@ export interface OpsItemIdentity {
 }
 
 /**
+ * @public
  * <p>Summary information about an OpsItem event or that associated an OpsItem with a related
  *    item.</p>
  */
@@ -6113,6 +6536,9 @@ export interface OpsItemEventSummary {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListOpsItemEventsResponse {
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -6126,17 +6552,24 @@ export interface ListOpsItemEventsResponse {
   Summaries?: OpsItemEventSummary[];
 }
 
+/**
+ * @public
+ */
 export enum OpsItemRelatedItemsFilterKey {
   ASSOCIATION_ID = "AssociationId",
   RESOURCE_TYPE = "ResourceType",
   RESOURCE_URI = "ResourceUri",
 }
 
+/**
+ * @public
+ */
 export enum OpsItemRelatedItemsFilterOperator {
   EQUAL = "Equal",
 }
 
 /**
+ * @public
  * <p>Describes a filter for a specific list of related-item resources. </p>
  */
 export interface OpsItemRelatedItemsFilter {
@@ -6158,6 +6591,9 @@ export interface OpsItemRelatedItemsFilter {
   Operator: OpsItemRelatedItemsFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListOpsItemRelatedItemsRequest {
   /**
    * <p>The ID of the OpsItem for which you want to list all related-item resources.</p>
@@ -6183,6 +6619,7 @@ export interface ListOpsItemRelatedItemsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about related-item resources for an OpsItem.</p>
  */
 export interface OpsItemRelatedItemSummary {
@@ -6232,6 +6669,9 @@ export interface OpsItemRelatedItemSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListOpsItemRelatedItemsResponse {
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -6246,6 +6686,7 @@ export interface ListOpsItemRelatedItemsResponse {
 }
 
 /**
+ * @public
  * <p>A filter to limit the number of OpsMetadata objects displayed.</p>
  */
 export interface OpsMetadataFilter {
@@ -6260,6 +6701,9 @@ export interface OpsMetadataFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListOpsMetadataRequest {
   /**
    * <p>One or more filters to limit the number of OpsMetadata objects returned by the call.</p>
@@ -6279,6 +6723,7 @@ export interface ListOpsMetadataRequest {
 }
 
 /**
+ * @public
  * <p>Operational metadata for an application in Application Manager.</p>
  */
 export interface OpsMetadata {
@@ -6308,6 +6753,9 @@ export interface OpsMetadata {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListOpsMetadataResult {
   /**
    * <p>Returns a list of OpsMetadata objects.</p>
@@ -6321,6 +6769,9 @@ export interface ListOpsMetadataResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceComplianceSummariesRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
@@ -6340,6 +6791,7 @@ export interface ListResourceComplianceSummariesRequest {
 }
 
 /**
+ * @public
  * <p>Compliance summary information for a specific resource. </p>
  */
 export interface ResourceComplianceSummaryItem {
@@ -6385,6 +6837,9 @@ export interface ResourceComplianceSummaryItem {
   NonCompliantSummary?: NonCompliantSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceComplianceSummariesResult {
   /**
    * <p>A summary count for specified or targeted managed nodes. Summary count includes information
@@ -6400,6 +6855,9 @@ export interface ListResourceComplianceSummariesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceDataSyncRequest {
   /**
    * <p>View a list of resource data syncs according to the sync type. Specify
@@ -6420,6 +6878,9 @@ export interface ListResourceDataSyncRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum LastResourceDataSyncStatus {
   FAILED = "Failed",
   INPROGRESS = "InProgress",
@@ -6427,6 +6888,7 @@ export enum LastResourceDataSyncStatus {
 }
 
 /**
+ * @public
  * <p>The data type name for including resource data sync state. There are four sync
  *    states:</p>
  *          <p>
@@ -6493,6 +6955,7 @@ export interface ResourceDataSyncSourceWithState {
 }
 
 /**
+ * @public
  * <p>Information about a resource data sync configuration, including its current status and last
  *    successful sync.</p>
  */
@@ -6551,6 +7014,9 @@ export interface ResourceDataSyncItem {
   LastSyncStatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceDataSyncResult {
   /**
    * <p>A list of your current resource data sync configurations and their statuses.</p>
@@ -6564,6 +7030,9 @@ export interface ListResourceDataSyncResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Returns a list of tags for a specific resource type.</p>
@@ -6576,6 +7045,9 @@ export interface ListTagsForResourceRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>A list of tags.</p>
@@ -6584,6 +7056,7 @@ export interface ListTagsForResourceResult {
 }
 
 /**
+ * @public
  * <p>The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20
  *    accounts per API operation to share a private document.</p>
  *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
@@ -6609,6 +7082,9 @@ export class DocumentPermissionLimit extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyDocumentPermissionRequest {
   /**
    * <p>The name of the document that you want to share.</p>
@@ -6642,9 +7118,13 @@ export interface ModifyDocumentPermissionRequest {
   SharedDocumentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDocumentPermissionResponse {}
 
 /**
+ * @public
  * <p>You specified too many custom compliance types. You can specify a maximum of 10 different
  *    types. </p>
  */
@@ -6667,6 +7147,7 @@ export class ComplianceTypeCountLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more content items isn't valid.</p>
  */
 export class InvalidItemContentException extends __BaseException {
@@ -6690,6 +7171,7 @@ export class InvalidItemContentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The inventory item size has exceeded the size limit.</p>
  */
 export class ItemSizeLimitExceededException extends __BaseException {
@@ -6713,6 +7195,7 @@ export class ItemSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a compliance item.</p>
  */
 export interface ComplianceItemEntry {
@@ -6746,11 +7229,17 @@ export interface ComplianceItemEntry {
   Details?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ComplianceUploadType {
   Complete = "COMPLETE",
   Partial = "PARTIAL",
 }
 
+/**
+ * @public
+ */
 export interface PutComplianceItemsRequest {
   /**
    * <p>Specify an ID for this resource. For a managed node, this is the node ID.</p>
@@ -6805,9 +7294,13 @@ export interface PutComplianceItemsRequest {
   UploadType?: ComplianceUploadType | string;
 }
 
+/**
+ * @public
+ */
 export interface PutComplianceItemsResult {}
 
 /**
+ * @public
  * <p>The size of inventory data has exceeded the total size limit for the resource.</p>
  */
 export class TotalSizeLimitExceededException extends __BaseException {
@@ -6829,6 +7322,7 @@ export class TotalSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the limit for custom schemas. Delete one or more custom schemas and try
  *    again.</p>
  */
@@ -6851,6 +7345,7 @@ export class CustomSchemaCountLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You specified invalid keys or values in the <code>Context</code> attribute for
  *     <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
  */
@@ -6873,6 +7368,7 @@ export class InvalidInventoryItemContextException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The inventory item has invalid content. </p>
  */
 export class ItemContentMismatchException extends __BaseException {
@@ -6896,6 +7392,7 @@ export class ItemContentMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information collected from managed nodes based on your inventory policy document</p>
  */
 export interface InventoryItem {
@@ -6938,6 +7435,9 @@ export interface InventoryItem {
   Context?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutInventoryRequest {
   /**
    * <p>An managed node ID where you want to add or update inventory items.</p>
@@ -6950,6 +7450,9 @@ export interface PutInventoryRequest {
   Items: InventoryItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutInventoryResult {
   /**
    * <p>Information about the request.</p>
@@ -6958,6 +7461,7 @@ export interface PutInventoryResult {
 }
 
 /**
+ * @public
  * <p>The sub-type count exceeded the limit for the inventory type.</p>
  */
 export class SubTypeCountLimitExceededException extends __BaseException {
@@ -6979,6 +7483,7 @@ export class SubTypeCountLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>Context</code> attribute that you specified for the <code>InventoryItem</code>
  *    isn't allowed for this inventory type. You can only use the <code>Context</code> attribute with
  *    inventory types like <code>AWS:ComplianceItem</code>.</p>
@@ -7004,6 +7509,7 @@ export class UnsupportedInventoryItemContextException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Inventory item type schema version has to match supported versions in the service. Check
  *    output of GetInventorySchema to see the available schema version for each type.</p>
  */
@@ -7026,6 +7532,7 @@ export class UnsupportedInventorySchemaVersionException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and
  *     constraints for parameter names</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  */
@@ -7046,6 +7553,7 @@ export class HierarchyLevelLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Parameter Store doesn't support changing a parameter type in a hierarchy. For example, you
  *    can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You
  *    must create a new, unique parameter.</p>
@@ -7067,6 +7575,7 @@ export class HierarchyTypeMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is a conflict in the policies specified for this parameter. You can't, for example,
  *    specify two Expiration policies for a parameter. Review your policies, and try again.</p>
  */
@@ -7087,6 +7596,7 @@ export class IncompatiblePolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request doesn't meet the regular expression requirement.</p>
  */
 export class InvalidAllowedPatternException extends __BaseException {
@@ -7106,6 +7616,7 @@ export class InvalidAllowedPatternException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A policy attribute or its value is invalid. </p>
  */
 export class InvalidPolicyAttributeException extends __BaseException {
@@ -7125,6 +7636,7 @@ export class InvalidPolicyAttributeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The policy type isn't supported. Parameter Store supports the following policy types:
  *    Expiration, ExpirationNotification, and NoChangeNotification.</p>
  */
@@ -7145,6 +7657,7 @@ export class InvalidPolicyTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parameter already exists. You can't create duplicate parameters.</p>
  */
 export class ParameterAlreadyExists extends __BaseException {
@@ -7164,6 +7677,7 @@ export class ParameterAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the number of parameters for this Amazon Web Services account. Delete one or more
  *    parameters and try again.</p>
  */
@@ -7184,6 +7698,7 @@ export class ParameterLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Parameter Store retains the 100 most recently created versions of a parameter. After this
  *    number of versions has been created, Parameter Store deletes the oldest version when a new one is
  *    created. However, if the oldest version has a <i>label</i> attached to it,
@@ -7218,6 +7733,7 @@ export class ParameterMaxVersionLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parameter name isn't valid.</p>
  */
 export class ParameterPatternMismatchException extends __BaseException {
@@ -7237,6 +7753,7 @@ export class ParameterPatternMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You specified more than the maximum number of allowed policies for the parameter. The
  *    maximum is 10.</p>
  */
@@ -7256,6 +7773,9 @@ export class PoliciesLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutParameterRequest {
   /**
    * <p>The fully qualified name of the parameter that you want to add to the system. The fully
@@ -7314,7 +7834,7 @@ export interface PutParameterRequest {
    *    limit of 4 KB. Advanced parameters have a value limit of 8 KB.</p>
    *          <note>
    *             <p>Parameters can't be referenced or nested in the values of other parameters. You can't
-   *     include <code>{{}}</code> or <code>{{ssm:<i>parameter-name</i>}}</code> in a
+   *     include <code>\{\{\}\}</code> or <code>\{\{ssm:<i>parameter-name</i>\}\}</code> in a
    *     parameter value.</p>
    *          </note>
    */
@@ -7517,6 +8037,9 @@ export interface PutParameterRequest {
   DataType?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutParameterResult {
   /**
    * <p>The new version number of a parameter. If you edit a parameter value, Parameter Store
@@ -7534,6 +8057,7 @@ export interface PutParameterResult {
 }
 
 /**
+ * @public
  * <p>The parameter type isn't supported.</p>
  */
 export class UnsupportedParameterType extends __BaseException {
@@ -7552,6 +8076,9 @@ export class UnsupportedParameterType extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the resource to which you want to attach a policy.</p>
@@ -7576,6 +8103,9 @@ export interface PutResourcePolicyRequest {
   PolicyHash?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>The policy ID. To update a policy, you must specify <code>PolicyId</code> and
@@ -7590,6 +8120,7 @@ export interface PutResourcePolicyResponse {
 }
 
 /**
+ * @public
  * <p>The <a>PutResourcePolicy</a> API action enforces two limits. A policy can't be
  *    greater than 1024 bytes in size. And only one policy can be attached to
  *    <code>OpsItemGroup</code>. Verify these limits and try again.</p>
@@ -7616,6 +8147,9 @@ export class ResourcePolicyLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterDefaultPatchBaselineRequest {
   /**
    * <p>The ID of the patch baseline that should be the default patch baseline.</p>
@@ -7623,6 +8157,9 @@ export interface RegisterDefaultPatchBaselineRequest {
   BaselineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterDefaultPatchBaselineResult {
   /**
    * <p>The ID of the default patch baseline.</p>
@@ -7630,6 +8167,9 @@ export interface RegisterDefaultPatchBaselineResult {
   BaselineId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPatchBaselineForPatchGroupRequest {
   /**
    * <p>The ID of the patch baseline to register with the patch group.</p>
@@ -7642,6 +8182,9 @@ export interface RegisterPatchBaselineForPatchGroupRequest {
   PatchGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPatchBaselineForPatchGroupResult {
   /**
    * <p>The ID of the patch baseline the patch group was registered with.</p>
@@ -7654,6 +8197,9 @@ export interface RegisterPatchBaselineForPatchGroupResult {
   PatchGroup?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTargetWithMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window the target should be registered with.</p>
@@ -7737,6 +8283,9 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTargetWithMaintenanceWindowResult {
   /**
    * <p>The ID of the target definition in this maintenance window.</p>
@@ -7745,6 +8294,7 @@ export interface RegisterTargetWithMaintenanceWindowResult {
 }
 
 /**
+ * @public
  * <p>You attempted to register a <code>LAMBDA</code> or <code>STEP_FUNCTIONS</code> task in a
  *    region where the corresponding service isn't available. </p>
  */
@@ -7766,6 +8316,9 @@ export class FeatureNotAvailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterTaskWithMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window the task should be added to.</p>
@@ -7941,6 +8494,9 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTaskWithMaintenanceWindowResult {
   /**
    * <p>The ID of the task in the maintenance window.</p>
@@ -7948,6 +8504,9 @@ export interface RegisterTaskWithMaintenanceWindowResult {
   WindowTaskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceRequest {
   /**
    * <p>The type of resource from which you want to remove a tag.</p>
@@ -7990,9 +8549,13 @@ export interface RemoveTagsFromResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceResult {}
 
 /**
+ * @public
  * <p>The request body of the ResetServiceSetting API operation.</p>
  */
 export interface ResetServiceSettingRequest {
@@ -8041,6 +8604,7 @@ export interface ResetServiceSettingRequest {
 }
 
 /**
+ * @public
  * <p>The result body of the ResetServiceSetting API operation.</p>
  */
 export interface ResetServiceSettingResult {
@@ -8051,6 +8615,9 @@ export interface ResetServiceSettingResult {
   ServiceSetting?: ServiceSetting;
 }
 
+/**
+ * @public
+ */
 export interface ResumeSessionRequest {
   /**
    * <p>The ID of the disconnected session to resume.</p>
@@ -8058,6 +8625,9 @@ export interface ResumeSessionRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeSessionResponse {
   /**
    * <p>The ID of the session.</p>
@@ -8086,6 +8656,7 @@ export interface ResumeSessionResponse {
 }
 
 /**
+ * @public
  * <p>The specified step name and execution ID don't exist. Verify the information and try
  *    again.</p>
  */
@@ -8108,6 +8679,7 @@ export class AutomationStepNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The signal isn't valid for the current Automation execution.</p>
  */
 export class InvalidAutomationSignalException extends __BaseException {
@@ -8128,6 +8700,9 @@ export class InvalidAutomationSignalException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum SignalType {
   APPROVE = "Approve",
   REJECT = "Reject",
@@ -8136,6 +8711,9 @@ export enum SignalType {
   STOP_STEP = "StopStep",
 }
 
+/**
+ * @public
+ */
 export interface SendAutomationSignalRequest {
   /**
    * <p>The unique identifier for an existing Automation execution that you want to send the signal
@@ -8170,9 +8748,13 @@ export interface SendAutomationSignalRequest {
   Payload?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface SendAutomationSignalResult {}
 
 /**
+ * @public
  * <p>One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN)
  *    was provided for an Amazon Simple Notification Service topic.</p>
  */
@@ -8195,6 +8777,7 @@ export class InvalidNotificationConfig extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The S3 bucket doesn't exist.</p>
  */
 export class InvalidOutputFolder extends __BaseException {
@@ -8214,6 +8797,7 @@ export class InvalidOutputFolder extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about
  *    configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS Notifications for Run Command</a> in the
  *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -8236,6 +8820,9 @@ export class InvalidRole extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SendCommandRequest {
   /**
    * <p>The IDs of the managed nodes where the command should run. Specifying managed node IDs is
@@ -8378,6 +8965,9 @@ export interface SendCommandRequest {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface SendCommandResult {
   /**
    * <p>The request as it was received by Systems Manager. Also provides the command ID which can be used
@@ -8387,6 +8977,7 @@ export interface SendCommandResult {
 }
 
 /**
+ * @public
  * <p>The association isn't valid or doesn't exist. </p>
  */
 export class InvalidAssociation extends __BaseException {
@@ -8407,6 +8998,9 @@ export class InvalidAssociation extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartAssociationsOnceRequest {
   /**
    * <p>The association IDs that you want to run immediately and only one time.</p>
@@ -8414,9 +9008,13 @@ export interface StartAssociationsOnceRequest {
   AssociationIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartAssociationsOnceResult {}
 
 /**
+ * @public
  * <p>An Automation runbook with the specified name couldn't be found.</p>
  */
 export class AutomationDefinitionNotFoundException extends __BaseException {
@@ -8438,6 +9036,7 @@ export class AutomationDefinitionNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Automation runbook with the specified name and version couldn't be found.</p>
  */
 export class AutomationDefinitionVersionNotFoundException extends __BaseException {
@@ -8459,6 +9058,7 @@ export class AutomationDefinitionVersionNotFoundException extends __BaseExceptio
 }
 
 /**
+ * @public
  * <p>The number of simultaneously running Automation executions exceeded the allowable
  *    limit.</p>
  */
@@ -8481,6 +9081,7 @@ export class AutomationExecutionLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
  *    example, they may not match the set of parameters permitted for the specified Automation
  *    document.</p>
@@ -8503,6 +9104,9 @@ export class InvalidAutomationExecutionParametersException extends __BaseExcepti
   }
 }
 
+/**
+ * @public
+ */
 export interface StartAutomationExecutionRequest {
   /**
    * <p>The name of the SSM document to run. This can be a public document or a custom document. To
@@ -8612,6 +9216,9 @@ export interface StartAutomationExecutionRequest {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface StartAutomationExecutionResult {
   /**
    * <p>The unique ID of a newly scheduled automation execution.</p>
@@ -8620,6 +9227,7 @@ export interface StartAutomationExecutionResult {
 }
 
 /**
+ * @public
  * <p>Indicates that the Change Manager change template used in the change request was rejected or is
  *    still in a pending state.</p>
  */
@@ -8641,6 +9249,9 @@ export class AutomationDefinitionNotApprovedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartChangeRequestExecutionRequest {
   /**
    * <p>The date and time specified in the change request to run the Automation runbooks.</p>
@@ -8737,6 +9348,9 @@ export interface StartChangeRequestExecutionRequest {
   ChangeDetails?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartChangeRequestExecutionResult {
   /**
    * <p>The unique ID of a runbook workflow operation. (A runbook workflow is a type of Automation
@@ -8745,6 +9359,9 @@ export interface StartChangeRequestExecutionResult {
   AutomationExecutionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartSessionRequest {
   /**
    * <p>The managed node to connect to for the session.</p>
@@ -8774,6 +9391,9 @@ export interface StartSessionRequest {
   Parameters?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface StartSessionResponse {
   /**
    * <p>The ID of the session.</p>
@@ -8804,6 +9424,7 @@ export interface StartSessionResponse {
 }
 
 /**
+ * @public
  * <p>The specified target managed node for the session isn't fully configured for use with Session Manager.
  *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
  *     Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you
@@ -8829,6 +9450,7 @@ export class TargetNotConnected extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified update status operation isn't valid.</p>
  */
 export class InvalidAutomationStatusUpdateException extends __BaseException {
@@ -8849,11 +9471,17 @@ export class InvalidAutomationStatusUpdateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum StopType {
   CANCEL = "Cancel",
   COMPLETE = "Complete",
 }
 
+/**
+ * @public
+ */
 export interface StopAutomationExecutionRequest {
   /**
    * <p>The execution ID of the Automation to stop.</p>
@@ -8867,8 +9495,14 @@ export interface StopAutomationExecutionRequest {
   Type?: StopType | string;
 }
 
+/**
+ * @public
+ */
 export interface StopAutomationExecutionResult {}
 
+/**
+ * @public
+ */
 export interface TerminateSessionRequest {
   /**
    * <p>The ID of the session to terminate.</p>
@@ -8876,6 +9510,9 @@ export interface TerminateSessionRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateSessionResponse {
   /**
    * <p>The ID of the session that has been terminated.</p>
@@ -8883,6 +9520,9 @@ export interface TerminateSessionResponse {
   SessionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UnlabelParameterVersionRequest {
   /**
    * <p>The name of the parameter from which you want to delete one or more labels.</p>
@@ -8901,6 +9541,9 @@ export interface UnlabelParameterVersionRequest {
   Labels: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnlabelParameterVersionResult {
   /**
    * <p>A list of all labels deleted from the parameter.</p>
@@ -8914,6 +9557,7 @@ export interface UnlabelParameterVersionResult {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number versions allowed for an association. Each association
  *    has a limit of 1,000 versions. </p>
  */

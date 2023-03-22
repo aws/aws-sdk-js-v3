@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQueueStatusCommand}.
  */
 export interface UpdateQueueStatusCommandInput extends UpdateQueueStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQueueStatusCommand}.
  */
 export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the status of the queue.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueStatusCommandInput - {@link UpdateQueueStatusCommandInput}
+ * @returns {@link UpdateQueueStatusCommandOutput}
  * @see {@link UpdateQueueStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateQueueStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateQueueStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQueueStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateQueueStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueStatusCommandOutput> {
     return deserializeAws_restJson1UpdateQueueStatusCommand(output, context);
   }

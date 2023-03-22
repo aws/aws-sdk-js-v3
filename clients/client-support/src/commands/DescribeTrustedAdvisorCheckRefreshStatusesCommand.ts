@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
  */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
   extends DescribeTrustedAdvisorCheckRefreshStatusesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
  */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check
  *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  *          <p>Some checks are refreshed automatically, and you can't return their refresh statuses
@@ -72,6 +77,8 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorCheckRefreshStatusesCommandInput - {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput}
+ * @returns {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput}
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     return serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

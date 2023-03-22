@@ -22,15 +22,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOpsSummaryCommand}.
  */
 export interface GetOpsSummaryCommandInput extends GetOpsSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOpsSummaryCommand}.
  */
 export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>View a summary of operations metadata (OpsData) based on specified filters and aggregators.
  *    OpsData can include information about Amazon Web Services Systems Manager OpsCenter operational workitems (OpsItems) as
  *    well as information about any Amazon Web Services resource or service configured to report OpsData to Amazon Web Services Systems Manager
@@ -45,6 +50,8 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpsSummaryCommandInput - {@link GetOpsSummaryCommandInput}
+ * @returns {@link GetOpsSummaryCommandOutput}
  * @see {@link GetOpsSummaryCommandInput} for command's `input` shape.
  * @see {@link GetOpsSummaryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetOpsSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpsSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetOpsSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpsSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOpsSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpsSummaryCommandOutput> {
     return deserializeAws_json1_1GetOpsSummaryCommand(output, context);
   }

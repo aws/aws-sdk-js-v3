@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyAvailabilityZoneGroupCommand}.
  */
 export interface ModifyAvailabilityZoneGroupCommandInput extends ModifyAvailabilityZoneGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyAvailabilityZoneGroupCommand}.
  */
 export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabilityZoneGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
  *       account.</p>
  *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
@@ -49,6 +54,8 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyAvailabilityZoneGroupCommandInput - {@link ModifyAvailabilityZoneGroupCommandInput}
+ * @returns {@link ModifyAvailabilityZoneGroupCommandOutput}
  * @see {@link ModifyAvailabilityZoneGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyAvailabilityZoneGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyAvailabilityZoneGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyAvailabilityZoneGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyAvailabilityZoneGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

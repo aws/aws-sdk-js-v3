@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToStreamCommand}.
  */
 export interface AddTagsToStreamCommandInput extends AddTagsToStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToStreamCommand}.
  */
 export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
  *             tags to a data stream.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToStreamCommandInput - {@link AddTagsToStreamCommandInput}
+ * @returns {@link AddTagsToStreamCommandOutput}
  * @see {@link AddTagsToStreamCommandInput} for command's `input` shape.
  * @see {@link AddTagsToStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -96,6 +103,9 @@ export class AddTagsToStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AddTagsToStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsToStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToStreamCommandOutput> {
     return deserializeAws_json1_1AddTagsToStreamCommand(output, context);
   }

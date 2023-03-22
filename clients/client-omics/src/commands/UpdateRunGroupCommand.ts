@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRunGroupCommand}.
  */
 export interface UpdateRunGroupCommandInput extends UpdateRunGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRunGroupCommand}.
  */
 export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRunGroupCommandInput - {@link UpdateRunGroupCommandInput}
+ * @returns {@link UpdateRunGroupCommandOutput}
  * @see {@link UpdateRunGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateRunGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRunGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateRunGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRunGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRunGroupCommandOutput> {
     return deserializeAws_restJson1UpdateRunGroupCommand(output, context);
   }

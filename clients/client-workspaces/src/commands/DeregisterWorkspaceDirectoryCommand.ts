@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterWorkspaceDirectoryCommand}.
  */
 export interface DeregisterWorkspaceDirectoryCommandInput extends DeregisterWorkspaceDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterWorkspaceDirectoryCommand}.
  */
 export interface DeregisterWorkspaceDirectoryCommandOutput
@@ -37,6 +41,7 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified directory. This operation is asynchronous and returns before
  *          the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
  *          directory, you must remove them before you can deregister the directory.</p>
@@ -61,6 +66,8 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterWorkspaceDirectoryCommandInput - {@link DeregisterWorkspaceDirectoryCommandInput}
+ * @returns {@link DeregisterWorkspaceDirectoryCommandOutput}
  * @see {@link DeregisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeregisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterWorkspaceDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterWorkspaceDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

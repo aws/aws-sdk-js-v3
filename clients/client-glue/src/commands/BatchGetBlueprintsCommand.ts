@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetBlueprintsCommand}.
  */
 export interface BatchGetBlueprintsCommandInput extends BatchGetBlueprintsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetBlueprintsCommand}.
  */
 export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a list of blueprints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetBlueprintsCommandInput - {@link BatchGetBlueprintsCommandInput}
+ * @returns {@link BatchGetBlueprintsCommandOutput}
  * @see {@link BatchGetBlueprintsCommandInput} for command's `input` shape.
  * @see {@link BatchGetBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class BatchGetBlueprintsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetBlueprintsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class BatchGetBlueprintsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetBlueprintsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetBlueprintsCommandOutput> {
     return deserializeAws_json1_1BatchGetBlueprintsCommand(output, context);
   }

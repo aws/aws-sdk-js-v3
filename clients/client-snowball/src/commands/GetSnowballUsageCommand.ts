@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSnowballUsageCommand}.
  */
 export interface GetSnowballUsageCommandInput extends GetSnowballUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSnowballUsageCommand}.
  */
 export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the Snow Family service limit for your account, and also the
  *       number of Snow devices your account has in use.</p>
  *          <p>The default service limit for the number of Snow devices that you can have at one time
@@ -49,6 +54,8 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnowballUsageCommandInput - {@link GetSnowballUsageCommandInput}
+ * @returns {@link GetSnowballUsageCommandOutput}
  * @see {@link GetSnowballUsageCommandInput} for command's `input` shape.
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetSnowballUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnowballUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetSnowballUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnowballUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSnowballUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnowballUsageCommandOutput> {
     return deserializeAws_json1_1GetSnowballUsageCommand(output, context);
   }

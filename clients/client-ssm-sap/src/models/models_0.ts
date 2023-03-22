@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { SsmSapServiceException as __BaseException } from "./SsmSapServiceException";
 
+/**
+ * @public
+ */
 export enum ApplicationStatus {
   ACTIVATED = "ACTIVATED",
   DELETING = "DELETING",
@@ -14,11 +17,15 @@ export enum ApplicationStatus {
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export enum ApplicationType {
   HANA = "HANA",
 }
 
 /**
+ * @public
  * <p>An SAP application registered with AWS Systems Manager for SAP.</p>
  */
 export interface Application {
@@ -63,11 +70,15 @@ export interface Application {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum CredentialType {
   ADMIN = "ADMIN",
 }
 
 /**
+ * @public
  * <p>The credentials of your SAP application.</p>
  */
 export interface ApplicationCredential {
@@ -89,6 +100,7 @@ export interface ApplicationCredential {
 }
 
 /**
+ * @public
  * <p>The summary of the SAP application registered with AWS Systems Manager for SAP.
  *       </p>
  */
@@ -114,10 +126,16 @@ export interface ApplicationSummary {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ComponentType {
   HANA = "HANA",
 }
 
+/**
+ * @public
+ */
 export enum HostRole {
   LEADER = "LEADER",
   STANDBY = "STANDBY",
@@ -126,6 +144,7 @@ export enum HostRole {
 }
 
 /**
+ * @public
  * <p>Describes the properties of the Dedicated Host. </p>
  */
 export interface Host {
@@ -150,11 +169,15 @@ export interface Host {
   InstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComponentStatus {
   ACTIVATED = "ACTIVATED",
 }
 
 /**
+ * @public
  * <p>The SAP component of your application.</p>
  */
 export interface Component {
@@ -200,6 +223,7 @@ export interface Component {
 }
 
 /**
+ * @public
  * <p>The summary of the component.</p>
  */
 export interface ComponentSummary {
@@ -225,6 +249,7 @@ export interface ComponentSummary {
 }
 
 /**
+ * @public
  * <p>A conflict has occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -245,11 +270,17 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DatabaseType {
   SYSTEM = "SYSTEM",
   TENANT = "TENANT",
 }
 
+/**
+ * @public
+ */
 export enum DatabaseStatus {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
@@ -259,6 +290,7 @@ export enum DatabaseStatus {
 }
 
 /**
+ * @public
  * <p>The SAP HANA database of the application registered with AWS Systems Manager for
  *          SAP.</p>
  */
@@ -320,6 +352,7 @@ export interface Database {
 }
 
 /**
+ * @public
  * <p>The summary of the database.</p>
  */
 export interface DatabaseSummary {
@@ -354,10 +387,16 @@ export interface DatabaseSummary {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum PermissionActionType {
   RESTORE = "RESTORE",
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePermissionInput {
   /**
    * <p>Delete or restore the permissions on the target database.</p>
@@ -375,6 +414,9 @@ export interface DeleteResourcePermissionInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePermissionOutput {
   /**
    * <p>The policy that removes permissions on the target database.</p>
@@ -383,6 +425,7 @@ export interface DeleteResourcePermissionOutput {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -404,6 +447,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is not available.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -425,6 +469,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  */
 export class ValidationException extends __BaseException {
@@ -445,6 +490,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterApplicationInput {
   /**
    * <p>The ID of the application.</p>
@@ -452,8 +500,14 @@ export interface DeregisterApplicationInput {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterApplicationOutput {}
 
+/**
+ * @public
+ */
 export enum FilterOperator {
   EQUALS = "Equals",
   GREATER_THAN_OR_EQUALS = "GreaterThanOrEquals",
@@ -461,6 +515,7 @@ export enum FilterOperator {
 }
 
 /**
+ * @public
  * <p>A specific result obtained by specifying the name, value, and operator. </p>
  */
 export interface Filter {
@@ -482,6 +537,9 @@ export interface Filter {
   Operator: FilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationInput {
   /**
    * <p>The ID of the application.</p>
@@ -499,6 +557,9 @@ export interface GetApplicationInput {
   AppRegistryArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationOutput {
   /**
    * <p>Returns all of the metadata of an application registered with AWS Systems Manager for
@@ -512,6 +573,9 @@ export interface GetApplicationOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentInput {
   /**
    * <p>The ID of the application.</p>
@@ -524,6 +588,9 @@ export interface GetComponentInput {
   ComponentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentOutput {
   /**
    * <p>The component of an application registered with AWS Systems Manager for SAP.</p>
@@ -531,6 +598,9 @@ export interface GetComponentOutput {
   Component?: Component;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseInput {
   /**
    * <p>The ID of the application.</p>
@@ -553,6 +623,9 @@ export interface GetDatabaseInput {
   DatabaseArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseOutput {
   /**
    * <p>The SAP HANA database of an application registered with AWS Systems Manager for
@@ -566,6 +639,9 @@ export interface GetDatabaseOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationInput {
   /**
    * <p>The ID of the operation.</p>
@@ -573,6 +649,9 @@ export interface GetOperationInput {
   OperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OperationStatus {
   ERROR = "ERROR",
   INPROGRESS = "INPROGRESS",
@@ -580,6 +659,7 @@ export enum OperationStatus {
 }
 
 /**
+ * @public
  * <p>The operations performed by AWS Systems Manager for SAP.</p>
  */
 export interface Operation {
@@ -639,6 +719,9 @@ export interface Operation {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationOutput {
   /**
    * <p>Returns the details of an operation.</p>
@@ -646,6 +729,9 @@ export interface GetOperationOutput {
   Operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePermissionInput {
   /**
    * <p/>
@@ -658,6 +744,9 @@ export interface GetResourcePermissionInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePermissionOutput {
   /**
    * <p/>
@@ -665,6 +754,9 @@ export interface GetResourcePermissionOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsInput {
   /**
    * <p>The token for the next page of results.</p>
@@ -678,6 +770,9 @@ export interface ListApplicationsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsOutput {
   /**
    * <p>The applications registered with AWS Systems Manager for SAP.</p>
@@ -691,6 +786,9 @@ export interface ListApplicationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsInput {
   /**
    * <p>The ID of the application.</p>
@@ -711,6 +809,9 @@ export interface ListComponentsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsOutput {
   /**
    * <p>List of components registered with AWS System Manager for SAP.</p>
@@ -724,6 +825,9 @@ export interface ListComponentsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesInput {
   /**
    * <p>The ID of the application.</p>
@@ -748,6 +852,9 @@ export interface ListDatabasesInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesOutput {
   /**
    * <p>The SAP HANA databases of an application.</p>
@@ -761,6 +868,9 @@ export interface ListDatabasesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsInput {
   /**
    * <p>The ID of the application.</p>
@@ -786,6 +896,9 @@ export interface ListOperationsInput {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsOutput {
   /**
    * <p>List of operations performed by AWS Systems Manager for SAP.</p>
@@ -799,6 +912,9 @@ export interface ListOperationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -806,6 +922,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p/>
@@ -813,6 +932,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePermissionInput {
   /**
    * <p/>
@@ -830,6 +952,9 @@ export interface PutResourcePermissionInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePermissionOutput {
   /**
    * <p/>
@@ -837,6 +962,9 @@ export interface PutResourcePermissionOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterApplicationInput {
   /**
    * <p>The ID of the application.</p>
@@ -874,6 +1002,9 @@ export interface RegisterApplicationInput {
   Credentials: ApplicationCredential[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterApplicationOutput {
   /**
    * <p>The application registered with AWS Systems Manager for SAP.</p>
@@ -886,6 +1017,9 @@ export interface RegisterApplicationOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -898,8 +1032,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -913,8 +1053,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationSettingsInput {
   /**
    * <p>The ID of the application.</p>
@@ -932,6 +1078,9 @@ export interface UpdateApplicationSettingsInput {
   CredentialsToRemove?: ApplicationCredential[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationSettingsOutput {
   /**
    * <p>The update message.</p>

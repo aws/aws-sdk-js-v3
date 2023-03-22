@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorldTemplatesCommand}.
  */
 export interface ListWorldTemplatesCommandInput extends ListWorldTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorldTemplatesCommand}.
  */
 export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists world templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorldTemplatesCommandInput - {@link ListWorldTemplatesCommandInput}
+ * @returns {@link ListWorldTemplatesCommandOutput}
  * @see {@link ListWorldTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListWorldTemplatesCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListWorldTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListWorldTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorldTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldTemplatesCommandOutput> {
     return deserializeAws_restJson1ListWorldTemplatesCommand(output, context);
   }

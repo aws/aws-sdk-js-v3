@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutEmailIdentityDkimAttributesCommand}.
  */
 export interface PutEmailIdentityDkimAttributesCommandInput extends PutEmailIdentityDkimAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEmailIdentityDkimAttributesCommand}.
  */
 export interface PutEmailIdentityDkimAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to enable or disable DKIM authentication for an email identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityDkimAttributesCommandInput - {@link PutEmailIdentityDkimAttributesCommandInput}
+ * @returns {@link PutEmailIdentityDkimAttributesCommandOutput}
  * @see {@link PutEmailIdentityDkimAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -80,6 +87,9 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityDkimAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityDkimAttributesCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     return serializeAws_restJson1PutEmailIdentityDkimAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

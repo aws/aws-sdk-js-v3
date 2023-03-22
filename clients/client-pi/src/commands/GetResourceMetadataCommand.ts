@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceMetadataCommand}.
  */
 export interface GetResourceMetadataCommandInput extends GetResourceMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceMetadataCommand}.
  */
 export interface GetResourceMetadataCommandOutput extends GetResourceMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the metadata for different features. For example, the metadata might indicate
  *             that a feature is turned on or off on a specific DB instance.
  *         </p>
@@ -48,6 +53,8 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceMetadataCommandInput - {@link GetResourceMetadataCommandInput}
+ * @returns {@link GetResourceMetadataCommandOutput}
  * @see {@link GetResourceMetadataCommandInput} for command's `input` shape.
  * @see {@link GetResourceMetadataCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetResourceMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetResourceMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourceMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceMetadataCommandOutput> {
     return deserializeAws_json1_1GetResourceMetadataCommand(output, context);
   }

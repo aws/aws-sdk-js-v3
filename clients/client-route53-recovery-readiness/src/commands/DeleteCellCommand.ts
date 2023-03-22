@@ -25,15 +25,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCellCommand}.
  */
 export interface DeleteCellCommandInput extends DeleteCellRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCellCommand}.
  */
 export interface DeleteCellCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a cell. When successful, the response code is 204, with no response body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteCellCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCellCommandInput - {@link DeleteCellCommandInput}
+ * @returns {@link DeleteCellCommandOutput}
  * @see {@link DeleteCellCommandInput} for command's `input` shape.
  * @see {@link DeleteCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteCellCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCellCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteCellCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCellCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCellCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCellCommandOutput> {
     return deserializeAws_restJson1DeleteCellCommand(output, context);
   }

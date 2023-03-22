@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRepositoryCommand}.
  */
 export interface DescribeRepositoryCommandInput extends DescribeRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRepositoryCommand}.
  */
 export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Returns a <code>RepositoryDescription</code> object that contains detailed information
  *         about the requested repository.
@@ -49,6 +54,8 @@ export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRepositoryCommandInput - {@link DescribeRepositoryCommandInput}
+ * @returns {@link DescribeRepositoryCommandOutput}
  * @see {@link DescribeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRepositoryCommandOutput> {
     return deserializeAws_restJson1DescribeRepositoryCommand(output, context);
   }

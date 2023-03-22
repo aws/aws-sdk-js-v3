@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEnvironmentAccountConnectionCommand}.
  */
 export interface DeleteEnvironmentAccountConnectionCommandInput extends DeleteEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEnvironmentAccountConnectionCommand}.
  */
 export interface DeleteEnvironmentAccountConnectionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In an environment account, delete an environment account connection.</p>
  *          <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the
  *       environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're
@@ -53,6 +58,8 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentAccountConnectionCommandInput - {@link DeleteEnvironmentAccountConnectionCommandInput}
+ * @returns {@link DeleteEnvironmentAccountConnectionCommandOutput}
  * @see {@link DeleteEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     return serializeAws_json1_0DeleteEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

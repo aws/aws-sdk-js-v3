@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandInput
   extends AddApplicationCloudWatchLoggingOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandOutput
@@ -42,6 +46,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an Amazon CloudWatch log stream to monitor application configuration errors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationCloudWatchLoggingOptionCommandInput - {@link AddApplicationCloudWatchLoggingOptionCommandInput}
+ * @returns {@link AddApplicationCloudWatchLoggingOptionCommandOutput}
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     return serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UnassignPrivateNatGatewayAddressCommand}.
  */
 export interface UnassignPrivateNatGatewayAddressCommandInput extends UnassignPrivateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnassignPrivateNatGatewayAddressCommand}.
  */
 export interface UnassignPrivateNatGatewayAddressCommandOutput
@@ -37,6 +41,7 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
  *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
@@ -56,6 +61,8 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignPrivateNatGatewayAddressCommandInput - {@link UnassignPrivateNatGatewayAddressCommandInput}
+ * @returns {@link UnassignPrivateNatGatewayAddressCommandOutput}
  * @see {@link UnassignPrivateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link UnassignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +86,9 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignPrivateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UnassignPrivateNatGatewayAddressCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
     return serializeAws_ec2UnassignPrivateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

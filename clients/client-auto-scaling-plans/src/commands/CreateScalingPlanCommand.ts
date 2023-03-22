@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScalingPlanCommand}.
  */
 export interface CreateScalingPlanCommandInput extends CreateScalingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateScalingPlanCommand}.
  */
 export interface CreateScalingPlanCommandOutput extends CreateScalingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a scaling plan. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScalingPlanCommandInput - {@link CreateScalingPlanCommandInput}
+ * @returns {@link CreateScalingPlanCommandOutput}
  * @see {@link CreateScalingPlanCommandInput} for command's `input` shape.
  * @see {@link CreateScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateScalingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScalingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateScalingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateScalingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScalingPlanCommandOutput> {
     return deserializeAws_json1_1CreateScalingPlanCommand(output, context);
   }

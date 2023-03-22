@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFieldCommand}.
  */
 export interface UpdateFieldCommandInput extends UpdateFieldRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFieldCommand}.
  */
 export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of an existing field. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFieldCommandInput - {@link UpdateFieldCommandInput}
+ * @returns {@link UpdateFieldCommandOutput}
  * @see {@link UpdateFieldCommandInput} for command's `input` shape.
  * @see {@link UpdateFieldCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateFieldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFieldCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateFieldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFieldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFieldCommandOutput> {
     return deserializeAws_restJson1UpdateFieldCommand(output, context);
   }

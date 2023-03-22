@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLendingAnalysisCommand}.
  */
 export interface GetLendingAnalysisCommandInput extends GetLendingAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLendingAnalysisCommand}.
  */
 export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  *             lending document. </p>
  *         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
@@ -56,6 +61,8 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLendingAnalysisCommandInput - {@link GetLendingAnalysisCommandInput}
+ * @returns {@link GetLendingAnalysisCommandOutput}
  * @see {@link GetLendingAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetLendingAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -113,6 +120,9 @@ export class GetLendingAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLendingAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class GetLendingAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLendingAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLendingAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLendingAnalysisCommandOutput> {
     return deserializeAws_json1_1GetLendingAnalysisCommand(output, context);
   }

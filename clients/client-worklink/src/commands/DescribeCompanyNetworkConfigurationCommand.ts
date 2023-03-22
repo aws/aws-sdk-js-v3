@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCompanyNetworkConfigurationCommand}.
  */
 export interface DescribeCompanyNetworkConfigurationCommandInput extends DescribeCompanyNetworkConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCompanyNetworkConfigurationCommand}.
  */
 export interface DescribeCompanyNetworkConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes the networking configuration to access the internal websites associated with
@@ -51,6 +56,8 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCompanyNetworkConfigurationCommandInput - {@link DescribeCompanyNetworkConfigurationCommandInput}
+ * @returns {@link DescribeCompanyNetworkConfigurationCommandOutput}
  * @see {@link DescribeCompanyNetworkConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeCompanyNetworkConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCompanyNetworkConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCompanyNetworkConfigurationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

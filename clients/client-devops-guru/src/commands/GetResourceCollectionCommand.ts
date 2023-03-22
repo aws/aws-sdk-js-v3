@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceCollectionCommand}.
  */
 export interface GetResourceCollectionCommandInput extends GetResourceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceCollectionCommand}.
  */
 export interface GetResourceCollectionCommandOutput extends GetResourceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns lists Amazon Web Services resources that are of the specified resource collection type.
  * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
  *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -49,6 +54,8 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceCollectionCommandInput - {@link GetResourceCollectionCommandInput}
+ * @returns {@link GetResourceCollectionCommandOutput}
  * @see {@link GetResourceCollectionCommandInput} for command's `input` shape.
  * @see {@link GetResourceCollectionCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetResourceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetResourceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCollectionCommandOutput> {
     return deserializeAws_restJson1GetResourceCollectionCommand(output, context);
   }

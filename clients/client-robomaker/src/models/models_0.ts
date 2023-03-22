@@ -3,12 +3,18 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { RoboMakerServiceException as __BaseException } from "./RoboMakerServiceException";
 
+/**
+ * @public
+ */
 export enum Architecture {
   ARM64 = "ARM64",
   ARMHF = "ARMHF",
   X86_64 = "X86_64",
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteWorldsRequest {
   /**
    * <p>A list of Amazon Resource Names (arns) that correspond to worlds to delete.</p>
@@ -16,6 +22,9 @@ export interface BatchDeleteWorldsRequest {
   worlds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteWorldsResponse {
   /**
    * <p>A list of unprocessed worlds associated with the call. These worlds were not
@@ -25,6 +34,7 @@ export interface BatchDeleteWorldsResponse {
 }
 
 /**
+ * @public
  * <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -44,6 +54,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
  *          returned message provides an explanation of the error value.</p>
  */
@@ -64,6 +75,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -82,6 +94,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeSimulationJobRequest {
   /**
    * <p>A list of Amazon Resource Names (ARNs) of simulation jobs to describe.</p>
@@ -89,12 +104,16 @@ export interface BatchDescribeSimulationJobRequest {
   jobs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ComputeType {
   CPU = "CPU",
   GPU_AND_CPU = "GPU_AND_CPU",
 }
 
 /**
+ * @public
  * <p>Compute information for the simulation job</p>
  */
 export interface ComputeResponse {
@@ -119,6 +138,7 @@ export interface ComputeResponse {
 }
 
 /**
+ * @public
  * <p>Information about S3 keys.</p>
  */
 export interface S3KeyOutput {
@@ -133,6 +153,9 @@ export interface S3KeyOutput {
   etag?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataSourceType {
   Archive = "Archive",
   File = "File",
@@ -140,6 +163,7 @@ export enum DataSourceType {
 }
 
 /**
+ * @public
  * <p>Information about a data source.</p>
  */
 export interface DataSource {
@@ -180,11 +204,17 @@ export interface DataSource {
   destination?: string;
 }
 
+/**
+ * @public
+ */
 export enum FailureBehavior {
   Continue = "Continue",
   Fail = "Fail",
 }
 
+/**
+ * @public
+ */
 export enum SimulationJobErrorCode {
   BadPermissionsCloudwatchLogs = "BadPermissionsCloudwatchLogs",
   BadPermissionsRobotApplication = "BadPermissionsRobotApplication",
@@ -220,6 +250,7 @@ export enum SimulationJobErrorCode {
 }
 
 /**
+ * @public
  * <p>The logging configuration.</p>
  */
 export interface LoggingConfig {
@@ -235,6 +266,7 @@ export interface LoggingConfig {
 }
 
 /**
+ * @public
  * <p>Describes a network interface.</p>
  */
 export interface NetworkInterface {
@@ -255,6 +287,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>The output location.</p>
  */
 export interface OutputLocation {
@@ -270,6 +303,7 @@ export interface OutputLocation {
 }
 
 /**
+ * @public
  * <p>An object representing a port mapping.</p>
  */
 export interface PortMapping {
@@ -291,6 +325,7 @@ export interface PortMapping {
 }
 
 /**
+ * @public
  * <p>Configuration information for port forwarding.</p>
  */
 export interface PortForwardingConfig {
@@ -301,6 +336,7 @@ export interface PortForwardingConfig {
 }
 
 /**
+ * @public
  * <p>Information about a launch configuration.</p>
  */
 export interface LaunchConfig {
@@ -339,12 +375,16 @@ export interface LaunchConfig {
   command?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ExitBehavior {
   FAIL = "FAIL",
   RESTART = "RESTART",
 }
 
 /**
+ * @public
  * <p>Information about a tool. Tools are used in a simulation job.</p>
  */
 export interface Tool {
@@ -380,12 +420,16 @@ export interface Tool {
   exitBehavior?: ExitBehavior | string;
 }
 
+/**
+ * @public
+ */
 export enum UploadBehavior {
   UPLOAD_ON_TERMINATE = "UPLOAD_ON_TERMINATE",
   UPLOAD_ROLLING_AUTO_REMOVE = "UPLOAD_ROLLING_AUTO_REMOVE",
 }
 
 /**
+ * @public
  * <p>Provides upload configuration information. Files are uploaded from the simulation job to
  *          a location you specify. </p>
  */
@@ -430,6 +474,7 @@ export interface UploadConfiguration {
 }
 
 /**
+ * @public
  * <p>Application configuration information for a robot.</p>
  */
 export interface RobotApplicationConfig {
@@ -484,6 +529,7 @@ export interface RobotApplicationConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information for a world.</p>
  */
 export interface WorldConfig {
@@ -494,6 +540,7 @@ export interface WorldConfig {
 }
 
 /**
+ * @public
  * <p>Information about a simulation application configuration.</p>
  */
 export interface SimulationApplicationConfig {
@@ -552,6 +599,9 @@ export interface SimulationApplicationConfig {
   useDefaultTools?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum SimulationJobStatus {
   Canceled = "Canceled",
   Completed = "Completed",
@@ -566,6 +616,7 @@ export enum SimulationJobStatus {
 }
 
 /**
+ * @public
  * <p>VPC configuration associated with your simulation job.</p>
  */
 export interface VPCConfigResponse {
@@ -591,6 +642,7 @@ export interface VPCConfigResponse {
 }
 
 /**
+ * @public
  * <p>Information about a simulation job.</p>
  */
 export interface SimulationJob {
@@ -717,6 +769,9 @@ export interface SimulationJob {
   compute?: ComputeResponse;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeSimulationJobResponse {
   /**
    * <p>A list of simulation jobs.</p>
@@ -730,6 +785,7 @@ export interface BatchDescribeSimulationJobResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -749,6 +805,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the batch policy.</p>
  */
 export interface BatchPolicy {
@@ -774,6 +831,9 @@ export interface BatchPolicy {
   maxConcurrency?: number;
 }
 
+/**
+ * @public
+ */
 export interface CancelDeploymentJobRequest {
   /**
    * <p>The deployment job ARN to cancel.</p>
@@ -781,8 +841,14 @@ export interface CancelDeploymentJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDeploymentJobResponse {}
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobRequest {
   /**
    * <p>The simulation job ARN to cancel.</p>
@@ -790,8 +856,14 @@ export interface CancelSimulationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobResponse {}
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobBatchRequest {
   /**
    * <p>The id of the batch to cancel.</p>
@@ -799,8 +871,14 @@ export interface CancelSimulationJobBatchRequest {
   batch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobBatchResponse {}
 
+/**
+ * @public
+ */
 export interface CancelWorldExportJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world export job to cancel.</p>
@@ -808,8 +886,14 @@ export interface CancelWorldExportJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelWorldExportJobResponse {}
 
+/**
+ * @public
+ */
 export interface CancelWorldGenerationJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world generator job to cancel.</p>
@@ -817,9 +901,13 @@ export interface CancelWorldGenerationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelWorldGenerationJobResponse {}
 
 /**
+ * @public
  * <p>Compute information for the simulation job.</p>
  */
 export interface Compute {
@@ -844,6 +932,7 @@ export interface Compute {
 }
 
 /**
+ * @public
  * <p>The failure percentage threshold percentage was met.</p>
  */
 export class ConcurrentDeploymentException extends __BaseException {
@@ -863,6 +952,7 @@ export class ConcurrentDeploymentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration information for a deployment launch.</p>
  */
 export interface DeploymentLaunchConfig {
@@ -896,6 +986,7 @@ export interface DeploymentLaunchConfig {
 }
 
 /**
+ * @public
  * <p>Information about a deployment application configuration.</p>
  */
 export interface DeploymentApplicationConfig {
@@ -916,6 +1007,7 @@ export interface DeploymentApplicationConfig {
 }
 
 /**
+ * @public
  * <p>Information about an S3 object.</p>
  */
 export interface S3Object {
@@ -936,6 +1028,7 @@ export interface S3Object {
 }
 
 /**
+ * @public
  * <p>Information about a deployment configuration.</p>
  */
 export interface DeploymentConfig {
@@ -961,6 +1054,9 @@ export interface DeploymentConfig {
   downloadConditionFile?: S3Object;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentJobRequest {
   /**
    * <p>The requested deployment configuration.</p>
@@ -990,6 +1086,9 @@ export interface CreateDeploymentJobRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentJobErrorCode {
   BadLambdaAssociated = "BadLambdaAssociated",
   BadPermissionError = "BadPermissionError",
@@ -1017,6 +1116,9 @@ export enum DeploymentJobErrorCode {
   RobotDeploymentNoResponse = "RobotDeploymentNoResponse",
 }
 
+/**
+ * @public
+ */
 export enum DeploymentStatus {
   Canceled = "Canceled",
   Failed = "Failed",
@@ -1026,6 +1128,9 @@ export enum DeploymentStatus {
   Succeeded = "Succeeded",
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -1134,6 +1239,7 @@ export interface CreateDeploymentJobResponse {
 }
 
 /**
+ * @public
  * <p>The request uses the same client token as a previous, but non-identical request. Do not
  *          reuse a client token with different requests, unless the requests are identical. </p>
  */
@@ -1154,6 +1260,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *          stream requests exceeds the maximum number allowed. </p>
  */
@@ -1173,6 +1280,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -1185,6 +1295,9 @@ export interface CreateFleetRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -1207,6 +1320,9 @@ export interface CreateFleetResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotRequest {
   /**
    * <p>The name for the robot.</p>
@@ -1229,6 +1345,9 @@ export interface CreateRobotRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
@@ -1262,6 +1381,7 @@ export interface CreateRobotResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -1281,6 +1401,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The object that contains the Docker image URI for either your robot or simulation
  *          applications.</p>
  */
@@ -1291,12 +1412,18 @@ export interface Environment {
   uri?: string;
 }
 
+/**
+ * @public
+ */
 export enum RobotSoftwareSuiteType {
   General = "General",
   ROS = "ROS",
   ROS2 = "ROS2",
 }
 
+/**
+ * @public
+ */
 export enum RobotSoftwareSuiteVersionType {
   Dashing = "Dashing",
   Foxy = "Foxy",
@@ -1305,6 +1432,7 @@ export enum RobotSoftwareSuiteVersionType {
 }
 
 /**
+ * @public
  * <p>Information about a robot software suite (ROS distribution).</p>
  */
 export interface RobotSoftwareSuite {
@@ -1320,6 +1448,7 @@ export interface RobotSoftwareSuite {
 }
 
 /**
+ * @public
  * <p>Information about a source configuration.</p>
  */
 export interface SourceConfig {
@@ -1339,6 +1468,9 @@ export interface SourceConfig {
   architecture?: Architecture | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationRequest {
   /**
    * <p>The name of the robot application.</p>
@@ -1369,6 +1501,7 @@ export interface CreateRobotApplicationRequest {
 }
 
 /**
+ * @public
  * <p>Information about a source.</p>
  */
 export interface Source {
@@ -1393,6 +1526,9 @@ export interface Source {
   architecture?: Architecture | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -1442,6 +1578,9 @@ export interface CreateRobotApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationVersionRequest {
   /**
    * <p>The application information for the robot application.</p>
@@ -1466,6 +1605,9 @@ export interface CreateRobotApplicationVersionRequest {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -1510,11 +1652,15 @@ export interface CreateRobotApplicationVersionResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export enum RenderingEngineType {
   OGRE = "OGRE",
 }
 
 /**
+ * @public
  * <p>Information about a rendering engine.</p>
  */
 export interface RenderingEngine {
@@ -1529,6 +1675,9 @@ export interface RenderingEngine {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export enum SimulationSoftwareSuiteType {
   Gazebo = "Gazebo",
   RosbagPlay = "RosbagPlay",
@@ -1536,6 +1685,7 @@ export enum SimulationSoftwareSuiteType {
 }
 
 /**
+ * @public
  * <p>Information about a simulation software suite.</p>
  */
 export interface SimulationSoftwareSuite {
@@ -1550,6 +1700,9 @@ export interface SimulationSoftwareSuite {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationRequest {
   /**
    * <p>The name of the simulation application.</p>
@@ -1589,6 +1742,9 @@ export interface CreateSimulationApplicationRequest {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
@@ -1648,6 +1804,9 @@ export interface CreateSimulationApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationVersionRequest {
   /**
    * <p>The application information for the simulation application.</p>
@@ -1673,6 +1832,9 @@ export interface CreateSimulationApplicationVersionRequest {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
@@ -1728,6 +1890,7 @@ export interface CreateSimulationApplicationVersionResponse {
 }
 
 /**
+ * @public
  * <p>Information about a data source.</p>
  */
 export interface DataSourceConfig {
@@ -1769,6 +1932,7 @@ export interface DataSourceConfig {
 }
 
 /**
+ * @public
  * <p>If your simulation job accesses resources in a VPC, you provide this parameter
  *          identifying the list of security group IDs and subnet IDs. These must belong to the same
  *          VPC. You must provide at least one security group and two subnet IDs.</p>
@@ -1790,6 +1954,9 @@ export interface VPCConfig {
   assignPublicIp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1876,6 +2043,9 @@ export interface CreateSimulationJobRequest {
   compute?: Compute;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -2034,6 +2204,7 @@ export interface CreateSimulationJobResponse {
 }
 
 /**
+ * @public
  * <p>The request has failed due to a temporary failure of the server.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -2053,6 +2224,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a simulation job request.</p>
  */
 export interface SimulationJobRequest {
@@ -2140,6 +2312,9 @@ export interface SimulationJobRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldExportJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2170,6 +2345,9 @@ export interface CreateWorldExportJobRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum WorldExportJobErrorCode {
   AccessDenied = "AccessDenied",
   InternalServiceError = "InternalServiceError",
@@ -2179,6 +2357,9 @@ export enum WorldExportJobErrorCode {
   ResourceNotFound = "ResourceNotFound",
 }
 
+/**
+ * @public
+ */
 export enum WorldExportJobStatus {
   Canceled = "Canceled",
   Canceling = "Canceling",
@@ -2188,6 +2369,9 @@ export enum WorldExportJobStatus {
   Running = "Running",
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world export job.</p>
@@ -2290,6 +2474,7 @@ export interface CreateWorldExportJobResponse {
 }
 
 /**
+ * @public
  * <p>The number of worlds that will be created. You can configure the number of unique
  *          floorplans and the number of unique interiors for each floor plan. For example, if you want
  *          1 world with 20 unique interiors, you set <code>floorplanCount = 1</code> and
@@ -2310,6 +2495,9 @@ export interface WorldCount {
   interiorCountPerFloorplan?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldGenerationJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2341,6 +2529,9 @@ export interface CreateWorldGenerationJobRequest {
   worldTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum WorldGenerationJobErrorCode {
   AllWorldGenerationFailed = "AllWorldGenerationFailed",
   InternalServiceError = "InternalServiceError",
@@ -2350,6 +2541,9 @@ export enum WorldGenerationJobErrorCode {
   ResourceNotFound = "ResourceNotFound",
 }
 
+/**
+ * @public
+ */
 export enum WorldGenerationJobStatus {
   Canceled = "Canceled",
   Canceling = "Canceling",
@@ -2360,6 +2554,9 @@ export enum WorldGenerationJobStatus {
   Running = "Running",
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldGenerationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world generator job.</p>
@@ -2466,6 +2663,7 @@ export interface CreateWorldGenerationJobResponse {
 }
 
 /**
+ * @public
  * <p>Information about a template location.</p>
  */
 export interface TemplateLocation {
@@ -2480,6 +2678,9 @@ export interface TemplateLocation {
   s3Key: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldTemplateRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2509,6 +2710,9 @@ export interface CreateWorldTemplateRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world template.</p>
@@ -2538,6 +2742,9 @@ export interface CreateWorldTemplateResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2545,8 +2752,14 @@ export interface DeleteFleetRequest {
   fleet: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
@@ -2554,8 +2767,14 @@ export interface DeleteRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRobotResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRobotApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the the robot application.</p>
@@ -2568,8 +2787,14 @@ export interface DeleteRobotApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRobotApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSimulationApplicationRequest {
   /**
    * <p>The application information for the simulation application to delete.</p>
@@ -2582,8 +2807,14 @@ export interface DeleteSimulationApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSimulationApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteWorldTemplateRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template you want to delete.</p>
@@ -2591,9 +2822,13 @@ export interface DeleteWorldTemplateRequest {
   template: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorldTemplateResponse {}
 
 /**
+ * @public
  * <p>Information about a deployment job.</p>
  */
 export interface DeploymentJob {
@@ -2638,6 +2873,9 @@ export interface DeploymentJob {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2650,6 +2888,9 @@ export interface DeregisterRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2662,6 +2903,9 @@ export interface DeregisterRobotResponse {
   robot?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeploymentJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -2669,6 +2913,9 @@ export interface DescribeDeploymentJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RobotDeploymentStep {
   DownloadingExtractingStep = "DownloadingExtracting",
   ExecutingDownloadCondition = "ExecutingDownloadCondition",
@@ -2680,6 +2927,7 @@ export enum RobotDeploymentStep {
 }
 
 /**
+ * @public
  * <p>Information about the progress of a deployment job.</p>
  */
 export interface ProgressDetail {
@@ -2734,6 +2982,9 @@ export interface ProgressDetail {
   targetResource?: string;
 }
 
+/**
+ * @public
+ */
 export enum RobotStatus {
   Available = "Available",
   Deploying = "Deploying",
@@ -2745,6 +2996,7 @@ export enum RobotStatus {
 }
 
 /**
+ * @public
  * <p>Information about a robot deployment.</p>
  */
 export interface RobotDeployment {
@@ -2784,6 +3036,9 @@ export interface RobotDeployment {
   failureCode?: DeploymentJobErrorCode | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeploymentJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -2836,6 +3091,9 @@ export interface DescribeDeploymentJobResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2844,6 +3102,7 @@ export interface DescribeFleetRequest {
 }
 
 /**
+ * @public
  * <p>Information about a robot.</p>
  */
 export interface Robot {
@@ -2893,6 +3152,9 @@ export interface Robot {
   lastDeploymentTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetResponse {
   /**
    * <p>The name of the fleet.</p>
@@ -2935,6 +3197,9 @@ export interface DescribeFleetResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot to be described.</p>
@@ -2942,6 +3207,9 @@ export interface DescribeRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
@@ -2994,6 +3262,9 @@ export interface DescribeRobotResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -3006,6 +3277,9 @@ export interface DescribeRobotApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -3060,6 +3334,9 @@ export interface DescribeRobotApplicationResponse {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationApplicationRequest {
   /**
    * <p>The application information for the simulation application.</p>
@@ -3072,6 +3349,9 @@ export interface DescribeSimulationApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot simulation application.</p>
@@ -3137,6 +3417,9 @@ export interface DescribeSimulationApplicationResponse {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job to be described.</p>
@@ -3144,6 +3427,9 @@ export interface DescribeSimulationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -3318,6 +3604,9 @@ export interface DescribeSimulationJobResponse {
   compute?: ComputeResponse;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationJobBatchRequest {
   /**
    * <p>The id of the batch to describe.</p>
@@ -3326,6 +3615,7 @@ export interface DescribeSimulationJobBatchRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a simulation job.</p>
  */
 export interface SimulationJobSummary {
@@ -3372,6 +3662,7 @@ export interface SimulationJobSummary {
 }
 
 /**
+ * @public
  * <p>Information about a failed create simulation job request.</p>
  */
 export interface FailedCreateSimulationJobRequest {
@@ -3396,10 +3687,16 @@ export interface FailedCreateSimulationJobRequest {
   failedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum SimulationJobBatchErrorCode {
   InternalServiceError = "InternalServiceError",
 }
 
+/**
+ * @public
+ */
 export enum SimulationJobBatchStatus {
   Canceled = "Canceled",
   Canceling = "Canceling",
@@ -3412,6 +3709,9 @@ export enum SimulationJobBatchStatus {
   TimingOut = "TimingOut",
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationJobBatchResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the batch.</p>
@@ -3529,6 +3829,9 @@ export interface DescribeSimulationJobBatchResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world you want to describe.</p>
@@ -3536,6 +3839,9 @@ export interface DescribeWorldRequest {
   world: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldResponse {
   /**
    * <p>The Amazon Resource Name (arn) of the world.</p>
@@ -3569,6 +3875,9 @@ export interface DescribeWorldResponse {
   worldDescriptionBody?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldExportJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world export job to describe.</p>
@@ -3576,6 +3885,9 @@ export interface DescribeWorldExportJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world export job.</p>
@@ -3681,6 +3993,9 @@ export interface DescribeWorldExportJobResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldGenerationJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world generation job to describe.</p>
@@ -3689,6 +4004,7 @@ export interface DescribeWorldGenerationJobRequest {
 }
 
 /**
+ * @public
  * <p>Information about a failed world.</p>
  */
 export interface WorldFailure {
@@ -3733,6 +4049,7 @@ export interface WorldFailure {
 }
 
 /**
+ * @public
  * <p>Information about worlds that failed.</p>
  */
 export interface FailureSummary {
@@ -3748,6 +4065,7 @@ export interface FailureSummary {
 }
 
 /**
+ * @public
  * <p>Information about worlds that finished.</p>
  */
 export interface FinishedWorldsSummary {
@@ -3767,6 +4085,9 @@ export interface FinishedWorldsSummary {
   failureSummary?: FailureSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldGenerationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world generation job.</p>
@@ -3882,6 +4203,9 @@ export interface DescribeWorldGenerationJobResponse {
   worldTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldTemplateRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template you want to describe.</p>
@@ -3889,6 +4213,9 @@ export interface DescribeWorldTemplateRequest {
   template: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world template.</p>
@@ -3930,6 +4257,7 @@ export interface DescribeWorldTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface Filter {
@@ -3945,6 +4273,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Information about a fleet.</p>
  */
 export interface Fleet {
@@ -3979,6 +4308,9 @@ export interface Fleet {
   lastDeploymentTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetWorldTemplateBodyRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template.</p>
@@ -3991,6 +4323,9 @@ export interface GetWorldTemplateBodyRequest {
   generationJob?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetWorldTemplateBodyResponse {
   /**
    * <p>The world template body.</p>
@@ -3998,6 +4333,9 @@ export interface GetWorldTemplateBodyResponse {
   templateBody?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentJobsRequest {
   /**
    * <p>Optional filters to limit results.</p>
@@ -4029,6 +4367,9 @@ export interface ListDeploymentJobsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentJobsResponse {
   /**
    * <p>A list of deployment jobs that meet the criteria of the request.</p>
@@ -4045,6 +4386,9 @@ export interface ListDeploymentJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4078,6 +4422,9 @@ export interface ListFleetsRequest {
   filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsResponse {
   /**
    * <p>A list of fleet details meeting the request criteria.</p>
@@ -4094,6 +4441,9 @@ export interface ListFleetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRobotApplicationsRequest {
   /**
    * <p>The version qualifier of the robot application.</p>
@@ -4129,6 +4479,7 @@ export interface ListRobotApplicationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a robot application.</p>
  */
 export interface RobotApplicationSummary {
@@ -4159,6 +4510,9 @@ export interface RobotApplicationSummary {
   robotSoftwareSuite?: RobotSoftwareSuite;
 }
 
+/**
+ * @public
+ */
 export interface ListRobotApplicationsResponse {
   /**
    * <p>A list of robot application summaries that meet the criteria of the request.</p>
@@ -4175,6 +4529,9 @@ export interface ListRobotApplicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRobotsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4206,6 +4563,9 @@ export interface ListRobotsRequest {
   filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListRobotsResponse {
   /**
    * <p>A list of robots that meet the criteria of the request.</p>
@@ -4222,6 +4582,9 @@ export interface ListRobotsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationApplicationsRequest {
   /**
    * <p>The version qualifier of the simulation application.</p>
@@ -4257,6 +4620,7 @@ export interface ListSimulationApplicationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a simulation application.</p>
  */
 export interface SimulationApplicationSummary {
@@ -4292,6 +4656,9 @@ export interface SimulationApplicationSummary {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationApplicationsResponse {
   /**
    * <p>A list of simulation application summaries that meet the criteria of the request.</p>
@@ -4308,6 +4675,9 @@ export interface ListSimulationApplicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobBatchesRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4334,6 +4704,7 @@ export interface ListSimulationJobBatchesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a simulation job batch.</p>
  */
 export interface SimulationJobBatchSummary {
@@ -4424,6 +4795,9 @@ export interface SimulationJobBatchSummary {
   createdRequestCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobBatchesResponse {
   /**
    * <p>A list of simulation job batch summaries.</p>
@@ -4440,6 +4814,9 @@ export interface ListSimulationJobBatchesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4472,6 +4849,9 @@ export interface ListSimulationJobsRequest {
   filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobsResponse {
   /**
    * <p>A list of simulation job summaries that meet the criteria of the request.</p>
@@ -4488,6 +4868,9 @@ export interface ListSimulationJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The AWS RoboMaker Amazon Resource Name (ARN) with tags to be listed.</p>
@@ -4495,6 +4878,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of all tags added to the specified resource.</p>
@@ -4502,6 +4888,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldExportJobsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4531,6 +4920,7 @@ export interface ListWorldExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a world export job.</p>
  */
 export interface WorldExportJobSummary {
@@ -4587,6 +4977,9 @@ export interface WorldExportJobSummary {
   outputLocation?: OutputLocation;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldExportJobsResponse {
   /**
    * <p>Summary information for world export jobs.</p>
@@ -4603,6 +4996,9 @@ export interface ListWorldExportJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldGenerationJobsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4632,6 +5028,7 @@ export interface ListWorldGenerationJobsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a world generator job.</p>
  */
 export interface WorldGenerationJobSummary {
@@ -4703,6 +5100,9 @@ export interface WorldGenerationJobSummary {
   failedWorldCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldGenerationJobsResponse {
   /**
    * <p>Summary information for world generator jobs.</p>
@@ -4719,6 +5119,9 @@ export interface ListWorldGenerationJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4747,6 +5150,7 @@ export interface ListWorldsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a world.</p>
  */
 export interface WorldSummary {
@@ -4771,6 +5175,9 @@ export interface WorldSummary {
   template?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldsResponse {
   /**
    * <p>Summary information for worlds.</p>
@@ -4787,6 +5194,9 @@ export interface ListWorldsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldTemplatesRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4810,6 +5220,7 @@ export interface ListWorldTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a template.</p>
  */
 export interface TemplateSummary {
@@ -4839,6 +5250,9 @@ export interface TemplateSummary {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldTemplatesResponse {
   /**
    * <p>Summary information for templates.</p>
@@ -4855,6 +5269,9 @@ export interface ListWorldTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -4867,6 +5284,9 @@ export interface RegisterRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet that the robot will join.</p>
@@ -4879,6 +5299,9 @@ export interface RegisterRobotResponse {
   robot?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestartSimulationJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -4886,8 +5309,14 @@ export interface RestartSimulationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestartSimulationJobResponse {}
 
+/**
+ * @public
+ */
 export interface StartSimulationJobBatchRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4912,6 +5341,9 @@ export interface StartSimulationJobBatchRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartSimulationJobBatchResponse {
   /**
    * <p>The Amazon Resource Name (arn) of the batch.</p>
@@ -5023,6 +5455,9 @@ export interface StartSimulationJobBatchResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SyncDeploymentJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -5036,6 +5471,9 @@ export interface SyncDeploymentJobRequest {
   fleet: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SyncDeploymentJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the synchronization request.</p>
@@ -5139,6 +5577,9 @@ export interface SyncDeploymentJobResponse {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are tagging.</p>
@@ -5151,8 +5592,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are removing
@@ -5167,8 +5614,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRobotApplicationRequest {
   /**
    * <p>The application information for the robot application.</p>
@@ -5196,6 +5649,9 @@ export interface UpdateRobotApplicationRequest {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRobotApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated robot application.</p>
@@ -5239,6 +5695,9 @@ export interface UpdateRobotApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSimulationApplicationRequest {
   /**
    * <p>The application information for the simulation application.</p>
@@ -5276,6 +5735,9 @@ export interface UpdateSimulationApplicationRequest {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSimulationApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated simulation application.</p>
@@ -5330,6 +5792,9 @@ export interface UpdateSimulationApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorldTemplateRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template to update.</p>
@@ -5352,6 +5817,9 @@ export interface UpdateWorldTemplateRequest {
   templateLocation?: TemplateLocation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorldTemplateResponse {
   /**
    * <p>The Amazon Resource Name (arn) of the world template.</p>

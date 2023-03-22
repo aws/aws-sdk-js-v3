@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetIdentityMailFromDomainCommand}.
  */
 export interface SetIdentityMailFromDomainCommandInput extends SetIdentityMailFromDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetIdentityMailFromDomainCommand}.
  */
 export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailFromDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
  *             email address or a domain).</p>
  *         <important>
@@ -55,6 +60,8 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityMailFromDomainCommandInput - {@link SetIdentityMailFromDomainCommandInput}
+ * @returns {@link SetIdentityMailFromDomainCommandOutput}
  * @see {@link SetIdentityMailFromDomainCommandInput} for command's `input` shape.
  * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -91,6 +98,9 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityMailFromDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIdentityMailFromDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetIdentityMailFromDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

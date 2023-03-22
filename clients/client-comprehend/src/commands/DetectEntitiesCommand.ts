@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectEntitiesCommand}.
  */
 export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectEntitiesCommand}.
  */
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects named entities in input text when you use the pre-trained model.
  *       Detects custom entities if you have a custom entity recognition model. </p>
  *          <p>
@@ -61,6 +66,8 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectEntitiesCommandInput - {@link DetectEntitiesCommandInput}
+ * @returns {@link DetectEntitiesCommandOutput}
  * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -104,6 +111,9 @@ export class DetectEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DetectEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesCommandOutput> {
     return deserializeAws_json1_1DetectEntitiesCommand(output, context);
   }

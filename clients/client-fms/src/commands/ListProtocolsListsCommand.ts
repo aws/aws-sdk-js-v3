@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtocolsListsCommand}.
  */
 export interface ListProtocolsListsCommandInput extends ListProtocolsListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProtocolsListsCommand}.
  */
 export interface ListProtocolsListsCommandOutput extends ListProtocolsListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtocolsListsCommandInput - {@link ListProtocolsListsCommandInput}
+ * @returns {@link ListProtocolsListsCommandOutput}
  * @see {@link ListProtocolsListsCommandInput} for command's `input` shape.
  * @see {@link ListProtocolsListsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListProtocolsListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtocolsListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListProtocolsListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtocolsListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProtocolsListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtocolsListsCommandOutput> {
     return deserializeAws_json1_1ListProtocolsListsCommand(output, context);
   }

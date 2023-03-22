@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddProfilePermissionCommand}.
  */
 export interface AddProfilePermissionCommandInput extends AddProfilePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddProfilePermissionCommand}.
  */
 export interface AddProfilePermissionCommandOutput extends AddProfilePermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds cross-account permissions to a signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  * const response = await client.send(command);
  * ```
  *
+ * @param AddProfilePermissionCommandInput - {@link AddProfilePermissionCommandInput}
+ * @returns {@link AddProfilePermissionCommandOutput}
  * @see {@link AddProfilePermissionCommandInput} for command's `input` shape.
  * @see {@link AddProfilePermissionCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -91,6 +98,9 @@ export class AddProfilePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddProfilePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AddProfilePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddProfilePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddProfilePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddProfilePermissionCommandOutput> {
     return deserializeAws_restJson1AddProfilePermissionCommand(output, context);
   }

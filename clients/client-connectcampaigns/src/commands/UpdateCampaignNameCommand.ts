@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCampaignNameCommand}.
  */
 export interface UpdateCampaignNameCommandInput extends UpdateCampaignNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCampaignNameCommand}.
  */
 export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates the name of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignNameCommandInput - {@link UpdateCampaignNameCommandInput}
+ * @returns {@link UpdateCampaignNameCommandOutput}
  * @see {@link UpdateCampaignNameCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateCampaignNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateCampaignNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCampaignNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCampaignNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignNameCommandOutput> {
     return deserializeAws_restJson1UpdateCampaignNameCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutExternalModelCommand}.
  */
 export interface PutExternalModelCommandInput extends PutExternalModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutExternalModelCommand}.
  */
 export interface PutExternalModelCommandOutput extends PutExternalModelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param PutExternalModelCommandInput - {@link PutExternalModelCommandInput}
+ * @returns {@link PutExternalModelCommandOutput}
  * @see {@link PutExternalModelCommandInput} for command's `input` shape.
  * @see {@link PutExternalModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class PutExternalModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutExternalModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class PutExternalModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutExternalModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutExternalModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutExternalModelCommandOutput> {
     return deserializeAws_json1_1PutExternalModelCommand(output, context);
   }

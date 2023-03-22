@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImagePipelineCommand}.
  */
 export interface DeleteImagePipelineCommandInput extends DeleteImagePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImagePipelineCommand}.
  */
 export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes an image pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImagePipelineCommandInput - {@link DeleteImagePipelineCommandInput}
+ * @returns {@link DeleteImagePipelineCommandOutput}
  * @see {@link DeleteImagePipelineCommandInput} for command's `input` shape.
  * @see {@link DeleteImagePipelineCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteImagePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImagePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteImagePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImagePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteImagePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImagePipelineCommandOutput> {
     return deserializeAws_restJson1DeleteImagePipelineCommand(output, context);
   }

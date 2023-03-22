@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainSuggestionsCommand}.
  */
 export interface GetDomainSuggestionsCommandInput extends GetDomainSuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainSuggestionsCommand}.
  */
 export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainSuggestionsCommandInput - {@link GetDomainSuggestionsCommandInput}
+ * @returns {@link GetDomainSuggestionsCommandOutput}
  * @see {@link GetDomainSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetDomainSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDomainSuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetDomainSuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainSuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDomainSuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainSuggestionsCommandOutput> {
     return deserializeAws_json1_1GetDomainSuggestionsCommand(output, context);
   }

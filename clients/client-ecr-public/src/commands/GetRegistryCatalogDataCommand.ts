@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegistryCatalogDataCommand}.
  */
 export interface GetRegistryCatalogDataCommandInput extends GetRegistryCatalogDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegistryCatalogDataCommand}.
  */
 export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves catalog metadata for a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistryCatalogDataCommandInput - {@link GetRegistryCatalogDataCommandInput}
+ * @returns {@link GetRegistryCatalogDataCommandOutput}
  * @see {@link GetRegistryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRegistryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetRegistryCatalogDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistryCatalogDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetRegistryCatalogDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegistryCatalogDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRegistryCatalogDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistryCatalogDataCommandOutput> {
     return deserializeAws_json1_1GetRegistryCatalogDataCommand(output, context);
   }

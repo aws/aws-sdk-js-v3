@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStudioSessionMappingCommand}.
  */
 export interface GetStudioSessionMappingCommandInput extends GetStudioSessionMappingInput {}
 /**
+ * @public
+ *
  * The output of {@link GetStudioSessionMappingCommand}.
  */
 export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMappingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user
  *          or group).</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStudioSessionMappingCommandInput - {@link GetStudioSessionMappingCommandInput}
+ * @returns {@link GetStudioSessionMappingCommandOutput}
  * @see {@link GetStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link GetStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetStudioSessionMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStudioSessionMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetStudioSessionMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStudioSessionMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetStudioSessionMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStudioSessionMappingCommandOutput> {
     return deserializeAws_json1_1GetStudioSessionMappingCommand(output, context);
   }

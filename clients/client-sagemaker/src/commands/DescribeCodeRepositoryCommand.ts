@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCodeRepositoryCommand}.
  */
 export interface DescribeCodeRepositoryCommandInput extends DescribeCodeRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCodeRepositoryCommand}.
  */
 export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about the specified Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeReposit
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCodeRepositoryCommandInput - {@link DescribeCodeRepositoryCommandInput}
+ * @returns {@link DescribeCodeRepositoryCommandOutput}
  * @see {@link DescribeCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeCodeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeRepositoryCommandOutput> {
     return deserializeAws_json1_1DescribeCodeRepositoryCommand(output, context);
   }

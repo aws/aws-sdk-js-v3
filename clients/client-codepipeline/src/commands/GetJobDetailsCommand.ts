@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobDetailsCommand}.
  */
 export interface GetJobDetailsCommandInput extends GetJobDetailsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetJobDetailsCommand}.
  */
 export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a job. Used for custom actions only.</p>
  *         <important>
  *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
@@ -52,6 +57,8 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobDetailsCommandInput - {@link GetJobDetailsCommandInput}
+ * @returns {@link GetJobDetailsCommandOutput}
  * @see {@link GetJobDetailsCommandInput} for command's `input` shape.
  * @see {@link GetJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetJobDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetJobDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetJobDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobDetailsCommandOutput> {
     return deserializeAws_json1_1GetJobDetailsCommand(output, context);
   }

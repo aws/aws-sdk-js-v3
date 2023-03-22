@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQueueOutboundCallerConfigCommand}.
  */
 export interface UpdateQueueOutboundCallerConfigCommandInput extends UpdateQueueOutboundCallerConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQueueOutboundCallerConfigCommand}.
  */
 export interface UpdateQueueOutboundCallerConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified
  *    queue.</p>
@@ -57,6 +62,8 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueOutboundCallerConfigCommandInput - {@link UpdateQueueOutboundCallerConfigCommandInput}
+ * @returns {@link UpdateQueueOutboundCallerConfigCommandOutput}
  * @see {@link UpdateQueueOutboundCallerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueOutboundCallerConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueOutboundCallerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateQueueOutboundCallerConfigCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
     return serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

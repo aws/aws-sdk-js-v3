@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAttendeeCommand}.
  */
 export interface CreateAttendeeCommandInput extends CreateAttendeeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAttendeeCommand}.
  */
 export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -51,6 +56,8 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAttendeeCommandInput - {@link CreateAttendeeCommandInput}
+ * @returns {@link CreateAttendeeCommandOutput}
  * @see {@link CreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link CreateAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAttendeeCommandOutput> {
     return deserializeAws_restJson1CreateAttendeeCommand(output, context);
   }

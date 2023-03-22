@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterRobotCommand}.
  */
 export interface RegisterRobotCommandInput extends RegisterRobotRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterRobotCommand}.
  */
 export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Registers a robot with a fleet.</p>
@@ -51,6 +56,8 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterRobotCommandInput - {@link RegisterRobotCommandInput}
+ * @returns {@link RegisterRobotCommandOutput}
  * @see {@link RegisterRobotCommandInput} for command's `input` shape.
  * @see {@link RegisterRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -91,6 +98,9 @@ export class RegisterRobotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterRobotCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class RegisterRobotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterRobotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterRobotCommandOutput> {
     return deserializeAws_restJson1RegisterRobotCommand(output, context);
   }

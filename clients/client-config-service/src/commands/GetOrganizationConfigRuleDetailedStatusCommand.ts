@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationConfigRuleDetailedStatusCommand}.
  */
 export interface GetOrganizationConfigRuleDetailedStatusCommandInput
   extends GetOrganizationConfigRuleDetailedStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationConfigRuleDetailedStatusCommand}.
  */
 export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
@@ -38,6 +42,7 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed status for each member account within an organization for a given organization Config rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationConfigRuleDetailedStatusCommandInput - {@link GetOrganizationConfigRuleDetailedStatusCommandInput}
+ * @returns {@link GetOrganizationConfigRuleDetailedStatusCommandOutput}
  * @see {@link GetOrganizationConfigRuleDetailedStatusCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationConfigRuleDetailedStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationConfigRuleDetailedStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,6 +159,9 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOrganizationConfigRuleDetailedStatusCommandInput,
     context: __SerdeContext
@@ -156,6 +169,9 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     return serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

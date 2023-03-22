@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TransferInputDeviceCommand}.
  */
 export interface TransferInputDeviceCommandInput extends TransferInputDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TransferInputDeviceCommand}.
  */
 export interface TransferInputDeviceCommandOutput extends TransferInputDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Start an input device transfer to another AWS account. After you make the request, the other account must accept or reject the transfer.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param TransferInputDeviceCommandInput - {@link TransferInputDeviceCommandInput}
+ * @returns {@link TransferInputDeviceCommandOutput}
  * @see {@link TransferInputDeviceCommandInput} for command's `input` shape.
  * @see {@link TransferInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -96,6 +103,9 @@ export class TransferInputDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransferInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class TransferInputDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransferInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TransferInputDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferInputDeviceCommandOutput> {
     return deserializeAws_restJson1TransferInputDeviceCommand(output, context);
   }

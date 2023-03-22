@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceTemplateVersionCommand}.
  */
 export interface UpdateServiceTemplateVersionCommandInput extends UpdateServiceTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceTemplateVersionCommand}.
  */
 export interface UpdateServiceTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a major or minor version of a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceTemplateVersionCommandInput - {@link UpdateServiceTemplateVersionCommandInput}
+ * @returns {@link UpdateServiceTemplateVersionCommandOutput}
  * @see {@link UpdateServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateServiceTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateServiceTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateServiceTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

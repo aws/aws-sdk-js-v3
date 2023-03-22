@@ -28,15 +28,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomRoutingAcceleratorCommand}.
  */
 export interface DeleteCustomRoutingAcceleratorCommandInput extends DeleteCustomRoutingAcceleratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomRoutingAcceleratorCommand}.
  */
 export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a custom routing accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
  * 		(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
  *          <important>
@@ -61,6 +66,8 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomRoutingAcceleratorCommandInput - {@link DeleteCustomRoutingAcceleratorCommandInput}
+ * @returns {@link DeleteCustomRoutingAcceleratorCommandOutput}
  * @see {@link DeleteCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomRoutingAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
     return serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

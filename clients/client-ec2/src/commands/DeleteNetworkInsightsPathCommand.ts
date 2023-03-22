@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkInsightsPathCommand}.
  */
 export interface DeleteNetworkInsightsPathCommandInput extends DeleteNetworkInsightsPathRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkInsightsPathCommand}.
  */
 export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkInsightsPathResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkIns
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInsightsPathCommandInput - {@link DeleteNetworkInsightsPathCommandInput}
+ * @returns {@link DeleteNetworkInsightsPathCommandOutput}
  * @see {@link DeleteNetworkInsightsPathCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsPathCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkInsightsPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNetworkInsightsPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

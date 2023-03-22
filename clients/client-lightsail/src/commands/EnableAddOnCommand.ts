@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAddOnCommand}.
  */
 export interface EnableAddOnCommandInput extends EnableAddOnRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableAddOnCommand}.
  */
 export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see
  *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAddOnCommandInput - {@link EnableAddOnCommandInput}
+ * @returns {@link EnableAddOnCommandOutput}
  * @see {@link EnableAddOnCommandInput} for command's `input` shape.
  * @see {@link EnableAddOnCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class EnableAddOnCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAddOnCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class EnableAddOnCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAddOnCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableAddOnCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAddOnCommandOutput> {
     return deserializeAws_json1_1EnableAddOnCommand(output, context);
   }

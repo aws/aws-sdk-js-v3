@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandInput
   extends UpdateConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the configuration of an event destination for a configuration set.</p>
  *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
@@ -55,6 +60,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link UpdateConfigurationSetEventDestinationCommandOutput}
  * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     return serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

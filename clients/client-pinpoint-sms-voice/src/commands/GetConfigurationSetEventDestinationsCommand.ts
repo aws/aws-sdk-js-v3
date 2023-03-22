@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationSetEventDestinationsCommand}.
  */
 export interface GetConfigurationSetEventDestinationsCommandInput extends GetConfigurationSetEventDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
 export interface GetConfigurationSetEventDestinationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationSetEventDestinationsCommandInput - {@link GetConfigurationSetEventDestinationsCommandInput}
+ * @returns {@link GetConfigurationSetEventDestinationsCommandOutput}
  * @see {@link GetConfigurationSetEventDestinationsCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationSetEventDestinationsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationSetEventDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetConfigurationSetEventDestinationsCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     return serializeAws_restJson1GetConfigurationSetEventDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

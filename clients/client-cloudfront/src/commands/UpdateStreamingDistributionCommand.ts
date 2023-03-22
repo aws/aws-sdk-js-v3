@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStreamingDistributionCommand}.
  */
 export interface UpdateStreamingDistributionCommandInput extends UpdateStreamingDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStreamingDistributionCommand}.
  */
 export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamingDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a streaming distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamingDistributionCommandInput - {@link UpdateStreamingDistributionCommandInput}
+ * @returns {@link UpdateStreamingDistributionCommandOutput}
  * @see {@link UpdateStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -114,6 +121,9 @@ export class UpdateStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UpdateStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

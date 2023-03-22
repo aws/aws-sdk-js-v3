@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceCommand}.
  */
 export interface UpdateServiceCommandInput extends UpdateServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceCommand}.
  */
 export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Edit a service description or use a spec to add and delete service instances.</p>
  *          <note>
  *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
@@ -57,6 +62,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
+ * @returns {@link UpdateServiceCommandOutput}
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class UpdateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
     return deserializeAws_json1_0UpdateServiceCommand(output, context);
   }

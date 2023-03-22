@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDirectoriesCommand}.
  */
 export interface ListDirectoriesCommandInput extends ListDirectoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDirectoriesCommand}.
  */
 export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists directories created within an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDirectoriesCommandInput - {@link ListDirectoriesCommandInput}
+ * @returns {@link ListDirectoriesCommandOutput}
  * @see {@link ListDirectoriesCommandInput} for command's `input` shape.
  * @see {@link ListDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDirectoriesCommandOutput> {
     return deserializeAws_restJson1ListDirectoriesCommand(output, context);
   }

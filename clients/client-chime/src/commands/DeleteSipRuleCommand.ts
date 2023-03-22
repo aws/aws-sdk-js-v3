@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSipRuleCommand}.
  */
 export interface DeleteSipRuleCommandInput extends DeleteSipRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSipRuleCommand}.
  */
 export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSipRuleCommandInput - {@link DeleteSipRuleCommandInput}
+ * @returns {@link DeleteSipRuleCommandOutput}
  * @see {@link DeleteSipRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSipRuleCommandOutput> {
     return deserializeAws_restJson1DeleteSipRuleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMailboxExportJobCommand}.
  */
 export interface DescribeMailboxExportJobCommandInput extends DescribeMailboxExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMailboxExportJobCommand}.
  */
 export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current status of a mailbox export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMailboxExportJobCommandInput - {@link DescribeMailboxExportJobCommandInput}
+ * @returns {@link DescribeMailboxExportJobCommandOutput}
  * @see {@link DescribeMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeMailboxExportJobCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeMailboxExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMailboxExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeMailboxExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMailboxExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMailboxExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMailboxExportJobCommandOutput> {
     return deserializeAws_json1_1DescribeMailboxExportJobCommand(output, context);
   }

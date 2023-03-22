@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointServicePermissionsCommand}.
  */
 export interface ModifyVpcEndpointServicePermissionsCommandInput extends ModifyVpcEndpointServicePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointServicePermissionsCommand}.
  */
 export interface ModifyVpcEndpointServicePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
  *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
  *             your endpoint service.</p>
@@ -53,6 +58,8 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointServicePermissionsCommandInput - {@link ModifyVpcEndpointServicePermissionsCommandInput}
+ * @returns {@link ModifyVpcEndpointServicePermissionsCommandOutput}
  * @see {@link ModifyVpcEndpointServicePermissionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointServicePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +125,9 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointServicePermissionsCommandInput,
     context: __SerdeContext
@@ -122,6 +135,9 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     return serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

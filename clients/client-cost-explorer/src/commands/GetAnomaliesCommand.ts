@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnomaliesCommand}.
  */
 export interface GetAnomaliesCommandInput extends GetAnomaliesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnomaliesCommand}.
  */
 export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
  *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
  *       days.</p>
@@ -48,6 +53,8 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnomaliesCommandInput - {@link GetAnomaliesCommandInput}
+ * @returns {@link GetAnomaliesCommandOutput}
  * @see {@link GetAnomaliesCommandInput} for command's `input` shape.
  * @see {@link GetAnomaliesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetAnomaliesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnomaliesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetAnomaliesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnomaliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAnomaliesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomaliesCommandOutput> {
     return deserializeAws_json1_1GetAnomaliesCommand(output, context);
   }

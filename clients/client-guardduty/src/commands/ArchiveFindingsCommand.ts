@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ArchiveFindingsCommand}.
  */
 export interface ArchiveFindingsCommandInput extends ArchiveFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ArchiveFindingsCommand}.
  */
 export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
  *          <note>
  *             <p>Only the administrator account can archive findings. Member accounts don't have permission to
@@ -50,6 +55,8 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ArchiveFindingsCommandInput - {@link ArchiveFindingsCommandInput}
+ * @returns {@link ArchiveFindingsCommandOutput}
  * @see {@link ArchiveFindingsCommandInput} for command's `input` shape.
  * @see {@link ArchiveFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -79,6 +86,9 @@ export class ArchiveFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ArchiveFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ArchiveFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ArchiveFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ArchiveFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveFindingsCommandOutput> {
     return deserializeAws_restJson1ArchiveFindingsCommand(output, context);
   }

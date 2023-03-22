@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPortfolioSummaryCommand}.
  */
 export interface GetPortfolioSummaryCommandInput extends GetPortfolioSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPortfolioSummaryCommand}.
  */
 export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves overall summary including the number of servers to rehost and the overall
  *       number of anti-patterns. </p>
  * @example
@@ -51,6 +56,8 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPortfolioSummaryCommandInput - {@link GetPortfolioSummaryCommandInput}
+ * @returns {@link GetPortfolioSummaryCommandOutput}
  * @see {@link GetPortfolioSummaryCommandInput} for command's `input` shape.
  * @see {@link GetPortfolioSummaryCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetPortfolioSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPortfolioSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetPortfolioSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPortfolioSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPortfolioSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPortfolioSummaryCommandOutput> {
     return deserializeAws_restJson1GetPortfolioSummaryCommand(output, context);
   }

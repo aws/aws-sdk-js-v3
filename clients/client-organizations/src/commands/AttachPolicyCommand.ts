@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.
  *             How the policy affects accounts depends on the type of policy. Refer to the
  *                 <i>Organizations User Guide</i> for information about each policy type:</p>
@@ -66,6 +71,8 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
+ * @returns {@link AttachPolicyCommandOutput}
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -466,6 +473,9 @@ export class AttachPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -503,10 +513,16 @@ export class AttachPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AttachPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachPolicyCommandOutput> {
     return deserializeAws_json1_1AttachPolicyCommand(output, context);
   }

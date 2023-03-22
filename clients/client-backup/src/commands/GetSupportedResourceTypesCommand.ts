@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSupportedResourceTypesCommand}.
  */
 export interface GetSupportedResourceTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSupportedResourceTypesCommand}.
  */
 export interface GetSupportedResourceTypesCommandOutput extends GetSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Amazon Web Services resource types supported by Backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSupportedResourceTypesCommandInput - {@link GetSupportedResourceTypesCommandInput}
+ * @returns {@link GetSupportedResourceTypesCommandOutput}
  * @see {@link GetSupportedResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetSupportedResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -67,6 +74,9 @@ export class GetSupportedResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSupportedResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class GetSupportedResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSupportedResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSupportedResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

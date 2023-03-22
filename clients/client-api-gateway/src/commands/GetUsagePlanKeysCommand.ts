@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsagePlanKeysCommand}.
  */
 export interface GetUsagePlanKeysCommandInput extends GetUsagePlanKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsagePlanKeysCommand}.
  */
 export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all the usage plan keys representing the API keys added to a specified usage plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsagePlanKeysCommandInput - {@link GetUsagePlanKeysCommandInput}
+ * @returns {@link GetUsagePlanKeysCommandOutput}
  * @see {@link GetUsagePlanKeysCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlanKeysCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetUsagePlanKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsagePlanKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetUsagePlanKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsagePlanKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUsagePlanKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlanKeysCommandOutput> {
     return deserializeAws_restJson1GetUsagePlanKeysCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots
  *       available to you.</p>
  *          <p>The snapshots available to you include public snapshots, private snapshots that you own,
@@ -88,6 +93,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
+ * @returns {@link DescribeSnapshotsCommandOutput}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -179,6 +186,9 @@ export class DescribeSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -218,10 +228,16 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
     return deserializeAws_ec2DescribeSnapshotsCommand(output, context);
   }

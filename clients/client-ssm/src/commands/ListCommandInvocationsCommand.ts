@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCommandInvocationsCommand}.
  */
 export interface ListCommandInvocationsCommandInput extends ListCommandInvocationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCommandInvocationsCommand}.
  */
 export interface ListCommandInvocationsCommandOutput extends ListCommandInvocationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
  *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
  *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
@@ -50,6 +55,8 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCommandInvocationsCommandInput - {@link ListCommandInvocationsCommandInput}
+ * @returns {@link ListCommandInvocationsCommandOutput}
  * @see {@link ListCommandInvocationsCommandInput} for command's `input` shape.
  * @see {@link ListCommandInvocationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -105,6 +112,9 @@ export class ListCommandInvocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCommandInvocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ListCommandInvocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCommandInvocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCommandInvocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCommandInvocationsCommandOutput> {
     return deserializeAws_json1_1ListCommandInvocationsCommand(output, context);
   }

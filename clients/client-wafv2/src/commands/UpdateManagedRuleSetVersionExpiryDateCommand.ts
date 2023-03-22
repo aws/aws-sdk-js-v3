@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandInput
   extends UpdateManagedRuleSetVersionExpiryDateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the expiration information for your managed rule set. Use this to initiate the
  *          expiration of a managed rule group version. After you initiate expiration for a version,
  *          WAF excludes it from the response to <a>ListAvailableManagedRuleGroupVersions</a> for the managed rule group. </p>
@@ -55,6 +60,8 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateManagedRuleSetVersionExpiryDateCommandInput - {@link UpdateManagedRuleSetVersionExpiryDateCommandInput}
+ * @returns {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput}
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandInput} for command's `input` shape.
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -117,6 +124,9 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateManagedRuleSetVersionExpiryDateCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,6 +166,9 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateManagedRuleSetVersionExpiryDateCommandInput,
     context: __SerdeContext
@@ -163,6 +176,9 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     return serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

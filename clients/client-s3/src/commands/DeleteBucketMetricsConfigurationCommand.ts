@@ -24,15 +24,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketMetricsConfigurationCommand}.
  */
 export interface DeleteBucketMetricsConfigurationCommandInput extends DeleteBucketMetricsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketMetricsConfigurationCommand}.
  */
 export interface DeleteBucketMetricsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a metrics configuration for the Amazon CloudWatch request metrics (specified by the
  *          metrics configuration ID) from the bucket. Note that this doesn't include the daily storage
  *          metrics.</p>
@@ -77,6 +82,8 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketMetricsConfigurationCommandInput - {@link DeleteBucketMetricsConfigurationCommandInput}
+ * @returns {@link DeleteBucketMetricsConfigurationCommandOutput}
  * @see {@link DeleteBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketMetricsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBucketMetricsConfigurationCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     return serializeAws_restXmlDeleteBucketMetricsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

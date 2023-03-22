@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPredictorsCommand}.
  */
 export interface ListPredictorsCommandInput extends ListPredictorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPredictorsCommand}.
  */
 export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of predictors created using the <a>CreateAutoPredictor</a> or
  *         <a>CreatePredictor</a> operations. For each predictor, this operation returns a
  *       summary of its properties, including its Amazon Resource Name (ARN). </p>
@@ -50,6 +55,8 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPredictorsCommandInput - {@link ListPredictorsCommandInput}
+ * @returns {@link ListPredictorsCommandOutput}
  * @see {@link ListPredictorsCommandInput} for command's `input` shape.
  * @see {@link ListPredictorsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListPredictorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPredictorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListPredictorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPredictorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPredictorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPredictorsCommandOutput> {
     return deserializeAws_json1_1ListPredictorsCommand(output, context);
   }

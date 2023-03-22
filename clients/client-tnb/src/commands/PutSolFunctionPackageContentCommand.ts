@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutSolFunctionPackageContentCommand}.
  */
 export interface PutSolFunctionPackageContentCommandInput extends PutSolFunctionPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link PutSolFunctionPackageContentCommand}.
  */
 export interface PutSolFunctionPackageContentCommandOutput
@@ -37,6 +41,7 @@ export interface PutSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads the contents of a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutSolFunctionPackageContentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSolFunctionPackageContentCommandInput - {@link PutSolFunctionPackageContentCommandInput}
+ * @returns {@link PutSolFunctionPackageContentCommandOutput}
  * @see {@link PutSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link PutSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutSolFunctionPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSolFunctionPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutSolFunctionPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSolFunctionPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSolFunctionPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

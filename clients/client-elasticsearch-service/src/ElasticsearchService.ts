@@ -242,6 +242,7 @@ import {
 import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
 
 /**
+ * @public
  * <fullname>Amazon Elasticsearch Configuration Service</fullname>
  *       <p>Use the Amazon Elasticsearch Configuration API to create, configure, and manage Elasticsearch domains.</p>
  *       <p>For sample code that uses the Configuration API, see the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-samples.html">Amazon Elasticsearch Service Developer Guide</a>.
@@ -252,6 +253,7 @@ import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
  */
 export class ElasticsearchService extends ElasticsearchServiceClient {
   /**
+   * @public
    * <p>Allows the destination domain owner to accept an inbound cross-cluster search connection request.</p>
    */
   public acceptInboundCrossClusterSearchConnection(
@@ -286,6 +288,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
    *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
    */
@@ -313,6 +316,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Associates a package with an Amazon ES domain.</p>
    */
   public associatePackage(
@@ -345,6 +349,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
    */
   public authorizeVpcEndpointAccess(
@@ -377,6 +382,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
    */
   public cancelElasticsearchServiceSoftwareUpdate(
@@ -411,6 +417,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Elasticsearch domain. For more information,
    *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
    */
@@ -444,6 +451,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a new cross-cluster search connection from a source domain to a destination domain.</p>
    */
   public createOutboundCrossClusterSearchConnection(
@@ -478,6 +486,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Create a package for use with Amazon ES domains.</p>
    */
   public createPackage(
@@ -510,6 +519,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon OpenSearch Service-managed VPC endpoint.</p>
    */
   public createVpcEndpoint(
@@ -542,6 +552,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
    */
   public deleteElasticsearchDomain(
@@ -574,6 +585,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
    */
   public deleteElasticsearchServiceRole(
@@ -606,6 +618,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>
    */
   public deleteInboundCrossClusterSearchConnection(
@@ -640,6 +653,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Allows the source domain owner to delete an existing outbound cross-cluster search connection.</p>
    */
   public deleteOutboundCrossClusterSearchConnection(
@@ -674,6 +688,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Delete the package.</p>
    */
   public deletePackage(
@@ -706,6 +721,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
    */
   public deleteVpcEndpoint(
@@ -738,6 +754,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides scheduled Auto-Tune action details for the Elasticsearch domain, such as Auto-Tune action type, description, severity, and scheduled date.</p>
    */
   public describeDomainAutoTunes(
@@ -770,6 +787,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the current blue/green deployment happening on a domain, including
    *         a change ID, status, and progress stages.</p>
    */
@@ -803,6 +821,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
    */
   public describeElasticsearchDomain(
@@ -835,6 +854,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
    */
   public describeElasticsearchDomainConfig(
@@ -867,6 +887,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
    */
   public describeElasticsearchDomains(
@@ -899,6 +920,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>
    *     Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
    *     When modifying existing Domain, specify the
@@ -940,6 +962,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists all the inbound cross-cluster search connections for a destination domain.</p>
    */
   public describeInboundCrossClusterSearchConnections(
@@ -974,6 +997,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>
    */
   public describeOutboundCrossClusterSearchConnections(
@@ -1008,6 +1032,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Describes all packages available to Amazon ES. Includes options for filtering, limiting the number of results, and pagination.</p>
    */
   public describePackages(
@@ -1040,6 +1065,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists available reserved Elasticsearch instance offerings.</p>
    */
   public describeReservedElasticsearchInstanceOfferings(
@@ -1074,6 +1100,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about reserved Elasticsearch instances for this account.</p>
    */
   public describeReservedElasticsearchInstances(
@@ -1108,6 +1135,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more Amazon OpenSearch Service-managed VPC endpoints.</p>
    */
   public describeVpcEndpoints(
@@ -1140,6 +1168,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Dissociates a package from the Amazon ES domain.</p>
    */
   public dissociatePackage(
@@ -1172,6 +1201,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>
    *         Returns a list of upgrade compatible Elastisearch versions.
    *         You can optionally pass a
@@ -1211,6 +1241,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>
    */
   public getPackageVersionHistory(
@@ -1243,6 +1274,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
    */
   public getUpgradeHistory(
@@ -1275,6 +1307,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
    */
   public getUpgradeStatus(
@@ -1307,6 +1340,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
    */
   public listDomainNames(
@@ -1339,6 +1373,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists all Amazon ES domains associated with the package.</p>
    */
   public listDomainsForPackage(
@@ -1371,6 +1406,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
    */
   public listElasticsearchInstanceTypes(
@@ -1403,6 +1439,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>List all supported Elasticsearch versions</p>
    */
   public listElasticsearchVersions(
@@ -1435,6 +1472,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists all packages associated with the Amazon ES domain.</p>
    */
   public listPackagesForDomain(
@@ -1467,6 +1505,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns all tags for the given Elasticsearch domain.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
@@ -1493,6 +1532,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about each  principal that is allowed to access a
    *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
    */
@@ -1526,6 +1566,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current account and Region.</p>
    */
   public listVpcEndpoints(
@@ -1558,6 +1599,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular domain.</p>
    */
   public listVpcEndpointsForDomain(
@@ -1590,6 +1632,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Allows you to purchase reserved Elasticsearch instances.</p>
    */
   public purchaseReservedElasticsearchInstanceOffering(
@@ -1624,6 +1667,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>
    */
   public rejectInboundCrossClusterSearchConnection(
@@ -1658,6 +1702,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
@@ -1684,6 +1729,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
    *    VPC endpoint.</p>
    */
@@ -1717,6 +1763,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Schedules a service software update for an Amazon ES domain.</p>
    */
   public startElasticsearchServiceSoftwareUpdate(
@@ -1751,6 +1798,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
    */
   public updateElasticsearchDomainConfig(
@@ -1783,6 +1831,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Updates a package for use with Amazon ES domains.</p>
    */
   public updatePackage(
@@ -1815,6 +1864,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
    */
   public updateVpcEndpoint(
@@ -1847,6 +1897,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * @public
    * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
    */
   public upgradeElasticsearchDomain(

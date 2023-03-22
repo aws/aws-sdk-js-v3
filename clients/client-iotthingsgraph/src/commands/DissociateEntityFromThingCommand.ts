@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DissociateEntityFromThingCommand}.
  */
 export interface DissociateEntityFromThingCommandInput extends DissociateEntityFromThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DissociateEntityFromThingCommand}.
  */
 export interface DissociateEntityFromThingCommandOutput extends DissociateEntityFromThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
@@ -49,6 +54,8 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * const response = await client.send(command);
  * ```
  *
+ * @param DissociateEntityFromThingCommandInput - {@link DissociateEntityFromThingCommandInput}
+ * @returns {@link DissociateEntityFromThingCommandOutput}
  * @see {@link DissociateEntityFromThingCommandInput} for command's `input` shape.
  * @see {@link DissociateEntityFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class DissociateEntityFromThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DissociateEntityFromThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DissociateEntityFromThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DissociateEntityFromThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DissociateEntityFromThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

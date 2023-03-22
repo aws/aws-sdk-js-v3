@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoomMembershipCommand}.
  */
 export interface UpdateRoomMembershipCommandInput extends UpdateRoomMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoomMembershipCommand}.
  */
 export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates room membership details, such as the member role, for a room in an Amazon Chime
  *             Enterprise account. The member role designates whether the member is a chat room
  *             administrator or a general chat room member. The member role can be updated only for
@@ -49,6 +54,8 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoomMembershipCommandInput - {@link UpdateRoomMembershipCommandInput}
+ * @returns {@link UpdateRoomMembershipCommandOutput}
  * @see {@link UpdateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateRoomMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoomMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateRoomMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRoomMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomMembershipCommandOutput> {
     return deserializeAws_restJson1UpdateRoomMembershipCommand(output, context);
   }

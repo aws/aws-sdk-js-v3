@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSharingWithAwsOrganizationCommand}.
  */
 export interface EnableSharingWithAwsOrganizationCommandInput extends EnableSharingWithAwsOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableSharingWithAwsOrganizationCommand}.
  */
 export interface EnableSharingWithAwsOrganizationCommandOutput
@@ -37,6 +41,7 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables resource sharing within your organization in Organizations. Calling this operation
  *             enables RAM to retrieve information about the organization and its structure. This
  *             lets you share resources with all of the accounts in an organization by specifying the
@@ -56,6 +61,8 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSharingWithAwsOrganizationCommandInput - {@link EnableSharingWithAwsOrganizationCommandInput}
+ * @returns {@link EnableSharingWithAwsOrganizationCommandOutput}
  * @see {@link EnableSharingWithAwsOrganizationCommandInput} for command's `input` shape.
  * @see {@link EnableSharingWithAwsOrganizationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -88,6 +95,9 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSharingWithAwsOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableSharingWithAwsOrganizationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     return serializeAws_restJson1EnableSharingWithAwsOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

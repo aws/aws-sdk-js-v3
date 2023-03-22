@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCampaignOutboundCallConfigCommand}.
  */
 export interface UpdateCampaignOutboundCallConfigCommandInput extends UpdateCampaignOutboundCallConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCampaignOutboundCallConfigCommand}.
  */
 export interface UpdateCampaignOutboundCallConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates the outbound call config of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignOutboundCallConfigCommandInput - {@link UpdateCampaignOutboundCallConfigCommandInput}
+ * @returns {@link UpdateCampaignOutboundCallConfigCommandOutput}
  * @see {@link UpdateCampaignOutboundCallConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignOutboundCallConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignOutboundCallConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCampaignOutboundCallConfigCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
     return serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

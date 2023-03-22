@@ -10,7 +10,7 @@ import { SecretsManagerClient } from "../SecretsManagerClient";
 import { SecretsManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecretsManagerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSecretVersionIdsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSecretVersionIds(
   config: SecretsManagerPaginationConfiguration,
   input: ListSecretVersionIdsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSnapshotBlocksCommand}.
  */
 export interface ListSnapshotBlocksCommandInput extends ListSnapshotBlocksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSnapshotBlocksCommand}.
  */
 export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSnapshotBlocksCommandInput - {@link ListSnapshotBlocksCommandInput}
+ * @returns {@link ListSnapshotBlocksCommandOutput}
  * @see {@link ListSnapshotBlocksCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotBlocksCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListSnapshotBlocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSnapshotBlocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListSnapshotBlocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSnapshotBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSnapshotBlocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSnapshotBlocksCommandOutput> {
     return deserializeAws_restJson1ListSnapshotBlocksCommand(output, context);
   }

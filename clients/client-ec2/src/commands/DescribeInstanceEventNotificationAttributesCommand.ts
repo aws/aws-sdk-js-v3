@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceEventNotificationAttributesCommand}.
  */
 export interface DescribeInstanceEventNotificationAttributesCommandInput
   extends DescribeInstanceEventNotificationAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceEventNotificationAttributesCommand}.
  */
 export interface DescribeInstanceEventNotificationAttributesCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the tag keys that are registered to appear in scheduled event notifications for
  *       	resources in the current Region.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceEventNotificationAttributesCommandInput - {@link DescribeInstanceEventNotificationAttributesCommandInput}
+ * @returns {@link DescribeInstanceEventNotificationAttributesCommandOutput}
  * @see {@link DescribeInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeInstanceEventNotificationAttributesCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceEventNotificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DescribeInstanceEventNotificationAttributesCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstanceEventNotificationAttributesCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DescribeInstanceEventNotificationAttributesCommand extends $Command
     return serializeAws_ec2DescribeInstanceEventNotificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

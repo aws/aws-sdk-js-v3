@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStateMachineForExecutionCommand}.
  */
 export interface DescribeStateMachineForExecutionCommandInput extends DescribeStateMachineForExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStateMachineForExecutionCommand}.
  */
 export interface DescribeStateMachineForExecutionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeStateMachineForExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a state machine's definition, its execution role ARN, and configuration. If an execution was dispatched by a Map Run, the Map Run is returned in the response. Additionally, the state machine returned will be the state machine associated with the Map Run.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -52,6 +57,8 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStateMachineForExecutionCommandInput - {@link DescribeStateMachineForExecutionCommandInput}
+ * @returns {@link DescribeStateMachineForExecutionCommandOutput}
  * @see {@link DescribeStateMachineForExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeStateMachineForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStateMachineForExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStateMachineForExecutionCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     return serializeAws_json1_0DescribeStateMachineForExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

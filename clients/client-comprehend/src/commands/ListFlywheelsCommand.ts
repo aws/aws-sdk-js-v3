@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFlywheelsCommand}.
  */
 export interface ListFlywheelsCommandInput extends ListFlywheelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFlywheelsCommand}.
  */
 export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the flywheels that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlywheelsCommandInput - {@link ListFlywheelsCommandInput}
+ * @returns {@link ListFlywheelsCommandOutput}
  * @see {@link ListFlywheelsCommandInput} for command's `input` shape.
  * @see {@link ListFlywheelsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListFlywheelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlywheelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListFlywheelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlywheelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFlywheelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFlywheelsCommandOutput> {
     return deserializeAws_json1_1ListFlywheelsCommand(output, context);
   }

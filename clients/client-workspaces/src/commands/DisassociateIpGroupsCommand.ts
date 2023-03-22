@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateIpGroupsCommand}.
  */
 export interface DisassociateIpGroupsCommandInput extends DisassociateIpGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateIpGroupsCommand}.
  */
 export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified IP access control group from the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateIpGroupsCommandInput - {@link DisassociateIpGroupsCommandInput}
+ * @returns {@link DisassociateIpGroupsCommandOutput}
  * @see {@link DisassociateIpGroupsCommandInput} for command's `input` shape.
  * @see {@link DisassociateIpGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateIpGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateIpGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DisassociateIpGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateIpGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateIpGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateIpGroupsCommandOutput> {
     return deserializeAws_json1_1DisassociateIpGroupsCommand(output, context);
   }

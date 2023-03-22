@@ -55,6 +55,7 @@ import { UpdateViewCommand, UpdateViewCommandInput, UpdateViewCommandOutput } fr
 import { ResourceExplorer2Client } from "./ResourceExplorer2Client";
 
 /**
+ * @public
  * <p>Amazon Web Services Resource Explorer is a resource search and discovery service. By using Resource Explorer, you can
  *             explore your resources using an internet search engine-like experience. Examples of
  *             resources include Amazon Relational Database Service (Amazon RDS) instances, Amazon Simple Storage Service (Amazon S3) buckets, or Amazon DynamoDB
@@ -79,6 +80,7 @@ import { ResourceExplorer2Client } from "./ResourceExplorer2Client";
  */
 export class ResourceExplorer2 extends ResourceExplorer2Client {
   /**
+   * @public
    * <p>Sets the specified view as the default for the Amazon Web Services Region in which you call this
    *             operation. When a user performs a <a>Search</a> that doesn't explicitly
    *             specify which view to use, then Amazon Web Services Resource Explorer automatically chooses this default view for
@@ -117,6 +119,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves details about a list of views.</p>
    */
   public batchGetView(
@@ -146,6 +149,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Turns on Amazon Web Services Resource Explorer in the Amazon Web Services Region in which you called this operation by creating
    *             an index. Resource Explorer begins discovering the resources in this Region and stores the details
    *             about the resources in the index so that they can be queried by using the <a>Search</a> operation. You can create only one index in a Region.</p>
@@ -222,6 +226,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Creates a view that users can query by using the <a>Search</a> operation.
    *             Results from queries that you make using this view include only resources that match the
    *             view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html">Managing views</a>
@@ -255,6 +260,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified index and turns off Amazon Web Services Resource Explorer in the specified Amazon Web Services Region.
    *             When you delete an index, Resource Explorer stops discovering and indexing resources in that
    *             Region. Resource Explorer also deletes all views in that Region. These actions occur as
@@ -292,6 +298,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified view.</p>
    *          <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
    *             until you configure a new default by calling the <a>AssociateDefaultView</a>
@@ -321,6 +328,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>After you call this operation, the affected Amazon Web Services Region no longer has a default view.
    *             All <a>Search</a> operations in that Region must explicitly specify a view or
    *             the operation fails. You can configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
@@ -358,6 +366,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the Amazon Resource Name (ARN) of the view that is the default for the
    *             Amazon Web Services Region in which you call this operation. You can then call <a>GetView</a> to retrieve the details of that view.</p>
    */
@@ -391,6 +400,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves details about the Amazon Web Services Resource Explorer index in the Amazon Web Services Region in which you invoked
    *             the operation.</p>
    */
@@ -418,6 +428,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves details of the specified view.</p>
    */
   public getView(args: GetViewCommandInput, options?: __HttpHandlerOptions): Promise<GetViewCommandOutput>;
@@ -444,6 +455,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all of the indexes in Amazon Web Services Regions that are currently collecting
    *             resource information for Amazon Web Services Resource Explorer.</p>
    */
@@ -471,6 +483,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all resource types currently supported by Amazon Web Services Resource Explorer.</p>
    */
   public listSupportedResourceTypes(
@@ -503,6 +516,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified resource.</p>
    */
   public listTagsForResource(
@@ -535,6 +549,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Lists the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you
    *             call this operation.</p>
    *          <note>
@@ -570,6 +585,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Searches for resources and displays details about all resources that match the
    *             specified criteria. You must specify a query string.</p>
    *          <p>All search queries must use a view. If you don't explicitly specify a view, then
@@ -608,6 +624,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Adds one or more tag key and value pairs to an Amazon Web Services Resource Explorer view or index.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -634,6 +651,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Removes one or more tag key and value pairs from an Amazon Web Services Resource Explorer view or index.</p>
    */
   public untagResource(
@@ -666,6 +684,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Changes the type of the index from one of the following types to the other. For more
    *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on
    *                 cross-Region search by creating an aggregator index</a> in the
@@ -754,6 +773,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   }
 
   /**
+   * @public
    * <p>Modifies some of the details of a view. You can change the filter string and the list
    *             of included properties. You can't change the name of the view.</p>
    */

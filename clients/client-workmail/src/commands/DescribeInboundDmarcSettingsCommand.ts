@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInboundDmarcSettingsCommand}.
  */
 export interface DescribeInboundDmarcSettingsCommandInput extends DescribeInboundDmarcSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInboundDmarcSettingsCommand}.
  */
 export interface DescribeInboundDmarcSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInboundDmarcSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the settings in a DMARC policy for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInboundDmarcSettingsCommandInput - {@link DescribeInboundDmarcSettingsCommandInput}
+ * @returns {@link DescribeInboundDmarcSettingsCommandOutput}
  * @see {@link DescribeInboundDmarcSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeInboundDmarcSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeInboundDmarcSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInboundDmarcSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeInboundDmarcSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInboundDmarcSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInboundDmarcSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

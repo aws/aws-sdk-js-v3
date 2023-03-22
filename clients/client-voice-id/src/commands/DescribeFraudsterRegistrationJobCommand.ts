@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFraudsterRegistrationJobCommand}.
  */
 export interface DescribeFraudsterRegistrationJobCommandInput extends DescribeFraudsterRegistrationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFraudsterRegistrationJobCommand}.
  */
 export interface DescribeFraudsterRegistrationJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFraudsterRegistrationJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified fraudster registration job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeFraudsterRegistrationJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFraudsterRegistrationJobCommandInput - {@link DescribeFraudsterRegistrationJobCommandInput}
+ * @returns {@link DescribeFraudsterRegistrationJobCommandOutput}
  * @see {@link DescribeFraudsterRegistrationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeFraudsterRegistrationJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFraudsterRegistrationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFraudsterRegistrationJobCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
     return serializeAws_json1_0DescribeFraudsterRegistrationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

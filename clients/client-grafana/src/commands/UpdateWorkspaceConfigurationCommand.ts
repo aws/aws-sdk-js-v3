@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceConfigurationCommand}.
  */
 export interface UpdateWorkspaceConfigurationCommandInput extends UpdateWorkspaceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceConfigurationCommand}.
  */
 export interface UpdateWorkspaceConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateWorkspaceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration string for the given workspace</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceConfigurationCommandInput - {@link UpdateWorkspaceConfigurationCommandInput}
+ * @returns {@link UpdateWorkspaceConfigurationCommandOutput}
  * @see {@link UpdateWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateWorkspaceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateWorkspaceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWorkspaceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

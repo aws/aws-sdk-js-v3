@@ -6,7 +6,7 @@ import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from 
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetModelsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetModels(
   config: APIGatewayPaginationConfiguration,
   input: GetModelsCommandInput,

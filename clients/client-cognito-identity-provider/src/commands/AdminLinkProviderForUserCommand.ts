@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminLinkProviderForUserCommand}.
  */
 export interface AdminLinkProviderForUserCommandInput extends AdminLinkProviderForUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminLinkProviderForUserCommand}.
  */
 export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProviderForUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an
  *             identity from an external IdP (<code>SourceUser</code>) based on a specified attribute
  *             name and value from the external IdP. This allows you to create a link from the existing
@@ -69,6 +74,8 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminLinkProviderForUserCommandInput - {@link AdminLinkProviderForUserCommandInput}
+ * @returns {@link AdminLinkProviderForUserCommandOutput}
  * @see {@link AdminLinkProviderForUserCommandInput} for command's `input` shape.
  * @see {@link AdminLinkProviderForUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -124,6 +131,9 @@ export class AdminLinkProviderForUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminLinkProviderForUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class AdminLinkProviderForUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminLinkProviderForUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminLinkProviderForUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminLinkProviderForUserCommandOutput> {
     return deserializeAws_json1_1AdminLinkProviderForUserCommand(output, context);
   }

@@ -10,7 +10,7 @@ import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: StorageGatewayClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeVTLDevicesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeVTLDevices(
   config: StorageGatewayPaginationConfiguration,
   input: DescribeVTLDevicesCommandInput,

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMLLabelingSetGenerationTaskRunCommand}.
  */
 export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartMLLabelingSetGenerationTaskRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMLLabelingSetGenerationTaskRunCommand}.
  */
 export interface StartMLLabelingSetGenerationTaskRunCommandOutput
@@ -37,6 +41,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the active learning workflow for your machine learning transform to improve the
  *       transform's quality by generating label sets and adding labels.</p>
  *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
@@ -58,6 +63,8 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMLLabelingSetGenerationTaskRunCommandInput - {@link StartMLLabelingSetGenerationTaskRunCommandInput}
+ * @returns {@link StartMLLabelingSetGenerationTaskRunCommandOutput}
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMLLabelingSetGenerationTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartMLLabelingSetGenerationTaskRunCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     return serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

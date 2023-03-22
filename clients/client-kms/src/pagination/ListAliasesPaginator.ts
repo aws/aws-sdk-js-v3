@@ -6,7 +6,7 @@ import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KMSClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAliasesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAliases(
   config: KMSPaginationConfiguration,
   input: ListAliasesCommandInput,

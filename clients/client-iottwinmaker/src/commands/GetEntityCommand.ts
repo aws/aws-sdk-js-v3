@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEntityCommand}.
  */
 export interface GetEntityCommandInput extends GetEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEntityCommand}.
  */
 export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEntityCommandInput - {@link GetEntityCommandInput}
+ * @returns {@link GetEntityCommandOutput}
  * @see {@link GetEntityCommandInput} for command's `input` shape.
  * @see {@link GetEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntityCommandOutput> {
     return deserializeAws_restJson1GetEntityCommand(output, context);
   }

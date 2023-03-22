@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntityRecognizerCommand}.
  */
 export interface DescribeEntityRecognizerCommandInput extends DescribeEntityRecognizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntityRecognizerCommand}.
  */
 export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRecognizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about an entity recognizer including status, S3 buckets containing
  *       training data, recognizer metadata, metrics, and so on.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntityRecognizerCommandInput - {@link DescribeEntityRecognizerCommandInput}
+ * @returns {@link DescribeEntityRecognizerCommandOutput}
  * @see {@link DescribeEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeEntityRecognizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityRecognizerCommandOutput> {
     return deserializeAws_json1_1DescribeEntityRecognizerCommand(output, context);
   }

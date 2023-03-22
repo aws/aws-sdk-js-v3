@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualNodeCommand}.
  */
 export interface DeleteVirtualNodeCommandInput extends DeleteVirtualNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualNodeCommand}.
  */
 export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing virtual node.</p>
  *          <p>You must delete any virtual services that list a virtual node as a service provider
  *          before you can delete the virtual node itself.</p>
@@ -48,6 +53,8 @@ export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualNodeCommandInput - {@link DeleteVirtualNodeCommandInput}
+ * @returns {@link DeleteVirtualNodeCommandOutput}
  * @see {@link DeleteVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteVirtualNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteVirtualNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVirtualNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualNodeCommandOutput> {
     return deserializeAws_restJson1DeleteVirtualNodeCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLayerCommand}.
  */
 export interface CreateLayerCommandInput extends CreateLayerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLayerCommand}.
  */
 export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a layer. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">How to
  *         Create a Layer</a>.</p>
  *          <note>
@@ -59,6 +64,8 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLayerCommandInput - {@link CreateLayerCommandInput}
+ * @returns {@link CreateLayerCommandOutput}
  * @see {@link CreateLayerCommandInput} for command's `input` shape.
  * @see {@link CreateLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateLayerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateLayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLayerCommandOutput> {
     return deserializeAws_json1_1CreateLayerCommand(output, context);
   }

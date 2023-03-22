@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationCommand}.
  */
 export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationCommand}.
  */
 export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an MSK configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationCommandInput - {@link UpdateConfigurationCommandInput}
+ * @returns {@link UpdateConfigurationCommandOutput}
  * @see {@link UpdateConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfigurationCommandOutput> {
     return deserializeAws_restJson1UpdateConfigurationCommand(output, context);
   }

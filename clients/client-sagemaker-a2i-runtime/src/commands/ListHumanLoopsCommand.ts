@@ -30,15 +30,20 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListHumanLoopsCommand}.
  */
 export interface ListHumanLoopsCommandInput extends ListHumanLoopsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHumanLoopsCommand}.
  */
 export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHumanLoopsCommandInput - {@link ListHumanLoopsCommandInput}
+ * @returns {@link ListHumanLoopsCommandOutput}
  * @see {@link ListHumanLoopsCommandInput} for command's `input` shape.
  * @see {@link ListHumanLoopsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListHumanLoopsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHumanLoopsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListHumanLoopsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHumanLoopsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListHumanLoopsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHumanLoopsCommandOutput> {
     return deserializeAws_restJson1ListHumanLoopsCommand(output, context);
   }

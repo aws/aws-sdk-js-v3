@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRightsizingRecommendationCommand}.
  */
 export interface GetRightsizingRecommendationCommandInput extends GetRightsizingRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRightsizingRecommendationCommand}.
  */
 export interface GetRightsizingRecommendationCommandOutput
@@ -37,6 +41,7 @@ export interface GetRightsizingRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates recommendations that help you save cost by identifying idle and underutilized
  *       Amazon EC2 instances.</p>
  *          <p>Recommendations are generated to either downsize or terminate instances, along with
@@ -52,6 +57,8 @@ export interface GetRightsizingRecommendationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRightsizingRecommendationCommandInput - {@link GetRightsizingRecommendationCommandInput}
+ * @returns {@link GetRightsizingRecommendationCommandOutput}
  * @see {@link GetRightsizingRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetRightsizingRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRightsizingRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRightsizingRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetRightsizingRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRightsizingRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRightsizingRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

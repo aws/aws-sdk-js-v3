@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestRoleCommand}.
  */
 export interface TestRoleCommandInput extends TestRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestRoleCommand}.
  */
 export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The TestRole operation tests the IAM role used to create the pipeline.</p>
@@ -57,6 +62,8 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param TestRoleCommandInput - {@link TestRoleCommandInput}
+ * @returns {@link TestRoleCommandOutput}
  * @see {@link TestRoleCommandInput} for command's `input` shape.
  * @see {@link TestRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -95,6 +102,9 @@ export class TestRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class TestRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRoleCommandOutput> {
     return deserializeAws_restJson1TestRoleCommand(output, context);
   }

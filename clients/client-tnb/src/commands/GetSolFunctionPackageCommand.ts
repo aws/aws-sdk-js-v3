@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolFunctionPackageCommand}.
  */
 export interface GetSolFunctionPackageCommandInput extends GetSolFunctionPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolFunctionPackageCommand}.
  */
 export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of an individual function package, such as the operational state and whether the package is in use.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network..</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolFunctionPackageCommandInput - {@link GetSolFunctionPackageCommandInput}
+ * @returns {@link GetSolFunctionPackageCommandOutput}
  * @see {@link GetSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link GetSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetSolFunctionPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolFunctionPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetSolFunctionPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSolFunctionPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSolFunctionPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolFunctionPackageCommandOutput> {
     return deserializeAws_restJson1GetSolFunctionPackageCommand(output, context);
   }

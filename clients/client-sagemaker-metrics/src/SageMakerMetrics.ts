@@ -9,6 +9,7 @@ import {
 import { SageMakerMetricsClient } from "./SageMakerMetricsClient";
 
 /**
+ * @public
  * <p>Contains all data plane API operations and data types for Amazon SageMaker Metrics.
  *          Use these APIs to put and retrieve (get) features related to your training run.</p>
  *          <ul>
@@ -21,6 +22,7 @@ import { SageMakerMetricsClient } from "./SageMakerMetricsClient";
  */
 export class SageMakerMetrics extends SageMakerMetricsClient {
   /**
+   * @public
    * <p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio and
    *          retrieved with the <code>GetMetrics</code> API.
    *       </p>

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoutingControlsCommand}.
  */
 export interface ListRoutingControlsCommandInput extends ListRoutingControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoutingControlsCommand}.
  */
 export interface ListRoutingControlsCommandOutput extends ListRoutingControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of routing controls for a control panel. A routing control is an Amazon Route 53 Application Recovery Controller construct that has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control routing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutingControlsCommandInput - {@link ListRoutingControlsCommandInput}
+ * @returns {@link ListRoutingControlsCommandOutput}
  * @see {@link ListRoutingControlsCommandInput} for command's `input` shape.
  * @see {@link ListRoutingControlsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListRoutingControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutingControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListRoutingControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutingControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRoutingControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingControlsCommandOutput> {
     return deserializeAws_restJson1ListRoutingControlsCommand(output, context);
   }

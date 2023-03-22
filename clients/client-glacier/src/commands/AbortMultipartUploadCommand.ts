@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadInput {}
 /**
+ * @public
+ *
  * The output of {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation aborts a multipart upload identified by the upload ID.</p>
  *
  *
@@ -58,6 +63,8 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
+ * @returns {@link AbortMultipartUploadCommandOutput}
  * @see {@link AbortMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -107,6 +114,9 @@ export class AbortMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class AbortMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AbortMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortMultipartUploadCommandOutput> {
     return deserializeAws_restJson1AbortMultipartUploadCommand(output, context);
   }

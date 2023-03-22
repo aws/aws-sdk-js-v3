@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMatchmakingCommand}.
  */
 export interface StopMatchmakingCommandInput extends StopMatchmakingInput {}
 /**
+ * @public
+ *
  * The output of {@link StopMatchmakingCommand}.
  */
 export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a matchmaking ticket or match backfill ticket that is currently being
  *             processed. To stop the matchmaking operation, specify the ticket ID. If successful, work
  *             on the ticket is stopped, and the ticket status is changed to
@@ -64,6 +69,8 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMatchmakingCommandInput - {@link StopMatchmakingCommandInput}
+ * @returns {@link StopMatchmakingCommandOutput}
  * @see {@link StopMatchmakingCommandInput} for command's `input` shape.
  * @see {@link StopMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -101,6 +108,9 @@ export class StopMatchmakingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMatchmakingCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class StopMatchmakingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMatchmakingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopMatchmakingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMatchmakingCommandOutput> {
     return deserializeAws_json1_1StopMatchmakingCommand(output, context);
   }

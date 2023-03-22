@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLocalDisksCommand}.
  */
 export interface ListLocalDisksCommandInput extends ListLocalDisksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLocalDisksCommand}.
  */
 export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the gateway's local disks. To specify which gateway to describe,
  *          you use the Amazon Resource Name (ARN) of the gateway in the body of the request.</p>
  *
@@ -54,6 +59,8 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLocalDisksCommandInput - {@link ListLocalDisksCommandInput}
+ * @returns {@link ListLocalDisksCommandOutput}
  * @see {@link ListLocalDisksCommandInput} for command's `input` shape.
  * @see {@link ListLocalDisksCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -120,6 +127,9 @@ export class ListLocalDisksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLocalDisksCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class ListLocalDisksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLocalDisksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLocalDisksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocalDisksCommandOutput> {
     return deserializeAws_json1_1ListLocalDisksCommand(output, context);
   }

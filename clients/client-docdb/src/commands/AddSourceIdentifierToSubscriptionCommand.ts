@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddSourceIdentifierToSubscriptionCommand}.
  */
 export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSourceIdentifierToSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
  */
 export interface AddSourceIdentifierToSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a source identifier to an existing event notification
  *             subscription.</p>
  * @example
@@ -49,6 +54,8 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AddSourceIdentifierToSubscriptionCommandInput - {@link AddSourceIdentifierToSubscriptionCommandInput}
+ * @returns {@link AddSourceIdentifierToSubscriptionCommandOutput}
  * @see {@link AddSourceIdentifierToSubscriptionCommandInput} for command's `input` shape.
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -78,6 +85,9 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddSourceIdentifierToSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddSourceIdentifierToSubscriptionCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

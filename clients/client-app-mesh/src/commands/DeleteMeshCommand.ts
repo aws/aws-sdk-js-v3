@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMeshCommand}.
  */
 export interface DeleteMeshCommandInput extends DeleteMeshInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMeshCommand}.
  */
 export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing service mesh.</p>
  *          <p>You must delete all resources (virtual services, routes, virtual routers, and virtual
  *          nodes) in the service mesh before you can delete the mesh itself.</p>
@@ -48,6 +53,8 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMeshCommandInput - {@link DeleteMeshCommandInput}
+ * @returns {@link DeleteMeshCommandOutput}
  * @see {@link DeleteMeshCommandInput} for command's `input` shape.
  * @see {@link DeleteMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteMeshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMeshCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteMeshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMeshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMeshCommandOutput> {
     return deserializeAws_restJson1DeleteMeshCommand(output, context);
   }

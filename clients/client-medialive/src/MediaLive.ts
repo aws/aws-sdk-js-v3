@@ -255,10 +255,12 @@ import {
 import { MediaLiveClient } from "./MediaLiveClient";
 
 /**
+ * @public
  * API for AWS Elemental MediaLive
  */
 export class MediaLive extends MediaLiveClient {
   /**
+   * @public
    * Accept an incoming input device transfer. The ownership of the device will transfer to your AWS account.
    */
   public acceptInputDeviceTransfer(
@@ -291,6 +293,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Starts delete of resources.
    */
   public batchDelete(args: BatchDeleteCommandInput, options?: __HttpHandlerOptions): Promise<BatchDeleteCommandOutput>;
@@ -317,6 +320,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Starts existing resources
    */
   public batchStart(args: BatchStartCommandInput, options?: __HttpHandlerOptions): Promise<BatchStartCommandOutput>;
@@ -343,6 +347,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Stops running resources
    */
   public batchStop(args: BatchStopCommandInput, options?: __HttpHandlerOptions): Promise<BatchStopCommandOutput>;
@@ -369,6 +374,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Update a channel schedule
    */
   public batchUpdateSchedule(
@@ -401,6 +407,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Cancel an input device transfer that you have requested.
    */
   public cancelInputDeviceTransfer(
@@ -433,6 +440,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Send a request to claim an AWS Elemental device that you have purchased from a third-party vendor. After the request succeeds, you will own the device.
    */
   public claimDevice(args: ClaimDeviceCommandInput, options?: __HttpHandlerOptions): Promise<ClaimDeviceCommandOutput>;
@@ -459,6 +467,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Creates a new channel
    */
   public createChannel(
@@ -491,6 +500,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Create an input
    */
   public createInput(args: CreateInputCommandInput, options?: __HttpHandlerOptions): Promise<CreateInputCommandOutput>;
@@ -517,6 +527,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Creates a Input Security Group
    */
   public createInputSecurityGroup(
@@ -549,6 +560,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Create a new multiplex.
    */
   public createMultiplex(
@@ -581,6 +593,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Create a new program in the multiplex.
    */
   public createMultiplexProgram(
@@ -613,6 +626,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Create a partner input
    */
   public createPartnerInput(
@@ -645,6 +659,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Create tags for a resource
    */
   public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
@@ -671,6 +686,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Starts deletion of channel. The associated outputs are also deleted.
    */
   public deleteChannel(
@@ -703,6 +719,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Deletes the input end point
    */
   public deleteInput(args: DeleteInputCommandInput, options?: __HttpHandlerOptions): Promise<DeleteInputCommandOutput>;
@@ -729,6 +746,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Deletes an Input Security Group
    */
   public deleteInputSecurityGroup(
@@ -761,6 +779,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Delete a multiplex. The multiplex must be idle.
    */
   public deleteMultiplex(
@@ -793,6 +812,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Delete a program from a multiplex.
    */
   public deleteMultiplexProgram(
@@ -825,6 +845,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Delete an expired reservation.
    */
   public deleteReservation(
@@ -857,6 +878,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Delete all schedule actions on a channel.
    */
   public deleteSchedule(
@@ -889,6 +911,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Removes tags for a resource
    */
   public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
@@ -915,6 +938,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Gets details about a channel
    */
   public describeChannel(
@@ -947,6 +971,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Produces details about an input
    */
   public describeInput(
@@ -979,6 +1004,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Gets the details for the input device
    */
   public describeInputDevice(
@@ -1011,6 +1037,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Get the latest thumbnail data for the input device.
    */
   public describeInputDeviceThumbnail(
@@ -1043,6 +1070,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Produces a summary of an Input Security Group
    */
   public describeInputSecurityGroup(
@@ -1075,6 +1103,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Gets details about a multiplex.
    */
   public describeMultiplex(
@@ -1107,6 +1136,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Get the details for a program in a multiplex.
    */
   public describeMultiplexProgram(
@@ -1139,6 +1169,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Get details for an offering.
    */
   public describeOffering(
@@ -1171,6 +1202,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Get details for a reservation.
    */
   public describeReservation(
@@ -1203,6 +1235,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Get a channel schedule
    */
   public describeSchedule(
@@ -1235,6 +1268,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Produces list of channels that have been created
    */
   public listChannels(
@@ -1264,6 +1298,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * List input devices
    */
   public listInputDevices(
@@ -1296,6 +1331,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
    */
   public listInputDeviceTransfers(
@@ -1328,6 +1364,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Produces list of inputs that have been created
    */
   public listInputs(args: ListInputsCommandInput, options?: __HttpHandlerOptions): Promise<ListInputsCommandOutput>;
@@ -1354,6 +1391,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Produces a list of Input Security Groups for an account
    */
   public listInputSecurityGroups(
@@ -1386,6 +1424,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Retrieve a list of the existing multiplexes.
    */
   public listMultiplexes(
@@ -1418,6 +1457,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * List the programs that currently exist for a specific multiplex.
    */
   public listMultiplexPrograms(
@@ -1450,6 +1490,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * List offerings available for purchase.
    */
   public listOfferings(
@@ -1482,6 +1523,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * List purchased reservations.
    */
   public listReservations(
@@ -1514,6 +1556,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Produces list of tags that have been created for a resource
    */
   public listTagsForResource(
@@ -1546,6 +1589,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Purchase an offering and create a reservation.
    */
   public purchaseOffering(
@@ -1578,6 +1622,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Send a reboot command to the specified input device. The device will begin rebooting within a few seconds of sending the command. When the reboot is complete, the device’s connection status will change to connected.
    */
   public rebootInputDevice(
@@ -1610,6 +1655,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Reject the transfer of the specified input device to your AWS account.
    */
   public rejectInputDeviceTransfer(
@@ -1642,6 +1688,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Starts an existing channel
    */
   public startChannel(
@@ -1671,6 +1718,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Start a maintenance window for the specified input device. Starting a maintenance window will give the device up to two hours to install software. If the device was streaming prior to the maintenance, it will resume streaming when the software is fully installed. Devices automatically install updates while they are powered on and their MediaLive channels are stopped. A maintenance window allows you to update a device without having to stop MediaLive channels that use the device. The device must remain powered on and connected to the internet for the duration of the maintenance.
    */
   public startInputDeviceMaintenanceWindow(
@@ -1703,6 +1751,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.
    */
   public startMultiplex(
@@ -1735,6 +1784,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Stops a running channel
    */
   public stopChannel(args: StopChannelCommandInput, options?: __HttpHandlerOptions): Promise<StopChannelCommandOutput>;
@@ -1761,6 +1811,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Stops a running multiplex. If the multiplex isn't running, this action has no effect.
    */
   public stopMultiplex(
@@ -1793,6 +1844,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Start an input device transfer to another AWS account. After you make the request, the other account must accept or reject the transfer.
    */
   public transferInputDevice(
@@ -1825,6 +1877,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Updates a channel.
    */
   public updateChannel(
@@ -1857,6 +1910,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Changes the class of the channel.
    */
   public updateChannelClass(
@@ -1889,6 +1943,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Updates an input.
    */
   public updateInput(args: UpdateInputCommandInput, options?: __HttpHandlerOptions): Promise<UpdateInputCommandOutput>;
@@ -1915,6 +1970,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Updates the parameters for the input device.
    */
   public updateInputDevice(
@@ -1947,6 +2003,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Update an Input Security Group's Whilelists.
    */
   public updateInputSecurityGroup(
@@ -1979,6 +2036,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Updates a multiplex.
    */
   public updateMultiplex(
@@ -2011,6 +2069,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Update a program in a multiplex.
    */
   public updateMultiplexProgram(
@@ -2043,6 +2102,7 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * @public
    * Update reservation.
    */
   public updateReservation(

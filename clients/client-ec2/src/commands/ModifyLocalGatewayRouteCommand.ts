@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyLocalGatewayRouteCommand}.
  */
 export interface ModifyLocalGatewayRouteCommandInput extends ModifyLocalGatewayRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyLocalGatewayRouteCommand}.
  */
 export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified local gateway route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGateway
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyLocalGatewayRouteCommandInput - {@link ModifyLocalGatewayRouteCommandInput}
+ * @returns {@link ModifyLocalGatewayRouteCommandOutput}
  * @see {@link ModifyLocalGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link ModifyLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifyLocalGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyLocalGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifyLocalGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyLocalGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyLocalGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyLocalGatewayRouteCommandOutput> {
     return deserializeAws_ec2ModifyLocalGatewayRouteCommand(output, context);
   }

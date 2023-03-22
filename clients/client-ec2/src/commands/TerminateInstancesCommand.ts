@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateInstancesCommand}.
  */
 export interface TerminateInstancesCommandInput extends TerminateInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateInstancesCommand}.
  */
 export interface TerminateInstancesCommandOutput extends TerminateInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
  *             instance more than once, each call succeeds. </p>
  *          <p>If you specify multiple instances and the request fails (for example, because of a
@@ -105,6 +110,8 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateInstancesCommandInput - {@link TerminateInstancesCommandInput}
+ * @returns {@link TerminateInstancesCommandOutput}
  * @see {@link TerminateInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -158,6 +165,9 @@ export class TerminateInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -197,10 +207,16 @@ export class TerminateInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2TerminateInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateInstancesCommandOutput> {
     return deserializeAws_ec2TerminateInstancesCommand(output, context);
   }

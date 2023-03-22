@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteReadSetCommand}.
  */
 export interface BatchDeleteReadSetCommandInput extends BatchDeleteReadSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteReadSetCommand}.
  */
 export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more read sets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteReadSetCommandInput - {@link BatchDeleteReadSetCommandInput}
+ * @returns {@link BatchDeleteReadSetCommandOutput}
  * @see {@link BatchDeleteReadSetCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteReadSetCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchDeleteReadSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteReadSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class BatchDeleteReadSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteReadSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeleteReadSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteReadSetCommandOutput> {
     return deserializeAws_restJson1BatchDeleteReadSetCommand(output, context);
   }

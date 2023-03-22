@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePendingAggregationRequestsCommand}.
  */
 export interface DescribePendingAggregationRequestsCommandInput extends DescribePendingAggregationRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePendingAggregationRequestsCommand}.
  */
 export interface DescribePendingAggregationRequestsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribePendingAggregationRequestsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all pending aggregation requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribePendingAggregationRequestsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePendingAggregationRequestsCommandInput - {@link DescribePendingAggregationRequestsCommandInput}
+ * @returns {@link DescribePendingAggregationRequestsCommandOutput}
  * @see {@link DescribePendingAggregationRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingAggregationRequestsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePendingAggregationRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePendingAggregationRequestsCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     return serializeAws_json1_1DescribePendingAggregationRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

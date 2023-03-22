@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOptedOutNumberCommand}.
  */
 export interface DeleteOptedOutNumberCommandInput extends DeleteOptedOutNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOptedOutNumberCommand}.
  */
 export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing opted out destination phone number from the specified opt-out
  *             list.</p>
  *         <p>Each destination phone number can only be deleted once every 30 days.</p>
@@ -54,6 +59,8 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOptedOutNumberCommandInput - {@link DeleteOptedOutNumberCommandInput}
+ * @returns {@link DeleteOptedOutNumberCommandOutput}
  * @see {@link DeleteOptedOutNumberCommandInput} for command's `input` shape.
  * @see {@link DeleteOptedOutNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteOptedOutNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOptedOutNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteOptedOutNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOptedOutNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteOptedOutNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOptedOutNumberCommandOutput> {
     return deserializeAws_json1_0DeleteOptedOutNumberCommand(output, context);
   }

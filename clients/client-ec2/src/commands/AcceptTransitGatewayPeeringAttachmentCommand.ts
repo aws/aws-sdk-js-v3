@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptTransitGatewayPeeringAttachmentCommand}.
  */
 export interface AcceptTransitGatewayPeeringAttachmentCommandInput
   extends AcceptTransitGatewayPeeringAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptTransitGatewayPeeringAttachmentCommand}.
  */
 export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
@@ -38,6 +42,7 @@ export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a transit gateway peering attachment request. The peering attachment must be
  *             in the <code>pendingAcceptance</code> state.</p>
  * @example
@@ -50,6 +55,8 @@ export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptTransitGatewayPeeringAttachmentCommandInput - {@link AcceptTransitGatewayPeeringAttachmentCommandInput}
+ * @returns {@link AcceptTransitGatewayPeeringAttachmentCommandOutput}
  * @see {@link AcceptTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link AcceptTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
     return serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

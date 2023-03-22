@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupSelectionCommand}.
  */
 export interface DeleteBackupSelectionCommandInput extends DeleteBackupSelectionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupSelectionCommand}.
  */
 export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the resource selection associated with a backup plan that is specified by the
  *             <code>SelectionId</code>.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupSelectionCommandInput - {@link DeleteBackupSelectionCommandInput}
+ * @returns {@link DeleteBackupSelectionCommandOutput}
  * @see {@link DeleteBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteBackupSelectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupSelectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteBackupSelectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBackupSelectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupSelectionCommandOutput> {
     return deserializeAws_restJson1DeleteBackupSelectionCommand(output, context);
   }

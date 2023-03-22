@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationHistoryCommand}.
  */
 export interface ListConfigurationHistoryCommandInput extends ListConfigurationHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationHistoryCommand}.
  */
 export interface ListConfigurationHistoryCommandOutput extends ListConfigurationHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by
  *          Application Insights. Examples of events represented are: </p>
  *          <ul>
@@ -63,6 +68,8 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationHistoryCommandInput - {@link ListConfigurationHistoryCommandInput}
+ * @returns {@link ListConfigurationHistoryCommandOutput}
  * @see {@link ListConfigurationHistoryCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationHistoryCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListConfigurationHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListConfigurationHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListConfigurationHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationHistoryCommandOutput> {
     return deserializeAws_json1_1ListConfigurationHistoryCommand(output, context);
   }

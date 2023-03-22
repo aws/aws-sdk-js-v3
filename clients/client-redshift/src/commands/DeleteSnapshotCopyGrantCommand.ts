@@ -21,15 +21,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSnapshotCopyGrantCommand}.
  */
 export interface DeleteSnapshotCopyGrantCommandInput extends DeleteSnapshotCopyGrantMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSnapshotCopyGrantCommand}.
  */
 export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified snapshot copy grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotCopyGrantCommandInput - {@link DeleteSnapshotCopyGrantCommandInput}
+ * @returns {@link DeleteSnapshotCopyGrantCommandOutput}
  * @see {@link DeleteSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotCopyGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotCopyGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSnapshotCopyGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCopyGrantCommandOutput> {
     return deserializeAws_queryDeleteSnapshotCopyGrantCommand(output, context);
   }

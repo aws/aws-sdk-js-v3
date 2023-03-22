@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCopyProductStatusCommand}.
  */
 export interface DescribeCopyProductStatusCommandInput extends DescribeCopyProductStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCopyProductStatusCommand}.
  */
 export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProductStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of the specified copy product operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCopyProductStatusCommandInput - {@link DescribeCopyProductStatusCommandInput}
+ * @returns {@link DescribeCopyProductStatusCommandOutput}
  * @see {@link DescribeCopyProductStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCopyProductStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeCopyProductStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCopyProductStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeCopyProductStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCopyProductStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCopyProductStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

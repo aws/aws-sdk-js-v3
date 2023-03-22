@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateActivationCommand}.
  */
 export interface CreateActivationCommandInput extends CreateActivationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateActivationCommand}.
  */
 export interface CreateActivationCommandOutput extends CreateActivationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an activation code and activation ID you can use to register your on-premises
  *    servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
  *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
@@ -55,6 +60,8 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateActivationCommandInput - {@link CreateActivationCommandInput}
+ * @returns {@link CreateActivationCommandOutput}
  * @see {@link CreateActivationCommandInput} for command's `input` shape.
  * @see {@link CreateActivationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateActivationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateActivationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateActivationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateActivationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateActivationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActivationCommandOutput> {
     return deserializeAws_json1_1CreateActivationCommand(output, context);
   }

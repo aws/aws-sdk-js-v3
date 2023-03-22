@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactFlowModuleCommand}.
  */
 export interface DeleteContactFlowModuleCommandInput extends DeleteContactFlowModuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactFlowModuleCommand}.
  */
 export interface DeleteContactFlowModuleCommandOutput extends DeleteContactFlowModuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteContactFlowModuleCommandOutput extends DeleteContactFlowM
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactFlowModuleCommandInput - {@link DeleteContactFlowModuleCommandInput}
+ * @returns {@link DeleteContactFlowModuleCommandOutput}
  * @see {@link DeleteContactFlowModuleCommandInput} for command's `input` shape.
  * @see {@link DeleteContactFlowModuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteContactFlowModuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactFlowModuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteContactFlowModuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactFlowModuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteContactFlowModuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactFlowModuleCommandOutput> {
     return deserializeAws_restJson1DeleteContactFlowModuleCommand(output, context);
   }

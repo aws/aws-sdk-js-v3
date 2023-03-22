@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetRulePrioritiesCommand}.
  */
 export interface SetRulePrioritiesCommandInput extends SetRulePrioritiesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetRulePrioritiesCommand}.
  */
 export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the priorities of the specified rules.</p>
  *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
  *       existing rules that you do not specify retain their current priority.</p>
@@ -52,6 +57,8 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param SetRulePrioritiesCommandInput - {@link SetRulePrioritiesCommandInput}
+ * @returns {@link SetRulePrioritiesCommandOutput}
  * @see {@link SetRulePrioritiesCommandInput} for command's `input` shape.
  * @see {@link SetRulePrioritiesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -125,6 +132,9 @@ export class SetRulePrioritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetRulePrioritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class SetRulePrioritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetRulePrioritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetRulePrioritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRulePrioritiesCommandOutput> {
     return deserializeAws_querySetRulePrioritiesCommand(output, context);
   }

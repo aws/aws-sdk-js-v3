@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterInstanceCommand}.
  */
 export interface DeregisterInstanceCommandInput extends DeregisterInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterInstanceCommand}.
  */
 export interface DeregisterInstanceCommandOutput extends DeregisterInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the
  *    specified instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterInstanceCommandInput - {@link DeregisterInstanceCommandInput}
+ * @returns {@link DeregisterInstanceCommandOutput}
  * @see {@link DeregisterInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -111,6 +118,9 @@ export class DeregisterInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DeregisterInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterInstanceCommandOutput> {
     return deserializeAws_json1_1DeregisterInstanceCommand(output, context);
   }

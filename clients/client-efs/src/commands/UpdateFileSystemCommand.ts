@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFileSystemCommand}.
  */
 export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFileSystemCommand}.
  */
 export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
  *       system.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
+ * @returns {@link UpdateFileSystemCommandOutput}
  * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileSystemCommandOutput> {
     return deserializeAws_restJson1UpdateFileSystemCommand(output, context);
   }

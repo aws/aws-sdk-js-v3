@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedNodesOfferingsCommand}.
  */
 export interface DescribeReservedNodesOfferingsCommandInput extends DescribeReservedNodesOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedNodesOfferingsCommand}.
  */
 export interface DescribeReservedNodesOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeReservedNodesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists available reserved node offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedNodesOfferingsCommandInput - {@link DescribeReservedNodesOfferingsCommandInput}
+ * @returns {@link DescribeReservedNodesOfferingsCommandOutput}
  * @see {@link DescribeReservedNodesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedNodesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedNodesOfferingsCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
     return serializeAws_json1_1DescribeReservedNodesOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

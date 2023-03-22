@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTeamMemberCommand}.
  */
 export interface DisassociateTeamMemberCommandInput extends DisassociateTeamMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTeamMemberCommand}.
  */
 export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMemberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user from a project. Removing a user from a project also removes the IAM
  *       policies from that user that allowed access to the project and its resources. Disassociating a
  *       team member does not remove that user's profile from AWS CodeStar. It does not remove the user from
@@ -49,6 +54,8 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTeamMemberCommandInput - {@link DisassociateTeamMemberCommandInput}
+ * @returns {@link DisassociateTeamMemberCommandOutput}
  * @see {@link DisassociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link DisassociateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisassociateTeamMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTeamMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DisassociateTeamMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateTeamMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateTeamMemberCommandOutput> {
     return deserializeAws_json1_1DisassociateTeamMemberCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVirtualGatewayCommand}.
  */
 export interface CreateVirtualGatewayCommandInput extends CreateVirtualGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVirtualGatewayCommand}.
  */
 export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual gateway.</p>
  *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
  *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a
@@ -51,6 +56,8 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualGatewayCommandInput - {@link CreateVirtualGatewayCommandInput}
+ * @returns {@link CreateVirtualGatewayCommandOutput}
  * @see {@link CreateVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateVirtualGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateVirtualGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVirtualGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualGatewayCommandOutput> {
     return deserializeAws_restJson1CreateVirtualGatewayCommand(output, context);
   }

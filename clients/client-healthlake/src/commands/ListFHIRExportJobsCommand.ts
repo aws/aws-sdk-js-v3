@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListFHIRExportJobsCommand}.
  */
 export interface ListFHIRExportJobsCommandInput extends ListFHIRExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFHIRExportJobsCommand}.
  */
 export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Lists all FHIR export jobs associated with an account and their statuses.
  *          </p>
@@ -48,6 +53,8 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFHIRExportJobsCommandInput - {@link ListFHIRExportJobsCommandInput}
+ * @returns {@link ListFHIRExportJobsCommandOutput}
  * @see {@link ListFHIRExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListFHIRExportJobsCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListFHIRExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFHIRExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListFHIRExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFHIRExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListFHIRExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFHIRExportJobsCommandOutput> {
     return deserializeAws_json1_0ListFHIRExportJobsCommand(output, context);
   }

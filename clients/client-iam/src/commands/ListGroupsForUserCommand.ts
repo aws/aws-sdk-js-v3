@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupsForUserCommand}.
  */
 export interface ListGroupsForUserCommandInput extends ListGroupsForUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupsForUserCommand}.
  */
 export interface ListGroupsForUserCommandOutput extends ListGroupsForUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
  *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
@@ -48,6 +53,8 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupsForUserCommandInput - {@link ListGroupsForUserCommandInput}
+ * @returns {@link ListGroupsForUserCommandOutput}
  * @see {@link ListGroupsForUserCommandInput} for command's `input` shape.
  * @see {@link ListGroupsForUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -110,6 +117,9 @@ export class ListGroupsForUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsForUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class ListGroupsForUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsForUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListGroupsForUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsForUserCommandOutput> {
     return deserializeAws_queryListGroupsForUserCommand(output, context);
   }

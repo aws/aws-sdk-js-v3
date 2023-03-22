@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDescribeModelPackageCommand}.
  */
 export interface BatchDescribeModelPackageCommandInput extends BatchDescribeModelPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDescribeModelPackageCommand}.
  */
 export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeModelPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action batch describes a list of versioned model packages</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDescribeModelPackageCommandInput - {@link BatchDescribeModelPackageCommandInput}
+ * @returns {@link BatchDescribeModelPackageCommandOutput}
  * @see {@link BatchDescribeModelPackageCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class BatchDescribeModelPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDescribeModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class BatchDescribeModelPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDescribeModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDescribeModelPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCachediSCSIVolumesCommand}.
  */
 export interface DescribeCachediSCSIVolumesCommandInput extends DescribeCachediSCSIVolumesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCachediSCSIVolumesCommand}.
  */
 export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the gateway volumes specified in the request. This operation is
  *          only supported in the cached volume gateway types.</p>
  *
@@ -51,6 +56,8 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCachediSCSIVolumesCommandInput - {@link DescribeCachediSCSIVolumesCommandInput}
+ * @returns {@link DescribeCachediSCSIVolumesCommandOutput}
  * @see {@link DescribeCachediSCSIVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeCachediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -115,6 +122,9 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCachediSCSIVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCachediSCSIVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCachediSCSIVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

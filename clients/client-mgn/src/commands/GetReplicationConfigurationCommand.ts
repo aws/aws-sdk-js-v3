@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReplicationConfigurationCommand}.
  */
 export interface GetReplicationConfigurationCommandInput extends GetReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReplicationConfigurationCommand}.
  */
 export interface GetReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all ReplicationConfigurations, filtered by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReplicationConfigurationCommandInput - {@link GetReplicationConfigurationCommandInput}
+ * @returns {@link GetReplicationConfigurationCommandOutput}
  * @see {@link GetReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReplicationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

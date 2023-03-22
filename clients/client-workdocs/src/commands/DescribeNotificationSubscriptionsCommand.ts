@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationSubscriptionsCommand}.
  */
 export interface DescribeNotificationSubscriptionsCommandInput extends DescribeNotificationSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationSubscriptionsCommand}.
  */
 export interface DescribeNotificationSubscriptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeNotificationSubscriptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified notification subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationSubscriptionsCommandInput - {@link DescribeNotificationSubscriptionsCommandInput}
+ * @returns {@link DescribeNotificationSubscriptionsCommandOutput}
  * @see {@link DescribeNotificationSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationSubscriptionsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     return serializeAws_restJson1DescribeNotificationSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

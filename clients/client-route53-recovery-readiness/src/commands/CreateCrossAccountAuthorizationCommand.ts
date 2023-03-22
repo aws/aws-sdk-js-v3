@@ -30,10 +30,14 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCrossAccountAuthorizationCommand}.
  */
 export interface CreateCrossAccountAuthorizationCommandInput extends CreateCrossAccountAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCrossAccountAuthorizationCommand}.
  */
 export interface CreateCrossAccountAuthorizationCommandOutput
@@ -41,6 +45,7 @@ export interface CreateCrossAccountAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cross-account readiness authorization. This lets you authorize another account to work with Route 53 Application Recovery Controller, for example, to check the readiness status of resources in a separate account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface CreateCrossAccountAuthorizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCrossAccountAuthorizationCommandInput - {@link CreateCrossAccountAuthorizationCommandInput}
+ * @returns {@link CreateCrossAccountAuthorizationCommandOutput}
  * @see {@link CreateCrossAccountAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateCrossAccountAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateCrossAccountAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCrossAccountAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class CreateCrossAccountAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCrossAccountAuthorizationCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class CreateCrossAccountAuthorizationCommand extends $Command<
     return serializeAws_restJson1CreateCrossAccountAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

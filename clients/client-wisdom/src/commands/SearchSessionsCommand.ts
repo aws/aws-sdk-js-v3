@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSessionsCommand}.
  */
 export interface SearchSessionsCommandInput extends SearchSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSessionsCommand}.
  */
 export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSessionsCommandInput - {@link SearchSessionsCommandInput}
+ * @returns {@link SearchSessionsCommandOutput}
  * @see {@link SearchSessionsCommandInput} for command's `input` shape.
  * @see {@link SearchSessionsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class SearchSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class SearchSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSessionsCommandOutput> {
     return deserializeAws_restJson1SearchSessionsCommand(output, context);
   }

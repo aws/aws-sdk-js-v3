@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImpersonationRoleCommand}.
  */
 export interface CreateImpersonationRoleCommandInput extends CreateImpersonationRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImpersonationRoleCommand}.
  */
 export interface CreateImpersonationRoleCommandOutput extends CreateImpersonationRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an impersonation role for the given WorkMail organization.</p>
  *          <p>
  *             <i>Idempotency</i> ensures that an API request completes no more than one
@@ -51,6 +56,8 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImpersonationRoleCommandInput - {@link CreateImpersonationRoleCommandInput}
+ * @returns {@link CreateImpersonationRoleCommandOutput}
  * @see {@link CreateImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link CreateImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateImpersonationRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateImpersonationRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateImpersonationRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImpersonationRoleCommandOutput> {
     return deserializeAws_json1_1CreateImpersonationRoleCommand(output, context);
   }

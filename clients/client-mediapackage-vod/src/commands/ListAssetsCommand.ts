@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetsCommand}.
  */
 export interface ListAssetsCommandInput extends ListAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetsCommand}.
  */
 export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a collection of MediaPackage VOD Asset resources.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
+ * @returns {@link ListAssetsCommandOutput}
  * @see {@link ListAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssetsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetsCommandOutput> {
     return deserializeAws_restJson1ListAssetsCommand(output, context);
   }

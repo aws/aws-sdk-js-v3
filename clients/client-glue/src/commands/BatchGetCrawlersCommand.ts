@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetCrawlersCommand}.
  */
 export interface BatchGetCrawlersCommandInput extends BatchGetCrawlersRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetCrawlersCommand}.
  */
 export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCrawlersCommandInput - {@link BatchGetCrawlersCommandInput}
+ * @returns {@link BatchGetCrawlersCommandOutput}
  * @see {@link BatchGetCrawlersCommandInput} for command's `input` shape.
  * @see {@link BatchGetCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchGetCrawlersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCrawlersCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class BatchGetCrawlersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCrawlersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetCrawlersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCrawlersCommandOutput> {
     return deserializeAws_json1_1BatchGetCrawlersCommand(output, context);
   }

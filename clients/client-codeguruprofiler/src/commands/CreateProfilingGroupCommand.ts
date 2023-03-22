@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProfilingGroupCommand}.
  */
 export interface CreateProfilingGroupCommandInput extends CreateProfilingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProfilingGroupCommand}.
  */
 export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfilingGroupCommandInput - {@link CreateProfilingGroupCommandInput}
+ * @returns {@link CreateProfilingGroupCommandOutput}
  * @see {@link CreateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateProfilingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfilingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateProfilingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProfilingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfilingGroupCommandOutput> {
     return deserializeAws_restJson1CreateProfilingGroupCommand(output, context);
   }

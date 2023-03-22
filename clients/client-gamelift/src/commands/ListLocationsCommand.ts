@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLocationsCommand}.
  */
 export interface ListLocationsCommandInput extends ListLocationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLocationsCommand}.
  */
 export interface ListLocationsCommandOutput extends ListLocationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all custom and Amazon Web Services locations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
+ * @returns {@link ListLocationsCommandOutput}
  * @see {@link ListLocationsCommandInput} for command's `input` shape.
  * @see {@link ListLocationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocationsCommandOutput> {
     return deserializeAws_json1_1ListLocationsCommand(output, context);
   }

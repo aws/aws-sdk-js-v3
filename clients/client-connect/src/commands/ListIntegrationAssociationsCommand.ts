@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIntegrationAssociationsCommand}.
  */
 export interface ListIntegrationAssociationsCommandInput extends ListIntegrationAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIntegrationAssociationsCommand}.
  */
 export interface ListIntegrationAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summary information about the Amazon Web Services resource associations for the
  *    specified Amazon Connect instance.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListIntegrationAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIntegrationAssociationsCommandInput - {@link ListIntegrationAssociationsCommandInput}
+ * @returns {@link ListIntegrationAssociationsCommandOutput}
  * @see {@link ListIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListIntegrationAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIntegrationAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListIntegrationAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIntegrationAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIntegrationAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

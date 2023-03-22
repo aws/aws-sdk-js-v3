@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVirtualMFADeviceCommand}.
  */
 export interface CreateVirtualMFADeviceCommandInput extends CreateVirtualMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVirtualMFADeviceCommand}.
  */
 export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual
  *             MFA, use <a>EnableMFADevice</a> to attach the MFA device to an IAM user.
  *             For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
@@ -58,6 +63,8 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualMFADeviceCommandInput - {@link CreateVirtualMFADeviceCommandInput}
+ * @returns {@link CreateVirtualMFADeviceCommandOutput}
  * @see {@link CreateVirtualMFADeviceCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateVirtualMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateVirtualMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateVirtualMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualMFADeviceCommandOutput> {
     return deserializeAws_queryCreateVirtualMFADeviceCommand(output, context);
   }

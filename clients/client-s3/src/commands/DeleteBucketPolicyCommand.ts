@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketPolicyCommand}.
  */
 export interface DeleteBucketPolicyCommandInput extends DeleteBucketPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketPolicyCommand}.
  */
 export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the DELETE action uses the policy subresource to delete the
  *          policy of a specified bucket. If you are using an identity other than the root user of the
  *          Amazon Web Services account that owns the bucket, the calling identity must have the
@@ -70,6 +75,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketPolicyCommandInput - {@link DeleteBucketPolicyCommandInput}
+ * @returns {@link DeleteBucketPolicyCommandOutput}
  * @see {@link DeleteBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -110,6 +117,9 @@ export class DeleteBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class DeleteBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketPolicyCommandOutput> {
     return deserializeAws_restXmlDeleteBucketPolicyCommand(output, context);
   }

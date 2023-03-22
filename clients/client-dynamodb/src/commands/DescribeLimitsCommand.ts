@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLimitsCommand}.
  */
 export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLimitsCommand}.
  */
 export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in
  *             a Region, both for the Region as a whole and for any one DynamoDB table that you create
  *             there.</p>
@@ -115,6 +120,8 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLimitsCommandInput - {@link DescribeLimitsCommandInput}
+ * @returns {@link DescribeLimitsCommandOutput}
  * @see {@link DescribeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -160,6 +167,9 @@ export class DescribeLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,10 +209,16 @@ export class DescribeLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLimitsCommandOutput> {
     return deserializeAws_json1_0DescribeLimitsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThesaurusCommand}.
  */
 export interface CreateThesaurusCommandInput extends CreateThesaurusRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThesaurusCommand}.
  */
 export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a thesaurus for an index. The thesaurus
  *       contains a list of synonyms in Solr format.</p>
  *          <p>For an example of adding a thesaurus file to an index, see
@@ -50,6 +55,8 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThesaurusCommandInput - {@link CreateThesaurusCommandInput}
+ * @returns {@link CreateThesaurusCommandOutput}
  * @see {@link CreateThesaurusCommandInput} for command's `input` shape.
  * @see {@link CreateThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateThesaurusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThesaurusCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateThesaurusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateThesaurusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThesaurusCommandOutput> {
     return deserializeAws_json1_1CreateThesaurusCommand(output, context);
   }

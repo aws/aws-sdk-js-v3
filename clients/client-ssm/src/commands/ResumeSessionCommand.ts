@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeSessionCommand}.
  */
 export interface ResumeSessionCommandInput extends ResumeSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeSessionCommand}.
  */
 export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reconnects a session to a managed node after it has been disconnected. Connections can be
  *    resumed for disconnected sessions, but not terminated sessions.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeSessionCommandInput - {@link ResumeSessionCommandInput}
+ * @returns {@link ResumeSessionCommandOutput}
  * @see {@link ResumeSessionCommandInput} for command's `input` shape.
  * @see {@link ResumeSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ResumeSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ResumeSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResumeSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeSessionCommandOutput> {
     return deserializeAws_json1_1ResumeSessionCommand(output, context);
   }

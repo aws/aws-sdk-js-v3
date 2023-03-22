@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptAdministratorInvitationCommand}.
  */
 export interface AcceptAdministratorInvitationCommandInput extends AcceptAdministratorInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptAdministratorInvitationCommand}.
  */
 export interface AcceptAdministratorInvitationCommandOutput
@@ -37,6 +41,7 @@ export interface AcceptAdministratorInvitationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
  *          account that the invitation was sent from.</p>
  *          <p>This operation is only used by member accounts that are not added through
@@ -53,6 +58,8 @@ export interface AcceptAdministratorInvitationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptAdministratorInvitationCommandInput - {@link AcceptAdministratorInvitationCommandInput}
+ * @returns {@link AcceptAdministratorInvitationCommandOutput}
  * @see {@link AcceptAdministratorInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptAdministratorInvitationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -93,6 +100,9 @@ export class AcceptAdministratorInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptAdministratorInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class AcceptAdministratorInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptAdministratorInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AcceptAdministratorInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

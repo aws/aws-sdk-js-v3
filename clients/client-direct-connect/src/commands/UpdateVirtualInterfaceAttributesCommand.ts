@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVirtualInterfaceAttributesCommand}.
  */
 export interface UpdateVirtualInterfaceAttributesCommandInput extends UpdateVirtualInterfaceAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVirtualInterfaceAttributesCommand}.
  */
 export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attributes of the specified virtual private interface.</p>
  *          <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to
  *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
@@ -52,6 +57,8 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualInterfaceAttributesCommandInput - {@link UpdateVirtualInterfaceAttributesCommandInput}
+ * @returns {@link UpdateVirtualInterfaceAttributesCommandOutput}
  * @see {@link UpdateVirtualInterfaceAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualInterfaceAttributesCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualInterfaceAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateVirtualInterfaceAttributesCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     return serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

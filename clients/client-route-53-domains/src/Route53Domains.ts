@@ -154,11 +154,13 @@ import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput }
 import { Route53DomainsClient } from "./Route53DomainsClient";
 
 /**
+ * @public
  * <p>Amazon Route 53 API actions let you register domain names and perform related
  * 			operations.</p>
  */
 export class Route53Domains extends Route53DomainsClient {
   /**
+   * @public
    * <p>Accepts the transfer of a domain from another Amazon Web Services account to the
    * 				currentAmazon Web Services account. You initiate a transfer between Amazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.</p>
    *          <p>If you use the CLI command at <a href="https://docs.aws.amazon.com/cli/latest/reference/route53domains/accept-domain-transfer-from-another-aws-account.html">accept-domain-transfer-from-another-aws-account</a>, use JSON format as input
@@ -199,6 +201,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p> Creates a delegation signer (DS) record in the registry zone for this domain
    * 			name.</p>
    *          <p>Note that creating DS record at the registry impacts DNSSEC validation of your DNS
@@ -238,6 +241,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Cancels the transfer of a domain from the current Amazon Web Services account to
    * 			another Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
    *          <important>
@@ -279,6 +283,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation checks the availability of one domain name. Note that if the
    * 			availability status of a domain is pending, you must submit another request to determine
    * 			the availability of the domain name.</p>
@@ -313,6 +318,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>
    */
   public checkDomainTransferability(
@@ -345,6 +351,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation deletes the specified domain. This action is permanent. For more
    * 			information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html">Deleting a domain name
    * 				registration</a>.</p>
@@ -395,6 +402,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation deletes the specified tags for a domain.</p>
    *          <p>All tag operations are eventually consistent; subsequent operations might not
    * 			immediately represent all issued operations.</p>
@@ -429,6 +437,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation disables automatic renewal of domain registration for the specified
    * 			domain.</p>
    */
@@ -462,6 +471,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation removes the transfer lock on the domain (specifically the
    * 				<code>clientTransferProhibited</code> status) to allow domain transfers. We
    * 			recommend you refrain from performing this action unless you intend to transfer the
@@ -499,6 +509,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a delegation signer (DS) record in the registry zone for this domain
    * 			name.</p>
    */
@@ -534,6 +545,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation configures Amazon Route 53 to automatically renew the specified domain
    * 			before the domain registration expires. The cost of renewing your domain registration is
    * 			billed to your Amazon Web Services account.</p>
@@ -573,6 +585,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation sets the transfer lock on the domain (specifically the
    * 				<code>clientTransferProhibited</code> status) to prevent domain transfers.
    * 			Successful submission returns an operation ID that you can use to track the progress and
@@ -609,6 +622,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>For operations that require confirmation that the email address for the registrant
    * 			contact is valid, such as registering a new domain, this operation returns information
    * 			about whether the registrant contact has responded.</p>
@@ -645,6 +659,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns detailed information about a specified domain that is
    * 			associated with the current Amazon Web Services account. Contact information for the
    * 			domain is also returned as part of the output.</p>
@@ -679,6 +694,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
    */
   public getDomainSuggestions(
@@ -711,6 +727,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns the current status of an operation that is not
    * 			completed.</p>
    */
@@ -744,6 +761,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns all the domain names registered with Amazon Route 53 for the
    * 			current Amazon Web Services account if no filtering conditions are used.</p>
    */
@@ -771,6 +789,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all of the operations that return an operation ID and that
    * 			have ever been performed on domains that were registered by the current account. </p>
    *          <p>This command runs only in the us-east-1 Region.</p>
@@ -805,6 +824,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Lists the following prices for either all the TLDs supported by Route 53, or
    * 			the specified TLD:</p>
    *          <ul>
@@ -849,6 +869,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns all of the tags that are associated with the specified
    * 			domain.</p>
    *          <p>All tag operations are eventually consistent; subsequent operations might not
@@ -884,6 +905,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p> Moves a domain from Amazon Web Services to another registrar. </p>
    *          <p>Supported actions:</p>
    *          <ul>
@@ -917,6 +939,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation registers a domain. Domains are registered either by Amazon Registrar
    * 			(for .com, .net, and .org domains) or by our registrar associate, Gandi (for all other
    * 			domains). For some top-level domains (TLDs), this operation requires extra
@@ -985,6 +1008,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Rejects the transfer of a domain from another Amazon Web Services account to the
    * 			current Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
    *          <p>Use either <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> to determine whether the operation succeeded. <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> provides additional information, for example,
@@ -1022,6 +1046,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation renews a domain for the specified number of years. The cost of renewing
    * 			your domain is billed to your Amazon Web Services account.</p>
    *          <p>We recommend that you renew your domain several weeks before the expiration date. Some
@@ -1054,6 +1079,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>For operations that require confirmation that the email address for the registrant
    * 			contact is valid, such as registering a new domain, this operation resends the
    * 			confirmation email to the current email address for the registrant contact.</p>
@@ -1088,6 +1114,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p> Resend the form of authorization email for this operation. </p>
    */
   public resendOperationAuthorization(
@@ -1120,6 +1147,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns the authorization code for the domain. To transfer a domain to
    * 			another registrar, you provide this value to the new registrar.</p>
    */
@@ -1153,6 +1181,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Transfers a domain from another registrar to Amazon Route 53. When the transfer is
    * 			complete, the domain is registered either with Amazon Registrar (for .com, .net, and
    * 			.org domains) or with our registrar associate, Gandi (for all other TLDs).</p>
@@ -1217,6 +1246,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>
    *          <ul>
    *             <li>
@@ -1273,6 +1303,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation updates the contact information for a particular domain. You must
    * 			specify information for at least one contact: registrant, administrator, or
    * 			technical.</p>
@@ -1310,6 +1341,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation updates the specified domain contact's privacy setting. When privacy
    * 			protection is enabled, contact information such as email address is replaced either with
    * 			contact information for Amazon Registrar (for .com, .net, and .org domains) or with
@@ -1364,6 +1396,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation replaces the current set of name servers for the domain with the
    * 			specified set of name servers. If you use Amazon Route 53 as your DNS service, specify
    * 			the four name servers in the delegation set for the hosted zone for the domain.</p>
@@ -1401,6 +1434,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>This operation adds or updates tags for a specified domain.</p>
    *          <p>All tag operations are eventually consistent; subsequent operations might not
    * 			immediately represent all issued operations.</p>
@@ -1435,6 +1469,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
+   * @public
    * <p>Returns all the domain-related billing records for the current Amazon Web Services account for a specified period</p>
    */
   public viewBilling(args: ViewBillingCommandInput, options?: __HttpHandlerOptions): Promise<ViewBillingCommandOutput>;

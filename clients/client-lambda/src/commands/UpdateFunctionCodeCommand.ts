@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionCodeCommand}.
  */
 export interface UpdateFunctionCodeCommandInput extends UpdateFunctionCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionCodeCommand}.
  */
 export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package
  *       must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring code signing for Lambda</a>.</p>
  *          <p>If the function's package type is <code>Image</code>, then you must specify the code package in
@@ -61,6 +66,8 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionCodeCommandInput - {@link UpdateFunctionCodeCommandInput}
+ * @returns {@link UpdateFunctionCodeCommandOutput}
  * @see {@link UpdateFunctionCodeCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCodeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -117,6 +124,9 @@ export class UpdateFunctionCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class UpdateFunctionCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFunctionCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionCodeCommandOutput> {
     return deserializeAws_restJson1UpdateFunctionCodeCommand(output, context);
   }

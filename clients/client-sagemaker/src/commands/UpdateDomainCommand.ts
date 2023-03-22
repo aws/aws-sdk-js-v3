@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainCommand}.
  */
 export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainCommand}.
  */
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the default settings for new user profiles in the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainCommandInput - {@link UpdateDomainCommandInput}
+ * @returns {@link UpdateDomainCommandOutput}
  * @see {@link UpdateDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainCommandOutput> {
     return deserializeAws_json1_1UpdateDomainCommand(output, context);
   }

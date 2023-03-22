@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationProfileCommand}.
  */
 export interface DeleteConfigurationProfileCommandInput extends DeleteConfigurationProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationProfileCommand}.
  */
 export interface DeleteConfigurationProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
  *          configuration from a host.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationProfileCommandInput - {@link DeleteConfigurationProfileCommandInput}
+ * @returns {@link DeleteConfigurationProfileCommandOutput}
  * @see {@link DeleteConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteConfigurationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteConfigurationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteConfigurationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

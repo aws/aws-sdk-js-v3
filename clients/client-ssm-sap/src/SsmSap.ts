@@ -81,12 +81,14 @@ import {
 import { SsmSapClient } from "./SsmSapClient";
 
 /**
+ * @public
  * <p>This API reference provides descriptions, syntax, and other details about each of the
  *          actions and data types for AWS Systems Manager for SAP. The topic for each action shows
  *          the API request parameters and responses. </p>
  */
 export class SsmSap extends SsmSapClient {
   /**
+   * @public
    * <p>Removes permissions associated with the target database.</p>
    */
   public deleteResourcePermission(
@@ -119,6 +121,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Deregister an SAP application with AWS Systems Manager for SAP. This action does not
    *          aﬀect the existing setup of your SAP workloads on Amazon EC2.</p>
    */
@@ -152,6 +155,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Gets an application registered with AWS Systems Manager for SAP. It also returns the
    *          components of the application.</p>
    */
@@ -185,6 +189,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Gets the component of an application registered with AWS Systems Manager for
    *          SAP.</p>
    */
@@ -215,6 +220,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Gets the SAP HANA database of an application registered with AWS Systems Manager for
    *          SAP.</p>
    */
@@ -242,6 +248,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of an operation by specifying the operation ID.</p>
    */
   public getOperation(
@@ -271,6 +278,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Gets permissions associated with the target database.</p>
    */
   public getResourcePermission(
@@ -303,6 +311,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Lists all the applications registered with AWS Systems Manager for SAP.</p>
    */
   public listApplications(
@@ -335,6 +344,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Lists all the components registered with AWS Systems Manager for SAP.</p>
    */
   public listComponents(
@@ -367,6 +377,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Lists the SAP HANA databases of an application registered with AWS Systems Manager for
    *          SAP.</p>
    */
@@ -400,6 +411,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Lists the operations performed by AWS Systems Manager for SAP.</p>
    */
   public listOperations(
@@ -432,6 +444,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags on an SAP HANA application and/or database registered with AWS Systems
    *          Manager for SAP.</p>
    */
@@ -465,6 +478,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Adds permissions to the target database.</p>
    */
   public putResourcePermission(
@@ -497,6 +511,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Register an SAP application with AWS Systems Manager for SAP. You must meet the
    *          following requirements before registering. </p>
    *          <p>The SAP application you want to register with AWS Systems Manager for SAP is running
@@ -536,6 +551,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Creates tag for a resource by specifying the ARN.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -562,6 +578,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Delete the tags for a resource.</p>
    */
   public untagResource(
@@ -594,6 +611,7 @@ export class SsmSap extends SsmSapClient {
   }
 
   /**
+   * @public
    * <p>Updates the settings of an application registered with AWS Systems Manager for
    *          SAP.</p>
    */

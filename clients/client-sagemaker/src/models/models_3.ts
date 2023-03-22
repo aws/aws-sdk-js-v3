@@ -180,6 +180,9 @@ import {
   Workteam,
 } from "./models_2";
 
+/**
+ * @public
+ */
 export interface ListAliasesRequest {
   /**
    * <p>The name of the image.</p>
@@ -208,6 +211,9 @@ export interface ListAliasesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesResponse {
   /**
    * <p>A list of SageMaker image version aliases.</p>
@@ -220,6 +226,9 @@ export interface ListAliasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppImageConfigsRequest {
   /**
    * <p>The maximum number of AppImageConfigs to return in the response. The default value is
@@ -269,6 +278,9 @@ export interface ListAppImageConfigsRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppImageConfigsResponse {
   /**
    * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
@@ -281,6 +293,9 @@ export interface ListAppImageConfigsResponse {
   AppImageConfigs?: AppImageConfigDetails[];
 }
 
+/**
+ * @public
+ */
 export interface ListAppsRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -319,6 +334,9 @@ export interface ListAppsRequest {
   SpaceNameEquals?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsResponse {
   /**
    * <p>The list of apps.</p>
@@ -332,10 +350,16 @@ export interface ListAppsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortArtifactsBy {
   CREATION_TIME = "CreationTime",
 }
 
+/**
+ * @public
+ */
 export interface ListArtifactsRequest {
   /**
    * <p>A filter that returns only artifacts with the specified source URI.</p>
@@ -379,6 +403,9 @@ export interface ListArtifactsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListArtifactsResponse {
   /**
    * <p>A list of artifacts and their properties.</p>
@@ -391,6 +418,9 @@ export interface ListArtifactsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortAssociationsBy {
   CREATION_TIME = "CreationTime",
   DESTINATION_ARN = "DestinationArn",
@@ -399,6 +429,9 @@ export enum SortAssociationsBy {
   SOURCE_TYPE = "SourceType",
 }
 
+/**
+ * @public
+ */
 export interface ListAssociationsRequest {
   /**
    * <p>A filter that returns only associations with the specified source ARN.</p>
@@ -457,6 +490,9 @@ export interface ListAssociationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociationsResponse {
   /**
    * <p>A list of associations and their properties.</p>
@@ -469,6 +505,9 @@ export interface ListAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAutoMLJobsRequest {
   /**
    * <p>Request a list of jobs, using a filter for time.</p>
@@ -522,6 +561,9 @@ export interface ListAutoMLJobsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAutoMLJobsResponse {
   /**
    * <p>Returns a summary list of jobs.</p>
@@ -535,6 +577,9 @@ export interface ListAutoMLJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCandidatesForAutoMLJobRequest {
   /**
    * <p>List the candidates created for the job by providing the job's name.</p>
@@ -574,6 +619,9 @@ export interface ListCandidatesForAutoMLJobRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCandidatesForAutoMLJobResponse {
   /**
    * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
@@ -587,6 +635,9 @@ export interface ListCandidatesForAutoMLJobResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeRepositoriesInput {
   /**
    * <p>A filter that returns only Git repositories that were created after the specified
@@ -641,6 +692,9 @@ export interface ListCodeRepositoriesInput {
   SortOrder?: CodeRepositorySortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeRepositoriesOutput {
   /**
    * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following
@@ -675,12 +729,18 @@ export interface ListCodeRepositoriesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListCompilationJobsSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export interface ListCompilationJobsRequest {
   /**
    * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
@@ -740,6 +800,9 @@ export interface ListCompilationJobsRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListCompilationJobsResponse {
   /**
    * <p>An array of <a>CompilationJobSummary</a> objects, each describing a model
@@ -754,11 +817,17 @@ export interface ListCompilationJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortContextsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListContextsRequest {
   /**
    * <p>A filter that returns only contexts with the specified source URI.</p>
@@ -802,6 +871,9 @@ export interface ListContextsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListContextsResponse {
   /**
    * <p>A list of contexts and their properties.</p>
@@ -814,11 +886,17 @@ export interface ListContextsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum MonitoringJobDefinitionSortKey {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityJobDefinitionsRequest {
   /**
    * <p>A filter that lists the data quality job definitions associated with the specified
@@ -869,6 +947,7 @@ export interface ListDataQualityJobDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a monitoring job.</p>
  */
 export interface MonitoringJobDefinitionSummary {
@@ -893,6 +972,9 @@ export interface MonitoringJobDefinitionSummary {
   EndpointName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityJobDefinitionsResponse {
   /**
    * <p>A list of data quality monitoring job definitions.</p>
@@ -907,12 +989,18 @@ export interface ListDataQualityJobDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListDeviceFleetsSortBy {
   CreationTime = "CREATION_TIME",
   LastModifiedTime = "LAST_MODIFIED_TIME",
   Name = "NAME",
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceFleetsRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -960,6 +1048,9 @@ export interface ListDeviceFleetsRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceFleetsResponse {
   /**
    * <p>Summary of the device fleet.</p>
@@ -972,6 +1063,9 @@ export interface ListDeviceFleetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -999,6 +1093,9 @@ export interface ListDevicesRequest {
   DeviceFleetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
    * <p>Summary of devices.</p>
@@ -1011,6 +1108,9 @@ export interface ListDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -1024,6 +1124,9 @@ export interface ListDomainsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>The list of domains.</p>
@@ -1037,6 +1140,9 @@ export interface ListDomainsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListEdgeDeploymentPlansSortBy {
   CreationTime = "CREATION_TIME",
   DeviceFleetName = "DEVICE_FLEET_NAME",
@@ -1044,6 +1150,9 @@ export enum ListEdgeDeploymentPlansSortBy {
   Name = "NAME",
 }
 
+/**
+ * @public
+ */
 export interface ListEdgeDeploymentPlansRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -1096,6 +1205,9 @@ export interface ListEdgeDeploymentPlansRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEdgeDeploymentPlansResponse {
   /**
    * <p>List of summaries of edge deployment plans.</p>
@@ -1108,6 +1220,9 @@ export interface ListEdgeDeploymentPlansResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListEdgePackagingJobsSortBy {
   CreationTime = "CREATION_TIME",
   EdgePackagingJobStatus = "STATUS",
@@ -1116,6 +1231,9 @@ export enum ListEdgePackagingJobsSortBy {
   Name = "NAME",
 }
 
+/**
+ * @public
+ */
 export interface ListEdgePackagingJobsRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -1173,6 +1291,9 @@ export interface ListEdgePackagingJobsRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEdgePackagingJobsResponse {
   /**
    * <p>Summaries of edge packaging jobs.</p>
@@ -1185,11 +1306,17 @@ export interface ListEdgePackagingJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OrderKey {
   Ascending = "Ascending",
   Descending = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointConfigsInput {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
@@ -1232,6 +1359,9 @@ export interface ListEndpointConfigsInput {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointConfigsOutput {
   /**
    * <p>An array of endpoint configurations.</p>
@@ -1245,6 +1375,9 @@ export interface ListEndpointConfigsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsInput {
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
@@ -1305,6 +1438,9 @@ export interface ListEndpointsInput {
   StatusEquals?: EndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsOutput {
   /**
    * <p> An array or endpoint objects. </p>
@@ -1318,11 +1454,17 @@ export interface ListEndpointsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortExperimentsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsRequest {
   /**
    * <p>A filter that returns only experiments created after the specified time.</p>
@@ -1357,6 +1499,9 @@ export interface ListExperimentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsResponse {
   /**
    * <p>A list of the summaries of your experiments.</p>
@@ -1369,6 +1514,9 @@ export interface ListExperimentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFeatureGroupsRequest {
   /**
    * <p>A string that partially matches one or more <code>FeatureGroup</code>s names. Filters
@@ -1419,6 +1567,9 @@ export interface ListFeatureGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFeatureGroupsResponse {
   /**
    * <p>A summary of feature groups.</p>
@@ -1431,6 +1582,9 @@ export interface ListFeatureGroupsResponse {
   NextToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowDefinitionsRequest {
   /**
    * <p>A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.</p>
@@ -1458,6 +1612,9 @@ export interface ListFlowDefinitionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowDefinitionsResponse {
   /**
    * <p>An array of objects describing the flow definitions.</p>
@@ -1470,6 +1627,9 @@ export interface ListFlowDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentsRequest {
   /**
    * <p>The name of the hub to list the contents of.</p>
@@ -1522,6 +1682,9 @@ export interface ListHubContentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentsResponse {
   /**
    * <p>The summaries of the listed hub content.</p>
@@ -1534,6 +1697,9 @@ export interface ListHubContentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentVersionsRequest {
   /**
    * <p>The name of the hub to list the content versions of.</p>
@@ -1591,6 +1757,9 @@ export interface ListHubContentVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentVersionsResponse {
   /**
    * <p>The summaries of the listed hub content versions.</p>
@@ -1603,6 +1772,9 @@ export interface ListHubContentVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubsRequest {
   /**
    * <p>Only list hubs with names that contain the specified string.</p>
@@ -1650,6 +1822,9 @@ export interface ListHubsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubsResponse {
   /**
    * <p>The summaries of the listed hubs.</p>
@@ -1662,6 +1837,9 @@ export interface ListHubsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHumanTaskUisRequest {
   /**
    * <p>A filter that returns only human task user interfaces with a creation time greater than or equal to the specified timestamp.</p>
@@ -1689,6 +1867,9 @@ export interface ListHumanTaskUisRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListHumanTaskUisResponse {
   /**
    * <p>An array of objects describing the human task user interfaces.</p>
@@ -1701,6 +1882,9 @@ export interface ListHumanTaskUisResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHyperParameterTuningJobsRequest {
   /**
    * <p>If the result of the previous <code>ListHyperParameterTuningJobs</code> request was
@@ -1762,6 +1946,9 @@ export interface ListHyperParameterTuningJobsRequest {
   StatusEquals?: HyperParameterTuningJobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListHyperParameterTuningJobsResponse {
   /**
    * <p>A list of <a>HyperParameterTuningJobSummary</a> objects that
@@ -1779,6 +1966,9 @@ export interface ListHyperParameterTuningJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagesRequest {
   /**
    * <p>A filter that returns only images created on or after the specified time.</p>
@@ -1827,6 +2017,9 @@ export interface ListImagesRequest {
   SortOrder?: ImageSortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagesResponse {
   /**
    * <p>A list of images and their properties.</p>
@@ -1839,6 +2032,9 @@ export interface ListImagesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImageVersionsRequest {
   /**
    * <p>A filter that returns only versions created on or after the specified time.</p>
@@ -1887,6 +2083,9 @@ export interface ListImageVersionsRequest {
   SortOrder?: ImageVersionSortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListImageVersionsResponse {
   /**
    * <p>A list of versions and their properties.</p>
@@ -1899,12 +2098,18 @@ export interface ListImageVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortInferenceExperimentsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceExperimentsRequest {
   /**
    * <p>Selects inference experiments whose names contain this name.</p>
@@ -1968,6 +2173,9 @@ export interface ListInferenceExperimentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceExperimentsResponse {
   /**
    * <p>List of inference experiments.</p>
@@ -1980,12 +2188,18 @@ export interface ListInferenceExperimentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListInferenceRecommendationsJobsSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobsRequest {
   /**
    * <p>A filter that returns only jobs created after the specified time (timestamp).</p>
@@ -2040,6 +2254,9 @@ export interface ListInferenceRecommendationsJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobsResponse {
   /**
    * <p>The recommendations created from the Amazon SageMaker Inference Recommender job.</p>
@@ -2052,6 +2269,9 @@ export interface ListInferenceRecommendationsJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobStepsRequest {
   /**
    * <p>The name for the Inference Recommender job.</p>
@@ -2081,6 +2301,9 @@ export interface ListInferenceRecommendationsJobStepsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobStepsResponse {
   /**
    * <p>A list of all subtask details in Inference Recommender.</p>
@@ -2093,12 +2316,18 @@ export interface ListInferenceRecommendationsJobStepsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export interface ListLabelingJobsRequest {
   /**
    * <p>A filter that returns only labeling jobs created after the specified time
@@ -2158,6 +2387,9 @@ export interface ListLabelingJobsRequest {
   StatusEquals?: LabelingJobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLabelingJobsResponse {
   /**
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
@@ -2172,10 +2404,16 @@ export interface ListLabelingJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListLabelingJobsForWorkteamSortByOptions {
   CREATION_TIME = "CreationTime",
 }
 
+/**
+ * @public
+ */
 export interface ListLabelingJobsForWorkteamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the work team for which you want to see labeling
@@ -2224,6 +2462,9 @@ export interface ListLabelingJobsForWorkteamRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLabelingJobsForWorkteamResponse {
   /**
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
@@ -2238,11 +2479,17 @@ export interface ListLabelingJobsForWorkteamResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortLineageGroupsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListLineageGroupsRequest {
   /**
    * <p>A timestamp to filter against lineage groups created after a certain point in time.</p>
@@ -2278,6 +2525,9 @@ export interface ListLineageGroupsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLineageGroupsResponse {
   /**
    * <p>A list of lineage groups and their properties.</p>
@@ -2291,6 +2541,9 @@ export interface ListLineageGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelBiasJobDefinitionsRequest {
   /**
    * <p>Name of the endpoint to monitor for model bias.</p>
@@ -2337,6 +2590,9 @@ export interface ListModelBiasJobDefinitionsRequest {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelBiasJobDefinitionsResponse {
   /**
    * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
@@ -2350,17 +2606,26 @@ export interface ListModelBiasJobDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelCardExportJobSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export enum ModelCardExportJobSortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardExportJobsRequest {
   /**
    * <p>List export jobs for the model card with the specified name.</p>
@@ -2416,6 +2681,7 @@ export interface ListModelCardExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the Amazon SageMaker Model Card export job.</p>
  */
 export interface ModelCardExportJobSummary {
@@ -2455,6 +2721,9 @@ export interface ModelCardExportJobSummary {
   LastModifiedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardExportJobsResponse {
   /**
    * <p>The summaries of the listed model card export jobs.</p>
@@ -2468,16 +2737,25 @@ export interface ListModelCardExportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelCardSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export enum ModelCardSortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardsRequest {
   /**
    * <p>Only list model cards that were created after the time specified.</p>
@@ -2523,6 +2801,7 @@ export interface ListModelCardsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the model card.</p>
  */
 export interface ModelCardSummary {
@@ -2571,6 +2850,9 @@ export interface ModelCardSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardsResponse {
   /**
    * <p>The summaries of the listed model cards.</p>
@@ -2584,10 +2866,16 @@ export interface ListModelCardsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelCardVersionSortBy {
   VERSION = "Version",
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardVersionsRequest {
   /**
    * <p>Only list model card versions that were created after the time specified.</p>
@@ -2633,6 +2921,7 @@ export interface ListModelCardVersionsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a specific version of the model card.</p>
  */
 export interface ModelCardVersionSummary {
@@ -2686,6 +2975,9 @@ export interface ModelCardVersionSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardVersionsResponse {
   /**
    * <p>The summaries of the listed versions of the model card.</p>
@@ -2699,6 +2991,9 @@ export interface ListModelCardVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelExplainabilityJobDefinitionsRequest {
   /**
    * <p>Name of the endpoint to monitor for model explainability.</p>
@@ -2746,6 +3041,9 @@ export interface ListModelExplainabilityJobDefinitionsRequest {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelExplainabilityJobDefinitionsResponse {
   /**
    * <p>A JSON array in which each element is a summary for a explainability bias jobs.</p>
@@ -2759,6 +3057,9 @@ export interface ListModelExplainabilityJobDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelMetadataFilterType {
   DOMAIN = "Domain",
   FRAMEWORK = "Framework",
@@ -2767,6 +3068,7 @@ export enum ModelMetadataFilterType {
 }
 
 /**
+ * @public
  * <p>Part of the search expression. You can specify the name and value
  *           (domain, task, framework, framework version, task, and model).</p>
  */
@@ -2783,6 +3085,7 @@ export interface ModelMetadataFilter {
 }
 
 /**
+ * @public
  * <p>One or more filters that searches for the specified resource or resources in
  *           a search. All resource objects that satisfy the expression's condition are
  *           included in the search results</p>
@@ -2794,6 +3097,9 @@ export interface ModelMetadataSearchExpression {
   Filters?: ModelMetadataFilter[];
 }
 
+/**
+ * @public
+ */
 export interface ListModelMetadataRequest {
   /**
    * <p>One or more filters that searches for the specified resource or resources
@@ -2817,6 +3123,7 @@ export interface ListModelMetadataRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the model metadata.</p>
  */
 export interface ModelMetadataSummary {
@@ -2846,6 +3153,9 @@ export interface ModelMetadataSummary {
   FrameworkVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelMetadataResponse {
   /**
    * <p>A structure that holds model metadata.</p>
@@ -2858,11 +3168,17 @@ export interface ListModelMetadataResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelPackageGroupSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackageGroupsInput {
   /**
    * <p>A filter that returns only model groups created after the specified time.</p>
@@ -2904,6 +3220,7 @@ export interface ListModelPackageGroupsInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a model group.</p>
  */
 export interface ModelPackageGroupSummary {
@@ -2933,6 +3250,9 @@ export interface ModelPackageGroupSummary {
   ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackageGroupsOutput {
   /**
    * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
@@ -2946,17 +3266,26 @@ export interface ListModelPackageGroupsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelPackageType {
   BOTH = "Both",
   UNVERSIONED = "Unversioned",
   VERSIONED = "Versioned",
 }
 
+/**
+ * @public
+ */
 export enum ModelPackageSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackagesInput {
   /**
    * <p>A filter that returns only model packages created after the specified time
@@ -3033,6 +3362,7 @@ export interface ListModelPackagesInput {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a model package.</p>
  */
 export interface ModelPackageSummary {
@@ -3093,6 +3423,9 @@ export interface ModelPackageSummary {
   ModelApprovalStatus?: ModelApprovalStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackagesOutput {
   /**
    * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
@@ -3107,6 +3440,9 @@ export interface ListModelPackagesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelQualityJobDefinitionsRequest {
   /**
    * <p>A filter that returns only model quality monitoring job definitions that are associated
@@ -3156,6 +3492,9 @@ export interface ListModelQualityJobDefinitionsRequest {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelQualityJobDefinitionsResponse {
   /**
    * <p>A list of summaries of model quality monitoring job definitions.</p>
@@ -3169,11 +3508,17 @@ export interface ListModelQualityJobDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelSortKey {
   CreationTime = "CreationTime",
   Name = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListModelsInput {
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
@@ -3217,6 +3562,7 @@ export interface ListModelsInput {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a model.</p>
  */
 export interface ModelSummary {
@@ -3236,6 +3582,9 @@ export interface ModelSummary {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelsOutput {
   /**
    * <p>An array of <code>ModelSummary</code> objects, each of which lists a
@@ -3250,16 +3599,25 @@ export interface ListModelsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum MonitoringAlertHistorySortKey {
   CreationTime = "CreationTime",
   Status = "Status",
 }
 
+/**
+ * @public
+ */
 export enum MonitoringAlertStatus {
   IN_ALERT = "InAlert",
   OK = "OK",
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringAlertHistoryRequest {
   /**
    * <p>The name of a monitoring schedule.</p>
@@ -3311,6 +3669,7 @@ export interface ListMonitoringAlertHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information of an alert's history.</p>
  */
 export interface MonitoringAlertHistorySummary {
@@ -3337,6 +3696,9 @@ export interface MonitoringAlertHistorySummary {
   AlertStatus: MonitoringAlertStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringAlertHistoryResponse {
   /**
    * <p>An alert history for a model monitoring schedule.</p>
@@ -3350,6 +3712,9 @@ export interface ListMonitoringAlertHistoryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringAlertsRequest {
   /**
    * <p>The name of a monitoring schedule.</p>
@@ -3370,6 +3735,7 @@ export interface ListMonitoringAlertsRequest {
 }
 
 /**
+ * @public
  * <p>An alert action taken to light up an icon on the Amazon SageMaker Model Dashboard when an alert goes into
  *             <code>InAlert</code> status.</p>
  */
@@ -3381,6 +3747,7 @@ export interface ModelDashboardIndicatorAction {
 }
 
 /**
+ * @public
  * <p>A list of alert actions taken in response to an alert going into
  *             <code>InAlert</code> status.</p>
  */
@@ -3393,6 +3760,7 @@ export interface MonitoringAlertActions {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a monitor alert.</p>
  */
 export interface MonitoringAlertSummary {
@@ -3435,6 +3803,9 @@ export interface MonitoringAlertSummary {
   Actions: MonitoringAlertActions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringAlertsResponse {
   /**
    * <p>A JSON array where each element is a summary for a monitoring alert.</p>
@@ -3448,12 +3819,18 @@ export interface ListMonitoringAlertsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum MonitoringExecutionSortKey {
   CREATION_TIME = "CreationTime",
   SCHEDULED_TIME = "ScheduledTime",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringExecutionsRequest {
   /**
    * <p>Name of a specific schedule to fetch jobs for.</p>
@@ -3536,6 +3913,9 @@ export interface ListMonitoringExecutionsRequest {
   MonitoringTypeEquals?: MonitoringType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringExecutionsResponse {
   /**
    * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
@@ -3549,12 +3929,18 @@ export interface ListMonitoringExecutionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum MonitoringScheduleSortKey {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringSchedulesRequest {
   /**
    * <p>Name of a specific endpoint to fetch schedules for.</p>
@@ -3628,6 +4014,7 @@ export interface ListMonitoringSchedulesRequest {
 }
 
 /**
+ * @public
  * <p>Summarizes the monitoring schedule.</p>
  */
 export interface MonitoringScheduleSummary {
@@ -3672,6 +4059,9 @@ export interface MonitoringScheduleSummary {
   MonitoringType?: MonitoringType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringSchedulesResponse {
   /**
    * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
@@ -3685,17 +4075,26 @@ export interface ListMonitoringSchedulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum NotebookInstanceLifecycleConfigSortKey {
   CREATION_TIME = "CreationTime",
   LAST_MODIFIED_TIME = "LastModifiedTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export enum NotebookInstanceLifecycleConfigSortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookInstanceLifecycleConfigsInput {
   /**
    * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
@@ -3751,6 +4150,7 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
 }
 
 /**
+ * @public
  * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
  */
 export interface NotebookInstanceLifecycleConfigSummary {
@@ -3775,6 +4175,9 @@ export interface NotebookInstanceLifecycleConfigSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookInstanceLifecycleConfigsOutput {
   /**
    * <p>If the response is truncated, SageMaker returns this token. To get the next set of
@@ -3789,17 +4192,26 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
   NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
 }
 
+/**
+ * @public
+ */
 export enum NotebookInstanceSortKey {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
   STATUS = "Status",
 }
 
+/**
+ * @public
+ */
 export enum NotebookInstanceSortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookInstancesInput {
   /**
    * <p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
@@ -3886,6 +4298,7 @@ export interface ListNotebookInstancesInput {
 }
 
 /**
+ * @public
  * <p>Provides summary information for an SageMaker notebook instance.</p>
  */
 export interface NotebookInstanceSummary {
@@ -3954,6 +4367,9 @@ export interface NotebookInstanceSummary {
   AdditionalCodeRepositories?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookInstancesOutput {
   /**
    * <p>If the response to the previous <code>ListNotebookInstances</code> request was
@@ -3969,11 +4385,17 @@ export interface ListNotebookInstancesOutput {
   NotebookInstances?: NotebookInstanceSummary[];
 }
 
+/**
+ * @public
+ */
 export enum SortPipelineExecutionsBy {
   CREATION_TIME = "CreationTime",
   PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineExecutionsRequest {
   /**
    * <p>The name of the pipeline.</p>
@@ -4015,6 +4437,7 @@ export interface ListPipelineExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>A pipeline execution summary.</p>
  */
 export interface PipelineExecutionSummary {
@@ -4049,6 +4472,9 @@ export interface PipelineExecutionSummary {
   PipelineExecutionFailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineExecutionsResponse {
   /**
    * <p>Contains a sorted list of pipeline execution summary objects matching the specified
@@ -4064,6 +4490,9 @@ export interface ListPipelineExecutionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineExecutionStepsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -4088,6 +4517,7 @@ export interface ListPipelineExecutionStepsRequest {
 }
 
 /**
+ * @public
  * <p>Metadata for Model steps.</p>
  */
 export interface ModelStepMetadata {
@@ -4098,6 +4528,7 @@ export interface ModelStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a processing job step.</p>
  */
 export interface ProcessingJobStepMetadata {
@@ -4108,6 +4539,7 @@ export interface ProcessingJobStepMetadata {
 }
 
 /**
+ * @public
  * <p>Container for the metadata for a Quality check step. For more information, see
  *          the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-quality-check">QualityCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
  *       </p>
@@ -4170,6 +4602,7 @@ export interface QualityCheckStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a register model job step.</p>
  */
 export interface RegisterModelStepMetadata {
@@ -4180,6 +4613,7 @@ export interface RegisterModelStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a training job step.</p>
  */
 export interface TrainingJobStepMetadata {
@@ -4190,6 +4624,7 @@ export interface TrainingJobStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a transform job step.</p>
  */
 export interface TransformJobStepMetadata {
@@ -4200,6 +4635,7 @@ export interface TransformJobStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a tuning step.</p>
  */
 export interface TuningJobStepMetaData {
@@ -4210,6 +4646,7 @@ export interface TuningJobStepMetaData {
 }
 
 /**
+ * @public
  * <p>Metadata for a step execution.</p>
  */
 export interface PipelineExecutionStepMetadata {
@@ -4341,6 +4778,9 @@ export interface PipelineExecutionStepMetadata {
   AutoMLJob?: AutoMLJobStepMetadata;
 }
 
+/**
+ * @public
+ */
 export enum StepStatus {
   EXECUTING = "Executing",
   FAILED = "Failed",
@@ -4351,6 +4791,7 @@ export enum StepStatus {
 }
 
 /**
+ * @public
  * <p>An execution of a step in a pipeline.</p>
  */
 export interface PipelineExecutionStep {
@@ -4405,6 +4846,9 @@ export interface PipelineExecutionStep {
   Metadata?: PipelineExecutionStepMetadata;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineExecutionStepsResponse {
   /**
    * <p>A list of <code>PipeLineExecutionStep</code> objects. Each
@@ -4421,6 +4865,9 @@ export interface ListPipelineExecutionStepsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineParametersForExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -4440,6 +4887,7 @@ export interface ListPipelineParametersForExecutionRequest {
 }
 
 /**
+ * @public
  * <p>Assigns a value to a named Pipeline parameter.</p>
  */
 export interface Parameter {
@@ -4456,6 +4904,9 @@ export interface Parameter {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineParametersForExecutionResponse {
   /**
    * <p>Contains a list of pipeline parameters. This list can be empty. </p>
@@ -4469,11 +4920,17 @@ export interface ListPipelineParametersForExecutionResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortPipelinesBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListPipelinesRequest {
   /**
    * <p>The prefix of the pipeline name.</p>
@@ -4515,6 +4972,7 @@ export interface ListPipelinesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a pipeline.</p>
  */
 export interface PipelineSummary {
@@ -4559,6 +5017,9 @@ export interface PipelineSummary {
   LastExecutionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelinesResponse {
   /**
    * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified
@@ -4575,6 +5036,9 @@ export interface ListPipelinesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProcessingJobsRequest {
   /**
    * <p>A filter that returns only processing jobs created after the specified time.</p>
@@ -4631,6 +5095,7 @@ export interface ListProcessingJobsRequest {
 }
 
 /**
+ * @public
  * <p>Summary of information about a processing job.</p>
  */
 export interface ProcessingJobSummary {
@@ -4677,6 +5142,9 @@ export interface ProcessingJobSummary {
   ExitMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProcessingJobsResponse {
   /**
    * <p>An array of <code>ProcessingJobSummary</code> objects, each listing a processing
@@ -4691,16 +5159,25 @@ export interface ListProcessingJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProjectSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export enum ProjectSortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsInput {
   /**
    * <p>A filter that returns the projects that were created after a specified
@@ -4743,6 +5220,7 @@ export interface ListProjectsInput {
 }
 
 /**
+ * @public
  * <p>Information about a project.</p>
  */
 export interface ProjectSummary {
@@ -4777,6 +5255,9 @@ export interface ProjectSummary {
   ProjectStatus: ProjectStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsOutput {
   /**
    * <p>A list of summaries of projects.</p>
@@ -4791,11 +5272,17 @@ export interface ListProjectsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SpaceSortKey {
   CreationTime = "CreationTime",
   LastModifiedTime = "LastModifiedTime",
 }
 
+/**
+ * @public
+ */
 export interface ListSpacesRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -4830,6 +5317,7 @@ export interface ListSpacesRequest {
 }
 
 /**
+ * @public
  * <p>The space's details.</p>
  */
 export interface SpaceDetails {
@@ -4859,6 +5347,9 @@ export interface SpaceDetails {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSpacesResponse {
   /**
    * <p>The list of spaces.</p>
@@ -4872,6 +5363,9 @@ export interface ListSpacesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStageDevicesRequest {
   /**
    * <p>The response from the last list when returning a list large enough to neeed tokening.</p>
@@ -4899,6 +5393,9 @@ export interface ListStageDevicesRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStageDevicesResponse {
   /**
    * <p>List of summaries of devices allocated to the stage.</p>
@@ -4911,12 +5408,18 @@ export interface ListStageDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum StudioLifecycleConfigSortKey {
   CreationTime = "CreationTime",
   LastModifiedTime = "LastModifiedTime",
   Name = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListStudioLifecycleConfigsRequest {
   /**
    * <p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>
@@ -4970,6 +5473,7 @@ export interface ListStudioLifecycleConfigsRequest {
 }
 
 /**
+ * @public
  * <p>Details of the Studio Lifecycle Configuration.</p>
  */
 export interface StudioLifecycleConfigDetails {
@@ -4999,6 +5503,9 @@ export interface StudioLifecycleConfigDetails {
   StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudioLifecycleConfigsResponse {
   /**
    * <p>A token for getting the next set of actions, if there are any.</p>
@@ -5011,6 +5518,9 @@ export interface ListStudioLifecycleConfigsResponse {
   StudioLifecycleConfigs?: StudioLifecycleConfigDetails[];
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribedWorkteamsRequest {
   /**
    * <p>A string in the work team name. This filter returns only work teams whose name
@@ -5031,6 +5541,9 @@ export interface ListSubscribedWorkteamsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribedWorkteamsResponse {
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
@@ -5044,6 +5557,9 @@ export interface ListSubscribedWorkteamsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
@@ -5064,6 +5580,9 @@ export interface ListTagsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsOutput {
   /**
    * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
@@ -5077,6 +5596,9 @@ export interface ListTagsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrainingJobsRequest {
   /**
    * <p>If the result of the previous <code>ListTrainingJobs</code> request was truncated,
@@ -5142,6 +5664,7 @@ export interface ListTrainingJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a training job.</p>
  */
 export interface TrainingJobSummary {
@@ -5183,6 +5706,9 @@ export interface TrainingJobSummary {
   WarmPoolStatus?: WarmPoolStatus;
 }
 
+/**
+ * @public
+ */
 export interface ListTrainingJobsResponse {
   /**
    * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training
@@ -5197,6 +5723,9 @@ export interface ListTrainingJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum TrainingJobSortByOptions {
   CreationTime = "CreationTime",
   FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
@@ -5204,6 +5733,9 @@ export enum TrainingJobSortByOptions {
   Status = "Status",
 }
 
+/**
+ * @public
+ */
 export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job whose training jobs you want to list.</p>
@@ -5240,6 +5772,9 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrainingJobsForHyperParameterTuningJobResponse {
   /**
    * <p>A list of <a>TrainingJobSummary</a> objects that
@@ -5257,6 +5792,9 @@ export interface ListTrainingJobsForHyperParameterTuningJobResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTransformJobsRequest {
   /**
    * <p>A filter that returns only transform jobs created after the specified time.</p>
@@ -5313,6 +5851,7 @@ export interface ListTransformJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a
  *             summary
  *             of a transform job. Multiple <code>TransformJobSummary</code> objects are returned as a
@@ -5363,6 +5902,9 @@ export interface TransformJobSummary {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTransformJobsResponse {
   /**
    * <p>An array of
@@ -5378,11 +5920,17 @@ export interface ListTransformJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortTrialComponentsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListTrialComponentsRequest {
   /**
    * <p>A filter that returns only components that are part of the specified experiment. If you
@@ -5439,6 +5987,7 @@ export interface ListTrialComponentsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the properties of a trial component. To get all the properties, call the
  *         <a>DescribeTrialComponent</a> API and provide the
  *       <code>TrialComponentName</code>.</p>
@@ -5512,6 +6061,9 @@ export interface TrialComponentSummary {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface ListTrialComponentsResponse {
   /**
    * <p>A list of the summaries of your trial components.</p>
@@ -5524,11 +6076,17 @@ export interface ListTrialComponentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortTrialsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListTrialsRequest {
   /**
    * <p>A filter that returns only trials that are part of the specified experiment.</p>
@@ -5574,6 +6132,7 @@ export interface ListTrialsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the properties of a trial. To get the complete set of properties, call the
  *         <a>DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
  */
@@ -5610,6 +6169,9 @@ export interface TrialSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTrialsResponse {
   /**
    * <p>A list of the summaries of your trials.</p>
@@ -5622,11 +6184,17 @@ export interface ListTrialsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum UserProfileSortKey {
   CreationTime = "CreationTime",
   LastModifiedTime = "LastModifiedTime",
 }
 
+/**
+ * @public
+ */
 export interface ListUserProfilesRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -5661,6 +6229,7 @@ export interface ListUserProfilesRequest {
 }
 
 /**
+ * @public
  * <p>The user profile details.</p>
  */
 export interface UserProfileDetails {
@@ -5690,6 +6259,9 @@ export interface UserProfileDetails {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListUserProfilesResponse {
   /**
    * <p>The list of user profiles.</p>
@@ -5703,11 +6275,17 @@ export interface ListUserProfilesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListWorkforcesSortByOptions {
   CreateDate = "CreateDate",
   Name = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListWorkforcesRequest {
   /**
    * <p>Sort workforces using the workforce name or creation date.</p>
@@ -5735,6 +6313,9 @@ export interface ListWorkforcesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkforcesResponse {
   /**
    * <p>A list containing information about your workforce.</p>
@@ -5747,11 +6328,17 @@ export interface ListWorkforcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListWorkteamsSortByOptions {
   CreateDate = "CreateDate",
   Name = "Name",
 }
 
+/**
+ * @public
+ */
 export interface ListWorkteamsRequest {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
@@ -5782,6 +6369,9 @@ export interface ListWorkteamsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkteamsResponse {
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
@@ -5796,6 +6386,7 @@ export interface ListWorkteamsResponse {
 }
 
 /**
+ * @public
  * <p>The properties of a model as returned by the <a>Search</a> API.</p>
  */
 export interface Model {
@@ -5858,6 +6449,7 @@ export interface Model {
 }
 
 /**
+ * @public
  * <p>An Amazon SageMaker Model Card.</p>
  */
 export interface ModelCard {
@@ -5949,6 +6541,7 @@ export interface ModelCard {
 }
 
 /**
+ * @public
  * <p>An endpoint that hosts a model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardEndpoint {
@@ -5979,6 +6572,7 @@ export interface ModelDashboardEndpoint {
 }
 
 /**
+ * @public
  * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch
  *         Transform</a>.</p>
  */
@@ -6159,6 +6753,7 @@ export interface TransformJob {
 }
 
 /**
+ * @public
  * <p>The model card for a model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardModelCard {
@@ -6227,6 +6822,7 @@ export interface ModelDashboardModelCard {
 }
 
 /**
+ * @public
  * <p>A monitoring schedule for a model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardMonitoringSchedule {
@@ -6287,6 +6883,7 @@ export interface ModelDashboardMonitoringSchedule {
 }
 
 /**
+ * @public
  * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardModel {
@@ -6318,6 +6915,7 @@ export interface ModelDashboardModel {
 }
 
 /**
+ * @public
  * <p>A versioned model that can be deployed for SageMaker inference.</p>
  */
 export interface ModelPackage {
@@ -6497,6 +7095,7 @@ export interface ModelPackage {
 }
 
 /**
+ * @public
  * <p>A group of versioned models in the model registry.</p>
  */
 export interface ModelPackageGroup {
@@ -6565,6 +7164,9 @@ export interface ModelPackageGroup {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ModelVariantAction {
   PROMOTE = "Promote",
   REMOVE = "Remove",
@@ -6572,6 +7174,7 @@ export enum ModelVariantAction {
 }
 
 /**
+ * @public
  * <p>A list of nested <a>Filter</a> objects. A resource must satisfy the conditions
  *       of all filters to be included in the results returned from the <a>Search</a> API.</p>
  *          <p>For example, to filter on a training job's <code>InputDataConfig</code> property with a
@@ -6579,13 +7182,13 @@ export enum ModelVariantAction {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>'{Name:"InputDataConfig.ChannelName", "Operator":"Equals", "Value":"train"}',</code>
+ *                   <code>'\{Name:"InputDataConfig.ChannelName", "Operator":"Equals", "Value":"train"\}',</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>'{Name:"InputDataConfig.DataSource.S3DataSource.S3Uri", "Operator":"Contains",
- *             "Value":"mybucket/catdata"}'</code>
+ *                   <code>'\{Name:"InputDataConfig.DataSource.S3DataSource.S3Uri", "Operator":"Contains",
+ *             "Value":"mybucket/catdata"\}'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -6608,6 +7211,7 @@ export interface NestedFilters {
 }
 
 /**
+ * @public
  * <p>The trial that a trial component is associated with and the experiment the trial is part
  *       of. A component might not be associated with a trial. A component can be associated with
  *       multiple trials.</p>
@@ -6625,6 +7229,7 @@ export interface Parent {
 }
 
 /**
+ * @public
  * <p>A SageMaker Model Building Pipeline instance.</p>
  */
 export interface Pipeline {
@@ -6697,6 +7302,7 @@ export interface Pipeline {
 }
 
 /**
+ * @public
  * <p>An execution of a pipeline.</p>
  */
 export interface PipelineExecution {
@@ -6769,6 +7375,7 @@ export interface PipelineExecution {
 }
 
 /**
+ * @public
  * <p>An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more information,
  *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Process
  *                 Data and Evaluate Models</a>.</p>
@@ -6912,6 +7519,7 @@ export interface ProcessingJob {
 }
 
 /**
+ * @public
  * <p>Configuration information for updating the Amazon SageMaker Debugger profile parameters, system and framework metrics configurations, and
  *             storage paths.</p>
  */
@@ -6944,6 +7552,7 @@ export interface ProfilerConfigForUpdate {
 }
 
 /**
+ * @public
  * <p>The properties of a project as returned by the Search API.</p>
  */
 export interface Project {
@@ -7015,6 +7624,9 @@ export interface Project {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface PutModelPackageGroupPolicyInput {
   /**
    * <p>The name of the model group to add a resource policy to.</p>
@@ -7027,6 +7639,9 @@ export interface PutModelPackageGroupPolicyInput {
   ResourcePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutModelPackageGroupPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the model package group.</p>
@@ -7035,6 +7650,7 @@ export interface PutModelPackageGroupPolicyOutput {
 }
 
 /**
+ * @public
  * <p>A set of filters to narrow the set of lineage entities connected to the <code>StartArn</code>(s) returned by the
  *          <code>QueryLineage</code> API action.</p>
  */
@@ -7077,6 +7693,9 @@ export interface QueryFilters {
   Properties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface QueryLineageRequest {
   /**
    * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
@@ -7137,6 +7756,7 @@ export interface QueryLineageRequest {
 }
 
 /**
+ * @public
  * <p>A lineage entity connected to the starting entity(ies).</p>
  */
 export interface Vertex {
@@ -7157,6 +7777,9 @@ export interface Vertex {
   LineageType?: LineageType | string;
 }
 
+/**
+ * @public
+ */
 export interface QueryLineageResponse {
   /**
    * <p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>
@@ -7174,6 +7797,9 @@ export interface QueryLineageResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterDevicesRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -7192,6 +7818,7 @@ export interface RegisterDevicesRequest {
 }
 
 /**
+ * @public
  * <p>Contains input values for a task.</p>
  */
 export interface RenderableTask {
@@ -7205,6 +7832,7 @@ export interface RenderableTask {
 }
 
 /**
+ * @public
  * <p>A description of an error that occurred while rendering the template.</p>
  */
 export interface RenderingError {
@@ -7219,6 +7847,9 @@ export interface RenderingError {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RenderUiTemplateRequest {
   /**
    * <p>A <code>Template</code> object containing the worker UI template to render.</p>
@@ -7246,6 +7877,9 @@ export interface RenderUiTemplateRequest {
   HumanTaskUiArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RenderUiTemplateResponse {
   /**
    * <p>A Liquid template that renders the HTML for the worker UI.</p>
@@ -7260,6 +7894,7 @@ export interface RenderUiTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other
  *             fields in the <code>ResourceConfig</code> cannot be updated.</p>
  */
@@ -7271,6 +7906,9 @@ export interface ResourceConfigForUpdate {
   KeepAlivePeriodInSeconds: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RetryPipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -7290,6 +7928,9 @@ export interface RetryPipelineExecutionRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface RetryPipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -7297,12 +7938,16 @@ export interface RetryPipelineExecutionResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum SearchSortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
 /**
+ * @public
  * <p>Contains information about a training job.</p>
  */
 export interface TrainingJob {
@@ -7671,6 +8316,7 @@ export interface TrainingJob {
 }
 
 /**
+ * @public
  * <p>A short summary of a trial component.</p>
  */
 export interface TrialComponentSimpleSummary {
@@ -7702,6 +8348,7 @@ export interface TrialComponentSimpleSummary {
 }
 
 /**
+ * @public
  * <p>The properties of a trial as returned by the <a>Search</a> API.</p>
  */
 export interface Trial {
@@ -7771,6 +8418,7 @@ export interface Trial {
 }
 
 /**
+ * @public
  * <p>Detailed information about the source of a trial component. Either
  *         <code>ProcessingJob</code> or <code>TrainingJob</code> is returned.</p>
  */
@@ -7797,6 +8445,7 @@ export interface TrialComponentSourceDetail {
 }
 
 /**
+ * @public
  * <p>The properties of a trial component as returned by the <a>Search</a>
  *       API.</p>
  */
@@ -7911,6 +8560,7 @@ export interface TrialComponent {
 }
 
 /**
+ * @public
  * <p>A single resource returned as part of the <a>Search</a> API response.</p>
  */
 export interface SearchRecord {
@@ -7993,6 +8643,9 @@ export interface SearchRecord {
   ModelCard?: ModelCard;
 }
 
+/**
+ * @public
+ */
 export interface SearchResponse {
   /**
    * <p>A list of <code>SearchRecord</code> objects.</p>
@@ -8007,6 +8660,9 @@ export interface SearchResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepFailureRequest {
   /**
    * <p>The pipeline generated token from the Amazon SQS queue.</p>
@@ -8025,6 +8681,9 @@ export interface SendPipelineExecutionStepFailureRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepFailureResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -8032,6 +8691,9 @@ export interface SendPipelineExecutionStepFailureResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepSuccessRequest {
   /**
    * <p>The pipeline generated token from the Amazon SQS queue.</p>
@@ -8050,6 +8712,9 @@ export interface SendPipelineExecutionStepSuccessRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepSuccessResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -8057,6 +8722,9 @@ export interface SendPipelineExecutionStepSuccessResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartEdgeDeploymentStageRequest {
   /**
    * <p>The name of the edge deployment plan to start.</p>
@@ -8069,6 +8737,9 @@ export interface StartEdgeDeploymentStageRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to start.</p>
@@ -8076,6 +8747,9 @@ export interface StartInferenceExperimentRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartInferenceExperimentResponse {
   /**
    * <p>The ARN of the started inference experiment to start.</p>
@@ -8083,6 +8757,9 @@ export interface StartInferenceExperimentResponse {
   InferenceExperimentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMonitoringScheduleRequest {
   /**
    * <p>The name of the schedule to start.</p>
@@ -8090,6 +8767,9 @@ export interface StartMonitoringScheduleRequest {
   MonitoringScheduleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance to start.</p>
@@ -8097,6 +8777,9 @@ export interface StartNotebookInstanceInput {
   NotebookInstanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartPipelineExecutionRequest {
   /**
    * <p>The name of the pipeline.</p>
@@ -8131,6 +8814,9 @@ export interface StartPipelineExecutionRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface StartPipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -8138,6 +8824,9 @@ export interface StartPipelineExecutionResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopAutoMLJobRequest {
   /**
    * <p>The name of the object you are requesting.</p>
@@ -8145,6 +8834,9 @@ export interface StopAutoMLJobRequest {
   AutoMLJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopCompilationJobRequest {
   /**
    * <p>The name of the model compilation job to stop.</p>
@@ -8152,6 +8844,9 @@ export interface StopCompilationJobRequest {
   CompilationJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEdgeDeploymentStageRequest {
   /**
    * <p>The name of the edge deployment plan to stop.</p>
@@ -8164,6 +8859,9 @@ export interface StopEdgeDeploymentStageRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEdgePackagingJobRequest {
   /**
    * <p>The name of the edge packaging job.</p>
@@ -8171,6 +8869,9 @@ export interface StopEdgePackagingJobRequest {
   EdgePackagingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job to stop.</p>
@@ -8178,6 +8879,9 @@ export interface StopHyperParameterTuningJobRequest {
   HyperParameterTuningJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to stop.</p>
@@ -8237,6 +8941,9 @@ export interface StopInferenceExperimentRequest {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopInferenceExperimentResponse {
   /**
    * <p>The ARN of the stopped inference experiment.</p>
@@ -8244,6 +8951,9 @@ export interface StopInferenceExperimentResponse {
   InferenceExperimentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopInferenceRecommendationsJobRequest {
   /**
    * <p>The name of the job you want to stop.</p>
@@ -8251,6 +8961,9 @@ export interface StopInferenceRecommendationsJobRequest {
   JobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopLabelingJobRequest {
   /**
    * <p>The name of the labeling job to stop.</p>
@@ -8258,6 +8971,9 @@ export interface StopLabelingJobRequest {
   LabelingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMonitoringScheduleRequest {
   /**
    * <p>The name of the schedule to stop.</p>
@@ -8265,6 +8981,9 @@ export interface StopMonitoringScheduleRequest {
   MonitoringScheduleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance to terminate.</p>
@@ -8272,6 +8991,9 @@ export interface StopNotebookInstanceInput {
   NotebookInstanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopPipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -8285,6 +9007,9 @@ export interface StopPipelineExecutionRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopPipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -8292,6 +9017,9 @@ export interface StopPipelineExecutionResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopProcessingJobRequest {
   /**
    * <p>The name of the processing job to stop.</p>
@@ -8299,6 +9027,9 @@ export interface StopProcessingJobRequest {
   ProcessingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTrainingJobRequest {
   /**
    * <p>The name of the training job to stop.</p>
@@ -8306,6 +9037,9 @@ export interface StopTrainingJobRequest {
   TrainingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTransformJobRequest {
   /**
    * <p>The name of the batch transform job to stop.</p>
@@ -8313,6 +9047,9 @@ export interface StopTransformJobRequest {
   TransformJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionRequest {
   /**
    * <p>The name of the action to update.</p>
@@ -8340,6 +9077,9 @@ export interface UpdateActionRequest {
   PropertiesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the action.</p>
@@ -8347,6 +9087,9 @@ export interface UpdateActionResponse {
   ActionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppImageConfigRequest {
   /**
    * <p>The name of the AppImageConfig to update.</p>
@@ -8359,6 +9102,9 @@ export interface UpdateAppImageConfigRequest {
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppImageConfigResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
@@ -8366,6 +9112,9 @@ export interface UpdateAppImageConfigResponse {
   AppImageConfigArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateArtifactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
@@ -8388,6 +9137,9 @@ export interface UpdateArtifactRequest {
   PropertiesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateArtifactResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the artifact.</p>
@@ -8395,6 +9147,9 @@ export interface UpdateArtifactResponse {
   ArtifactArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCodeRepositoryInput {
   /**
    * <p>The name of the Git repository to update.</p>
@@ -8407,13 +9162,16 @@ export interface UpdateCodeRepositoryInput {
    *             credentials used to access the repository. The secret must have a staging label of
    *                 <code>AWSCURRENT</code> and must be in the following format:</p>
    *          <p>
-   *             <code>{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>}</code>
+   *             <code>\{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>\}</code>
    *          </p>
    */
   GitConfig?: GitConfigForUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCodeRepositoryOutput {
   /**
    * <p>The ARN of the Git repository.</p>
@@ -8421,6 +9179,9 @@ export interface UpdateCodeRepositoryOutput {
   CodeRepositoryArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContextRequest {
   /**
    * <p>The name of the context to update.</p>
@@ -8443,6 +9204,9 @@ export interface UpdateContextRequest {
   PropertiesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateContextResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the context.</p>
@@ -8450,6 +9214,9 @@ export interface UpdateContextResponse {
   ContextArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -8474,13 +9241,16 @@ export interface UpdateDeviceFleetRequest {
   /**
    * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
    *       The name of the role alias generated will match this pattern:
-   *       "SageMakerEdge-{DeviceFleetName}".</p>
+   *       "SageMakerEdge-\{DeviceFleetName\}".</p>
    *          <p>For example, if your device fleet is called "demo-fleet", the name of
    *       the role alias will be "SageMakerEdge-demo-fleet".</p>
    */
   EnableIotRoleAlias?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevicesRequest {
   /**
    * <p>The name of the fleet the devices belong to.</p>

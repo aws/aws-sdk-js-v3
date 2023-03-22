@@ -23,15 +23,20 @@ import { deserializeAws_json1_1GetAppCommand, serializeAws_json1_1GetAppCommand 
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppCommand}.
  */
 export interface GetAppCommandInput extends GetAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppCommand}.
  */
 export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve information about the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppCommandInput - {@link GetAppCommandInput}
+ * @returns {@link GetAppCommandOutput}
  * @see {@link GetAppCommandInput} for command's `input` shape.
  * @see {@link GetAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> {
     return deserializeAws_json1_1GetAppCommand(output, context);
   }

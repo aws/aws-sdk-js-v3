@@ -60,6 +60,9 @@ import {
   ViolationEventOccurrenceRange,
 } from "./models_1";
 
+/**
+ * @public
+ */
 export interface ListStreamsRequest {
   /**
    * <p>The maximum number of results to return at a time.</p>
@@ -78,6 +81,7 @@ export interface ListStreamsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a stream.</p>
  */
 export interface StreamSummary {
@@ -102,6 +106,9 @@ export interface StreamSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamsResponse {
   /**
    * <p>A list of streams.</p>
@@ -114,6 +121,9 @@ export interface ListStreamsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -128,6 +138,9 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
@@ -140,6 +153,9 @@ export interface ListTagsForResourceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForPolicyRequest {
   /**
    * <p>The policy name.</p>
@@ -157,6 +173,9 @@ export interface ListTargetsForPolicyRequest {
   pageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForPolicyResponse {
   /**
    * <p>The policy targets.</p>
@@ -169,6 +188,9 @@ export interface ListTargetsForPolicyResponse {
   nextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForSecurityProfileRequest {
   /**
    * <p>The security profile.</p>
@@ -186,6 +208,9 @@ export interface ListTargetsForSecurityProfileRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForSecurityProfileResponse {
   /**
    * <p>The thing groups to which the security profile is attached.</p>
@@ -199,6 +224,9 @@ export interface ListTargetsForSecurityProfileResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -228,6 +256,9 @@ export interface ListThingGroupsRequest {
   recursive?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsResponse {
   /**
    * <p>The thing groups.</p>
@@ -240,6 +271,9 @@ export interface ListThingGroupsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsForThingRequest {
   /**
    * <p>The thing name.</p>
@@ -259,6 +293,9 @@ export interface ListThingGroupsForThingRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsForThingResponse {
   /**
    * <p>The thing groups.</p>
@@ -272,6 +309,7 @@ export interface ListThingGroupsForThingResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListThingPrincipal operation.</p>
  */
 export interface ListThingPrincipalsRequest {
@@ -294,6 +332,7 @@ export interface ListThingPrincipalsRequest {
 }
 
 /**
+ * @public
  * <p>The output from the ListThingPrincipals operation.</p>
  */
 export interface ListThingPrincipalsResponse {
@@ -308,11 +347,17 @@ export interface ListThingPrincipalsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReportType {
   ERRORS = "ERRORS",
   RESULTS = "RESULTS",
 }
 
+/**
+ * @public
+ */
 export interface ListThingRegistrationTaskReportsRequest {
   /**
    * <p>The id of the task.</p>
@@ -337,6 +382,9 @@ export interface ListThingRegistrationTaskReportsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingRegistrationTaskReportsResponse {
   /**
    * <p>Links to the task resources.</p>
@@ -354,6 +402,9 @@ export interface ListThingRegistrationTaskReportsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingRegistrationTasksRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -373,6 +424,9 @@ export interface ListThingRegistrationTasksRequest {
   status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingRegistrationTasksResponse {
   /**
    * <p>A list of bulk thing provisioning task IDs.</p>
@@ -386,6 +440,7 @@ export interface ListThingRegistrationTasksResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListThings operation.</p>
  */
 export interface ListThingsRequest {
@@ -427,6 +482,7 @@ export interface ListThingsRequest {
 }
 
 /**
+ * @public
  * <p>The properties of the thing, including thing name, thing type name, and a list of thing
  * 			attributes.</p>
  */
@@ -458,6 +514,7 @@ export interface ThingAttribute {
 }
 
 /**
+ * @public
  * <p>The output from the ListThings operation.</p>
  */
 export interface ListThingsResponse {
@@ -472,6 +529,9 @@ export interface ListThingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -491,6 +551,9 @@ export interface ListThingsInBillingGroupRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInBillingGroupResponse {
   /**
    * <p>A list of things in the billing group.</p>
@@ -503,6 +566,9 @@ export interface ListThingsInBillingGroupResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInThingGroupRequest {
   /**
    * <p>The thing group name.</p>
@@ -528,6 +594,9 @@ export interface ListThingsInThingGroupRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInThingGroupResponse {
   /**
    * <p>The things in the specified thing group.</p>
@@ -541,6 +610,7 @@ export interface ListThingsInThingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListThingTypes operation.</p>
  */
 export interface ListThingTypesRequest {
@@ -563,6 +633,7 @@ export interface ListThingTypesRequest {
 }
 
 /**
+ * @public
  * <p>The definition of the thing type, including thing type name and description.</p>
  */
 export interface ThingTypeDefinition {
@@ -590,6 +661,7 @@ export interface ThingTypeDefinition {
 }
 
 /**
+ * @public
  * <p>The output for the ListThingTypes operation.</p>
  */
 export interface ListThingTypesResponse {
@@ -604,6 +676,9 @@ export interface ListThingTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTopicRuleDestinationsRequest {
   /**
    * <p>The maximum number of results to return at one time.</p>
@@ -619,6 +694,7 @@ export interface ListTopicRuleDestinationsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an HTTP URL destination.</p>
  */
 export interface HttpUrlDestinationSummary {
@@ -630,6 +706,7 @@ export interface HttpUrlDestinationSummary {
 }
 
 /**
+ * @public
  * <p>The summary of a virtual private cloud (VPC) destination.</p>
  */
 export interface VpcDestinationSummary {
@@ -655,6 +732,7 @@ export interface VpcDestinationSummary {
 }
 
 /**
+ * @public
  * <p>Information about the topic rule destination.</p>
  */
 export interface TopicRuleDestinationSummary {
@@ -725,6 +803,9 @@ export interface TopicRuleDestinationSummary {
   vpcDestinationSummary?: VpcDestinationSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListTopicRuleDestinationsResponse {
   /**
    * <p>Information about a topic rule destination.</p>
@@ -738,6 +819,7 @@ export interface ListTopicRuleDestinationsResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListTopicRules operation.</p>
  */
 export interface ListTopicRulesRequest {
@@ -765,6 +847,7 @@ export interface ListTopicRulesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a rule.</p>
  */
 export interface TopicRuleListItem {
@@ -795,6 +878,7 @@ export interface TopicRuleListItem {
 }
 
 /**
+ * @public
  * <p>The output from the ListTopicRules operation.</p>
  */
 export interface ListTopicRulesResponse {
@@ -809,6 +893,9 @@ export interface ListTopicRulesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListV2LoggingLevelsRequest {
   /**
    * <p>The type of resource for which you are configuring logging. Must be
@@ -830,6 +917,7 @@ export interface ListV2LoggingLevelsRequest {
 }
 
 /**
+ * @public
  * <p>A log target.</p>
  */
 export interface LogTarget {
@@ -845,6 +933,7 @@ export interface LogTarget {
 }
 
 /**
+ * @public
  * <p>The target configuration.</p>
  */
 export interface LogTargetConfiguration {
@@ -859,6 +948,9 @@ export interface LogTargetConfiguration {
   logLevel?: LogLevel | string;
 }
 
+/**
+ * @public
+ */
 export interface ListV2LoggingLevelsResponse {
   /**
    * <p>The logging configuration for a target.</p>
@@ -871,6 +963,9 @@ export interface ListV2LoggingLevelsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListViolationEventsRequest {
   /**
    * <p>The start time for the alerts to be listed.</p>
@@ -922,6 +1017,9 @@ export interface ListViolationEventsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ViolationEventType {
   ALARM_CLEARED = "alarm-cleared",
   ALARM_INVALIDATED = "alarm-invalidated",
@@ -929,6 +1027,7 @@ export enum ViolationEventType {
 }
 
 /**
+ * @public
  * <p>Information about a Device Defender security profile behavior violation.</p>
  */
 export interface ViolationEvent {
@@ -985,6 +1084,9 @@ export interface ViolationEvent {
   violationEventTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListViolationEventsResponse {
   /**
    * <p>The security profile violation alerts issued for this account during the given time period,
@@ -999,6 +1101,9 @@ export interface ListViolationEventsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutVerificationStateOnViolationRequest {
   /**
    * <p>The violation ID.</p>
@@ -1016,9 +1121,13 @@ export interface PutVerificationStateOnViolationRequest {
   verificationStateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutVerificationStateOnViolationResponse {}
 
 /**
+ * @public
  * <p>The input to the RegisterCACertificate operation.</p>
  */
 export interface RegisterCACertificateRequest {
@@ -1080,6 +1189,7 @@ export interface RegisterCACertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output from the RegisterCACertificateResponse operation.</p>
  */
 export interface RegisterCACertificateResponse {
@@ -1095,6 +1205,7 @@ export interface RegisterCACertificateResponse {
 }
 
 /**
+ * @public
  * <p>The registration code is invalid.</p>
  */
 export class RegistrationCodeValidationException extends __BaseException {
@@ -1114,6 +1225,7 @@ export class RegistrationCodeValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Unable to verify the CA certificate used to sign the device certificate you are
  *          attempting to register. This is happens when you have registered more than one CA
  *          certificate that has the same subject field and public key.</p>
@@ -1135,6 +1247,7 @@ export class CertificateConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input to the RegisterCertificate operation.</p>
  */
 export interface RegisterCertificateRequest {
@@ -1165,6 +1278,7 @@ export interface RegisterCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output from the RegisterCertificate operation.</p>
  */
 export interface RegisterCertificateResponse {
@@ -1179,6 +1293,9 @@ export interface RegisterCertificateResponse {
   certificateId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterCertificateWithoutCARequest {
   /**
    * <p>The certificate data, in PEM format.</p>
@@ -1191,6 +1308,9 @@ export interface RegisterCertificateWithoutCARequest {
   status?: CertificateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterCertificateWithoutCAResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the registered certificate.</p>
@@ -1204,6 +1324,9 @@ export interface RegisterCertificateWithoutCAResponse {
   certificateId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterThingRequest {
   /**
    * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
@@ -1216,6 +1339,9 @@ export interface RegisterThingRequest {
   parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegisterThingResponse {
   /**
    * <p>The certificate data, in PEM format.</p>
@@ -1229,6 +1355,7 @@ export interface RegisterThingResponse {
 }
 
 /**
+ * @public
  * <p>The resource registration failed.</p>
  */
 export class ResourceRegistrationFailureException extends __BaseException {
@@ -1248,6 +1375,7 @@ export class ResourceRegistrationFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the RejectCertificateTransfer operation.</p>
  */
 export interface RejectCertificateTransferRequest {
@@ -1263,6 +1391,9 @@ export interface RejectCertificateTransferRequest {
   rejectReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveThingFromBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -1285,8 +1416,14 @@ export interface RemoveThingFromBillingGroupRequest {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveThingFromBillingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface RemoveThingFromThingGroupRequest {
   /**
    * <p>The group name.</p>
@@ -1309,9 +1446,13 @@ export interface RemoveThingFromThingGroupRequest {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveThingFromThingGroupResponse {}
 
 /**
+ * @public
  * <p>The input for the ReplaceTopicRule operation.</p>
  */
 export interface ReplaceTopicRuleRequest {
@@ -1326,6 +1467,9 @@ export interface ReplaceTopicRuleRequest {
   topicRulePayload: TopicRulePayload | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchIndexRequest {
   /**
    * <p>The search index name.</p>
@@ -1356,6 +1500,7 @@ export interface SearchIndexRequest {
 }
 
 /**
+ * @public
  * <p>The thing group search index document.</p>
  */
 export interface ThingGroupDocument {
@@ -1386,6 +1531,7 @@ export interface ThingGroupDocument {
 }
 
 /**
+ * @public
  * <p>The connectivity status of the thing.</p>
  */
 export interface ThingConnectivity {
@@ -1408,6 +1554,7 @@ export interface ThingConnectivity {
 }
 
 /**
+ * @public
  * <p>The thing search index document.</p>
  */
 export interface ThingDocument {
@@ -1455,6 +1602,9 @@ export interface ThingDocument {
   connectivity?: ThingConnectivity;
 }
 
+/**
+ * @public
+ */
 export interface SearchIndexResponse {
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
@@ -1473,6 +1623,9 @@ export interface SearchIndexResponse {
   thingGroups?: ThingGroupDocument[];
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultAuthorizerRequest {
   /**
    * <p>The authorizer name.</p>
@@ -1480,6 +1633,9 @@ export interface SetDefaultAuthorizerRequest {
   authorizerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultAuthorizerResponse {
   /**
    * <p>The authorizer name.</p>
@@ -1493,6 +1649,7 @@ export interface SetDefaultAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>The input for the SetDefaultPolicyVersion operation.</p>
  */
 export interface SetDefaultPolicyVersionRequest {
@@ -1508,6 +1665,7 @@ export interface SetDefaultPolicyVersionRequest {
 }
 
 /**
+ * @public
  * <p>Describes the logging options payload.</p>
  */
 export interface LoggingOptionsPayload {
@@ -1523,6 +1681,7 @@ export interface LoggingOptionsPayload {
 }
 
 /**
+ * @public
  * <p>The input for the SetLoggingOptions operation.</p>
  */
 export interface SetLoggingOptionsRequest {
@@ -1532,6 +1691,9 @@ export interface SetLoggingOptionsRequest {
   loggingOptionsPayload: LoggingOptionsPayload | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetV2LoggingLevelRequest {
   /**
    * <p>The log target.</p>
@@ -1544,6 +1706,9 @@ export interface SetV2LoggingLevelRequest {
   logLevel: LogLevel | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetV2LoggingOptionsRequest {
   /**
    * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
@@ -1561,6 +1726,9 @@ export interface SetV2LoggingOptionsRequest {
   disableAllLogs?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartAuditMitigationActionsTaskRequest {
   /**
    * <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
@@ -1586,6 +1754,9 @@ export interface StartAuditMitigationActionsTaskRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAuditMitigationActionsTaskResponse {
   /**
    * <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
@@ -1594,6 +1765,7 @@ export interface StartAuditMitigationActionsTaskResponse {
 }
 
 /**
+ * @public
  * <p>
  *             This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
  *         </p>
@@ -1614,6 +1786,9 @@ export class TaskAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartDetectMitigationActionsTaskRequest {
   /**
    * <p>
@@ -1665,6 +1840,9 @@ export interface StartDetectMitigationActionsTaskRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDetectMitigationActionsTaskResponse {
   /**
    * <p>
@@ -1674,6 +1852,9 @@ export interface StartDetectMitigationActionsTaskResponse {
   taskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandAuditTaskRequest {
   /**
    * <p>Which checks are performed during the audit. The checks you specify must be enabled
@@ -1684,6 +1865,9 @@ export interface StartOnDemandAuditTaskRequest {
   targetCheckNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandAuditTaskResponse {
   /**
    * <p>The ID of the on-demand audit you started.</p>
@@ -1691,6 +1875,9 @@ export interface StartOnDemandAuditTaskResponse {
   taskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartThingRegistrationTaskRequest {
   /**
    * <p>The provisioning template.</p>
@@ -1715,6 +1902,9 @@ export interface StartThingRegistrationTaskRequest {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartThingRegistrationTaskResponse {
   /**
    * <p>The bulk thing provisioning task ID.</p>
@@ -1722,6 +1912,9 @@ export interface StartThingRegistrationTaskResponse {
   taskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopThingRegistrationTaskRequest {
   /**
    * <p>The bulk thing provisioning task ID.</p>
@@ -1729,8 +1922,14 @@ export interface StopThingRegistrationTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopThingRegistrationTaskResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1743,8 +1942,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface TestAuthorizationRequest {
   /**
    * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
@@ -1780,6 +1985,9 @@ export interface TestAuthorizationRequest {
   policyNamesToSkip?: string[];
 }
 
+/**
+ * @public
+ */
 export interface TestAuthorizationResponse {
   /**
    * <p>The authentication results.</p>
@@ -1788,6 +1996,7 @@ export interface TestAuthorizationResponse {
 }
 
 /**
+ * @public
  * <p>The response is invalid.</p>
  */
 export class InvalidResponseException extends __BaseException {
@@ -1807,6 +2016,7 @@ export class InvalidResponseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the HTTP context to use for the test authorizer request.</p>
  */
 export interface HttpContext {
@@ -1822,6 +2032,7 @@ export interface HttpContext {
 }
 
 /**
+ * @public
  * <p>Specifies the MQTT context to use for the test authorizer request</p>
  */
 export interface MqttContext {
@@ -1842,6 +2053,7 @@ export interface MqttContext {
 }
 
 /**
+ * @public
  * <p>Specifies the TLS context to use for the test authorizer request.</p>
  */
 export interface TlsContext {
@@ -1851,6 +2063,9 @@ export interface TlsContext {
   serverName?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestInvokeAuthorizerRequest {
   /**
    * <p>The custom authorizer name.</p>
@@ -1884,6 +2099,9 @@ export interface TestInvokeAuthorizerRequest {
   tlsContext?: TlsContext;
 }
 
+/**
+ * @public
+ */
 export interface TestInvokeAuthorizerResponse {
   /**
    * <p>True if the token is authenticated, otherwise false.</p>
@@ -1912,6 +2130,7 @@ export interface TestInvokeAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>The input for the TransferCertificate operation.</p>
  */
 export interface TransferCertificateRequest {
@@ -1933,6 +2152,7 @@ export interface TransferCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output from the TransferCertificate operation.</p>
  */
 export interface TransferCertificateResponse {
@@ -1943,6 +2163,7 @@ export interface TransferCertificateResponse {
 }
 
 /**
+ * @public
  * <p>You can't transfer the certificate because authorization policies are still
  *          attached.</p>
  */
@@ -1962,6 +2183,9 @@ export class TransferConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1974,8 +2198,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAccountAuditConfigurationRequest {
   /**
    * <p>The Amazon
@@ -2012,8 +2242,14 @@ export interface UpdateAccountAuditConfigurationRequest {
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountAuditConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAuditSuppressionRequest {
   /**
    * <p>An audit check name. Checks must be enabled
@@ -2050,8 +2286,14 @@ export interface UpdateAuditSuppressionRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAuditSuppressionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAuthorizerRequest {
   /**
    * <p>The authorizer name.</p>
@@ -2086,6 +2328,9 @@ export interface UpdateAuthorizerRequest {
   enableCachingForHttp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAuthorizerResponse {
   /**
    * <p>The authorizer name.</p>
@@ -2098,6 +2343,9 @@ export interface UpdateAuthorizerResponse {
   authorizerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -2118,6 +2366,9 @@ export interface UpdateBillingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBillingGroupResponse {
   /**
    * <p>The latest version of the billing group.</p>
@@ -2126,6 +2377,7 @@ export interface UpdateBillingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The input to the UpdateCACertificate operation.</p>
  */
 export interface UpdateCACertificateRequest {
@@ -2160,6 +2412,7 @@ export interface UpdateCACertificateRequest {
 }
 
 /**
+ * @public
  * <p>The input for the UpdateCertificate operation.</p>
  */
 export interface UpdateCertificateRequest {
@@ -2182,6 +2435,9 @@ export interface UpdateCertificateRequest {
   newStatus: CertificateStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomMetricRequest {
   /**
    * <p> The name of the custom metric.
@@ -2202,6 +2458,9 @@ export interface UpdateCustomMetricRequest {
   displayName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomMetricResponse {
   /**
    * <p>
@@ -2247,6 +2506,9 @@ export interface UpdateCustomMetricResponse {
   lastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDimensionRequest {
   /**
    * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
@@ -2259,6 +2521,9 @@ export interface UpdateDimensionRequest {
   stringValues: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDimensionResponse {
   /**
    * <p>A unique identifier for the dimension.</p>
@@ -2293,6 +2558,9 @@ export interface UpdateDimensionResponse {
   lastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainConfigurationRequest {
   /**
    * <p>The name of the domain configuration to be updated.</p>
@@ -2315,6 +2583,9 @@ export interface UpdateDomainConfigurationRequest {
   removeAuthorizerConfig?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainConfigurationResponse {
   /**
    * <p>The name of the domain configuration that was updated.</p>
@@ -2327,6 +2598,9 @@ export interface UpdateDomainConfigurationResponse {
   domainConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDynamicThingGroupRequest {
   /**
    * <p>The name of the dynamic thing group to update.</p>
@@ -2366,6 +2640,9 @@ export interface UpdateDynamicThingGroupRequest {
   queryVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDynamicThingGroupResponse {
   /**
    * <p>The dynamic thing group version.</p>
@@ -2373,6 +2650,9 @@ export interface UpdateDynamicThingGroupResponse {
   version?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventConfigurationsRequest {
   /**
    * <p>The new event configuration values.</p>
@@ -2380,8 +2660,14 @@ export interface UpdateEventConfigurationsRequest {
   eventConfigurations?: Record<string, Configuration>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventConfigurationsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFleetMetricRequest {
   /**
    * <p>The name of the fleet metric to update.</p>
@@ -2435,6 +2721,9 @@ export interface UpdateFleetMetricRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIndexingConfigurationRequest {
   /**
    * <p>Thing indexing configuration.</p>
@@ -2447,8 +2736,14 @@ export interface UpdateIndexingConfigurationRequest {
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIndexingConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateJobRequest {
   /**
    * <p>The ID of the job to be updated.</p>
@@ -2500,6 +2795,9 @@ export interface UpdateJobRequest {
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMitigationActionRequest {
   /**
    * <p>The friendly name for the mitigation action. You cannot change the name by using
@@ -2520,6 +2818,9 @@ export interface UpdateMitigationActionRequest {
   actionParams?: MitigationActionParams;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMitigationActionResponse {
   /**
    * <p>The ARN for the new mitigation action.</p>
@@ -2532,6 +2833,9 @@ export interface UpdateMitigationActionResponse {
   actionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningTemplateRequest {
   /**
    * <p>The name of the provisioning template.</p>
@@ -2572,8 +2876,14 @@ export interface UpdateProvisioningTemplateRequest {
   removePreProvisioningHook?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRoleAliasRequest {
   /**
    * <p>The role alias to update.</p>
@@ -2593,6 +2903,9 @@ export interface UpdateRoleAliasRequest {
   credentialDurationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoleAliasResponse {
   /**
    * <p>The role alias.</p>
@@ -2605,6 +2918,9 @@ export interface UpdateRoleAliasResponse {
   roleAliasArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduledAuditRequest {
   /**
    * <p>How often the scheduled audit takes
@@ -2648,6 +2964,9 @@ export interface UpdateScheduledAuditRequest {
   scheduledAuditName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduledAuditResponse {
   /**
    * <p>The ARN of the scheduled audit.</p>
@@ -2655,6 +2974,9 @@ export interface UpdateScheduledAuditResponse {
   scheduledAuditArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityProfileRequest {
   /**
    * <p>The name of the security profile you want to update.</p>
@@ -2724,6 +3046,9 @@ export interface UpdateSecurityProfileRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityProfileResponse {
   /**
    * <p>The name of the security profile that was updated.</p>
@@ -2787,6 +3112,9 @@ export interface UpdateSecurityProfileResponse {
   lastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamRequest {
   /**
    * <p>The stream ID.</p>
@@ -2809,6 +3137,9 @@ export interface UpdateStreamRequest {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamResponse {
   /**
    * <p>The stream ID.</p>
@@ -2832,6 +3163,7 @@ export interface UpdateStreamResponse {
 }
 
 /**
+ * @public
  * <p>The input for the UpdateThing operation.</p>
  */
 export interface UpdateThingRequest {
@@ -2851,7 +3183,7 @@ export interface UpdateThingRequest {
    * <p>A list of thing attributes, a JSON string containing name-value pairs. For
    * 			example:</p>
    *          <p>
-   *             <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
+   *             <code>\{\"attributes\":\{\"name1\":\"value2\"\}\}</code>
    *          </p>
    *          <p>This data is used to add new attributes or update existing attributes.</p>
    */
@@ -2873,10 +3205,14 @@ export interface UpdateThingRequest {
 }
 
 /**
+ * @public
  * <p>The output from the UpdateThing operation.</p>
  */
 export interface UpdateThingResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupRequest {
   /**
    * <p>The thing group to update.</p>
@@ -2895,6 +3231,9 @@ export interface UpdateThingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupResponse {
   /**
    * <p>The version of the updated thing group.</p>
@@ -2902,6 +3241,9 @@ export interface UpdateThingGroupResponse {
   version?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupsForThingRequest {
   /**
    * <p>The thing whose group memberships will be updated.</p>
@@ -2927,8 +3269,14 @@ export interface UpdateThingGroupsForThingRequest {
   overrideDynamicGroups?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupsForThingResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTopicRuleDestinationRequest {
   /**
    * <p>The ARN of the topic rule destination.</p>
@@ -2972,8 +3320,14 @@ export interface UpdateTopicRuleDestinationRequest {
   status: TopicRuleDestinationStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTopicRuleDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface ValidateSecurityProfileBehaviorsRequest {
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
@@ -2982,6 +3336,7 @@ export interface ValidateSecurityProfileBehaviorsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an error found in a behavior specification.</p>
  */
 export interface ValidationError {
@@ -2991,6 +3346,9 @@ export interface ValidationError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ValidateSecurityProfileBehaviorsResponse {
   /**
    * <p>True if the behaviors were valid.</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopLoggingCommand}.
  */
 export interface StopLoggingCommandInput extends StopLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopLoggingCommand}.
  */
 export interface StopLoggingCommandOutput extends StopLoggingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the
  *          specified trail. Under most circumstances, there is no need to use this action. You can
  *          update a trail without stopping it first. This action is the only way to stop recording.
@@ -52,6 +57,8 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StopLoggingCommandInput - {@link StopLoggingCommandInput}
+ * @returns {@link StopLoggingCommandOutput}
  * @see {@link StopLoggingCommandInput} for command's `input` shape.
  * @see {@link StopLoggingCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -145,6 +152,9 @@ export class StopLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class StopLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLoggingCommandOutput> {
     return deserializeAws_json1_1StopLoggingCommand(output, context);
   }

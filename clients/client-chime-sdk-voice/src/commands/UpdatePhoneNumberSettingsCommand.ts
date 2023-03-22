@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePhoneNumberSettingsCommand}.
  */
 export interface UpdatePhoneNumberSettingsCommandInput extends UpdatePhoneNumberSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePhoneNumberSettingsCommand}.
  */
 export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer {}
@@ -49,6 +53,9 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePhoneNumberSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,10 +95,16 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePhoneNumberSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVolumeCommand}.
  */
 export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVolumeCommand}.
  */
 export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVolumeCommandInput - {@link CreateVolumeCommandInput}
+ * @returns {@link CreateVolumeCommandOutput}
  * @see {@link CreateVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeCommandOutput> {
     return deserializeAws_json1_1CreateVolumeCommand(output, context);
   }

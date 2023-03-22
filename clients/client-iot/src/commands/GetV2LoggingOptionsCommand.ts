@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetV2LoggingOptionsCommand}.
  */
 export interface GetV2LoggingOptionsCommandInput extends GetV2LoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetV2LoggingOptionsCommand}.
  */
 export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the fine grained logging options.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetV2LoggingOptionsCommandInput - {@link GetV2LoggingOptionsCommandInput}
+ * @returns {@link GetV2LoggingOptionsCommandOutput}
  * @see {@link GetV2LoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetV2LoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetV2LoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetV2LoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetV2LoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetV2LoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetV2LoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetV2LoggingOptionsCommandOutput> {
     return deserializeAws_restJson1GetV2LoggingOptionsCommand(output, context);
   }

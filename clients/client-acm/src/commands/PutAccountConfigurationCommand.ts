@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountConfigurationCommand}.
  */
 export interface PutAccountConfigurationCommandInput extends PutAccountConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountConfigurationCommand}.
  */
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or modifies account-level configurations in ACM. </p>
  *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
  *       the number of days prior to certificate expiration when ACM starts generating
@@ -46,6 +51,8 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountConfigurationCommandInput - {@link PutAccountConfigurationCommandInput}
+ * @returns {@link PutAccountConfigurationCommandOutput}
  * @see {@link PutAccountConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAccountConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -82,6 +89,9 @@ export class PutAccountConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutAccountConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAccountConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountConfigurationCommandOutput> {
     return deserializeAws_json1_1PutAccountConfigurationCommand(output, context);
   }

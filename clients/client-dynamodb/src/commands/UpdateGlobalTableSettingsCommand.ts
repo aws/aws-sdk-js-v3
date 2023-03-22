@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalTableSettingsCommand}.
  */
 export interface UpdateGlobalTableSettingsCommandInput extends UpdateGlobalTableSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalTableSettingsCommand}.
  */
 export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTableSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates settings for a global table.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -58,6 +63,8 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalTableSettingsCommandInput - {@link UpdateGlobalTableSettingsCommandInput}
+ * @returns {@link UpdateGlobalTableSettingsCommandOutput}
  * @see {@link UpdateGlobalTableSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalTableSettingsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -113,6 +120,9 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalTableSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalTableSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateGlobalTableSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

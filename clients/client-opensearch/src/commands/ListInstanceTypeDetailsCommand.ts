@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceTypeDetailsCommand}.
  */
 export interface ListInstanceTypeDetailsCommandInput extends ListInstanceTypeDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceTypeDetailsCommand}.
  */
 export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
  *    version.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceTypeDetailsCommandInput - {@link ListInstanceTypeDetailsCommandInput}
+ * @returns {@link ListInstanceTypeDetailsCommandOutput}
  * @see {@link ListInstanceTypeDetailsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceTypeDetailsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListInstanceTypeDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceTypeDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListInstanceTypeDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceTypeDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInstanceTypeDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceTypeDetailsCommandOutput> {
     return deserializeAws_restJson1ListInstanceTypeDetailsCommand(output, context);
   }

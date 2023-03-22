@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQualificationTypeCommand}.
  */
 export interface UpdateQualificationTypeCommandInput extends UpdateQualificationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQualificationTypeCommand}.
  */
 export interface UpdateQualificationTypeCommandOutput extends UpdateQualificationTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>UpdateQualificationType</code>
@@ -78,6 +83,8 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQualificationTypeCommandInput - {@link UpdateQualificationTypeCommandInput}
+ * @returns {@link UpdateQualificationTypeCommandOutput}
  * @see {@link UpdateQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class UpdateQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQualificationTypeCommandOutput> {
     return deserializeAws_json1_1UpdateQualificationTypeCommand(output, context);
   }

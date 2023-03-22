@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportCertificateAuthorityCertificateCommand}.
  */
 export interface ImportCertificateAuthorityCertificateCommandInput
   extends ImportCertificateAuthorityCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportCertificateAuthorityCertificateCommand}.
  */
 export interface ImportCertificateAuthorityCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a signed private CA certificate into Amazon Web Services Private CA. This action is used when you
  * 			are using a chain of trust whose root is located outside Amazon Web Services Private CA. Before you can call
  * 			this action, the following preparations must in place:</p>
@@ -172,6 +177,8 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCertificateAuthorityCertificateCommandInput - {@link ImportCertificateAuthorityCertificateCommandInput}
+ * @returns {@link ImportCertificateAuthorityCertificateCommandOutput}
  * @see {@link ImportCertificateAuthorityCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -225,6 +232,9 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCertificateAuthorityCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -264,6 +274,9 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ImportCertificateAuthorityCertificateCommandInput,
     context: __SerdeContext
@@ -271,6 +284,9 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     return serializeAws_json1_1ImportCertificateAuthorityCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLanguageModelCommand}.
  */
 export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLanguageModelCommand}.
  */
 export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom language model.</p>
  *          <p>When creating a new custom language model, you must specify:</p>
  *          <ul>
@@ -62,6 +67,8 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLanguageModelCommandInput - {@link CreateLanguageModelCommandInput}
+ * @returns {@link CreateLanguageModelCommandOutput}
  * @see {@link CreateLanguageModelCommandInput} for command's `input` shape.
  * @see {@link CreateLanguageModelCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateLanguageModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLanguageModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateLanguageModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLanguageModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLanguageModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLanguageModelCommandOutput> {
     return deserializeAws_json1_1CreateLanguageModelCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateFileSystemAliasesCommand}.
  */
 export interface AssociateFileSystemAliasesCommandInput extends AssociateFileSystemAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateFileSystemAliasesCommand}.
  */
 export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.
  *         A file system can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
  *         associate a DNS alias that is already associated with the file system, FSx takes no action on that alias in the request.
@@ -56,6 +61,8 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateFileSystemAliasesCommandInput - {@link AssociateFileSystemAliasesCommandInput}
+ * @returns {@link AssociateFileSystemAliasesCommandOutput}
  * @see {@link AssociateFileSystemAliasesCommandInput} for command's `input` shape.
  * @see {@link AssociateFileSystemAliasesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -88,6 +95,9 @@ export class AssociateFileSystemAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateFileSystemAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class AssociateFileSystemAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateFileSystemAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateFileSystemAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

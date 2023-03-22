@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InvokeAsyncCommand}.
  */
-type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
+export type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
   /**
    * For *`InvokeAsyncRequest["InvokeArgs"]`*, see {@link InvokeAsyncRequest.InvokeArgs}.
    */
@@ -39,11 +41,14 @@ type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
  */
 export interface InvokeAsyncCommandInput extends InvokeAsyncCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link InvokeAsyncCommand}.
  */
 export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -60,6 +65,8 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeAsyncCommandInput - {@link InvokeAsyncCommandInput}
+ * @returns {@link InvokeAsyncCommandOutput}
  * @see {@link InvokeAsyncCommandInput} for command's `input` shape.
  * @see {@link InvokeAsyncCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -98,6 +105,9 @@ export class InvokeAsyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeAsyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class InvokeAsyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeAsyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InvokeAsyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeAsyncCommandOutput> {
     return deserializeAws_restJson1InvokeAsyncCommand(output, context);
   }

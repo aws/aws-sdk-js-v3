@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandInput extends DeleteVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the vocabulary that has the given identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVocabularyCommandInput - {@link DeleteVocabularyCommandInput}
+ * @returns {@link DeleteVocabularyCommandOutput}
  * @see {@link DeleteVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVocabularyCommandOutput> {
     return deserializeAws_restJson1DeleteVocabularyCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagServerCertificateCommand}.
  */
 export interface UntagServerCertificateCommandInput extends UntagServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagServerCertificateCommand}.
  */
 export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the IAM server certificate.
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagServerCertificateCommandInput - {@link UntagServerCertificateCommandInput}
+ * @returns {@link UntagServerCertificateCommandOutput}
  * @see {@link UntagServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UntagServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -89,6 +96,9 @@ export class UntagServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UntagServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagServerCertificateCommandOutput> {
     return deserializeAws_queryUntagServerCertificateCommand(output, context);
   }

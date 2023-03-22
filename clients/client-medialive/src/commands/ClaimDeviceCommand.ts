@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ClaimDeviceCommand}.
  */
 export interface ClaimDeviceCommandInput extends ClaimDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ClaimDeviceCommand}.
  */
 export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Send a request to claim an AWS Elemental device that you have purchased from a third-party vendor. After the request succeeds, you will own the device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ClaimDeviceCommandInput - {@link ClaimDeviceCommandInput}
+ * @returns {@link ClaimDeviceCommandOutput}
  * @see {@link ClaimDeviceCommandInput} for command's `input` shape.
  * @see {@link ClaimDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class ClaimDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClaimDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ClaimDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClaimDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ClaimDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimDeviceCommandOutput> {
     return deserializeAws_restJson1ClaimDeviceCommand(output, context);
   }

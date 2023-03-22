@@ -141,11 +141,13 @@ import {
 import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
 
 /**
+ * @public
  * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
  *          anomalies in machines from sensor data for use in predictive maintenance. </p>
  */
 export class LookoutEquipment extends LookoutEquipmentClient {
   /**
+   * @public
    * <p>Creates a container for a collection of data being ingested for analysis. The dataset
    *          contains the metadata describing where the data is and what the data actually looks like.
    *          In other words, it contains the location of the data source, the data schema, and other
@@ -181,6 +183,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p> Creates a scheduled inference. Scheduling an inference is setting up a continuous
    *          real-time inference plan to analyze new measurement data. When setting up the schedule, you
    *          provide an S3 bucket location for the input data, assign it a delimiter between separate
@@ -217,6 +220,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Creates a label for an event.
    * </p>
@@ -245,6 +249,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Creates a group of labels.
    * </p>
@@ -279,6 +284,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Creates an ML model for data inference. </p>
    *          <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data.
    *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and
@@ -313,6 +319,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p> Deletes a dataset and associated artifacts. The operation will check to see if any
    *          inference scheduler or data ingestion job is currently using the dataset, and if there
    *          isn't, the dataset, its metadata, and any associated data stored in S3 will be deleted.
@@ -349,6 +356,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Deletes an inference scheduler that has been set up. Already processed output results
    *          are not affected. </p>
    */
@@ -382,6 +390,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Deletes a label.
    * </p>
@@ -410,6 +419,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Deletes a group of labels.
    * </p>
@@ -444,6 +454,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Deletes an ML model currently available for Amazon Lookout for Equipment. This will
    *          prevent it from being used with an inference scheduler, even one that is already set up.
    *       </p>
@@ -472,6 +483,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Provides information on a specific data ingestion job such as creation time, dataset
    *          ARN, and status.</p>
    */
@@ -505,6 +517,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Provides a JSON description of the data in each time series dataset, including names,
    *          column names, and data types.</p>
    */
@@ -538,6 +551,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p> Specifies information about the inference scheduler being used, including name, model,
    *          status, and associated metadata </p>
    */
@@ -571,6 +585,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Returns the name of the label.
    * </p>
@@ -605,6 +620,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Returns information about the label group.
    * </p>
@@ -639,6 +655,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Provides a JSON containing the overall information about a specific ML model, including
    *          model name and ARN, dataset, training and evaluation information, status, and so on.
    *       </p>
@@ -673,6 +690,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of all data ingestion jobs, including dataset name and ARN, S3 location
    *          of the input data, status, and so on. </p>
    */
@@ -706,6 +724,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Lists all datasets currently available in your account, filtering on the dataset name.
    *       </p>
    */
@@ -736,6 +755,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p> Lists all inference events that have been found for the specified inference scheduler.
    *       </p>
    */
@@ -769,6 +789,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p> Lists all inference executions that have been performed by the specified inference
    *          scheduler. </p>
    */
@@ -802,6 +823,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all inference schedulers currently available for your account.
    *       </p>
    */
@@ -835,6 +857,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Returns a list of the label groups.
    * </p>
@@ -869,6 +892,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Provides a list of labels.
    * </p>
@@ -897,6 +921,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Generates a list of all models in the account, including model name and ARN, dataset,
    *          and status. </p>
    */
@@ -924,6 +949,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p> Lists statistics about the data collected for each of the sensors that have been
    *          successfully ingested in the particular dataset. Can also be used to retreive Sensor
    *          Statistics for a previous ingestion job. </p>
@@ -958,6 +984,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Lists all the tags for a specified resource, including key and value. </p>
    */
   public listTagsForResource(
@@ -990,6 +1017,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status.
    *       </p>
    */
@@ -1023,6 +1051,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Starts an inference scheduler. </p>
    */
   public startInferenceScheduler(
@@ -1055,6 +1084,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Stops an inference scheduler. </p>
    */
   public stopInferenceScheduler(
@@ -1087,6 +1117,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Associates a given tag to a resource in your account. A tag is a key-value pair which
    *          can be added to an Amazon Lookout for Equipment resource as metadata. Tags can be used for
    *          organizing your resources as well as helping you to search and filter by tag. Multiple tags
@@ -1117,6 +1148,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Removes a specific tag from a given resource. The tag is specified by its key. </p>
    */
   public untagResource(
@@ -1149,6 +1181,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>Updates an inference scheduler. </p>
    */
   public updateInferenceScheduler(
@@ -1181,6 +1214,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
+   * @public
    * <p>
    * Updates the label group.
    * </p>

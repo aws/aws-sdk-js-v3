@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLicenseManagerReportGeneratorCommand}.
  */
 export interface GetLicenseManagerReportGeneratorCommandInput extends GetLicenseManagerReportGeneratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLicenseManagerReportGeneratorCommand}.
  */
 export interface GetLicenseManagerReportGeneratorCommandOutput
@@ -37,6 +41,7 @@ export interface GetLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified report generator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetLicenseManagerReportGeneratorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLicenseManagerReportGeneratorCommandInput - {@link GetLicenseManagerReportGeneratorCommandInput}
+ * @returns {@link GetLicenseManagerReportGeneratorCommandOutput}
  * @see {@link GetLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link GetLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLicenseManagerReportGeneratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
     return serializeAws_json1_1GetLicenseManagerReportGeneratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

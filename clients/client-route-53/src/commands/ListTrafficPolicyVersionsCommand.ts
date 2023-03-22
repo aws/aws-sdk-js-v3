@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrafficPolicyVersionsCommand}.
  */
 export interface ListTrafficPolicyVersionsCommandInput extends ListTrafficPolicyVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrafficPolicyVersionsCommand}.
  */
 export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolicyVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about all of the versions for a specified traffic policy.</p>
  *          <p>Traffic policy versions are listed in numerical order by
  * 			<code>VersionNumber</code>.</p>
@@ -49,6 +54,8 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficPolicyVersionsCommandInput - {@link ListTrafficPolicyVersionsCommandInput}
+ * @returns {@link ListTrafficPolicyVersionsCommandOutput}
  * @see {@link ListTrafficPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -78,6 +85,9 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPolicyVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrafficPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListTrafficPolicyVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

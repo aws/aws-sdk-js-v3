@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketLoggingCommand}.
  */
 export interface GetBucketLoggingCommandInput extends GetBucketLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketLoggingCommand}.
  */
 export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the logging status of a bucket and the permissions users have to view and modify
  *          that status. To use GET, you must be the bucket owner.</p>
  *          <p>The following operations are related to <code>GetBucketLogging</code>:</p>
@@ -60,6 +65,8 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketLoggingCommandInput - {@link GetBucketLoggingCommandInput}
+ * @returns {@link GetBucketLoggingCommandOutput}
  * @see {@link GetBucketLoggingCommandInput} for command's `input` shape.
  * @see {@link GetBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -89,6 +96,9 @@ export class GetBucketLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetBucketLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketLoggingCommandOutput> {
     return deserializeAws_restXmlGetBucketLoggingCommand(output, context);
   }

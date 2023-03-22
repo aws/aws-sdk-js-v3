@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheEngineVersionsCommand}.
  */
 export interface DescribeCacheEngineVersionsCommandInput extends DescribeCacheEngineVersionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheEngineVersionsCommand}.
  */
 export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVersionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available cache
  *             engines and their versions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheEngineVersionsCommandInput - {@link DescribeCacheEngineVersionsCommandInput}
+ * @returns {@link DescribeCacheEngineVersionsCommandOutput}
  * @see {@link DescribeCacheEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -169,6 +176,9 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -208,10 +218,16 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -6,7 +6,7 @@ import { MTurkClient } from "../MTurkClient";
 import { MTurkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MTurkClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHITsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListHITs(
   config: MTurkPaginationConfiguration,
   input: ListHITsCommandInput,

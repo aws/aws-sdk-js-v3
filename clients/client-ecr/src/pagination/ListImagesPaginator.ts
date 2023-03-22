@@ -6,7 +6,7 @@ import { ECRClient } from "../ECRClient";
 import { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECRClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListImagesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListImages(
   config: ECRPaginationConfiguration,
   input: ListImagesCommandInput,

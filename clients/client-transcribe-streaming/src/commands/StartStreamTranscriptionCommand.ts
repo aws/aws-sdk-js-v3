@@ -32,15 +32,20 @@ import {
 } from "../TranscribeStreamingClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartStreamTranscriptionCommand}.
  */
 export interface StartStreamTranscriptionCommandInput extends StartStreamTranscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStreamTranscriptionCommand}.
  */
 export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  *       Amazon Transcribe and the transcription results are streamed to your application.</p>
  *          <p>The following parameters are required:</p>
@@ -72,6 +77,8 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStreamTranscriptionCommandInput - {@link StartStreamTranscriptionCommandInput}
+ * @returns {@link StartStreamTranscriptionCommandOutput}
  * @see {@link StartStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
@@ -115,6 +122,9 @@ export class StartStreamTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStreamTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,6 +165,9 @@ export class StartStreamTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
@@ -162,6 +175,9 @@ export class StartStreamTranscriptionCommand extends $Command<
     return serializeAws_restJson1StartStreamTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext

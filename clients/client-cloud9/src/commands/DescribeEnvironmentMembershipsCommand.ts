@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentMembershipsCommand}.
  */
 export interface DescribeEnvironmentMembershipsCommandInput extends DescribeEnvironmentMembershipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentMembershipsCommand}.
  */
 export interface DescribeEnvironmentMembershipsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEnvironmentMembershipsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about environment members for an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentMembershipsCommandInput - {@link DescribeEnvironmentMembershipsCommandInput}
+ * @returns {@link DescribeEnvironmentMembershipsCommandOutput}
  * @see {@link DescribeEnvironmentMembershipsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentMembershipsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -178,6 +185,9 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentMembershipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -217,6 +227,9 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEnvironmentMembershipsCommandInput,
     context: __SerdeContext
@@ -224,6 +237,9 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     return serializeAws_json1_1DescribeEnvironmentMembershipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

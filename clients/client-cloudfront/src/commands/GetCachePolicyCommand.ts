@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetCachePolicyCommand}.
  */
 export interface GetCachePolicyCommandInput extends GetCachePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCachePolicyCommand}.
  */
 export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a cache policy, including the following metadata:</p>
  *          <ul>
  *             <li>
@@ -59,6 +64,8 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCachePolicyCommandInput - {@link GetCachePolicyCommandInput}
+ * @returns {@link GetCachePolicyCommandOutput}
  * @see {@link GetCachePolicyCommandInput} for command's `input` shape.
  * @see {@link GetCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetCachePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCachePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetCachePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCachePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetCachePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCachePolicyCommandOutput> {
     return deserializeAws_restXmlGetCachePolicyCommand(output, context);
   }

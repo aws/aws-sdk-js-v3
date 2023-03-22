@@ -7,6 +7,7 @@ import {
 import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient permissions to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This structure assigns a feature variation to one user session.</p>
  */
 export interface EvaluationRequest {
@@ -48,6 +50,9 @@ export interface EvaluationRequest {
   evaluationContext?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature being evaluated.</p>
@@ -61,6 +66,7 @@ export interface BatchEvaluateFeatureRequest {
 }
 
 /**
+ * @public
  * <p>The value assigned to a feature variation. This structure must contain exactly one
  *       field. It can be <code>boolValue</code>, <code>doubleValue</code>, <code>longValue</code>, or
  *         <code>stringValue</code>.</p>
@@ -72,6 +78,9 @@ export type VariableValue =
   | VariableValue.StringValueMember
   | VariableValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VariableValue {
   /**
    * <p>If this feature uses the Boolean variation type, this field contains the Boolean value of
@@ -147,6 +156,7 @@ export namespace VariableValue {
 }
 
 /**
+ * @public
  * <p>This structure displays the results of one feature evaluation assignment to one user
  *       session.</p>
  */
@@ -191,6 +201,9 @@ export interface EvaluationResult {
   details?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateFeatureResponse {
   /**
    * <p>An array of structures, where each structure displays the results of one feature evaluation
@@ -200,6 +213,7 @@ export interface BatchEvaluateFeatureResponse {
 }
 
 /**
+ * @public
  * <p>The request references a resource that does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -231,6 +245,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because of request throttling. Retry the request.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -262,6 +277,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure containing an error name and message.</p>
  */
 export interface ValidationExceptionField {
@@ -276,6 +292,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -284,6 +303,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The value of a parameter in the request caused an error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -314,12 +334,16 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ChangeDirectionEnum {
   DECREASE = "DECREASE",
   INCREASE = "INCREASE",
 }
 
 /**
+ * @public
  * <p>A structure containing the CloudWatch Logs log group where the project stores evaluation
  *        events.</p>
  */
@@ -332,6 +356,7 @@ export interface CloudWatchLogsDestination {
 }
 
 /**
+ * @public
  * <p>A structure containing the CloudWatch Logs log group where the project stores evaluation
  *        events.</p>
  */
@@ -344,6 +369,7 @@ export interface CloudWatchLogsDestinationConfig {
 }
 
 /**
+ * @public
  * <p>A resource was in an inconsistent state during an update or a deletion.</p>
  */
 export class ConflictException extends __BaseException {
@@ -375,6 +401,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This structure defines a metric that you want to use to evaluate the variations
  *        during a launch or experiment.</p>
  */
@@ -409,6 +436,7 @@ export interface MetricDefinitionConfig {
 }
 
 /**
+ * @public
  * <p>Use this structure to tell Evidently whether higher or lower values are desired for a metric that is
  *        used in an experiment.</p>
  */
@@ -430,6 +458,7 @@ export interface MetricGoalConfig {
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration of which variation to use as the "control"
  *       version. The "control" version  is used for comparison with other variations. This structure
  *       also specifies how much experiment traffic is allocated to each variation.</p>
@@ -450,6 +479,7 @@ export interface OnlineAbConfig {
 }
 
 /**
+ * @public
  * <p>A structure that defines one treatment in an experiment. A treatment is a variation of the feature
  *       that you are including in the experiment.</p>
  */
@@ -475,6 +505,9 @@ export interface TreatmentConfig {
   variation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExperimentRequest {
   /**
    * <p>The name or ARN of the project that you want to create the new experiment in.</p>
@@ -544,6 +577,7 @@ export interface CreateExperimentRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains the date and time that the experiment started and ended.</p>
  */
 export interface ExperimentExecution {
@@ -559,6 +593,7 @@ export interface ExperimentExecution {
 }
 
 /**
+ * @public
  * <p>This structure defines a metric that is being used to evaluate the variations
  *       during a launch or experiment.</p>
  */
@@ -593,6 +628,7 @@ export interface MetricDefinition {
 }
 
 /**
+ * @public
  * <p>A structure that tells Evidently whether higher or lower values are desired for a metric that is
  *        used in an experiment.</p>
  */
@@ -614,6 +650,7 @@ export interface MetricGoal {
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration of which variation to use as the "control"
  *       version. The "control" version is used for comparison with other variations. This structure
  *       also specifies how much experiment traffic is allocated to each variation.</p>
@@ -634,6 +671,7 @@ export interface OnlineAbDefinition {
 }
 
 /**
+ * @public
  * <p>This structure contains the time and date that Evidently completed the analysis of the experiment.</p>
  */
 export interface ExperimentSchedule {
@@ -643,6 +681,9 @@ export interface ExperimentSchedule {
   analysisCompleteTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ExperimentStatus {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -652,6 +693,7 @@ export enum ExperimentStatus {
 }
 
 /**
+ * @public
  * <p>A structure that defines one treatment in an experiment. A treatment is a variation of the feature
  *        that you are including in the experiment.</p>
  */
@@ -673,11 +715,15 @@ export interface Treatment {
   featureVariations?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ExperimentType {
   ONLINE_AB_EXPERIMENT = "aws.evidently.onlineab",
 }
 
 /**
+ * @public
  * <p>A structure containing the configuration details of an experiment.</p>
  */
 export interface Experiment {
@@ -782,6 +828,9 @@ export interface Experiment {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment
@@ -791,6 +840,7 @@ export interface CreateExperimentResponse {
 }
 
 /**
+ * @public
  * <p>The request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -833,12 +883,16 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FeatureEvaluationStrategy {
   ALL_RULES = "ALL_RULES",
   DEFAULT_VARIATION = "DEFAULT_VARIATION",
 }
 
 /**
+ * @public
  * <p>This structure contains the name and variation value of one variation of a feature.</p>
  */
 export interface VariationConfig {
@@ -853,6 +907,9 @@ export interface VariationConfig {
   value: VariableValue | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFeatureRequest {
   /**
    * <p>The name or ARN of the project that is to contain the new feature.</p>
@@ -914,6 +971,7 @@ export interface CreateFeatureRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains the information about an evaluation rule for this feature,
  *       if it is used in a launch or experiment.</p>
  */
@@ -930,11 +988,17 @@ export interface EvaluationRule {
   type: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FeatureStatus {
   AVAILABLE = "AVAILABLE",
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum VariationValueType {
   BOOLEAN = "BOOLEAN",
   DOUBLE = "DOUBLE",
@@ -943,6 +1007,7 @@ export enum VariationValueType {
 }
 
 /**
+ * @public
  * <p>This structure contains the name and variation value of one variation of a feature.</p>
  */
 export interface Variation {
@@ -958,6 +1023,7 @@ export interface Variation {
 }
 
 /**
+ * @public
  * <p>This structure contains information about one Evidently feature in your account.</p>
  */
 export interface Feature {
@@ -1046,6 +1112,9 @@ export interface Feature {
   entityOverrides?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFeatureResponse {
   /**
    * <p>A structure that contains information about the new feature.</p>
@@ -1054,6 +1123,7 @@ export interface CreateFeatureResponse {
 }
 
 /**
+ * @public
  * <p>A structure that defines one launch group in a launch. A launch group is a variation of
  *       the feature that you are including in the launch.</p>
  */
@@ -1080,6 +1150,7 @@ export interface LaunchGroupConfig {
 }
 
 /**
+ * @public
  * <p>A structure that defines a metric to be used to monitor performance of the variations during a launch.</p>
  */
 export interface MetricMonitorConfig {
@@ -1090,6 +1161,7 @@ export interface MetricMonitorConfig {
 }
 
 /**
+ * @public
  * <p>This structure specifies a segment
  *       that you have already created, and defines the traffic split for that segment to be used in a launch.</p>
  */
@@ -1115,6 +1187,7 @@ export interface SegmentOverride {
 }
 
 /**
+ * @public
  * <p>This structure defines the traffic allocation percentages among the feature
  *        variations during one step of a launch, and the start time of that step.</p>
  */
@@ -1149,6 +1222,7 @@ export interface ScheduledSplitConfig {
 }
 
 /**
+ * @public
  * <p>An array of structures that define the traffic allocation percentages among the feature
  *       variations during each step of a launch. This also defines the start time of each step.</p>
  */
@@ -1161,6 +1235,9 @@ export interface ScheduledSplitsLaunchConfig {
   steps: ScheduledSplitConfig[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchRequest {
   /**
    * <p>The name or ARN of the project that you want to create the launch in.</p>
@@ -1215,6 +1292,7 @@ export interface CreateLaunchRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains information about the start and end times of the launch.</p>
  */
 export interface LaunchExecution {
@@ -1230,6 +1308,7 @@ export interface LaunchExecution {
 }
 
 /**
+ * @public
  * <p>A structure that defines one launch group in a launch. A launch group is a variation of the feature
  *       that you are including in the launch.</p>
  */
@@ -1251,6 +1330,7 @@ export interface LaunchGroup {
 }
 
 /**
+ * @public
  * <p>A structure that defines a metric to be used to monitor performance of the variations during a launch.</p>
  */
 export interface MetricMonitor {
@@ -1261,6 +1341,7 @@ export interface MetricMonitor {
 }
 
 /**
+ * @public
  * <p>This structure defines the traffic allocation percentages among the feature
  *        variations during one step of a launch, and the start time of that step.</p>
  */
@@ -1295,6 +1376,7 @@ export interface ScheduledSplit {
 }
 
 /**
+ * @public
  * <p>An array of structures that define the traffic allocation percentages among the feature
  *       variations during each step of a launch. This also defines the start time of each step.</p>
  */
@@ -1307,6 +1389,9 @@ export interface ScheduledSplitsLaunchDefinition {
   steps?: ScheduledSplit[];
 }
 
+/**
+ * @public
+ */
 export enum LaunchStatus {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -1315,11 +1400,15 @@ export enum LaunchStatus {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum LaunchType {
   SCHEDULED_SPLITS_LAUNCH = "aws.evidently.splits",
 }
 
 /**
+ * @public
  * <p>This structure contains the configuration details of one Evidently launch.</p>
  */
 export interface Launch {
@@ -1403,6 +1492,9 @@ export interface Launch {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchResponse {
   /**
    * <p>A structure that contains the configuration of the launch that was created.</p>
@@ -1411,6 +1503,7 @@ export interface CreateLaunchResponse {
 }
 
 /**
+ * @public
  * <p>Use this parameter to configure client-side evaluation for your project. Client-side evaluation allows your application to assign
  *       variations to user
  *       sessions locally instead of by calling the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation to assign the
@@ -1433,6 +1526,7 @@ export interface ProjectAppConfigResourceConfig {
 }
 
 /**
+ * @public
  * <p>If the project stores evaluation events in an Amazon S3 bucket, this structure
  *        stores the bucket name and bucket prefix.</p>
  */
@@ -1449,6 +1543,7 @@ export interface S3DestinationConfig {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about where Evidently is to store
  *        evaluation events for longer term storage.</p>
  */
@@ -1466,6 +1561,9 @@ export interface ProjectDataDeliveryConfig {
   cloudWatchLogs?: CloudWatchLogsDestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
    * <p>The name for the project.</p>
@@ -1513,6 +1611,7 @@ export interface CreateProjectRequest {
 }
 
 /**
+ * @public
  * <p>This is a structure that defines the configuration of how your application
  *       integrates with AppConfig to run client-side evaluation.</p>
  */
@@ -1535,6 +1634,7 @@ export interface ProjectAppConfigResource {
 }
 
 /**
+ * @public
  * <p>If the project stores evaluation events in an Amazon S3 bucket, this structure
  *        stores the bucket name and bucket prefix.</p>
  */
@@ -1551,6 +1651,7 @@ export interface S3Destination {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about where Evidently is to store
  *        evaluation events for longer term storage.</p>
  */
@@ -1568,12 +1669,16 @@ export interface ProjectDataDelivery {
   cloudWatchLogs?: CloudWatchLogsDestination;
 }
 
+/**
+ * @public
+ */
 export enum ProjectStatus {
   AVAILABLE = "AVAILABLE",
   UPDATING = "UPDATING",
 }
 
 /**
+ * @public
  * <p>This structure defines a project, which is the logical object in Evidently that can contain features, launches, and
  *       experiments. Use projects to group similar features together.</p>
  */
@@ -1653,6 +1758,9 @@ export interface Project {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectResponse {
   /**
    * <p>A structure that contains information about the created project.</p>
@@ -1660,6 +1768,9 @@ export interface CreateProjectResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentRequest {
   /**
    * <p>A name for the segment.</p>
@@ -1691,6 +1802,7 @@ export interface CreateSegmentRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains information about one audience <i>segment</i>. You can use segments
  *     in your experiments and launches to narrow the user sessions used for experiment or launch to only the user
  *     sessions that match one or more criteria.</p>
@@ -1746,6 +1858,9 @@ export interface Segment {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentResponse {
   /**
    * <p>A structure that contains the complete information about the segment that was just created.</p>
@@ -1753,6 +1868,9 @@ export interface CreateSegmentResponse {
   segment: Segment | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment to delete.</p>
@@ -1765,9 +1883,13 @@ export interface DeleteExperimentRequest {
   experiment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExperimentResponse {}
 
 /**
+ * @public
  * <p>Unexpected error while processing the request. Retry the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -1787,6 +1909,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service was unavailable. Retry the request.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1805,6 +1928,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature to delete.</p>
@@ -1817,8 +1943,14 @@ export interface DeleteFeatureRequest {
   feature: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFeatureResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch to delete.</p>
@@ -1831,8 +1963,14 @@ export interface DeleteLaunchRequest {
   launch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteProjectRequest {
   /**
    * <p>The name or ARN of the project to delete.</p>
@@ -1840,8 +1978,14 @@ export interface DeleteProjectRequest {
   project: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSegmentRequest {
   /**
    * <p>Specifies the segment to delete.</p>
@@ -1849,8 +1993,14 @@ export interface DeleteSegmentRequest {
   segment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSegmentResponse {}
 
+/**
+ * @public
+ */
 export interface EvaluateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains this feature.</p>
@@ -1880,6 +2030,9 @@ export interface EvaluateFeatureRequest {
   evaluationContext?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface EvaluateFeatureResponse {
   /**
    * <p>The name of the variation that was served to the user session.</p>
@@ -1907,12 +2060,16 @@ export interface EvaluateFeatureResponse {
   details?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export enum EventType {
   CUSTOM = "aws.evidently.custom",
   EVALUATION = "aws.evidently.evaluation",
 }
 
 /**
+ * @public
  * <p>A structure that contains the information about one evaluation event or custom event sent to Evidently.
  *         This is a JSON payload. If this event specifies a pre-defined event type, the payload must follow the
  *         defined event schema.</p>
@@ -1937,6 +2094,9 @@ export interface Event {
   data: __LazyJsonString | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource that you want to see the tags of.</p>
@@ -1944,6 +2104,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
@@ -1951,6 +2114,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment.</p>
@@ -1963,6 +2129,9 @@ export interface GetExperimentRequest {
   experiment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment.</p>
@@ -1970,14 +2139,23 @@ export interface GetExperimentResponse {
   experiment?: Experiment;
 }
 
+/**
+ * @public
+ */
 export enum ExperimentBaseStat {
   MEAN = "Mean",
 }
 
+/**
+ * @public
+ */
 export enum ExperimentReportName {
   BAYESIAN_INFERENCE = "BayesianInference",
 }
 
+/**
+ * @public
+ */
 export enum ExperimentResultRequestType {
   BASE_STAT = "BaseStat",
   CONFIDENCE_INTERVAL = "ConfidenceInterval",
@@ -1985,6 +2163,9 @@ export enum ExperimentResultRequestType {
   TREATMENT_EFFECT = "TreatmentEffect",
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentResultsRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment that you want to see the results of.</p>
@@ -2069,6 +2250,7 @@ export interface GetExperimentResultsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains results of an experiment.</p>
  */
 export interface ExperimentReport {
@@ -2093,6 +2275,9 @@ export interface ExperimentReport {
   content?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export enum ExperimentResultResponseType {
   CONFIDENCE_INTERVAL_LOWERBOUND = "ConfidenceIntervalLowerBound",
   CONFIDENCE_INTERVAL_UPPERBOUND = "ConfidenceIntervalUpperBound",
@@ -2102,6 +2287,7 @@ export enum ExperimentResultResponseType {
 }
 
 /**
+ * @public
  * <p>A structure that contains experiment results for one metric that is monitored in
  *       the experiment.</p>
  */
@@ -2127,6 +2313,9 @@ export interface ExperimentResultsData {
   values?: number[];
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentResultsResponse {
   /**
    * <p>An array of structures that include experiment results including metric names and values. </p>
@@ -2151,6 +2340,9 @@ export interface GetExperimentResultsResponse {
   details?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsRequest {
   /**
    * <p>The name or ARN of the project to return the experiment list from.</p>
@@ -2174,6 +2366,9 @@ export interface ListExperimentsRequest {
   status?: ExperimentStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsResponse {
   /**
    * <p>An array of structures that contain the configuration details of the experiments in the
@@ -2188,6 +2383,9 @@ export interface ListExperimentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment to start.</p>
@@ -2206,6 +2404,9 @@ export interface StartExperimentRequest {
   analysisCompleteTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartExperimentResponse {
   /**
    * <p>A timestamp that indicates when the experiment started.</p>
@@ -2213,11 +2414,17 @@ export interface StartExperimentResponse {
   startedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ExperimentStopDesiredState {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
 }
 
+/**
+ * @public
+ */
 export interface StopExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment to stop.</p>
@@ -2241,6 +2448,9 @@ export interface StopExperimentRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopExperimentResponse {
   /**
    * <p>The date and time that the experiment stopped.</p>
@@ -2248,6 +2458,9 @@ export interface StopExperimentResponse {
   endedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment that you want to update.</p>
@@ -2313,6 +2526,9 @@ export interface UpdateExperimentRequest {
   onlineAbConfig?: OnlineAbConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment
@@ -2321,6 +2537,9 @@ export interface UpdateExperimentResponse {
   experiment: Experiment | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature.</p>
@@ -2333,6 +2552,9 @@ export interface GetFeatureRequest {
   feature: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFeatureResponse {
   /**
    * <p>A structure containing the configuration details of the feature.</p>
@@ -2340,6 +2562,9 @@ export interface GetFeatureResponse {
   feature: Feature | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFeaturesRequest {
   /**
    * <p>The name or ARN of the project to return the feature list from.</p>
@@ -2359,6 +2584,7 @@ export interface ListFeaturesRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains information about one Evidently feature in your account.</p>
  */
 export interface FeatureSummary {
@@ -2417,6 +2643,9 @@ export interface FeatureSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListFeaturesResponse {
   /**
    * <p>An array of structures that contain the configuration details of the features in the
@@ -2431,6 +2660,9 @@ export interface ListFeaturesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature to be updated.</p>
@@ -2488,6 +2720,9 @@ export interface UpdateFeatureRequest {
   entityOverrides?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureResponse {
   /**
    * <p>A structure that contains information about the updated feature.</p>
@@ -2495,6 +2730,9 @@ export interface UpdateFeatureResponse {
   feature: Feature | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProjectRequest {
   /**
    * <p>The name or ARN of the project that you want to see the details of.</p>
@@ -2502,6 +2740,9 @@ export interface GetProjectRequest {
   project: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProjectResponse {
   /**
    * <p>A structure containing the configuration details of the project.</p>
@@ -2509,6 +2750,9 @@ export interface GetProjectResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch.</p>
@@ -2521,6 +2765,9 @@ export interface GetLaunchRequest {
   launch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchResponse {
   /**
    * <p>A structure containing the configuration details of the launch.</p>
@@ -2528,6 +2775,9 @@ export interface GetLaunchResponse {
   launch?: Launch;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchesRequest {
   /**
    * <p>The name or ARN of the project to return the launch list from.</p>
@@ -2551,6 +2801,9 @@ export interface ListLaunchesRequest {
   status?: LaunchStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchesResponse {
   /**
    * <p>An array of structures that contain the configuration details of the launches in the
@@ -2565,6 +2818,9 @@ export interface ListLaunchesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch to start.</p>
@@ -2577,6 +2833,9 @@ export interface StartLaunchRequest {
   launch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartLaunchResponse {
   /**
    * <p>A structure that contains information about the launch that was started.</p>
@@ -2584,11 +2843,17 @@ export interface StartLaunchResponse {
   launch: Launch | undefined;
 }
 
+/**
+ * @public
+ */
 export enum LaunchStopDesiredState {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
 }
 
+/**
+ * @public
+ */
 export interface StopLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch that you want to stop.</p>
@@ -2612,6 +2877,9 @@ export interface StopLaunchRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopLaunchResponse {
   /**
    * <p>The date and time that the launch stopped.</p>
@@ -2619,6 +2887,9 @@ export interface StopLaunchResponse {
   endedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch that you want to update.</p>
@@ -2662,6 +2933,9 @@ export interface UpdateLaunchRequest {
   scheduledSplitsConfig?: ScheduledSplitsLaunchConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchResponse {
   /**
    * <p>A structure that contains the new configuration of the launch that was updated.</p>
@@ -2669,6 +2943,9 @@ export interface UpdateLaunchResponse {
   launch: Launch | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsRequest {
   /**
    * <p>The maximum number of results to include in the response.</p>
@@ -2683,6 +2960,7 @@ export interface ListProjectsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains configuration information about an Evidently project.</p>
  */
 export interface ProjectSummary {
@@ -2747,6 +3025,9 @@ export interface ProjectSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsResponse {
   /**
    * <p>An array of structures that contain the configuration details of the projects in the Region.</p>
@@ -2760,6 +3041,9 @@ export interface ListProjectsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutProjectEventsRequest {
   /**
    * <p>The name or ARN of the project to write the events to.</p>
@@ -2774,6 +3058,7 @@ export interface PutProjectEventsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains Evidently's response to the sent events, including an event ID and error codes, if any. </p>
  */
 export interface PutProjectEventsResultEntry {
@@ -2795,6 +3080,9 @@ export interface PutProjectEventsResultEntry {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutProjectEventsResponse {
   /**
    * <p>The number of events in the operation that could not be used by Evidently.</p>
@@ -2808,6 +3096,9 @@ export interface PutProjectEventsResponse {
   eventResults?: PutProjectEventsResultEntry[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectRequest {
   /**
    * <p>The name or ARN of the project to update.</p>
@@ -2831,6 +3122,9 @@ export interface UpdateProjectRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectResponse {
   /**
    * <p>A structure containing information about the updated project.</p>
@@ -2838,6 +3132,9 @@ export interface UpdateProjectResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectDataDeliveryRequest {
   /**
    * <p>The name or ARN of the project that you want to modify the data storage options for.</p>
@@ -2856,6 +3153,9 @@ export interface UpdateProjectDataDeliveryRequest {
   cloudWatchLogs?: CloudWatchLogsDestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectDataDeliveryResponse {
   /**
    * <p>A structure containing details about the project that you updated.</p>
@@ -2863,6 +3163,9 @@ export interface UpdateProjectDataDeliveryResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentRequest {
   /**
    * <p>The ARN of the segment to return information for.</p>
@@ -2870,6 +3173,9 @@ export interface GetSegmentRequest {
   segment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentResponse {
   /**
    * <p>A structure that contains the complete information about the segment.</p>
@@ -2877,11 +3183,17 @@ export interface GetSegmentResponse {
   segment: Segment | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SegmentReferenceResourceType {
   EXPERIMENT = "EXPERIMENT",
   LAUNCH = "LAUNCH",
 }
 
+/**
+ * @public
+ */
 export interface ListSegmentReferencesRequest {
   /**
    * <p>The ARN of the segment that you want to view information for.</p>
@@ -2906,6 +3218,7 @@ export interface ListSegmentReferencesRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about one experiment or launch that
  *       uses the specified segment.  </p>
  */
@@ -2946,6 +3259,9 @@ export interface RefResource {
   lastUpdatedOn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSegmentReferencesResponse {
   /**
    * <p>An array of structures, where each structure contains information about one experiment or launch that
@@ -2960,6 +3276,9 @@ export interface ListSegmentReferencesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSegmentsRequest {
   /**
    * <p>The maximum number of results to include in the response. If you omit this, the default of 50 is used.</p>
@@ -2973,6 +3292,9 @@ export interface ListSegmentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSegmentsResponse {
   /**
    * <p>An array of structures that contain information about the segments in this Region.</p>
@@ -2986,6 +3308,9 @@ export interface ListSegmentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch Evidently resource that you're adding tags to.</p>
@@ -2998,8 +3323,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface TestSegmentPatternRequest {
   /**
    * <p>The pattern to test.</p>
@@ -3012,6 +3343,9 @@ export interface TestSegmentPatternRequest {
   payload: __LazyJsonString | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TestSegmentPatternResponse {
   /**
    * <p>Returns <code>true</code> if the pattern matches the payload.</p>
@@ -3019,6 +3353,9 @@ export interface TestSegmentPatternResponse {
   match: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch Evidently resource that you're removing tags from.</p>
@@ -3031,6 +3368,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

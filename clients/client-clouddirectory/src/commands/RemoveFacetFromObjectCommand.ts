@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFacetFromObjectCommand}.
  */
 export interface RemoveFacetFromObjectCommandInput extends RemoveFacetFromObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFacetFromObjectCommand}.
  */
 export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified facet from the specified object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFacetFromObjectCommandInput - {@link RemoveFacetFromObjectCommandInput}
+ * @returns {@link RemoveFacetFromObjectCommandOutput}
  * @see {@link RemoveFacetFromObjectCommandInput} for command's `input` shape.
  * @see {@link RemoveFacetFromObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class RemoveFacetFromObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFacetFromObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class RemoveFacetFromObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFacetFromObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveFacetFromObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFacetFromObjectCommandOutput> {
     return deserializeAws_restJson1RemoveFacetFromObjectCommand(output, context);
   }

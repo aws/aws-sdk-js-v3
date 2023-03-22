@@ -28,15 +28,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link CopyObjectCommand}.
  */
 export interface CopyObjectCommandInput extends CopyObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyObjectCommand}.
  */
 export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  *          <note>
  *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
@@ -231,6 +236,8 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyObjectCommandInput - {@link CopyObjectCommandInput}
+ * @returns {@link CopyObjectCommandOutput}
  * @see {@link CopyObjectCommandInput} for command's `input` shape.
  * @see {@link CopyObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -285,6 +292,9 @@ export class CopyObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -324,10 +334,16 @@ export class CopyObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCopyObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyObjectCommandOutput> {
     return deserializeAws_restXmlCopyObjectCommand(output, context);
   }

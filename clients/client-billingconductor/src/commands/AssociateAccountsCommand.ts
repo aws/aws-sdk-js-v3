@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAccountsCommand}.
  */
 export interface AssociateAccountsCommandInput extends AssociateAccountsInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAccountsCommand}.
  */
 export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connects an array of account IDs in a consolidated billing family to a predefined
  *       billing group. The account IDs must be a part of the consolidated billing family during the
  *       current month, and not already associated with another billing group. The maximum number of
@@ -49,6 +54,8 @@ export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAccountsCommandInput - {@link AssociateAccountsCommandInput}
+ * @returns {@link AssociateAccountsCommandOutput}
  * @see {@link AssociateAccountsCommandInput} for command's `input` shape.
  * @see {@link AssociateAccountsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -99,6 +106,9 @@ export class AssociateAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class AssociateAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAccountsCommandOutput> {
     return deserializeAws_restJson1AssociateAccountsCommand(output, context);
   }

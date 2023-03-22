@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the current certificates that have been imported into Transfer Family. If you want to
  *       limit the results to a certain number, supply a value for the <code>MaxResults</code>
  *       parameter. If you ran the command previously and received a value for the
@@ -50,6 +55,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
+ * @returns {@link ListCertificatesCommandOutput}
  * @see {@link ListCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCertificatesCommandOutput> {
     return deserializeAws_json1_1ListCertificatesCommand(output, context);
   }

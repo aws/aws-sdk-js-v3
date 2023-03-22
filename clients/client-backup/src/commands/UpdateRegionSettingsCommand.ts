@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRegionSettingsCommand}.
  */
 export interface UpdateRegionSettingsCommandInput extends UpdateRegionSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRegionSettingsCommand}.
  */
 export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled
  *          for a service, Backup tries to protect that service's resources in this Region,
  *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
@@ -46,6 +51,8 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRegionSettingsCommandInput - {@link UpdateRegionSettingsCommandInput}
+ * @returns {@link UpdateRegionSettingsCommandOutput}
  * @see {@link UpdateRegionSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateRegionSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateRegionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateRegionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRegionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegionSettingsCommandOutput> {
     return deserializeAws_restJson1UpdateRegionSettingsCommand(output, context);
   }

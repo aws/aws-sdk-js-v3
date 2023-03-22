@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainAssociationCommand}.
  */
 export interface DeleteDomainAssociationCommandInput extends DeleteDomainAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainAssociationCommand}.
  */
 export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a domain association for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainAssociationCommandInput - {@link DeleteDomainAssociationCommandInput}
+ * @returns {@link DeleteDomainAssociationCommandOutput}
  * @see {@link DeleteDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainAssociationCommandOutput> {
     return deserializeAws_restJson1DeleteDomainAssociationCommand(output, context);
   }

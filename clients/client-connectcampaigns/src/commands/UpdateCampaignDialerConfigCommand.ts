@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCampaignDialerConfigCommand}.
  */
 export interface UpdateCampaignDialerConfigCommandInput extends UpdateCampaignDialerConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCampaignDialerConfigCommand}.
  */
 export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates the dialer config of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignDialerConfigCommandInput - {@link UpdateCampaignDialerConfigCommandInput}
+ * @returns {@link UpdateCampaignDialerConfigCommandOutput}
  * @see {@link UpdateCampaignDialerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignDialerConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignDialerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCampaignDialerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCampaignDialerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

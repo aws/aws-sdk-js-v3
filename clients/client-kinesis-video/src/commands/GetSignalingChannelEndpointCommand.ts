@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSignalingChannelEndpointCommand}.
  */
 export interface GetSignalingChannelEndpointCommandInput extends GetSignalingChannelEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSignalingChannelEndpointCommand}.
  */
 export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingChannelEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides an endpoint for the specified signaling channel to send and receive messages.
  *             This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
  *             which consists of the <code>Protocols</code> and <code>Role</code> properties.</p>
@@ -59,6 +64,8 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSignalingChannelEndpointCommandInput - {@link GetSignalingChannelEndpointCommandInput}
+ * @returns {@link GetSignalingChannelEndpointCommandOutput}
  * @see {@link GetSignalingChannelEndpointCommandInput} for command's `input` shape.
  * @see {@link GetSignalingChannelEndpointCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -115,6 +122,9 @@ export class GetSignalingChannelEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSignalingChannelEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class GetSignalingChannelEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSignalingChannelEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSignalingChannelEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableKeyRotationCommand}.
  */
 export interface DisableKeyRotationCommandInput extends DisableKeyRotationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableKeyRotationCommand}.
  */
 export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
  *         rotation of the key material</a> of the specified symmetric encryption KMS key.</p>
  *          <p>Automatic key rotation is supported only on symmetric encryption KMS keys.
@@ -73,6 +78,8 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableKeyRotationCommandInput - {@link DisableKeyRotationCommandInput}
+ * @returns {@link DisableKeyRotationCommandOutput}
  * @see {@link DisableKeyRotationCommandInput} for command's `input` shape.
  * @see {@link DisableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -148,6 +155,9 @@ export class DisableKeyRotationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableKeyRotationCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,10 +197,16 @@ export class DisableKeyRotationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableKeyRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableKeyRotationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableKeyRotationCommandOutput> {
     return deserializeAws_json1_1DisableKeyRotationCommand(output, context);
   }

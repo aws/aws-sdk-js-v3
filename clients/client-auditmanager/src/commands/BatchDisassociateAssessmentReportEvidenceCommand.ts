@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
 export interface BatchDisassociateAssessmentReportEvidenceCommandInput
   extends BatchDisassociateAssessmentReportEvidenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
 export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
@@ -38,6 +42,7 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Disassociates a list of evidence from an assessment report in Audit Manager.
  *       </p>
  * @example
@@ -50,6 +55,8 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateAssessmentReportEvidenceCommandInput - {@link BatchDisassociateAssessmentReportEvidenceCommandInput}
+ * @returns {@link BatchDisassociateAssessmentReportEvidenceCommandOutput}
  * @see {@link BatchDisassociateAssessmentReportEvidenceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateAssessmentReportEvidenceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateAssessmentReportEvidenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateAssessmentReportEvidenceCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
     return serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

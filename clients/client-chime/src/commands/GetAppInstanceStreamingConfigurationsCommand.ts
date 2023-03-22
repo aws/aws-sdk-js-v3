@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppInstanceStreamingConfigurationsCommand}.
  */
 export interface GetAppInstanceStreamingConfigurationsCommandInput
   extends GetAppInstanceStreamingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppInstanceStreamingConfigurationsCommand}.
  */
 export interface GetAppInstanceStreamingConfigurationsCommandOutput
@@ -38,6 +42,7 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the streaming settings for an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppInstanceStreamingConfigurationsCommandInput - {@link GetAppInstanceStreamingConfigurationsCommandInput}
+ * @returns {@link GetAppInstanceStreamingConfigurationsCommandOutput}
  * @see {@link GetAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppInstanceStreamingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAppInstanceStreamingConfigurationsCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
     return serializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

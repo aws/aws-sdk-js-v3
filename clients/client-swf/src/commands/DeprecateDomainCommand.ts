@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateDomainCommand}.
  */
 export interface DeprecateDomainCommandInput extends DeprecateDomainInput {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateDomainCommand}.
  */
 export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates the specified domain. After a domain has been deprecated it cannot be used
  *       to create new workflow executions or register new types. However, you can still use visibility
  *       actions on this domain. Deprecating a domain also deprecates all activity and workflow types
@@ -72,6 +77,8 @@ export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateDomainCommandInput - {@link DeprecateDomainCommandInput}
+ * @returns {@link DeprecateDomainCommandOutput}
  * @see {@link DeprecateDomainCommandInput} for command's `input` shape.
  * @see {@link DeprecateDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -104,6 +111,9 @@ export class DeprecateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeprecateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeprecateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateDomainCommandOutput> {
     return deserializeAws_json1_0DeprecateDomainCommand(output, context);
   }

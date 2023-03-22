@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePublicIpv4PoolCommand}.
  */
 export interface DeletePublicIpv4PoolCommandInput extends DeletePublicIpv4PoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePublicIpv4PoolCommand}.
  */
 export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePublicIpv4PoolCommandInput - {@link DeletePublicIpv4PoolCommandInput}
+ * @returns {@link DeletePublicIpv4PoolCommandOutput}
  * @see {@link DeletePublicIpv4PoolCommandInput} for command's `input` shape.
  * @see {@link DeletePublicIpv4PoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeletePublicIpv4PoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePublicIpv4PoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeletePublicIpv4PoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePublicIpv4PoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeletePublicIpv4PoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicIpv4PoolCommandOutput> {
     return deserializeAws_ec2DeletePublicIpv4PoolCommand(output, context);
   }

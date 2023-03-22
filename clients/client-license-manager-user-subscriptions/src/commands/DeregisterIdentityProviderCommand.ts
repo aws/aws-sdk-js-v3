@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterIdentityProviderCommand}.
  */
 export interface DeregisterIdentityProviderCommandInput extends DeregisterIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterIdentityProviderCommand}.
  */
 export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the identity provider from providing user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterIdentityProviderCommandInput - {@link DeregisterIdentityProviderCommandInput}
+ * @returns {@link DeregisterIdentityProviderCommandOutput}
  * @see {@link DeregisterIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeregisterIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeregisterIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeregisterIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentGroupCommand}.
  */
 export interface GetDeploymentGroupCommandInput extends GetDeploymentGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentGroupCommand}.
  */
 export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentGroupCommandInput - {@link GetDeploymentGroupCommandInput}
+ * @returns {@link GetDeploymentGroupCommandOutput}
  * @see {@link GetDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetDeploymentGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetDeploymentGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeploymentGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentGroupCommandOutput> {
     return deserializeAws_json1_1GetDeploymentGroupCommand(output, context);
   }

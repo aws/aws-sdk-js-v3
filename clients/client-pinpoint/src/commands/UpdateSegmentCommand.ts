@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSegmentCommand}.
  */
 export interface UpdateSegmentCommandInput extends UpdateSegmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSegmentCommand}.
  */
 export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSegmentCommandInput - {@link UpdateSegmentCommandInput}
+ * @returns {@link UpdateSegmentCommandOutput}
  * @see {@link UpdateSegmentCommandInput} for command's `input` shape.
  * @see {@link UpdateSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSegmentCommandOutput> {
     return deserializeAws_restJson1UpdateSegmentCommand(output, context);
   }

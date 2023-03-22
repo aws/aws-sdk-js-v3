@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandInput extends ListResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandOutput extends ListResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified resources. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html">Discovering resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>You can use this action to return information about existing resources in your account and
  *       Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.</p>
@@ -48,6 +53,8 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
+ * @returns {@link ListResourcesCommandOutput}
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -136,6 +143,9 @@ export class ListResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class ListResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesCommandOutput> {
     return deserializeAws_json1_0ListResourcesCommand(output, context);
   }

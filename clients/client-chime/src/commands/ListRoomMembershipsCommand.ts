@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoomMembershipsCommand}.
  */
 export interface ListRoomMembershipsCommandInput extends ListRoomMembershipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoomMembershipsCommand}.
  */
 export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the membership details for the specified room in an Amazon Chime Enterprise account,
  *             such as the members' IDs, email addresses, and names.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoomMembershipsCommandInput - {@link ListRoomMembershipsCommandInput}
+ * @returns {@link ListRoomMembershipsCommandOutput}
  * @see {@link ListRoomMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListRoomMembershipsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListRoomMembershipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoomMembershipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListRoomMembershipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoomMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRoomMembershipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoomMembershipsCommandOutput> {
     return deserializeAws_restJson1ListRoomMembershipsCommand(output, context);
   }

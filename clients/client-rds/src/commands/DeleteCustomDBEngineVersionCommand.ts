@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomDBEngineVersionCommand}.
  */
 export interface DeleteCustomDBEngineVersionCommandInput extends DeleteCustomDBEngineVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomDBEngineVersionCommand}.
  */
 export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
  *          <ul>
  *             <li>
@@ -66,6 +71,8 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomDBEngineVersionCommandInput - {@link DeleteCustomDBEngineVersionCommandInput}
+ * @returns {@link DeleteCustomDBEngineVersionCommandOutput}
  * @see {@link DeleteCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteCustomDBEngineVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomDBEngineVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteCustomDBEngineVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomDBEngineVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCustomDBEngineVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

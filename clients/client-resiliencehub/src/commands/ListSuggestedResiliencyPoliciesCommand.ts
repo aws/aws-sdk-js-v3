@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuggestedResiliencyPoliciesCommand}.
  */
 export interface ListSuggestedResiliencyPoliciesCommandInput extends ListSuggestedResiliencyPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuggestedResiliencyPoliciesCommand}.
  */
 export interface ListSuggestedResiliencyPoliciesCommandOutput
@@ -37,6 +41,7 @@ export interface ListSuggestedResiliencyPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the suggested resiliency policies for the AWS Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListSuggestedResiliencyPoliciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuggestedResiliencyPoliciesCommandInput - {@link ListSuggestedResiliencyPoliciesCommandInput}
+ * @returns {@link ListSuggestedResiliencyPoliciesCommandOutput}
  * @see {@link ListSuggestedResiliencyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSuggestedResiliencyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuggestedResiliencyPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSuggestedResiliencyPoliciesCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command<
     return serializeAws_restJson1ListSuggestedResiliencyPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

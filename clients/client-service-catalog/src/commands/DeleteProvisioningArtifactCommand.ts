@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProvisioningArtifactCommand}.
  */
 export interface DeleteProvisioningArtifactCommandInput extends DeleteProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProvisioningArtifactCommand}.
  */
 export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
  *          You cannot delete the last provisioning artifact for a product, because a product must have at
@@ -49,6 +54,8 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisioningArtifactCommandInput - {@link DeleteProvisioningArtifactCommandInput}
+ * @returns {@link DeleteProvisioningArtifactCommandOutput}
  * @see {@link DeleteProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

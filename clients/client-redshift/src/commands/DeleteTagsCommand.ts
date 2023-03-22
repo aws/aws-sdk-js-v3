@@ -18,15 +18,20 @@ import { deserializeAws_queryDeleteTagsCommand, serializeAws_queryDeleteTagsComm
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandInput extends DeleteTagsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes tags from a resource. You must provide the ARN of the resource
  *             from which you want to delete the tag or tags.</p>
  * @example
@@ -39,6 +44,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
+ * @returns {@link DeleteTagsCommandOutput}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -68,6 +75,9 @@ export class DeleteTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class DeleteTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
     return deserializeAws_queryDeleteTagsCommand(output, context);
   }

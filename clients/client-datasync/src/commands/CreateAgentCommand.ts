@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAgentCommand}.
  */
 export interface CreateAgentCommandInput extends CreateAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAgentCommand}.
  */
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates an DataSync agent that you have deployed in your storage
  *       environment. The activation process associates your agent with your account. In the activation
  *       process, you specify information such as the Amazon Web Services Region that you want to
@@ -57,6 +62,8 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAgentCommandInput - {@link CreateAgentCommandInput}
+ * @returns {@link CreateAgentCommandOutput}
  * @see {@link CreateAgentCommandInput} for command's `input` shape.
  * @see {@link CreateAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAgentCommandOutput> {
     return deserializeAws_json1_1CreateAgentCommand(output, context);
   }

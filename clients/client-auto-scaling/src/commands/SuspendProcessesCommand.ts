@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SuspendProcessesCommand}.
  */
 export interface SuspendProcessesCommandInput extends ScalingProcessQuery {}
 /**
+ * @public
+ *
  * The output of {@link SuspendProcessesCommand}.
  */
 export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends the specified auto scaling processes, or all processes, for the specified
  *             Auto Scaling group.</p>
  *          <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
@@ -47,6 +52,8 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SuspendProcessesCommandInput - {@link SuspendProcessesCommandInput}
+ * @returns {@link SuspendProcessesCommandOutput}
  * @see {@link SuspendProcessesCommandInput} for command's `input` shape.
  * @see {@link SuspendProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -91,6 +98,9 @@ export class SuspendProcessesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SuspendProcessesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class SuspendProcessesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SuspendProcessesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySuspendProcessesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuspendProcessesCommandOutput> {
     return deserializeAws_querySuspendProcessesCommand(output, context);
   }

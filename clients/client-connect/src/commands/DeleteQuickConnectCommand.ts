@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQuickConnectCommand}.
  */
 export interface DeleteQuickConnectCommandInput extends DeleteQuickConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQuickConnectCommand}.
  */
 export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQuickConnectCommandInput - {@link DeleteQuickConnectCommandInput}
+ * @returns {@link DeleteQuickConnectCommandOutput}
  * @see {@link DeleteQuickConnectCommandInput} for command's `input` shape.
  * @see {@link DeleteQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteQuickConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQuickConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteQuickConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteQuickConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQuickConnectCommandOutput> {
     return deserializeAws_restJson1DeleteQuickConnectCommand(output, context);
   }

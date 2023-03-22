@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFindingsCommand}.
  */
 export interface DescribeFindingsCommandInput extends DescribeFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFindingsCommand}.
  */
 export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the findings that are specified by the ARNs of the findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFindingsCommandInput - {@link DescribeFindingsCommandInput}
+ * @returns {@link DescribeFindingsCommandOutput}
  * @see {@link DescribeFindingsCommandInput} for command's `input` shape.
  * @see {@link DescribeFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -122,6 +129,9 @@ export class DescribeFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class DescribeFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFindingsCommandOutput> {
     return deserializeAws_json1_1DescribeFindingsCommand(output, context);
   }

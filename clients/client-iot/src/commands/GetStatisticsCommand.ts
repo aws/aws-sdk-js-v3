@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStatisticsCommand}.
  */
 export interface GetStatisticsCommandInput extends GetStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStatisticsCommand}.
  */
 export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
  *       and standard deviation for the specified aggregated field. If the aggregation field is of type
  *       <code>String</code>, only the count statistic is returned.</p>
@@ -49,6 +54,8 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStatisticsCommandInput - {@link GetStatisticsCommandInput}
+ * @returns {@link GetStatisticsCommandOutput}
  * @see {@link GetStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetStatisticsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatisticsCommandOutput> {
     return deserializeAws_restJson1GetStatisticsCommand(output, context);
   }

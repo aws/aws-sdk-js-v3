@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupSelectionCommand}.
  */
 export interface CreateBackupSelectionCommandInput extends CreateBackupSelectionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupSelectionCommand}.
  */
 export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.
  *          For examples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json">Assigning resources programmatically</a>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupSelectionCommandInput - {@link CreateBackupSelectionCommandInput}
+ * @returns {@link CreateBackupSelectionCommandOutput}
  * @see {@link CreateBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link CreateBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateBackupSelectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupSelectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateBackupSelectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBackupSelectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupSelectionCommandOutput> {
     return deserializeAws_restJson1CreateBackupSelectionCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_0GetFleetCommand, serializeAws_json1_0GetFleetCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetFleetCommand}.
  */
 export interface GetFleetCommandInput extends GetFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFleetCommand}.
  */
 export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a fleet. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFleetCommandInput - {@link GetFleetCommandInput}
+ * @returns {@link GetFleetCommandOutput}
  * @see {@link GetFleetCommandInput} for command's `input` shape.
  * @see {@link GetFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFleetCommandOutput> {
     return deserializeAws_json1_0GetFleetCommand(output, context);
   }

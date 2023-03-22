@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationSettingsCommand}.
  */
 export interface UpdateApplicationSettingsCommandInput extends UpdateApplicationSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationSettingsCommand}.
  */
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
+ * @returns {@link UpdateApplicationSettingsCommandOutput}
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateApplicationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateApplicationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApplicationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

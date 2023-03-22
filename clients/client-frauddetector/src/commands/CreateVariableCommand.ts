@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVariableCommand}.
  */
 export interface CreateVariableCommandInput extends CreateVariableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVariableCommand}.
  */
 export interface CreateVariableCommandOutput extends CreateVariableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a variable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVariableCommandInput - {@link CreateVariableCommandInput}
+ * @returns {@link CreateVariableCommandOutput}
  * @see {@link CreateVariableCommandInput} for command's `input` shape.
  * @see {@link CreateVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateVariableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVariableCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateVariableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateVariableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVariableCommandOutput> {
     return deserializeAws_json1_1CreateVariableCommand(output, context);
   }

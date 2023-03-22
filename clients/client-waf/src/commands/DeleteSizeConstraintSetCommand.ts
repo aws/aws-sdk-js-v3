@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSizeConstraintSetCommand}.
  */
 export interface DeleteSizeConstraintSetCommandInput extends DeleteSizeConstraintSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSizeConstraintSetCommand}.
  */
 export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -69,6 +74,8 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSizeConstraintSetCommandInput - {@link DeleteSizeConstraintSetCommandInput}
+ * @returns {@link DeleteSizeConstraintSetCommandOutput}
  * @see {@link DeleteSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link DeleteSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -150,6 +157,9 @@ export class DeleteSizeConstraintSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSizeConstraintSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class DeleteSizeConstraintSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSizeConstraintSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSizeConstraintSetCommandOutput> {
     return deserializeAws_json1_1DeleteSizeConstraintSetCommand(output, context);
   }

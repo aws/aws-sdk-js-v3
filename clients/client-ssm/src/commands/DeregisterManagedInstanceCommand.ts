@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterManagedInstanceCommand}.
  */
 export interface DeregisterManagedInstanceCommandInput extends DeregisterManagedInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterManagedInstanceCommand}.
  */
 export interface DeregisterManagedInstanceCommandOutput extends DeregisterManagedInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the server or virtual machine from the list of registered servers. You can
  *    reregister the node again at any time. If you don't plan to use Run Command on the server, we
  *    suggest uninstalling SSM Agent first.</p>
@@ -48,6 +53,8 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterManagedInstanceCommandInput - {@link DeregisterManagedInstanceCommandInput}
+ * @returns {@link DeregisterManagedInstanceCommandOutput}
  * @see {@link DeregisterManagedInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterManagedInstanceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeregisterManagedInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterManagedInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeregisterManagedInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterManagedInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterManagedInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

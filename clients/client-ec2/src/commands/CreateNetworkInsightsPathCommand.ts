@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkInsightsPathCommand}.
  */
 export interface CreateNetworkInsightsPathCommandInput extends CreateNetworkInsightsPathRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkInsightsPathCommand}.
  */
 export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkInsightsPathResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a path to analyze for reachability.</p>
  *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
  *           two resources in your virtual private cloud (VPC). For more information, see the
@@ -49,6 +54,8 @@ export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkIns
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkInsightsPathCommandInput - {@link CreateNetworkInsightsPathCommandInput}
+ * @returns {@link CreateNetworkInsightsPathCommandOutput}
  * @see {@link CreateNetworkInsightsPathCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInsightsPathCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateNetworkInsightsPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkInsightsPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateNetworkInsightsPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkInsightsPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateNetworkInsightsPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

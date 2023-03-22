@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContactCommand}.
  */
 export interface CreateContactCommandInput extends CreateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContactCommand}.
  */
 export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a contact, which is an end-user who is receiving the email, and adds them to a
  *             contact list.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactCommandInput - {@link CreateContactCommandInput}
+ * @returns {@link CreateContactCommandOutput}
  * @see {@link CreateContactCommandInput} for command's `input` shape.
  * @see {@link CreateContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -82,6 +89,9 @@ export class CreateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactCommandOutput> {
     return deserializeAws_restJson1CreateContactCommand(output, context);
   }

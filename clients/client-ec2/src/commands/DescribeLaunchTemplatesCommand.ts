@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLaunchTemplatesCommand}.
  */
 export interface DescribeLaunchTemplatesCommandInput extends DescribeLaunchTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLaunchTemplatesCommand}.
  */
 export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemplatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more launch templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchTemplatesCommandInput - {@link DescribeLaunchTemplatesCommandInput}
+ * @returns {@link DescribeLaunchTemplatesCommandOutput}
  * @see {@link DescribeLaunchTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchTemplatesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLaunchTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeLaunchTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLaunchTemplatesCommandOutput> {
     return deserializeAws_ec2DescribeLaunchTemplatesCommand(output, context);
   }

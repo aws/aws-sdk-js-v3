@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationS3Command}.
  */
 export interface CreateLocationS3CommandInput extends CreateLocationS3Request {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationS3Command}.
  */
 export interface CreateLocationS3CommandOutput extends CreateLocationS3Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
  *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationS3CommandInput - {@link CreateLocationS3CommandInput}
+ * @returns {@link CreateLocationS3CommandOutput}
  * @see {@link CreateLocationS3CommandInput} for command's `input` shape.
  * @see {@link CreateLocationS3CommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateLocationS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateLocationS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationS3CommandOutput> {
     return deserializeAws_json1_1CreateLocationS3Command(output, context);
   }

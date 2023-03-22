@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSkillsCommand}.
  */
 export interface ListSkillsCommandInput extends ListSkillsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSkillsCommand}.
  */
 export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all enabled skills in a specific skill group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSkillsCommandInput - {@link ListSkillsCommandInput}
+ * @returns {@link ListSkillsCommandOutput}
  * @see {@link ListSkillsCommandInput} for command's `input` shape.
  * @see {@link ListSkillsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListSkillsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSkillsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class ListSkillsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSkillsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSkillsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSkillsCommandOutput> {
     return deserializeAws_json1_1ListSkillsCommand(output, context);
   }

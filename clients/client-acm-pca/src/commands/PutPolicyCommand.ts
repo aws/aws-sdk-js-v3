@@ -18,15 +18,20 @@ import { PutPolicyRequest, PutPolicyRequestFilterSensitiveLog } from "../models/
 import { deserializeAws_json1_1PutPolicyCommand, serializeAws_json1_1PutPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPolicyCommand}.
  */
 export interface PutPolicyCommandInput extends PutPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPolicyCommand}.
  */
 export interface PutPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a resource-based policy to a private CA. </p>
  *          <p>A policy can also be applied by sharing a private CA through Amazon Web Services Resource Access
  * 			Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
@@ -69,6 +74,8 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
+ * @returns {@link PutPolicyCommandOutput}
  * @see {@link PutPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPolicyCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -118,6 +125,9 @@ export class PutPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class PutPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPolicyCommandOutput> {
     return deserializeAws_json1_1PutPolicyCommand(output, context);
   }

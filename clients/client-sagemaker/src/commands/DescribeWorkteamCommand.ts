@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkteamCommand}.
  */
 export interface DescribeWorkteamCommandInput extends DescribeWorkteamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkteamCommand}.
  */
 export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specific work team. You can see information such as the
  *             create date, the last updated date, membership information, and the work team's Amazon
  *             Resource Name (ARN).</p>
@@ -48,6 +53,8 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkteamCommandInput - {@link DescribeWorkteamCommandInput}
+ * @returns {@link DescribeWorkteamCommandOutput}
  * @see {@link DescribeWorkteamCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkteamCommandOutput> {
     return deserializeAws_json1_1DescribeWorkteamCommand(output, context);
   }

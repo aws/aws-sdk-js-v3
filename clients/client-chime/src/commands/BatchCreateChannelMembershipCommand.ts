@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateChannelMembershipCommand}.
  */
 export interface BatchCreateChannelMembershipCommandInput extends BatchCreateChannelMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateChannelMembershipCommand}.
  */
 export interface BatchCreateChannelMembershipCommandOutput
@@ -37,6 +41,7 @@ export interface BatchCreateChannelMembershipCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a specified number of users to a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchCreateChannelMembershipCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateChannelMembershipCommandInput - {@link BatchCreateChannelMembershipCommandInput}
+ * @returns {@link BatchCreateChannelMembershipCommandOutput}
  * @see {@link BatchCreateChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link BatchCreateChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class BatchCreateChannelMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateChannelMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class BatchCreateChannelMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateChannelMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchCreateChannelMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAvailabilityConfigurationCommand}.
  */
 export interface CreateAvailabilityConfigurationCommandInput extends CreateAvailabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAvailabilityConfigurationCommand}.
  */
 export interface CreateAvailabilityConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateAvailabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateAvailabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAvailabilityConfigurationCommandInput - {@link CreateAvailabilityConfigurationCommandInput}
+ * @returns {@link CreateAvailabilityConfigurationCommandOutput}
  * @see {@link CreateAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAvailabilityConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
     return serializeAws_json1_1CreateAvailabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

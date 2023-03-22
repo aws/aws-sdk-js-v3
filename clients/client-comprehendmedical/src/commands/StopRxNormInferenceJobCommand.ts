@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopRxNormInferenceJobCommand}.
  */
 export interface StopRxNormInferenceJobCommandInput extends StopRxNormInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopRxNormInferenceJobCommand}.
  */
 export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an InferRxNorm inference job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInference
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRxNormInferenceJobCommandInput - {@link StopRxNormInferenceJobCommandInput}
+ * @returns {@link StopRxNormInferenceJobCommandOutput}
  * @see {@link StopRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StopRxNormInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopRxNormInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRxNormInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StopRxNormInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRxNormInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopRxNormInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRxNormInferenceJobCommandOutput> {
     return deserializeAws_json1_1StopRxNormInferenceJobCommand(output, context);
   }

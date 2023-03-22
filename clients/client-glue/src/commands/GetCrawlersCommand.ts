@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCrawlersCommand}.
  */
 export interface GetCrawlersCommandInput extends GetCrawlersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCrawlersCommand}.
  */
 export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metadata for all crawlers defined in the customer
  *       account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCrawlersCommandInput - {@link GetCrawlersCommandInput}
+ * @returns {@link GetCrawlersCommandOutput}
  * @see {@link GetCrawlersCommandInput} for command's `input` shape.
  * @see {@link GetCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetCrawlersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCrawlersCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class GetCrawlersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCrawlersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCrawlersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrawlersCommandOutput> {
     return deserializeAws_json1_1GetCrawlersCommand(output, context);
   }

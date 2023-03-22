@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProductsCommand}.
  */
 export interface DescribeProductsCommandInput extends DescribeProductsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProductsCommand}.
  */
 export interface DescribeProductsCommandOutput extends DescribeProductsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about product integrations in Security Hub.</p>
  *          <p>You can optionally provide an integration ARN. If you provide an integration ARN, then
  *          the results only include that integration.</p>
@@ -50,6 +55,8 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProductsCommandInput - {@link DescribeProductsCommandInput}
+ * @returns {@link DescribeProductsCommandOutput}
  * @see {@link DescribeProductsCommandInput} for command's `input` shape.
  * @see {@link DescribeProductsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeProductsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeProductsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeProductsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductsCommandOutput> {
     return deserializeAws_restJson1DescribeProductsCommand(output, context);
   }

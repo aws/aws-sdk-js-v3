@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { InspectorServiceException as __BaseException } from "./InspectorServiceException";
 
+/**
+ * @public
+ */
 export enum AccessDeniedErrorCode {
   ACCESS_DENIED_TO_ASSESSMENT_RUN = "ACCESS_DENIED_TO_ASSESSMENT_RUN",
   ACCESS_DENIED_TO_ASSESSMENT_TARGET = "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
@@ -15,6 +18,7 @@ export enum AccessDeniedErrorCode {
 }
 
 /**
+ * @public
  * <p>You do not have required permissions to access the requested resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -46,6 +50,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a>
  *          actions.</p>
  */
@@ -61,6 +66,9 @@ export interface Attribute {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddAttributesToFindingsRequest {
   /**
    * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
@@ -73,6 +81,9 @@ export interface AddAttributesToFindingsRequest {
   attributes: Attribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FailedItemErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   DUPLICATE_ARN = "DUPLICATE_ARN",
@@ -83,6 +94,7 @@ export enum FailedItemErrorCode {
 }
 
 /**
+ * @public
  * <p>Includes details about the failed items.</p>
  */
 export interface FailedItemDetails {
@@ -98,6 +110,9 @@ export interface FailedItemDetails {
   retryable: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddAttributesToFindingsResponse {
   /**
    * <p>Attribute details that cannot be described. An error code is provided for each failed
@@ -107,6 +122,7 @@ export interface AddAttributesToFindingsResponse {
 }
 
 /**
+ * @public
  * <p>Internal server error.</p>
  */
 export class InternalException extends __BaseException {
@@ -131,6 +147,9 @@ export class InternalException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum InvalidInputErrorCode {
   ASSESSMENT_TARGET_NAME_ALREADY_TAKEN = "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
   ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN = "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
@@ -189,6 +208,7 @@ export enum InvalidInputErrorCode {
 }
 
 /**
+ * @public
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  */
@@ -220,6 +240,9 @@ export class InvalidInputException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum NoSuchEntityErrorCode {
   ASSESSMENT_RUN_DOES_NOT_EXIST = "ASSESSMENT_RUN_DOES_NOT_EXIST",
   ASSESSMENT_TARGET_DOES_NOT_EXIST = "ASSESSMENT_TARGET_DOES_NOT_EXIST",
@@ -232,6 +255,7 @@ export enum NoSuchEntityErrorCode {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  */
@@ -264,6 +288,7 @@ export class NoSuchEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The serice is temporary unavailable.</p>
  */
 export class ServiceTemporarilyUnavailableException extends __BaseException {
@@ -289,6 +314,7 @@ export class ServiceTemporarilyUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Used in the exception error that is thrown if you start an assessment run for an
  *          assessment target that includes an EC2 instance that is already participating in another
  *          started assessment run.</p>
@@ -306,6 +332,9 @@ export interface AgentAlreadyRunningAssessment {
   assessmentRunArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AgentHealthCode {
   IDLE = "IDLE",
   RUNNING = "RUNNING",
@@ -315,6 +344,9 @@ export enum AgentHealthCode {
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export enum AgentHealth {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
@@ -322,6 +354,7 @@ export enum AgentHealth {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector agent. This data type is used as a
  *          request parameter in the <a>ListAssessmentRunAgents</a> action.</p>
  */
@@ -338,6 +371,7 @@ export interface AgentFilter {
 }
 
 /**
+ * @public
  * <p>Used as a response element in the <a>PreviewAgents</a> action.</p>
  */
 export interface AgentPreview {
@@ -387,6 +421,7 @@ export interface AgentPreview {
 }
 
 /**
+ * @public
  * <p>You started an assessment run, but one of the instances is already participating in
  *          another assessment run.</p>
  */
@@ -424,6 +459,9 @@ export class AgentsAlreadyRunningAssessmentException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Severity {
   HIGH = "High",
   INFORMATIONAL = "Informational",
@@ -432,6 +470,9 @@ export enum Severity {
   UNDEFINED = "Undefined",
 }
 
+/**
+ * @public
+ */
 export enum InspectorEvent {
   ASSESSMENT_RUN_COMPLETED = "ASSESSMENT_RUN_COMPLETED",
   ASSESSMENT_RUN_STARTED = "ASSESSMENT_RUN_STARTED",
@@ -440,6 +481,9 @@ export enum InspectorEvent {
   OTHER = "OTHER",
 }
 
+/**
+ * @public
+ */
 export enum AssessmentRunNotificationSnsStatusCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
@@ -448,6 +492,7 @@ export enum AssessmentRunNotificationSnsStatusCode {
 }
 
 /**
+ * @public
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
  *          type.</p>
  */
@@ -484,6 +529,9 @@ export interface AssessmentRunNotification {
   snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
 }
 
+/**
+ * @public
+ */
 export enum AssessmentRunState {
   CANCELED = "CANCELED",
   COLLECTING_DATA = "COLLECTING_DATA",
@@ -501,6 +549,7 @@ export enum AssessmentRunState {
 }
 
 /**
+ * @public
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
  *          type.</p>
  */
@@ -517,6 +566,7 @@ export interface AssessmentRunStateChange {
 }
 
 /**
+ * @public
  * <p>A snapshot of an Amazon Inspector assessment run that contains the findings of the
  *          assessment run .</p>
  *          <p>Used as the response element in the <a>DescribeAssessmentRuns</a>
@@ -604,6 +654,7 @@ export interface AssessmentRun {
 }
 
 /**
+ * @public
  * <p>The metadata about the Amazon Inspector application data metrics collected by the
  *          agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.</p>
  */
@@ -626,6 +677,7 @@ export interface TelemetryMetadata {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector agent. This data type is used as a
  *          response element in the <a>ListAssessmentRunAgents</a> action.</p>
  */
@@ -669,6 +721,7 @@ export interface AssessmentRunAgent {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>AssessmentRunFilter</a> data
  *          type.</p>
  */
@@ -685,6 +738,7 @@ export interface TimestampRange {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>AssessmentTemplateFilter</a> data
  *          type.</p>
  */
@@ -702,6 +756,7 @@ export interface DurationRange {
 }
 
 /**
+ * @public
  * <p>Used as the request parameter in the <a>ListAssessmentRuns</a>
  *          action.</p>
  */
@@ -757,6 +812,7 @@ export interface AssessmentRunFilter {
 }
 
 /**
+ * @public
  * <p>You cannot perform a specified action if an assessment run is currently in
  *          progress.</p>
  */
@@ -796,6 +852,7 @@ export class AssessmentRunInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector application. This data type is used as
  *          the response element in the <a>DescribeAssessmentTargets</a> action.</p>
  */
@@ -828,6 +885,7 @@ export interface AssessmentTarget {
 }
 
 /**
+ * @public
  * <p>Used as the request parameter in the <a>ListAssessmentTargets</a>
  *          action.</p>
  */
@@ -841,6 +899,7 @@ export interface AssessmentTargetFilter {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector assessment template. This data type is
  *          used as the response element in the <a>DescribeAssessmentTemplates</a>
  *          action.</p>
@@ -899,6 +958,7 @@ export interface AssessmentTemplate {
 }
 
 /**
+ * @public
  * <p>Used as the request parameter in the <a>ListAssessmentTemplates</a>
  *          action.</p>
  */
@@ -926,6 +986,7 @@ export interface AssessmentTemplateFilter {
 }
 
 /**
+ * @public
  * <p>Contains information about a private IP address associated with a network interface. This
  *          data type is used as a response element in the <a>DescribeFindings</a>
  *          action.</p>
@@ -943,6 +1004,7 @@ export interface PrivateIp {
 }
 
 /**
+ * @public
  * <p>Contains information about a security group associated with a network interface. This
  *          data type is used as one of the elements of the <a>NetworkInterface</a> data
  *          type.</p>
@@ -960,6 +1022,7 @@ export interface SecurityGroup {
 }
 
 /**
+ * @public
  * <p>Contains information about the network interfaces interacting with an EC2 instance.
  *          This data type is used as one of the elements of the <a>AssetAttributes</a> data
  *          type.</p>
@@ -1019,6 +1082,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.</p>
  */
 export interface Tag {
@@ -1034,6 +1098,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>A collection of attributes of the host from which the finding is generated.</p>
  */
 export interface AssetAttributes {
@@ -1082,10 +1147,16 @@ export interface AssetAttributes {
   networkInterfaces?: NetworkInterface[];
 }
 
+/**
+ * @public
+ */
 export enum AssetType {
   EC2_INSTANCE = "ec2-instance",
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentTargetRequest {
   /**
    * <p>The user-defined name that identifies the assessment target that you want to create.
@@ -1101,6 +1172,9 @@ export interface CreateAssessmentTargetRequest {
   resourceGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentTargetResponse {
   /**
    * <p>The ARN that specifies the assessment target that is created.</p>
@@ -1108,12 +1182,16 @@ export interface CreateAssessmentTargetResponse {
   assessmentTargetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InvalidCrossAccountRoleErrorCode {
   ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP = "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
   ROLE_DOES_NOT_HAVE_CORRECT_POLICY = "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
 }
 
 /**
+ * @public
  * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
  *          instances during the assessment run.</p>
  */
@@ -1145,6 +1223,9 @@ export class InvalidCrossAccountRoleException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum LimitExceededErrorCode {
   ASSESSMENT_RUN_LIMIT_EXCEEDED = "ASSESSMENT_RUN_LIMIT_EXCEEDED",
   ASSESSMENT_TARGET_LIMIT_EXCEEDED = "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
@@ -1154,6 +1235,7 @@ export enum LimitExceededErrorCode {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to create resources beyond the current
  *          AWS account limits. The error code describes the limit exceeded.</p>
  */
@@ -1185,6 +1267,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentTemplateRequest {
   /**
    * <p>The ARN that specifies the assessment target for which you want to create the
@@ -1220,6 +1305,9 @@ export interface CreateAssessmentTemplateRequest {
   userAttributesForFindings?: Attribute[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentTemplateResponse {
   /**
    * <p>The ARN that specifies the assessment template that is created.</p>
@@ -1227,6 +1315,9 @@ export interface CreateAssessmentTemplateResponse {
   assessmentTemplateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExclusionsPreviewRequest {
   /**
    * <p>The ARN that specifies the assessment template for which you want to create an
@@ -1235,6 +1326,9 @@ export interface CreateExclusionsPreviewRequest {
   assessmentTemplateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExclusionsPreviewResponse {
   /**
    * <p>Specifies the unique identifier of the requested exclusions preview. You can use the
@@ -1245,6 +1339,7 @@ export interface CreateExclusionsPreviewResponse {
 }
 
 /**
+ * @public
  * <p>The request is rejected. The specified assessment template is currently generating an
  *          exclusions preview.</p>
  */
@@ -1265,6 +1360,7 @@ export class PreviewGenerationInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This data type is used as one of the elements of the <a>ResourceGroup</a>
  *          data type.</p>
  */
@@ -1280,15 +1376,21 @@ export interface ResourceGroupTag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceGroupRequest {
   /**
    * <p>A collection of keys and an array of possible values,
-   *          '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</p>
-   *          <p>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</p>
+   *          '[\{"key":"key1","values":["Value1","Value2"]\},\{"key":"Key2","values":["Value3"]\}]'.</p>
+   *          <p>For example,'[\{"key":"Name","values":["TestEC2Instance"]\}]'.</p>
    */
   resourceGroupTags: ResourceGroupTag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceGroupResponse {
   /**
    * <p>The ARN that specifies the resource group that is created.</p>
@@ -1296,6 +1398,9 @@ export interface CreateResourceGroupResponse {
   resourceGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentRunRequest {
   /**
    * <p>The ARN that specifies the assessment run that you want to delete.</p>
@@ -1303,6 +1408,9 @@ export interface DeleteAssessmentRunRequest {
   assessmentRunArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentTargetRequest {
   /**
    * <p>The ARN that specifies the assessment target that you want to delete.</p>
@@ -1310,6 +1418,9 @@ export interface DeleteAssessmentTargetRequest {
   assessmentTargetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentTemplateRequest {
   /**
    * <p>The ARN that specifies the assessment template that you want to delete.</p>
@@ -1317,6 +1428,9 @@ export interface DeleteAssessmentTemplateRequest {
   assessmentTemplateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentRunsRequest {
   /**
    * <p>The ARN that specifies the assessment run that you want to describe.</p>
@@ -1324,6 +1438,9 @@ export interface DescribeAssessmentRunsRequest {
   assessmentRunArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentRunsResponse {
   /**
    * <p>Information about the assessment run.</p>
@@ -1337,6 +1454,9 @@ export interface DescribeAssessmentRunsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTargetsRequest {
   /**
    * <p>The ARNs that specifies the assessment targets that you want to describe.</p>
@@ -1344,6 +1464,9 @@ export interface DescribeAssessmentTargetsRequest {
   assessmentTargetArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTargetsResponse {
   /**
    * <p>Information about the assessment targets.</p>
@@ -1357,10 +1480,16 @@ export interface DescribeAssessmentTargetsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTemplatesRequest {
   assessmentTemplateArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTemplatesResponse {
   /**
    * <p>Information about the assessment templates.</p>
@@ -1374,6 +1503,9 @@ export interface DescribeAssessmentTemplatesResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCrossAccountAccessRoleResponse {
   /**
    * <p>The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS
@@ -1393,10 +1525,16 @@ export interface DescribeCrossAccountAccessRoleResponse {
   registeredAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Locale {
   EN_US = "EN_US",
 }
 
+/**
+ * @public
+ */
 export interface DescribeExclusionsRequest {
   /**
    * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
@@ -1410,12 +1548,16 @@ export interface DescribeExclusionsRequest {
   locale?: Locale | string;
 }
 
+/**
+ * @public
+ */
 export enum ScopeType {
   INSTANCE_ID = "INSTANCE_ID",
   RULES_PACKAGE_ARN = "RULES_PACKAGE_ARN",
 }
 
 /**
+ * @public
  * <p>This data type contains key-value pairs that identify various Amazon
  *          resources.</p>
  */
@@ -1432,6 +1574,7 @@ export interface Scope {
 }
 
 /**
+ * @public
  * <p>Contains information about what was excluded from an assessment run.</p>
  */
 export interface Exclusion {
@@ -1466,6 +1609,9 @@ export interface Exclusion {
   attributes?: Attribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExclusionsResponse {
   /**
    * <p>Information about the exclusions.</p>
@@ -1479,6 +1625,9 @@ export interface DescribeExclusionsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFindingsRequest {
   /**
    * <p>The ARN that specifies the finding that you want to describe.</p>
@@ -1493,6 +1642,7 @@ export interface DescribeFindingsRequest {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>Finding</a> data type.</p>
  */
 export interface InspectorServiceAttributes {
@@ -1513,6 +1663,7 @@ export interface InspectorServiceAttributes {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector finding. This data type is used as the
  *          response element in the <a>DescribeFindings</a> action.</p>
  */
@@ -1609,6 +1760,9 @@ export interface Finding {
   updatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFindingsResponse {
   /**
    * <p>Information about the finding.</p>
@@ -1622,6 +1776,9 @@ export interface DescribeFindingsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceGroupsRequest {
   /**
    * <p>The ARN that specifies the resource group that you want to describe.</p>
@@ -1630,6 +1787,7 @@ export interface DescribeResourceGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a resource group. The resource group defines a set of tags
  *          that, when queried, identify the AWS resources that make up the assessment target. This
  *          data type is used as the response element in the <a>DescribeResourceGroups</a>
@@ -1653,6 +1811,9 @@ export interface ResourceGroup {
   createdAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceGroupsResponse {
   /**
    * <p>Information about a resource group.</p>
@@ -1666,6 +1827,9 @@ export interface DescribeResourceGroupsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesPackagesRequest {
   /**
    * <p>The ARN that specifies the rules package that you want to describe.</p>
@@ -1679,6 +1843,7 @@ export interface DescribeRulesPackagesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector rules package. This data type is used
  *          as the response element in the <a>DescribeRulesPackages</a> action.</p>
  */
@@ -1709,6 +1874,9 @@ export interface RulesPackage {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesPackagesResponse {
   /**
    * <p>Information about the rules package.</p>
@@ -1723,6 +1891,7 @@ export interface DescribeRulesPackagesResponse {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>Subscription</a> data type.</p>
  */
 export interface EventSubscription {
@@ -1739,6 +1908,7 @@ export interface EventSubscription {
 }
 
 /**
+ * @public
  * <p>Contains information about what is excluded from an assessment run given the current
  *          state of the assessment template.</p>
  */
@@ -1770,6 +1940,7 @@ export interface ExclusionPreview {
 }
 
 /**
+ * @public
  * <p>This data type is used as a request parameter in the <a>ListFindings</a>
  *          action.</p>
  */
@@ -1825,16 +1996,25 @@ export interface FindingFilter {
   creationTimeRange?: TimestampRange;
 }
 
+/**
+ * @public
+ */
 export enum ReportFileFormat {
   HTML = "HTML",
   PDF = "PDF",
 }
 
+/**
+ * @public
+ */
 export enum ReportType {
   FINDING = "FINDING",
   FULL = "FULL",
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentReportRequest {
   /**
    * <p>The ARN that specifies the assessment run for which you want to generate a
@@ -1856,12 +2036,18 @@ export interface GetAssessmentReportRequest {
   reportType: ReportType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReportStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentReportResponse {
   /**
    * <p>Specifies the status of the request to generate an assessment report. </p>
@@ -1876,6 +2062,7 @@ export interface GetAssessmentReportResponse {
 }
 
 /**
+ * @public
  * <p>Used by the <a>GetAssessmentReport</a> API. The request was rejected
  *          because you tried to generate a report for an assessment run that existed before reporting
  *          was supported in Amazon Inspector. You can only generate reports for assessment runs that
@@ -1900,6 +2087,9 @@ export class UnsupportedFeatureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetExclusionsPreviewRequest {
   /**
    * <p>The ARN that specifies the assessment template for which the exclusions preview was
@@ -1933,11 +2123,17 @@ export interface GetExclusionsPreviewRequest {
   locale?: Locale | string;
 }
 
+/**
+ * @public
+ */
 export enum PreviewStatus {
   COMPLETED = "COMPLETED",
   WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface GetExclusionsPreviewResponse {
   /**
    * <p>Specifies the status of the request to generate an exclusions preview.</p>
@@ -1958,6 +2154,9 @@ export interface GetExclusionsPreviewResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTelemetryMetadataRequest {
   /**
    * <p>The ARN that specifies the assessment run that has the telemetry data that you want
@@ -1966,6 +2165,9 @@ export interface GetTelemetryMetadataRequest {
   assessmentRunArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTelemetryMetadataResponse {
   /**
    * <p>Telemetry details.</p>
@@ -1973,6 +2175,9 @@ export interface GetTelemetryMetadataResponse {
   telemetryMetadata: TelemetryMetadata[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunAgentsRequest {
   /**
    * <p>The ARN that specifies the assessment run whose agents you want to list.</p>
@@ -2004,6 +2209,9 @@ export interface ListAssessmentRunAgentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunAgentsResponse {
   /**
    * <p>A list of ARNs that specifies the agents returned by the action.</p>
@@ -2018,6 +2226,9 @@ export interface ListAssessmentRunAgentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunsRequest {
   /**
    * <p>The ARNs that specify the assessment templates whose assessment runs you want to
@@ -2050,6 +2261,9 @@ export interface ListAssessmentRunsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunsResponse {
   /**
    * <p>A list of ARNs that specifies the assessment runs that are returned by the
@@ -2065,6 +2279,9 @@ export interface ListAssessmentRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTargetsRequest {
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2091,6 +2308,9 @@ export interface ListAssessmentTargetsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTargetsResponse {
   /**
    * <p>A list of ARNs that specifies the assessment targets that are returned by the
@@ -2106,6 +2326,9 @@ export interface ListAssessmentTargetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTemplatesRequest {
   /**
    * <p>A list of ARNs that specifies the assessment targets whose assessment templates you
@@ -2138,6 +2361,9 @@ export interface ListAssessmentTemplatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTemplatesResponse {
   /**
    * <p>A list of ARNs that specifies the assessment templates returned by the
@@ -2153,6 +2379,9 @@ export interface ListAssessmentTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSubscriptionsRequest {
   /**
    * <p>The ARN of the assessment template for which you want to list the existing event
@@ -2177,6 +2406,7 @@ export interface ListEventSubscriptionsRequest {
 }
 
 /**
+ * @public
  * <p>This data type is used as a response element in the <a>ListEventSubscriptions</a> action.</p>
  */
 export interface Subscription {
@@ -2198,6 +2428,9 @@ export interface Subscription {
   eventSubscriptions: EventSubscription[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSubscriptionsResponse {
   /**
    * <p>Details of the returned event subscriptions.</p>
@@ -2212,6 +2445,9 @@ export interface ListEventSubscriptionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExclusionsRequest {
   /**
    * <p>The ARN of the assessment run that generated the exclusions that you want to
@@ -2234,6 +2470,9 @@ export interface ListExclusionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListExclusionsResponse {
   /**
    * <p>A list of exclusions' ARNs returned by the action.</p>
@@ -2249,6 +2488,9 @@ export interface ListExclusionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsRequest {
   /**
    * <p>The ARNs of the assessment runs that generate the findings that you want to
@@ -2281,6 +2523,9 @@ export interface ListFindingsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsResponse {
   /**
    * <p>A list of ARNs that specifies the findings returned by the action.</p>
@@ -2295,6 +2540,9 @@ export interface ListFindingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesPackagesRequest {
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2312,6 +2560,9 @@ export interface ListRulesPackagesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesPackagesResponse {
   /**
    * <p>The list of ARNs that specifies the rules packages returned by the action.</p>
@@ -2326,6 +2577,9 @@ export interface ListRulesPackagesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN that specifies the assessment template whose tags you want to list.</p>
@@ -2333,6 +2587,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A collection of key and value pairs.</p>
@@ -2340,6 +2597,9 @@ export interface ListTagsForResourceResponse {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PreviewAgentsRequest {
   /**
    * <p>The ARN of the assessment target whose agents you want to preview.</p>
@@ -2362,6 +2622,9 @@ export interface PreviewAgentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface PreviewAgentsResponse {
   /**
    * <p>The resulting list of agents.</p>
@@ -2376,6 +2639,9 @@ export interface PreviewAgentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterCrossAccountAccessRoleRequest {
   /**
    * <p>The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to
@@ -2384,6 +2650,9 @@ export interface RegisterCrossAccountAccessRoleRequest {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAttributesFromFindingsRequest {
   /**
    * <p>The ARNs that specify the findings that you want to remove attributes from.</p>
@@ -2397,6 +2666,9 @@ export interface RemoveAttributesFromFindingsRequest {
   attributeKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAttributesFromFindingsResponse {
   /**
    * <p>Attributes details that cannot be described. An error code is provided for each
@@ -2405,6 +2677,9 @@ export interface RemoveAttributesFromFindingsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetTagsForResourceRequest {
   /**
    * <p>The ARN of the assessment template that you want to set tags to.</p>
@@ -2418,6 +2693,9 @@ export interface SetTagsForResourceRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentRunRequest {
   /**
    * <p>The ARN of the assessment template of the assessment run that you want to
@@ -2432,6 +2710,9 @@ export interface StartAssessmentRunRequest {
   assessmentRunName?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentRunResponse {
   /**
    * <p>The ARN of the assessment run that has been started.</p>
@@ -2439,11 +2720,17 @@ export interface StartAssessmentRunResponse {
   assessmentRunArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StopAction {
   SKIP_EVALUATION = "SKIP_EVALUATION",
   START_EVALUATION = "START_EVALUATION",
 }
 
+/**
+ * @public
+ */
 export interface StopAssessmentRunRequest {
   /**
    * <p>The ARN of the assessment run that you want to stop.</p>
@@ -2459,6 +2746,9 @@ export interface StopAssessmentRunRequest {
   stopAction?: StopAction | string;
 }
 
+/**
+ * @public
+ */
 export interface SubscribeToEventRequest {
   /**
    * <p>The ARN of the assessment template that is used during the event for which you want
@@ -2477,6 +2767,9 @@ export interface SubscribeToEventRequest {
   topicArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnsubscribeFromEventRequest {
   /**
    * <p>The ARN of the assessment template that is used during the event for which you want
@@ -2495,6 +2788,9 @@ export interface UnsubscribeFromEventRequest {
   topicArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentTargetRequest {
   /**
    * <p>The ARN of the assessment target that you want to update.</p>

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopCanaryCommand}.
  */
 export interface StopCanaryCommandInput extends StopCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCanaryCommand}.
  */
 export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the canary to prevent all future runs. If the canary is currently running,the
  *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
  *          it is not recorded in Synthetics as a completed run.</p>
@@ -50,6 +55,8 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCanaryCommandInput - {@link StopCanaryCommandInput}
+ * @returns {@link StopCanaryCommandOutput}
  * @see {@link StopCanaryCommandInput} for command's `input` shape.
  * @see {@link StopCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StopCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCanaryCommandOutput> {
     return deserializeAws_restJson1StopCanaryCommand(output, context);
   }

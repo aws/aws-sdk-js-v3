@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAlarmActionsCommand}.
  */
 export interface DisableAlarmActionsCommandInput extends DisableAlarmActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableAlarmActionsCommand}.
  */
 export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
  * 			alarm actions do not execute when the alarm state changes.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAlarmActionsCommandInput - {@link DisableAlarmActionsCommandInput}
+ * @returns {@link DisableAlarmActionsCommandOutput}
  * @see {@link DisableAlarmActionsCommandInput} for command's `input` shape.
  * @see {@link DisableAlarmActionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -65,6 +72,9 @@ export class DisableAlarmActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAlarmActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,10 +114,16 @@ export class DisableAlarmActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAlarmActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDisableAlarmActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAlarmActionsCommandOutput> {
     return deserializeAws_queryDisableAlarmActionsCommand(output, context);
   }

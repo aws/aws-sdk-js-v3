@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceMaintenanceOptionsCommand}.
  */
 export interface ModifyInstanceMaintenanceOptionsCommandInput extends ModifyInstanceMaintenanceOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceMaintenanceOptionsCommand}.
  */
 export interface ModifyInstanceMaintenanceOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the recovery behavior of your instance to disable simplified automatic
  *             recovery or set the recovery behavior to default. The default configuration will not
  *             enable simplified automatic recovery for an unsupported instance type. For more
@@ -51,6 +56,8 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceMaintenanceOptionsCommandInput - {@link ModifyInstanceMaintenanceOptionsCommandInput}
+ * @returns {@link ModifyInstanceMaintenanceOptionsCommandOutput}
  * @see {@link ModifyInstanceMaintenanceOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceMaintenanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceMaintenanceOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyInstanceMaintenanceOptionsCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
     return serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

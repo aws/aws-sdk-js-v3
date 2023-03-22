@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSpotInstanceRequestsCommand}.
  */
 export interface CancelSpotInstanceRequestsCommandInput extends CancelSpotInstanceRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelSpotInstanceRequestsCommand}.
  */
 export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInstanceRequestsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels one or more Spot Instance requests.</p>
  *          <important>
  *             <p>Canceling a Spot Instance request does not terminate running Spot Instances
@@ -50,6 +55,8 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSpotInstanceRequestsCommandInput - {@link CancelSpotInstanceRequestsCommandInput}
+ * @returns {@link CancelSpotInstanceRequestsCommandOutput}
  * @see {@link CancelSpotInstanceRequestsCommandInput} for command's `input` shape.
  * @see {@link CancelSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -96,6 +103,9 @@ export class CancelSpotInstanceRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSpotInstanceRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CancelSpotInstanceRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSpotInstanceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelSpotInstanceRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

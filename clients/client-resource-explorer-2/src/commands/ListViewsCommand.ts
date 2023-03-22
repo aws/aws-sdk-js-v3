@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListViewsCommand}.
  */
 export interface ListViewsCommandInput extends ListViewsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListViewsCommand}.
  */
 export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you
  *             call this operation.</p>
  *          <note>
@@ -59,6 +64,8 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListViewsCommandInput - {@link ListViewsCommandInput}
+ * @returns {@link ListViewsCommandOutput}
  * @see {@link ListViewsCommandInput} for command's `input` shape.
  * @see {@link ListViewsCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -98,6 +105,9 @@ export class ListViewsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListViewsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListViewsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListViewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListViewsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListViewsCommandOutput> {
     return deserializeAws_restJson1ListViewsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQuickConnectNameCommand}.
  */
 export interface UpdateQuickConnectNameCommandInput extends UpdateQuickConnectNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQuickConnectNameCommand}.
  */
 export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQuickConnectNameCommandInput - {@link UpdateQuickConnectNameCommandInput}
+ * @returns {@link UpdateQuickConnectNameCommandOutput}
  * @see {@link UpdateQuickConnectNameCommandInput} for command's `input` shape.
  * @see {@link UpdateQuickConnectNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateQuickConnectNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQuickConnectNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateQuickConnectNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQuickConnectNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateQuickConnectNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQuickConnectNameCommandOutput> {
     return deserializeAws_restJson1UpdateQuickConnectNameCommand(output, context);
   }

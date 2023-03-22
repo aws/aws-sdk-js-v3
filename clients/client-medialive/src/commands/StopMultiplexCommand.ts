@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMultiplexCommand}.
  */
 export interface StopMultiplexCommandInput extends StopMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopMultiplexCommand}.
  */
 export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops a running multiplex. If the multiplex isn't running, this action has no effect.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMultiplexCommandInput - {@link StopMultiplexCommandInput}
+ * @returns {@link StopMultiplexCommandOutput}
  * @see {@link StopMultiplexCommandInput} for command's `input` shape.
  * @see {@link StopMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class StopMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StopMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMultiplexCommandOutput> {
     return deserializeAws_restJson1StopMultiplexCommand(output, context);
   }

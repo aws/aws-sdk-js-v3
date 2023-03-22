@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link StopInferenceSchedulerCommand}.
  */
 export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInferenceSchedulerCommand}.
  */
 export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an inference scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInferenceSchedulerCommandInput - {@link StopInferenceSchedulerCommandInput}
+ * @returns {@link StopInferenceSchedulerCommandOutput}
  * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -92,6 +99,9 @@ export class StopInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StopInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StopInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceSchedulerCommandOutput> {
     return deserializeAws_json1_0StopInferenceSchedulerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFeedbackCommand}.
  */
 export interface DescribeFeedbackCommandInput extends DescribeFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFeedbackCommand}.
  */
 export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the most recent feedback submitted in the current Amazon Web Services account and Region.
  * 		</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFeedbackCommandInput - {@link DescribeFeedbackCommandInput}
+ * @returns {@link DescribeFeedbackCommandOutput}
  * @see {@link DescribeFeedbackCommandInput} for command's `input` shape.
  * @see {@link DescribeFeedbackCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFeedbackCommandOutput> {
     return deserializeAws_restJson1DescribeFeedbackCommand(output, context);
   }

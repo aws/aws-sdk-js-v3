@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListMobileSdkReleasesCommand}.
  */
 export interface ListMobileSdkReleasesCommandInput extends ListMobileSdkReleasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMobileSdkReleasesCommand}.
  */
 export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkReleasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of the available releases for the mobile SDK and the specified device
  *          platform. </p>
  *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
@@ -49,6 +54,8 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMobileSdkReleasesCommandInput - {@link ListMobileSdkReleasesCommandInput}
+ * @returns {@link ListMobileSdkReleasesCommandOutput}
  * @see {@link ListMobileSdkReleasesCommandInput} for command's `input` shape.
  * @see {@link ListMobileSdkReleasesCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class ListMobileSdkReleasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMobileSdkReleasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListMobileSdkReleasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMobileSdkReleasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMobileSdkReleasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMobileSdkReleasesCommandOutput> {
     return deserializeAws_json1_1ListMobileSdkReleasesCommand(output, context);
   }

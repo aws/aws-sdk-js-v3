@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAllBackendsCommand}.
  */
 export interface RemoveAllBackendsCommandInput extends RemoveAllBackendsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAllBackendsCommand}.
  */
 export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes all backend environments from your Amplify project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAllBackendsCommandInput - {@link RemoveAllBackendsCommandInput}
+ * @returns {@link RemoveAllBackendsCommandOutput}
  * @see {@link RemoveAllBackendsCommandInput} for command's `input` shape.
  * @see {@link RemoveAllBackendsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class RemoveAllBackendsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAllBackendsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RemoveAllBackendsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAllBackendsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveAllBackendsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveAllBackendsCommandOutput> {
     return deserializeAws_restJson1RemoveAllBackendsCommand(output, context);
   }

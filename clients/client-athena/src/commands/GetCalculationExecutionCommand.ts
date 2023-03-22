@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCalculationExecutionCommand}.
  */
 export interface GetCalculationExecutionCommandInput extends GetCalculationExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCalculationExecutionCommand}.
  */
 export interface GetCalculationExecutionCommandOutput extends GetCalculationExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a previously submitted calculation execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCalculationExecutionCommandOutput extends GetCalculationExec
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCalculationExecutionCommandInput - {@link GetCalculationExecutionCommandInput}
+ * @returns {@link GetCalculationExecutionCommandOutput}
  * @see {@link GetCalculationExecutionCommandInput} for command's `input` shape.
  * @see {@link GetCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetCalculationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCalculationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetCalculationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCalculationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCalculationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCalculationExecutionCommandOutput> {
     return deserializeAws_json1_1GetCalculationExecutionCommand(output, context);
   }

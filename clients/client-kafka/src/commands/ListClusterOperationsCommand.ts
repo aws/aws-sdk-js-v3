@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClusterOperationsCommand}.
  */
 export interface ListClusterOperationsCommandInput extends ListClusterOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListClusterOperationsCommand}.
  */
 export interface ListClusterOperationsCommandOutput extends ListClusterOperationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClusterOperationsCommandInput - {@link ListClusterOperationsCommandInput}
+ * @returns {@link ListClusterOperationsCommandOutput}
  * @see {@link ListClusterOperationsCommandInput} for command's `input` shape.
  * @see {@link ListClusterOperationsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListClusterOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClusterOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListClusterOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClusterOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListClusterOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClusterOperationsCommandOutput> {
     return deserializeAws_restJson1ListClusterOperationsCommand(output, context);
   }

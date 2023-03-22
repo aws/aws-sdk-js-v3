@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateMFADeviceCommand}.
  */
 export interface DeactivateMFADeviceCommandInput extends DeactivateMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateMFADeviceCommand}.
  */
 export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates the specified MFA device and removes it from association with the user
  *             name for which it was originally enabled.</p>
  *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
@@ -45,6 +50,8 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateMFADeviceCommandInput - {@link DeactivateMFADeviceCommandInput}
+ * @returns {@link DeactivateMFADeviceCommandOutput}
  * @see {@link DeactivateMFADeviceCommandInput} for command's `input` shape.
  * @see {@link DeactivateMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeactivateMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeactivateMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeactivateMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateMFADeviceCommandOutput> {
     return deserializeAws_queryDeactivateMFADeviceCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DecreaseStreamRetentionPeriodCommand}.
  */
 export interface DecreaseStreamRetentionPeriodCommandInput extends DecreaseStreamRetentionPeriodInput {}
 /**
+ * @public
+ *
  * The output of {@link DecreaseStreamRetentionPeriodCommand}.
  */
 export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decreases the Kinesis data stream's retention period, which is the length of time data
  *             records are accessible after they are added to the stream. The minimum value of a
  *             stream's retention period is 24 hours.</p>
@@ -53,6 +58,8 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DecreaseStreamRetentionPeriodCommandInput - {@link DecreaseStreamRetentionPeriodCommandInput}
+ * @returns {@link DecreaseStreamRetentionPeriodCommandOutput}
  * @see {@link DecreaseStreamRetentionPeriodCommandInput} for command's `input` shape.
  * @see {@link DecreaseStreamRetentionPeriodCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -98,6 +105,9 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecreaseStreamRetentionPeriodCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecreaseStreamRetentionPeriodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DecreaseStreamRetentionPeriodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

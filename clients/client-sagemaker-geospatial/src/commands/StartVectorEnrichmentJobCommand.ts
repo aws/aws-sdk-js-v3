@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartVectorEnrichmentJobCommand}.
  */
 export interface StartVectorEnrichmentJobCommandInput extends StartVectorEnrichmentJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StartVectorEnrichmentJobCommand}.
  */
 export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Vector Enrichment job for the supplied job type.  Currently, there are two supported job types: reverse geocoding and map matching.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrich
  * const response = await client.send(command);
  * ```
  *
+ * @param StartVectorEnrichmentJobCommandInput - {@link StartVectorEnrichmentJobCommandInput}
+ * @returns {@link StartVectorEnrichmentJobCommandOutput}
  * @see {@link StartVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link StartVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -94,6 +101,9 @@ export class StartVectorEnrichmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartVectorEnrichmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class StartVectorEnrichmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartVectorEnrichmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartVectorEnrichmentJobCommandOutput> {
     return deserializeAws_restJson1StartVectorEnrichmentJobCommand(output, context);
   }

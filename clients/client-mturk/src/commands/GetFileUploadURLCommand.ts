@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFileUploadURLCommand}.
  */
 export interface GetFileUploadURLCommandInput extends GetFileUploadURLRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFileUploadURLCommand}.
  */
 export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>GetFileUploadURL</code>
@@ -63,6 +68,8 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFileUploadURLCommandInput - {@link GetFileUploadURLCommandInput}
+ * @returns {@link GetFileUploadURLCommandOutput}
  * @see {@link GetFileUploadURLCommandInput} for command's `input` shape.
  * @see {@link GetFileUploadURLCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetFileUploadURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFileUploadURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetFileUploadURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFileUploadURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFileUploadURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileUploadURLCommandOutput> {
     return deserializeAws_json1_1GetFileUploadURLCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLogGroupCommand}.
  */
 export interface CreateLogGroupCommandInput extends CreateLogGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLogGroupCommand}.
  */
 export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p>
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
@@ -69,6 +74,8 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogGroupCommandInput - {@link CreateLogGroupCommandInput}
+ * @returns {@link CreateLogGroupCommandOutput}
  * @see {@link CreateLogGroupCommandInput} for command's `input` shape.
  * @see {@link CreateLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class CreateLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogGroupCommandOutput> {
     return deserializeAws_json1_1CreateLogGroupCommand(output, context);
   }

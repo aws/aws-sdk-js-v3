@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignDateRangeKpiCommand}.
  */
 export interface GetCampaignDateRangeKpiCommandInput extends GetCampaignDateRangeKpiRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignDateRangeKpiCommand}.
  */
 export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRangeKpiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRan
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignDateRangeKpiCommandInput - {@link GetCampaignDateRangeKpiCommandInput}
+ * @returns {@link GetCampaignDateRangeKpiCommandOutput}
  * @see {@link GetCampaignDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetCampaignDateRangeKpiCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignDateRangeKpiCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCampaignDateRangeKpiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignDateRangeKpiCommandOutput> {
     return deserializeAws_restJson1GetCampaignDateRangeKpiCommand(output, context);
   }

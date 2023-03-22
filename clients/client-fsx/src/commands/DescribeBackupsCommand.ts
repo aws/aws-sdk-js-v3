@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBackupsCommand}.
  */
 export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBackupsCommand}.
  */
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon FSx backup, if a
  *                 <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
  *             backups owned by your Amazon Web Services account in the Amazon Web Services Region of the
@@ -71,6 +76,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupsCommandInput - {@link DescribeBackupsCommandInput}
+ * @returns {@link DescribeBackupsCommandOutput}
  * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -148,6 +155,9 @@ export class DescribeBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,10 +197,16 @@ export class DescribeBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupsCommandOutput> {
     return deserializeAws_json1_1DescribeBackupsCommand(output, context);
   }

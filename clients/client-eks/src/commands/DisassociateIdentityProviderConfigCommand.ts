@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateIdentityProviderConfigCommand}.
  */
 export interface DisassociateIdentityProviderConfigCommandInput extends DisassociateIdentityProviderConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateIdentityProviderConfigCommand}.
  */
 export interface DisassociateIdentityProviderConfigCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateIdentityProviderConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an identity provider configuration from a cluster. If you disassociate
  *             an identity provider from your cluster, users included in the provider can no longer
  *             access the cluster. However, you can still access the cluster with Amazon Web Services
@@ -51,6 +56,8 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateIdentityProviderConfigCommandInput - {@link DisassociateIdentityProviderConfigCommandInput}
+ * @returns {@link DisassociateIdentityProviderConfigCommandOutput}
  * @see {@link DisassociateIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -99,6 +106,9 @@ export class DisassociateIdentityProviderConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateIdentityProviderConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DisassociateIdentityProviderConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateIdentityProviderConfigCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DisassociateIdentityProviderConfigCommand extends $Command<
     return serializeAws_restJson1DisassociateIdentityProviderConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

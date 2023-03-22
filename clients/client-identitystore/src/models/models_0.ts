@@ -5,6 +5,7 @@ import { DocumentType as __DocumentType } from "@aws-sdk/types";
 import { IdentitystoreServiceException as __BaseException } from "./IdentitystoreServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -33,6 +34,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The address associated with the specified user.</p>
  */
 export interface Address {
@@ -86,6 +88,7 @@ export interface Address {
 }
 
 /**
+ * @public
  * <p>The identifier issued to this resource by an external identity provider.</p>
  */
 export interface ExternalId {
@@ -101,6 +104,7 @@ export interface ExternalId {
 }
 
 /**
+ * @public
  * <p>An entity attribute that's unique to a specific entity.</p>
  */
 export interface UniqueAttribute {
@@ -118,6 +122,7 @@ export interface UniqueAttribute {
 }
 
 /**
+ * @public
  * <p>A unique identifier for a user or group that is not the primary identifier. This value can be
  *          an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For example, a
  *          unique <code>GroupDisplayName</code>.</p>
@@ -127,6 +132,9 @@ export type AlternateIdentifier =
   | AlternateIdentifier.UniqueAttributeMember
   | AlternateIdentifier.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AlternateIdentifier {
   /**
    * <p>The identifier issued to this resource by an external identity provider.</p>
@@ -166,6 +174,7 @@ export namespace AlternateIdentifier {
 }
 
 /**
+ * @public
  * <p>An operation that applies to the requested group. This operation might add, replace, or remove an attribute.</p>
  */
 export interface AttributeOperation {
@@ -182,6 +191,9 @@ export interface AttributeOperation {
   AttributeValue?: __DocumentType;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupIdRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -196,6 +208,9 @@ export interface GetGroupIdRequest {
   AlternateIdentifier: AlternateIdentifier | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupIdResponse {
   /**
    * <p>The identifier for a group in the identity store.</p>
@@ -209,6 +224,7 @@ export interface GetGroupIdResponse {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -243,6 +259,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   GROUP = "GROUP",
   GROUP_MEMBERSHIP = "GROUP_MEMBERSHIP",
@@ -251,6 +270,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Indicates that a requested resource is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -291,6 +311,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -329,6 +350,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because it contains a syntax error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -357,10 +379,14 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object containing the identifier of a group member.</p>
  */
 export type MemberId = MemberId.UserIdMember | MemberId.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MemberId {
   /**
    * <p>An object containing the identifiers of resources that can be members.</p>
@@ -386,6 +412,9 @@ export namespace MemberId {
   };
 }
 
+/**
+ * @public
+ */
 export interface GetGroupMembershipIdRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -403,6 +432,9 @@ export interface GetGroupMembershipIdRequest {
   MemberId: MemberId | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupMembershipIdResponse {
   /**
    * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
@@ -415,6 +447,9 @@ export interface GetGroupMembershipIdResponse {
   IdentityStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUserIdRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -429,6 +464,9 @@ export interface GetUserIdRequest {
   AlternateIdentifier: AlternateIdentifier | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUserIdResponse {
   /**
    * <p>The identifier for a user in the identity store.</p>
@@ -441,12 +479,16 @@ export interface GetUserIdResponse {
   IdentityStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConflictExceptionReason {
   CONCURRENT_MODIFICATION = "CONCURRENT_MODIFICATION",
   UNIQUENESS_CONSTRAINT_VIOLATION = "UNIQUENESS_CONSTRAINT_VIOLATION",
 }
 
 /**
+ * @public
  * <p>This request cannot be completed for one of the following reasons:</p>
  *          <ul>
  *             <li>
@@ -494,6 +536,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupMembershipRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -511,6 +556,9 @@ export interface CreateGroupMembershipRequest {
   MemberId: MemberId | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupMembershipResponse {
   /**
    * <p>The identifier for a newly created <code>GroupMembership</code> in an identity store.</p>
@@ -524,6 +572,7 @@ export interface CreateGroupMembershipResponse {
 }
 
 /**
+ * @public
  * <p>The request would cause the number of users or groups in the identity store to exceed the maximum allowed.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -549,6 +598,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupMembershipRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -561,8 +613,14 @@ export interface DeleteGroupMembershipRequest {
   MembershipId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupMembershipResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeGroupMembershipRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -575,6 +633,9 @@ export interface DescribeGroupMembershipRequest {
   MembershipId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupMembershipResponse {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -597,6 +658,9 @@ export interface DescribeGroupMembershipResponse {
   MemberId: MemberId | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembershipsRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -621,6 +685,7 @@ export interface ListGroupMembershipsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the identifiers for a group, a group member, and a <code>GroupMembership</code>
  *          object in the identity store.</p>
  */
@@ -646,6 +711,9 @@ export interface GroupMembership {
   MemberId?: MemberId;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembershipsResponse {
   /**
    * <p>A list of <code>GroupMembership</code> objects in the group.</p>
@@ -658,6 +726,9 @@ export interface ListGroupMembershipsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -675,6 +746,9 @@ export interface CreateGroupRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupResponse {
   /**
    * <p>The
@@ -689,6 +763,9 @@ export interface CreateGroupResponse {
   IdentityStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -701,8 +778,14 @@ export interface DeleteGroupRequest {
   GroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeGroupRequest {
   /**
    * <p>The globally unique identifier for the identity store, such as
@@ -719,6 +802,9 @@ export interface DescribeGroupRequest {
   GroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupResponse {
   /**
    * <p>The identifier for a group in the identity store.</p>
@@ -752,6 +838,7 @@ export interface DescribeGroupResponse {
 }
 
 /**
+ * @public
  * <p>A query filter used by <code>ListUsers</code> and <code>ListGroups</code>. This filter
  *          object provides the attribute name and attribute value to search users or groups.</p>
  */
@@ -771,6 +858,9 @@ export interface Filter {
   AttributeValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsRequest {
   /**
    * <p>The globally unique identifier for the identity store, such as
@@ -806,6 +896,7 @@ export interface ListGroupsRequest {
 }
 
 /**
+ * @public
  * <p>A group object that contains a specified group’s metadata and attributes.</p>
  */
 export interface Group {
@@ -839,6 +930,9 @@ export interface Group {
   IdentityStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsResponse {
   /**
    * <p>A list of <code>Group</code> objects in the identity store.</p>
@@ -854,6 +948,9 @@ export interface ListGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGroupRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -872,8 +969,14 @@ export interface UpdateGroupRequest {
   Operations: AttributeOperation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGroupResponse {}
 
+/**
+ * @public
+ */
 export interface IsMemberInGroupsRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -892,6 +995,7 @@ export interface IsMemberInGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Indicates whether a resource is a member of a group in the identity store.</p>
  */
 export interface GroupMembershipExistenceResult {
@@ -911,6 +1015,9 @@ export interface GroupMembershipExistenceResult {
   MembershipExists?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface IsMemberInGroupsResponse {
   /**
    * <p>A list containing the results of membership existence checks.</p>
@@ -918,6 +1025,9 @@ export interface IsMemberInGroupsResponse {
   Results: GroupMembershipExistenceResult[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembershipsForMemberRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -940,6 +1050,9 @@ export interface ListGroupMembershipsForMemberRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembershipsForMemberResponse {
   /**
    * <p>A list of <code>GroupMembership</code> objects in the group for a specified member.</p>
@@ -954,6 +1067,7 @@ export interface ListGroupMembershipsForMemberResponse {
 }
 
 /**
+ * @public
  * <p>The email address associated with the user.</p>
  */
 export interface Email {
@@ -979,6 +1093,7 @@ export interface Email {
 }
 
 /**
+ * @public
  * <p>The
  *          full name
  *          of the user.</p>
@@ -1016,6 +1131,7 @@ export interface Name {
 }
 
 /**
+ * @public
  * <p>The phone number associated with the user.</p>
  */
 export interface PhoneNumber {
@@ -1041,6 +1157,9 @@ export interface PhoneNumber {
   Primary?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -1117,6 +1236,9 @@ export interface CreateUserRequest {
   Timezone?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The identifier of the newly created user in the identity store.</p>
@@ -1129,6 +1251,9 @@ export interface CreateUserResponse {
   IdentityStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -1141,8 +1266,14 @@ export interface DeleteUserRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The globally unique identifier for the identity store, such as
@@ -1159,6 +1290,9 @@ export interface DescribeUserRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>A unique string used to identify the user. The length limit is 128 characters. This value can consist of
@@ -1244,6 +1378,9 @@ export interface DescribeUserResponse {
   IdentityStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>The globally unique identifier for the identity store, such as
@@ -1279,6 +1416,7 @@ export interface ListUsersRequest {
 }
 
 /**
+ * @public
  * <p>A user object that contains a specified user’s metadata and attributes.</p>
  */
 export interface User {
@@ -1372,6 +1510,9 @@ export interface User {
   IdentityStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>A list of <code>User</code> objects in the identity store.</p>
@@ -1387,6 +1528,9 @@ export interface ListUsersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserRequest {
   /**
    * <p>The globally unique identifier for the identity store.</p>
@@ -1405,6 +1549,9 @@ export interface UpdateUserRequest {
   Operations: AttributeOperation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserResponse {}
 
 /**

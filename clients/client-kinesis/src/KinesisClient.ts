@@ -128,6 +128,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddTagsToStreamCommandInput
   | CreateStreamCommandInput
@@ -159,6 +162,9 @@ export type ServiceInputTypes =
   | UpdateShardCountCommandInput
   | UpdateStreamModeCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddTagsToStreamCommandOutput
   | CreateStreamCommandOutput
@@ -190,6 +196,9 @@ export type ServiceOutputTypes =
   | UpdateShardCountCommandOutput
   | UpdateStreamModeCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -197,7 +206,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -311,11 +320,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KinesisClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -327,10 +339,15 @@ type KinesisClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KinesisClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KinesisClient class constructor that set the region, credentials and other options.
  */
 export interface KinesisClientConfig extends KinesisClientConfigType {}
 
+/**
+ * @public
+ */
 type KinesisClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -342,11 +359,14 @@ type KinesisClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KinesisClient class. This is resolved and normalized from the {@link KinesisClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KinesisClient class. This is resolved and normalized from the {@link KinesisClientConfig | constructor configuration interface}.
  */
 export interface KinesisClientResolvedConfig extends KinesisClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
  *          <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
  *             processing of streaming big data.</p>

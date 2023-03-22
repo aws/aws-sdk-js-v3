@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateResourceSharePermissionCommand}.
  */
 export interface AssociateResourceSharePermissionCommandInput extends AssociateResourceSharePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateResourceSharePermissionCommand}.
  */
 export interface AssociateResourceSharePermissionCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateResourceSharePermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or replaces the RAM permission for a resource type included in a resource share. You can
  *             have exactly one permission associated with each resource type in the resource share. You can add
  *             a new RAM permission only if there are currently no resources of that resource type
@@ -51,6 +56,8 @@ export interface AssociateResourceSharePermissionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResourceSharePermissionCommandInput - {@link AssociateResourceSharePermissionCommandInput}
+ * @returns {@link AssociateResourceSharePermissionCommandOutput}
  * @see {@link AssociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceSharePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -95,6 +102,9 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResourceSharePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateResourceSharePermissionCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     return serializeAws_restJson1AssociateResourceSharePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

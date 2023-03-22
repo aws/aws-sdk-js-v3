@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetSecurityGroupsCommand}.
  */
 export interface SetSecurityGroupsCommandInput extends SetSecurityGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSecurityGroupsCommand}.
  */
 export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified security groups with the specified Application Load Balancer. The
  *       specified security groups override the previously associated security groups.</p>
  *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
@@ -53,6 +58,8 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSecurityGroupsCommandInput - {@link SetSecurityGroupsCommandInput}
+ * @returns {@link SetSecurityGroupsCommandOutput}
  * @see {@link SetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link SetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -106,6 +113,9 @@ export class SetSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class SetSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSecurityGroupsCommandOutput> {
     return deserializeAws_querySetSecurityGroupsCommand(output, context);
   }

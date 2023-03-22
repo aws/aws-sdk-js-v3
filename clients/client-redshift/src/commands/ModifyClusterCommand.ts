@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandInput extends ModifyClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandOutput extends ModifyClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a cluster.</p>
  *          <p>You can also change node type and the number of nodes to scale up or down the
  *             cluster. When resizing a cluster, you must specify both the number of nodes and the node
@@ -54,6 +59,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
+ * @returns {@link ModifyClusterCommandOutput}
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -145,6 +152,9 @@ export class ModifyClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class ModifyClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
     return deserializeAws_queryModifyClusterCommand(output, context);
   }

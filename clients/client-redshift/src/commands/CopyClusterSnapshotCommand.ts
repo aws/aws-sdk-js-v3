@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyClusterSnapshotCommand}.
  */
 export interface CopyClusterSnapshotCommandInput extends CopyClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyClusterSnapshotCommand}.
  */
 export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified automated cluster snapshot to a new manual cluster snapshot.
  *             The source must be an automated snapshot and it must be in the available
  *             state.</p>
@@ -57,6 +62,8 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyClusterSnapshotCommandInput - {@link CopyClusterSnapshotCommandInput}
+ * @returns {@link CopyClusterSnapshotCommandOutput}
  * @see {@link CopyClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -99,6 +106,9 @@ export class CopyClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CopyClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyClusterSnapshotCommandOutput> {
     return deserializeAws_queryCopyClusterSnapshotCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInstanceUserEndpointsCommand}.
  */
 export interface ListAppInstanceUserEndpointsCommandInput extends ListAppInstanceUserEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInstanceUserEndpointsCommand}.
  */
 export interface ListAppInstanceUserEndpointsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAppInstanceUserEndpointsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListAppInstanceUserEndpointsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInstanceUserEndpointsCommandInput - {@link ListAppInstanceUserEndpointsCommandInput}
+ * @returns {@link ListAppInstanceUserEndpointsCommandOutput}
  * @see {@link ListAppInstanceUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListAppInstanceUserEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInstanceUserEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListAppInstanceUserEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInstanceUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAppInstanceUserEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

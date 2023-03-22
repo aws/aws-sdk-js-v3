@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGameCommand}.
  */
 export interface GetGameCommandInput extends GetGameRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGameCommand}.
  */
 export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGameCommandInput - {@link GetGameCommandInput}
+ * @returns {@link GetGameCommandOutput}
  * @see {@link GetGameCommandInput} for command's `input` shape.
  * @see {@link GetGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGameCommandOutput> {
     return deserializeAws_restJson1GetGameCommand(output, context);
   }

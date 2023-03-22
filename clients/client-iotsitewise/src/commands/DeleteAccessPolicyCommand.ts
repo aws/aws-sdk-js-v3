@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an access policy that grants the specified identity access to the specified
  *       IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
  *       resource.</p>
@@ -48,6 +53,8 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPolicyCommandInput - {@link DeleteAccessPolicyCommandInput}
+ * @returns {@link DeleteAccessPolicyCommandOutput}
  * @see {@link DeleteAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPolicyCommandOutput> {
     return deserializeAws_restJson1DeleteAccessPolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandInput extends DeclineInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Declines Amazon Macie membership invitations that were received from specific accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeclineInvitationsCommandInput - {@link DeclineInvitationsCommandInput}
+ * @returns {@link DeclineInvitationsCommandOutput}
  * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DeclineInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeclineInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeclineInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeclineInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeclineInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineInvitationsCommandOutput> {
     return deserializeAws_restJson1DeclineInvitationsCommand(output, context);
   }

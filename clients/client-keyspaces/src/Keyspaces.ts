@@ -41,6 +41,7 @@ import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput }
 import { KeyspacesClient } from "./KeyspacesClient";
 
 /**
+ * @public
  * <p>Amazon Keyspaces (for Apache Cassandra) is a scalable,
  *         highly available, and managed Apache Cassandra-compatible database service. Amazon Keyspaces makes it easy to migrate,
  *         run, and scale Cassandra workloads in the Amazon Web Services Cloud. With just a few clicks on the Amazon Web Services Management Console or a few lines of code,
@@ -58,6 +59,7 @@ import { KeyspacesClient } from "./KeyspacesClient";
  */
 export class Keyspaces extends KeyspacesClient {
   /**
+   * @public
    * <p>The <code>CreateKeyspace</code> operation adds a new keyspace to your account. In an Amazon Web Services account, keyspace names
    *       must be unique within each Region.</p>
    *          <p>
@@ -96,6 +98,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>The <code>CreateTable</code> operation adds a new table to the specified keyspace. Within a keyspace, table names
    *          must be unique.</p>
    *          <p>
@@ -129,6 +132,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>The <code>DeleteKeyspace</code> operation deletes a keyspace and all of its tables. </p>
    */
   public deleteKeyspace(
@@ -161,6 +165,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>The <code>DeleteTable</code> operation deletes a table and all of its data. After a <code>DeleteTable</code> request is received,
    *          the specified table is in the <code>DELETING</code> state until Amazon Keyspaces completes the deletion. If the table
    *          is in the <code>ACTIVE</code> state, you can delete it. If a table is either in the <code>CREATING</code> or <code>UPDATING</code> states, then
@@ -191,6 +196,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Returns the name and the Amazon Resource Name (ARN) of the specified table.</p>
    */
   public getKeyspace(args: GetKeyspaceCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyspaceCommandOutput>;
@@ -217,6 +223,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the table, including the table's name and current status, the keyspace name,
    *          configuration settings, and metadata.</p>
    *          <p>To read table metadata using <code>GetTable</code>, <code>Select</code> action
@@ -246,6 +253,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of keyspaces.</p>
    */
   public listKeyspaces(
@@ -278,6 +286,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tables for a specified keyspace.</p>
    */
   public listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
@@ -304,6 +313,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all tags associated with the specified Amazon Keyspaces resource.</p>
    */
   public listTagsForResource(
@@ -336,6 +346,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Restores the specified table to the specified point in time within the
    *          <code>earliest_restorable_timestamp</code> and the current time. For more information about restore points, see
    *          <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window">
@@ -411,6 +422,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Associates a set of tags with a Amazon Keyspaces resource. You can then
    *          activate these user-defined tags so that they appear on the Cost Management Console for cost allocation tracking.
    *       For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
@@ -443,6 +455,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Removes the association of tags from a Amazon Keyspaces resource.</p>
    */
   public untagResource(
@@ -475,6 +488,7 @@ export class Keyspaces extends KeyspacesClient {
   }
 
   /**
+   * @public
    * <p>Adds new columns to the table or updates one of the table's settings, for example
    *          capacity mode, encryption, point-in-time recovery, or ttl settings.
    *       Note that you can only update one specific table setting per update operation.</p>

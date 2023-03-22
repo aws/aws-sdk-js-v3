@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTimelineEventCommand}.
  */
 export interface UpdateTimelineEventCommandInput extends UpdateTimelineEventInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTimelineEventCommand}.
  */
 export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a timeline event. You can update events of type <code>Custom
  *             Event</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTimelineEventCommandInput - {@link UpdateTimelineEventCommandInput}
+ * @returns {@link UpdateTimelineEventCommandOutput}
  * @see {@link UpdateTimelineEventCommandInput} for command's `input` shape.
  * @see {@link UpdateTimelineEventCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateTimelineEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTimelineEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateTimelineEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTimelineEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTimelineEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTimelineEventCommandOutput> {
     return deserializeAws_restJson1UpdateTimelineEventCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRoutingProfileCommand}.
  */
 export interface DescribeRoutingProfileCommandInput extends DescribeRoutingProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRoutingProfileCommand}.
  */
 export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRoutingProfileCommandInput - {@link DescribeRoutingProfileCommandInput}
+ * @returns {@link DescribeRoutingProfileCommandOutput}
  * @see {@link DescribeRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeRoutingProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeRoutingProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRoutingProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeRoutingProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRoutingProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoutingProfileCommandOutput> {
     return deserializeAws_restJson1DescribeRoutingProfileCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelMembershipCommand}.
  */
 export interface CreateChannelMembershipCommandInput extends CreateChannelMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelMembershipCommand}.
  */
 export interface CreateChannelMembershipCommandOutput extends CreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
  *          request header. A channel member can:</p>
  *
@@ -83,6 +88,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelMembershipCommandInput - {@link CreateChannelMembershipCommandInput}
+ * @returns {@link CreateChannelMembershipCommandOutput}
  * @see {@link CreateChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -131,6 +138,9 @@ export class CreateChannelMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class CreateChannelMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateChannelMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelMembershipCommandOutput> {
     return deserializeAws_restJson1CreateChannelMembershipCommand(output, context);
   }

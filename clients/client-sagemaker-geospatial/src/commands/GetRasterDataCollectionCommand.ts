@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRasterDataCollectionCommand}.
  */
 export interface GetRasterDataCollectionCommandInput extends GetRasterDataCollectionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRasterDataCollectionCommand}.
  */
 export interface GetRasterDataCollectionCommandOutput extends GetRasterDataCollectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to get details of a specific raster data collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetRasterDataCollectionCommandOutput extends GetRasterDataColle
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRasterDataCollectionCommandInput - {@link GetRasterDataCollectionCommandInput}
+ * @returns {@link GetRasterDataCollectionCommandOutput}
  * @see {@link GetRasterDataCollectionCommandInput} for command's `input` shape.
  * @see {@link GetRasterDataCollectionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetRasterDataCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRasterDataCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetRasterDataCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRasterDataCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRasterDataCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRasterDataCollectionCommandOutput> {
     return deserializeAws_restJson1GetRasterDataCollectionCommand(output, context);
   }

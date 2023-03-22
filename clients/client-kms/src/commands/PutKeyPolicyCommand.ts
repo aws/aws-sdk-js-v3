@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutKeyPolicyCommand}.
  */
 export interface PutKeyPolicyCommandInput extends PutKeyPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutKeyPolicyCommand}.
  */
 export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a key policy to the specified KMS key. </p>
  *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>Key Management Service Developer Guide</i>.
  *       For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
@@ -53,6 +58,8 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutKeyPolicyCommandInput - {@link PutKeyPolicyCommandInput}
+ * @returns {@link PutKeyPolicyCommandOutput}
  * @see {@link PutKeyPolicyCommandInput} for command's `input` shape.
  * @see {@link PutKeyPolicyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -135,6 +142,9 @@ export class PutKeyPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutKeyPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class PutKeyPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutKeyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutKeyPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeyPolicyCommandOutput> {
     return deserializeAws_json1_1PutKeyPolicyCommand(output, context);
   }

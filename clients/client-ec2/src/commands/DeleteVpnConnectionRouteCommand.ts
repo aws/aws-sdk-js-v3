@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpnConnectionRouteCommand}.
  */
 export interface DeleteVpnConnectionRouteCommandInput extends DeleteVpnConnectionRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpnConnectionRouteCommand}.
  */
 export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified static route associated with a VPN connection between an
  *             existing virtual private gateway and a VPN customer gateway. The static route allows
  *             traffic to be routed from the virtual private gateway to the VPN customer
@@ -44,6 +49,8 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpnConnectionRouteCommandInput - {@link DeleteVpnConnectionRouteCommandInput}
+ * @returns {@link DeleteVpnConnectionRouteCommandOutput}
  * @see {@link DeleteVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteVpnConnectionRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpnConnectionRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DeleteVpnConnectionRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpnConnectionRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVpnConnectionRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpnConnectionRouteCommandOutput> {
     return deserializeAws_ec2DeleteVpnConnectionRouteCommand(output, context);
   }

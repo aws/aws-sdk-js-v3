@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateHealthCheckCommand}.
  */
 export interface AssociateHealthCheckCommandInput extends AssociateHealthCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateHealthCheckCommand}.
  */
 export interface AssociateHealthCheckCommandOutput extends AssociateHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and response.  </p>
  *          <p>You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateHealthCheckCommandOutput extends AssociateHealthCheckR
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateHealthCheckCommandInput - {@link AssociateHealthCheckCommandInput}
+ * @returns {@link AssociateHealthCheckCommandOutput}
  * @see {@link AssociateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link AssociateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociateHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AssociateHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateHealthCheckCommandOutput> {
     return deserializeAws_json1_1AssociateHealthCheckCommand(output, context);
   }

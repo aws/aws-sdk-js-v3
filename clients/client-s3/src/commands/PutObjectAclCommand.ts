@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectAclCommand}.
  */
 export interface PutObjectAclCommandInput extends PutObjectAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectAclCommand}.
  */
 export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
  *          for a new or existing object in an S3 bucket. You must have <code>WRITE_ACP</code>
  *          permission to set the ACL of an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What
@@ -225,6 +230,8 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectAclCommandInput - {@link PutObjectAclCommandInput}
+ * @returns {@link PutObjectAclCommandOutput}
  * @see {@link PutObjectAclCommandInput} for command's `input` shape.
  * @see {@link PutObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -272,6 +279,9 @@ export class PutObjectAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -316,10 +326,16 @@ export class PutObjectAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectAclCommandOutput> {
     return deserializeAws_restXmlPutObjectAclCommand(output, context);
   }

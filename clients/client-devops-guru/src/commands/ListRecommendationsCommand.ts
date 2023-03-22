@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandInput extends ListRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of a specified insight's recommendations. Each recommendation includes
  * 			a list of related metrics and a list of related events. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
+ * @returns {@link ListRecommendationsCommandOutput}
  * @see {@link ListRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendationsCommandOutput> {
     return deserializeAws_restJson1ListRecommendationsCommand(output, context);
   }

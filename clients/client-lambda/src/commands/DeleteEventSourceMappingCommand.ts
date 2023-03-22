@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventSourceMappingCommand}.
  */
 export interface DeleteEventSourceMappingCommandInput extends DeleteEventSourceMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventSourceMappingCommand}.
  */
 export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
  *         mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
  *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
@@ -49,6 +54,8 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventSourceMappingCommandInput - {@link DeleteEventSourceMappingCommandInput}
+ * @returns {@link DeleteEventSourceMappingCommandOutput}
  * @see {@link DeleteEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSourceMappingCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteEventSourceMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventSourceMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteEventSourceMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEventSourceMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSourceMappingCommandOutput> {
     return deserializeAws_restJson1DeleteEventSourceMappingCommand(output, context);
   }

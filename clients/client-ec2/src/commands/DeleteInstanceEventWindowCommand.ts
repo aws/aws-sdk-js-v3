@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceEventWindowCommand}.
  */
 export interface DeleteInstanceEventWindowCommandInput extends DeleteInstanceEventWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceEventWindowCommand}.
  */
 export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEventWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEv
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceEventWindowCommandInput - {@link DeleteInstanceEventWindowCommandInput}
+ * @returns {@link DeleteInstanceEventWindowCommandOutput}
  * @see {@link DeleteInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteInstanceEventWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

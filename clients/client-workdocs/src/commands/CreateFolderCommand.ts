@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFolderCommand}.
  */
 export interface CreateFolderCommandInput extends CreateFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFolderCommand}.
  */
 export interface CreateFolderCommandOutput extends CreateFolderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a folder with the specified name and parent folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFolderCommandInput - {@link CreateFolderCommandInput}
+ * @returns {@link CreateFolderCommandOutput}
  * @see {@link CreateFolderCommandInput} for command's `input` shape.
  * @see {@link CreateFolderCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFolderCommandOutput> {
     return deserializeAws_restJson1CreateFolderCommand(output, context);
   }

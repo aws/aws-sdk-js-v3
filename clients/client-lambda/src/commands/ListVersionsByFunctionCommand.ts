@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVersionsByFunctionCommand}.
  */
 export interface ListVersionsByFunctionCommandInput extends ListVersionsByFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVersionsByFunctionCommand}.
  */
 export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
  *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVersionsByFunctionCommandInput - {@link ListVersionsByFunctionCommandInput}
+ * @returns {@link ListVersionsByFunctionCommandOutput}
  * @see {@link ListVersionsByFunctionCommandInput} for command's `input` shape.
  * @see {@link ListVersionsByFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListVersionsByFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVersionsByFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListVersionsByFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVersionsByFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVersionsByFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVersionsByFunctionCommandOutput> {
     return deserializeAws_restJson1ListVersionsByFunctionCommand(output, context);
   }

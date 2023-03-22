@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatabaseCommand}.
  */
 export interface UpdateDatabaseCommandInput extends UpdateDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatabaseCommand}.
  */
 export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Modifies the KMS key for an existing database. While updating the
  *          database, you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>). If there are any concurrent
  *             <code>UpdateDatabase</code> requests, first writer wins. </p>
@@ -51,6 +56,8 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatabaseCommandInput - {@link UpdateDatabaseCommandInput}
+ * @returns {@link UpdateDatabaseCommandOutput}
  * @see {@link UpdateDatabaseCommandInput} for command's `input` shape.
  * @see {@link UpdateDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatabaseCommandOutput> {
     return deserializeAws_json1_0UpdateDatabaseCommand(output, context);
   }

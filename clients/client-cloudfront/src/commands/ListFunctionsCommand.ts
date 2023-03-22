@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionsCommand}.
  */
 export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionsCommand}.
  */
 export interface ListFunctionsCommandOutput extends ListFunctionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all CloudFront functions in your Amazon Web Services account.</p>
  *          <p>You can optionally apply a filter to return only the functions that are in the
  * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
@@ -53,6 +58,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
+ * @returns {@link ListFunctionsCommandOutput}
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListFunctionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListFunctionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListFunctionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
     return deserializeAws_restXmlListFunctionsCommand(output, context);
   }

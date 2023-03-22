@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventBusCommand}.
  */
 export interface DeleteEventBusCommandInput extends DeleteEventBusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventBusCommand}.
  */
 export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
  *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventBusCommandInput - {@link DeleteEventBusCommandInput}
+ * @returns {@link DeleteEventBusCommandOutput}
  * @see {@link DeleteEventBusCommandInput} for command's `input` shape.
  * @see {@link DeleteEventBusCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteEventBusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventBusCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteEventBusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEventBusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventBusCommandOutput> {
     return deserializeAws_json1_1DeleteEventBusCommand(output, context);
   }

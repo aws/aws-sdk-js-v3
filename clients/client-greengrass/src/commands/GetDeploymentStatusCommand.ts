@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentStatusCommand}.
  */
 export interface GetDeploymentStatusCommandInput extends GetDeploymentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentStatusCommand}.
  */
 export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns the status of a deployment.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentStatusCommandInput - {@link GetDeploymentStatusCommandInput}
+ * @returns {@link GetDeploymentStatusCommandOutput}
  * @see {@link GetDeploymentStatusCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentStatusCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetDeploymentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetDeploymentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeploymentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentStatusCommandOutput> {
     return deserializeAws_restJson1GetDeploymentStatusCommand(output, context);
   }

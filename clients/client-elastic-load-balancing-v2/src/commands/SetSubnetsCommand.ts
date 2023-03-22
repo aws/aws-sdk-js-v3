@@ -27,15 +27,20 @@ import {
 import { deserializeAws_querySetSubnetsCommand, serializeAws_querySetSubnetsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetSubnetsCommand}.
  */
 export interface SetSubnetsCommandInput extends SetSubnetsInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSubnetsCommand}.
  */
 export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the Availability Zones for the specified public subnets for the specified
  *       Application Load Balancer or Network Load Balancer. The specified subnets replace the
  *       previously enabled subnets.</p>
@@ -52,6 +57,8 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSubnetsCommandInput - {@link SetSubnetsCommandInput}
+ * @returns {@link SetSubnetsCommandOutput}
  * @see {@link SetSubnetsCommandInput} for command's `input` shape.
  * @see {@link SetSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -122,6 +129,9 @@ export class SetSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class SetSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSubnetsCommandOutput> {
     return deserializeAws_querySetSubnetsCommand(output, context);
   }

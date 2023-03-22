@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1StartTaskCommand, serializeAws_json1_1StartTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTaskCommand}.
  */
 export interface StartTaskCommandInput extends StartTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTaskCommand}.
  */
 export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new task from the specified task definition on the specified container
  * 			instance or instances.</p>
  *          <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
@@ -46,6 +51,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTaskCommandInput - {@link StartTaskCommandInput}
+ * @returns {@link StartTaskCommandOutput}
  * @see {@link StartTaskCommandInput} for command's `input` shape.
  * @see {@link StartTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -80,6 +87,9 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskCommandOutput> {
     return deserializeAws_json1_1StartTaskCommand(output, context);
   }

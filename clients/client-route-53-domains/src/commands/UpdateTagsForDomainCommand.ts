@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTagsForDomainCommand}.
  */
 export interface UpdateTagsForDomainCommandInput extends UpdateTagsForDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTagsForDomainCommand}.
  */
 export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation adds or updates tags for a specified domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
  * 			immediately represent all issued operations.</p>
@@ -48,6 +53,8 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTagsForDomainCommandInput - {@link UpdateTagsForDomainCommandInput}
+ * @returns {@link UpdateTagsForDomainCommandOutput}
  * @see {@link UpdateTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateTagsForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTagsForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateTagsForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTagsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTagsForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagsForDomainCommandOutput> {
     return deserializeAws_json1_1UpdateTagsForDomainCommand(output, context);
   }

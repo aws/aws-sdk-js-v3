@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandInput extends DeleteServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a service, with its instances and pipeline.</p>
  *          <note>
  *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
@@ -52,6 +57,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
+ * @returns {@link DeleteServiceCommandOutput}
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
     return deserializeAws_json1_0DeleteServiceCommand(output, context);
   }

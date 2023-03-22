@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchEvaluateFeatureCommand}.
  */
 export interface BatchEvaluateFeatureCommandInput extends BatchEvaluateFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchEvaluateFeatureCommand}.
  */
 export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation assigns feature variation to user sessions. For each user session, you pass
  *       in an <code>entityID</code> that represents the user. Evidently then checks the evaluation
  *       rules and assigns the variation.</p>
@@ -60,6 +65,8 @@ export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchEvaluateFeatureCommandInput - {@link BatchEvaluateFeatureCommandInput}
+ * @returns {@link BatchEvaluateFeatureCommandOutput}
  * @see {@link BatchEvaluateFeatureCommandInput} for command's `input` shape.
  * @see {@link BatchEvaluateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -95,6 +102,9 @@ export class BatchEvaluateFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchEvaluateFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class BatchEvaluateFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchEvaluateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchEvaluateFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEvaluateFeatureCommandOutput> {
     return deserializeAws_restJson1BatchEvaluateFeatureCommand(output, context);
   }

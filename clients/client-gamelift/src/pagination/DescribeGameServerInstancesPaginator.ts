@@ -10,7 +10,7 @@ import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameLiftClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeGameServerInstancesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeGameServerInstances(
   config: GameLiftPaginationConfiguration,
   input: DescribeGameServerInstancesCommandInput,

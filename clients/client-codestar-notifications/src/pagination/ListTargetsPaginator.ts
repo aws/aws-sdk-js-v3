@@ -6,7 +6,7 @@ import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput }
 import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodestarNotificationsClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTargetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTargets(
   config: CodestarNotificationsPaginationConfiguration,
   input: ListTargetsCommandInput,

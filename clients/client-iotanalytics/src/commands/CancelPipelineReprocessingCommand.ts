@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelPipelineReprocessingCommand}.
  */
 export interface CancelPipelineReprocessingCommandInput extends CancelPipelineReprocessingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelPipelineReprocessingCommand}.
  */
 export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the reprocessing of data through the pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelPipelineReprocessingCommandInput - {@link CancelPipelineReprocessingCommandInput}
+ * @returns {@link CancelPipelineReprocessingCommandOutput}
  * @see {@link CancelPipelineReprocessingCommandInput} for command's `input` shape.
  * @see {@link CancelPipelineReprocessingCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelPipelineReprocessingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelPipelineReprocessingCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CancelPipelineReprocessingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelPipelineReprocessingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelPipelineReprocessingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

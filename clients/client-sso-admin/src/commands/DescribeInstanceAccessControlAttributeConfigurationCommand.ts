@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface DescribeInstanceAccessControlAttributeConfigurationCommandInput
   extends DescribeInstanceAccessControlAttributeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of IAM Identity Center identity store attributes that have been configured to work
  *       with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not
  *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -51,6 +56,8 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAccessControlAttributeConfigurationCommandInput - {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput}
+ * @returns {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput}
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
     return serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppInstanceUserCommand}.
  */
 export interface DeleteAppInstanceUserCommandInput extends DeleteAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppInstanceUserCommand}.
  */
 export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an <code>AppInstanceUser</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppInstanceUserCommandInput - {@link DeleteAppInstanceUserCommandInput}
+ * @returns {@link DeleteAppInstanceUserCommandOutput}
  * @see {@link DeleteAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppInstanceUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppInstanceUserCommandOutput> {
     return deserializeAws_restJson1DeleteAppInstanceUserCommand(output, context);
   }

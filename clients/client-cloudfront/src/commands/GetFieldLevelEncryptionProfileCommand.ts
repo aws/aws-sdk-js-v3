@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetFieldLevelEncryptionProfileCommand}.
  */
 export interface GetFieldLevelEncryptionProfileCommandInput extends GetFieldLevelEncryptionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFieldLevelEncryptionProfileCommand}.
  */
 export interface GetFieldLevelEncryptionProfileCommandOutput
@@ -37,6 +41,7 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the field-level encryption profile information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFieldLevelEncryptionProfileCommandInput - {@link GetFieldLevelEncryptionProfileCommandInput}
+ * @returns {@link GetFieldLevelEncryptionProfileCommandOutput}
  * @see {@link GetFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFieldLevelEncryptionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
     return serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

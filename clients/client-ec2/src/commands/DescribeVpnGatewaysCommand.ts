@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpnGatewaysCommand}.
  */
 export interface DescribeVpnGatewaysCommandInput extends DescribeVpnGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpnGatewaysCommand}.
  */
 export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your virtual private gateways.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpnGatewaysCommandInput - {@link DescribeVpnGatewaysCommandInput}
+ * @returns {@link DescribeVpnGatewaysCommandOutput}
  * @see {@link DescribeVpnGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeVpnGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeVpnGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpnGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeVpnGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpnGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpnGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpnGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeVpnGatewaysCommand(output, context);
   }

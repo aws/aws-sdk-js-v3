@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGatewayCapabilityConfigurationCommand}.
  */
 export interface DescribeGatewayCapabilityConfigurationCommandInput
   extends DescribeGatewayCapabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGatewayCapabilityConfigurationCommand}.
  */
 export interface DescribeGatewayCapabilityConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a gateway capability configuration.
  *       Each gateway capability defines data sources for a gateway. A capability configuration
  *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
@@ -53,6 +58,8 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGatewayCapabilityConfigurationCommandInput - {@link DescribeGatewayCapabilityConfigurationCommandInput}
+ * @returns {@link DescribeGatewayCapabilityConfigurationCommandOutput}
  * @see {@link DescribeGatewayCapabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayCapabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGatewayCapabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeGatewayCapabilityConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

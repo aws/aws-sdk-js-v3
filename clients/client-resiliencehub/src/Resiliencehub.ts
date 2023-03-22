@@ -240,6 +240,7 @@ import {
 import { ResiliencehubClient } from "./ResiliencehubClient";
 
 /**
+ * @public
  * <p>AWS Resilience Hub helps you proactively prepare and protect your Amazon Web Services applications from
  *       disruptions. Resilience Hub offers continuous resiliency assessment and validation that integrates
  *       into your software development lifecycle. This enables you to uncover resiliency weaknesses,
@@ -248,6 +249,7 @@ import { ResiliencehubClient } from "./ResiliencehubClient";
  */
 export class Resiliencehub extends ResiliencehubClient {
   /**
+   * @public
    * <p>Adds the resource mapping for the draft application version. You can also update an existing resource mapping to a new physical resource.</p>
    */
   public addDraftAppVersionResourceMappings(
@@ -280,6 +282,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a collection of Amazon Web Services
    *       resources structured to prevent and recover Amazon Web Services application disruptions. To describe a
    *       AWS Resilience Hub application, you provide an application name, resources from one or more–up to
@@ -314,6 +317,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Application Component in the AWS Resilience Hub application.</p>
    *          <note>
    *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
@@ -349,6 +353,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Adds a resource to the AWS Resilience Hub applicationand assigns it to the specified
    *       Application Components. If you specify a new Application Component, AWS Resilience Hub will automatically
    *       create the Application Component.</p>
@@ -399,6 +404,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Creates a new recommendation template for the AWS Resilience Hub application.</p>
    */
   public createRecommendationTemplate(
@@ -431,6 +437,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Creates a resiliency policy for an application.</p>
    */
   public createResiliencyPolicy(
@@ -463,6 +470,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Deletes an AWS Resilience Hub application. This is a destructive action that can't be
    *       undone.</p>
    */
@@ -490,6 +498,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Deletes an AWS Resilience Hub application assessment. This is a destructive action that can't
    *       be undone.</p>
    */
@@ -523,6 +532,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Deletes the input source and all of its imported resources from the AWS Resilience Hub application.</p>
    */
   public deleteAppInputSource(
@@ -555,6 +565,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Application Component from the AWS Resilience Hub application.</p>
    *          <note>
    *             <ul>
@@ -597,6 +608,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Deletes a resource from the AWS Resilience Hub application.</p>
    *          <note>
    *             <ul>
@@ -642,6 +654,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Deletes a recommendation template. This is a destructive action that can't be
    *       undone.</p>
    */
@@ -675,6 +688,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Deletes a resiliency policy. This is a destructive action that can't be undone.</p>
    */
   public deleteResiliencyPolicy(
@@ -707,6 +721,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes an AWS Resilience Hub application.</p>
    */
   public describeApp(args: DescribeAppCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAppCommandOutput>;
@@ -733,6 +748,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes an assessment for an AWS Resilience Hub application.</p>
    */
   public describeAppAssessment(
@@ -765,6 +781,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes the AWS Resilience Hub application version.</p>
    */
   public describeAppVersion(
@@ -797,6 +814,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes an Application Component in the AWS Resilience Hub application.</p>
    */
   public describeAppVersionAppComponent(
@@ -829,6 +847,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes a resource of the AWS Resilience Hub application.</p>
    *          <note>
    *             <p>This API accepts only one of the following parameters to descibe the resource:</p>
@@ -881,6 +900,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Returns the resolution status for the specified resolution identifier for an application
    *       version. If <code>resolutionId</code> is not specified, the current resolution status is
    *       returned.</p>
@@ -917,6 +937,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes details about an AWS Resilience Hub application.</p>
    */
   public describeAppVersionTemplate(
@@ -949,6 +970,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes the status of importing resources to an application version.</p>
    *          <note>
    *             <p>If you get a 404 error with
@@ -990,6 +1012,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Describes a specified resiliency policy for an AWS Resilience Hub application. The returned
    *       policy object includes creation time, data location constraints, the Amazon Resource Name
    *       (ARN) for the policy, tags, tier, and more.</p>
@@ -1024,6 +1047,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Imports resources to AWS Resilience Hub application draft version from different input sources. For more information about the input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
    *         the structure and describe your Resilience Hub application</a>.</p>
    */
@@ -1057,6 +1081,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the alarm recommendations for an AWS Resilience Hub application.</p>
    */
   public listAlarmRecommendations(
@@ -1089,6 +1114,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the assessments for an AWS Resilience Hub application. You can use request parameters to
    *       refine the results for the response object.</p>
    */
@@ -1122,6 +1148,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the compliances for an AWS Resilience Hub Application Component.</p>
    */
   public listAppComponentCompliances(
@@ -1154,6 +1181,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the recommendations for an AWS Resilience Hub Application Component.</p>
    */
   public listAppComponentRecommendations(
@@ -1186,6 +1214,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists all the input sources of the AWS Resilience Hub application. For more information about the
    *       input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
    *         the structure and describe your Resilience Hub application</a>.</p>
@@ -1220,6 +1249,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists your AWS Resilience Hub applications.</p>
    *          <note>
    *             <p>You can filter applications using only one filter at a time or without using any filter.
@@ -1255,6 +1285,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists all the Application Components in the AWS Resilience Hub application.</p>
    */
   public listAppVersionAppComponents(
@@ -1287,6 +1318,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists how the resources in an application version are mapped/sourced from. Mappings can be
    *       physical resource identifiers, CloudFormation stacks, resource-groups, or an application registry
    *       app.</p>
@@ -1321,6 +1353,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists all the resources in an AWS Resilience Hub application.</p>
    */
   public listAppVersionResources(
@@ -1353,6 +1386,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the different versions for the AWS Resilience Hub applications.</p>
    */
   public listAppVersions(
@@ -1385,6 +1419,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the recommendation templates for the AWS Resilience Hub applications.</p>
    */
   public listRecommendationTemplates(
@@ -1417,6 +1452,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the resiliency policies for the AWS Resilience Hub applications.</p>
    */
   public listResiliencyPolicies(
@@ -1449,6 +1485,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the standard operating procedure (SOP) recommendations for the AWS Resilience Hub
    *       applications.</p>
    */
@@ -1482,6 +1519,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the suggested resiliency policies for the AWS Resilience Hub applications.</p>
    */
   public listSuggestedResiliencyPolicies(
@@ -1514,6 +1552,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for your resources in your AWS Resilience Hub applications.</p>
    */
   public listTagsForResource(
@@ -1546,6 +1585,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the test recommendations for the AWS Resilience Hub application.</p>
    */
   public listTestRecommendations(
@@ -1578,6 +1618,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Lists the resources that are not currently supported in AWS Resilience Hub. An unsupported
    *       resource is a resource that exists in the object that was used to create an app, but is not
    *       supported by AWS Resilience Hub.</p>
@@ -1612,6 +1653,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Publishes a new version of a specific AWS Resilience Hub application.</p>
    */
   public publishAppVersion(
@@ -1644,6 +1686,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates the app template for an AWS Resilience Hub application draft version.</p>
    */
   public putDraftAppVersionTemplate(
@@ -1676,6 +1719,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Removes resource mappings from a draft application version.</p>
    */
   public removeDraftAppVersionResourceMappings(
@@ -1710,6 +1754,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Resolves the resources for an application version.</p>
    */
   public resolveAppVersionResources(
@@ -1742,6 +1787,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Creates a new application assessment for an application.</p>
    */
   public startAppAssessment(
@@ -1774,6 +1820,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Applies one or more tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1800,6 +1847,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a resource.</p>
    */
   public untagResource(
@@ -1832,6 +1880,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Updates an application.</p>
    */
   public updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
@@ -1858,6 +1907,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Updates the AWS Resilience Hub application version.</p>
    *          <note>
    *             <p>This API updates the AWS Resilience Hub application draft version. To use this information
@@ -1895,6 +1945,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Application Component in the AWS Resilience Hub application.</p>
    *          <note>
    *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
@@ -1930,6 +1981,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Updates the resource details in the AWS Resilience Hub application.</p>
    *          <note>
    *             <ul>
@@ -1976,6 +2028,7 @@ export class Resiliencehub extends ResiliencehubClient {
   }
 
   /**
+   * @public
    * <p>Updates a resiliency policy.</p>
    */
   public updateResiliencyPolicy(

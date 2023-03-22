@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCanariesCommand}.
  */
 export interface DescribeCanariesCommandInput extends DescribeCanariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCanariesCommand}.
  */
 export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns a list of the canaries in your account, along with full details
  *       about each canary.</p>
  *          <p>This operation supports resource-level authorization using an IAM policy and
@@ -55,6 +60,8 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCanariesCommandInput - {@link DescribeCanariesCommandInput}
+ * @returns {@link DescribeCanariesCommandOutput}
  * @see {@link DescribeCanariesCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeCanariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCanariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeCanariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCanariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeCanariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCanariesCommandOutput> {
     return deserializeAws_restJson1DescribeCanariesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRoleFromGroupCommand}.
  */
 export interface DisassociateRoleFromGroupCommandInput extends DisassociateRoleFromGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRoleFromGroupCommand}.
  */
 export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRoleFromGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Disassociates the role from a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRoleFromGroupCommandInput - {@link DisassociateRoleFromGroupCommandInput}
+ * @returns {@link DisassociateRoleFromGroupCommandOutput}
  * @see {@link DisassociateRoleFromGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateRoleFromGroupCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRoleFromGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateRoleFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateRoleFromGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportBackupPlanTemplateCommand}.
  */
 export interface ExportBackupPlanTemplateCommandInput extends ExportBackupPlanTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link ExportBackupPlanTemplateCommand}.
  */
 export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportBackupPlanTemplateCommandInput - {@link ExportBackupPlanTemplateCommandInput}
+ * @returns {@link ExportBackupPlanTemplateCommandOutput}
  * @see {@link ExportBackupPlanTemplateCommandInput} for command's `input` shape.
  * @see {@link ExportBackupPlanTemplateCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportBackupPlanTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportBackupPlanTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportBackupPlanTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportBackupPlanTemplateCommandOutput> {
     return deserializeAws_restJson1ExportBackupPlanTemplateCommand(output, context);
   }

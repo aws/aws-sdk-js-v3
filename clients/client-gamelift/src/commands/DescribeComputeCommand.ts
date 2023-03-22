@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComputeCommand}.
  */
 export interface DescribeComputeCommandInput extends DescribeComputeInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComputeCommand}.
  */
 export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for a compute resource. To request a compute resource specify the
  *             fleet ID and compute name. If successful, GameLift returns an object containing the build
  *             properties.</p>
@@ -48,6 +53,8 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComputeCommandInput - {@link DescribeComputeCommandInput}
+ * @returns {@link DescribeComputeCommandOutput}
  * @see {@link DescribeComputeCommandInput} for command's `input` shape.
  * @see {@link DescribeComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeComputeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComputeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeComputeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeComputeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeComputeCommandOutput> {
     return deserializeAws_json1_1DescribeComputeCommand(output, context);
   }

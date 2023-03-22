@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecretsCommand}.
  */
 export interface ListSecretsCommandInput extends ListSecretsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecretsCommand}.
  */
 export interface ListSecretsCommandOutput extends ListSecretsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
  *       that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager console.</p>
  *          <p>ListSecrets is eventually consistent, however it might not reflect changes from the last five minutes.
@@ -60,6 +65,8 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecretsCommandInput - {@link ListSecretsCommandInput}
+ * @returns {@link ListSecretsCommandOutput}
  * @see {@link ListSecretsCommandInput} for command's `input` shape.
  * @see {@link ListSecretsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -129,6 +136,9 @@ export class ListSecretsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecretsCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class ListSecretsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecretsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSecretsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecretsCommandOutput> {
     return deserializeAws_json1_1ListSecretsCommand(output, context);
   }

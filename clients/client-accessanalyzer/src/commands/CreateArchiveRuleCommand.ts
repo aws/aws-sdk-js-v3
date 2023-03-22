@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateArchiveRuleCommand}.
  */
 export interface CreateArchiveRuleCommandInput extends CreateArchiveRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateArchiveRuleCommand}.
  */
 export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
  *          new findings that meet the criteria you define when you create the rule.</p>
  *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
@@ -43,6 +48,8 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateArchiveRuleCommandInput - {@link CreateArchiveRuleCommandInput}
+ * @returns {@link CreateArchiveRuleCommandOutput}
  * @see {@link CreateArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link CreateArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateArchiveRuleCommandOutput> {
     return deserializeAws_restJson1CreateArchiveRuleCommand(output, context);
   }

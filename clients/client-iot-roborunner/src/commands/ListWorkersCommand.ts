@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkersCommand}.
  */
 export interface ListWorkersCommandInput extends ListWorkersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkersCommand}.
  */
 export interface ListWorkersCommandOutput extends ListWorkersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to list workers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkersCommandInput - {@link ListWorkersCommandInput}
+ * @returns {@link ListWorkersCommandOutput}
  * @see {@link ListWorkersCommandInput} for command's `input` shape.
  * @see {@link ListWorkersCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListWorkersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListWorkersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorkersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkersCommandOutput> {
     return deserializeAws_restJson1ListWorkersCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFormCommand}.
  */
 export interface UpdateFormCommandInput extends UpdateFormRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFormCommand}.
  */
 export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing form.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFormCommandInput - {@link UpdateFormCommandInput}
+ * @returns {@link UpdateFormCommandOutput}
  * @see {@link UpdateFormCommandInput} for command's `input` shape.
  * @see {@link UpdateFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateFormCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFormCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateFormCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFormCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFormCommandOutput> {
     return deserializeAws_restJson1UpdateFormCommand(output, context);
   }

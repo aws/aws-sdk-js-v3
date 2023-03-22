@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLabelGroupCommand}.
  */
 export interface DeleteLabelGroupCommandInput extends DeleteLabelGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLabelGroupCommand}.
  */
 export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Deletes a group of labels.
  * </p>
@@ -43,6 +48,8 @@ export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLabelGroupCommandInput - {@link DeleteLabelGroupCommandInput}
+ * @returns {@link DeleteLabelGroupCommandOutput}
  * @see {@link DeleteLabelGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteLabelGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLabelGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteLabelGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteLabelGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelGroupCommandOutput> {
     return deserializeAws_json1_0DeleteLabelGroupCommand(output, context);
   }

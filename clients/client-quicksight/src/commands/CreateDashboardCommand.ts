@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDashboardCommand}.
  */
 export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDashboardCommand}.
  */
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dashboard from either a template or directly with a <code>DashboardDefinition</code>. To first create a template, see the
  *         <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
@@ -54,6 +59,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDashboardCommandInput - {@link CreateDashboardCommandInput}
+ * @returns {@link CreateDashboardCommandOutput}
  * @see {@link CreateDashboardCommandInput} for command's `input` shape.
  * @see {@link CreateDashboardCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDashboardCommandOutput> {
     return deserializeAws_restJson1CreateDashboardCommand(output, context);
   }

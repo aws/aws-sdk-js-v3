@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateCredentialReportCommand}.
  */
 export interface GenerateCredentialReportCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GenerateCredentialReportCommand}.
  */
 export interface GenerateCredentialReportCommandOutput extends GenerateCredentialReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Generates a credential report for the Amazon Web Services account. For more information about the
  *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
  *             the <i>IAM User Guide</i>.</p>
@@ -46,6 +51,8 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateCredentialReportCommandInput - {@link GenerateCredentialReportCommandInput}
+ * @returns {@link GenerateCredentialReportCommandOutput}
  * @see {@link GenerateCredentialReportCommandInput} for command's `input` shape.
  * @see {@link GenerateCredentialReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -77,6 +84,9 @@ export class GenerateCredentialReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateCredentialReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GenerateCredentialReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateCredentialReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGenerateCredentialReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateCredentialReportCommandOutput> {
     return deserializeAws_queryGenerateCredentialReportCommand(output, context);
   }

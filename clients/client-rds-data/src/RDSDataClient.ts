@@ -69,6 +69,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchExecuteStatementCommandInput
   | BeginTransactionCommandInput
@@ -77,6 +80,9 @@ export type ServiceInputTypes =
   | ExecuteStatementCommandInput
   | RollbackTransactionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchExecuteStatementCommandOutput
   | BeginTransactionCommandOutput
@@ -85,6 +91,9 @@ export type ServiceOutputTypes =
   | ExecuteStatementCommandOutput
   | RollbackTransactionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -92,7 +101,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -201,11 +210,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type RDSDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -216,10 +228,15 @@ type RDSDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of RDSDataClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RDSDataClient class constructor that set the region, credentials and other options.
  */
 export interface RDSDataClientConfig extends RDSDataClientConfigType {}
 
+/**
+ * @public
+ */
 type RDSDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -230,11 +247,14 @@ type RDSDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of RDSDataClient class. This is resolved and normalized from the {@link RDSDataClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RDSDataClient class. This is resolved and normalized from the {@link RDSDataClientConfig | constructor configuration interface}.
  */
 export interface RDSDataClientResolvedConfig extends RDSDataClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon RDS Data Service</fullname>
  *         <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless v1 DB cluster. To run these
  *             statements, you work with the Data Service API.</p>

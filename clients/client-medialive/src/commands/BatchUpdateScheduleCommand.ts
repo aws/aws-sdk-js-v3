@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateScheduleCommand}.
  */
 export interface BatchUpdateScheduleCommandInput extends BatchUpdateScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateScheduleCommand}.
  */
 export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Update a channel schedule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateScheduleCommandInput - {@link BatchUpdateScheduleCommandInput}
+ * @returns {@link BatchUpdateScheduleCommandOutput}
  * @see {@link BatchUpdateScheduleCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class BatchUpdateScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class BatchUpdateScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpdateScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateScheduleCommandOutput> {
     return deserializeAws_restJson1BatchUpdateScheduleCommand(output, context);
   }

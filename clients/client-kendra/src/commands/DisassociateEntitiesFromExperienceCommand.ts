@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateEntitiesFromExperienceCommand}.
  */
 export interface DisassociateEntitiesFromExperienceCommandInput extends DisassociateEntitiesFromExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateEntitiesFromExperienceCommand}.
  */
 export interface DisassociateEntitiesFromExperienceCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Prevents users or groups in your IAM Identity Center identity source
  *             from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
  *             such as a search application. For more information on creating a search
@@ -52,6 +57,8 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateEntitiesFromExperienceCommandInput - {@link DisassociateEntitiesFromExperienceCommandInput}
+ * @returns {@link DisassociateEntitiesFromExperienceCommandOutput}
  * @see {@link DisassociateEntitiesFromExperienceCommandInput} for command's `input` shape.
  * @see {@link DisassociateEntitiesFromExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -95,6 +102,9 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateEntitiesFromExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateEntitiesFromExperienceCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     return serializeAws_json1_1DisassociateEntitiesFromExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

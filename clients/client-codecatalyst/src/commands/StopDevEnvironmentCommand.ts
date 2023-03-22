@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDevEnvironmentCommand}.
  */
 export interface StopDevEnvironmentCommandInput extends StopDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDevEnvironmentCommand}.
  */
 export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Pauses a specified Dev Environment and places it in a non-running state. Stopped Dev Environments do not consume compute minutes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDevEnvironmentCommandInput - {@link StopDevEnvironmentCommandInput}
+ * @returns {@link StopDevEnvironmentCommandOutput}
  * @see {@link StopDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link StopDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class StopDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StopDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDevEnvironmentCommandOutput> {
     return deserializeAws_restJson1StopDevEnvironmentCommand(output, context);
   }

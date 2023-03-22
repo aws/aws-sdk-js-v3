@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLiveSourceCommand}.
  */
 export interface CreateLiveSourceCommandInput extends CreateLiveSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLiveSourceCommand}.
  */
 export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The live source configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLiveSourceCommandInput - {@link CreateLiveSourceCommandInput}
+ * @returns {@link CreateLiveSourceCommandOutput}
  * @see {@link CreateLiveSourceCommandInput} for command's `input` shape.
  * @see {@link CreateLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class CreateLiveSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLiveSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreateLiveSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLiveSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLiveSourceCommandOutput> {
     return deserializeAws_restJson1CreateLiveSourceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDynamicThingGroupCommand}.
  */
 export interface CreateDynamicThingGroupCommandInput extends CreateDynamicThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDynamicThingGroupCommand}.
  */
 export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dynamic thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDynamicThingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDynamicThingGroupCommandInput - {@link CreateDynamicThingGroupCommandInput}
+ * @returns {@link CreateDynamicThingGroupCommandOutput}
  * @see {@link CreateDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDynamicThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateDynamicThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDynamicThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateDynamicThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDynamicThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDynamicThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDynamicThingGroupCommandOutput> {
     return deserializeAws_restJson1CreateDynamicThingGroupCommand(output, context);
   }

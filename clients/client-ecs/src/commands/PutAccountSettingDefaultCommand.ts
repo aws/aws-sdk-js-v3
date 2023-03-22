@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountSettingDefaultCommand}.
  */
 export interface PutAccountSettingDefaultCommandInput extends PutAccountSettingDefaultRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountSettingDefaultCommand}.
  */
 export interface PutAccountSettingDefaultCommandOutput extends PutAccountSettingDefaultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an account setting for all users on an account for whom no individual
  * 			account setting has been specified. Account settings are set on a per-Region
  * 			basis.</p>
@@ -48,6 +53,8 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSettingDefaultCommandInput - {@link PutAccountSettingDefaultCommandInput}
+ * @returns {@link PutAccountSettingDefaultCommandOutput}
  * @see {@link PutAccountSettingDefaultCommandInput} for command's `input` shape.
  * @see {@link PutAccountSettingDefaultCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -104,6 +111,9 @@ export class PutAccountSettingDefaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSettingDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class PutAccountSettingDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountSettingDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAccountSettingDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountSettingDefaultCommandOutput> {
     return deserializeAws_json1_1PutAccountSettingDefaultCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedIndicesCommand}.
  */
 export interface ListAttachedIndicesCommandInput extends ListAttachedIndicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedIndicesCommand}.
  */
 export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists indices attached to the specified object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedIndicesCommandInput - {@link ListAttachedIndicesCommandInput}
+ * @returns {@link ListAttachedIndicesCommandOutput}
  * @see {@link ListAttachedIndicesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedIndicesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListAttachedIndicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedIndicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListAttachedIndicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedIndicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAttachedIndicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedIndicesCommandOutput> {
     return deserializeAws_restJson1ListAttachedIndicesCommand(output, context);
   }

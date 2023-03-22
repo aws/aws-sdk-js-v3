@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationServiceAccessStatusCommand}.
  */
 export interface ListOrganizationServiceAccessStatusCommandInput extends ListOrganizationServiceAccessStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationServiceAccessStatusCommand}.
  */
 export interface ListOrganizationServiceAccessStatusCommandOutput
@@ -37,6 +41,7 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationServiceAccessStatusCommandInput - {@link ListOrganizationServiceAccessStatusCommandInput}
+ * @returns {@link ListOrganizationServiceAccessStatusCommandOutput}
  * @see {@link ListOrganizationServiceAccessStatusCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationServiceAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationServiceAccessStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListOrganizationServiceAccessStatusCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
     return serializeAws_restJson1ListOrganizationServiceAccessStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEmailMonitoringConfigurationCommand}.
  */
 export interface DeleteEmailMonitoringConfigurationCommandInput extends DeleteEmailMonitoringConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEmailMonitoringConfigurationCommand}.
  */
 export interface DeleteEmailMonitoringConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEmailMonitoringConfigurationCommandInput - {@link DeleteEmailMonitoringConfigurationCommandInput}
+ * @returns {@link DeleteEmailMonitoringConfigurationCommandOutput}
  * @see {@link DeleteEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEmailMonitoringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
     return serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

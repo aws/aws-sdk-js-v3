@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListActionExecutionsCommand}.
  */
 export interface ListActionExecutionsCommandInput extends ListActionExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListActionExecutionsCommand}.
  */
 export interface ListActionExecutionsCommandOutput extends ListActionExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the action executions that have occurred in a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActionExecutionsCommandInput - {@link ListActionExecutionsCommandInput}
+ * @returns {@link ListActionExecutionsCommandOutput}
  * @see {@link ListActionExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListActionExecutionsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListActionExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActionExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListActionExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActionExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListActionExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionExecutionsCommandOutput> {
     return deserializeAws_json1_1ListActionExecutionsCommand(output, context);
   }

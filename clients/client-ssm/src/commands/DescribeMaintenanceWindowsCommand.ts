@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowsCommand}.
  */
 export interface DescribeMaintenanceWindowsCommandInput extends DescribeMaintenanceWindowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowsCommand}.
  */
 export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMaintenanceWindowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowsCommandInput - {@link DescribeMaintenanceWindowsCommandInput}
+ * @returns {@link DescribeMaintenanceWindowsCommandOutput}
  * @see {@link DescribeMaintenanceWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMaintenanceWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMaintenanceWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

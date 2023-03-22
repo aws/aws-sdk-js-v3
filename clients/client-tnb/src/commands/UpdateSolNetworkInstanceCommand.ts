@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSolNetworkInstanceCommand}.
  */
 export interface UpdateSolNetworkInstanceCommandInput extends UpdateSolNetworkInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSolNetworkInstanceCommand}.
  */
 export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSolNetworkInstanceCommandInput - {@link UpdateSolNetworkInstanceCommandInput}
+ * @returns {@link UpdateSolNetworkInstanceCommandOutput}
  * @see {@link UpdateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateSolNetworkInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSolNetworkInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateSolNetworkInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSolNetworkInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSolNetworkInstanceCommandOutput> {
     return deserializeAws_restJson1UpdateSolNetworkInstanceCommand(output, context);
   }

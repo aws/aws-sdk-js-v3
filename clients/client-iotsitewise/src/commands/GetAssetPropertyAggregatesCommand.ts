@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssetPropertyAggregatesCommand}.
  */
 export interface GetAssetPropertyAggregatesCommandInput extends GetAssetPropertyAggregatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssetPropertyAggregatesCommand}.
  */
 export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropertyAggregatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
  *         aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -57,6 +62,8 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssetPropertyAggregatesCommandInput - {@link GetAssetPropertyAggregatesCommandInput}
+ * @returns {@link GetAssetPropertyAggregatesCommandOutput}
  * @see {@link GetAssetPropertyAggregatesCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyAggregatesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssetPropertyAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssetPropertyAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAssetPropertyAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

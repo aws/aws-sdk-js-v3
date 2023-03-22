@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartEngagementCommand}.
  */
 export interface StartEngagementCommandInput extends StartEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartEngagementCommand}.
  */
 export interface StartEngagementCommandOutput extends StartEngagementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an engagement to a contact or escalation plan. The engagement engages each
  *          contact specified in the incident.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEngagementCommandInput - {@link StartEngagementCommandInput}
+ * @returns {@link StartEngagementCommandOutput}
  * @see {@link StartEngagementCommandInput} for command's `input` shape.
  * @see {@link StartEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -132,6 +139,9 @@ export class StartEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class StartEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEngagementCommandOutput> {
     return deserializeAws_json1_1StartEngagementCommand(output, context);
   }

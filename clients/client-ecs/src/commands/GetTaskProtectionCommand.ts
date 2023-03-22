@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTaskProtectionCommand}.
  */
 export interface GetTaskProtectionCommandInput extends GetTaskProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTaskProtectionCommand}.
  */
 export interface GetTaskProtectionCommandOutput extends GetTaskProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the protection status of tasks in an Amazon ECS service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTaskProtectionCommandInput - {@link GetTaskProtectionCommandInput}
+ * @returns {@link GetTaskProtectionCommandOutput}
  * @see {@link GetTaskProtectionCommandInput} for command's `input` shape.
  * @see {@link GetTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -119,6 +126,9 @@ export class GetTaskProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTaskProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class GetTaskProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTaskProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTaskProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTaskProtectionCommandOutput> {
     return deserializeAws_json1_1GetTaskProtectionCommand(output, context);
   }

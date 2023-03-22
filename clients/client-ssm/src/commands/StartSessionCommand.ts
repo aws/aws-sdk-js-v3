@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSessionCommand}.
  */
 export interface StartSessionCommandInput extends StartSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSessionCommand}.
  */
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session.
  *    Returns a URL and token that can be used to open a WebSocket connection for sending input and
  *    receiving outputs.</p>
@@ -55,6 +60,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSessionCommandInput - {@link StartSessionCommandInput}
+ * @returns {@link StartSessionCommandOutput}
  * @see {@link StartSessionCommandInput} for command's `input` shape.
  * @see {@link StartSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StartSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSessionCommandOutput> {
     return deserializeAws_json1_1StartSessionCommand(output, context);
   }

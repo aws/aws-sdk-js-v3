@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEC2InstanceLimitsCommand}.
  */
 export interface DescribeEC2InstanceLimitsCommandInput extends DescribeEC2InstanceLimitsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEC2InstanceLimitsCommand}.
  */
 export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2InstanceLimitsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the instance limits and current utilization for an Amazon Web Services Region or location.
  *             Instance limits control the number of instances, per instance type, per location, that
  *             your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
@@ -100,6 +105,8 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEC2InstanceLimitsCommandInput - {@link DescribeEC2InstanceLimitsCommandInput}
+ * @returns {@link DescribeEC2InstanceLimitsCommandOutput}
  * @see {@link DescribeEC2InstanceLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeEC2InstanceLimitsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -137,6 +144,9 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEC2InstanceLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEC2InstanceLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEC2InstanceLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

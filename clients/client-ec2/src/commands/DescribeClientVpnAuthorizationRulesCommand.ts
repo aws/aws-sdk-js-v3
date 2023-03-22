@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientVpnAuthorizationRulesCommand}.
  */
 export interface DescribeClientVpnAuthorizationRulesCommandInput extends DescribeClientVpnAuthorizationRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientVpnAuthorizationRulesCommand}.
  */
 export interface DescribeClientVpnAuthorizationRulesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeClientVpnAuthorizationRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeClientVpnAuthorizationRulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnAuthorizationRulesCommandInput - {@link DescribeClientVpnAuthorizationRulesCommandInput}
+ * @returns {@link DescribeClientVpnAuthorizationRulesCommandOutput}
  * @see {@link DescribeClientVpnAuthorizationRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnAuthorizationRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnAuthorizationRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClientVpnAuthorizationRulesCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     return serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

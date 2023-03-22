@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAssetsCommand}.
  */
 export interface AssociateAssetsCommandInput extends AssociateAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAssetsCommand}.
  */
 export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
  *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -43,6 +48,8 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAssetsCommandInput - {@link AssociateAssetsCommandInput}
+ * @returns {@link AssociateAssetsCommandOutput}
  * @see {@link AssociateAssetsCommandInput} for command's `input` shape.
  * @see {@link AssociateAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -95,6 +102,9 @@ export class AssociateAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class AssociateAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAssetsCommandOutput> {
     return deserializeAws_restJson1AssociateAssetsCommand(output, context);
   }

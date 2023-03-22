@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDeliveryStreamEncryptionCommand}.
  */
 export interface StopDeliveryStreamEncryptionCommandInput extends StopDeliveryStreamEncryptionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopDeliveryStreamEncryptionCommand}.
  */
 export interface StopDeliveryStreamEncryptionCommandOutput
@@ -37,6 +41,7 @@ export interface StopDeliveryStreamEncryptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables server-side encryption (SSE) for the delivery stream. </p>
  *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data
  *          Firehose first sets the encryption status of the stream to <code>DISABLING</code>, and then
@@ -67,6 +72,8 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDeliveryStreamEncryptionCommandInput - {@link StopDeliveryStreamEncryptionCommandInput}
+ * @returns {@link StopDeliveryStreamEncryptionCommandOutput}
  * @see {@link StopDeliveryStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StopDeliveryStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -102,6 +109,9 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDeliveryStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDeliveryStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopDeliveryStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

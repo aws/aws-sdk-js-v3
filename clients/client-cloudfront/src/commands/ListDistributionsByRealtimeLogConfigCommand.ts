@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByRealtimeLogConfigCommand}.
  */
 export interface ListDistributionsByRealtimeLogConfigCommandInput extends ListDistributionsByRealtimeLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByRealtimeLogConfigCommand}.
  */
 export interface ListDistributionsByRealtimeLogConfigCommandOutput
@@ -37,6 +41,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distributions that have a cache behavior that's associated with the
  * 			specified real-time log configuration.</p>
  *          <p>You can specify the real-time log configuration by its name or its Amazon Resource
@@ -57,6 +62,8 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByRealtimeLogConfigCommandInput - {@link ListDistributionsByRealtimeLogConfigCommandInput}
+ * @returns {@link ListDistributionsByRealtimeLogConfigCommandOutput}
  * @see {@link ListDistributionsByRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByRealtimeLogConfigCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
     return serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

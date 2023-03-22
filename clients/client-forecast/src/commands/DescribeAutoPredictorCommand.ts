@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutoPredictorCommand}.
  */
 export interface DescribeAutoPredictorCommandInput extends DescribeAutoPredictorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutoPredictorCommand}.
  */
 export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredictorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a predictor created using the CreateAutoPredictor operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredicto
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoPredictorCommandInput - {@link DescribeAutoPredictorCommandInput}
+ * @returns {@link DescribeAutoPredictorCommandOutput}
  * @see {@link DescribeAutoPredictorCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoPredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeAutoPredictorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoPredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeAutoPredictorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutoPredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAutoPredictorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAutoPredictorCommandOutput> {
     return deserializeAws_json1_1DescribeAutoPredictorCommand(output, context);
   }

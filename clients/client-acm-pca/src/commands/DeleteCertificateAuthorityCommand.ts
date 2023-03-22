@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCertificateAuthorityCommand}.
  */
 export interface DeleteCertificateAuthorityCommandInput extends DeleteCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCertificateAuthorityCommand}.
  */
 export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource
  * 			Name (ARN) of the private CA that you want to delete. You can find the ARN by calling
  * 			the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. </p>
@@ -63,6 +68,8 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCertificateAuthorityCommandInput - {@link DeleteCertificateAuthorityCommandInput}
+ * @returns {@link DeleteCertificateAuthorityCommandOutput}
  * @see {@link DeleteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

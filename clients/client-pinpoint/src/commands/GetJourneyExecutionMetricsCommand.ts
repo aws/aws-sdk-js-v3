@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJourneyExecutionMetricsCommand}.
  */
 export interface GetJourneyExecutionMetricsCommandInput extends GetJourneyExecutionMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJourneyExecutionMetricsCommand}.
  */
 export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecutionMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJourneyExecutionMetricsCommandInput - {@link GetJourneyExecutionMetricsCommandInput}
+ * @returns {@link GetJourneyExecutionMetricsCommandOutput}
  * @see {@link GetJourneyExecutionMetricsCommandInput} for command's `input` shape.
  * @see {@link GetJourneyExecutionMetricsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJourneyExecutionMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJourneyExecutionMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetJourneyExecutionMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

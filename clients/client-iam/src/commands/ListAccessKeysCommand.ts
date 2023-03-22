@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessKeysCommand}.
  */
 export interface ListAccessKeysCommandInput extends ListAccessKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessKeysCommand}.
  */
 export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the access key IDs associated with the specified IAM user.
  *             If there is none, the operation returns an empty list.</p>
  *          <p>Although each user is limited to a small number of keys, you can still paginate the
@@ -59,6 +64,8 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessKeysCommandInput - {@link ListAccessKeysCommandInput}
+ * @returns {@link ListAccessKeysCommandOutput}
  * @see {@link ListAccessKeysCommandInput} for command's `input` shape.
  * @see {@link ListAccessKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -119,6 +126,9 @@ export class ListAccessKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class ListAccessKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAccessKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessKeysCommandOutput> {
     return deserializeAws_queryListAccessKeysCommand(output, context);
   }

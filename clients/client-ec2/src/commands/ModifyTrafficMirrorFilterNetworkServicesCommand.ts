@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
  */
 export interface ModifyTrafficMirrorFilterNetworkServicesCommandInput
   extends ModifyTrafficMirrorFilterNetworkServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
  */
 export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows or restricts mirroring network services.</p>
  *          <p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
  *          When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter.
@@ -52,6 +57,8 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTrafficMirrorFilterNetworkServicesCommandInput - {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput}
+ * @returns {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput}
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTrafficMirrorFilterNetworkServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     return serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

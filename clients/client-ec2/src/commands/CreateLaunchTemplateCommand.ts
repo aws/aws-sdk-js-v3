@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchTemplateCommand}.
  */
 export interface CreateLaunchTemplateCommandInput extends CreateLaunchTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchTemplateCommand}.
  */
 export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a launch template.</p>
  *          <p>A launch template contains the parameters to launch an instance. When you launch an
  *             instance using <a>RunInstances</a>, you can specify a launch template instead
@@ -55,6 +60,8 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchTemplateCommandInput - {@link CreateLaunchTemplateCommandInput}
+ * @returns {@link CreateLaunchTemplateCommandOutput}
  * @see {@link CreateLaunchTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -125,6 +132,9 @@ export class CreateLaunchTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class CreateLaunchTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLaunchTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateLaunchTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLaunchTemplateCommandOutput> {
     return deserializeAws_ec2CreateLaunchTemplateCommand(output, context);
   }

@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateElasticsearchDomainConfigCommand}.
  */
 export interface UpdateElasticsearchDomainConfigCommandInput extends UpdateElasticsearchDomainConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateElasticsearchDomainConfigCommand}.
  */
 export interface UpdateElasticsearchDomainConfigCommandOutput
@@ -41,6 +45,7 @@ export interface UpdateElasticsearchDomainConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface UpdateElasticsearchDomainConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateElasticsearchDomainConfigCommandInput - {@link UpdateElasticsearchDomainConfigCommandInput}
+ * @returns {@link UpdateElasticsearchDomainConfigCommandOutput}
  * @see {@link UpdateElasticsearchDomainConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateElasticsearchDomainConfigCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateElasticsearchDomainConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateElasticsearchDomainConfigCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
     return serializeAws_restJson1UpdateElasticsearchDomainConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

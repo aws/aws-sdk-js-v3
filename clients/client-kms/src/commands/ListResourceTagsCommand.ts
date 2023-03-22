@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceTagsCommand}.
  */
 export interface ListResourceTagsCommandInput extends ListResourceTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceTagsCommand}.
  */
 export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all tags on the specified KMS key.</p>
  *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in
  *       the <i>Amazon Web Services General Reference</i>. For information about using
@@ -79,6 +84,8 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceTagsCommandInput - {@link ListResourceTagsCommandInput}
+ * @returns {@link ListResourceTagsCommandOutput}
  * @see {@link ListResourceTagsCommandInput} for command's `input` shape.
  * @see {@link ListResourceTagsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -148,6 +155,9 @@ export class ListResourceTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,10 +197,16 @@ export class ListResourceTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourceTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceTagsCommandOutput> {
     return deserializeAws_json1_1ListResourceTagsCommand(output, context);
   }

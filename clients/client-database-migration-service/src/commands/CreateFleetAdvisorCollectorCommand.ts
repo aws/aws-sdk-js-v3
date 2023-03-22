@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetAdvisorCollectorCommand}.
  */
 export interface CreateFleetAdvisorCollectorCommandInput extends CreateFleetAdvisorCollectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetAdvisorCollectorCommand}.
  */
 export interface CreateFleetAdvisorCollectorCommandOutput
@@ -41,6 +45,7 @@ export interface CreateFleetAdvisorCollectorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Fleet Advisor collector using the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetAdvisorCollectorCommandInput - {@link CreateFleetAdvisorCollectorCommandInput}
+ * @returns {@link CreateFleetAdvisorCollectorCommandOutput}
  * @see {@link CreateFleetAdvisorCollectorCommandInput} for command's `input` shape.
  * @see {@link CreateFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateFleetAdvisorCollectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetAdvisorCollectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateFleetAdvisorCollectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetAdvisorCollectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFleetAdvisorCollectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

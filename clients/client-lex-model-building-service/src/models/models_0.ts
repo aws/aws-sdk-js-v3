@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { LexModelBuildingServiceServiceException as __BaseException } from "./LexModelBuildingServiceServiceException";
 
 /**
+ * @public
  * <p>Your IAM user or role does not have permission to call the Amazon Lex V2 APIs
  *       required to migrate your bot.</p>
  */
@@ -24,6 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not well formed. For example, a value is invalid or
  *       a required field is missing. Check the field values, and try
  *       again.</p>
@@ -45,6 +47,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> There was a conflict processing the request. Try your request
  *       again. </p>
  */
@@ -64,6 +67,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateBotVersionRequest {
   /**
    * <p>The name of the bot that you want to create a new version of. The
@@ -82,6 +88,9 @@ export interface CreateBotVersionRequest {
   checksum?: string;
 }
 
+/**
+ * @public
+ */
 export enum ContentType {
   CUSTOM_PAYLOAD = "CustomPayload",
   PLAIN_TEXT = "PlainText",
@@ -89,6 +98,7 @@ export enum ContentType {
 }
 
 /**
+ * @public
  * <p>The message object that provides the message text and its
  *       type.</p>
  */
@@ -112,6 +122,7 @@ export interface Message {
 }
 
 /**
+ * @public
  * <p>A collection of messages that convey information to the user. At
  *       runtime, Amazon Lex selects the message to convey. </p>
  */
@@ -130,6 +141,7 @@ export interface Statement {
 }
 
 /**
+ * @public
  * <p>Obtains information from the user. To define a prompt, provide one
  *       or more messages and specify the number of attempts to get information
  *       from the user. If you provide more than one message, Amazon Lex chooses one of
@@ -158,6 +170,7 @@ export interface Prompt {
 }
 
 /**
+ * @public
  * <p>Identifies the specific version of an intent.</p>
  */
 export interface Intent {
@@ -172,6 +185,9 @@ export interface Intent {
   intentVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Locale {
   DE_DE = "de-DE",
   EN_AU = "en-AU",
@@ -188,6 +204,9 @@ export enum Locale {
   KO_KR = "ko-KR",
 }
 
+/**
+ * @public
+ */
 export enum Status {
   BUILDING = "BUILDING",
   FAILED = "FAILED",
@@ -196,6 +215,9 @@ export enum Status {
   READY_BASIC_TESTING = "READY_BASIC_TESTING",
 }
 
+/**
+ * @public
+ */
 export interface CreateBotVersionResponse {
   /**
    * <p>The name of the bot.</p>
@@ -325,6 +347,7 @@ export interface CreateBotVersionResponse {
 }
 
 /**
+ * @public
  * <p>An internal Amazon Lex error occurred. Try your request again.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -344,6 +367,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeded a limit. Try your request again.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -365,6 +389,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  */
@@ -385,6 +410,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The checksum of the resource that you are trying to change does
  *       not match the checksum in the request. Check the resource's checksum and
  *       try again.</p>
@@ -405,6 +431,9 @@ export class PreconditionFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateIntentVersionRequest {
   /**
    * <p>The name of the intent that you want to create a new version of.
@@ -424,6 +453,7 @@ export interface CreateIntentVersionRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a Lambda function that verifies requests to a bot or
  *       fulfills the user's request to a bot..</p>
  */
@@ -441,6 +471,7 @@ export interface CodeHook {
 }
 
 /**
+ * @public
  * <p>A prompt for additional activity after an intent is fulfilled. For
  *       example, after the <code>OrderPizza</code> intent is fulfilled, you might
  *       prompt the user to find out whether the user wants to order
@@ -460,12 +491,16 @@ export interface FollowUpPrompt {
   rejectionStatement: Statement | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FulfillmentActivityType {
   CODE_HOOK = "CodeHook",
   RETURN_INTENT = "ReturnIntent",
 }
 
 /**
+ * @public
  * <p> Describes how the intent is fulfilled after the user provides all
  *       of the information required for the intent. You can provide a Lambda
  *       function to process the intent, or you can return the intent information
@@ -507,6 +542,7 @@ export interface FulfillmentActivity {
 }
 
 /**
+ * @public
  * <p>The name of a context that must be active for an intent to be selected
  *       by Amazon Lex.</p>
  */
@@ -518,6 +554,7 @@ export interface InputContext {
 }
 
 /**
+ * @public
  * <p>Provides configuration information for the AMAZON.KendraSearchIntent
  *       intent. When you use this intent, Amazon Lex searches the specified Amazon
  *       Kendra index and returns documents from the index that match the user's
@@ -554,6 +591,7 @@ export interface KendraConfiguration {
 }
 
 /**
+ * @public
  * <p>The specification of an output context that is set when an intent is
  *       fulfilled.</p>
  */
@@ -580,6 +618,7 @@ export interface OutputContext {
 }
 
 /**
+ * @public
  * <p>A default value for a slot.</p>
  */
 export interface SlotDefaultValue {
@@ -594,7 +633,7 @@ export interface SlotDefaultValue {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>{attribute}</code> - The slot value of the session attribute
+   *                   <code>\{attribute\}</code> - The slot value of the session attribute
    *           "attribute."</p>
    *             </li>
    *             <li>
@@ -607,6 +646,7 @@ export interface SlotDefaultValue {
 }
 
 /**
+ * @public
  * <p>Contains the default values for a slot. Default values are used when
  *       Amazon Lex hasn't determined a value for a slot.</p>
  */
@@ -623,17 +663,24 @@ export interface SlotDefaultValueSpec {
   defaultValueList: SlotDefaultValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ObfuscationSetting {
   DEFAULT_OBFUSCATION = "DEFAULT_OBFUSCATION",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum SlotConstraint {
   OPTIONAL = "Optional",
   REQUIRED = "Required",
 }
 
 /**
+ * @public
  * <p>Identifies the version of a specific slot.</p>
  */
 export interface Slot {
@@ -696,8 +743,8 @@ export interface Slot {
   /**
    * <p>Determines whether a slot is obfuscated in conversation logs and
    *       stored utterances. When you obfuscate a slot, the value is replaced by the
-   *       slot name in curly braces ({}). For example, if the slot name is
-   *       "full_name", obfuscated values are replaced with "{full_name}". For more
+   *       slot name in curly braces (\{\}). For example, if the slot name is
+   *       "full_name", obfuscated values are replaced with "\{full_name\}". For more
    *       information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html"> Slot Obfuscation </a>.
    *     </p>
    */
@@ -711,6 +758,9 @@ export interface Slot {
   defaultValueSpec?: SlotDefaultValueSpec;
 }
 
+/**
+ * @public
+ */
 export interface CreateIntentVersionResponse {
   /**
    * <p>The name of the intent.</p>
@@ -816,6 +866,9 @@ export interface CreateIntentVersionResponse {
   outputContexts?: OutputContext[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotTypeVersionRequest {
   /**
    * <p>The name of the slot type that you want to create a new version
@@ -835,6 +888,7 @@ export interface CreateSlotTypeVersionRequest {
 }
 
 /**
+ * @public
  * <p>Each slot type can have a set of values. Each enumeration value
  *       represents a value the slot type can take. </p>
  *          <p>For example, a pizza ordering bot could have a slot type that
@@ -865,6 +919,7 @@ export interface EnumerationValue {
 }
 
 /**
+ * @public
  * <p>Provides a regular expression used to validate the value of a
  *       slot.</p>
  */
@@ -889,7 +944,7 @@ export interface SlotTypeRegexConfiguration {
    *          <p>The following regular expression operators are not supported:</p>
    *          <ul>
    *             <li>
-   *                <p>Infinite repeaters: *, +, or {x,} with no upper bound.</p>
+   *                <p>Infinite repeaters: *, +, or \{x,\} with no upper bound.</p>
    *             </li>
    *             <li>
    *                <p>Wild card (.)</p>
@@ -900,6 +955,7 @@ export interface SlotTypeRegexConfiguration {
 }
 
 /**
+ * @public
  * <p>Provides configuration information for a slot type.</p>
  */
 export interface SlotTypeConfiguration {
@@ -909,11 +965,17 @@ export interface SlotTypeConfiguration {
   regexConfiguration?: SlotTypeRegexConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum SlotValueSelectionStrategy {
   ORIGINAL_VALUE = "ORIGINAL_VALUE",
   TOP_RESOLUTION = "TOP_RESOLUTION",
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotTypeVersionResponse {
   /**
    * <p>The name of the slot type.</p>
@@ -971,6 +1033,9 @@ export interface CreateSlotTypeVersionResponse {
   slotTypeConfigurations?: SlotTypeConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotRequest {
   /**
    * <p>The name of the bot. The name is case sensitive. </p>
@@ -979,6 +1044,7 @@ export interface DeleteBotRequest {
 }
 
 /**
+ * @public
  * <p>Describes the resource that refers to the resource that you are
  *       attempting to delete. This object is returned as part of the
  *         <code>ResourceInUseException</code> exception. </p>
@@ -997,6 +1063,9 @@ export interface ResourceReference {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReferenceType {
   BOT = "Bot",
   BOTALIAS = "BotAlias",
@@ -1005,21 +1074,22 @@ export enum ReferenceType {
 }
 
 /**
+ * @public
  * <p>The resource that you are attempting to delete is referred to by
  *       another resource. Use this information to remove references to the
  *       resource that you are trying to delete.</p>
  *          <p>The body of the exception contains a JSON object that describes the
  *       resource.</p>
  *          <p>
- *             <code>{ "resourceType": BOT | BOTALIAS | BOTCHANNEL |
+ *             <code>\{ "resourceType": BOT | BOTALIAS | BOTCHANNEL |
  *         INTENT,</code>
  *          </p>
  *          <p>
- *             <code>"resourceReference": {</code>
+ *             <code>"resourceReference": \{</code>
  *          </p>
  *          <p>
  *             <code>"name": <i>string</i>, "version":
- *           <i>string</i> } }</code>
+ *           <i>string</i> \} \}</code>
  *          </p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1047,6 +1117,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotAliasRequest {
   /**
    * <p>The name of the alias to delete. The name is case sensitive.
@@ -1060,6 +1133,9 @@ export interface DeleteBotAliasRequest {
   botName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotChannelAssociationRequest {
   /**
    * <p>The name of the association. The name is case sensitive. </p>
@@ -1078,6 +1154,9 @@ export interface DeleteBotChannelAssociationRequest {
   botAlias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotVersionRequest {
   /**
    * <p>The name of the bot.</p>
@@ -1093,6 +1172,9 @@ export interface DeleteBotVersionRequest {
   version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntentRequest {
   /**
    * <p>The name of the intent. The name is case sensitive. </p>
@@ -1100,6 +1182,9 @@ export interface DeleteIntentRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntentVersionRequest {
   /**
    * <p>The name of the intent.</p>
@@ -1115,6 +1200,9 @@ export interface DeleteIntentVersionRequest {
   version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSlotTypeRequest {
   /**
    * <p>The name of the slot type. The name is case sensitive. </p>
@@ -1122,6 +1210,9 @@ export interface DeleteSlotTypeRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSlotTypeVersionRequest {
   /**
    * <p>The name of the slot type.</p>
@@ -1137,6 +1228,9 @@ export interface DeleteSlotTypeVersionRequest {
   version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUtterancesRequest {
   /**
    * <p>The name of the bot that stored the utterances.</p>
@@ -1151,6 +1245,9 @@ export interface DeleteUtterancesRequest {
   userId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBotRequest {
   /**
    * <p>The name of the bot. The name is case sensitive. </p>
@@ -1163,6 +1260,9 @@ export interface GetBotRequest {
   versionOrAlias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBotResponse {
   /**
    * <p>The name of the bot.</p>
@@ -1311,6 +1411,9 @@ export interface GetBotResponse {
   detectSentiment?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetBotAliasRequest {
   /**
    * <p>The name of the bot alias. The name is case sensitive.</p>
@@ -1323,17 +1426,24 @@ export interface GetBotAliasRequest {
   botName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Destination {
   CLOUDWATCH_LOGS = "CLOUDWATCH_LOGS",
   S3 = "S3",
 }
 
+/**
+ * @public
+ */
 export enum LogType {
   AUDIO = "AUDIO",
   TEXT = "TEXT",
 }
 
 /**
+ * @public
  * <p>The settings for conversation logs.</p>
  */
 export interface LogSettingsResponse {
@@ -1369,6 +1479,7 @@ export interface LogSettingsResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about conversation log settings.</p>
  */
 export interface ConversationLogsResponse {
@@ -1385,6 +1496,9 @@ export interface ConversationLogsResponse {
   iamRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBotAliasResponse {
   /**
    * <p>The name of the bot alias.</p>
@@ -1430,6 +1544,9 @@ export interface GetBotAliasResponse {
   conversationLogs?: ConversationLogsResponse;
 }
 
+/**
+ * @public
+ */
 export interface GetBotAliasesRequest {
   /**
    * <p>The name of the bot.</p>
@@ -1459,6 +1576,7 @@ export interface GetBotAliasesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a bot alias.</p>
  */
 export interface BotAliasMetadata {
@@ -1505,6 +1623,9 @@ export interface BotAliasMetadata {
   conversationLogs?: ConversationLogsResponse;
 }
 
+/**
+ * @public
+ */
 export interface GetBotAliasesResponse {
   /**
    * <p>An array of <code>BotAliasMetadata</code> objects, each describing
@@ -1521,6 +1642,9 @@ export interface GetBotAliasesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBotChannelAssociationRequest {
   /**
    * <p>The name of the association between the bot and the channel. The
@@ -1540,12 +1664,18 @@ export interface GetBotChannelAssociationRequest {
   botAlias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ChannelStatus {
   CREATED = "CREATED",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum ChannelType {
   FACEBOOK = "Facebook",
   KIK = "Kik",
@@ -1553,6 +1683,9 @@ export enum ChannelType {
   TWILIO_SMS = "Twilio-Sms",
 }
 
+/**
+ * @public
+ */
 export interface GetBotChannelAssociationResponse {
   /**
    * <p>The name of the association between the bot and the
@@ -1624,6 +1757,9 @@ export interface GetBotChannelAssociationResponse {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBotChannelAssociationsRequest {
   /**
    * <p>The name of the Amazon Lex bot in the association.</p>
@@ -1661,6 +1797,7 @@ export interface GetBotChannelAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Represents an association between an Amazon Lex bot and an external
  *       messaging platform.</p>
  */
@@ -1741,6 +1878,9 @@ export interface BotChannelAssociation {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBotChannelAssociationsResponse {
   /**
    * <p>An array of objects, one for each association, that provides
@@ -1758,6 +1898,9 @@ export interface GetBotChannelAssociationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBotsRequest {
   /**
    * <p>A pagination token that fetches the next page of bots. If the
@@ -1782,6 +1925,7 @@ export interface GetBotsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a bot. .</p>
  */
 export interface BotMetadata {
@@ -1818,6 +1962,9 @@ export interface BotMetadata {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBotsResponse {
   /**
    * <p>An array of <code>botMetadata</code> objects, with one entry for
@@ -1833,6 +1980,9 @@ export interface GetBotsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBotVersionsRequest {
   /**
    * <p>The name of the bot for which versions should be
@@ -1855,6 +2005,9 @@ export interface GetBotVersionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetBotVersionsResponse {
   /**
    * <p>An array of <code>BotMetadata</code> objects, one for each numbered
@@ -1872,6 +2025,9 @@ export interface GetBotVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBuiltinIntentRequest {
   /**
    * <p>The unique identifier for a built-in intent. To find the signature
@@ -1882,6 +2038,7 @@ export interface GetBuiltinIntentRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a slot used in a built-in
  *       intent.</p>
  */
@@ -1892,6 +2049,9 @@ export interface BuiltinIntentSlot {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBuiltinIntentResponse {
   /**
    * <p>The unique identifier for a built-in intent.</p>
@@ -1910,6 +2070,9 @@ export interface GetBuiltinIntentResponse {
   slots?: BuiltinIntentSlot[];
 }
 
+/**
+ * @public
+ */
 export interface GetBuiltinIntentsRequest {
   /**
    * <p>A list of locales that the intent supports.</p>
@@ -1941,6 +2104,7 @@ export interface GetBuiltinIntentsRequest {
 }
 
 /**
+ * @public
  * <p>Provides metadata for a built-in intent.</p>
  */
 export interface BuiltinIntentMetadata {
@@ -1958,6 +2122,9 @@ export interface BuiltinIntentMetadata {
   supportedLocales?: (Locale | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetBuiltinIntentsResponse {
   /**
    * <p>An array of <code>builtinIntentMetadata</code> objects, one for
@@ -1974,6 +2141,9 @@ export interface GetBuiltinIntentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBuiltinSlotTypesRequest {
   /**
    * <p>A list of locales that the slot type supports.</p>
@@ -2003,6 +2173,7 @@ export interface GetBuiltinSlotTypesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a built in slot type.</p>
  */
 export interface BuiltinSlotTypeMetadata {
@@ -2019,6 +2190,9 @@ export interface BuiltinSlotTypeMetadata {
   supportedLocales?: (Locale | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetBuiltinSlotTypesResponse {
   /**
    * <p>An array of <code>BuiltInSlotTypeMetadata</code> objects, one entry
@@ -2034,17 +2208,26 @@ export interface GetBuiltinSlotTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExportType {
   ALEXA_SKILLS_KIT = "ALEXA_SKILLS_KIT",
   LEX = "LEX",
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   BOT = "BOT",
   INTENT = "INTENT",
   SLOT_TYPE = "SLOT_TYPE",
 }
 
+/**
+ * @public
+ */
 export interface GetExportRequest {
   /**
    * <p>The name of the bot to export.</p>
@@ -2067,12 +2250,18 @@ export interface GetExportRequest {
   exportType: ExportType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   READY = "READY",
 }
 
+/**
+ * @public
+ */
 export interface GetExportResponse {
   /**
    * <p>The name of the bot being exported.</p>
@@ -2129,6 +2318,9 @@ export interface GetExportResponse {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetImportRequest {
   /**
    * <p>The identifier of the import job information to return.</p>
@@ -2136,17 +2328,26 @@ export interface GetImportRequest {
   importId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImportStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum MergeStrategy {
   FAIL_ON_CONFLICT = "FAIL_ON_CONFLICT",
   OVERWRITE_LATEST = "OVERWRITE_LATEST",
 }
 
+/**
+ * @public
+ */
 export interface GetImportResponse {
   /**
    * <p>The name given to the import job.</p>
@@ -2189,6 +2390,9 @@ export interface GetImportResponse {
   createdDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetIntentRequest {
   /**
    * <p>The name of the intent. The name is case sensitive. </p>
@@ -2201,6 +2405,9 @@ export interface GetIntentRequest {
   version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetIntentResponse {
   /**
    * <p>The name of the intent.</p>
@@ -2307,6 +2514,9 @@ export interface GetIntentResponse {
   outputContexts?: OutputContext[];
 }
 
+/**
+ * @public
+ */
 export interface GetIntentsRequest {
   /**
    * <p>A pagination token that fetches the next page of intents. If the
@@ -2331,6 +2541,7 @@ export interface GetIntentsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about an intent.</p>
  */
 export interface IntentMetadata {
@@ -2361,6 +2572,9 @@ export interface IntentMetadata {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIntentsResponse {
   /**
    * <p>An array of <code>Intent</code> objects. For more information, see
@@ -2376,6 +2590,9 @@ export interface GetIntentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIntentVersionsRequest {
   /**
    * <p>The name of the intent for which versions should be
@@ -2398,6 +2615,9 @@ export interface GetIntentVersionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetIntentVersionsResponse {
   /**
    * <p>An array of <code>IntentMetadata</code> objects, one for each
@@ -2415,6 +2635,9 @@ export interface GetIntentVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationRequest {
   /**
    * <p>The unique identifier of the migration to view. The
@@ -2423,12 +2646,16 @@ export interface GetMigrationRequest {
   migrationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MigrationAlertType {
   ERROR = "ERROR",
   WARN = "WARN",
 }
 
 /**
+ * @public
  * <p>Provides information about alerts and warnings that Amazon Lex sends during
  *       a migration. The alerts include information about how to resolve the
  *       issue.</p>
@@ -2469,17 +2696,26 @@ export interface MigrationAlert {
   referenceURLs?: string[];
 }
 
+/**
+ * @public
+ */
 export enum MigrationStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum MigrationStrategy {
   CREATE_NEW = "CREATE_NEW",
   UPDATE_EXISTING = "UPDATE_EXISTING",
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationResponse {
   /**
    * <p>The unique identifier of the migration. This is the same as the
@@ -2556,16 +2792,25 @@ export interface GetMigrationResponse {
   alerts?: MigrationAlert[];
 }
 
+/**
+ * @public
+ */
 export enum MigrationSortAttribute {
   MIGRATION_DATE_TIME = "MIGRATION_DATE_TIME",
   V1_BOT_NAME = "V1_BOT_NAME",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationsRequest {
   /**
    * <p>The field to sort the list of migrations by. You can sort by the
@@ -2606,6 +2851,7 @@ export interface GetMigrationsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about migrating a bot from Amazon Lex V1 to Amazon Lex V2.</p>
  */
 export interface MigrationSummary {
@@ -2657,6 +2903,9 @@ export interface MigrationSummary {
   migrationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationsResponse {
   /**
    * <p>An array of summaries for migrations from Amazon Lex V1 to Amazon Lex V2. To see
@@ -2674,6 +2923,9 @@ export interface GetMigrationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSlotTypeRequest {
   /**
    * <p>The name of the slot type. The name is case sensitive. </p>
@@ -2686,6 +2938,9 @@ export interface GetSlotTypeRequest {
   version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSlotTypeResponse {
   /**
    * <p>The name of the slot type.</p>
@@ -2743,6 +2998,9 @@ export interface GetSlotTypeResponse {
   slotTypeConfigurations?: SlotTypeConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetSlotTypesRequest {
   /**
    * <p>A pagination token that fetches the next page of slot types. If the
@@ -2767,6 +3025,7 @@ export interface GetSlotTypesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a slot type..</p>
  */
 export interface SlotTypeMetadata {
@@ -2797,6 +3056,9 @@ export interface SlotTypeMetadata {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSlotTypesResponse {
   /**
    * <p>An array of objects, one for each slot type, that provides
@@ -2813,6 +3075,9 @@ export interface GetSlotTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSlotTypeVersionsRequest {
   /**
    * <p>The name of the slot type for which versions should be
@@ -2835,6 +3100,9 @@ export interface GetSlotTypeVersionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSlotTypeVersionsResponse {
   /**
    * <p>An array of <code>SlotTypeMetadata</code> objects, one for each
@@ -2852,11 +3120,17 @@ export interface GetSlotTypeVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum StatusType {
   DETECTED = "Detected",
   MISSED = "Missed",
 }
 
+/**
+ * @public
+ */
 export interface GetUtterancesViewRequest {
   /**
    * <p>The name of the bot for which utterance information should be
@@ -2879,6 +3153,7 @@ export interface GetUtterancesViewRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a single utterance that was made to your
  *       bot. </p>
  */
@@ -2911,6 +3186,7 @@ export interface UtteranceData {
 }
 
 /**
+ * @public
  * <p>Provides a list of utterances that have been made to a specific
  *       version of your bot. The list contains a maximum of 100
  *       utterances.</p>
@@ -2929,6 +3205,9 @@ export interface UtteranceList {
   utterances?: UtteranceData[];
 }
 
+/**
+ * @public
+ */
 export interface GetUtterancesViewResponse {
   /**
    * <p>The name of the bot for which utterance information was
@@ -2947,6 +3226,9 @@ export interface GetUtterancesViewResponse {
   utterances?: UtteranceList[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get a list of tags
@@ -2956,6 +3238,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>A list of key/value pairs that identify a bot, bot alias, or bot
  *       channel. Tag keys and values can consist of Unicode letters, digits, white
  *       space, and any of the following symbols: _ . : / = + - @. </p>
@@ -2974,6 +3257,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with a resource.</p>
@@ -2981,11 +3267,17 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ProcessBehavior {
   BUILD = "BUILD",
   SAVE = "SAVE",
 }
 
+/**
+ * @public
+ */
 export interface PutBotRequest {
   /**
    * <p>The name of the bot. The name is <i>not</i> case
@@ -3264,6 +3556,9 @@ export interface PutBotRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutBotResponse {
   /**
    * <p>The name of the bot.</p>
@@ -3431,6 +3726,7 @@ export interface PutBotResponse {
 }
 
 /**
+ * @public
  * <p>Settings used to configure delivery mode and destination for
  *       conversation logs.</p>
  */
@@ -3463,6 +3759,7 @@ export interface LogSettingsRequest {
 }
 
 /**
+ * @public
  * <p>Provides the settings needed for conversation logs.</p>
  */
 export interface ConversationLogsRequest {
@@ -3483,6 +3780,9 @@ export interface ConversationLogsRequest {
   iamRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBotAliasRequest {
   /**
    * <p>The name of the alias. The name is <i>not</i> case
@@ -3534,6 +3834,9 @@ export interface PutBotAliasRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutBotAliasResponse {
   /**
    * <p>The name of the alias.</p>
@@ -3584,6 +3887,9 @@ export interface PutBotAliasResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutIntentRequest {
   /**
    * <p>The name of the intent. The name is <i>not</i> case
@@ -3611,8 +3917,8 @@ export interface PutIntentRequest {
 
   /**
    * <p>An array of utterances (strings) that a user might say to signal
-   *       the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity}
-   *       {PizzaSize} pizzas". </p>
+   *       the intent. For example, "I want \{PizzaSize\} pizza", "Order \{Quantity\}
+   *       \{PizzaSize\} pizzas". </p>
    *
    *          <p>In each utterance, a slot name is enclosed in curly braces.
    *     </p>
@@ -3767,6 +4073,9 @@ export interface PutIntentRequest {
   outputContexts?: OutputContext[];
 }
 
+/**
+ * @public
+ */
 export interface PutIntentResponse {
   /**
    * <p>The name of the intent.</p>
@@ -3888,6 +4197,9 @@ export interface PutIntentResponse {
   outputContexts?: OutputContext[];
 }
 
+/**
+ * @public
+ */
 export interface PutSlotTypeRequest {
   /**
    * <p>The name of the slot type. The name is <i>not</i>
@@ -3985,6 +4297,9 @@ export interface PutSlotTypeRequest {
   slotTypeConfigurations?: SlotTypeConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutSlotTypeResponse {
   /**
    * <p>The name of the slot type.</p>
@@ -4052,6 +4367,9 @@ export interface PutSlotTypeResponse {
   slotTypeConfigurations?: SlotTypeConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface StartImportRequest {
   /**
    * <p>A zip archive in binary format. The archive should contain one file, a
@@ -4101,6 +4419,9 @@ export interface StartImportRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartImportResponse {
   /**
    * <p>The name given to the import job.</p>
@@ -4141,6 +4462,9 @@ export interface StartImportResponse {
   createdDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationRequest {
   /**
    * <p>The name of the Amazon Lex V1 bot that you are migrating to Amazon Lex V2.</p>
@@ -4194,6 +4518,9 @@ export interface StartMigrationRequest {
   migrationStrategy: MigrationStrategy | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationResponse {
   /**
    * <p>The name of the Amazon Lex V1 bot that you are migrating to Amazon Lex V2.</p>
@@ -4236,6 +4563,9 @@ export interface StartMigrationResponse {
   migrationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel
@@ -4250,8 +4580,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove the tags
@@ -4266,6 +4602,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDataCollectionByAgentIdsCommand}.
  */
 export interface StopDataCollectionByAgentIdsCommandInput extends StopDataCollectionByAgentIdsRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDataCollectionByAgentIdsCommand}.
  */
 export interface StopDataCollectionByAgentIdsCommandOutput
@@ -41,6 +45,7 @@ export interface StopDataCollectionByAgentIdsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instructs the specified agents or connectors to stop collecting data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDataCollectionByAgentIdsCommandInput - {@link StopDataCollectionByAgentIdsCommandInput}
+ * @returns {@link StopDataCollectionByAgentIdsCommandOutput}
  * @see {@link StopDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StopDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDataCollectionByAgentIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopDataCollectionByAgentIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetOnPremisesInstancesCommand}.
  */
 export interface BatchGetOnPremisesInstancesCommandInput extends BatchGetOnPremisesInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetOnPremisesInstancesCommand}.
  */
 export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more on-premises instances. The maximum number of
  *             on-premises instances that can be returned is 25.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetOnPremisesInstancesCommandInput - {@link BatchGetOnPremisesInstancesCommandInput}
+ * @returns {@link BatchGetOnPremisesInstancesCommandOutput}
  * @see {@link BatchGetOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link BatchGetOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -79,6 +86,9 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

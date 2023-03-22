@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link FlushStageAuthorizersCacheCommand}.
  */
 export interface FlushStageAuthorizersCacheCommandInput extends FlushStageAuthorizersCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link FlushStageAuthorizersCacheCommand}.
  */
 export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Flushes all authorizer cache entries on a stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param FlushStageAuthorizersCacheCommandInput - {@link FlushStageAuthorizersCacheCommandInput}
+ * @returns {@link FlushStageAuthorizersCacheCommandOutput}
  * @see {@link FlushStageAuthorizersCacheCommandInput} for command's `input` shape.
  * @see {@link FlushStageAuthorizersCacheCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -85,6 +92,9 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FlushStageAuthorizersCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FlushStageAuthorizersCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1FlushStageAuthorizersCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

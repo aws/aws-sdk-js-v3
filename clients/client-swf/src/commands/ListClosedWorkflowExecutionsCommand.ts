@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListClosedWorkflowExecutionsCommand}.
  */
 export interface ListClosedWorkflowExecutionsCommandInput extends ListClosedWorkflowExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListClosedWorkflowExecutionsCommand}.
  */
 export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of closed workflow executions in the specified domain that meet the
  *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -93,6 +98,8 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClosedWorkflowExecutionsCommandInput - {@link ListClosedWorkflowExecutionsCommandInput}
+ * @returns {@link ListClosedWorkflowExecutionsCommandOutput}
  * @see {@link ListClosedWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -122,6 +129,9 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClosedWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClosedWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

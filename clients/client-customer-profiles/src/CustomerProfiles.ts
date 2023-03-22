@@ -174,6 +174,7 @@ import {
 import { CustomerProfilesClient } from "./CustomerProfilesClient";
 
 /**
+ * @public
  * <fullname>Amazon Connect Customer Profiles</fullname>
  *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
  *          pre-built connectors powered by AppFlow that make it easy to combine customer information
@@ -183,6 +184,7 @@ import { CustomerProfilesClient } from "./CustomerProfilesClient";
  */
 export class CustomerProfiles extends CustomerProfilesClient {
   /**
+   * @public
    * <p>Associates a new key value with a specific profile, such as a Contact Record
    *          ContactId.</p>
    *          <p>A profile object can have a single unique key and any number of additional keys that can
@@ -218,6 +220,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Creates a domain, which is a container for all customer data, such as customer profile
    *          attributes, object types, profile keys, and encryption keys. You can create multiple
    *          domains, and each domain can have multiple third-party integrations.</p>
@@ -256,6 +259,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>
    * 	Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
    * 	</p>
@@ -290,6 +294,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Creates a standard profile.</p>
    *          <p>A standard profile represents the following attributes for a customer profile in a
    *          domain.</p>
@@ -324,6 +329,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific domain and all of its customer data, such as customer profile
    *          attributes and their related objects.</p>
    */
@@ -354,6 +360,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Removes an integration from a specific domain.</p>
    */
   public deleteIntegration(
@@ -386,6 +393,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the standard customer profile and all data pertaining to the profile.</p>
    */
   public deleteProfile(
@@ -418,6 +426,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Removes a searchable key from a customer profile.</p>
    */
   public deleteProfileKey(
@@ -450,6 +459,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Removes an object associated with a profile of a given ProfileObjectType.</p>
    */
   public deleteProfileObject(
@@ -482,6 +492,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Removes a ProfileObjectType from a specific domain as well as removes all the
    *          ProfileObjects of that type. It also disables integrations from this specific
    *          ProfileObjectType. In addition, it scrubs all of the fields of the standard profile that
@@ -517,6 +528,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified workflow and all its corresponding resources. This is an async process.</p>
    */
   public deleteWorkflow(
@@ -549,6 +561,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly
    *          selects a sample of matching groups from the existing matching results, and applies the
    *          automerging settings that you provided. You can then view the number of profiles in the
@@ -593,6 +606,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific domain.</p>
    */
   public getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
@@ -619,6 +633,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an Identity Resolution Job in a specific domain. </p>
    *          <p>Identity Resolution Jobs are set up using the Amazon Connect admin console. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html">Use
    *             Identity Resolution to consolidate similar profiles</a>.</p>
@@ -653,6 +668,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Returns an integration for a domain.</p>
    */
   public getIntegration(
@@ -685,6 +701,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Before calling this API, use <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> or
    *             <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
    *          enable identity resolution: set <code>Matching</code> to true.</p>
@@ -755,6 +772,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Returns the object types for a specific domain.</p>
    */
   public getProfileObjectType(
@@ -787,6 +805,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Returns the template information for a specific object type.</p>
    *          <p>A template is a predefined ProfileObjectType, such as “Salesforce-Account” or
    *          “Salesforce-Contact.” When a user sends a ProfileObject, using the PutProfileObject API,
@@ -823,6 +842,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Get details of specified workflow.</p>
    */
   public getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
@@ -849,6 +869,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Get granular list of steps in workflow.</p>
    */
   public getWorkflowSteps(
@@ -881,6 +902,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the integrations associated to a specific URI in the AWS account.</p>
    */
   public listAccountIntegrations(
@@ -913,6 +935,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the domains for an AWS account that have been created.</p>
    */
   public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
@@ -939,6 +962,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the Identity Resolution Jobs in your domain. The response sorts the list by
    *             <code>JobStartTime</code>.</p>
    */
@@ -972,6 +996,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the integrations in your domain.</p>
    */
   public listIntegrations(
@@ -1004,6 +1029,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of objects associated with a profile of a given ProfileObjectType.</p>
    */
   public listProfileObjects(
@@ -1036,6 +1062,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the templates available within the service.</p>
    */
   public listProfileObjectTypes(
@@ -1068,6 +1095,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the template information for object types.</p>
    */
   public listProfileObjectTypeTemplates(
@@ -1100,6 +1128,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with an Amazon Connect Customer Profiles resource. In Connect
    *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
    */
@@ -1133,6 +1162,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Query to list all workflows.</p>
    */
   public listWorkflows(
@@ -1165,6 +1195,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Runs an AWS Lambda job that does the following:</p>
    *          <ol>
    *             <li>
@@ -1239,6 +1270,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Adds an integration between the service and a third-party service, which includes
    *          Amazon AppFlow and Amazon Connect.</p>
    *          <p>An integration can belong to only one domain.</p>
@@ -1276,6 +1308,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Adds additional objects to customer profiles of a given ObjectType.</p>
    *          <p>When adding a specific profile object, like a Contact Record, an inferred profile can
    *          get created if it is not mapped to an existing profile. The resulting profile will only
@@ -1317,6 +1350,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Defines a ProfileObjectType.</p>
    *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
    *          TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
@@ -1351,6 +1385,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Searches for profiles within a specific domain using one or more predefined search keys
    *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key
    *          is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>
@@ -1387,6 +1422,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Connect Customer Profiles
    *          resource. Tags can help you organize and categorize your resources. You can also use them
    *          to scope user permissions by granting a user permission to access or change only resources
@@ -1424,6 +1460,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified Amazon Connect Customer Profiles resource. In Connect
    *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
    */
@@ -1457,6 +1494,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
    *          or an encryption key.</p>
    *          <p>After a domain is created, the name can’t be changed.</p>
@@ -1494,6 +1532,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * @public
    * <p>Updates the properties of a profile. The ProfileId is required for updating a customer
    *          profile.</p>
    *          <p>When calling the UpdateProfile API, specifying an empty string value means that any

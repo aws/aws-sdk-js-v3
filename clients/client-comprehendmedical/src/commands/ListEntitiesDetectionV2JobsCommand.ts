@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitiesDetectionV2JobsCommand}.
  */
 export interface ListEntitiesDetectionV2JobsCommandInput extends ListEntitiesDetectionV2JobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitiesDetectionV2JobsCommand}.
  */
 export interface ListEntitiesDetectionV2JobsCommandOutput
@@ -41,6 +45,7 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of medical entity detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesDetectionV2JobsCommandInput - {@link ListEntitiesDetectionV2JobsCommandInput}
+ * @returns {@link ListEntitiesDetectionV2JobsCommandOutput}
  * @see {@link ListEntitiesDetectionV2JobsCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesDetectionV2JobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesDetectionV2JobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesDetectionV2JobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

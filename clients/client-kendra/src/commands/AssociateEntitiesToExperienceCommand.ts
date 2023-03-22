@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEntitiesToExperienceCommand}.
  */
 export interface AssociateEntitiesToExperienceCommandInput extends AssociateEntitiesToExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEntitiesToExperienceCommand}.
  */
 export interface AssociateEntitiesToExperienceCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateEntitiesToExperienceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants users or groups in your IAM Identity Center identity source access
  *             to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a
  *             search application. For more information on creating a search application
@@ -52,6 +57,8 @@ export interface AssociateEntitiesToExperienceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEntitiesToExperienceCommandInput - {@link AssociateEntitiesToExperienceCommandInput}
+ * @returns {@link AssociateEntitiesToExperienceCommandOutput}
  * @see {@link AssociateEntitiesToExperienceCommandInput} for command's `input` shape.
  * @see {@link AssociateEntitiesToExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -99,6 +106,9 @@ export class AssociateEntitiesToExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEntitiesToExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class AssociateEntitiesToExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateEntitiesToExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateEntitiesToExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

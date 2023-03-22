@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSdkTypeCommand}.
  */
 export interface GetSdkTypeCommandInput extends GetSdkTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSdkTypeCommand}.
  */
 export interface GetSdkTypeCommandOutput extends SdkType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an SDK type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSdkTypeCommandOutput extends SdkType, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSdkTypeCommandInput - {@link GetSdkTypeCommandInput}
+ * @returns {@link GetSdkTypeCommandOutput}
  * @see {@link GetSdkTypeCommandInput} for command's `input` shape.
  * @see {@link GetSdkTypeCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetSdkTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSdkTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetSdkTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSdkTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSdkTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSdkTypeCommandOutput> {
     return deserializeAws_restJson1GetSdkTypeCommand(output, context);
   }

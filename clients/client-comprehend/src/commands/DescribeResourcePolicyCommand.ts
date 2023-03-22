@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourcePolicyCommand}.
  */
 export interface DescribeResourcePolicyCommandInput extends DescribeResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourcePolicyCommand}.
  */
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a resource-based policy that is attached to a custom model, including
  *       the JSON body of the policy.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
+ * @returns {@link DescribeResourcePolicyCommandOutput}
  * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
     return deserializeAws_json1_1DescribeResourcePolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFlywheelIterationCommand}.
  */
 export interface StartFlywheelIterationCommandInput extends StartFlywheelIterationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFlywheelIterationCommand}.
  */
 export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start the flywheel iteration.This operation uses any new datasets to train a new model version.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFlywheelIterationCommandInput - {@link StartFlywheelIterationCommandInput}
+ * @returns {@link StartFlywheelIterationCommandOutput}
  * @see {@link StartFlywheelIterationCommandInput} for command's `input` shape.
  * @see {@link StartFlywheelIterationCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartFlywheelIterationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFlywheelIterationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartFlywheelIterationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFlywheelIterationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartFlywheelIterationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFlywheelIterationCommandOutput> {
     return deserializeAws_json1_1StartFlywheelIterationCommand(output, context);
   }

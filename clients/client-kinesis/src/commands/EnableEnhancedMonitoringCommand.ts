@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableEnhancedMonitoringCommand}.
  */
 export interface EnableEnhancedMonitoringCommandInput extends EnableEnhancedMonitoringInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableEnhancedMonitoringCommand}.
  */
 export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
  *          <note>
  *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
@@ -50,6 +55,8 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableEnhancedMonitoringCommandInput - {@link EnableEnhancedMonitoringCommandInput}
+ * @returns {@link EnableEnhancedMonitoringCommandOutput}
  * @see {@link EnableEnhancedMonitoringCommandInput} for command's `input` shape.
  * @see {@link EnableEnhancedMonitoringCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -95,6 +102,9 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableEnhancedMonitoringCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableEnhancedMonitoringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableEnhancedMonitoringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableEnhancedMonitoringCommandOutput> {
     return deserializeAws_json1_1EnableEnhancedMonitoringCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainNameserversCommand}.
  */
 export interface UpdateDomainNameserversCommandInput extends UpdateDomainNameserversRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainNameserversCommand}.
  */
 export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNameserversResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation replaces the current set of name servers for the domain with the
  * 			specified set of name servers. If you use Amazon Route 53 as your DNS service, specify
  * 			the four name servers in the delegation set for the hosted zone for the domain.</p>
@@ -51,6 +56,8 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainNameserversCommandInput - {@link UpdateDomainNameserversCommandInput}
+ * @returns {@link UpdateDomainNameserversCommandOutput}
  * @see {@link UpdateDomainNameserversCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameserversCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateDomainNameserversCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainNameserversCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateDomainNameserversCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainNameserversCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDomainNameserversCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameserversCommandOutput> {
     return deserializeAws_json1_1UpdateDomainNameserversCommand(output, context);
   }

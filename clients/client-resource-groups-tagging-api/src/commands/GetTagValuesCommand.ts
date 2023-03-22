@@ -30,15 +30,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagValuesCommand}.
  */
 export interface GetTagValuesCommandInput extends GetTagValuesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTagValuesCommand}.
  */
 export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all tag values for the specified key that are used in the specified Amazon Web Services
  *             Region for the calling account.</p>
  *         <p>This operation supports pagination, where the response can be sent in
@@ -57,6 +62,8 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagValuesCommandInput - {@link GetTagValuesCommandInput}
+ * @returns {@link GetTagValuesCommandOutput}
  * @see {@link GetTagValuesCommandInput} for command's `input` shape.
  * @see {@link GetTagValuesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -114,6 +121,9 @@ export class GetTagValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class GetTagValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTagValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagValuesCommandOutput> {
     return deserializeAws_json1_1GetTagValuesCommand(output, context);
   }

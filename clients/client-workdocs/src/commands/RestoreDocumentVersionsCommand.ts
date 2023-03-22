@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDocumentVersionsCommand}.
  */
 export interface RestoreDocumentVersionsCommandInput extends RestoreDocumentVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDocumentVersionsCommand}.
  */
 export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Recovers a deleted version of an Amazon WorkDocs document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDocumentVersionsCommandInput - {@link RestoreDocumentVersionsCommandInput}
+ * @returns {@link RestoreDocumentVersionsCommandOutput}
  * @see {@link RestoreDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link RestoreDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -90,6 +97,9 @@ export class RestoreDocumentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDocumentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class RestoreDocumentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RestoreDocumentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDocumentVersionsCommandOutput> {
     return deserializeAws_restJson1RestoreDocumentVersionsCommand(output, context);
   }

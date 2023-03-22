@@ -26,10 +26,14 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatalakeDelegatedAdminCommand}.
  */
 export interface CreateDatalakeDelegatedAdminCommandInput extends CreateDatalakeDelegatedAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatalakeDelegatedAdminCommand}.
  */
 export interface CreateDatalakeDelegatedAdminCommandOutput
@@ -37,6 +41,7 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Designates the Amazon Security Lake delegated administrator account for the organization. This
  *          API can only be called by the organization management account. The organization management
  *          account cannot be the delegated administrator account.</p>
@@ -50,6 +55,8 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeDelegatedAdminCommandInput - {@link CreateDatalakeDelegatedAdminCommandInput}
+ * @returns {@link CreateDatalakeDelegatedAdminCommandOutput}
  * @see {@link CreateDatalakeDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeDelegatedAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatalakeDelegatedAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDatalakeDelegatedAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

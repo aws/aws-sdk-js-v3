@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceAttributeCommand}.
  */
 export interface UpdateInstanceAttributeCommandInput extends UpdateInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceAttributeCommand}.
  */
 export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the value for the specified attribute type.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceAttributeCommandInput - {@link UpdateInstanceAttributeCommandInput}
+ * @returns {@link UpdateInstanceAttributeCommandOutput}
  * @see {@link UpdateInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInstanceAttributeCommandOutput> {
     return deserializeAws_restJson1UpdateInstanceAttributeCommand(output, context);
   }

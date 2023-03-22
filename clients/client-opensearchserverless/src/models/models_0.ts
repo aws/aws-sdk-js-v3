@@ -4,6 +4,9 @@ import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { OpenSearchServerlessServiceException as __BaseException } from "./OpenSearchServerlessServiceException";
 
+/**
+ * @public
+ */
 export enum AccessPolicyType {
   /**
    * data policy type
@@ -12,6 +15,7 @@ export enum AccessPolicyType {
 }
 
 /**
+ * @public
  * <p>When creating a collection, thrown when a collection with the same name already exists
  *             or is being created. When deleting a collection, thrown when the collection is not in
  *             the ACTIVE or FAILED state.</p>
@@ -32,6 +36,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -61,6 +68,7 @@ export interface CreateAccessPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Details about an OpenSearch Serverless access policy.</p>
  */
 export interface AccessPolicyDetail {
@@ -100,6 +108,9 @@ export interface AccessPolicyDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPolicyResponse {
   /**
    * <p>Details about the created access policy.</p>
@@ -108,6 +119,7 @@ export interface CreateAccessPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Thrown when an error internal to the service occurs while processing a request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -127,6 +139,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  */
@@ -146,6 +159,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -163,9 +179,13 @@ export interface DeleteAccessPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPolicyResponse {}
 
 /**
+ * @public
  * <p>Thrown when accessing or deleting a resource that does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -184,6 +204,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPolicyRequest {
   /**
    * <p>Tye type of policy. Currently the only supported value is <code>data</code>.</p>
@@ -196,6 +219,9 @@ export interface GetAccessPolicyRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPolicyResponse {
   /**
    * <p>Details about the requested access policy.</p>
@@ -203,6 +229,9 @@ export interface GetAccessPolicyResponse {
   accessPolicyDetail?: AccessPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPoliciesRequest {
   /**
    * <p>The type of access policy.</p>
@@ -230,6 +259,7 @@ export interface ListAccessPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the data access policy.</p>
  */
 export interface AccessPolicySummary {
@@ -264,6 +294,9 @@ export interface AccessPolicySummary {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPoliciesResponse {
   /**
    * <p>Details about the requested access policies.</p>
@@ -278,6 +311,9 @@ export interface ListAccessPoliciesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -311,6 +347,9 @@ export interface UpdateAccessPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccessPolicyResponse {
   /**
    * <p>Details about the updated access policy.</p>
@@ -319,6 +358,7 @@ export interface UpdateAccessPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Statistics for an OpenSearch Serverless access policy.</p>
  */
 export interface AccessPolicyStats {
@@ -329,6 +369,7 @@ export interface AccessPolicyStats {
 }
 
 /**
+ * @public
  * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
  *             (OCUs). These limits are used to scale your collections based on the current workload.
  *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
@@ -346,6 +387,7 @@ export interface CapacityLimits {
 }
 
 /**
+ * @public
  * <p>OpenSearch Serverless-related information for the current account.</p>
  */
 export interface AccountSettingsDetail {
@@ -357,6 +399,9 @@ export interface AccountSettingsDetail {
   capacityLimits?: CapacityLimits;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCollectionRequest {
   /**
    * <p>A list of collection IDs. You can't provide names and IDs in the same request. The ID
@@ -370,6 +415,9 @@ export interface BatchGetCollectionRequest {
   names?: string[];
 }
 
+/**
+ * @public
+ */
 export enum CollectionStatus {
   /**
    * Collection resource is ready to use
@@ -389,6 +437,9 @@ export enum CollectionStatus {
   FAILED = "FAILED",
 }
 
+/**
+ * @public
+ */
 export enum CollectionType {
   /**
    * Search collection type
@@ -401,6 +452,7 @@ export enum CollectionType {
 }
 
 /**
+ * @public
  * <p>Details about each OpenSearch Serverless collection, including the collection endpoint and the
  *             OpenSearch Dashboards endpoint.</p>
  */
@@ -463,6 +515,7 @@ export interface CollectionDetail {
 }
 
 /**
+ * @public
  * <p>Error information for an OpenSearch Serverless request.</p>
  */
 export interface CollectionErrorDetail {
@@ -491,6 +544,9 @@ export interface CollectionErrorDetail {
   errorCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCollectionResponse {
   /**
    * <p>Details about each collection.</p>
@@ -503,6 +559,9 @@ export interface BatchGetCollectionResponse {
   collectionErrorDetails?: CollectionErrorDetail[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetVpcEndpointRequest {
   /**
    * <p>A list of VPC endpoint identifiers.</p>
@@ -510,6 +569,9 @@ export interface BatchGetVpcEndpointRequest {
   ids: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum VpcEndpointStatus {
   /**
    * VPCEndpoint resource is ready to use
@@ -530,6 +592,7 @@ export enum VpcEndpointStatus {
 }
 
 /**
+ * @public
  * <p>Details about an OpenSearch Serverless-managed interface endpoint.</p>
  */
 export interface VpcEndpointDetail {
@@ -571,6 +634,7 @@ export interface VpcEndpointDetail {
 }
 
 /**
+ * @public
  * <p>Error information for a failed <code>BatchGetVpcEndpoint</code> request.</p>
  */
 export interface VpcEndpointErrorDetail {
@@ -590,6 +654,9 @@ export interface VpcEndpointErrorDetail {
   errorCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetVpcEndpointResponse {
   /**
    * <p>Details about the specified VPC endpoint.</p>
@@ -603,6 +670,7 @@ export interface BatchGetVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>A map of key-value pairs associated to an OpenSearch Serverless resource.</p>
  */
 export interface Tag {
@@ -617,6 +685,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCollectionRequest {
   /**
    * <p>Name of the collection.</p>
@@ -645,6 +716,7 @@ export interface CreateCollectionRequest {
 }
 
 /**
+ * @public
  * <p>Details about the created OpenSearch Serverless collection.</p>
  */
 export interface CreateCollectionDetail {
@@ -694,6 +766,9 @@ export interface CreateCollectionDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateCollectionResponse {
   /**
    * <p>Details about the collection.</p>
@@ -701,6 +776,9 @@ export interface CreateCollectionResponse {
   createCollectionDetail?: CreateCollectionDetail;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollectionRequest {
   /**
    * <p>The unique identifier of the collection. For example, <code>1iu5usc406kd</code>. The
@@ -715,6 +793,7 @@ export interface DeleteCollectionRequest {
 }
 
 /**
+ * @public
  * <p>Details about a deleted OpenSearch Serverless collection.</p>
  */
 export interface DeleteCollectionDetail {
@@ -734,6 +813,9 @@ export interface DeleteCollectionDetail {
   status?: CollectionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollectionResponse {
   /**
    * <p>Details of the deleted collection.</p>
@@ -742,6 +824,7 @@ export interface DeleteCollectionResponse {
 }
 
 /**
+ * @public
  * <p>List of filter keys that you can use for LIST, UPDATE, and DELETE requests to OpenSearch Serverless
  *             collections.</p>
  */
@@ -757,6 +840,9 @@ export interface CollectionFilters {
   status?: CollectionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListCollectionsRequest {
   /**
    * <p>List of filter names and values that you can use for requests.</p>
@@ -778,6 +864,7 @@ export interface ListCollectionsRequest {
 }
 
 /**
+ * @public
  * <p>Details about each OpenSearch Serverless collection.</p>
  */
 export interface CollectionSummary {
@@ -802,6 +889,9 @@ export interface CollectionSummary {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCollectionsResponse {
   /**
    * <p>Details about each collection.</p>
@@ -816,6 +906,9 @@ export interface ListCollectionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollectionRequest {
   /**
    * <p>The unique identifier of the collection.</p>
@@ -834,6 +927,7 @@ export interface UpdateCollectionRequest {
 }
 
 /**
+ * @public
  * <p>Details about an updated OpenSearch Serverless collection.</p>
  */
 export interface UpdateCollectionDetail {
@@ -878,6 +972,9 @@ export interface UpdateCollectionDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollectionResponse {
   /**
    * <p>Details about the updated collection.</p>
@@ -886,6 +983,7 @@ export interface UpdateCollectionResponse {
 }
 
 /**
+ * @public
  * <p>Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value
  *             map.</p>
  */
@@ -912,6 +1010,9 @@ export interface SamlConfigOptions {
   sessionTimeout?: number;
 }
 
+/**
+ * @public
+ */
 export enum SecurityConfigType {
   /**
    * saml provider
@@ -919,6 +1020,9 @@ export enum SecurityConfigType {
   saml = "saml",
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityConfigRequest {
   /**
    * <p>The type of security configuration.</p>
@@ -947,6 +1051,7 @@ export interface CreateSecurityConfigRequest {
 }
 
 /**
+ * @public
  * <p>Details about a security configuration for OpenSearch Serverless. </p>
  */
 export interface SecurityConfigDetail {
@@ -986,6 +1091,9 @@ export interface SecurityConfigDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityConfigResponse {
   /**
    * <p>Details about the created security configuration. </p>
@@ -993,6 +1101,9 @@ export interface CreateSecurityConfigResponse {
   securityConfigDetail?: SecurityConfigDetail;
 }
 
+/**
+ * @public
+ */
 export enum SecurityPolicyType {
   /**
    * encryption policy type
@@ -1004,6 +1115,9 @@ export enum SecurityPolicyType {
   network = "network",
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityPolicyRequest {
   /**
    * <p>The type of security policy.</p>
@@ -1033,6 +1147,7 @@ export interface CreateSecurityPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Details about an OpenSearch Serverless security policy.</p>
  */
 export interface SecurityPolicyDetail {
@@ -1072,6 +1187,9 @@ export interface SecurityPolicyDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityPolicyResponse {
   /**
    * <p>Details about the created security policy.</p>
@@ -1079,6 +1197,9 @@ export interface CreateSecurityPolicyResponse {
   securityPolicyDetail?: SecurityPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointRequest {
   /**
    * <p>The name of the interface endpoint.</p>
@@ -1108,6 +1229,7 @@ export interface CreateVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Creation details for an OpenSearch Serverless-managed interface endpoint. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  */
@@ -1128,6 +1250,9 @@ export interface CreateVpcEndpointDetail {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointResponse {
   /**
    * <p>Details about the created interface VPC endpoint.</p>
@@ -1135,6 +1260,9 @@ export interface CreateVpcEndpointResponse {
   createVpcEndpointDetail?: CreateVpcEndpointDetail;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigRequest {
   /**
    * <p>The security configuration identifier. For SAML the ID will be
@@ -1149,8 +1277,14 @@ export interface DeleteSecurityConfigRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSecurityPolicyRequest {
   /**
    * <p>The type of policy.</p>
@@ -1168,8 +1302,14 @@ export interface DeleteSecurityPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityPolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointRequest {
   /**
    * <p>The VPC endpoint identifier.</p>
@@ -1183,6 +1323,7 @@ export interface DeleteVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Deletion details for an OpenSearch Serverless-managed interface endpoint.</p>
  */
 export interface DeleteVpcEndpointDetail {
@@ -1202,6 +1343,9 @@ export interface DeleteVpcEndpointDetail {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointResponse {
   /**
    * <p>Details about the deleted endpoint.</p>
@@ -1209,8 +1353,14 @@ export interface DeleteVpcEndpointResponse {
   deleteVpcEndpointDetail?: DeleteVpcEndpointDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsResponse {
   /**
    * <p>OpenSearch Serverless-related details for the current account.</p>
@@ -1218,9 +1368,13 @@ export interface GetAccountSettingsResponse {
   accountSettingsDetail?: AccountSettingsDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetPoliciesStatsRequest {}
 
 /**
+ * @public
  * <p>Statistics for an OpenSearch Serverless security configuration.</p>
  */
 export interface SecurityConfigStats {
@@ -1231,6 +1385,7 @@ export interface SecurityConfigStats {
 }
 
 /**
+ * @public
  * <p>Statistics for an OpenSearch Serverless security policy.</p>
  */
 export interface SecurityPolicyStats {
@@ -1245,6 +1400,9 @@ export interface SecurityPolicyStats {
   NetworkPolicyCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetPoliciesStatsResponse {
   /**
    * <p>Information about the data access policies in your account.</p>
@@ -1268,6 +1426,9 @@ export interface GetPoliciesStatsResponse {
   TotalPolicyCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigRequest {
   /**
    * <p>The unique identifier of the security configuration.</p>
@@ -1275,6 +1436,9 @@ export interface GetSecurityConfigRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigResponse {
   /**
    * <p>Details of the requested security configuration.</p>
@@ -1282,6 +1446,9 @@ export interface GetSecurityConfigResponse {
   securityConfigDetail?: SecurityConfigDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityPolicyRequest {
   /**
    * <p>The type of security policy.</p>
@@ -1294,6 +1461,9 @@ export interface GetSecurityPolicyRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityPolicyResponse {
   /**
    * <p>Details about the requested security policy.</p>
@@ -1301,6 +1471,9 @@ export interface GetSecurityPolicyResponse {
   securityPolicyDetail?: SecurityPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityConfigsRequest {
   /**
    * <p>The type of security configuration.</p>
@@ -1323,6 +1496,7 @@ export interface ListSecurityConfigsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a security configuration for OpenSearch Serverless.</p>
  */
 export interface SecurityConfigSummary {
@@ -1357,6 +1531,9 @@ export interface SecurityConfigSummary {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityConfigsResponse {
   /**
    * <p>Details about the security configurations in your account.</p>
@@ -1371,6 +1548,9 @@ export interface ListSecurityConfigsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityPoliciesRequest {
   /**
    * <p>The type of policy.</p>
@@ -1398,6 +1578,7 @@ export interface ListSecurityPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a security policy for OpenSearch Serverless.</p>
  */
 export interface SecurityPolicySummary {
@@ -1432,6 +1613,9 @@ export interface SecurityPolicySummary {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityPoliciesResponse {
   /**
    * <p>Details about the security policies in your account.</p>
@@ -1446,6 +1630,9 @@ export interface ListSecurityPoliciesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in
@@ -1455,6 +1642,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
@@ -1463,6 +1653,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Filter the results of a <code>ListVpcEndpoints</code> request.</p>
  */
 export interface VpcEndpointFilters {
@@ -1472,6 +1663,9 @@ export interface VpcEndpointFilters {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsRequest {
   /**
    * <p>Filter the results according to the current status of the VPC endpoint. Possible
@@ -1496,6 +1690,7 @@ export interface ListVpcEndpointsRequest {
 }
 
 /**
+ * @public
  * <p>The VPC endpoint object.</p>
  */
 export interface VpcEndpointSummary {
@@ -1515,6 +1710,9 @@ export interface VpcEndpointSummary {
   status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsResponse {
   /**
    * <p>Details about each VPC endpoint, including the name and current status.</p>
@@ -1529,6 +1727,9 @@ export interface ListVpcEndpointsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityConfigRequest {
   /**
    * <p>The security configuration identifier. For SAML the ID will be
@@ -1560,6 +1761,9 @@ export interface UpdateSecurityConfigRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityConfigResponse {
   /**
    * <p>Details about the updated security configuration. </p>
@@ -1567,6 +1771,9 @@ export interface UpdateSecurityConfigResponse {
   securityConfigDetail?: SecurityConfigDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityPolicyRequest {
   /**
    * <p>The type of access policy.</p>
@@ -1600,6 +1807,9 @@ export interface UpdateSecurityPolicyRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityPolicyResponse {
   /**
    * <p>Details about the updated security policy.</p>
@@ -1607,6 +1817,9 @@ export interface UpdateSecurityPolicyResponse {
   securityPolicyDetail?: SecurityPolicyDetail;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in
@@ -1622,8 +1835,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove tags from. The resource must
@@ -1639,8 +1858,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsRequest {
   /**
    * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
@@ -1650,6 +1875,9 @@ export interface UpdateAccountSettingsRequest {
   capacityLimits?: CapacityLimits;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsResponse {
   /**
    * <p>OpenSearch Serverless-related settings for the current Amazon Web Services account. </p>
@@ -1657,6 +1885,9 @@ export interface UpdateAccountSettingsResponse {
   accountSettingsDetail?: AccountSettingsDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcEndpointRequest {
   /**
    * <p>The unique identifier of the interface endpoint to update.</p>
@@ -1692,6 +1923,7 @@ export interface UpdateVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Update details for an OpenSearch Serverless-managed interface endpoint.</p>
  */
 export interface UpdateVpcEndpointDetail {
@@ -1727,6 +1959,9 @@ export interface UpdateVpcEndpointDetail {
   lastModifiedDate?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcEndpointResponse {
   /**
    * <p>Details about the updated VPC endpoint.</p>

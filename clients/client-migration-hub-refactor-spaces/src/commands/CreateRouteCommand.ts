@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandInput extends CreateRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandOutput extends CreateRouteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces route. The account owner of the service resource is always the
  *       environment owner, regardless of which account creates the route. Routes target a service in
  *       the application. If an application does not have any routes, then the first route must be
@@ -101,6 +106,8 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
+ * @returns {@link CreateRouteCommandOutput}
  * @see {@link CreateRouteCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -146,6 +153,9 @@ export class CreateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class CreateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCommandOutput> {
     return deserializeAws_restJson1CreateRouteCommand(output, context);
   }

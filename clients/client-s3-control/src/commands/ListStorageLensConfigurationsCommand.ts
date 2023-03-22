@@ -27,10 +27,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStorageLensConfigurationsCommand}.
  */
 export interface ListStorageLensConfigurationsCommandInput extends ListStorageLensConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStorageLensConfigurationsCommand}.
  */
 export interface ListStorageLensConfigurationsCommandOutput
@@ -38,6 +42,7 @@ export interface ListStorageLensConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of Amazon S3 Storage Lens configurations. For more information about S3 Storage Lens, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
  *             storage activity and usage with Amazon S3 Storage Lens </a> in the
@@ -58,6 +63,8 @@ export interface ListStorageLensConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStorageLensConfigurationsCommandInput - {@link ListStorageLensConfigurationsCommandInput}
+ * @returns {@link ListStorageLensConfigurationsCommandOutput}
  * @see {@link ListStorageLensConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListStorageLensConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListStorageLensConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStorageLensConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListStorageLensConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStorageLensConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListStorageLensConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

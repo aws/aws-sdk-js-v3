@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCollectorsCommand}.
  */
 export interface ListCollectorsCommandInput extends ListCollectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCollectorsCommand}.
  */
 export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of all the installed collectors. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCollectorsCommandInput - {@link ListCollectorsCommandInput}
+ * @returns {@link ListCollectorsCommandOutput}
  * @see {@link ListCollectorsCommandInput} for command's `input` shape.
  * @see {@link ListCollectorsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListCollectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCollectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListCollectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCollectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCollectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectorsCommandOutput> {
     return deserializeAws_restJson1ListCollectorsCommand(output, context);
   }

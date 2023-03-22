@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterWorkflowTypeCommand}.
  */
 export interface RegisterWorkflowTypeCommandInput extends RegisterWorkflowTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterWorkflowTypeCommand}.
  */
 export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new <i>workflow type</i> and its configuration settings in
  *       the specified domain.</p>
  *          <p>The retention period for the workflow history is set by the <a>RegisterDomain</a> action.</p>
@@ -88,6 +93,8 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterWorkflowTypeCommandInput - {@link RegisterWorkflowTypeCommandInput}
+ * @returns {@link RegisterWorkflowTypeCommandOutput}
  * @see {@link RegisterWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -123,6 +130,9 @@ export class RegisterWorkflowTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterWorkflowTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class RegisterWorkflowTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RegisterWorkflowTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterWorkflowTypeCommandOutput> {
     return deserializeAws_json1_0RegisterWorkflowTypeCommand(output, context);
   }

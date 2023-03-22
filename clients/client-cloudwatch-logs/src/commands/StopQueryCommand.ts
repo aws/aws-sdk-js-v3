@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1StopQueryCommand, serializeAws_json1_1StopQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopQueryCommand}.
  */
 export interface StopQueryCommandInput extends StopQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopQueryCommand}.
  */
 export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
  *     returns an error indicating that the specified query is not running.</p>
  * @example
@@ -44,6 +49,8 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StopQueryCommandInput - {@link StopQueryCommandInput}
+ * @returns {@link StopQueryCommandOutput}
  * @see {@link StopQueryCommandInput} for command's `input` shape.
  * @see {@link StopQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -76,6 +83,9 @@ export class StopQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class StopQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopQueryCommandOutput> {
     return deserializeAws_json1_1StopQueryCommand(output, context);
   }

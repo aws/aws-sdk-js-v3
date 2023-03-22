@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataIntegrationCommand}.
  */
 export interface GetDataIntegrationCommandInput extends GetDataIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataIntegrationCommand}.
  */
 export interface GetDataIntegrationCommandOutput extends GetDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the DataIntegration.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -51,6 +56,8 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataIntegrationCommandInput - {@link GetDataIntegrationCommandInput}
+ * @returns {@link GetDataIntegrationCommandOutput}
  * @see {@link GetDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataIntegrationCommandOutput> {
     return deserializeAws_restJson1GetDataIntegrationCommand(output, context);
   }

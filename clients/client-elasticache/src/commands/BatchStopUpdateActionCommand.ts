@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link BatchStopUpdateActionCommand}.
  */
 export interface BatchStopUpdateActionCommandInput extends BatchStopUpdateActionMessage {}
 /**
+ * @public
+ *
  * The output of {@link BatchStopUpdateActionCommand}.
  */
 export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stop the service update. For more information on service updates and stopping them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html">Stopping Service Updates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStopUpdateActionCommandInput - {@link BatchStopUpdateActionCommandInput}
+ * @returns {@link BatchStopUpdateActionCommandOutput}
  * @see {@link BatchStopUpdateActionCommandInput} for command's `input` shape.
  * @see {@link BatchStopUpdateActionCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchStopUpdateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStopUpdateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class BatchStopUpdateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStopUpdateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBatchStopUpdateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopUpdateActionCommandOutput> {
     return deserializeAws_queryBatchStopUpdateActionCommand(output, context);
   }

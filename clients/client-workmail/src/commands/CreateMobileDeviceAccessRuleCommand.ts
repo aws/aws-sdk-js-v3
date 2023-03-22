@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMobileDeviceAccessRuleCommand}.
  */
 export interface CreateMobileDeviceAccessRuleCommandInput extends CreateMobileDeviceAccessRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMobileDeviceAccessRuleCommand}.
  */
 export interface CreateMobileDeviceAccessRuleCommandOutput
@@ -37,6 +41,7 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new mobile device access rule for the specified WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMobileDeviceAccessRuleCommandInput - {@link CreateMobileDeviceAccessRuleCommandInput}
+ * @returns {@link CreateMobileDeviceAccessRuleCommandOutput}
  * @see {@link CreateMobileDeviceAccessRuleCommandInput} for command's `input` shape.
  * @see {@link CreateMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMobileDeviceAccessRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMobileDeviceAccessRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMobileDeviceAccessRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

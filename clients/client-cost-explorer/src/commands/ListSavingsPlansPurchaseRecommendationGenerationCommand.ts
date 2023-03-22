@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface ListSavingsPlansPurchaseRecommendationGenerationCommandInput
   extends ListSavingsPlansPurchaseRecommendationGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
@@ -38,6 +42,7 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of your historical recommendation generations within the past 30
  *       days.</p>
  * @example
@@ -50,6 +55,8 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput}
+ * @returns {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput}
  * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput} for command's `input` shape.
  * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     return serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

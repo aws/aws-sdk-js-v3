@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTransitGatewayMulticastGroupMembersCommand}.
  */
 export interface RegisterTransitGatewayMulticastGroupMembersCommandInput
   extends RegisterTransitGatewayMulticastGroupMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTransitGatewayMulticastGroupMembersCommand}.
  */
 export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
@@ -38,6 +42,7 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers members (network interfaces) with the  transit gateway multicast group. A member is a network interface associated
  *             with a supported EC2 instance that receives multicast traffic. For information about
  *             supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
@@ -54,6 +59,8 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTransitGatewayMulticastGroupMembersCommandInput - {@link RegisterTransitGatewayMulticastGroupMembersCommandInput}
+ * @returns {@link RegisterTransitGatewayMulticastGroupMembersCommandOutput}
  * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandInput} for command's `input` shape.
  * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTransitGatewayMulticastGroupMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterTransitGatewayMulticastGroupMembersCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
     return serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

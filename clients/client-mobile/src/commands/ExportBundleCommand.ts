@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportBundleCommand}.
  */
 export interface ExportBundleCommandInput extends ExportBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportBundleCommand}.
  */
 export interface ExportBundleCommandOutput extends ExportBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Generates customized software development kit (SDK) and or tool packages
  *             used to integrate mobile web or mobile app clients with backend AWS resources.
@@ -49,6 +54,8 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportBundleCommandInput - {@link ExportBundleCommandInput}
+ * @returns {@link ExportBundleCommandOutput}
  * @see {@link ExportBundleCommandInput} for command's `input` shape.
  * @see {@link ExportBundleCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
@@ -106,6 +113,9 @@ export class ExportBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ExportBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportBundleCommandOutput> {
     return deserializeAws_restJson1ExportBundleCommand(output, context);
   }

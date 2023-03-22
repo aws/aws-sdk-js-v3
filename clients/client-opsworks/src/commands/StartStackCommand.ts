@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStackCommand}.
  */
 export interface StartStackCommandInput extends StartStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStackCommand}.
  */
 export interface StartStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a stack's instances.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStackCommandInput - {@link StartStackCommandInput}
+ * @returns {@link StartStackCommandOutput}
  * @see {@link StartStackCommandInput} for command's `input` shape.
  * @see {@link StartStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class StartStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class StartStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStackCommandOutput> {
     return deserializeAws_json1_1StartStackCommand(output, context);
   }

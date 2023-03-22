@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppBlockCommand}.
  */
 export interface DeleteAppBlockCommandInput extends DeleteAppBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppBlockCommand}.
  */
 export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an app block.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppBlockCommandInput - {@link DeleteAppBlockCommandInput}
+ * @returns {@link DeleteAppBlockCommandOutput}
  * @see {@link DeleteAppBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteAppBlockCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteAppBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteAppBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAppBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppBlockCommandOutput> {
     return deserializeAws_json1_1DeleteAppBlockCommand(output, context);
   }

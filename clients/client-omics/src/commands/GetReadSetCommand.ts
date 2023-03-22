@@ -29,10 +29,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadSetCommand}.
  */
 export interface GetReadSetCommandInput extends GetReadSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadSetCommand}.
  */
 export interface GetReadSetCommandOutput
@@ -40,6 +44,7 @@ export interface GetReadSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a file from a read set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface GetReadSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadSetCommandInput - {@link GetReadSetCommandInput}
+ * @returns {@link GetReadSetCommandOutput}
  * @see {@link GetReadSetCommandInput} for command's `input` shape.
  * @see {@link GetReadSetCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetReadSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetReadSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReadSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

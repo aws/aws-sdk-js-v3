@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNetworkProfileCommand}.
  */
 export interface UpdateNetworkProfileCommandInput extends UpdateNetworkProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNetworkProfileCommand}.
  */
 export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a network profile by the network profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNetworkProfileCommandInput - {@link UpdateNetworkProfileCommandInput}
+ * @returns {@link UpdateNetworkProfileCommandOutput}
  * @see {@link UpdateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkProfileCommandOutput> {
     return deserializeAws_json1_1UpdateNetworkProfileCommand(output, context);
   }

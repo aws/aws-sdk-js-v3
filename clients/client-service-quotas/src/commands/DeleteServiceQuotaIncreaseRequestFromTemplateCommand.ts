@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
   extends DeleteServiceQuotaIncreaseRequestFromTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the quota increase request for the specified quota from your quota request
  *       template.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput - {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput}
+ * @returns {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput}
  * @see {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     return serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

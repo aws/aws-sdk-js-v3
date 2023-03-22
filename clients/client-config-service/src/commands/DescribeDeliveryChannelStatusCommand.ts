@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeliveryChannelStatusCommand}.
  */
 export interface DescribeDeliveryChannelStatusCommandInput extends DescribeDeliveryChannelStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeliveryChannelStatusCommand}.
  */
 export interface DescribeDeliveryChannelStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDeliveryChannelStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of the specified delivery channel.
  * 			If a delivery channel is not specified, this action returns the
  * 			current status of all delivery channels associated with the
@@ -55,6 +60,8 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeliveryChannelStatusCommandInput - {@link DescribeDeliveryChannelStatusCommandInput}
+ * @returns {@link DescribeDeliveryChannelStatusCommandOutput}
  * @see {@link DescribeDeliveryChannelStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryChannelStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeliveryChannelStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeliveryChannelStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDeliveryChannelStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

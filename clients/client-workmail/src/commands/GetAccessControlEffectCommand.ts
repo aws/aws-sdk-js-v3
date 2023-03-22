@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessControlEffectCommand}.
  */
 export interface GetAccessControlEffectCommandInput extends GetAccessControlEffectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessControlEffectCommand}.
  */
 export interface GetAccessControlEffectCommandOutput extends GetAccessControlEffectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the effects of an organization's access control rules as they apply to a
  *          specified IPv4 address, access protocol action, and  user ID or impersonation role ID. You must provide either the user ID or impersonation role ID. Impersonation role ID can only be used with Action EWS.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessControlEffectCommandInput - {@link GetAccessControlEffectCommandInput}
+ * @returns {@link GetAccessControlEffectCommandOutput}
  * @see {@link GetAccessControlEffectCommandInput} for command's `input` shape.
  * @see {@link GetAccessControlEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetAccessControlEffectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessControlEffectCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetAccessControlEffectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessControlEffectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAccessControlEffectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessControlEffectCommandOutput> {
     return deserializeAws_json1_1GetAccessControlEffectCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutSecretValueCommand}.
  */
 export interface PutSecretValueCommandInput extends PutSecretValueRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSecretValueCommand}.
  */
 export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version with a new encrypted secret value and attaches it to the secret. The
  *       version can contain a new <code>SecretString</code> value or a new <code>SecretBinary</code> value. </p>
  *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
@@ -73,6 +78,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSecretValueCommandInput - {@link PutSecretValueCommandInput}
+ * @returns {@link PutSecretValueCommandOutput}
  * @see {@link PutSecretValueCommandInput} for command's `input` shape.
  * @see {@link PutSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -160,6 +167,9 @@ export class PutSecretValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSecretValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,10 +209,16 @@ export class PutSecretValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutSecretValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSecretValueCommandOutput> {
     return deserializeAws_json1_1PutSecretValueCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationFsxOntapCommand}.
  */
 export interface CreateLocationFsxOntapCommandInput extends CreateLocationFsxOntapRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationFsxOntapCommand}.
  */
 export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
  *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationFsxOntapCommandInput - {@link CreateLocationFsxOntapCommandInput}
+ * @returns {@link CreateLocationFsxOntapCommandOutput}
  * @see {@link CreateLocationFsxOntapCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxOntapCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateLocationFsxOntapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationFsxOntapCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateLocationFsxOntapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationFsxOntapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationFsxOntapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxOntapCommandOutput> {
     return deserializeAws_json1_1CreateLocationFsxOntapCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStackSetCommand}.
  */
 export interface CreateStackSetCommandInput extends CreateStackSetInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStackSetCommand}.
  */
 export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackSetCommandInput - {@link CreateStackSetCommandInput}
+ * @returns {@link CreateStackSetCommandOutput}
  * @see {@link CreateStackSetCommandInput} for command's `input` shape.
  * @see {@link CreateStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateStackSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateStackSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateStackSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackSetCommandOutput> {
     return deserializeAws_queryCreateStackSetCommand(output, context);
   }

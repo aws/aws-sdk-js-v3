@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataIntegrationCommand}.
  */
 export interface DeleteDataIntegrationCommandInput extends DeleteDataIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataIntegrationCommand}.
  */
 export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the DataIntegration. Only DataIntegrations that don't have any
  *       DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the
  *       underlying Amazon AppFlow flow and service linked role. </p>
@@ -53,6 +58,8 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataIntegrationCommandInput - {@link DeleteDataIntegrationCommandInput}
+ * @returns {@link DeleteDataIntegrationCommandOutput}
  * @see {@link DeleteDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataIntegrationCommandOutput> {
     return deserializeAws_restJson1DeleteDataIntegrationCommand(output, context);
   }

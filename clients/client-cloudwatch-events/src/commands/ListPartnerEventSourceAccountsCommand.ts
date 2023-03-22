@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPartnerEventSourceAccountsCommand}.
  */
 export interface ListPartnerEventSourceAccountsCommandInput extends ListPartnerEventSourceAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPartnerEventSourceAccountsCommand}.
  */
 export interface ListPartnerEventSourceAccountsCommandOutput
@@ -37,6 +41,7 @@ export interface ListPartnerEventSourceAccountsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>An SaaS partner can use this operation to display the Amazon Web Services account ID that a particular
  *       partner event source name is associated with. This operation is not used by Amazon Web Services
  *       customers.</p>
@@ -50,6 +55,8 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartnerEventSourceAccountsCommandInput - {@link ListPartnerEventSourceAccountsCommandInput}
+ * @returns {@link ListPartnerEventSourceAccountsCommandOutput}
  * @see {@link ListPartnerEventSourceAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerEventSourceAccountsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartnerEventSourceAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPartnerEventSourceAccountsCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     return serializeAws_json1_1ListPartnerEventSourceAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

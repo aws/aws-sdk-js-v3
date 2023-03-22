@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVPCEConfigurationCommand}.
  */
 export interface GetVPCEConfigurationCommandInput extends GetVPCEConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVPCEConfigurationCommand}.
  */
 export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the configuration settings for your Amazon Virtual Private
  *             Cloud (VPC) endpoint.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVPCEConfigurationCommandInput - {@link GetVPCEConfigurationCommandInput}
+ * @returns {@link GetVPCEConfigurationCommandOutput}
  * @see {@link GetVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetVPCEConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVPCEConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetVPCEConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetVPCEConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVPCEConfigurationCommandOutput> {
     return deserializeAws_json1_1GetVPCEConfigurationCommand(output, context);
   }

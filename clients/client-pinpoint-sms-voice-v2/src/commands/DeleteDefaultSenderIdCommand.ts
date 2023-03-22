@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDefaultSenderIdCommand}.
  */
 export interface DeleteDefaultSenderIdCommandInput extends DeleteDefaultSenderIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDefaultSenderIdCommand}.
  */
 export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing default sender ID on a configuration set.</p>
  *         <p>A default sender ID is the identity that appears on recipients' devices when they
  *             receive SMS messages. Support for sender ID capabilities varies by country or
@@ -53,6 +58,8 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDefaultSenderIdCommandInput - {@link DeleteDefaultSenderIdCommandInput}
+ * @returns {@link DeleteDefaultSenderIdCommandOutput}
  * @see {@link DeleteDefaultSenderIdCommandInput} for command's `input` shape.
  * @see {@link DeleteDefaultSenderIdCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteDefaultSenderIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDefaultSenderIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteDefaultSenderIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDefaultSenderIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteDefaultSenderIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDefaultSenderIdCommandOutput> {
     return deserializeAws_json1_0DeleteDefaultSenderIdCommand(output, context);
   }

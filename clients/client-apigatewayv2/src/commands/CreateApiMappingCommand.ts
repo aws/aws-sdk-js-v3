@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApiMappingCommand}.
  */
 export interface CreateApiMappingCommandInput extends CreateApiMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApiMappingCommand}.
  */
 export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiMappingCommandInput - {@link CreateApiMappingCommandInput}
+ * @returns {@link CreateApiMappingCommandOutput}
  * @see {@link CreateApiMappingCommandInput} for command's `input` shape.
  * @see {@link CreateApiMappingCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class CreateApiMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateApiMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateApiMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiMappingCommandOutput> {
     return deserializeAws_restJson1CreateApiMappingCommand(output, context);
   }

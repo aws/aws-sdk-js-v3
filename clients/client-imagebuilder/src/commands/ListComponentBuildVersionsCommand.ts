@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentBuildVersionsCommand}.
  */
 export interface ListComponentBuildVersionsCommandInput extends ListComponentBuildVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentBuildVersionsCommand}.
  */
 export interface ListComponentBuildVersionsCommandOutput extends ListComponentBuildVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the list of component build versions for the specified semantic version.</p>
  *          <note>
  *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
@@ -55,6 +60,8 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentBuildVersionsCommandInput - {@link ListComponentBuildVersionsCommandInput}
+ * @returns {@link ListComponentBuildVersionsCommandOutput}
  * @see {@link ListComponentBuildVersionsCommandInput} for command's `input` shape.
  * @see {@link ListComponentBuildVersionsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListComponentBuildVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentBuildVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ListComponentBuildVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentBuildVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListComponentBuildVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupVaultLockConfigurationCommand}.
  */
 export interface DeleteBackupVaultLockConfigurationCommandInput extends DeleteBackupVaultLockConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupVaultLockConfigurationCommand}.
  */
 export interface DeleteBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes Backup Vault Lock from a backup vault specified by a backup vault
  *          name.</p>
  *          <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
@@ -49,6 +54,8 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupVaultLockConfigurationCommandInput - {@link DeleteBackupVaultLockConfigurationCommandInput}
+ * @returns {@link DeleteBackupVaultLockConfigurationCommandOutput}
  * @see {@link DeleteBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupVaultLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBackupVaultLockConfigurationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
     return serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

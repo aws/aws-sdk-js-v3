@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkloadCommand}.
  */
 export interface GetWorkloadCommandInput extends GetWorkloadInput {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkloadCommand}.
  */
 export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkloadCommandInput - {@link GetWorkloadCommandInput}
+ * @returns {@link GetWorkloadCommandOutput}
  * @see {@link GetWorkloadCommandInput} for command's `input` shape.
  * @see {@link GetWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetWorkloadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetWorkloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWorkloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkloadCommandOutput> {
     return deserializeAws_restJson1GetWorkloadCommand(output, context);
   }

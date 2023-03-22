@@ -26,11 +26,15 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDelegationSignerFromDomainCommand}.
  */
 export interface DisassociateDelegationSignerFromDomainCommandInput
   extends DisassociateDelegationSignerFromDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDelegationSignerFromDomainCommand}.
  */
 export interface DisassociateDelegationSignerFromDomainCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a delegation signer (DS) record in the registry zone for this domain
  * 			name.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDelegationSignerFromDomainCommandInput - {@link DisassociateDelegationSignerFromDomainCommandInput}
+ * @returns {@link DisassociateDelegationSignerFromDomainCommandOutput}
  * @see {@link DisassociateDelegationSignerFromDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateDelegationSignerFromDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDelegationSignerFromDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateDelegationSignerFromDomainCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
     return serializeAws_json1_1DisassociateDelegationSignerFromDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

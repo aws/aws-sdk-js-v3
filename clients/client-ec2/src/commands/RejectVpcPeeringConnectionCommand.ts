@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RejectVpcPeeringConnectionCommand}.
  */
 export interface RejectVpcPeeringConnectionCommandInput extends RejectVpcPeeringConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectVpcPeeringConnectionCommand}.
  */
 export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the
  * 				<code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request
  * 			to view your outstanding VPC peering connection requests. To delete an active VPC peering
@@ -49,6 +54,8 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectVpcPeeringConnectionCommandInput - {@link RejectVpcPeeringConnectionCommandInput}
+ * @returns {@link RejectVpcPeeringConnectionCommandOutput}
  * @see {@link RejectVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RejectVpcPeeringConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

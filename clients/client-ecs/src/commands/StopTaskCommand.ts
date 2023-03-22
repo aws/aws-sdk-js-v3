@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1StopTaskCommand, serializeAws_json1_1StopTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopTaskCommand}.
  */
 export interface StopTaskCommandInput extends StopTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTaskCommand}.
  */
 export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running task. Any tags associated with the task will be deleted.</p>
  *          <p>When <a>StopTask</a> is called on a task, the equivalent of <code>docker
  * 				stop</code> is issued to the containers running in the task. This results in a
@@ -55,6 +60,8 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTaskCommandInput - {@link StopTaskCommandInput}
+ * @returns {@link StopTaskCommandOutput}
  * @see {@link StopTaskCommandInput} for command's `input` shape.
  * @see {@link StopTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -89,6 +96,9 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTaskCommandOutput> {
     return deserializeAws_json1_1StopTaskCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppLaunchConfigurationCommand}.
  */
 export interface PutAppLaunchConfigurationCommandInput extends PutAppLaunchConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppLaunchConfigurationCommand}.
  */
 export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the launch configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppLaunchConfigurationCommandInput - {@link PutAppLaunchConfigurationCommandInput}
+ * @returns {@link PutAppLaunchConfigurationCommandOutput}
  * @see {@link PutAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutAppLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutAppLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAppLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

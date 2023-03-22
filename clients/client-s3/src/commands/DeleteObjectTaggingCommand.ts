@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectTaggingCommand}.
  */
 export interface DeleteObjectTaggingCommandInput extends DeleteObjectTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectTaggingCommand}.
  */
 export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the entire tag set from the specified object. For more information about
  *          managing object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"> Object
  *             Tagging</a>.</p>
@@ -67,6 +72,8 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectTaggingCommandInput - {@link DeleteObjectTaggingCommandInput}
+ * @returns {@link DeleteObjectTaggingCommandOutput}
  * @see {@link DeleteObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -131,6 +138,9 @@ export class DeleteObjectTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class DeleteObjectTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteObjectTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectTaggingCommandOutput> {
     return deserializeAws_restXmlDeleteObjectTaggingCommand(output, context);
   }

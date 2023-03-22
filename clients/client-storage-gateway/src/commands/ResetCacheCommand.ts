@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetCacheCommand}.
  */
 export interface ResetCacheCommandInput extends ResetCacheInput {}
 /**
+ * @public
+ *
  * The output of {@link ResetCacheCommand}.
  */
 export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets all cache disks that have encountered an error and makes the disks available for
  *          reconfiguration as cache storage. If your cache disk encounters an error, the gateway
  *          prevents read and write operations on virtual tapes in the gateway. For example, an error
@@ -58,6 +63,8 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetCacheCommandInput - {@link ResetCacheCommandInput}
+ * @returns {@link ResetCacheCommandOutput}
  * @see {@link ResetCacheCommandInput} for command's `input` shape.
  * @see {@link ResetCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -105,6 +112,9 @@ export class ResetCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ResetCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetCacheCommandOutput> {
     return deserializeAws_json1_1ResetCacheCommand(output, context);
   }

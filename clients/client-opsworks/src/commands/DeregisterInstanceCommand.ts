@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterInstanceCommand}.
  */
 export interface DeregisterInstanceCommandInput extends DeregisterInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterInstanceCommand}.
  */
 export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregister a registered Amazon EC2 or on-premises instance. This action removes the
  *           instance from the stack and returns it to your control. This action cannot be used with
  *           instances that were created with AWS OpsWorks Stacks.</p>
@@ -48,6 +53,8 @@ export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterInstanceCommandInput - {@link DeregisterInstanceCommandInput}
+ * @returns {@link DeregisterInstanceCommandOutput}
  * @see {@link DeregisterInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeregisterInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeregisterInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterInstanceCommandOutput> {
     return deserializeAws_json1_1DeregisterInstanceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetGroupCommand}.
  */
 export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetGroupCommand}.
  */
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty dataset group. A dataset group is a container for
  *       Amazon Personalize resources. A dataset group can contain at most three datasets, one
  *       for each type of dataset:</p>
@@ -126,6 +131,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
+ * @returns {@link CreateDatasetGroupCommandOutput}
  * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -161,6 +168,9 @@ export class CreateDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,10 +210,16 @@ export class CreateDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetGroupCommandOutput> {
     return deserializeAws_json1_1CreateDatasetGroupCommand(output, context);
   }

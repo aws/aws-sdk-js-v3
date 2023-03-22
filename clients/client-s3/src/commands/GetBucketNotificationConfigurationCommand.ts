@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketNotificationConfigurationCommand}.
  */
 export interface GetBucketNotificationConfigurationCommandInput extends GetBucketNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketNotificationConfigurationCommand}.
  */
 export interface GetBucketNotificationConfigurationCommandOutput extends NotificationConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the notification configuration of a bucket.</p>
  *          <p>If notifications are not enabled on the bucket, the action returns an empty
  *             <code>NotificationConfiguration</code> element.</p>
@@ -63,6 +68,8 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketNotificationConfigurationCommandInput - {@link GetBucketNotificationConfigurationCommandInput}
+ * @returns {@link GetBucketNotificationConfigurationCommandOutput}
  * @see {@link GetBucketNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -92,6 +99,9 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     return serializeAws_restXmlGetBucketNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

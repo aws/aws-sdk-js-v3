@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSolutionVersionCommand}.
  */
 export interface CreateSolutionVersionCommandInput extends CreateSolutionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSolutionVersionCommand}.
  */
 export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *       operation and must be in the ACTIVE state before calling
  *         <code>CreateSolutionVersion</code>. A new version of the solution is created every time you
@@ -112,6 +117,8 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSolutionVersionCommandInput - {@link CreateSolutionVersionCommandInput}
+ * @returns {@link CreateSolutionVersionCommandOutput}
  * @see {@link CreateSolutionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSolutionVersionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -153,6 +160,9 @@ export class CreateSolutionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSolutionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,10 +202,16 @@ export class CreateSolutionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSolutionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSolutionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolutionVersionCommandOutput> {
     return deserializeAws_json1_1CreateSolutionVersionCommand(output, context);
   }

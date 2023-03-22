@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePullRequestApprovalRuleCommand}.
  */
 export interface CreatePullRequestApprovalRuleCommandInput extends CreatePullRequestApprovalRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePullRequestApprovalRuleCommand}.
  */
 export interface CreatePullRequestApprovalRuleCommandOutput
@@ -37,6 +41,7 @@ export interface CreatePullRequestApprovalRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an approval rule for a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePullRequestApprovalRuleCommandInput - {@link CreatePullRequestApprovalRuleCommandInput}
+ * @returns {@link CreatePullRequestApprovalRuleCommandOutput}
  * @see {@link CreatePullRequestApprovalRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePullRequestApprovalRuleCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -117,6 +124,9 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePullRequestApprovalRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePullRequestApprovalRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePullRequestApprovalRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

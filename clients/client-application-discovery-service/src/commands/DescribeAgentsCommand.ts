@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAgentsCommand}.
  */
 export interface DescribeAgentsCommandInput extends DescribeAgentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAgentsCommand}.
  */
 export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists agents or connectors as specified by ID or other filters. All agents/connectors
  *       associated with your user account can be listed if you call <code>DescribeAgents</code> as is
  *       without passing any parameters.</p>
@@ -52,6 +57,8 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgentsCommandInput - {@link DescribeAgentsCommandInput}
+ * @returns {@link DescribeAgentsCommandOutput}
  * @see {@link DescribeAgentsCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeAgentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeAgentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAgentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentsCommandOutput> {
     return deserializeAws_json1_1DescribeAgentsCommand(output, context);
   }

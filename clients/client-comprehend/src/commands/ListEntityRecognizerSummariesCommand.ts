@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntityRecognizerSummariesCommand}.
  */
 export interface ListEntityRecognizerSummariesCommandInput extends ListEntityRecognizerSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntityRecognizerSummariesCommand}.
  */
 export interface ListEntityRecognizerSummariesCommandOutput
@@ -37,6 +41,7 @@ export interface ListEntityRecognizerSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of summaries for the entity recognizers that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListEntityRecognizerSummariesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntityRecognizerSummariesCommandInput - {@link ListEntityRecognizerSummariesCommandInput}
+ * @returns {@link ListEntityRecognizerSummariesCommandOutput}
  * @see {@link ListEntityRecognizerSummariesCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizerSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntityRecognizerSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntityRecognizerSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEntityRecognizerSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

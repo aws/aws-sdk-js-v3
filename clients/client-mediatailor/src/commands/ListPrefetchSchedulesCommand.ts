@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPrefetchSchedulesCommand}.
  */
 export interface ListPrefetchSchedulesCommandInput extends ListPrefetchSchedulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPrefetchSchedulesCommand}.
  */
 export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the prefetch schedules for a playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrefetchSchedulesCommandInput - {@link ListPrefetchSchedulesCommandInput}
+ * @returns {@link ListPrefetchSchedulesCommandOutput}
  * @see {@link ListPrefetchSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListPrefetchSchedulesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListPrefetchSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrefetchSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListPrefetchSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrefetchSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPrefetchSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrefetchSchedulesCommandOutput> {
     return deserializeAws_restJson1ListPrefetchSchedulesCommand(output, context);
   }

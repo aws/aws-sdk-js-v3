@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataCatalogCommand}.
  */
 export interface CreateDataCatalogCommandInput extends CreateDataCatalogInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataCatalogCommand}.
  */
 export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
  *             created are visible to all users of the same Amazon Web Services account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataCatalogCommandInput - {@link CreateDataCatalogCommandInput}
+ * @returns {@link CreateDataCatalogCommandOutput}
  * @see {@link CreateDataCatalogCommandInput} for command's `input` shape.
  * @see {@link CreateDataCatalogCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateDataCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CreateDataCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataCatalogCommandOutput> {
     return deserializeAws_json1_1CreateDataCatalogCommand(output, context);
   }

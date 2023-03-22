@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssignTapePoolCommand}.
  */
 export interface AssignTapePoolCommandInput extends AssignTapePoolInput {}
 /**
+ * @public
+ *
  * The output of {@link AssignTapePoolCommand}.
  */
 export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in
  *          the S3 storage class that is associated with the pool. When you use your backup application
  *          to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or
@@ -49,6 +54,8 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignTapePoolCommandInput - {@link AssignTapePoolCommandInput}
+ * @returns {@link AssignTapePoolCommandOutput}
  * @see {@link AssignTapePoolCommandInput} for command's `input` shape.
  * @see {@link AssignTapePoolCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -80,6 +87,9 @@ export class AssignTapePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignTapePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AssignTapePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssignTapePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignTapePoolCommandOutput> {
     return deserializeAws_json1_1AssignTapePoolCommand(output, context);
   }

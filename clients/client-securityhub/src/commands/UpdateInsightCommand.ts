@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInsightCommand}.
  */
 export interface UpdateInsightCommandInput extends UpdateInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInsightCommand}.
  */
 export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Security Hub insight identified by the specified insight ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInsightCommandInput - {@link UpdateInsightCommandInput}
+ * @returns {@link UpdateInsightCommandOutput}
  * @see {@link UpdateInsightCommandInput} for command's `input` shape.
  * @see {@link UpdateInsightCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInsightCommandOutput> {
     return deserializeAws_restJson1UpdateInsightCommand(output, context);
   }

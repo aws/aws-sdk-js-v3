@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAnalysisCommand}.
  */
 export interface CreateAnalysisCommandInput extends CreateAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAnalysisCommand}.
  */
 export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an analysis in Amazon QuickSight.  Analyses can be created either from a template or from an <code>AnalysisDefinition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAnalysisCommandInput - {@link CreateAnalysisCommandInput}
+ * @returns {@link CreateAnalysisCommandOutput}
  * @see {@link CreateAnalysisCommandInput} for command's `input` shape.
  * @see {@link CreateAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnalysisCommandOutput> {
     return deserializeAws_restJson1CreateAnalysisCommand(output, context);
   }

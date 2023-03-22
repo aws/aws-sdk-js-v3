@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionDeviceCommand}.
  */
 export interface ProvisionDeviceCommandInput extends ProvisionDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionDeviceCommand}.
  */
 export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a
  *       provisioning certificate that is valid for 5 minutes. Name the configuration archive
  *           <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5
@@ -49,6 +54,8 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionDeviceCommandInput - {@link ProvisionDeviceCommandInput}
+ * @returns {@link ProvisionDeviceCommandOutput}
  * @see {@link ProvisionDeviceCommandInput} for command's `input` shape.
  * @see {@link ProvisionDeviceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -87,6 +94,9 @@ export class ProvisionDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ProvisionDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ProvisionDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionDeviceCommandOutput> {
     return deserializeAws_restJson1ProvisionDeviceCommand(output, context);
   }

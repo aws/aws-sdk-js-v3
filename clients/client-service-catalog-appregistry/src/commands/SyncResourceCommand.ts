@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link SyncResourceCommand}.
  */
 export interface SyncResourceCommandInput extends SyncResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link SyncResourceCommand}.
  */
 export interface SyncResourceCommandOutput extends SyncResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Syncs the resource with current AppRegistry records.</p>
  *          <p>Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.</p>
  * @example
@@ -51,6 +56,8 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SyncResourceCommandInput - {@link SyncResourceCommandInput}
+ * @returns {@link SyncResourceCommandOutput}
  * @see {@link SyncResourceCommandInput} for command's `input` shape.
  * @see {@link SyncResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -84,6 +91,9 @@ export class SyncResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SyncResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SyncResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SyncResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SyncResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SyncResourceCommandOutput> {
     return deserializeAws_restJson1SyncResourceCommand(output, context);
   }

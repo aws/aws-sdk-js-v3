@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSegmentVersionsCommand}.
  */
 export interface GetSegmentVersionsCommandInput extends GetSegmentVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSegmentVersionsCommand}.
  */
 export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentVersionsCommandInput - {@link GetSegmentVersionsCommandInput}
+ * @returns {@link GetSegmentVersionsCommandOutput}
  * @see {@link GetSegmentVersionsCommandInput} for command's `input` shape.
  * @see {@link GetSegmentVersionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetSegmentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetSegmentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSegmentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentVersionsCommandOutput> {
     return deserializeAws_restJson1GetSegmentVersionsCommand(output, context);
   }

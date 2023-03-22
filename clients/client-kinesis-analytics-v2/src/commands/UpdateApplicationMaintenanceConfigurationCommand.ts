@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationMaintenanceConfigurationCommand}.
  */
 export interface UpdateApplicationMaintenanceConfigurationCommandInput
   extends UpdateApplicationMaintenanceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationMaintenanceConfigurationCommand}.
  */
 export interface UpdateApplicationMaintenanceConfigurationCommandOutput
@@ -42,6 +46,7 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the maintenance configuration of the Kinesis Data Analytics application. </p>
  *          <p>You can invoke this operation on an application that is in one of the two following
  *       states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is
@@ -68,6 +73,8 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationMaintenanceConfigurationCommandInput - {@link UpdateApplicationMaintenanceConfigurationCommandInput}
+ * @returns {@link UpdateApplicationMaintenanceConfigurationCommandOutput}
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -109,6 +116,9 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationMaintenanceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,6 +164,9 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApplicationMaintenanceConfigurationCommandInput,
     context: __SerdeContext
@@ -161,6 +174,9 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
     return serializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

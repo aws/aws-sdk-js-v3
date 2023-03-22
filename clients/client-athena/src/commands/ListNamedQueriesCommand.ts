@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNamedQueriesCommand}.
  */
 export interface ListNamedQueriesCommandInput extends ListNamedQueriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNamedQueriesCommand}.
  */
 export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of available query IDs only for queries saved in the specified
  *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
  *             not specified, lists the saved queries for the primary workgroup.</p>
@@ -51,6 +56,8 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamedQueriesCommandInput - {@link ListNamedQueriesCommandInput}
+ * @returns {@link ListNamedQueriesCommandOutput}
  * @see {@link ListNamedQueriesCommandInput} for command's `input` shape.
  * @see {@link ListNamedQueriesCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListNamedQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamedQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListNamedQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamedQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNamedQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamedQueriesCommandOutput> {
     return deserializeAws_json1_1ListNamedQueriesCommand(output, context);
   }

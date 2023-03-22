@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExperienceCommand}.
  */
 export interface UpdateExperienceCommandInput extends UpdateExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExperienceCommand}.
  */
 export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates your Amazon Kendra experience such as a search application. For more information on
  *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
  *                 search experience with no code</a>.</p>
@@ -43,6 +48,8 @@ export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExperienceCommandInput - {@link UpdateExperienceCommandInput}
+ * @returns {@link UpdateExperienceCommandOutput}
  * @see {@link UpdateExperienceCommandInput} for command's `input` shape.
  * @see {@link UpdateExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExperienceCommandOutput> {
     return deserializeAws_json1_1UpdateExperienceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationOptionsCommand}.
  */
 export interface DescribeConfigurationOptionsCommandInput extends DescribeConfigurationOptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationOptionsCommand}.
  */
 export interface DescribeConfigurationOptionsCommandOutput extends ConfigurationOptionsDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the configuration options that are used in a particular configuration
  *       template or environment, or that a specified solution stack defines. The description includes
  *       the values the options, their default values, and an indication of the required action on a
@@ -49,6 +54,8 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationOptionsCommandInput - {@link DescribeConfigurationOptionsCommandInput}
+ * @returns {@link DescribeConfigurationOptionsCommandOutput}
  * @see {@link DescribeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -112,6 +119,9 @@ export class DescribeConfigurationOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class DescribeConfigurationOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeConfigurationOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

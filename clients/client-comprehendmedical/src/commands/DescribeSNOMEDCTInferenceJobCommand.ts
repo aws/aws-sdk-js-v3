@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSNOMEDCTInferenceJobCommand}.
  */
 export interface DescribeSNOMEDCTInferenceJobCommandInput extends DescribeSNOMEDCTInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSNOMEDCTInferenceJobCommand}.
  */
 export interface DescribeSNOMEDCTInferenceJobCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets the properties associated with an InferSNOMEDCT job. Use this operation to get the status of an inference job.
  *     </p>
@@ -54,6 +59,8 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSNOMEDCTInferenceJobCommandInput - {@link DescribeSNOMEDCTInferenceJobCommandInput}
+ * @returns {@link DescribeSNOMEDCTInferenceJobCommandOutput}
  * @see {@link DescribeSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSNOMEDCTInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSNOMEDCTInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

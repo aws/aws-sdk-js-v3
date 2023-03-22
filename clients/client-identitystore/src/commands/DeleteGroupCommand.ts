@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGroupCommand}.
  */
 export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGroupCommand}.
  */
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a group within an identity store given <code>GroupId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
+ * @returns {@link DeleteGroupCommandOutput}
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupCommandOutput> {
     return deserializeAws_json1_1DeleteGroupCommand(output, context);
   }

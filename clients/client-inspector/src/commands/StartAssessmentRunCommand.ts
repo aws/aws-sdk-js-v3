@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAssessmentRunCommand}.
  */
 export interface StartAssessmentRunCommandInput extends StartAssessmentRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAssessmentRunCommand}.
  */
 export interface StartAssessmentRunCommandOutput extends StartAssessmentRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the assessment run specified by the ARN of the assessment template. For this
  *          API to function properly, you must not exceed the limit of running up to 500 concurrent
  *          agents per AWS account.</p>
@@ -48,6 +53,8 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAssessmentRunCommandInput - {@link StartAssessmentRunCommandInput}
+ * @returns {@link StartAssessmentRunCommandOutput}
  * @see {@link StartAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -117,6 +124,9 @@ export class StartAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class StartAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssessmentRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentRunCommandOutput> {
     return deserializeAws_json1_1StartAssessmentRunCommand(output, context);
   }

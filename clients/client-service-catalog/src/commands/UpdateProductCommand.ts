@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProductCommand}.
  */
 export interface UpdateProductCommandInput extends UpdateProductInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProductCommand}.
  */
 export interface UpdateProductCommandOutput extends UpdateProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProductCommandInput - {@link UpdateProductCommandInput}
+ * @returns {@link UpdateProductCommandOutput}
  * @see {@link UpdateProductCommandInput} for command's `input` shape.
  * @see {@link UpdateProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProductCommandOutput> {
     return deserializeAws_json1_1UpdateProductCommand(output, context);
   }

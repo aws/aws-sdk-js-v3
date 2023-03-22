@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisionedProductPlansCommand}.
  */
 export interface ListProvisionedProductPlansCommandInput extends ListProvisionedProductPlansInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisionedProductPlansCommand}.
  */
 export interface ListProvisionedProductPlansCommandOutput extends ListProvisionedProductPlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisionedProductPlansCommandInput - {@link ListProvisionedProductPlansCommandInput}
+ * @returns {@link ListProvisionedProductPlansCommandOutput}
  * @see {@link ListProvisionedProductPlansCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedProductPlansCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListProvisionedProductPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisionedProductPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListProvisionedProductPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisionedProductPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProvisionedProductPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

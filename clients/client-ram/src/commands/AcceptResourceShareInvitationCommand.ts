@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptResourceShareInvitationCommand}.
  */
 export interface AcceptResourceShareInvitationCommandInput extends AcceptResourceShareInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptResourceShareInvitationCommand}.
  */
 export interface AcceptResourceShareInvitationCommandOutput
@@ -37,6 +41,7 @@ export interface AcceptResourceShareInvitationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the
  *             invitation, the resources included in the resource share are available to interact with in the
  *             relevant Amazon Web Services Management Consoles and tools.</p>
@@ -50,6 +55,8 @@ export interface AcceptResourceShareInvitationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptResourceShareInvitationCommandInput - {@link AcceptResourceShareInvitationCommandInput}
+ * @returns {@link AcceptResourceShareInvitationCommandOutput}
  * @see {@link AcceptResourceShareInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptResourceShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -105,6 +112,9 @@ export class AcceptResourceShareInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptResourceShareInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class AcceptResourceShareInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptResourceShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AcceptResourceShareInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

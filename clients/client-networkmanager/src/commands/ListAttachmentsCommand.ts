@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachmentsCommand}.
  */
 export interface ListAttachmentsCommandInput extends ListAttachmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachmentsCommand}.
  */
 export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of core network attachments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachmentsCommandInput - {@link ListAttachmentsCommandInput}
+ * @returns {@link ListAttachmentsCommandOutput}
  * @see {@link ListAttachmentsCommandInput} for command's `input` shape.
  * @see {@link ListAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachmentsCommandOutput> {
     return deserializeAws_restJson1ListAttachmentsCommand(output, context);
   }

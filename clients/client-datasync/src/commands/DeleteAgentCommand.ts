@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAgentCommand}.
  */
 export interface DeleteAgentCommandInput extends DeleteAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAgentCommand}.
  */
 export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
  *       of the agent in your request. The operation disassociates the agent from your Amazon Web Services account.
  *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
@@ -49,6 +54,8 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAgentCommandInput - {@link DeleteAgentCommandInput}
+ * @returns {@link DeleteAgentCommandOutput}
  * @see {@link DeleteAgentCommandInput} for command's `input` shape.
  * @see {@link DeleteAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAgentCommandOutput> {
     return deserializeAws_json1_1DeleteAgentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserHierarchyGroupCommand}.
  */
 export interface CreateUserHierarchyGroupCommandInput extends CreateUserHierarchyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserHierarchyGroupCommand}.
  */
 export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new user hierarchy group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserHierarchyGroupCommandInput - {@link CreateUserHierarchyGroupCommandInput}
+ * @returns {@link CreateUserHierarchyGroupCommandOutput}
  * @see {@link CreateUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link CreateUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateUserHierarchyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserHierarchyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateUserHierarchyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserHierarchyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateUserHierarchyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserHierarchyGroupCommandOutput> {
     return deserializeAws_restJson1CreateUserHierarchyGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupQueryCommand}.
  */
 export interface GetGroupQueryCommandInput extends GetGroupQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupQueryCommand}.
  */
 export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource query associated with the specified resource group. For more
  *             information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
  *                 a tag-based group in Resource Groups</a>.</p>
@@ -59,6 +64,8 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupQueryCommandInput - {@link GetGroupQueryCommandInput}
+ * @returns {@link GetGroupQueryCommandOutput}
  * @see {@link GetGroupQueryCommandInput} for command's `input` shape.
  * @see {@link GetGroupQueryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetGroupQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetGroupQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGroupQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupQueryCommandOutput> {
     return deserializeAws_restJson1GetGroupQueryCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelCommand}.
  */
 export interface DescribeChannelCommandInput extends DescribeChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelCommand}.
  */
 export interface DescribeChannelCommandOutput extends DescribeChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Gets details about a channel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelCommandInput - {@link DescribeChannelCommandInput}
+ * @returns {@link DescribeChannelCommandOutput}
  * @see {@link DescribeChannelCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelCommandOutput> {
     return deserializeAws_restJson1DescribeChannelCommand(output, context);
   }

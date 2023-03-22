@@ -26,15 +26,20 @@ import {
 import { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceRegistrationCommand}.
  */
 export interface GetDeviceRegistrationCommandInput extends GetDeviceRegistrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceRegistrationCommand}.
  */
 export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistrationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceRegistrationCommandInput - {@link GetDeviceRegistrationCommandInput}
+ * @returns {@link GetDeviceRegistrationCommandOutput}
  * @see {@link GetDeviceRegistrationCommandInput} for command's `input` shape.
  * @see {@link GetDeviceRegistrationCommandOutput} for command's `response` shape.
  * @see {@link SagemakerEdgeClientResolvedConfig | config} for SagemakerEdgeClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetDeviceRegistrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceRegistrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetDeviceRegistrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeviceRegistrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceRegistrationCommandOutput> {
     return deserializeAws_restJson1GetDeviceRegistrationCommand(output, context);
   }

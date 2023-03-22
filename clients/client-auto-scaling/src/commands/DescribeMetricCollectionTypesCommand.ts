@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMetricCollectionTypesCommand}.
  */
 export interface DescribeMetricCollectionTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMetricCollectionTypesCommand}.
  */
 export interface DescribeMetricCollectionTypesCommandOutput
@@ -35,6 +39,7 @@ export interface DescribeMetricCollectionTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMetricCollectionTypesCommandInput - {@link DescribeMetricCollectionTypesCommandInput}
+ * @returns {@link DescribeMetricCollectionTypesCommandOutput}
  * @see {@link DescribeMetricCollectionTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricCollectionTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -117,6 +124,9 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMetricCollectionTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMetricCollectionTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeMetricCollectionTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

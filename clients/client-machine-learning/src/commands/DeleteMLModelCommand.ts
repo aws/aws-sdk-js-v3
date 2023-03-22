@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMLModelCommand}.
  */
 export interface DeleteMLModelCommandInput extends DeleteMLModelInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMLModelCommand}.
  */
 export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteMLModel</code> operation, you can use the
  *           <code>GetMLModel</code> operation to verify that the status of the <code>MLModel</code> changed to DELETED.</p>
@@ -51,6 +56,8 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMLModelCommandInput - {@link DeleteMLModelCommandInput}
+ * @returns {@link DeleteMLModelCommandOutput}
  * @see {@link DeleteMLModelCommandInput} for command's `input` shape.
  * @see {@link DeleteMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMLModelCommandOutput> {
     return deserializeAws_json1_1DeleteMLModelCommand(output, context);
   }

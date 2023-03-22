@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDifferencesCommand}.
  */
 export interface GetDifferencesCommandInput extends GetDifferencesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDifferencesCommand}.
  */
 export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the differences in a valid commit specifier (such as a
  *             branch, tag, HEAD, commit ID, or other fully qualified reference). Results can be
  *             limited to a specified path.</p>
@@ -48,6 +53,8 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDifferencesCommandInput - {@link GetDifferencesCommandInput}
+ * @returns {@link GetDifferencesCommandOutput}
  * @see {@link GetDifferencesCommandInput} for command's `input` shape.
  * @see {@link GetDifferencesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -125,6 +132,9 @@ export class GetDifferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDifferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class GetDifferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDifferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDifferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDifferencesCommandOutput> {
     return deserializeAws_json1_1GetDifferencesCommand(output, context);
   }

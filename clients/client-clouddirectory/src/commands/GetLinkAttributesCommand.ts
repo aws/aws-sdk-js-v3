@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLinkAttributesCommand}.
  */
 export interface GetLinkAttributesCommandInput extends GetLinkAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLinkAttributesCommand}.
  */
 export interface GetLinkAttributesCommandOutput extends GetLinkAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attributes that are associated with a typed link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLinkAttributesCommandInput - {@link GetLinkAttributesCommandInput}
+ * @returns {@link GetLinkAttributesCommandOutput}
  * @see {@link GetLinkAttributesCommandInput} for command's `input` shape.
  * @see {@link GetLinkAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetLinkAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLinkAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetLinkAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLinkAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLinkAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkAttributesCommandOutput> {
     return deserializeAws_restJson1GetLinkAttributesCommand(output, context);
   }

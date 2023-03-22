@@ -87,6 +87,7 @@ import {
 import { EMRContainersClient } from "./EMRContainersClient";
 
 /**
+ * @public
  * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows
  *          you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS).
  *          With this deployment option, you can focus on running analytics workloads while Amazon EMR on EKS builds, configures, and manages containers for open-source applications.
@@ -114,6 +115,7 @@ import { EMRContainersClient } from "./EMRContainersClient";
  */
 export class EMRContainers extends EMRContainersClient {
   /**
+   * @public
    * <p>Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
    *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
@@ -144,6 +146,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Creates a job template. Job template stores values of StartJobRun API request in a
    *          template and can be used to start a job run. Job template allows two use cases: avoid
    *          repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
@@ -179,6 +182,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to
    *             Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual
    *          cluster.</p>
@@ -213,6 +217,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
    *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
    *          namespace. Given this relationship, you can model virtual clusters the same way you model
@@ -248,6 +253,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Deletes a job template. Job template stores values of StartJobRun API request in a
    *          template and can be used to start a job run. Job template allows two use cases: avoid
    *          repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
@@ -283,6 +289,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to
    *             Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual
    *          cluster.</p>
@@ -317,6 +324,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
    *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
    *          namespace. Given this relationship, you can model virtual clusters the same way you model
@@ -352,6 +360,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Displays detailed information about a job run. A job run is a unit of work, such as a
    *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
@@ -385,6 +394,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Displays detailed information about a specified job template. Job template stores values
    *          of StartJobRun API request in a template and can be used to start a job run. Job template
    *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
@@ -420,6 +430,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Displays detailed information about a managed endpoint. A managed endpoint is a gateway
    *          that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with
    *          your virtual cluster.</p>
@@ -454,6 +465,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Displays detailed information about a specified virtual cluster. Virtual cluster is a
    *          managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
    *          clusters. They do not consume any additional resource in your system. A single virtual
@@ -491,6 +503,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a
    *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
@@ -518,6 +531,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Lists job templates based on a set of parameters. Job template stores values of
    *          StartJobRun API request in a template and can be used to start a job run. Job template
    *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
@@ -553,6 +567,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway
    *          that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with
    *          your virtual cluster.</p>
@@ -587,6 +602,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags assigned to the resources.</p>
    */
   public listTagsForResource(
@@ -619,6 +635,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Lists information about the specified virtual cluster. Virtual cluster is a managed
    *          entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
    *          clusters. They do not consume any additional resource in your system. A single virtual
@@ -656,6 +673,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
    *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
@@ -683,6 +701,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services resource. Each tag
    *          consists of a key and an optional value, both of which you define. Tags enable you to
    *          categorize your Amazon Web Services resources by attributes such as purpose, owner, or environment. When
@@ -716,6 +735,7 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from resources.</p>
    */
   public untagResource(

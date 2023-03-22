@@ -20,6 +20,7 @@ import { LogoutCommand, LogoutCommandInput, LogoutCommandOutput } from "./comman
 import { SSOClient } from "./SSOClient";
 
 /**
+ * @public
  * <p>AWS IAM Identity Center (successor to AWS Single Sign-On) Portal is a web service that makes it easy for you to assign user access to
  *       IAM Identity Center resources such as the AWS access portal. Users can get AWS account applications and roles
  *       assigned to them and get federated into the application.</p>
@@ -42,6 +43,7 @@ import { SSOClient } from "./SSOClient";
  */
 export class SSO extends SSOClient {
   /**
+   * @public
    * <p>Returns the STS short-term credentials for a given role name that is assigned to the
    *       user.</p>
    */
@@ -75,6 +77,7 @@ export class SSO extends SSOClient {
   }
 
   /**
+   * @public
    * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
    */
   public listAccountRoles(
@@ -107,6 +110,7 @@ export class SSO extends SSOClient {
   }
 
   /**
+   * @public
    * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
    *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
    *       returns a paginated response.</p>
@@ -138,6 +142,7 @@ export class SSO extends SSOClient {
   }
 
   /**
+   * @public
    * <p>Removes the locally stored SSO tokens from the client-side cache and sends an API call to
    *       the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in
    *       session.</p>

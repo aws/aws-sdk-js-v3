@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}.
  */
 export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandInput
   extends DescribeLocalGatewayRouteTableVpcAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}.
  */
 export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified associations between VPCs and local gateway route tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayRouteTableVpcAssociationsCommandInput - {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandInput}
+ * @returns {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput}
  * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     return serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSafetyRuleCommand}.
  */
 export interface UpdateSafetyRuleCommandInput extends UpdateSafetyRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSafetyRuleCommand}.
  */
 export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a safety rule (an assertion rule or gating rule). You can only update the name and the waiting period for a safety rule. To make other updates, delete the safety rule and create a new one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSafetyRuleCommandInput - {@link UpdateSafetyRuleCommandInput}
+ * @returns {@link UpdateSafetyRuleCommandOutput}
  * @see {@link UpdateSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateSafetyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSafetyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateSafetyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSafetyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSafetyRuleCommandOutput> {
     return deserializeAws_restJson1UpdateSafetyRuleCommand(output, context);
   }

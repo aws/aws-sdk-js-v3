@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProvisioningArtifactCommand}.
  */
 export interface CreateProvisioningArtifactCommandInput extends CreateProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateProvisioningArtifactCommand}.
  */
 export interface CreateProvisioningArtifactCommandOutput extends CreateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
  *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
@@ -50,6 +55,8 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisioningArtifactCommandInput - {@link CreateProvisioningArtifactCommandInput}
+ * @returns {@link CreateProvisioningArtifactCommandOutput}
  * @see {@link CreateProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateProvisioningArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateProvisioningArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -28,15 +28,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBotChannelAssociationCommand}.
  */
 export interface DeleteBotChannelAssociationCommandInput extends DeleteBotChannelAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBotChannelAssociationCommand}.
  */
 export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between an Amazon Lex bot and a messaging
  *       platform.</p>
  *          <p>This operation requires permission for the
@@ -51,6 +56,8 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBotChannelAssociationCommandInput - {@link DeleteBotChannelAssociationCommandInput}
+ * @returns {@link DeleteBotChannelAssociationCommandOutput}
  * @see {@link DeleteBotChannelAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteBotChannelAssociationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotChannelAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotChannelAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBotChannelAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

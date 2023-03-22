@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExperimentCommand}.
  */
 export interface GetExperimentCommandInput extends GetExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExperimentCommand}.
  */
 export interface GetExperimentCommandOutput extends GetExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details about one experiment. You must already know the
  *       experiment name. To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExperimentCommandInput - {@link GetExperimentCommandInput}
+ * @returns {@link GetExperimentCommandOutput}
  * @see {@link GetExperimentCommandInput} for command's `input` shape.
  * @see {@link GetExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentCommandOutput> {
     return deserializeAws_restJson1GetExperimentCommand(output, context);
   }

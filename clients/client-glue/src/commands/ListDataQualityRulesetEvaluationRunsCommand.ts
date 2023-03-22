@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataQualityRulesetEvaluationRunsCommand}.
  */
 export interface ListDataQualityRulesetEvaluationRunsCommandInput extends ListDataQualityRulesetEvaluationRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataQualityRulesetEvaluationRunsCommand}.
  */
 export interface ListDataQualityRulesetEvaluationRunsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityRulesetEvaluationRunsCommandInput - {@link ListDataQualityRulesetEvaluationRunsCommandInput}
+ * @returns {@link ListDataQualityRulesetEvaluationRunsCommandOutput}
  * @see {@link ListDataQualityRulesetEvaluationRunsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRulesetEvaluationRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityRulesetEvaluationRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDataQualityRulesetEvaluationRunsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
     return serializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

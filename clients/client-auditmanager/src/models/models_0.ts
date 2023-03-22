@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AuditManagerServiceException as __BaseException } from "./AuditManagerServiceException";
 
 /**
+ * @public
  * <p> Your account isn't registered with Audit Manager. Check the delegated
  *          administrator setup on the Audit Manager settings page, and try again. </p>
  */
@@ -23,12 +24,18 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccountStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
   PENDING_ACTIVATION = "PENDING_ACTIVATION",
 }
 
+/**
+ * @public
+ */
 export enum ActionEnum {
   ACTIVE = "ACTIVE",
   CREATE = "CREATE",
@@ -41,6 +48,7 @@ export enum ActionEnum {
 }
 
 /**
+ * @public
  * <p> The wrapper of Amazon Web Services account details, such as account ID or email address.
  *       </p>
  */
@@ -62,6 +70,7 @@ export interface AWSAccount {
 }
 
 /**
+ * @public
  * <p> A comment that's posted by a user on a control. This includes the author's name, the
  *          comment text, and a timestamp. </p>
  */
@@ -82,6 +91,9 @@ export interface ControlComment {
   postedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ControlResponse {
   AUTOMATE = "AUTOMATE",
   DEFER = "DEFER",
@@ -89,6 +101,9 @@ export enum ControlResponse {
   MANUAL = "MANUAL",
 }
 
+/**
+ * @public
+ */
 export enum ControlStatus {
   INACTIVE = "INACTIVE",
   REVIEWED = "REVIEWED",
@@ -96,6 +111,7 @@ export enum ControlStatus {
 }
 
 /**
+ * @public
  * <p> The control entity that represents a standard control or a custom control in an Audit Manager assessment. </p>
  */
 export interface AssessmentControl {
@@ -145,11 +161,17 @@ export interface AssessmentControl {
   assessmentReportEvidenceCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum RoleType {
   PROCESS_OWNER = "PROCESS_OWNER",
   RESOURCE_OWNER = "RESOURCE_OWNER",
 }
 
+/**
+ * @public
+ */
 export enum DelegationStatus {
   COMPLETE = "COMPLETE",
   IN_PROGRESS = "IN_PROGRESS",
@@ -157,6 +179,7 @@ export enum DelegationStatus {
 }
 
 /**
+ * @public
  * <p> The assignment of a control set to a delegate for review. </p>
  */
 export interface Delegation {
@@ -225,6 +248,7 @@ export interface Delegation {
 }
 
 /**
+ * @public
  * <p> The wrapper that contains the Audit Manager role information of the current user.
  *          This includes the role type and IAM Amazon Resource Name (ARN). </p>
  */
@@ -248,6 +272,9 @@ export interface Role {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ControlSetStatus {
   ACTIVE = "ACTIVE",
   REVIEWED = "REVIEWED",
@@ -255,6 +282,7 @@ export enum ControlSetStatus {
 }
 
 /**
+ * @public
  * <p> Represents a set of controls in an Audit Manager assessment. </p>
  */
 export interface AssessmentControlSet {
@@ -303,6 +331,7 @@ export interface AssessmentControlSet {
 }
 
 /**
+ * @public
  * <p> The metadata of a framework, such as the name, ID, or description. </p>
  */
 export interface FrameworkMetadata {
@@ -329,6 +358,7 @@ export interface FrameworkMetadata {
 }
 
 /**
+ * @public
  * <p> The file used to structure and automate Audit Manager assessments for a given
  *          compliance standard. </p>
  */
@@ -354,11 +384,15 @@ export interface AssessmentFramework {
   controlSets?: AssessmentControlSet[];
 }
 
+/**
+ * @public
+ */
 export enum AssessmentReportDestinationType {
   S3 = "S3",
 }
 
 /**
+ * @public
  * <p> The location where Audit Manager saves assessment reports for the given
  *          assessment. </p>
  */
@@ -375,6 +409,7 @@ export interface AssessmentReportsDestination {
 }
 
 /**
+ * @public
  * <p> An Amazon Web Service such as Amazon S3 or CloudTrail.
  *       </p>
  *          <p>For an example of how to find an Amazon Web Service name and how to define it in
@@ -400,6 +435,7 @@ export interface AWSService {
 }
 
 /**
+ * @public
  * <p> The wrapper that contains the Amazon Web Services accounts and services that are in
  *          scope for the assessment. </p>
  */
@@ -417,12 +453,16 @@ export interface Scope {
   awsServices?: AWSService[];
 }
 
+/**
+ * @public
+ */
 export enum AssessmentStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p> The metadata that's associated with the specified assessment. </p>
  */
 export interface AssessmentMetadata {
@@ -485,6 +525,7 @@ export interface AssessmentMetadata {
 }
 
 /**
+ * @public
  * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
  *          An Audit Manager assessment is an implementation of an Audit Manager framework. </p>
  */
@@ -516,6 +557,7 @@ export interface Assessment {
 }
 
 /**
+ * @public
  * <p> The folder where Audit Manager stores evidence for an assessment. </p>
  */
 export interface AssessmentEvidenceFolder {
@@ -617,12 +659,16 @@ export interface AssessmentEvidenceFolder {
   evidenceAwsServiceSourceCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum FrameworkType {
   CUSTOM = "Custom",
   STANDARD = "Standard",
 }
 
 /**
+ * @public
  * <p> The metadata that's associated with a standard framework or a custom framework. </p>
  */
 export interface AssessmentFrameworkMetadata {
@@ -683,6 +729,9 @@ export interface AssessmentFrameworkMetadata {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ShareRequestStatus {
   ACTIVE = "ACTIVE",
   DECLINED = "DECLINED",
@@ -695,6 +744,7 @@ export enum ShareRequestStatus {
 }
 
 /**
+ * @public
  * <p> Represents a share request for a custom framework in Audit Manager. </p>
  */
 export interface AssessmentFrameworkShareRequest {
@@ -776,6 +826,7 @@ export interface AssessmentFrameworkShareRequest {
 }
 
 /**
+ * @public
  * <p> A metadata object that's associated with an assessment in Audit Manager.
  *       </p>
  */
@@ -822,6 +873,9 @@ export interface AssessmentMetadataItem {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export enum AssessmentReportStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
@@ -829,6 +883,7 @@ export enum AssessmentReportStatus {
 }
 
 /**
+ * @public
  * <p> A finalized document that's generated from an Audit Manager assessment. These
  *          reports summarize the relevant evidence that was collected for your audit, and link to the
  *          relevant evidence folders. These evidence folders are named and organized according to the
@@ -882,6 +937,7 @@ export interface AssessmentReport {
 }
 
 /**
+ * @public
  * <p> An error entity for assessment report evidence errors. This is used to provide more
  *          meaningful errors than a simple string message. </p>
  */
@@ -903,6 +959,7 @@ export interface AssessmentReportEvidenceError {
 }
 
 /**
+ * @public
  * <p> The metadata objects that are associated with the specified assessment report. </p>
  */
 export interface AssessmentReportMetadata {
@@ -947,6 +1004,9 @@ export interface AssessmentReportMetadata {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAssessmentReportEvidenceFolderRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -959,9 +1019,13 @@ export interface AssociateAssessmentReportEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAssessmentReportEvidenceFolderResponse {}
 
 /**
+ * @public
  * <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  */
@@ -982,6 +1046,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The resource that's specified in the request can't be found. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1013,6 +1078,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Indicates that the request has invalid or missing parameters for the field. </p>
  */
 export interface ValidationExceptionField {
@@ -1027,6 +1093,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -1035,6 +1104,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p> The request has invalid or missing parameters. </p>
  */
 export class ValidationException extends __BaseException {
@@ -1065,6 +1135,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateAssessmentReportEvidenceRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1082,6 +1155,9 @@ export interface BatchAssociateAssessmentReportEvidenceRequest {
   evidenceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateAssessmentReportEvidenceResponse {
   /**
    * <p> The list of evidence identifiers. </p>
@@ -1096,6 +1172,7 @@ export interface BatchAssociateAssessmentReportEvidenceResponse {
 }
 
 /**
+ * @public
  * <p> A collection of attributes that's used to create a delegation for an assessment in
  *             Audit Manager. </p>
  */
@@ -1129,6 +1206,9 @@ export interface CreateDelegationRequest {
   roleType?: RoleType | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateDelegationByAssessmentRequest {
   /**
    * <p> The API request to batch create delegations in Audit Manager. </p>
@@ -1142,6 +1222,7 @@ export interface BatchCreateDelegationByAssessmentRequest {
 }
 
 /**
+ * @public
  * <p> An error entity for the <code>BatchCreateDelegationByAssessment</code> API. This is
  *          used to provide more meaningful errors than a simple string message. </p>
  */
@@ -1164,6 +1245,9 @@ export interface BatchCreateDelegationByAssessmentError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateDelegationByAssessmentResponse {
   /**
    * <p> The delegations that are associated with the assessment. </p>
@@ -1177,6 +1261,9 @@ export interface BatchCreateDelegationByAssessmentResponse {
   errors?: BatchCreateDelegationByAssessmentError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteDelegationByAssessmentRequest {
   /**
    * <p> The identifiers for the delegations. </p>
@@ -1190,6 +1277,7 @@ export interface BatchDeleteDelegationByAssessmentRequest {
 }
 
 /**
+ * @public
  * <p> An error entity for the <code>BatchDeleteDelegationByAssessment</code> API. This is
  *          used to provide more meaningful errors than a simple string message. </p>
  */
@@ -1212,6 +1300,9 @@ export interface BatchDeleteDelegationByAssessmentError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteDelegationByAssessmentResponse {
   /**
    * <p> A list of errors that the <code>BatchDeleteDelegationByAssessment</code> API returned.
@@ -1220,6 +1311,9 @@ export interface BatchDeleteDelegationByAssessmentResponse {
   errors?: BatchDeleteDelegationByAssessmentError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateAssessmentReportEvidenceRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1237,6 +1331,9 @@ export interface BatchDisassociateAssessmentReportEvidenceRequest {
   evidenceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateAssessmentReportEvidenceResponse {
   /**
    * <p> The identifier for the evidence. </p>
@@ -1251,6 +1348,7 @@ export interface BatchDisassociateAssessmentReportEvidenceResponse {
 }
 
 /**
+ * @public
  * <p> Evidence that's uploaded to Audit Manager manually. </p>
  */
 export interface ManualEvidence {
@@ -1260,6 +1358,9 @@ export interface ManualEvidence {
   s3ResourcePath?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchImportEvidenceToAssessmentControlRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1283,6 +1384,7 @@ export interface BatchImportEvidenceToAssessmentControlRequest {
 }
 
 /**
+ * @public
  * <p> An error entity for the <code>BatchImportEvidenceToAssessmentControl</code> API. This
  *          is used to provide more meaningful errors than a simple string message. </p>
  */
@@ -1305,6 +1407,9 @@ export interface BatchImportEvidenceToAssessmentControlError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchImportEvidenceToAssessmentControlResponse {
   /**
    * <p> A list of errors that the <code>BatchImportEvidenceToAssessmentControl</code> API
@@ -1313,6 +1418,9 @@ export interface BatchImportEvidenceToAssessmentControlResponse {
   errors?: BatchImportEvidenceToAssessmentControlError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentRequest {
   /**
    * <p> The name of the assessment to be created. </p>
@@ -1352,6 +1460,9 @@ export interface CreateAssessmentRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentResponse {
   /**
    * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
@@ -1361,6 +1472,7 @@ export interface CreateAssessmentResponse {
 }
 
 /**
+ * @public
  * <p>You've reached your account quota for this resource type. To perform the requested
  *          action, delete some existing resources or <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">request a quota increase</a> from
  *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
@@ -1383,6 +1495,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The control entity attributes that uniquely identify an existing control to be added to
  *          a framework in Audit Manager. </p>
  */
@@ -1394,6 +1507,7 @@ export interface CreateAssessmentFrameworkControl {
 }
 
 /**
+ * @public
  * <p> A <code>controlSet</code> entity that represents a collection of controls in Audit Manager. This doesn't contain the control set ID. </p>
  */
 export interface CreateAssessmentFrameworkControlSet {
@@ -1409,6 +1523,9 @@ export interface CreateAssessmentFrameworkControlSet {
   controls?: CreateAssessmentFrameworkControl[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentFrameworkRequest {
   /**
    * <p> The name of the new custom framework. </p>
@@ -1437,17 +1554,24 @@ export interface CreateAssessmentFrameworkRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum SourceFrequency {
   DAILY = "DAILY",
   MONTHLY = "MONTHLY",
   WEEKLY = "WEEKLY",
 }
 
+/**
+ * @public
+ */
 export enum KeywordInputType {
   SELECT_FROM_LIST = "SELECT_FROM_LIST",
 }
 
 /**
+ * @public
  * <p> The keyword to search for in CloudTrail logs, Config rules,
  *             Security Hub checks, and Amazon Web Services API names. </p>
  *          <p> To learn more about the supported keywords that you can use when mapping a control data
@@ -1545,11 +1669,17 @@ export interface SourceKeyword {
   keywordValue?: string;
 }
 
+/**
+ * @public
+ */
 export enum SourceSetUpOption {
   PROCEDURAL_CONTROLS_MAPPING = "Procedural_Controls_Mapping",
   SYSTEM_CONTROLS_MAPPING = "System_Controls_Mapping",
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   AWS_API_CALL = "AWS_API_Call",
   AWS_CLOUDTRAIL = "AWS_Cloudtrail",
@@ -1559,6 +1689,7 @@ export enum SourceType {
 }
 
 /**
+ * @public
  * <p> The data source that determines where Audit Manager collects evidence from for
  *          the control. </p>
  */
@@ -1632,12 +1763,16 @@ export interface ControlMappingSource {
   troubleshootingText?: string;
 }
 
+/**
+ * @public
+ */
 export enum ControlType {
   CUSTOM = "Custom",
   STANDARD = "Standard",
 }
 
 /**
+ * @public
  * <p> A control in Audit Manager. </p>
  */
 export interface Control {
@@ -1720,6 +1855,7 @@ export interface Control {
 }
 
 /**
+ * @public
  * <p> A set of controls in Audit Manager. </p>
  */
 export interface ControlSet {
@@ -1741,6 +1877,7 @@ export interface ControlSet {
 }
 
 /**
+ * @public
  * <p> The file that's used to structure and automate Audit Manager assessments for a
  *          given compliance standard. </p>
  */
@@ -1817,6 +1954,9 @@ export interface Framework {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentFrameworkResponse {
   /**
    * <p> The name of the new framework that the <code>CreateAssessmentFramework</code> API
@@ -1825,6 +1965,9 @@ export interface CreateAssessmentFrameworkResponse {
   framework?: Framework;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentReportRequest {
   /**
    * <p> The name of the new assessment report. </p>
@@ -1856,6 +1999,9 @@ export interface CreateAssessmentReportRequest {
   queryStatement?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentReportResponse {
   /**
    * <p> The new assessment report that the <code>CreateAssessmentReport</code> API returned.
@@ -1865,6 +2011,7 @@ export interface CreateAssessmentReportResponse {
 }
 
 /**
+ * @public
  * <p> The control mapping fields that represent the source for evidence collection, along
  *          with related parameters and metadata. This doesn't contain <code>mappingID</code>. </p>
  */
@@ -1934,6 +2081,9 @@ export interface CreateControlMappingSource {
   troubleshootingText?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateControlRequest {
   /**
    * <p> The name of the control. </p>
@@ -1971,6 +2121,9 @@ export interface CreateControlRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateControlResponse {
   /**
    * <p> The new control that the <code>CreateControl</code> API returned. </p>
@@ -1978,6 +2131,9 @@ export interface CreateControlResponse {
   control?: Control;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1985,8 +2141,14 @@ export interface DeleteAssessmentRequest {
   assessmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkRequest {
   /**
    * <p> The identifier for the custom framework. </p>
@@ -1994,13 +2156,22 @@ export interface DeleteAssessmentFrameworkRequest {
   frameworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkResponse {}
 
+/**
+ * @public
+ */
 export enum ShareRequestType {
   RECEIVED = "RECEIVED",
   SENT = "SENT",
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkShareRequest {
   /**
    * <p>The unique identifier for the share request to be deleted.</p>
@@ -2013,8 +2184,14 @@ export interface DeleteAssessmentFrameworkShareRequest {
   requestType: ShareRequestType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkShareResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentReportRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2027,8 +2204,14 @@ export interface DeleteAssessmentReportRequest {
   assessmentReportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentReportResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteControlRequest {
   /**
    * <p> The unique identifier for the control. </p>
@@ -2036,10 +2219,19 @@ export interface DeleteControlRequest {
   controlId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteControlResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DeregisterAccountResponse {
   /**
    * <p> The registration status of the account. </p>
@@ -2047,6 +2239,9 @@ export interface DeregisterAccountResponse {
   status?: AccountStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterOrganizationAdminAccountRequest {
   /**
    * <p> The identifier for the administrator account. </p>
@@ -2054,8 +2249,14 @@ export interface DeregisterOrganizationAdminAccountRequest {
   adminAccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterOrganizationAdminAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateAssessmentReportEvidenceFolderRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2068,10 +2269,19 @@ export interface DisassociateAssessmentReportEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateAssessmentReportEvidenceFolderResponse {}
 
+/**
+ * @public
+ */
 export interface GetAccountStatusRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountStatusResponse {
   /**
    * <p> The status of the Amazon Web Services account. </p>
@@ -2079,6 +2289,9 @@ export interface GetAccountStatusResponse {
   status?: AccountStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
@@ -2086,6 +2299,9 @@ export interface GetAssessmentRequest {
   assessmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentResponse {
   /**
    * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
@@ -2100,6 +2316,9 @@ export interface GetAssessmentResponse {
   userRole?: Role;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentFrameworkRequest {
   /**
    * <p> The identifier for the framework. </p>
@@ -2107,6 +2326,9 @@ export interface GetAssessmentFrameworkRequest {
   frameworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentFrameworkResponse {
   /**
    * <p> The framework that the <code>GetAssessmentFramework</code> API returned. </p>
@@ -2114,6 +2336,9 @@ export interface GetAssessmentFrameworkResponse {
   framework?: Framework;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentReportUrlRequest {
   /**
    * <p> The unique identifier for the assessment report. </p>
@@ -2127,6 +2352,7 @@ export interface GetAssessmentReportUrlRequest {
 }
 
 /**
+ * @public
  * <p> Short for uniform resource locator. A URL is used as a unique identifier to locate a
  *          resource on the internet. </p>
  */
@@ -2142,6 +2368,9 @@ export interface URL {
   link?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentReportUrlResponse {
   /**
    * <p> Short for uniform resource locator. A URL is used as a unique identifier to locate a
@@ -2150,6 +2379,9 @@ export interface GetAssessmentReportUrlResponse {
   preSignedUrl?: URL;
 }
 
+/**
+ * @public
+ */
 export interface GetChangeLogsRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
@@ -2177,6 +2409,9 @@ export interface GetChangeLogsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ObjectTypeEnum {
   ASSESSMENT = "ASSESSMENT",
   ASSESSMENT_REPORT = "ASSESSMENT_REPORT",
@@ -2186,6 +2421,7 @@ export enum ObjectTypeEnum {
 }
 
 /**
+ * @public
  * <p> The record of a change within Audit Manager. For example, this could be the
  *          status change of an assessment or the delegation of a control set. </p>
  */
@@ -2217,6 +2453,9 @@ export interface ChangeLog {
   createdBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetChangeLogsResponse {
   /**
    * <p>The list of user activity for the control. </p>
@@ -2229,6 +2468,9 @@ export interface GetChangeLogsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetControlRequest {
   /**
    * <p> The identifier for the control. </p>
@@ -2236,6 +2478,9 @@ export interface GetControlRequest {
   controlId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetControlResponse {
   /**
    * <p> The name of the control that the <code>GetControl</code> API returned. </p>
@@ -2243,6 +2488,9 @@ export interface GetControlResponse {
   control?: Control;
 }
 
+/**
+ * @public
+ */
 export interface GetDelegationsRequest {
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -2256,6 +2504,7 @@ export interface GetDelegationsRequest {
 }
 
 /**
+ * @public
  * <p> The metadata that's associated with the delegation. </p>
  */
 export interface DelegationMetadata {
@@ -2295,6 +2544,9 @@ export interface DelegationMetadata {
   controlSetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDelegationsResponse {
   /**
    * <p> The list of delegations that the <code>GetDelegations</code> API returned. </p>
@@ -2307,6 +2559,9 @@ export interface GetDelegationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2330,6 +2585,7 @@ export interface GetEvidenceRequest {
 }
 
 /**
+ * @public
  * <p> A system asset that's evaluated in an Audit Manager assessment. </p>
  */
 export interface Resource {
@@ -2370,6 +2626,7 @@ export interface Resource {
 }
 
 /**
+ * @public
  * <p> A record that contains the information needed to demonstrate compliance with the
  *          requirements specified by a control. Examples of evidence include change activity invoked
  *          by a user, or a system configuration snapshot. </p>
@@ -2476,6 +2733,9 @@ export interface Evidence {
   assessmentReportSelection?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceResponse {
   /**
    * <p> The evidence that the <code>GetEvidence</code> API returned. </p>
@@ -2483,6 +2743,9 @@ export interface GetEvidenceResponse {
   evidence?: Evidence;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceByEvidenceFolderRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -2510,6 +2773,9 @@ export interface GetEvidenceByEvidenceFolderRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceByEvidenceFolderResponse {
   /**
    * <p> The list of evidence that the <code>GetEvidenceByEvidenceFolder</code> API returned.
@@ -2523,6 +2789,9 @@ export interface GetEvidenceByEvidenceFolderResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFolderRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2540,6 +2809,9 @@ export interface GetEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFolderResponse {
   /**
    * <p> The folder that the evidence is stored in. </p>
@@ -2547,6 +2819,9 @@ export interface GetEvidenceFolderResponse {
   evidenceFolder?: AssessmentEvidenceFolder;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2564,6 +2839,9 @@ export interface GetEvidenceFoldersByAssessmentRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentResponse {
   /**
    * <p> The list of evidence folders that the <code>GetEvidenceFoldersByAssessment</code> API
@@ -2577,6 +2855,9 @@ export interface GetEvidenceFoldersByAssessmentResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentControlRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -2604,6 +2885,9 @@ export interface GetEvidenceFoldersByAssessmentControlRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentControlResponse {
   /**
    * <p> The list of evidence folders that the
@@ -2617,9 +2901,13 @@ export interface GetEvidenceFoldersByAssessmentControlResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsRequest {}
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for all your active assessments. </p>
  *          <p>This summary is a snapshot of the data that your active assessments collected on the
  *             <code>lastUpdated</code> date. It’s important to understand that the following totals
@@ -2701,6 +2989,9 @@ export interface Insights {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsResponse {
   /**
    * <p>The analytics data that the <code>GetInsights</code> API returned. </p>
@@ -2708,6 +2999,9 @@ export interface GetInsightsResponse {
   insights?: Insights;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsByAssessmentRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
@@ -2716,6 +3010,7 @@ export interface GetInsightsByAssessmentRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific active assessment.</p>
  *          <p>This summary is a snapshot of the data that was collected on the
  *             <code>lastUpdated</code> date. It’s important to understand that the totals in
@@ -2794,6 +3089,9 @@ export interface InsightsByAssessment {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsByAssessmentResponse {
   /**
    * <p> The assessment analytics data that the <code>GetInsightsByAssessment</code> API
@@ -2802,8 +3100,14 @@ export interface GetInsightsByAssessmentResponse {
   insights?: InsightsByAssessment;
 }
 
+/**
+ * @public
+ */
 export interface GetOrganizationAdminAccountRequest {}
 
+/**
+ * @public
+ */
 export interface GetOrganizationAdminAccountResponse {
   /**
    * <p> The identifier for the administrator account. </p>
@@ -2816,9 +3120,13 @@ export interface GetOrganizationAdminAccountResponse {
   organizationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetServicesInScopeRequest {}
 
 /**
+ * @public
  * <p> The metadata that's associated with the Amazon Web Service. </p>
  */
 export interface ServiceMetadata {
@@ -2844,6 +3152,9 @@ export interface ServiceMetadata {
   category?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetServicesInScopeResponse {
   /**
    * <p> The metadata that's associated with the Amazon Web Service. </p>
@@ -2851,6 +3162,9 @@ export interface GetServicesInScopeResponse {
   serviceMetadata?: ServiceMetadata[];
 }
 
+/**
+ * @public
+ */
 export enum SettingAttribute {
   ALL = "ALL",
   DEFAULT_ASSESSMENT_REPORTS_DESTINATION = "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
@@ -2861,6 +3175,9 @@ export enum SettingAttribute {
   SNS_TOPIC = "SNS_TOPIC",
 }
 
+/**
+ * @public
+ */
 export interface GetSettingsRequest {
   /**
    * <p> The list of setting attribute enum values. </p>
@@ -2868,12 +3185,16 @@ export interface GetSettingsRequest {
   attribute: SettingAttribute | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeleteResources {
   ALL = "ALL",
   DEFAULT = "DEFAULT",
 }
 
 /**
+ * @public
  * <p>The deregistration policy for the data that's stored in Audit Manager. You can
  *          use this attribute to determine how your data is handled when you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html">deregister Audit Manager</a>.</p>
  *          <p>By default, Audit Manager retains evidence data for two years from the time of its
@@ -2910,12 +3231,18 @@ export interface DeregistrationPolicy {
   deleteResources?: DeleteResources | string;
 }
 
+/**
+ * @public
+ */
 export enum EvidenceFinderBackfillStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
   NOT_STARTED = "NOT_STARTED",
 }
 
+/**
+ * @public
+ */
 export enum EvidenceFinderEnablementStatus {
   DISABLED = "DISABLED",
   DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
@@ -2924,6 +3251,7 @@ export enum EvidenceFinderEnablementStatus {
 }
 
 /**
+ * @public
  * <p>The settings object that specifies whether evidence finder is enabled. This object also
  *          describes the related event data store, and the backfill status for populating the event
  *          data store with evidence data.</p>
@@ -2998,6 +3326,7 @@ export interface EvidenceFinderEnablement {
 }
 
 /**
+ * @public
  * <p> The settings object that holds all supported Audit Manager settings. </p>
  */
 export interface Settings {
@@ -3038,6 +3367,9 @@ export interface Settings {
   deregistrationPolicy?: DeregistrationPolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetSettingsResponse {
   /**
    * <p> The settings object that holds all supported Audit Manager settings. </p>
@@ -3045,6 +3377,9 @@ export interface GetSettingsResponse {
   settings?: Settings;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentControlInsightsByControlDomainRequest {
   /**
    * <p>The unique identifier for the control domain. </p>
@@ -3068,6 +3403,7 @@ export interface ListAssessmentControlInsightsByControlDomainRequest {
 }
 
 /**
+ * @public
  * <p>A breakdown of the latest compliance check status for the evidence in your Audit Manager assessments. </p>
  */
 export interface EvidenceInsights {
@@ -3102,6 +3438,7 @@ export interface EvidenceInsights {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific control in a specific active
  *          assessment.</p>
  *          <p>Control insights are grouped by control domain, and ranked by the highest total count of
@@ -3135,6 +3472,9 @@ export interface ControlInsightsMetadataByAssessmentItem {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentControlInsightsByControlDomainResponse {
   /**
    * <p>The assessment control analytics data that the
@@ -3148,6 +3488,9 @@ export interface ListAssessmentControlInsightsByControlDomainResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworksRequest {
   /**
    * <p> The type of framework, such as a standard framework or a custom framework. </p>
@@ -3165,6 +3508,9 @@ export interface ListAssessmentFrameworksRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworksResponse {
   /**
    * <p> The list of metadata objects for the framework. </p>
@@ -3177,6 +3523,9 @@ export interface ListAssessmentFrameworksResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworkShareRequestsRequest {
   /**
    * <p> Specifies whether the share request is a sent request or a received request.</p>
@@ -3194,6 +3543,9 @@ export interface ListAssessmentFrameworkShareRequestsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworkShareRequestsResponse {
   /**
    * <p> The list of share requests that the <code>ListAssessmentFrameworkShareRequests</code>
@@ -3207,6 +3559,9 @@ export interface ListAssessmentFrameworkShareRequestsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentReportsRequest {
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3219,6 +3574,9 @@ export interface ListAssessmentReportsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentReportsResponse {
   /**
    * <p> The list of assessment reports that the <code>ListAssessmentReports</code> API
@@ -3232,6 +3590,9 @@ export interface ListAssessmentReportsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentsRequest {
   /**
    * <p> The current status of the assessment.</p>
@@ -3249,6 +3610,9 @@ export interface ListAssessmentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentsResponse {
   /**
    * <p> The metadata that's associated with the assessment. </p>
@@ -3261,6 +3625,9 @@ export interface ListAssessmentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsRequest {
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
@@ -3274,6 +3641,7 @@ export interface ListControlDomainInsightsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific control domain.</p>
  *          <p>Control domain insights are grouped by control domain, and ranked by the highest total
  *          count of non-compliant evidence.</p>
@@ -3312,6 +3680,9 @@ export interface ControlDomainInsights {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsResponse {
   /**
    * <p>The control domain analytics data that the <code>ListControlDomainInsights</code> API
@@ -3325,6 +3696,9 @@ export interface ListControlDomainInsightsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsByAssessmentRequest {
   /**
    * <p>The unique identifier for the active assessment. </p>
@@ -3342,6 +3716,9 @@ export interface ListControlDomainInsightsByAssessmentRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsByAssessmentResponse {
   /**
    * <p>The control domain analytics data that the
@@ -3355,6 +3732,9 @@ export interface ListControlDomainInsightsByAssessmentResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlInsightsByControlDomainRequest {
   /**
    * <p>The unique identifier for the control domain. </p>
@@ -3373,6 +3753,7 @@ export interface ListControlInsightsByControlDomainRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific control. </p>
  *          <p>This data reflects the total counts for the specified control across all active
  *          assessments. Control insights are grouped by control domain, and ranked by the highest
@@ -3401,6 +3782,9 @@ export interface ControlInsightsMetadataItem {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListControlInsightsByControlDomainResponse {
   /**
    * <p>The control analytics data that the <code>ListControlInsightsByControlDomain</code> API
@@ -3414,6 +3798,9 @@ export interface ListControlInsightsByControlDomainResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlsRequest {
   /**
    * <p> The type of control, such as a standard control or a custom control. </p>
@@ -3432,6 +3819,7 @@ export interface ListControlsRequest {
 }
 
 /**
+ * @public
  * <p> The metadata that's associated with the standard control or custom control. </p>
  */
 export interface ControlMetadata {
@@ -3467,6 +3855,9 @@ export interface ControlMetadata {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListControlsResponse {
   /**
    * <p> The list of control metadata objects that the <code>ListControls</code> API returned.
@@ -3480,6 +3871,9 @@ export interface ListControlsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListKeywordsForDataSourceRequest {
   /**
    * <p> The control mapping data source that the keywords apply to. </p>
@@ -3497,6 +3891,9 @@ export interface ListKeywordsForDataSourceRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListKeywordsForDataSourceResponse {
   /**
    * <p> The list of keywords for the event mapping source. </p>
@@ -3509,6 +3906,9 @@ export interface ListKeywordsForDataSourceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsRequest {
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3522,6 +3922,7 @@ export interface ListNotificationsRequest {
 }
 
 /**
+ * @public
  * <p> The notification that informs a user of an update in Audit Manager. For
  *          example, this includes the notification that's sent when a control set is delegated for
  *          review. </p>
@@ -3568,6 +3969,9 @@ export interface Notification {
   source?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsResponse {
   /**
    * <p> The returned list of notifications. </p>
@@ -3580,6 +3984,9 @@ export interface ListNotificationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource. </p>
@@ -3587,6 +3994,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p> The list of tags that the <code>ListTagsForResource</code> API returned. </p>
@@ -3594,6 +4004,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountRequest {
   /**
    * <p> The KMS key details. </p>
@@ -3606,6 +4019,9 @@ export interface RegisterAccountRequest {
   delegatedAdminAccount?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountResponse {
   /**
    * <p> The status of the account registration request. </p>
@@ -3614,6 +4030,7 @@ export interface RegisterAccountResponse {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -3632,6 +4049,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterOrganizationAdminAccountRequest {
   /**
    * <p> The identifier for the delegated administrator account. </p>
@@ -3639,6 +4059,9 @@ export interface RegisterOrganizationAdminAccountRequest {
   adminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterOrganizationAdminAccountResponse {
   /**
    * <p> The identifier for the delegated administrator account. </p>
@@ -3651,6 +4074,9 @@ export interface RegisterOrganizationAdminAccountResponse {
   organizationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentFrameworkShareRequest {
   /**
    * <p> The unique identifier for the custom framework to be shared. </p>
@@ -3673,6 +4099,9 @@ export interface StartAssessmentFrameworkShareRequest {
   comment?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentFrameworkShareResponse {
   /**
    * <p> The share request that's created by the <code>StartAssessmentFrameworkShare</code> API.
@@ -3681,6 +4110,9 @@ export interface StartAssessmentFrameworkShareResponse {
   assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource. </p>
@@ -3693,8 +4125,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the specified resource. </p>
@@ -3707,8 +4145,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3742,6 +4186,9 @@ export interface UpdateAssessmentRequest {
   roles?: Role[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentResponse {
   /**
    * <p> The response object for the <code>UpdateAssessment</code> API. This is the name of the
@@ -3750,6 +4197,9 @@ export interface UpdateAssessmentResponse {
   assessment?: Assessment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3777,6 +4227,9 @@ export interface UpdateAssessmentControlRequest {
   commentBody?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlResponse {
   /**
    * <p> The name of the updated control set that the <code>UpdateAssessmentControl</code> API
@@ -3785,6 +4238,9 @@ export interface UpdateAssessmentControlResponse {
   control?: AssessmentControl;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlSetStatusRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3807,6 +4263,9 @@ export interface UpdateAssessmentControlSetStatusRequest {
   comment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlSetStatusResponse {
   /**
    * <p> The name of the updated control set that the
@@ -3816,6 +4275,7 @@ export interface UpdateAssessmentControlSetStatusResponse {
 }
 
 /**
+ * @public
  * <p> A <code>controlSet</code> entity that represents a collection of controls in Audit Manager. This doesn't contain the control set ID. </p>
  */
 export interface UpdateAssessmentFrameworkControlSet {
@@ -3835,6 +4295,9 @@ export interface UpdateAssessmentFrameworkControlSet {
   controls: CreateAssessmentFrameworkControl[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkRequest {
   /**
    * <p> The unique identifier for the framework. </p>
@@ -3863,6 +4326,9 @@ export interface UpdateAssessmentFrameworkRequest {
   controlSets: UpdateAssessmentFrameworkControlSet[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkResponse {
   /**
    * <p> The name of the framework. </p>
@@ -3870,12 +4336,18 @@ export interface UpdateAssessmentFrameworkResponse {
   framework?: Framework;
 }
 
+/**
+ * @public
+ */
 export enum ShareRequestAction {
   ACCEPT = "ACCEPT",
   DECLINE = "DECLINE",
   REVOKE = "REVOKE",
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkShareRequest {
   /**
    * <p> The unique identifier for the share request. </p>
@@ -3893,6 +4365,9 @@ export interface UpdateAssessmentFrameworkShareRequest {
   action: ShareRequestAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkShareResponse {
   /**
    * <p> The updated share request that's returned by the
@@ -3901,6 +4376,9 @@ export interface UpdateAssessmentFrameworkShareResponse {
   assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentStatusRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3913,6 +4391,9 @@ export interface UpdateAssessmentStatusRequest {
   status: AssessmentStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentStatusResponse {
   /**
    * <p> The name of the updated assessment that the <code>UpdateAssessmentStatus</code> API
@@ -3921,6 +4402,9 @@ export interface UpdateAssessmentStatusResponse {
   assessment?: Assessment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateControlRequest {
   /**
    * <p> The identifier for the control. </p>
@@ -3958,6 +4442,9 @@ export interface UpdateControlRequest {
   controlMappingSources: ControlMappingSource[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateControlResponse {
   /**
    * <p> The name of the updated control set that the <code>UpdateControl</code> API returned.
@@ -3966,6 +4453,9 @@ export interface UpdateControlResponse {
   control?: Control;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSettingsRequest {
   /**
    * <p> The Amazon Simple Notification Service (Amazon SNS) topic that Audit Manager sends
@@ -4007,6 +4497,9 @@ export interface UpdateSettingsRequest {
   deregistrationPolicy?: DeregistrationPolicy;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSettingsResponse {
   /**
    * <p> The current list of settings. </p>
@@ -4014,6 +4507,9 @@ export interface UpdateSettingsResponse {
   settings?: Settings;
 }
 
+/**
+ * @public
+ */
 export interface ValidateAssessmentReportIntegrityRequest {
   /**
    * <p> The relative path of the Amazon S3 bucket that the assessment report is stored
@@ -4022,6 +4518,9 @@ export interface ValidateAssessmentReportIntegrityRequest {
   s3RelativePath: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ValidateAssessmentReportIntegrityResponse {
   /**
    * <p> Specifies whether the signature key is valid. </p>

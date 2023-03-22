@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagsCommand}.
  */
 export interface GetTagsCommandInput extends GetTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTagsCommand}.
  */
 export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags that are associated with a resource group, specified by an
  *             ARN.</p>
  *          <p>
@@ -58,6 +63,8 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagsCommandInput - {@link GetTagsCommandInput}
+ * @returns {@link GetTagsCommandOutput}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
     return deserializeAws_restJson1GetTagsCommand(output, context);
   }

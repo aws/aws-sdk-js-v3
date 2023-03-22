@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchIndexCommand}.
  */
 export interface SearchIndexCommandInput extends SearchIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchIndexCommand}.
  */
 export interface SearchIndexCommandOutput extends SearchIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The query search index.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SearchIndex</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchIndexCommandInput - {@link SearchIndexCommandInput}
+ * @returns {@link SearchIndexCommandOutput}
  * @see {@link SearchIndexCommandInput} for command's `input` shape.
  * @see {@link SearchIndexCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +101,9 @@ export class SearchIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class SearchIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchIndexCommandOutput> {
     return deserializeAws_restJson1SearchIndexCommand(output, context);
   }

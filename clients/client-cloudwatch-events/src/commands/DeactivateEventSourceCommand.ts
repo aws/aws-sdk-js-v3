@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateEventSourceCommand}.
  */
 export interface DeactivateEventSourceCommandInput extends DeactivateEventSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateEventSourceCommand}.
  */
 export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use this operation to temporarily stop receiving events from the specified partner
  *       event source. The matching event bus is not deleted. </p>
  *          <p>When you deactivate a partner event source, the source goes into PENDING state. If it
@@ -45,6 +50,8 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateEventSourceCommandInput - {@link DeactivateEventSourceCommandInput}
+ * @returns {@link DeactivateEventSourceCommandOutput}
  * @see {@link DeactivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeactivateEventSourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeactivateEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeactivateEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeactivateEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateEventSourceCommandOutput> {
     return deserializeAws_json1_1DeactivateEventSourceCommand(output, context);
   }

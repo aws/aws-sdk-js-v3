@@ -26,11 +26,15 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResolverEndpointIpAddressCommand}.
  */
 export interface DisassociateResolverEndpointIpAddressCommandInput
   extends DisassociateResolverEndpointIpAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResolverEndpointIpAddressCommand}.
  */
 export interface DisassociateResolverEndpointIpAddressCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
  * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
  *          <p>To add an IP address to an endpoint, see
@@ -53,6 +58,8 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResolverEndpointIpAddressCommandInput - {@link DisassociateResolverEndpointIpAddressCommandInput}
+ * @returns {@link DisassociateResolverEndpointIpAddressCommandOutput}
  * @see {@link DisassociateResolverEndpointIpAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverEndpointIpAddressCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -94,6 +101,9 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResolverEndpointIpAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateResolverEndpointIpAddressCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     return serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBInstanceAutomatedBackupCommand}.
  */
 export interface DeleteDBInstanceAutomatedBackupCommandInput extends DeleteDBInstanceAutomatedBackupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBInstanceAutomatedBackupCommand}.
  */
 export interface DeleteDBInstanceAutomatedBackupCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBInstanceAutomatedBackupCommandInput - {@link DeleteDBInstanceAutomatedBackupCommandInput}
+ * @returns {@link DeleteDBInstanceAutomatedBackupCommandOutput}
  * @see {@link DeleteDBInstanceAutomatedBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceAutomatedBackupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBInstanceAutomatedBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDBInstanceAutomatedBackupCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     return serializeAws_queryDeleteDBInstanceAutomatedBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

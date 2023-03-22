@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSAMLProviderCommand}.
  */
 export interface DeleteSAMLProviderCommandInput extends DeleteSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSAMLProviderCommand}.
  */
 export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a SAML provider resource in IAM.</p>
  *          <p>Deleting the provider resource from IAM does not update any roles that reference the
  *             SAML provider resource's ARN as a principal in their trust policies. Any attempt to
@@ -47,6 +52,8 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSAMLProviderCommandInput - {@link DeleteSAMLProviderCommandInput}
+ * @returns {@link DeleteSAMLProviderCommandOutput}
  * @see {@link DeleteSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSAMLProviderCommandOutput> {
     return deserializeAws_queryDeleteSAMLProviderCommand(output, context);
   }

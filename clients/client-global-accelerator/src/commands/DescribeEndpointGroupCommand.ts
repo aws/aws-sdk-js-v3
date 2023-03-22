@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointGroupCommand}.
  */
 export interface DescribeEndpointGroupCommandInput extends DescribeEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointGroupCommand}.
  */
 export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe an endpoint group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointGroupCommandInput - {@link DescribeEndpointGroupCommandInput}
+ * @returns {@link DescribeEndpointGroupCommandOutput}
  * @see {@link DescribeEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointGroupCommandOutput> {
     return deserializeAws_json1_1DescribeEndpointGroupCommand(output, context);
   }

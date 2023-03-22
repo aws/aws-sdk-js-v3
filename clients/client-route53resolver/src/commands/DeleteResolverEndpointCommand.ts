@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResolverEndpointCommand}.
  */
 export interface DeleteResolverEndpointCommandInput extends DeleteResolverEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResolverEndpointCommand}.
  */
 export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
  * 			Resolver endpoint:</p>
  *          <ul>
@@ -58,6 +63,8 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResolverEndpointCommandInput - {@link DeleteResolverEndpointCommandInput}
+ * @returns {@link DeleteResolverEndpointCommandOutput}
  * @see {@link DeleteResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteResolverEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverEndpointCommandOutput> {
     return deserializeAws_json1_1DeleteResolverEndpointCommand(output, context);
   }

@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointPolicyCommand}.
  */
 export interface GetAccessPointPolicyCommandInput extends GetAccessPointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointPolicyCommand}.
  */
 export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the access point policy associated with the specified access point.</p>
  *          <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>
  *          <ul>
@@ -60,6 +65,8 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointPolicyCommandInput - {@link GetAccessPointPolicyCommandInput}
+ * @returns {@link GetAccessPointPolicyCommandOutput}
  * @see {@link GetAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPointPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPointPolicyCommandOutput> {
     return deserializeAws_restXmlGetAccessPointPolicyCommand(output, context);
   }

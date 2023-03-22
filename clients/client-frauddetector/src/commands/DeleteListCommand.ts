@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteListCommand}.
  */
 export interface DeleteListCommandInput extends DeleteListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteListCommand}.
  */
 export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Deletes the list, provided it is not used in a rule.
  *         </p>
@@ -49,6 +54,8 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteListCommandInput - {@link DeleteListCommandInput}
+ * @returns {@link DeleteListCommandOutput}
  * @see {@link DeleteListCommandInput} for command's `input` shape.
  * @see {@link DeleteListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteListCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteListCommandOutput> {
     return deserializeAws_json1_1DeleteListCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeParameterGroupsCommand}.
  */
 export interface DescribeParameterGroupsCommandInput extends DescribeParameterGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeParameterGroupsCommand}.
  */
 export interface DescribeParameterGroupsCommandOutput extends DescribeParameterGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of parameter group descriptions. If a parameter group name is specified, the list contains only the descriptions for that group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeParameterGroupsCommandInput - {@link DescribeParameterGroupsCommandInput}
+ * @returns {@link DescribeParameterGroupsCommandOutput}
  * @see {@link DescribeParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParameterGroupsCommandOutput> {
     return deserializeAws_json1_1DescribeParameterGroupsCommand(output, context);
   }

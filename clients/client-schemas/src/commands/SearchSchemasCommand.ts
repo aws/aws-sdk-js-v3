@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSchemasCommand}.
  */
 export interface SearchSchemasCommandInput extends SearchSchemasRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSchemasCommand}.
  */
 export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Search the schemas</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSchemasCommandInput - {@link SearchSchemasCommandInput}
+ * @returns {@link SearchSchemasCommandOutput}
  * @see {@link SearchSchemasCommandInput} for command's `input` shape.
  * @see {@link SearchSchemasCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -79,6 +86,9 @@ export class SearchSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class SearchSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSchemasCommandOutput> {
     return deserializeAws_restJson1SearchSchemasCommand(output, context);
   }

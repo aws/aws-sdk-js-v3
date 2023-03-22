@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeyPoliciesCommand}.
  */
 export interface ListKeyPoliciesCommandInput extends ListKeyPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeyPoliciesCommand}.
  */
 export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the names of the key policies that are attached to a KMS key. This operation is
  *       designed to get policy names that you can use in a <a>GetKeyPolicy</a> operation.
  *       However, the only valid policy name is <code>default</code>. </p>
@@ -67,6 +72,8 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeyPoliciesCommandInput - {@link ListKeyPoliciesCommandInput}
+ * @returns {@link ListKeyPoliciesCommandOutput}
  * @see {@link ListKeyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListKeyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -143,6 +150,9 @@ export class ListKeyPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeyPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class ListKeyPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeyPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListKeyPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeyPoliciesCommandOutput> {
     return deserializeAws_json1_1ListKeyPoliciesCommand(output, context);
   }

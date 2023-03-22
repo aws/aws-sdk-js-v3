@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateClientVpnConnectionsCommand}.
  */
 export interface TerminateClientVpnConnectionsCommandInput extends TerminateClientVpnConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateClientVpnConnectionsCommand}.
  */
 export interface TerminateClientVpnConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface TerminateClientVpnConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface TerminateClientVpnConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateClientVpnConnectionsCommandInput - {@link TerminateClientVpnConnectionsCommandInput}
+ * @returns {@link TerminateClientVpnConnectionsCommandOutput}
  * @see {@link TerminateClientVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link TerminateClientVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateClientVpnConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateClientVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2TerminateClientVpnConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

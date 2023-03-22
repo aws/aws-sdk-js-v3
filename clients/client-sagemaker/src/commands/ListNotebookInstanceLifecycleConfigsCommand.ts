@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotebookInstanceLifecycleConfigsCommand}.
  */
 export interface ListNotebookInstanceLifecycleConfigsCommandInput extends ListNotebookInstanceLifecycleConfigsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNotebookInstanceLifecycleConfigsCommand}.
  */
 export interface ListNotebookInstanceLifecycleConfigsCommandOutput
@@ -37,6 +41,7 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists notebook instance lifestyle configurations created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookInstanceLifecycleConfigsCommandInput - {@link ListNotebookInstanceLifecycleConfigsCommandInput}
+ * @returns {@link ListNotebookInstanceLifecycleConfigsCommandOutput}
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookInstanceLifecycleConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListNotebookInstanceLifecycleConfigsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
     return serializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

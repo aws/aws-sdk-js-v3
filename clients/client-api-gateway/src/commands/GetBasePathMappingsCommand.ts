@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBasePathMappingsCommand}.
  */
 export interface GetBasePathMappingsCommandInput extends GetBasePathMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBasePathMappingsCommand}.
  */
 export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents a collection of BasePathMapping resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBasePathMappingsCommandInput - {@link GetBasePathMappingsCommandInput}
+ * @returns {@link GetBasePathMappingsCommandOutput}
  * @see {@link GetBasePathMappingsCommandInput} for command's `input` shape.
  * @see {@link GetBasePathMappingsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetBasePathMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBasePathMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetBasePathMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBasePathMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBasePathMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBasePathMappingsCommandOutput> {
     return deserializeAws_restJson1GetBasePathMappingsCommand(output, context);
   }

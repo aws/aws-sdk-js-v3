@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutItemsCommand}.
  */
 export interface PutItemsCommandInput extends PutItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutItemsCommand}.
  */
 export interface PutItemsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more items to an Items dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
  *      </p>
@@ -47,6 +52,8 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutItemsCommandInput - {@link PutItemsCommandInput}
+ * @returns {@link PutItemsCommandOutput}
  * @see {@link PutItemsCommandInput} for command's `input` shape.
  * @see {@link PutItemsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
@@ -79,6 +86,9 @@ export class PutItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class PutItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutItemsCommandOutput> {
     return deserializeAws_restJson1PutItemsCommand(output, context);
   }

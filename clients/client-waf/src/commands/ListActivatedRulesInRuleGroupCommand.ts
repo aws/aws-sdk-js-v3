@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListActivatedRulesInRuleGroupCommand}.
  */
 export interface ListActivatedRulesInRuleGroupCommandInput extends ListActivatedRulesInRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListActivatedRulesInRuleGroupCommand}.
  */
 export interface ListActivatedRulesInRuleGroupCommandOutput
@@ -37,6 +41,7 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -56,6 +61,8 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActivatedRulesInRuleGroupCommandInput - {@link ListActivatedRulesInRuleGroupCommandInput}
+ * @returns {@link ListActivatedRulesInRuleGroupCommandOutput}
  * @see {@link ListActivatedRulesInRuleGroupCommandInput} for command's `input` shape.
  * @see {@link ListActivatedRulesInRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -125,6 +132,9 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActivatedRulesInRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActivatedRulesInRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

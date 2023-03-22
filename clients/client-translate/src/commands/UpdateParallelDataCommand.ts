@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateParallelDataCommand}.
  */
 export interface UpdateParallelDataCommandInput extends UpdateParallelDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateParallelDataCommand}.
  */
 export interface UpdateParallelDataCommandOutput extends UpdateParallelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a previously created parallel data resource by importing a new input file from
  *       Amazon S3.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateParallelDataCommandInput - {@link UpdateParallelDataCommandInput}
+ * @returns {@link UpdateParallelDataCommandOutput}
  * @see {@link UpdateParallelDataCommandInput} for command's `input` shape.
  * @see {@link UpdateParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -101,6 +108,9 @@ export class UpdateParallelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateParallelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UpdateParallelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateParallelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateParallelDataCommandOutput> {
     return deserializeAws_json1_1UpdateParallelDataCommand(output, context);
   }

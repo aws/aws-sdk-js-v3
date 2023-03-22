@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingStatisticsCommand}.
  */
 export interface GetFindingStatisticsCommandInput extends GetFindingStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingStatisticsCommand}.
  */
 export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) aggregated statistical data about findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingStatisticsCommandInput - {@link GetFindingStatisticsCommandInput}
+ * @returns {@link GetFindingStatisticsCommandOutput}
  * @see {@link GetFindingStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetFindingStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class GetFindingStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetFindingStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFindingStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingStatisticsCommandOutput> {
     return deserializeAws_restJson1GetFindingStatisticsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByWebACLIdCommand}.
  */
 export interface ListDistributionsByWebACLIdCommandInput extends ListDistributionsByWebACLIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByWebACLIdCommand}.
  */
 export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributionsByWebACLIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the distributions that are associated with a specified WAF web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByWebACLIdCommandInput - {@link ListDistributionsByWebACLIdCommandInput}
+ * @returns {@link ListDistributionsByWebACLIdCommandOutput}
  * @see {@link ListDistributionsByWebACLIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByWebACLIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByWebACLIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributionsByWebACLIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListDistributionsByWebACLIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

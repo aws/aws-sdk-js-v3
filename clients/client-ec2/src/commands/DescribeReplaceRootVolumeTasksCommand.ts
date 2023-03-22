@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplaceRootVolumeTasksCommand}.
  */
 export interface DescribeReplaceRootVolumeTasksCommandInput extends DescribeReplaceRootVolumeTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplaceRootVolumeTasksCommand}.
  */
 export interface DescribeReplaceRootVolumeTasksCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a root volume replacement task. For more information, see
  *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplaceRootVolumeTasksCommandInput - {@link DescribeReplaceRootVolumeTasksCommandInput}
+ * @returns {@link DescribeReplaceRootVolumeTasksCommandOutput}
  * @see {@link DescribeReplaceRootVolumeTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeReplaceRootVolumeTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplaceRootVolumeTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplaceRootVolumeTasksCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command<
     return serializeAws_ec2DescribeReplaceRootVolumeTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePermissionSetCommand}.
  */
 export interface DescribePermissionSetCommandInput extends DescribePermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePermissionSetCommand}.
  */
 export interface DescribePermissionSetCommandOutput extends DescribePermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of the permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePermissionSetCommandInput - {@link DescribePermissionSetCommandInput}
+ * @returns {@link DescribePermissionSetCommandOutput}
  * @see {@link DescribePermissionSetCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribePermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribePermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePermissionSetCommandOutput> {
     return deserializeAws_json1_1DescribePermissionSetCommand(output, context);
   }

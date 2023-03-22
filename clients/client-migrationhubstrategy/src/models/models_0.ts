@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MigrationHubStrategyServiceException as __BaseException } from "./MigrationHubStrategyServiceException";
 
 /**
+ * @public
  * <p> The user does not have permission to perform the action. Check the
  *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
  */
@@ -23,6 +24,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RuntimeAnalysisStatus {
   ANALYSIS_FAILED = "ANALYSIS_FAILED",
   ANALYSIS_STARTED = "ANALYSIS_STARTED",
@@ -30,6 +34,9 @@ export enum RuntimeAnalysisStatus {
   ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
 }
 
+/**
+ * @public
+ */
 export enum SrcCodeOrDbAnalysisStatus {
   ANALYSIS_FAILED = "ANALYSIS_FAILED",
   ANALYSIS_PARTIAL_SUCCESS = "ANALYSIS_PARTIAL_SUCCESS",
@@ -41,6 +48,7 @@ export enum SrcCodeOrDbAnalysisStatus {
 }
 
 /**
+ * @public
  * <p>A combination of existing analysis statuses.</p>
  */
 export type AnalysisStatusUnion =
@@ -48,6 +56,9 @@ export type AnalysisStatusUnion =
   | AnalysisStatusUnion.SrcCodeOrDbAnalysisStatusMember
   | AnalysisStatusUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnalysisStatusUnion {
   /**
    * <p>The status of the analysis.</p>
@@ -87,6 +98,9 @@ export namespace AnalysisStatusUnion {
   };
 }
 
+/**
+ * @public
+ */
 export enum AnalysisType {
   BINARY_ANALYSIS = "BINARY_ANALYSIS",
   DATABASE_ANALYSIS = "DATABASE_ANALYSIS",
@@ -94,11 +108,17 @@ export enum AnalysisType {
   SOURCE_CODE_ANALYSIS = "SOURCE_CODE_ANALYSIS",
 }
 
+/**
+ * @public
+ */
 export enum BinaryAnalyzerName {
   BYTECODE_ANALYZER = "BYTECODE_ANALYZER",
   DLL_ANALYZER = "DLL_ANALYZER",
 }
 
+/**
+ * @public
+ */
 export enum RunTimeAnalyzerName {
   A2C_ANALYZER = "A2C_ANALYZER",
   DATABASE_ANALYZER = "DATABASE_ANALYZER",
@@ -107,6 +127,9 @@ export enum RunTimeAnalyzerName {
   SCT_ANALYZER = "SCT_ANALYZER",
 }
 
+/**
+ * @public
+ */
 export enum SourceCodeAnalyzerName {
   BYTECODE_ANALYZER = "BYTECODE_ANALYZER",
   CSHARP_ANALYZER = "CSHARP_ANALYZER",
@@ -115,6 +138,7 @@ export enum SourceCodeAnalyzerName {
 }
 
 /**
+ * @public
  * <p>The combination of the existing analyzers.</p>
  */
 export type AnalyzerNameUnion =
@@ -123,6 +147,9 @@ export type AnalyzerNameUnion =
   | AnalyzerNameUnion.SourceCodeAnalyzerNameMember
   | AnalyzerNameUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnalyzerNameUnion {
   /**
    * <p>The binary analyzer names.</p>
@@ -177,6 +204,7 @@ export namespace AnalyzerNameUnion {
 }
 
 /**
+ * @public
  * <p> Contains the S3 bucket name and the Amazon S3 key name. </p>
  */
 export interface S3Object {
@@ -191,6 +219,9 @@ export interface S3Object {
   s3key?: string;
 }
 
+/**
+ * @public
+ */
 export enum AntipatternReportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -198,6 +229,7 @@ export enum AntipatternReportStatus {
 }
 
 /**
+ * @public
  * <p>The anti-pattern report result.</p>
  */
 export interface AntipatternReportResult {
@@ -222,6 +254,9 @@ export interface AntipatternReportResult {
   antipatternReportStatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum Severity {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -229,6 +264,7 @@ export enum Severity {
 }
 
 /**
+ * @public
  * <p> Contains the summary of anti-patterns and their severity. </p>
  */
 export interface AntipatternSeveritySummary {
@@ -243,6 +279,9 @@ export interface AntipatternSeveritySummary {
   count?: number;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationComponentCriteria {
   ANALYSIS_STATUS = "ANALYSIS_STATUS",
   APP_NAME = "APP_NAME",
@@ -254,6 +293,9 @@ export enum ApplicationComponentCriteria {
   STRATEGY = "STRATEGY",
 }
 
+/**
+ * @public
+ */
 export enum AppType {
   IIS = "IIS",
   cassandra = "Cassandra",
@@ -279,6 +321,9 @@ export enum AppType {
   websphere = "IBM WebSphere",
 }
 
+/**
+ * @public
+ */
 export enum AppUnitErrorCategory {
   CONNECTIVITY_ERROR = "CONNECTIVITY_ERROR",
   CREDENTIAL_ERROR = "CREDENTIAL_ERROR",
@@ -288,6 +333,7 @@ export enum AppUnitErrorCategory {
 }
 
 /**
+ * @public
  * <p>Error in the analysis of the application unit.</p>
  */
 export interface AppUnitError {
@@ -298,6 +344,7 @@ export interface AppUnitError {
 }
 
 /**
+ * @public
  * <p> Configuration information used for assessing databases. </p>
  */
 export interface DatabaseConfigDetail {
@@ -308,11 +355,17 @@ export interface DatabaseConfigDetail {
   secretName?: string;
 }
 
+/**
+ * @public
+ */
 export enum InclusionStatus {
   EXCLUDE_FROM_RECOMMENDATION = "excludeFromAssessment",
   INCLUDE_IN_RECOMMENDATION = "includeInAssessment",
 }
 
+/**
+ * @public
+ */
 export enum Strategy {
   REFACTOR = "Refactor",
   REHOST = "Rehost",
@@ -323,6 +376,9 @@ export enum Strategy {
   RETIREMENT = "Retirement",
 }
 
+/**
+ * @public
+ */
 export enum TargetDestination {
   AMAZON_DOCUMENTDB = "Amazon DocumentDB",
   AMAZON_DYNAMODB = "Amazon DynamoDB",
@@ -340,6 +396,9 @@ export enum TargetDestination {
   NONE_SPECIFIED = "None specified",
 }
 
+/**
+ * @public
+ */
 export enum TransformationToolName {
   APP2CONTAINER = "App2Container",
   DMS = "Database Migration Service",
@@ -354,6 +413,7 @@ export enum TransformationToolName {
 }
 
 /**
+ * @public
  * <p> Information of the transformation tool that can be used to migrate and modernize the
  *       application. </p>
  */
@@ -375,6 +435,7 @@ export interface TransformationTool {
 }
 
 /**
+ * @public
  * <p> Contains a recommendation set. </p>
  */
 export interface RecommendationSet {
@@ -394,6 +455,9 @@ export interface RecommendationSet {
   strategy?: Strategy | string;
 }
 
+/**
+ * @public
+ */
 export enum ResourceSubType {
   DATABASE = "Database",
   DATABASE_PROCESS = "DatabaseProcess",
@@ -401,6 +465,7 @@ export enum ResourceSubType {
 }
 
 /**
+ * @public
  * <p>The error in server analysis.</p>
  */
 export interface Result {
@@ -426,6 +491,7 @@ export interface Result {
 }
 
 /**
+ * @public
  * <p> Object containing source code information that is linked to an application component.
  *     </p>
  */
@@ -452,6 +518,7 @@ export interface SourceCodeRepository {
 }
 
 /**
+ * @public
  * <p> Contains detailed information about an application component. </p>
  */
 export interface ApplicationComponentDetail {
@@ -575,6 +642,7 @@ export interface ApplicationComponentDetail {
 }
 
 /**
+ * @public
  * <p>Summary of the analysis status of the application component.</p>
  */
 export interface ApplicationComponentStatusSummary {
@@ -590,6 +658,9 @@ export interface ApplicationComponentStatusSummary {
   count?: number;
 }
 
+/**
+ * @public
+ */
 export enum StrategyRecommendation {
   NOT_RECOMMENDED = "notRecommended",
   POTENTIAL = "potential",
@@ -598,6 +669,7 @@ export enum StrategyRecommendation {
 }
 
 /**
+ * @public
  * <p> Contains information about a strategy recommendation for an application component.
  *     </p>
  */
@@ -619,6 +691,7 @@ export interface ApplicationComponentStrategy {
 }
 
 /**
+ * @public
  * <p> Contains the summary of application components. </p>
  */
 export interface ApplicationComponentSummary {
@@ -633,12 +706,18 @@ export interface ApplicationComponentSummary {
   count?: number;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationMode {
   ALL = "ALL",
   KNOWN = "KNOWN",
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export enum AwsManagedTargetDestination {
   AWS_ELASTIC_BEANSTALK = "AWS Elastic BeanStalk",
   AWS_FARGATE = "AWS Fargate",
@@ -646,6 +725,7 @@ export enum AwsManagedTargetDestination {
 }
 
 /**
+ * @public
  * <p> Object containing the choice of application destination that you specify. </p>
  */
 export interface AwsManagedResources {
@@ -655,6 +735,9 @@ export interface AwsManagedResources {
   targetDestination: (AwsManagedTargetDestination | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NoPreferenceTargetDestination {
   AMAZON_ELASTIC_CLOUD_COMPUTE = "Amazon Elastic Cloud Compute (EC2)",
   AMAZON_ELASTIC_CONTAINER_SERVICE = "Amazon Elastic Container Service (ECS)",
@@ -665,6 +748,7 @@ export enum NoPreferenceTargetDestination {
 }
 
 /**
+ * @public
  * <p> Object containing the choice of application destination that you specify. </p>
  */
 export interface NoManagementPreference {
@@ -674,6 +758,9 @@ export interface NoManagementPreference {
   targetDestination: (NoPreferenceTargetDestination | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SelfManageTargetDestination {
   AMAZON_ELASTIC_CLOUD_COMPUTE = "Amazon Elastic Cloud Compute (EC2)",
   AMAZON_ELASTIC_CONTAINER_SERVICE = "Amazon Elastic Container Service (ECS)",
@@ -682,6 +769,7 @@ export enum SelfManageTargetDestination {
 }
 
 /**
+ * @public
  * <p> Self-managed resources. </p>
  */
 export interface SelfManageResources {
@@ -692,6 +780,7 @@ export interface SelfManageResources {
 }
 
 /**
+ * @public
  * <p> Preferences for migrating an application to AWS. </p>
  */
 export type ManagementPreference =
@@ -700,6 +789,9 @@ export type ManagementPreference =
   | ManagementPreference.SelfManageResourcesMember
   | ManagementPreference.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ManagementPreference {
   /**
    * <p> Indicates interest in solutions that are managed by AWS. </p>
@@ -754,6 +846,7 @@ export namespace ManagementPreference {
 }
 
 /**
+ * @public
  * <p> Application preferences that you specify. </p>
  */
 export interface ApplicationPreferences {
@@ -763,6 +856,9 @@ export interface ApplicationPreferences {
   managementPreference?: ManagementPreference;
 }
 
+/**
+ * @public
+ */
 export enum AssessmentStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
@@ -771,6 +867,7 @@ export enum AssessmentStatus {
 }
 
 /**
+ * @public
  * <p> Object containing the summary of the strategy recommendations. </p>
  */
 export interface StrategySummary {
@@ -785,6 +882,9 @@ export interface StrategySummary {
   count?: number;
 }
 
+/**
+ * @public
+ */
 export enum RunTimeAssessmentStatus {
   DC_FAILED = "dataCollectionTaskFailed",
   DC_PARTIAL_SUCCESS = "dataCollectionTaskPartialSuccess",
@@ -796,6 +896,7 @@ export enum RunTimeAssessmentStatus {
 }
 
 /**
+ * @public
  * <p>The status summary of the server analysis.</p>
  */
 export interface ServerStatusSummary {
@@ -811,6 +912,9 @@ export interface ServerStatusSummary {
   count?: number;
 }
 
+/**
+ * @public
+ */
 export enum ServerOsType {
   amazonLinux = "AmazonLinux",
   endOfSupportWindowsServer = "EndOfSupportWindowsServer",
@@ -820,6 +924,7 @@ export enum ServerOsType {
 }
 
 /**
+ * @public
  * <p> Object containing details about the servers imported by Application Discovery Service </p>
  */
 export interface ServerSummary {
@@ -835,6 +940,7 @@ export interface ServerSummary {
 }
 
 /**
+ * @public
  * <p> Contains the summary of the assessment results. </p>
  */
 export interface AssessmentSummary {
@@ -894,6 +1000,9 @@ export interface AssessmentSummary {
   listServerStatusSummary?: ServerStatusSummary[];
 }
 
+/**
+ * @public
+ */
 export enum Condition {
   CONTAINS = "CONTAINS",
   EQUALS = "EQUALS",
@@ -902,6 +1011,7 @@ export enum Condition {
 }
 
 /**
+ * @public
  * <p>Defines the criteria of assessment.</p>
  */
 export interface AssessmentTarget {
@@ -922,6 +1032,7 @@ export interface AssessmentTarget {
 }
 
 /**
+ * @public
  * <p> Object containing details about applications as defined in Application Discovery Service. </p>
  */
 export interface AssociatedApplication {
@@ -936,12 +1047,18 @@ export interface AssociatedApplication {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export enum AuthType {
   CERT = "CERT",
   NTLM = "NTLM",
   SSH = "SSH",
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationComponentDetailsRequest {
   /**
    * <p> The ID of the application component. The ID is unique within an AWS account.</p>
@@ -949,6 +1066,9 @@ export interface GetApplicationComponentDetailsRequest {
   applicationComponentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationComponentDetailsResponse {
   /**
    * <p> Detailed information about an application component. </p>
@@ -973,6 +1093,7 @@ export interface GetApplicationComponentDetailsResponse {
 }
 
 /**
+ * @public
  * <p> The server experienced an internal error. Try again. </p>
  */
 export class InternalServerException extends __BaseException {
@@ -992,6 +1113,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The specified ID in the request is not found. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1011,6 +1133,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request was denied due to request throttling. </p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1029,6 +1152,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationComponentStrategiesRequest {
   /**
    * <p> The ID of the application component. The ID is unique within an AWS account.</p>
@@ -1036,6 +1162,9 @@ export interface GetApplicationComponentStrategiesRequest {
   applicationComponentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationComponentStrategiesResponse {
   /**
    * <p> A list of application component strategy recommendations. </p>
@@ -1043,6 +1172,9 @@ export interface GetApplicationComponentStrategiesResponse {
   applicationComponentStrategies?: ApplicationComponentStrategy[];
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentRequest {
   /**
    * <p> The <code>assessmentid</code> returned by <a>StartAssessment</a>.</p>
@@ -1051,6 +1183,7 @@ export interface GetAssessmentRequest {
 }
 
 /**
+ * @public
  * <p> Detailed information about an assessment. </p>
  */
 export interface DataCollectionDetails {
@@ -1095,6 +1228,9 @@ export interface DataCollectionDetails {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentResponse {
   /**
    * <p> The ID for the specific assessment task. </p>
@@ -1112,6 +1248,9 @@ export interface GetAssessmentResponse {
   assessmentTargets?: AssessmentTarget[];
 }
 
+/**
+ * @public
+ */
 export interface GetImportFileTaskRequest {
   /**
    * <p> The ID of the import file task. This ID is returned in the response of <a>StartImportFileTask</a>. </p>
@@ -1119,6 +1258,9 @@ export interface GetImportFileTaskRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImportFileTaskStatus {
   DELETE_FAILED = "DeleteFailed",
   DELETE_IN_PROGRESS = "DeleteInProgress",
@@ -1130,6 +1272,9 @@ export enum ImportFileTaskStatus {
   IMPORT_SUCCESS = "ImportSuccess",
 }
 
+/**
+ * @public
+ */
 export interface GetImportFileTaskResponse {
   /**
    * <p> The import file task <code>id</code> returned in the response of <a>StartImportFileTask</a>. </p>
@@ -1189,6 +1334,7 @@ export interface GetImportFileTaskResponse {
 }
 
 /**
+ * @public
  * <p> The request body isn't valid. </p>
  */
 export class ValidationException extends __BaseException {
@@ -1208,6 +1354,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Dependency encountered an error.</p>
  */
 export class DependencyException extends __BaseException {
@@ -1226,8 +1373,14 @@ export class DependencyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetLatestAssessmentIdRequest {}
 
+/**
+ * @public
+ */
 export interface GetLatestAssessmentIdResponse {
   /**
    * <p>The latest ID for the specific assessment task.</p>
@@ -1235,14 +1388,23 @@ export interface GetLatestAssessmentIdResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPortfolioPreferencesRequest {}
 
+/**
+ * @public
+ */
 export enum DatabaseManagementPreference {
   AWS_MANAGED = "AWS-managed",
   NO_PREFERENCE = "No preference",
   SELF_MANAGE = "Self-manage",
 }
 
+/**
+ * @public
+ */
 export enum HeterogeneousTargetDatabaseEngine {
   AMAZON_AURORA = "Amazon Aurora",
   AWS_POSTGRESQL = "AWS PostgreSQL",
@@ -1257,6 +1419,7 @@ export enum HeterogeneousTargetDatabaseEngine {
 }
 
 /**
+ * @public
  * <p> The object containing details about heterogeneous database preferences. </p>
  */
 export interface Heterogeneous {
@@ -1266,11 +1429,15 @@ export interface Heterogeneous {
   targetDatabaseEngine: (HeterogeneousTargetDatabaseEngine | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HomogeneousTargetDatabaseEngine {
   NONE_SPECIFIED = "None specified",
 }
 
 /**
+ * @public
  * <p> The object containing details about homogeneous database preferences. </p>
  */
 export interface Homogeneous {
@@ -1280,6 +1447,9 @@ export interface Homogeneous {
   targetDatabaseEngine?: (HomogeneousTargetDatabaseEngine | string)[];
 }
 
+/**
+ * @public
+ */
 export enum TargetDatabaseEngine {
   AMAZON_AURORA = "Amazon Aurora",
   AWS_POSTGRESQL = "AWS PostgreSQL",
@@ -1294,6 +1464,7 @@ export enum TargetDatabaseEngine {
 }
 
 /**
+ * @public
  * <p> The object containing details about database migration preferences, when you have no
  *       particular preference. </p>
  */
@@ -1305,6 +1476,7 @@ export interface NoDatabaseMigrationPreference {
 }
 
 /**
+ * @public
  * <p> Preferences for migrating a database to AWS. </p>
  */
 export type DatabaseMigrationPreference =
@@ -1313,6 +1485,9 @@ export type DatabaseMigrationPreference =
   | DatabaseMigrationPreference.NoPreferenceMember
   | DatabaseMigrationPreference.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DatabaseMigrationPreference {
   /**
    * <p> Indicates whether you are interested in moving from one type of database to another. For
@@ -1369,6 +1544,7 @@ export namespace DatabaseMigrationPreference {
 }
 
 /**
+ * @public
  * <p> Preferences on managing your databases on AWS. </p>
  */
 export interface DatabasePreferences {
@@ -1385,6 +1561,7 @@ export interface DatabasePreferences {
 }
 
 /**
+ * @public
  * <p> Business goals that you specify. </p>
  */
 export interface BusinessGoals {
@@ -1411,6 +1588,7 @@ export interface BusinessGoals {
 }
 
 /**
+ * @public
  * <p> Rank of business goals based on priority. </p>
  */
 export interface PrioritizeBusinessGoals {
@@ -1420,6 +1598,9 @@ export interface PrioritizeBusinessGoals {
   businessGoals?: BusinessGoals;
 }
 
+/**
+ * @public
+ */
 export interface GetPortfolioPreferencesResponse {
   /**
    * <p> The rank of business goals based on priority. </p>
@@ -1442,8 +1623,14 @@ export interface GetPortfolioPreferencesResponse {
   applicationMode?: ApplicationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface GetPortfolioSummaryRequest {}
 
+/**
+ * @public
+ */
 export interface GetPortfolioSummaryResponse {
   /**
    * <p> An assessment summary for the portfolio including the number of servers to rehost and the
@@ -1452,6 +1639,9 @@ export interface GetPortfolioSummaryResponse {
   assessmentSummary?: AssessmentSummary;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationReportDetailsRequest {
   /**
    * <p> The recommendation report generation task <code>id</code> returned by <a>StartRecommendationReportGeneration</a>. </p>
@@ -1459,6 +1649,9 @@ export interface GetRecommendationReportDetailsRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RecommendationReportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1466,6 +1659,7 @@ export enum RecommendationReportStatus {
 }
 
 /**
+ * @public
  * <p> Contains detailed information about a recommendation report. </p>
  */
 export interface RecommendationReportDetails {
@@ -1500,6 +1694,9 @@ export interface RecommendationReportDetails {
   s3Keys?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationReportDetailsResponse {
   /**
    * <p> The ID of the recommendation report generation task. See the response of <a>StartRecommendationReportGeneration</a>. </p>
@@ -1512,6 +1709,9 @@ export interface GetRecommendationReportDetailsResponse {
   recommendationReportDetails?: RecommendationReportDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetServerDetailsRequest {
   /**
    * <p> The ID of the server. </p>
@@ -1531,6 +1731,9 @@ export interface GetServerDetailsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ServerErrorCategory {
   ARCHITECTURE_ERROR = "ARCHITECTURE_ERROR",
   CONNECTIVITY_ERROR = "CONNECTIVITY_ERROR",
@@ -1540,6 +1743,7 @@ export enum ServerErrorCategory {
 }
 
 /**
+ * @public
  * <p>The error in server analysis.</p>
  */
 export interface ServerError {
@@ -1550,6 +1754,7 @@ export interface ServerError {
 }
 
 /**
+ * @public
  * <p> Information about the server's network for which the assessment was run. </p>
  */
 export interface NetworkInfo {
@@ -1575,12 +1780,16 @@ export interface NetworkInfo {
   netMask: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OSType {
   LINUX = "LINUX",
   WINDOWS = "WINDOWS",
 }
 
 /**
+ * @public
  * <p> Information about the operating system. </p>
  */
 export interface OSInfo {
@@ -1596,6 +1805,7 @@ export interface OSInfo {
 }
 
 /**
+ * @public
  * <p> Information about the server that hosts application components. </p>
  */
 export interface SystemInfo {
@@ -1621,6 +1831,7 @@ export interface SystemInfo {
 }
 
 /**
+ * @public
  * <p> Detailed information about a server. </p>
  */
 export interface ServerDetail {
@@ -1696,6 +1907,9 @@ export interface ServerDetail {
   serverError?: ServerError;
 }
 
+/**
+ * @public
+ */
 export interface GetServerDetailsResponse {
   /**
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
@@ -1714,6 +1928,9 @@ export interface GetServerDetailsResponse {
   associatedApplications?: AssociatedApplication[];
 }
 
+/**
+ * @public
+ */
 export interface GetServerStrategiesRequest {
   /**
    * <p> The ID of the server. </p>
@@ -1722,6 +1939,7 @@ export interface GetServerStrategiesRequest {
 }
 
 /**
+ * @public
  * <p> Contains information about a strategy recommendation for a server. </p>
  */
 export interface ServerStrategy {
@@ -1747,6 +1965,9 @@ export interface ServerStrategy {
   isPreferred?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetServerStrategiesResponse {
   /**
    * <p> A list of strategy recommendations for the server. </p>
@@ -1754,12 +1975,16 @@ export interface GetServerStrategiesResponse {
   serverStrategies?: ServerStrategy[];
 }
 
+/**
+ * @public
+ */
 export enum GroupName {
   EXTERNAL_ID = "ExternalId",
   EXTERNAL_SOURCE_TYPE = "ExternalSourceType",
 }
 
 /**
+ * @public
  * <p> The object containing information about distinct imports or groups for Strategy Recommendations. </p>
  */
 export interface Group {
@@ -1774,11 +1999,17 @@ export interface Group {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASC = "ASC",
   DESC = "DESC",
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationComponentsRequest {
   /**
    * <p> Criteria for filtering the list of application components. </p>
@@ -1817,6 +2048,9 @@ export interface ListApplicationComponentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationComponentsResponse {
   /**
    * <p> The list of application components with detailed information about each component.
@@ -1831,6 +2065,7 @@ export interface ListApplicationComponentsResponse {
 }
 
 /**
+ * @public
  * <p> Exception to indicate that the service-linked role (SLR) is locked. </p>
  */
 export class ServiceLinkedRoleLockClientException extends __BaseException {
@@ -1849,6 +2084,9 @@ export class ServiceLinkedRoleLockClientException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListCollectorsRequest {
   /**
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
@@ -1863,12 +2101,16 @@ export interface ListCollectorsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum CollectorHealth {
   COLLECTOR_HEALTHY = "COLLECTOR_HEALTHY",
   COLLECTOR_UNHEALTHY = "COLLECTOR_UNHEALTHY",
 }
 
 /**
+ * @public
  * <p>IP address based configurations.</p>
  */
 export interface IPAddressBasedRemoteInfo {
@@ -1888,11 +2130,15 @@ export interface IPAddressBasedRemoteInfo {
   osType?: OSType | string;
 }
 
+/**
+ * @public
+ */
 export enum PipelineType {
   AZURE_DEVOPS = "AZURE_DEVOPS",
 }
 
 /**
+ * @public
  * <p>Detailed information of the pipeline.</p>
  */
 export interface PipelineInfo {
@@ -1908,6 +2154,7 @@ export interface PipelineInfo {
 }
 
 /**
+ * @public
  * <p>Information about the server configured for source code analysis.</p>
  */
 export interface RemoteSourceCodeAnalysisServerInfo {
@@ -1918,6 +2165,7 @@ export interface RemoteSourceCodeAnalysisServerInfo {
 }
 
 /**
+ * @public
  * <p>Details about the server in vCenter.</p>
  */
 export interface VcenterBasedRemoteInfo {
@@ -1932,6 +2180,9 @@ export interface VcenterBasedRemoteInfo {
   osType?: OSType | string;
 }
 
+/**
+ * @public
+ */
 export enum VersionControlType {
   AZURE_DEVOPS_GIT = "AZURE_DEVOPS_GIT",
   GITHUB = "GITHUB",
@@ -1939,6 +2190,7 @@ export enum VersionControlType {
 }
 
 /**
+ * @public
  * <p>Details about the version control configuration.</p>
  */
 export interface VersionControlInfo {
@@ -1954,6 +2206,7 @@ export interface VersionControlInfo {
 }
 
 /**
+ * @public
  * <p>Summary of the collector configuration.</p>
  */
 export interface ConfigurationSummary {
@@ -1984,6 +2237,7 @@ export interface ConfigurationSummary {
 }
 
 /**
+ * @public
  * <p> Process data collector that runs in the environment that you specify. </p>
  */
 export interface Collector {
@@ -2029,6 +2283,9 @@ export interface Collector {
   configurationSummary?: ConfigurationSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListCollectorsResponse {
   /**
    * <p> The list of all the installed collectors. </p>
@@ -2041,6 +2298,9 @@ export interface ListCollectorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportFileTaskRequest {
   /**
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
@@ -2056,6 +2316,7 @@ export interface ListImportFileTaskRequest {
 }
 
 /**
+ * @public
  * <p> Information about the import file tasks you request. </p>
  */
 export interface ImportFileTaskInformation {
@@ -2116,6 +2377,9 @@ export interface ImportFileTaskInformation {
   importName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportFileTaskResponse {
   /**
    * <p> Lists information about the files you import.</p>
@@ -2128,6 +2392,9 @@ export interface ListImportFileTaskResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ServerCriteria {
   ANALYSIS_STATUS = "ANALYSIS_STATUS",
   DESTINATION = "DESTINATION",
@@ -2138,6 +2405,9 @@ export enum ServerCriteria {
   STRATEGY = "STRATEGY",
 }
 
+/**
+ * @public
+ */
 export interface ListServersRequest {
   /**
    * <p> Criteria for filtering servers. </p>
@@ -2176,6 +2446,9 @@ export interface ListServersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListServersResponse {
   /**
    * <p> The list of servers with detailed information about each server. </p>
@@ -2189,6 +2462,7 @@ export interface ListServersResponse {
 }
 
 /**
+ * @public
  * <p> Exception to indicate that there is an ongoing task when a new task is created. Return
  *       when once the existing tasks are complete. </p>
  */
@@ -2208,6 +2482,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutPortfolioPreferencesRequest {
   /**
    * <p> The rank of the business goals based on priority. </p>
@@ -2230,9 +2507,13 @@ export interface PutPortfolioPreferencesRequest {
   applicationMode?: ApplicationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface PutPortfolioPreferencesResponse {}
 
 /**
+ * @public
  * <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
  *       quota for this account. </p>
  */
@@ -2252,6 +2533,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentRequest {
   /**
    * <p> The S3 bucket used by the collectors to send analysis data to the service. The bucket
@@ -2271,6 +2555,9 @@ export interface StartAssessmentRequest {
   assessmentTargets?: AssessmentTarget[];
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentResponse {
   /**
    * <p> The ID of the assessment. </p>
@@ -2278,12 +2565,18 @@ export interface StartAssessmentResponse {
   assessmentId?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataSourceType {
   ADS = "ApplicationDiscoveryService",
   IMPORT = "Import",
   MPA = "MPA",
 }
 
+/**
+ * @public
+ */
 export interface StartImportFileTaskRequest {
   /**
    * <p> A descriptive name for the request. </p>
@@ -2320,6 +2613,9 @@ export interface StartImportFileTaskRequest {
   s3bucketForReportData?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImportFileTaskResponse {
   /**
    * <p> The ID for a specific import task. The ID is unique within an AWS account. </p>
@@ -2327,11 +2623,17 @@ export interface StartImportFileTaskResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export enum OutputFormat {
   Excel = "Excel",
   Json = "Json",
 }
 
+/**
+ * @public
+ */
 export interface StartRecommendationReportGenerationRequest {
   /**
    * <p> The output format for the recommendation report file. The default format is Microsoft
@@ -2345,6 +2647,9 @@ export interface StartRecommendationReportGenerationRequest {
   groupIdFilter?: Group[];
 }
 
+/**
+ * @public
+ */
 export interface StartRecommendationReportGenerationResponse {
   /**
    * <p> The ID of the recommendation report generation task. </p>
@@ -2352,6 +2657,9 @@ export interface StartRecommendationReportGenerationResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopAssessmentRequest {
   /**
    * <p> The <code>assessmentId</code> returned by <a>StartAssessment</a>. </p>
@@ -2359,8 +2667,14 @@ export interface StopAssessmentRequest {
   assessmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopAssessmentResponse {}
 
+/**
+ * @public
+ */
 export enum VersionControl {
   AZURE_DEVOPS_GIT = "AZURE_DEVOPS_GIT",
   GITHUB = "GITHUB",
@@ -2368,6 +2682,7 @@ export enum VersionControl {
 }
 
 /**
+ * @public
  * <p> Object containing source code information that is linked to an application component.
  *     </p>
  */
@@ -2394,6 +2709,7 @@ export interface SourceCode {
 }
 
 /**
+ * @public
  * <p> Information about all the available strategy options for migrating and modernizing an
  *       application component. </p>
  */
@@ -2421,6 +2737,9 @@ export interface StrategyOption {
   isPreferred?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationComponentConfigRequest {
   /**
    * <p> The ID of the application component. The ID is unique within an AWS account. </p>
@@ -2461,8 +2780,14 @@ export interface UpdateApplicationComponentConfigRequest {
   appType?: AppType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationComponentConfigResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateServerConfigRequest {
   /**
    * <p> The ID of the server. </p>
@@ -2475,6 +2800,9 @@ export interface UpdateServerConfigRequest {
   strategyOption?: StrategyOption;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServerConfigResponse {}
 
 /**

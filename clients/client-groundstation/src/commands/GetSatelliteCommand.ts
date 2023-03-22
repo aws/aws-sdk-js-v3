@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSatelliteCommand}.
  */
 export interface GetSatelliteCommandInput extends GetSatelliteRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSatelliteCommand}.
  */
 export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a satellite.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSatelliteCommandInput - {@link GetSatelliteCommandInput}
+ * @returns {@link GetSatelliteCommandOutput}
  * @see {@link GetSatelliteCommandInput} for command's `input` shape.
  * @see {@link GetSatelliteCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetSatelliteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSatelliteCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetSatelliteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSatelliteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSatelliteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSatelliteCommandOutput> {
     return deserializeAws_restJson1GetSatelliteCommand(output, context);
   }

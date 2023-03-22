@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
 export interface GetOrganizationConformancePackDetailedStatusCommandInput
   extends GetOrganizationConformancePackDetailedStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
 export interface GetOrganizationConformancePackDetailedStatusCommandOutput
@@ -38,6 +42,7 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationConformancePackDetailedStatusCommandInput - {@link GetOrganizationConformancePackDetailedStatusCommandInput}
+ * @returns {@link GetOrganizationConformancePackDetailedStatusCommandOutput}
  * @see {@link GetOrganizationConformancePackDetailedStatusCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationConformancePackDetailedStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -105,6 +112,9 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationConformancePackDetailedStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOrganizationConformancePackDetailedStatusCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     return serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

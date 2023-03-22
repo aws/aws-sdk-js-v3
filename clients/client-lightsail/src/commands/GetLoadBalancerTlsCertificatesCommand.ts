@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoadBalancerTlsCertificatesCommand}.
  */
 export interface GetLoadBalancerTlsCertificatesCommandInput extends GetLoadBalancerTlsCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoadBalancerTlsCertificatesCommand}.
  */
 export interface GetLoadBalancerTlsCertificatesCommandOutput
@@ -37,6 +41,7 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the TLS certificates that are associated with the specified
  *       Lightsail load balancer.</p>
  *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
@@ -52,6 +57,8 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoadBalancerTlsCertificatesCommandInput - {@link GetLoadBalancerTlsCertificatesCommandInput}
+ * @returns {@link GetLoadBalancerTlsCertificatesCommandOutput}
  * @see {@link GetLoadBalancerTlsCertificatesCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerTlsCertificatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -105,6 +112,9 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoadBalancerTlsCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLoadBalancerTlsCertificatesCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
     return serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

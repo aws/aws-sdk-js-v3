@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ListKeysCommand, serializeAws_json1_1ListKeysCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeysCommand}.
  */
 export interface ListKeysCommandInput extends ListKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeysCommand}.
  */
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
@@ -72,6 +77,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeysCommandInput - {@link ListKeysCommandInput}
+ * @returns {@link ListKeysCommandOutput}
  * @see {@link ListKeysCommandInput} for command's `input` shape.
  * @see {@link ListKeysCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -147,6 +154,9 @@ export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,10 +194,16 @@ export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeysCommandOutput> {
     return deserializeAws_json1_1ListKeysCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterCrossAccountAccessRoleCommand}.
  */
 export interface RegisterCrossAccountAccessRoleCommandInput extends RegisterCrossAccountAccessRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterCrossAccountAccessRoleCommand}.
  */
 export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
  *          perform security assessments.</p>
  * @example
@@ -45,6 +50,8 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCrossAccountAccessRoleCommandInput - {@link RegisterCrossAccountAccessRoleCommandInput}
+ * @returns {@link RegisterCrossAccountAccessRoleCommandOutput}
  * @see {@link RegisterCrossAccountAccessRoleCommandInput} for command's `input` shape.
  * @see {@link RegisterCrossAccountAccessRoleCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -96,6 +103,9 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCrossAccountAccessRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterCrossAccountAccessRoleCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command<
     return serializeAws_json1_1RegisterCrossAccountAccessRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

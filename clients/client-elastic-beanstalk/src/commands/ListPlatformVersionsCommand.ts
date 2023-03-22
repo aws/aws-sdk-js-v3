@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlatformVersionsCommand}.
  */
 export interface ListPlatformVersionsCommandInput extends ListPlatformVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlatformVersionsCommand}.
  */
 export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the platform versions available for your account in an AWS Region. Provides
  *       summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform
  *       version.</p>
@@ -50,6 +55,8 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlatformVersionsCommandInput - {@link ListPlatformVersionsCommandInput}
+ * @returns {@link ListPlatformVersionsCommandOutput}
  * @see {@link ListPlatformVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPlatformVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListPlatformVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlatformVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListPlatformVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlatformVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPlatformVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformVersionsCommandOutput> {
     return deserializeAws_queryListPlatformVersionsCommand(output, context);
   }

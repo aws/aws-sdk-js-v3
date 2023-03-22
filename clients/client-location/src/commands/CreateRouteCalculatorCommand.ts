@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteCalculatorCommand}.
  */
 export interface CreateRouteCalculatorCommandInput extends CreateRouteCalculatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteCalculatorCommand}.
  */
 export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route calculator resource in your Amazon Web Services account.</p>
  *          <p>You can send requests to a route calculator resource to estimate travel time,
  *             distance, and get directions. A route calculator sources traffic and road network data
@@ -55,6 +60,8 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteCalculatorCommandInput - {@link CreateRouteCalculatorCommandInput}
+ * @returns {@link CreateRouteCalculatorCommandOutput}
  * @see {@link CreateRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateRouteCalculatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteCalculatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateRouteCalculatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteCalculatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRouteCalculatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCalculatorCommandOutput> {
     return deserializeAws_restJson1CreateRouteCalculatorCommand(output, context);
   }

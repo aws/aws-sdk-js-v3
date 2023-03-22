@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ImagebuilderServiceException as __BaseException } from "./ImagebuilderServiceException";
 
 /**
+ * @public
  * <p>Contains settings for the Systems Manager agent on your build instance.</p>
  */
 export interface SystemsManagerAgent {
@@ -17,6 +18,7 @@ export interface SystemsManagerAgent {
 }
 
 /**
+ * @public
  * <p>In addition to your infrastructure configuration, these settings provide an extra layer of
  * 			control over your build instances. You can also specify commands to run on launch for all of
  * 			your build instances.</p>
@@ -52,6 +54,9 @@ export interface AdditionalInstanceConfiguration {
   userDataOverride?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImageStatus {
   AVAILABLE = "AVAILABLE",
   BUILDING = "BUILDING",
@@ -67,6 +72,7 @@ export enum ImageStatus {
 }
 
 /**
+ * @public
  * <p> Image state shows the image status and the reason for that status.</p>
  */
 export interface ImageState {
@@ -82,6 +88,7 @@ export interface ImageState {
 }
 
 /**
+ * @public
  * <p> Details of an Amazon EC2 AMI.</p>
  */
 export interface Ami {
@@ -117,6 +124,7 @@ export interface Ami {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for a launch permission. The launch permission modification
  * 			request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
  * 			API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public,
@@ -148,6 +156,7 @@ export interface LaunchPermissionConfiguration {
 }
 
 /**
+ * @public
  * <p> Define and configure the output AMIs of the pipeline.</p>
  */
 export interface AmiDistributionConfiguration {
@@ -183,6 +192,9 @@ export interface AmiDistributionConfiguration {
   launchPermission?: LaunchPermissionConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum BuildType {
   IMPORT = "IMPORT",
   SCHEDULED = "SCHEDULED",
@@ -190,6 +202,7 @@ export enum BuildType {
 }
 
 /**
+ * @public
  * <p>You have exceeded the permitted request rate for the specific operation.</p>
  */
 export class CallRateLimitExceededException extends __BaseException {
@@ -208,6 +221,9 @@ export class CallRateLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelImageCreationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>
@@ -222,6 +238,9 @@ export interface CancelImageCreationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelImageCreationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -240,6 +259,7 @@ export interface CancelImageCreationResponse {
 }
 
 /**
+ * @public
  * <p>These errors are usually caused by a client action, such as using an action or resource on
  * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
  * 			invalid resource identifier.</p>
@@ -261,6 +281,7 @@ export class ClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform the requested operation.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -280,6 +301,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have specified a client token for an operation using parameter values that differ from
  * 			a previous request that used the same client token.</p>
  */
@@ -300,6 +322,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have made a request for an action that is not supported by the service.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -319,6 +342,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource that you are trying to operate on is currently in use. Review the message
  * 			details and retry later.</p>
  */
@@ -339,6 +363,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
  */
 export class ServiceException extends __BaseException {
@@ -358,6 +383,7 @@ export class ServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is unable to process your request at this time.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -377,6 +403,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Defines a parameter that is used to provide configuration details for the component.</p>
  */
 export interface ComponentParameterDetail {
@@ -401,16 +428,23 @@ export interface ComponentParameterDetail {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export enum Platform {
   LINUX = "Linux",
   WINDOWS = "Windows",
 }
 
+/**
+ * @public
+ */
 export enum ComponentStatus {
   DEPRECATED = "DEPRECATED",
 }
 
 /**
+ * @public
  * <p>A group of fields that describe the current status of components
  * 			that are no longer active.</p>
  */
@@ -426,12 +460,16 @@ export interface ComponentState {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComponentType {
   BUILD = "BUILD",
   TEST = "TEST",
 }
 
 /**
+ * @public
  * <p>A detailed view of a component.</p>
  */
 export interface Component {
@@ -534,6 +572,7 @@ export interface Component {
 }
 
 /**
+ * @public
  * <p>Contains a key/value pair that sets the named component parameter.</p>
  */
 export interface ComponentParameter {
@@ -549,6 +588,7 @@ export interface ComponentParameter {
 }
 
 /**
+ * @public
  * <p> Configuration details of the component.</p>
  */
 export interface ComponentConfiguration {
@@ -563,11 +603,15 @@ export interface ComponentConfiguration {
   parameters?: ComponentParameter[];
 }
 
+/**
+ * @public
+ */
 export enum ComponentFormat {
   SHELL = "SHELL",
 }
 
 /**
+ * @public
  * <p>A high-level summary of a component.</p>
  */
 export interface ComponentSummary {
@@ -648,6 +692,7 @@ export interface ComponentSummary {
 }
 
 /**
+ * @public
  * <p>The defining characteristics of a specific version of an Amazon Web Services TOE component.</p>
  */
 export interface ComponentVersion {
@@ -734,6 +779,7 @@ export interface ComponentVersion {
 }
 
 /**
+ * @public
  * <p>A container encapsulates the runtime environment for an application.</p>
  */
 export interface Container {
@@ -748,11 +794,15 @@ export interface Container {
   imageUris?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ContainerRepositoryService {
   ECR = "ECR",
 }
 
 /**
+ * @public
  * <p>The container repository where the output container image is stored.</p>
  */
 export interface TargetContainerRepository {
@@ -768,6 +818,7 @@ export interface TargetContainerRepository {
 }
 
 /**
+ * @public
  * <p>Container distribution settings for encryption, licensing, and sharing in a specific Region.</p>
  */
 export interface ContainerDistributionConfiguration {
@@ -787,10 +838,16 @@ export interface ContainerDistributionConfiguration {
   targetRepository: TargetContainerRepository | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContainerType {
   DOCKER = "DOCKER",
 }
 
+/**
+ * @public
+ */
 export enum EbsVolumeType {
   GP2 = "gp2",
   GP3 = "gp3",
@@ -802,6 +859,7 @@ export enum EbsVolumeType {
 }
 
 /**
+ * @public
  * <p>Amazon EBS-specific block device mapping specifications.</p>
  */
 export interface EbsInstanceBlockDeviceSpecification {
@@ -849,6 +907,7 @@ export interface EbsInstanceBlockDeviceSpecification {
 }
 
 /**
+ * @public
  * <p>Defines block device mappings for the instance used to configure your image.</p>
  */
 export interface InstanceBlockDeviceMapping {
@@ -874,6 +933,7 @@ export interface InstanceBlockDeviceMapping {
 }
 
 /**
+ * @public
  * <p>Defines a custom base AMI and block device mapping configurations of an instance
  * 			used for building and testing container images.</p>
  */
@@ -891,6 +951,7 @@ export interface InstanceConfiguration {
 }
 
 /**
+ * @public
  * <p>A container recipe.</p>
  */
 export interface ContainerRecipe {
@@ -1015,6 +1076,7 @@ export interface ContainerRecipe {
 }
 
 /**
+ * @public
  * <p>A summary of a container recipe</p>
  */
 export interface ContainerRecipeSummary {
@@ -1059,6 +1121,9 @@ export interface ContainerRecipeSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentRequest {
   /**
    * <p>The name of the component.</p>
@@ -1138,6 +1203,9 @@ export interface CreateComponentRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -1156,6 +1224,7 @@ export interface CreateComponentResponse {
 }
 
 /**
+ * @public
  * <p>You have specified two or more mutually exclusive parameters. Review the error message for
  * 			details.</p>
  */
@@ -1176,6 +1245,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your version number is out of bounds or does not follow the required syntax.</p>
  */
 export class InvalidVersionNumberException extends __BaseException {
@@ -1195,6 +1265,7 @@ export class InvalidVersionNumberException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and quotas</a>.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -1213,6 +1284,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerRecipeRequest {
   /**
    * <p>The type of container to create.</p>
@@ -1308,6 +1382,9 @@ export interface CreateContainerRecipeRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -1326,6 +1403,7 @@ export interface CreateContainerRecipeResponse {
 }
 
 /**
+ * @public
  * <p>The resource that you are trying to create already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -1345,6 +1423,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Identifies the launch template that the associated Windows AMI uses for
  * 			launching an instance when faster launching is enabled.</p>
  *          <note>
@@ -1370,6 +1449,7 @@ export interface FastLaunchLaunchTemplateSpecification {
 }
 
 /**
+ * @public
  * <p>Configuration settings for creating and managing pre-provisioned snapshots
  * 			for a fast-launch enabled Windows AMI.</p>
  */
@@ -1382,6 +1462,7 @@ export interface FastLaunchSnapshotConfiguration {
 }
 
 /**
+ * @public
  * <p>Define and configure faster launching for output Windows AMIs.</p>
  */
 export interface FastLaunchConfiguration {
@@ -1418,6 +1499,7 @@ export interface FastLaunchConfiguration {
 }
 
 /**
+ * @public
  * <p>Identifies an Amazon EC2 launch template to use for a specific account.</p>
  */
 export interface LaunchTemplateConfiguration {
@@ -1437,6 +1519,9 @@ export interface LaunchTemplateConfiguration {
   setDefaultVersion?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DiskImageFormat {
   RAW = "RAW",
   VHD = "VHD",
@@ -1444,6 +1529,7 @@ export enum DiskImageFormat {
 }
 
 /**
+ * @public
  * <p>Properties that configure export from your build instance
  * 			to a compatible file format for your VM.</p>
  */
@@ -1489,6 +1575,7 @@ export interface S3ExportConfiguration {
 }
 
 /**
+ * @public
  * <p> Defines the settings for a specific Region.</p>
  */
 export interface Distribution {
@@ -1532,6 +1619,9 @@ export interface Distribution {
   fastLaunchConfigurations?: FastLaunchConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDistributionConfigurationRequest {
   /**
    * <p> The name of the distribution configuration.</p>
@@ -1559,6 +1649,9 @@ export interface CreateDistributionConfigurationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDistributionConfigurationResponse {
   /**
    * <p> The request ID that uniquely identifies this request.</p>
@@ -1578,6 +1671,7 @@ export interface CreateDistributionConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Configure image tests for your pipeline build. Tests run after building
  * 			the image, to verify that the AMI or container image is valid before
  * 			distributing it.</p>
@@ -1598,6 +1692,9 @@ export interface ImageTestsConfiguration {
   timeoutMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the image recipe that defines how images are
@@ -1645,6 +1742,9 @@ export interface CreateImageRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageResponse {
   /**
    * <p> The request ID that uniquely identifies this request.</p>
@@ -1662,12 +1762,16 @@ export interface CreateImageResponse {
   imageBuildVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum PipelineExecutionStartCondition {
   EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
   EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY",
 }
 
 /**
+ * @public
  * <p>A schedule configures how often and when a pipeline will automatically create a new image.</p>
  */
 export interface Schedule {
@@ -1700,11 +1804,17 @@ export interface Schedule {
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition | string;
 }
 
+/**
+ * @public
+ */
 export enum PipelineStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface CreateImagePipelineRequest {
   /**
    * <p> The name of the image pipeline.</p>
@@ -1772,6 +1882,9 @@ export interface CreateImagePipelineRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateImagePipelineResponse {
   /**
    * <p> The request ID that uniquely identifies this request.</p>
@@ -1789,6 +1902,9 @@ export interface CreateImagePipelineResponse {
   imagePipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageRecipeRequest {
   /**
    * <p> The name of the image recipe.</p>
@@ -1858,6 +1974,9 @@ export interface CreateImageRecipeRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -1876,6 +1995,7 @@ export interface CreateImageRecipeResponse {
 }
 
 /**
+ * @public
  * <p>The instance metadata options that apply to the HTTP requests that
  * 			pipeline builds use to launch EC2 build and test instances. For more
  * 			information about instance metadata options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
@@ -1919,6 +2039,7 @@ export interface InstanceMetadataOptions {
 }
 
 /**
+ * @public
  * <p>Amazon S3 logging configuration.</p>
  */
 export interface S3Logs {
@@ -1934,6 +2055,7 @@ export interface S3Logs {
 }
 
 /**
+ * @public
  * <p>Logging configuration defines where Image Builder uploads your logs.</p>
  */
 export interface Logging {
@@ -1943,6 +2065,9 @@ export interface Logging {
   s3Logs?: S3Logs;
 }
 
+/**
+ * @public
+ */
 export interface CreateInfrastructureConfigurationRequest {
   /**
    * <p>The name of the infrastructure configuration.</p>
@@ -2026,6 +2151,9 @@ export interface CreateInfrastructureConfigurationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInfrastructureConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2044,6 +2172,9 @@ export interface CreateInfrastructureConfigurationResponse {
   infrastructureConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component build version to delete.</p>
@@ -2051,6 +2182,9 @@ export interface DeleteComponentRequest {
   componentBuildVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2064,6 +2198,7 @@ export interface DeleteComponentResponse {
 }
 
 /**
+ * @public
  * <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
  * 			action. See the error message for more details.</p>
  */
@@ -2083,6 +2218,9 @@ export class ResourceDependencyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe to delete.</p>
@@ -2090,6 +2228,9 @@ export interface DeleteContainerRecipeRequest {
   containerRecipeArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2102,6 +2243,9 @@ export interface DeleteContainerRecipeResponse {
   containerRecipeArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDistributionConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration to delete.</p>
@@ -2109,6 +2253,9 @@ export interface DeleteDistributionConfigurationRequest {
   distributionConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDistributionConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2121,6 +2268,9 @@ export interface DeleteDistributionConfigurationResponse {
   distributionConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Image Builder image resource to delete.</p>
@@ -2128,6 +2278,9 @@ export interface DeleteImageRequest {
   imageBuildVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2140,6 +2293,9 @@ export interface DeleteImageResponse {
   imageBuildVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImagePipelineRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline to delete.</p>
@@ -2147,6 +2303,9 @@ export interface DeleteImagePipelineRequest {
   imagePipelineArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImagePipelineResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2159,6 +2318,9 @@ export interface DeleteImagePipelineResponse {
   imagePipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe to delete.</p>
@@ -2166,6 +2328,9 @@ export interface DeleteImageRecipeRequest {
   imageRecipeArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2178,6 +2343,9 @@ export interface DeleteImageRecipeResponse {
   imageRecipeArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInfrastructureConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration to delete.</p>
@@ -2185,6 +2353,9 @@ export interface DeleteInfrastructureConfigurationRequest {
   infrastructureConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInfrastructureConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2198,6 +2369,7 @@ export interface DeleteInfrastructureConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>A distribution configuration.</p>
  */
 export interface DistributionConfiguration {
@@ -2244,6 +2416,7 @@ export interface DistributionConfiguration {
 }
 
 /**
+ * @public
  * <p>A high-level overview of a distribution configuration.</p>
  */
 export interface DistributionConfigurationSummary {
@@ -2284,6 +2457,7 @@ export interface DistributionConfigurationSummary {
 }
 
 /**
+ * @public
  * <p>A filter name and value pair that is used to return a more specific list of results from a
  * 			list operation. Filters can be used to match a set of resources by specific criteria, such as
  * 			tags, attributes, or IDs.</p>
@@ -2300,6 +2474,9 @@ export interface Filter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetComponentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires
@@ -2308,6 +2485,9 @@ export interface GetComponentRequest {
   componentBuildVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2320,6 +2500,9 @@ export interface GetComponentResponse {
   component?: Component;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.</p>
@@ -2327,6 +2510,9 @@ export interface GetComponentPolicyRequest {
   componentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentPolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2340,6 +2526,7 @@ export interface GetComponentPolicyResponse {
 }
 
 /**
+ * @public
  * <p>At least one of the resources referenced by your request does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -2358,6 +2545,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetContainerRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe to retrieve.</p>
@@ -2365,6 +2555,9 @@ export interface GetContainerRecipeRequest {
   containerRecipeArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2377,6 +2570,9 @@ export interface GetContainerRecipeResponse {
   containerRecipe?: ContainerRecipe;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerRecipePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe for the policy being requested.</p>
@@ -2384,6 +2580,9 @@ export interface GetContainerRecipePolicyRequest {
   containerRecipeArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerRecipePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2396,6 +2595,9 @@ export interface GetContainerRecipePolicyResponse {
   policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDistributionConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to
@@ -2404,6 +2606,9 @@ export interface GetDistributionConfigurationRequest {
   distributionConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDistributionConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2416,6 +2621,9 @@ export interface GetDistributionConfigurationResponse {
   distributionConfiguration?: DistributionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetImageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image that you want to retrieve.</p>
@@ -2423,12 +2631,16 @@ export interface GetImageRequest {
   imageBuildVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImageType {
   AMI = "AMI",
   DOCKER = "DOCKER",
 }
 
 /**
+ * @public
  * <p>An image recipe.</p>
  */
 export interface ImageRecipe {
@@ -2508,6 +2720,9 @@ export interface ImageRecipe {
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ImageSource {
   AMAZON_MANAGED = "AMAZON_MANAGED",
   AWS_MARKETPLACE = "AWS_MARKETPLACE",
@@ -2516,6 +2731,7 @@ export enum ImageSource {
 }
 
 /**
+ * @public
  * <p>Details of the infrastructure configuration.</p>
  */
 export interface InfrastructureConfiguration {
@@ -2607,6 +2823,7 @@ export interface InfrastructureConfiguration {
 }
 
 /**
+ * @public
  * <p>The resources produced by this image.</p>
  */
 export interface OutputResources {
@@ -2622,6 +2839,7 @@ export interface OutputResources {
 }
 
 /**
+ * @public
  * <p>An Image Builder image. You must specify exactly one recipe for the image – either
  * 			a container recipe (<code>containerRecipe</code>), which creates a container
  * 			image, or an image recipe (<code>imageRecipe</code>), which creates an AMI.</p>
@@ -2783,6 +3001,9 @@ export interface Image {
   imageSource?: ImageSource | string;
 }
 
+/**
+ * @public
+ */
 export interface GetImageResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2795,6 +3016,9 @@ export interface GetImageResponse {
   image?: Image;
 }
 
+/**
+ * @public
+ */
 export interface GetImagePipelineRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to retrieve.</p>
@@ -2803,6 +3027,7 @@ export interface GetImagePipelineRequest {
 }
 
 /**
+ * @public
  * <p>Details of an image pipeline.</p>
  */
 export interface ImagePipeline {
@@ -2897,6 +3122,9 @@ export interface ImagePipeline {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetImagePipelineResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2909,6 +3137,9 @@ export interface GetImagePipelineResponse {
   imagePipeline?: ImagePipeline;
 }
 
+/**
+ * @public
+ */
 export interface GetImagePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image whose policy you want to retrieve.</p>
@@ -2916,6 +3147,9 @@ export interface GetImagePolicyRequest {
   imageArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetImagePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2928,6 +3162,9 @@ export interface GetImagePolicyResponse {
   policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetImageRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that you want to retrieve.</p>
@@ -2935,6 +3172,9 @@ export interface GetImageRecipeRequest {
   imageRecipeArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetImageRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2947,6 +3187,9 @@ export interface GetImageRecipeResponse {
   imageRecipe?: ImageRecipe;
 }
 
+/**
+ * @public
+ */
 export interface GetImageRecipePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve.</p>
@@ -2954,6 +3197,9 @@ export interface GetImageRecipePolicyRequest {
   imageRecipeArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetImageRecipePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2967,6 +3213,7 @@ export interface GetImageRecipePolicyResponse {
 }
 
 /**
+ * @public
  * <p> GetInfrastructureConfiguration request object.</p>
  */
 export interface GetInfrastructureConfigurationRequest {
@@ -2978,6 +3225,7 @@ export interface GetInfrastructureConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>GetInfrastructureConfiguration response object.</p>
  */
 export interface GetInfrastructureConfigurationResponse {
@@ -2992,6 +3240,9 @@ export interface GetInfrastructureConfigurationResponse {
   infrastructureConfiguration?: InfrastructureConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface ImportComponentRequest {
   /**
    * <p> The name of the component.</p>
@@ -3069,6 +3320,9 @@ export interface ImportComponentRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportComponentResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3086,6 +3340,9 @@ export interface ImportComponentResponse {
   componentBuildVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportVmImageRequest {
   /**
    * <p>The name of the base image that is created by the import process.</p>
@@ -3145,6 +3402,9 @@ export interface ImportVmImageRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportVmImageResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3165,6 +3425,7 @@ export interface ImportVmImageResponse {
 }
 
 /**
+ * @public
  * <p>You have provided an invalid pagination token in your request.</p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -3183,6 +3444,9 @@ export class InvalidPaginationTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListComponentBuildVersionsRequest {
   /**
    * <p>The component version Amazon Resource Name (ARN) whose versions you want to list.</p>
@@ -3201,6 +3465,9 @@ export interface ListComponentBuildVersionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentBuildVersionsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3220,6 +3487,9 @@ export interface ListComponentBuildVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum Ownership {
   AMAZON = "Amazon",
   SELF = "Self",
@@ -3227,6 +3497,9 @@ export enum Ownership {
   THIRDPARTY = "ThirdParty",
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsRequest {
   /**
    * <p>Filters results based on the type of owner for the component. By default, this request
@@ -3290,6 +3563,9 @@ export interface ListComponentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3313,6 +3589,9 @@ export interface ListComponentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContainerRecipesRequest {
   /**
    * <p>Returns container recipes belonging to the specified owner, that have been shared with you. You can omit this field to return container recipes belonging to your account.</p>
@@ -3357,6 +3636,9 @@ export interface ListContainerRecipesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContainerRecipesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3374,6 +3656,9 @@ export interface ListContainerRecipesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionConfigurationsRequest {
   /**
    * <p>You can filter on <code>name</code> to streamline results.</p>
@@ -3392,6 +3677,9 @@ export interface ListDistributionConfigurationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDistributionConfigurationsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3411,6 +3699,9 @@ export interface ListDistributionConfigurationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImageBuildVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve.</p>
@@ -3462,6 +3753,7 @@ export interface ListImageBuildVersionsRequest {
 }
 
 /**
+ * @public
  * <p>An image summary.</p>
  */
 export interface ImageSummary {
@@ -3550,6 +3842,9 @@ export interface ImageSummary {
   imageSource?: ImageSource | string;
 }
 
+/**
+ * @public
+ */
 export interface ListImageBuildVersionsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3569,6 +3864,9 @@ export interface ListImageBuildVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagePackagesRequest {
   /**
    * <p>Filter results for the ListImagePackages request by the Image Build Version ARN</p>
@@ -3587,6 +3885,7 @@ export interface ListImagePackagesRequest {
 }
 
 /**
+ * @public
  * <p>Represents a package installed on an Image Builder image.</p>
  */
 export interface ImagePackage {
@@ -3601,6 +3900,9 @@ export interface ImagePackage {
   packageVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagePackagesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3618,6 +3920,9 @@ export interface ListImagePackagesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagePipelineImagesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.</p>
@@ -3653,6 +3958,9 @@ export interface ListImagePipelineImagesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagePipelineImagesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3672,6 +3980,9 @@ export interface ListImagePipelineImagesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagePipelinesRequest {
   /**
    * <p>Use the following filters to streamline results:</p>
@@ -3722,6 +4033,9 @@ export interface ListImagePipelinesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagePipelinesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3741,6 +4055,9 @@ export interface ListImagePipelinesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImageRecipesRequest {
   /**
    * <p>The owner defines which image recipes you want to list. By default, this request will only
@@ -3785,6 +4102,7 @@ export interface ListImageRecipesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of an image recipe.</p>
  */
 export interface ImageRecipeSummary {
@@ -3824,6 +4142,9 @@ export interface ImageRecipeSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListImageRecipesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3843,6 +4164,9 @@ export interface ListImageRecipesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagesRequest {
   /**
    * <p>The owner defines which images you want to list. By default, this request will only show
@@ -3907,6 +4231,7 @@ export interface ListImagesRequest {
 }
 
 /**
+ * @public
  * <p>The defining characteristics of a specific version of an Image Builder image.</p>
  */
 export interface ImageVersion {
@@ -4013,6 +4338,9 @@ export interface ImageVersion {
   imageSource?: ImageSource | string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4041,6 +4369,9 @@ export interface ListImagesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInfrastructureConfigurationsRequest {
   /**
    * <p>You can filter on <code>name</code> to streamline results.</p>
@@ -4060,6 +4391,7 @@ export interface ListInfrastructureConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>The infrastructure used when building Amazon EC2 AMIs.</p>
  */
 export interface InfrastructureConfigurationSummary {
@@ -4109,6 +4441,9 @@ export interface InfrastructureConfigurationSummary {
   instanceProfileName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInfrastructureConfigurationsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4129,6 +4464,7 @@ export interface ListInfrastructureConfigurationsResponse {
 }
 
 /**
+ * @public
  * <p>The specified parameter is invalid. Review the available parameters for the API
  * 			request.</p>
  */
@@ -4148,6 +4484,9 @@ export class InvalidParameterException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
@@ -4155,6 +4494,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the specified resource.</p>
@@ -4163,6 +4505,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The value that you provided for the specified parameter is invalid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -4181,6 +4524,9 @@ export class InvalidParameterValueException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutComponentPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component that this policy should be applied to.</p>
@@ -4193,6 +4539,9 @@ export interface PutComponentPolicyRequest {
   policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutComponentPolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4205,6 +4554,9 @@ export interface PutComponentPolicyResponse {
   componentArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutContainerRecipePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe that this policy should be applied to.</p>
@@ -4217,6 +4569,9 @@ export interface PutContainerRecipePolicyRequest {
   policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutContainerRecipePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4229,6 +4584,9 @@ export interface PutContainerRecipePolicyResponse {
   containerRecipeArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutImagePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image that this policy should be applied to.</p>
@@ -4241,6 +4599,9 @@ export interface PutImagePolicyRequest {
   policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutImagePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4253,6 +4614,9 @@ export interface PutImagePolicyResponse {
   imageArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutImageRecipePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that this policy should be applied to.</p>
@@ -4265,6 +4629,9 @@ export interface PutImageRecipePolicyRequest {
   policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutImageRecipePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4277,6 +4644,9 @@ export interface PutImageRecipePolicyResponse {
   imageRecipeArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImagePipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke.</p>
@@ -4289,6 +4659,9 @@ export interface StartImagePipelineExecutionRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImagePipelineExecutionResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4306,6 +4679,9 @@ export interface StartImagePipelineExecutionResponse {
   imageBuildVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
@@ -4318,8 +4694,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
@@ -4332,8 +4714,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDistributionConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update.</p>
@@ -4356,6 +4744,9 @@ export interface UpdateDistributionConfigurationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDistributionConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4374,6 +4765,9 @@ export interface UpdateDistributionConfigurationResponse {
   distributionConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImagePipelineRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to update.</p>
@@ -4436,6 +4830,9 @@ export interface UpdateImagePipelineRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImagePipelineResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4453,6 +4850,9 @@ export interface UpdateImagePipelineResponse {
   imagePipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInfrastructureConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
@@ -4551,6 +4951,9 @@ export interface UpdateInfrastructureConfigurationRequest {
   instanceMetadataOptions?: InstanceMetadataOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInfrastructureConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>

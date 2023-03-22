@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelClusterCommand}.
  */
 export interface CancelClusterCommandInput extends CancelClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelClusterCommand}.
  */
 export interface CancelClusterCommandOutput extends CancelClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a cluster job. You can only cancel a cluster job while it's in the
  *         <code>AwaitingQuorum</code> status. You'll have at least an hour after creating a cluster
  *       job to cancel it.</p>
@@ -48,6 +53,8 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelClusterCommandInput - {@link CancelClusterCommandInput}
+ * @returns {@link CancelClusterCommandOutput}
  * @see {@link CancelClusterCommandInput} for command's `input` shape.
  * @see {@link CancelClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -94,6 +101,9 @@ export class CancelClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CancelClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelClusterCommandOutput> {
     return deserializeAws_json1_1CancelClusterCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVerifiedAccessGroupsCommand}.
  */
 export interface DescribeVerifiedAccessGroupsCommandInput extends DescribeVerifiedAccessGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVerifiedAccessGroupsCommand}.
  */
 export interface DescribeVerifiedAccessGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe details of existing Verified Access groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVerifiedAccessGroupsCommandInput - {@link DescribeVerifiedAccessGroupsCommandInput}
+ * @returns {@link DescribeVerifiedAccessGroupsCommandOutput}
  * @see {@link DescribeVerifiedAccessGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVerifiedAccessGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVerifiedAccessGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVerifiedAccessGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

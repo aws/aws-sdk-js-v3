@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListHyperParameterTuningJobsCommand}.
  */
 export interface ListHyperParameterTuningJobsCommandInput extends ListHyperParameterTuningJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHyperParameterTuningJobsCommand}.
  */
 export interface ListHyperParameterTuningJobsCommandOutput
@@ -37,6 +41,7 @@ export interface ListHyperParameterTuningJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of <a>HyperParameterTuningJobSummary</a> objects that
  *             describe
  *             the hyperparameter tuning jobs launched in your account.</p>
@@ -50,6 +55,8 @@ export interface ListHyperParameterTuningJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHyperParameterTuningJobsCommandInput - {@link ListHyperParameterTuningJobsCommandInput}
+ * @returns {@link ListHyperParameterTuningJobsCommandOutput}
  * @see {@link ListHyperParameterTuningJobsCommandInput} for command's `input` shape.
  * @see {@link ListHyperParameterTuningJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHyperParameterTuningJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHyperParameterTuningJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHyperParameterTuningJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

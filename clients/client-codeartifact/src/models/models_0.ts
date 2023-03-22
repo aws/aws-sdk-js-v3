@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { CodeartifactServiceException as __BaseException } from "./CodeartifactServiceException";
 
 /**
+ * @public
  * <p>
  *         The operation did not succeed because of an unauthorized access attempt.
  *       </p>
@@ -25,16 +26,25 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AllowPublish {
   ALLOW = "ALLOW",
   BLOCK = "BLOCK",
 }
 
+/**
+ * @public
+ */
 export enum AllowUpstream {
   ALLOW = "ALLOW",
   BLOCK = "BLOCK",
 }
 
+/**
+ * @public
+ */
 export enum HashAlgorithm {
   MD5 = "MD5",
   SHA1 = "SHA-1",
@@ -43,6 +53,7 @@ export enum HashAlgorithm {
 }
 
 /**
+ * @public
  * <p>
  *         Contains details about a package version asset.
  *        </p>
@@ -70,6 +81,9 @@ export interface AssetSummary {
   hashes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface AssociateExternalConnectionRequest {
   /**
    * <p>The name of the domain that contains the repository.</p>
@@ -136,6 +150,9 @@ export interface AssociateExternalConnectionRequest {
   externalConnection: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PackageFormat {
   GENERIC = "generic",
   MAVEN = "maven",
@@ -144,11 +161,15 @@ export enum PackageFormat {
   PYPI = "pypi",
 }
 
+/**
+ * @public
+ */
 export enum ExternalConnectionStatus {
   AVAILABLE = "Available",
 }
 
 /**
+ * @public
  * <p>
  *         Contains information about the external connection of a repository.
  *       </p>
@@ -197,6 +218,7 @@ export interface RepositoryExternalConnectionInfo {
 }
 
 /**
+ * @public
  * <p>
  *         Information about an upstream repository.
  *       </p>
@@ -209,6 +231,7 @@ export interface UpstreamRepositoryInfo {
 }
 
 /**
+ * @public
  * <p> The details of a repository stored in CodeArtifact. A CodeArtifact repository contains a set of
  *       package versions, each of which maps to a set of assets. Repositories are polyglot—a single
  *       repository can contain packages of any supported type. Each repository exposes endpoints for
@@ -271,6 +294,9 @@ export interface RepositoryDescription {
   externalConnections?: RepositoryExternalConnectionInfo[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateExternalConnectionResult {
   /**
    * <p>
@@ -280,6 +306,9 @@ export interface AssociateExternalConnectionResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   ASSET = "asset",
   DOMAIN = "domain",
@@ -289,6 +318,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>
  *         The operation did not succeed because prerequisites are not met.
  *       </p>
@@ -326,6 +356,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
  */
 export class InternalServerException extends __BaseException {
@@ -345,6 +376,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       The operation did not succeed because the resource requested is not found in the service.
  *     </p>
@@ -382,6 +414,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *         The operation did not succeed because it would have exceeded a service limit for your account.
  *       </p>
@@ -419,6 +452,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       The operation did not succeed because too many requests are sent to the service.
  *     </p>
@@ -447,6 +481,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   ENCRYPTION_KEY_ERROR = "ENCRYPTION_KEY_ERROR",
@@ -456,6 +493,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
@@ -484,6 +522,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CopyPackageVersionsRequest {
   /**
    * <p>
@@ -601,6 +642,9 @@ export interface CopyPackageVersionsRequest {
   includeFromUpstream?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum PackageVersionErrorCode {
   ALREADY_EXISTS = "ALREADY_EXISTS",
   MISMATCHED_REVISION = "MISMATCHED_REVISION",
@@ -611,6 +655,7 @@ export enum PackageVersionErrorCode {
 }
 
 /**
+ * @public
  * <p>l
  *        An error associated with package.
  *    </p>
@@ -661,6 +706,9 @@ export interface PackageVersionError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum PackageVersionStatus {
   ARCHIVED = "Archived",
   DELETED = "Deleted",
@@ -671,6 +719,7 @@ export enum PackageVersionStatus {
 }
 
 /**
+ * @public
  * <p>
  *       Contains the revision and status of a package version.
  *     </p>
@@ -691,6 +740,9 @@ export interface SuccessfulPackageVersionInfo {
   status?: PackageVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CopyPackageVersionsResult {
   /**
    * <p>
@@ -741,6 +793,7 @@ export interface CopyPackageVersionsResult {
 }
 
 /**
+ * @public
  * <p>A tag is a key-value pair that can be used to manage, search for, or filter resources in CodeArtifact.</p>
  */
 export interface Tag {
@@ -755,6 +808,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p> The name of the domain to create. All domain names in an Amazon Web Services Region that are in the
@@ -785,12 +841,16 @@ export interface CreateDomainRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum DomainStatus {
   ACTIVE = "Active",
   DELETED = "Deleted",
 }
 
 /**
+ * @public
  * <p>
  *        Information about a domain. A domain is a container for repositories. When you create a domain, it is empty until you
  *        add one or more repositories.
@@ -853,6 +913,9 @@ export interface DomainDescription {
   s3BucketArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResult {
   /**
    * <p>
@@ -863,6 +926,7 @@ export interface CreateDomainResult {
 }
 
 /**
+ * @public
  * <p>
  *        Information about an upstream repository. A list of <code>UpstreamRepository</code> objects is an input parameter to
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html">CreateRepository</a>
@@ -876,6 +940,9 @@ export interface UpstreamRepository {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRepositoryRequest {
   /**
    * <p>
@@ -917,6 +984,9 @@ export interface CreateRepositoryRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRepositoryResult {
   /**
    * <p>
@@ -926,6 +996,9 @@ export interface CreateRepositoryResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>
@@ -943,6 +1016,9 @@ export interface DeleteDomainRequest {
   domainOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainResult {
   /**
    * <p>
@@ -952,6 +1028,9 @@ export interface DeleteDomainResult {
   domain?: DomainDescription;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainPermissionsPolicyRequest {
   /**
    * <p>
@@ -978,6 +1057,7 @@ export interface DeleteDomainPermissionsPolicyRequest {
 }
 
 /**
+ * @public
  * <p>
  *         An CodeArtifact resource policy that contains a resource ARN, document details, and a revision.
  *       </p>
@@ -1005,6 +1085,9 @@ export interface ResourcePolicy {
   document?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainPermissionsPolicyResult {
   /**
    * <p>
@@ -1014,6 +1097,9 @@ export interface DeleteDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageRequest {
   /**
    * <p>The name of the domain that contains the package to delete.</p>
@@ -1067,6 +1153,7 @@ export interface DeletePackageRequest {
 }
 
 /**
+ * @public
  * <p>Details about the origin restrictions set on the package.
  *       The package origin restrictions determine how new versions of a package
  *       can be added to a specific repository.</p>
@@ -1084,6 +1171,7 @@ export interface PackageOriginRestrictions {
 }
 
 /**
+ * @public
  * <p>Details about the package origin configuration of a package.</p>
  */
 export interface PackageOriginConfiguration {
@@ -1095,6 +1183,7 @@ export interface PackageOriginConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *       Details about a package, including its format, namespace, and name.
  *     </p>
@@ -1151,6 +1240,9 @@ export interface PackageSummary {
   originConfiguration?: PackageOriginConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageResult {
   /**
    * <p>
@@ -1160,6 +1252,9 @@ export interface DeletePackageResult {
   deletedPackage?: PackageSummary;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageVersionsRequest {
   /**
    * <p>
@@ -1241,6 +1336,9 @@ export interface DeletePackageVersionsRequest {
   expectedStatus?: PackageVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageVersionsResult {
   /**
    * <p>
@@ -1291,6 +1389,9 @@ export interface DeletePackageVersionsResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryRequest {
   /**
    * <p>
@@ -1313,6 +1414,9 @@ export interface DeleteRepositoryRequest {
   repository: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryResult {
   /**
    * <p>
@@ -1322,6 +1426,9 @@ export interface DeleteRepositoryResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryPermissionsPolicyRequest {
   /**
    * <p>
@@ -1354,6 +1461,9 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
   policyRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryPermissionsPolicyResult {
   /**
    * <p>
@@ -1363,6 +1473,9 @@ export interface DeleteRepositoryPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
    * <p>
@@ -1380,6 +1493,9 @@ export interface DescribeDomainRequest {
   domainOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainResult {
   /**
    * <p>
@@ -1390,6 +1506,9 @@ export interface DescribeDomainResult {
   domain?: DomainDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageRequest {
   /**
    * <p>The name of the domain that contains the repository that contains the package.</p>
@@ -1450,6 +1569,7 @@ export interface DescribePackageRequest {
 }
 
 /**
+ * @public
  * <p>Details about a package.</p>
  */
 export interface PackageDescription {
@@ -1498,6 +1618,9 @@ export interface PackageDescription {
   originConfiguration?: PackageOriginConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageResult {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
@@ -1506,6 +1629,9 @@ export interface DescribePackageResult {
   package: PackageDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageVersionRequest {
   /**
    * <p>
@@ -1577,6 +1703,7 @@ export interface DescribePackageVersionRequest {
 }
 
 /**
+ * @public
  * <p>
  *         Details of the license data.
  *       </p>
@@ -1598,6 +1725,7 @@ export interface LicenseInfo {
 }
 
 /**
+ * @public
  * <p>Information about how a package originally entered the CodeArtifact domain. For packages published directly to CodeArtifact, the entry point is the repository it was published to.
  *       For packages ingested from an external repository, the entry point is the external connection that it was ingested from. An external
  *     connection is a CodeArtifact repository that is connected to an external repository such as the npm registry or NuGet gallery.</p>
@@ -1614,6 +1742,9 @@ export interface DomainEntryPoint {
   externalConnectionName?: string;
 }
 
+/**
+ * @public
+ */
 export enum PackageVersionOriginType {
   EXTERNAL = "EXTERNAL",
   INTERNAL = "INTERNAL",
@@ -1621,6 +1752,7 @@ export enum PackageVersionOriginType {
 }
 
 /**
+ * @public
  * <p>Information about how a package version was added to a repository.</p>
  */
 export interface PackageVersionOrigin {
@@ -1638,6 +1770,7 @@ export interface PackageVersionOrigin {
 }
 
 /**
+ * @public
  * <p>
  *       Details about a package version.
  *     </p>
@@ -1760,6 +1893,9 @@ export interface PackageVersionDescription {
   origin?: PackageVersionOrigin;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageVersionResult {
   /**
    * <p>
@@ -1770,6 +1906,9 @@ export interface DescribePackageVersionResult {
   packageVersion: PackageVersionDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoryRequest {
   /**
    * <p>
@@ -1794,6 +1933,9 @@ export interface DescribeRepositoryRequest {
   repository: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoryResult {
   /**
    * <p>
@@ -1803,6 +1945,9 @@ export interface DescribeRepositoryResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateExternalConnectionRequest {
   /**
    * <p>The name of the domain that contains the repository from which to remove the external
@@ -1829,6 +1974,9 @@ export interface DisassociateExternalConnectionRequest {
   externalConnection: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateExternalConnectionResult {
   /**
    * <p>
@@ -1838,6 +1986,9 @@ export interface DisassociateExternalConnectionResult {
   repository?: RepositoryDescription;
 }
 
+/**
+ * @public
+ */
 export interface DisposePackageVersionsRequest {
   /**
    * <p>
@@ -1926,6 +2077,9 @@ export interface DisposePackageVersionsRequest {
   expectedStatus?: PackageVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DisposePackageVersionsResult {
   /**
    * <p>
@@ -1975,6 +2129,9 @@ export interface DisposePackageVersionsResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizationTokenRequest {
   /**
    * <p>
@@ -2000,6 +2157,9 @@ export interface GetAuthorizationTokenRequest {
   durationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizationTokenResult {
   /**
    * <p>
@@ -2016,6 +2176,9 @@ export interface GetAuthorizationTokenResult {
   expiration?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainPermissionsPolicyRequest {
   /**
    * <p>
@@ -2033,6 +2196,9 @@ export interface GetDomainPermissionsPolicyRequest {
   domainOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainPermissionsPolicyResult {
   /**
    * <p>
@@ -2042,6 +2208,9 @@ export interface GetDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionAssetRequest {
   /**
    * <p>
@@ -2130,6 +2299,9 @@ export interface GetPackageVersionAssetRequest {
   packageVersionRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionAssetResult {
   /**
    * <p> The binary file, or asset, that is downloaded.</p>
@@ -2158,6 +2330,9 @@ export interface GetPackageVersionAssetResult {
   packageVersionRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionReadmeRequest {
   /**
    * <p>
@@ -2227,6 +2402,9 @@ export interface GetPackageVersionReadmeRequest {
   packageVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPackageVersionReadmeResult {
   /**
    * <p>
@@ -2288,6 +2466,9 @@ export interface GetPackageVersionReadmeResult {
   readme?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryEndpointRequest {
   /**
    * <p>
@@ -2320,6 +2501,9 @@ export interface GetRepositoryEndpointRequest {
   format: PackageFormat | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryEndpointResult {
   /**
    * <p>
@@ -2329,6 +2513,9 @@ export interface GetRepositoryEndpointResult {
   repositoryEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryPermissionsPolicyRequest {
   /**
    * <p>
@@ -2353,6 +2540,9 @@ export interface GetRepositoryPermissionsPolicyRequest {
   repository: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryPermissionsPolicyResult {
   /**
    * <p>
@@ -2362,6 +2552,9 @@ export interface GetRepositoryPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>
@@ -2379,6 +2572,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p> Information about a domain, including its name, Amazon Resource Name (ARN), and status.
  *       The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListDomains.html">ListDomains</a> operation returns a list of <code>DomainSummary</code>
  *       objects. </p>
@@ -2428,6 +2622,9 @@ export interface DomainSummary {
   encryptionKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResult {
   /**
    * <p>
@@ -2444,6 +2641,9 @@ export interface ListDomainsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesRequest {
   /**
    * <p>
@@ -2537,6 +2737,9 @@ export interface ListPackagesRequest {
   upstream?: AllowUpstream | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesResult {
   /**
    * <p>
@@ -2554,6 +2757,9 @@ export interface ListPackagesResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionAssetsRequest {
   /**
    * <p>
@@ -2642,6 +2848,9 @@ export interface ListPackageVersionAssetsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionAssetsResult {
   /**
    * <p>
@@ -2710,6 +2919,9 @@ export interface ListPackageVersionAssetsResult {
   assets?: AssetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionDependenciesRequest {
   /**
    * <p>
@@ -2792,6 +3004,7 @@ export interface ListPackageVersionDependenciesRequest {
 }
 
 /**
+ * @public
  * <p>
  *         Details about a package dependency.
  *       </p>
@@ -2862,6 +3075,9 @@ export interface PackageDependency {
   versionRequirement?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionDependenciesResult {
   /**
    * <p>
@@ -2930,10 +3146,16 @@ export interface ListPackageVersionDependenciesResult {
   dependencies?: PackageDependency[];
 }
 
+/**
+ * @public
+ */
 export enum PackageVersionSortType {
   PUBLISHED_TIME = "PUBLISHED_TIME",
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionsRequest {
   /**
    * <p>
@@ -3036,6 +3258,7 @@ export interface ListPackageVersionsRequest {
 }
 
 /**
+ * @public
  * <p>
  *        Details about a package version, including its status, version, and revision. The
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>
@@ -3071,6 +3294,9 @@ export interface PackageVersionSummary {
   origin?: PackageVersionOrigin;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageVersionsResult {
   /**
    * <p>
@@ -3147,6 +3373,9 @@ export interface ListPackageVersionsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesRequest {
   /**
    * <p> A prefix used to filter returned repositories. Only repositories with names that start
@@ -3170,6 +3399,7 @@ export interface ListRepositoriesRequest {
 }
 
 /**
+ * @public
  * <p> Details about a repository, including its Amazon Resource Name (ARN), description, and
  *       domain information. The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListRepositories.html">ListRepositories</a> operation returns a list of
  *         <code>RepositorySummary</code> objects. </p>
@@ -3217,6 +3447,9 @@ export interface RepositorySummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesResult {
   /**
    * <p>
@@ -3234,6 +3467,9 @@ export interface ListRepositoriesResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesInDomainRequest {
   /**
    * <p>
@@ -3280,6 +3516,9 @@ export interface ListRepositoriesInDomainRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesInDomainResult {
   /**
    * <p>
@@ -3296,6 +3535,9 @@ export interface ListRepositoriesInDomainResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -3303,6 +3545,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
@@ -3310,6 +3555,9 @@ export interface ListTagsForResourceResult {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PublishPackageVersionRequest {
   /**
    * <p>The name of the domain that contains the repository that contains the package version to publish.</p>
@@ -3353,7 +3601,7 @@ export interface PublishPackageVersionRequest {
 
   /**
    * <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and
-   *       the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] { } ; , .
+   *       the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] \{ \} ; , .
    *       `</code>
    *          </p>
    */
@@ -3378,6 +3626,9 @@ export interface PublishPackageVersionRequest {
   unfinished?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PublishPackageVersionResult {
   /**
    * <p>The format of the package version.</p>
@@ -3415,6 +3666,9 @@ export interface PublishPackageVersionResult {
   asset?: AssetSummary;
 }
 
+/**
+ * @public
+ */
 export interface PutDomainPermissionsPolicyRequest {
   /**
    * <p>
@@ -3446,6 +3700,9 @@ export interface PutDomainPermissionsPolicyRequest {
   policyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDomainPermissionsPolicyResult {
   /**
    * <p> The resource policy that was set after processing the request. </p>
@@ -3453,6 +3710,9 @@ export interface PutDomainPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface PutPackageOriginConfigurationRequest {
   /**
    * <p>The name of the domain that contains the repository that contains the package.</p>
@@ -3521,6 +3781,9 @@ export interface PutPackageOriginConfigurationRequest {
   restrictions: PackageOriginRestrictions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutPackageOriginConfigurationResult {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
@@ -3531,6 +3794,9 @@ export interface PutPackageOriginConfigurationResult {
   originConfiguration?: PackageOriginConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutRepositoryPermissionsPolicyRequest {
   /**
    * <p>
@@ -3568,6 +3834,9 @@ export interface PutRepositoryPermissionsPolicyRequest {
   policyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRepositoryPermissionsPolicyResult {
   /**
    * <p> The resource policy that was set after processing the request. </p>
@@ -3575,6 +3844,9 @@ export interface PutRepositoryPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
@@ -3587,8 +3859,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
@@ -3601,8 +3879,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UpdatePackageVersionsStatusRequest {
   /**
    * <p>
@@ -3699,6 +3983,9 @@ export interface UpdatePackageVersionsStatusRequest {
   targetStatus: PackageVersionStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePackageVersionsStatusResult {
   /**
    * <p>
@@ -3715,6 +4002,9 @@ export interface UpdatePackageVersionsStatusResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRepositoryRequest {
   /**
    * <p>
@@ -3753,6 +4043,9 @@ export interface UpdateRepositoryRequest {
   upstreams?: UpstreamRepository[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRepositoryResult {
   /**
    * <p>

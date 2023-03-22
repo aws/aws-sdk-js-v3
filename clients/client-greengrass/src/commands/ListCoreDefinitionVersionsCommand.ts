@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoreDefinitionVersionsCommand}.
  */
 export interface ListCoreDefinitionVersionsCommandInput extends ListCoreDefinitionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoreDefinitionVersionsCommand}.
  */
 export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a core definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreDefinitionVersionsCommandInput - {@link ListCoreDefinitionVersionsCommandInput}
+ * @returns {@link ListCoreDefinitionVersionsCommandOutput}
  * @see {@link ListCoreDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreDefinitionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCoreDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserStackAssociationsCommand}.
  */
 export interface DescribeUserStackAssociationsCommandInput extends DescribeUserStackAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserStackAssociationsCommand}.
  */
 export interface DescribeUserStackAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeUserStackAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
  *          <ul>
  *             <li>
@@ -56,6 +61,8 @@ export interface DescribeUserStackAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserStackAssociationsCommandInput - {@link DescribeUserStackAssociationsCommandInput}
+ * @returns {@link DescribeUserStackAssociationsCommandOutput}
  * @see {@link DescribeUserStackAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserStackAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserStackAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserStackAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserStackAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

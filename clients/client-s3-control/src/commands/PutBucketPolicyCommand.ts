@@ -23,15 +23,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketPolicyCommand}.
  */
 export interface PutBucketPolicyCommandInput extends PutBucketPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketPolicyCommand}.
  */
 export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an
  *             S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the
@@ -78,6 +83,8 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketPolicyCommandInput - {@link PutBucketPolicyCommandInput}
+ * @returns {@link PutBucketPolicyCommandOutput}
  * @see {@link PutBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -105,6 +112,9 @@ export class PutBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class PutBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketPolicyCommandOutput> {
     return deserializeAws_restXmlPutBucketPolicyCommand(output, context);
   }

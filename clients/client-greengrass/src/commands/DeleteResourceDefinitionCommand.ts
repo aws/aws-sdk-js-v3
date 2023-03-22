@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceDefinitionCommand}.
  */
 export interface DeleteResourceDefinitionCommandInput extends DeleteResourceDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceDefinitionCommand}.
  */
 export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a resource definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceDefinitionCommandInput - {@link DeleteResourceDefinitionCommandInput}
+ * @returns {@link DeleteResourceDefinitionCommandOutput}
  * @see {@link DeleteResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteResourceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteResourceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteResourceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceDefinitionCommandOutput> {
     return deserializeAws_restJson1DeleteResourceDefinitionCommand(output, context);
   }

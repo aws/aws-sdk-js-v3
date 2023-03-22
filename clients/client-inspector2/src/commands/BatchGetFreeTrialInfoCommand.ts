@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetFreeTrialInfoCommand}.
  */
 export interface BatchGetFreeTrialInfoCommandInput extends BatchGetFreeTrialInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetFreeTrialInfoCommand}.
  */
 export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets free trial status for multiple Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetFreeTrialInfoCommandInput - {@link BatchGetFreeTrialInfoCommandInput}
+ * @returns {@link BatchGetFreeTrialInfoCommandOutput}
  * @see {@link BatchGetFreeTrialInfoCommandInput} for command's `input` shape.
  * @see {@link BatchGetFreeTrialInfoCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +89,9 @@ export class BatchGetFreeTrialInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetFreeTrialInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchGetFreeTrialInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetFreeTrialInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetFreeTrialInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFreeTrialInfoCommandOutput> {
     return deserializeAws_restJson1BatchGetFreeTrialInfoCommand(output, context);
   }

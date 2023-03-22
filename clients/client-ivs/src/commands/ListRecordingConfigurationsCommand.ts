@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecordingConfigurationsCommand}.
  */
 export interface ListRecordingConfigurationsCommandInput extends ListRecordingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecordingConfigurationsCommand}.
  */
 export interface ListRecordingConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListRecordingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about all recording configurations in your account, in the
  *         Amazon Web Services region where the API request is processed.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListRecordingConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecordingConfigurationsCommandInput - {@link ListRecordingConfigurationsCommandInput}
+ * @returns {@link ListRecordingConfigurationsCommandOutput}
  * @see {@link ListRecordingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListRecordingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListRecordingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecordingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListRecordingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecordingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecordingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

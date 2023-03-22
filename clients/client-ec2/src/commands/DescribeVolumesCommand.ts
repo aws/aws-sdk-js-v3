@@ -19,15 +19,20 @@ import { DescribeVolumesResult, DescribeVolumesResultFilterSensitiveLog } from "
 import { deserializeAws_ec2DescribeVolumesCommand, serializeAws_ec2DescribeVolumesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
  *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
  *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
@@ -42,6 +47,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
+ * @returns {@link DescribeVolumesCommandOutput}
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -149,6 +156,9 @@ export class DescribeVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -188,10 +198,16 @@ export class DescribeVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumesCommandOutput> {
     return deserializeAws_ec2DescribeVolumesCommand(output, context);
   }

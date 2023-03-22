@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RebuildEnvironmentCommand}.
  */
 export interface RebuildEnvironmentCommandInput extends RebuildEnvironmentMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebuildEnvironmentCommand}.
  */
 export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
  *       load balancer, etc.) for a specified environment and forces a restart.</p>
  * @example
@@ -42,6 +47,8 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RebuildEnvironmentCommandInput - {@link RebuildEnvironmentCommandInput}
+ * @returns {@link RebuildEnvironmentCommandOutput}
  * @see {@link RebuildEnvironmentCommandInput} for command's `input` shape.
  * @see {@link RebuildEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -80,6 +87,9 @@ export class RebuildEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebuildEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class RebuildEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebuildEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRebuildEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebuildEnvironmentCommandOutput> {
     return deserializeAws_queryRebuildEnvironmentCommand(output, context);
   }

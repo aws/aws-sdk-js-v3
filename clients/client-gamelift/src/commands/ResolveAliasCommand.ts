@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveAliasCommand}.
  */
 export interface ResolveAliasCommandInput extends ResolveAliasInput {}
 /**
+ * @public
+ *
  * The output of {@link ResolveAliasCommand}.
  */
 export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the fleet ID that an alias is currently pointing to.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -52,6 +57,8 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveAliasCommandInput - {@link ResolveAliasCommandInput}
+ * @returns {@link ResolveAliasCommandOutput}
  * @see {@link ResolveAliasCommandInput} for command's `input` shape.
  * @see {@link ResolveAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class ResolveAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ResolveAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResolveAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveAliasCommandOutput> {
     return deserializeAws_json1_1ResolveAliasCommand(output, context);
   }

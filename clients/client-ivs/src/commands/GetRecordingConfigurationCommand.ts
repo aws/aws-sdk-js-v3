@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecordingConfigurationCommand}.
  */
 export interface GetRecordingConfigurationCommandInput extends GetRecordingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecordingConfigurationCommand}.
  */
 export interface GetRecordingConfigurationCommandOutput extends GetRecordingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the recording configuration for the specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecordingConfigurationCommandInput - {@link GetRecordingConfigurationCommandInput}
+ * @returns {@link GetRecordingConfigurationCommandOutput}
  * @see {@link GetRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRecordingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecordingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetRecordingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRecordingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

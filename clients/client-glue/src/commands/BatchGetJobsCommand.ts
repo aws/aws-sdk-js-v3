@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetJobsCommand}.
  */
 export interface BatchGetJobsCommandInput extends BatchGetJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetJobsCommand}.
  */
 export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
  * </p>
  * @example
@@ -43,6 +48,8 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetJobsCommandInput - {@link BatchGetJobsCommandInput}
+ * @returns {@link BatchGetJobsCommandOutput}
  * @see {@link BatchGetJobsCommandInput} for command's `input` shape.
  * @see {@link BatchGetJobsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchGetJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class BatchGetJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetJobsCommandOutput> {
     return deserializeAws_json1_1BatchGetJobsCommand(output, context);
   }

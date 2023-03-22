@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAuditMitigationActionsTaskCommand}.
  */
 export interface StartAuditMitigationActionsTaskCommandInput extends StartAuditMitigationActionsTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAuditMitigationActionsTaskCommand}.
  */
 export interface StartAuditMitigationActionsTaskCommandOutput
@@ -37,6 +41,7 @@ export interface StartAuditMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAuditMitigationActionsTaskCommandInput - {@link StartAuditMitigationActionsTaskCommandInput}
+ * @returns {@link StartAuditMitigationActionsTaskCommandOutput}
  * @see {@link StartAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link StartAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +96,9 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAuditMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
     return serializeAws_restJson1StartAuditMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

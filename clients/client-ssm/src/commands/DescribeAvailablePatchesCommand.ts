@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAvailablePatchesCommand}.
  */
 export interface DescribeAvailablePatchesCommandInput extends DescribeAvailablePatchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAvailablePatchesCommand}.
  */
 export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailablePatchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all patches eligible to be included in a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAvailablePatchesCommandInput - {@link DescribeAvailablePatchesCommandInput}
+ * @returns {@link DescribeAvailablePatchesCommandOutput}
  * @see {@link DescribeAvailablePatchesCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailablePatchesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeAvailablePatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAvailablePatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeAvailablePatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAvailablePatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAvailablePatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAvailablePatchesCommandOutput> {
     return deserializeAws_json1_1DescribeAvailablePatchesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePrincipalMappingCommand}.
  */
 export interface DescribePrincipalMappingCommandInput extends DescribePrincipalMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePrincipalMappingCommand}.
  */
 export interface DescribePrincipalMappingCommandOutput extends DescribePrincipalMappingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions
  *             for mapping users to their groups. This includes information on the status of
  *             actions currently processing or yet to be processed, when actions were last updated,
@@ -54,6 +59,8 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePrincipalMappingCommandInput - {@link DescribePrincipalMappingCommandInput}
+ * @returns {@link DescribePrincipalMappingCommandOutput}
  * @see {@link DescribePrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link DescribePrincipalMappingCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribePrincipalMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePrincipalMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribePrincipalMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePrincipalMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePrincipalMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePrincipalMappingCommandOutput> {
     return deserializeAws_json1_1DescribePrincipalMappingCommand(output, context);
   }

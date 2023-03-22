@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateRouteCommand, serializeAws_ec2CreateRouteCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandInput extends CreateRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route in a route table within a VPC.</p>
  *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
  *          exactly one of the resources from the parameter list.</p>
@@ -63,6 +68,8 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
+ * @returns {@link CreateRouteCommandOutput}
  * @see {@link CreateRouteCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -99,6 +106,9 @@ export class CreateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCommandOutput> {
     return deserializeAws_ec2CreateRouteCommand(output, context);
   }

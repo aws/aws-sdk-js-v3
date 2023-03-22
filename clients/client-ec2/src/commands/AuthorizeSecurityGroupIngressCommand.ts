@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeSecurityGroupIngressCommand}.
  */
 export interface AuthorizeSecurityGroupIngressCommandInput extends AuthorizeSecurityGroupIngressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeSecurityGroupIngressCommand}.
  */
 export interface AuthorizeSecurityGroupIngressCommandOutput
@@ -37,6 +41,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified inbound (ingress) rules to a security group.</p>
  *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR
  *        address range, or from the instances that are associated with the specified destination security
@@ -62,6 +67,8 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeSecurityGroupIngressCommandInput - {@link AuthorizeSecurityGroupIngressCommandInput}
+ * @returns {@link AuthorizeSecurityGroupIngressCommandOutput}
  * @see {@link AuthorizeSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -157,6 +164,9 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AuthorizeSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

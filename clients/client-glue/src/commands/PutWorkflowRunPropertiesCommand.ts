@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutWorkflowRunPropertiesCommand}.
  */
 export interface PutWorkflowRunPropertiesCommandInput extends PutWorkflowRunPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutWorkflowRunPropertiesCommand}.
  */
 export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPropertiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * const response = await client.send(command);
  * ```
  *
+ * @param PutWorkflowRunPropertiesCommandInput - {@link PutWorkflowRunPropertiesCommandInput}
+ * @returns {@link PutWorkflowRunPropertiesCommandOutput}
  * @see {@link PutWorkflowRunPropertiesCommandInput} for command's `input` shape.
  * @see {@link PutWorkflowRunPropertiesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutWorkflowRunPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutWorkflowRunPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutWorkflowRunPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutWorkflowRunPropertiesCommandOutput> {
     return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssociationExecutionTargetsCommand}.
  */
 export interface DescribeAssociationExecutionTargetsCommandInput extends DescribeAssociationExecutionTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssociationExecutionTargetsCommand}.
  */
 export interface DescribeAssociationExecutionTargetsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Views information about a specific execution of a specific association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssociationExecutionTargetsCommandInput - {@link DescribeAssociationExecutionTargetsCommandInput}
+ * @returns {@link DescribeAssociationExecutionTargetsCommandOutput}
  * @see {@link DescribeAssociationExecutionTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationExecutionTargetsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssociationExecutionTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAssociationExecutionTargetsCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     return serializeAws_json1_1DescribeAssociationExecutionTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

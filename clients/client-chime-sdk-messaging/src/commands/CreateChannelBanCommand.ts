@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelBanCommand}.
  */
 export interface CreateChannelBanCommandInput extends CreateChannelBanRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelBanCommand}.
  */
 export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
  *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
  *             <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
@@ -60,6 +65,8 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelBanCommandInput - {@link CreateChannelBanCommandInput}
+ * @returns {@link CreateChannelBanCommandOutput}
  * @see {@link CreateChannelBanCommandInput} for command's `input` shape.
  * @see {@link CreateChannelBanCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateChannelBanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelBanCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class CreateChannelBanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelBanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateChannelBanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelBanCommandOutput> {
     return deserializeAws_restJson1CreateChannelBanCommand(output, context);
   }

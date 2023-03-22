@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFacetCommand}.
  */
 export interface CreateFacetCommandInput extends CreateFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFacetCommand}.
  */
 export interface CreateFacetCommandOutput extends CreateFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only
  *       in development or applied schemas.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFacetCommandInput - {@link CreateFacetCommandInput}
+ * @returns {@link CreateFacetCommandOutput}
  * @see {@link CreateFacetCommandInput} for command's `input` shape.
  * @see {@link CreateFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFacetCommandOutput> {
     return deserializeAws_restJson1CreateFacetCommand(output, context);
   }

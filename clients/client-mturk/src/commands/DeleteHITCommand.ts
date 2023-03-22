@@ -23,15 +23,20 @@ import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import { deserializeAws_json1_1DeleteHITCommand, serializeAws_json1_1DeleteHITCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHITCommand}.
  */
 export interface DeleteHITCommandInput extends DeleteHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHITCommand}.
  */
 export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>DeleteHIT</code> operation is used to delete HIT that is no longer needed.
  *             Only the Requester who created the HIT can delete it.
@@ -78,6 +83,8 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHITCommandInput - {@link DeleteHITCommandInput}
+ * @returns {@link DeleteHITCommandOutput}
  * @see {@link DeleteHITCommandInput} for command's `input` shape.
  * @see {@link DeleteHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -107,6 +114,9 @@ export class DeleteHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DeleteHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHITCommandOutput> {
     return deserializeAws_json1_1DeleteHITCommand(output, context);
   }

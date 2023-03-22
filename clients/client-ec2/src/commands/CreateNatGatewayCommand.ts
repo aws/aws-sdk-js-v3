@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNatGatewayCommand}.
  */
 export interface CreateNatGatewayCommandInput extends CreateNatGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNatGatewayCommand}.
  */
 export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a NAT gateway in the specified subnet. This action creates a network interface
  *           in the specified subnet with a private IP address from the IP address range of the
  *           subnet. You can create either a public NAT gateway or a private NAT gateway.</p>
@@ -55,6 +60,8 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNatGatewayCommandInput - {@link CreateNatGatewayCommandInput}
+ * @returns {@link CreateNatGatewayCommandOutput}
  * @see {@link CreateNatGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -106,6 +113,9 @@ export class CreateNatGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNatGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateNatGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNatGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateNatGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNatGatewayCommandOutput> {
     return deserializeAws_ec2CreateNatGatewayCommand(output, context);
   }

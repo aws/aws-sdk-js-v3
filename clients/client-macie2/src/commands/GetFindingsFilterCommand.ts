@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingsFilterCommand}.
  */
 export interface GetFindingsFilterCommandInput extends GetFindingsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingsFilterCommand}.
  */
 export interface GetFindingsFilterCommandOutput extends GetFindingsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the criteria and other settings for a findings filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFindingsFilterCommandOutput extends GetFindingsFilterRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsFilterCommandInput - {@link GetFindingsFilterCommandInput}
+ * @returns {@link GetFindingsFilterCommandOutput}
  * @see {@link GetFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link GetFindingsFilterCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class GetFindingsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetFindingsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFindingsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsFilterCommandOutput> {
     return deserializeAws_restJson1GetFindingsFilterCommand(output, context);
   }

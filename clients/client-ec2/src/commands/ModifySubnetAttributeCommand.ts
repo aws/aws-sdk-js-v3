@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySubnetAttributeCommand}.
  */
 export interface ModifySubnetAttributeCommandInput extends ModifySubnetAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifySubnetAttributeCommand}.
  */
 export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
  *          <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
  *          <ul>
@@ -68,6 +73,8 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySubnetAttributeCommandInput - {@link ModifySubnetAttributeCommandInput}
+ * @returns {@link ModifySubnetAttributeCommandOutput}
  * @see {@link ModifySubnetAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifySubnetAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -105,6 +112,9 @@ export class ModifySubnetAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySubnetAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ModifySubnetAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySubnetAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifySubnetAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySubnetAttributeCommandOutput> {
     return deserializeAws_ec2ModifySubnetAttributeCommand(output, context);
   }

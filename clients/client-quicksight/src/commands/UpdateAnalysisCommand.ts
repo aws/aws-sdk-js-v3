@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAnalysisCommand}.
  */
 export interface UpdateAnalysisCommandInput extends UpdateAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAnalysisCommand}.
  */
 export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an analysis in Amazon QuickSight</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnalysisCommandInput - {@link UpdateAnalysisCommandInput}
+ * @returns {@link UpdateAnalysisCommandOutput}
  * @see {@link UpdateAnalysisCommandInput} for command's `input` shape.
  * @see {@link UpdateAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnalysisCommandOutput> {
     return deserializeAws_restJson1UpdateAnalysisCommand(output, context);
   }

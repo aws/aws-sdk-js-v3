@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerRecipePolicyCommand}.
  */
 export interface GetContainerRecipePolicyCommandInput extends GetContainerRecipePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerRecipePolicyCommand}.
  */
 export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy for a container recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerRecipePolicyCommandInput - {@link GetContainerRecipePolicyCommandInput}
+ * @returns {@link GetContainerRecipePolicyCommandOutput}
  * @see {@link GetContainerRecipePolicyCommandInput} for command's `input` shape.
  * @see {@link GetContainerRecipePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetContainerRecipePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerRecipePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetContainerRecipePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerRecipePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetContainerRecipePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerRecipePolicyCommandOutput> {
     return deserializeAws_restJson1GetContainerRecipePolicyCommand(output, context);
   }

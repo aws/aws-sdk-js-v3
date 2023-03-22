@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentationPartCommand}.
  */
 export interface GetDocumentationPartCommandInput extends GetDocumentationPartRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentationPartCommand}.
  */
 export interface GetDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a documentation part.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDocumentationPartCommandOutput extends DocumentationPart, __
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentationPartCommandInput - {@link GetDocumentationPartCommandInput}
+ * @returns {@link GetDocumentationPartCommandOutput}
  * @see {@link GetDocumentationPartCommandInput} for command's `input` shape.
  * @see {@link GetDocumentationPartCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDocumentationPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentationPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetDocumentationPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentationPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDocumentationPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentationPartCommandOutput> {
     return deserializeAws_restJson1GetDocumentationPartCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRepositoryDescriptionCommand}.
  */
 export interface UpdateRepositoryDescriptionCommandInput extends UpdateRepositoryDescriptionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRepositoryDescriptionCommand}.
  */
 export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets or changes the comment or description for a repository.</p>
  *         <note>
  *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -51,6 +56,8 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRepositoryDescriptionCommandInput - {@link UpdateRepositoryDescriptionCommandInput}
+ * @returns {@link UpdateRepositoryDescriptionCommandOutput}
  * @see {@link UpdateRepositoryDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryDescriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateRepositoryDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRepositoryDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class UpdateRepositoryDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRepositoryDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRepositoryDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

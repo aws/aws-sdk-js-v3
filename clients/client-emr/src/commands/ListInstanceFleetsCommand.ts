@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceFleetsCommand}.
  */
 export interface ListInstanceFleetsCommandInput extends ListInstanceFleetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceFleetsCommand}.
  */
 export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available details about the instance fleets in a cluster.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -50,6 +55,8 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceFleetsCommandInput - {@link ListInstanceFleetsCommandInput}
+ * @returns {@link ListInstanceFleetsCommandOutput}
  * @see {@link ListInstanceFleetsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceFleetsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListInstanceFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListInstanceFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInstanceFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceFleetsCommandOutput> {
     return deserializeAws_json1_1ListInstanceFleetsCommand(output, context);
   }

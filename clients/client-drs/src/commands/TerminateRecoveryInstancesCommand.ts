@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateRecoveryInstancesCommand}.
  */
 export interface TerminateRecoveryInstancesCommandInput extends TerminateRecoveryInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateRecoveryInstancesCommand}.
  */
 export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecoveryInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a Job for terminating the EC2 resources associated with the specified Recovery Instances, and then will delete the Recovery Instances from the Elastic Disaster Recovery service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateRecoveryInstancesCommandInput - {@link TerminateRecoveryInstancesCommandInput}
+ * @returns {@link TerminateRecoveryInstancesCommandOutput}
  * @see {@link TerminateRecoveryInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateRecoveryInstancesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +91,9 @@ export class TerminateRecoveryInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateRecoveryInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class TerminateRecoveryInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateRecoveryInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TerminateRecoveryInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

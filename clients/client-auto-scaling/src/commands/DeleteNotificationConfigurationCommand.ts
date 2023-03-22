@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotificationConfigurationCommand}.
  */
 export interface DeleteNotificationConfigurationCommandInput extends DeleteNotificationConfigurationType {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotificationConfigurationCommand}.
  */
 export interface DeleteNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationConfigurationCommandInput - {@link DeleteNotificationConfigurationCommandInput}
+ * @returns {@link DeleteNotificationConfigurationCommandOutput}
  * @see {@link DeleteNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     return serializeAws_queryDeleteNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -6,7 +6,7 @@ import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NimbleClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEulasCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEulas(
   config: NimblePaginationConfiguration,
   input: ListEulasCommandInput,

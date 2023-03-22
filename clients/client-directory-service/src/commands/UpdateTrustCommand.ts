@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrustCommand}.
  */
 export interface UpdateTrustCommandInput extends UpdateTrustRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrustCommand}.
  */
 export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the trust that has been set up between your Managed Microsoft AD directory and an
  *       self-managed Active Directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrustCommandInput - {@link UpdateTrustCommandInput}
+ * @returns {@link UpdateTrustCommandOutput}
  * @see {@link UpdateTrustCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateTrustCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrustCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateTrustCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTrustCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrustCommandOutput> {
     return deserializeAws_json1_1UpdateTrustCommand(output, context);
   }

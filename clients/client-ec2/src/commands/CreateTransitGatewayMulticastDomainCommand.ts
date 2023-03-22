@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayMulticastDomainCommand}.
  */
 export interface CreateTransitGatewayMulticastDomainCommandInput extends CreateTransitGatewayMulticastDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayMulticastDomainCommand}.
  */
 export interface CreateTransitGatewayMulticastDomainCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a multicast domain using the specified transit gateway.</p>
  *          <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayMulticastDomainCommandInput - {@link CreateTransitGatewayMulticastDomainCommandInput}
+ * @returns {@link CreateTransitGatewayMulticastDomainCommandOutput}
  * @see {@link CreateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayMulticastDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     return serializeAws_ec2CreateTransitGatewayMulticastDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

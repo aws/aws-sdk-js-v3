@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link MonitorInstancesCommand}.
  */
 export interface MonitorInstancesCommandInput extends MonitorInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link MonitorInstancesCommand}.
  */
 export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
  *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
  *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -49,6 +54,8 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param MonitorInstancesCommandInput - {@link MonitorInstancesCommandInput}
+ * @returns {@link MonitorInstancesCommandOutput}
  * @see {@link MonitorInstancesCommandInput} for command's `input` shape.
  * @see {@link MonitorInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class MonitorInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MonitorInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class MonitorInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MonitorInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2MonitorInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorInstancesCommandOutput> {
     return deserializeAws_ec2MonitorInstancesCommand(output, context);
   }

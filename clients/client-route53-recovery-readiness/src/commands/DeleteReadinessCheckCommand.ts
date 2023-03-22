@@ -25,15 +25,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReadinessCheckCommand}.
  */
 export interface DeleteReadinessCheckCommandInput extends DeleteReadinessCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReadinessCheckCommand}.
  */
 export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReadinessCheckCommandInput - {@link DeleteReadinessCheckCommandInput}
+ * @returns {@link DeleteReadinessCheckCommandOutput}
  * @see {@link DeleteReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link DeleteReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteReadinessCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReadinessCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteReadinessCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReadinessCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteReadinessCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReadinessCheckCommandOutput> {
     return deserializeAws_restJson1DeleteReadinessCheckCommand(output, context);
   }

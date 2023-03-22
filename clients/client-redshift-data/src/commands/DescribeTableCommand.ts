@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableCommand}.
  */
 export interface DescribeTableCommandInput extends DescribeTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableCommand}.
  */
 export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the detailed information about a table from metadata in the cluster. The
  *       information includes its columns.
  *       A token is returned to page through the column list.
@@ -64,6 +69,8 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableCommandInput - {@link DescribeTableCommandInput}
+ * @returns {@link DescribeTableCommandOutput}
  * @see {@link DescribeTableCommandInput} for command's `input` shape.
  * @see {@link DescribeTableCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTableCommandOutput> {
     return deserializeAws_json1_1DescribeTableCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBClusterFromS3Command}.
  */
 export interface RestoreDBClusterFromS3CommandInput extends RestoreDBClusterFromS3Message {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBClusterFromS3Command}.
  */
 export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFromS3Result, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket.
  *             Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be
  *             created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3"> Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the
@@ -64,6 +69,8 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterFromS3CommandInput - {@link RestoreDBClusterFromS3CommandInput}
+ * @returns {@link RestoreDBClusterFromS3CommandOutput}
  * @see {@link RestoreDBClusterFromS3CommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromS3CommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -140,6 +147,9 @@ export class RestoreDBClusterFromS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterFromS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -179,10 +189,16 @@ export class RestoreDBClusterFromS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterFromS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBClusterFromS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDBClusterFromS3CommandOutput> {
     return deserializeAws_queryRestoreDBClusterFromS3Command(output, context);
   }

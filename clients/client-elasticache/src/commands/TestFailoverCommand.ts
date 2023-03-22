@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryTestFailoverCommand, serializeAws_queryTestFailoverCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TestFailoverCommand}.
  */
 export interface TestFailoverCommandInput extends TestFailoverMessage {}
 /**
+ * @public
+ *
  * The output of {@link TestFailoverCommand}.
  */
 export interface TestFailoverCommandOutput extends TestFailoverResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents the input of a <code>TestFailover</code> operation which test automatic failover on
  *             a specified node group (called shard in the console) in a replication group (called cluster in the console).</p>
  *          <p>This API is designed for testing the behavior of your application in case of ElastiCache failover. It is not designed to be an operational tool
@@ -104,6 +109,8 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param TestFailoverCommandInput - {@link TestFailoverCommandInput}
+ * @returns {@link TestFailoverCommandOutput}
  * @see {@link TestFailoverCommandInput} for command's `input` shape.
  * @see {@link TestFailoverCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -155,6 +162,9 @@ export class TestFailoverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestFailoverCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,10 +202,16 @@ export class TestFailoverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestFailoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTestFailoverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestFailoverCommandOutput> {
     return deserializeAws_queryTestFailoverCommand(output, context);
   }

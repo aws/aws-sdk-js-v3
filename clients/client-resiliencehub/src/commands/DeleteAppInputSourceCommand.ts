@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppInputSourceCommand}.
  */
 export interface DeleteAppInputSourceCommandInput extends DeleteAppInputSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppInputSourceCommand}.
  */
 export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the input source and all of its imported resources from the AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppInputSourceCommandInput - {@link DeleteAppInputSourceCommandInput}
+ * @returns {@link DeleteAppInputSourceCommandOutput}
  * @see {@link DeleteAppInputSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInputSourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteAppInputSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppInputSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteAppInputSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppInputSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAppInputSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppInputSourceCommandOutput> {
     return deserializeAws_restJson1DeleteAppInputSourceCommand(output, context);
   }

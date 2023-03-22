@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegistryScanningConfigurationCommand}.
  */
 export interface GetRegistryScanningConfigurationCommandInput extends GetRegistryScanningConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegistryScanningConfigurationCommand}.
  */
 export interface GetRegistryScanningConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetRegistryScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the scanning configuration for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRegistryScanningConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistryScanningConfigurationCommandInput - {@link GetRegistryScanningConfigurationCommandInput}
+ * @returns {@link GetRegistryScanningConfigurationCommandOutput}
  * @see {@link GetRegistryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRegistryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistryScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRegistryScanningConfigurationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
     return serializeAws_json1_1GetRegistryScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIncidentRecordCommand}.
  */
 export interface DeleteIncidentRecordCommandInput extends DeleteIncidentRecordInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIncidentRecordCommand}.
  */
 export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an incident record from Incident Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIncidentRecordCommandInput - {@link DeleteIncidentRecordCommandInput}
+ * @returns {@link DeleteIncidentRecordCommandOutput}
  * @see {@link DeleteIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link DeleteIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteIncidentRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIncidentRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteIncidentRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIncidentRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteIncidentRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIncidentRecordCommandOutput> {
     return deserializeAws_restJson1DeleteIncidentRecordCommand(output, context);
   }

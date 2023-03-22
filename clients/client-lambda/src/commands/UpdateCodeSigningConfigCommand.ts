@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCodeSigningConfigCommand}.
  */
 export interface UpdateCodeSigningConfigCommandInput extends UpdateCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCodeSigningConfigCommand}.
  */
 export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a
  *       user tries to deploy a code package to the function. </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningC
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCodeSigningConfigCommandInput - {@link UpdateCodeSigningConfigCommandInput}
+ * @returns {@link UpdateCodeSigningConfigCommandOutput}
  * @see {@link UpdateCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCodeSigningConfigCommandOutput> {
     return deserializeAws_restJson1UpdateCodeSigningConfigCommand(output, context);
   }

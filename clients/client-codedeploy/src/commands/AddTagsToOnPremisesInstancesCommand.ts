@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToOnPremisesInstancesCommand}.
  */
 export interface AddTagsToOnPremisesInstancesCommandInput extends AddTagsToOnPremisesInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToOnPremisesInstancesCommand}.
  */
 export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to on-premises instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToOnPremisesInstancesCommandInput - {@link AddTagsToOnPremisesInstancesCommandInput}
+ * @returns {@link AddTagsToOnPremisesInstancesCommandOutput}
  * @see {@link AddTagsToOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link AddTagsToOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -89,6 +96,9 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsToOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

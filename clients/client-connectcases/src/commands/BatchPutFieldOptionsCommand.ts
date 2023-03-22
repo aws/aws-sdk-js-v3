@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutFieldOptionsCommand}.
  */
 export interface BatchPutFieldOptionsCommandInput extends BatchPutFieldOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutFieldOptionsCommand}.
  */
 export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and updates a set of field options for a single select field in a Cases
  *       domain.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutFieldOptionsCommandInput - {@link BatchPutFieldOptionsCommandInput}
+ * @returns {@link BatchPutFieldOptionsCommandOutput}
  * @see {@link BatchPutFieldOptionsCommandInput} for command's `input` shape.
  * @see {@link BatchPutFieldOptionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -91,6 +98,9 @@ export class BatchPutFieldOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutFieldOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class BatchPutFieldOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutFieldOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchPutFieldOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutFieldOptionsCommandOutput> {
     return deserializeAws_restJson1BatchPutFieldOptionsCommand(output, context);
   }

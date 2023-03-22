@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineStatusCommand}.
  */
 export interface UpdatePipelineStatusCommandInput extends UpdatePipelineStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineStatusCommand}.
  */
 export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
  *             stops or restarts the processing of jobs.</p>
  *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't
@@ -55,6 +60,8 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineStatusCommandInput - {@link UpdatePipelineStatusCommandInput}
+ * @returns {@link UpdatePipelineStatusCommandOutput}
  * @see {@link UpdatePipelineStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdatePipelineStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdatePipelineStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePipelineStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineStatusCommandOutput> {
     return deserializeAws_restJson1UpdatePipelineStatusCommand(output, context);
   }

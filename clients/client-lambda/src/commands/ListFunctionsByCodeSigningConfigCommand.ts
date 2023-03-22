@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionsByCodeSigningConfigCommand}.
  */
 export interface ListFunctionsByCodeSigningConfigCommandInput extends ListFunctionsByCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionsByCodeSigningConfigCommand}.
  */
 export interface ListFunctionsByCodeSigningConfigCommandOutput
@@ -37,6 +41,7 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a
  *       code signing configuration, to verify that no functions are using it.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionsByCodeSigningConfigCommandInput - {@link ListFunctionsByCodeSigningConfigCommandInput}
+ * @returns {@link ListFunctionsByCodeSigningConfigCommandOutput}
  * @see {@link ListFunctionsByCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsByCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionsByCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFunctionsByCodeSigningConfigCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command<
     return serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

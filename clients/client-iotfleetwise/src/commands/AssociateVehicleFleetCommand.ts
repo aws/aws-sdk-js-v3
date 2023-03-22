@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateVehicleFleetCommand}.
  */
 export interface AssociateVehicleFleetCommandInput extends AssociateVehicleFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateVehicleFleetCommand}.
  */
 export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Adds, or associates, a vehicle with a fleet. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateVehicleFleetCommandInput - {@link AssociateVehicleFleetCommandInput}
+ * @returns {@link AssociateVehicleFleetCommandOutput}
  * @see {@link AssociateVehicleFleetCommandInput} for command's `input` shape.
  * @see {@link AssociateVehicleFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +91,9 @@ export class AssociateVehicleFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVehicleFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AssociateVehicleFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVehicleFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0AssociateVehicleFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateVehicleFleetCommandOutput> {
     return deserializeAws_json1_0AssociateVehicleFleetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventSourceMappingsCommand}.
  */
 export interface ListEventSourceMappingsCommandInput extends ListEventSourceMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventSourceMappingsCommand}.
  */
 export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMappingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a
  *       single event source.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventSourceMappingsCommandInput - {@link ListEventSourceMappingsCommandInput}
+ * @returns {@link ListEventSourceMappingsCommandOutput}
  * @see {@link ListEventSourceMappingsCommandInput} for command's `input` shape.
  * @see {@link ListEventSourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListEventSourceMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventSourceMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListEventSourceMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventSourceMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEventSourceMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventSourceMappingsCommandOutput> {
     return deserializeAws_restJson1ListEventSourceMappingsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStudioComponentCommand}.
  */
 export interface CreateStudioComponentCommandInput extends CreateStudioComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStudioComponentCommand}.
  */
 export interface CreateStudioComponentCommandOutput extends CreateStudioComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a studio component resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStudioComponentCommandInput - {@link CreateStudioComponentCommandInput}
+ * @returns {@link CreateStudioComponentCommandOutput}
  * @see {@link CreateStudioComponentCommandInput} for command's `input` shape.
  * @see {@link CreateStudioComponentCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateStudioComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStudioComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateStudioComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStudioComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateStudioComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStudioComponentCommandOutput> {
     return deserializeAws_restJson1CreateStudioComponentCommand(output, context);
   }

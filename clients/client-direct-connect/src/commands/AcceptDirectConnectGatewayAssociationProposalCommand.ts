@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface AcceptDirectConnectGatewayAssociationProposalCommandInput
   extends AcceptDirectConnectGatewayAssociationProposalRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
@@ -38,6 +42,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptDirectConnectGatewayAssociationProposalCommandInput - {@link AcceptDirectConnectGatewayAssociationProposalCommandInput}
+ * @returns {@link AcceptDirectConnectGatewayAssociationProposalCommandOutput}
  * @see {@link AcceptDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link AcceptDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +85,9 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     return serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

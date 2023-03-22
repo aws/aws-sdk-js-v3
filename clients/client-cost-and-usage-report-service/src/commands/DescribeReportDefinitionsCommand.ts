@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReportDefinitionsCommand}.
  */
 export interface DescribeReportDefinitionsCommandInput extends DescribeReportDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReportDefinitionsCommand}.
  */
 export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the AWS Cost and Usage reports available to this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReportDefinitionsCommandInput - {@link DescribeReportDefinitionsCommandInput}
+ * @returns {@link DescribeReportDefinitionsCommandOutput}
  * @see {@link DescribeReportDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeReportDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
@@ -123,6 +130,9 @@ export class DescribeReportDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class DescribeReportDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReportDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

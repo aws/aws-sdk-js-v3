@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCompatibleKafkaVersionsCommand}.
  */
 export interface GetCompatibleKafkaVersionsCommandInput extends GetCompatibleKafkaVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCompatibleKafkaVersionsCommand}.
  */
 export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKafkaVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCompatibleKafkaVersionsCommandInput - {@link GetCompatibleKafkaVersionsCommandInput}
+ * @returns {@link GetCompatibleKafkaVersionsCommandOutput}
  * @see {@link GetCompatibleKafkaVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleKafkaVersionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCompatibleKafkaVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCompatibleKafkaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCompatibleKafkaVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

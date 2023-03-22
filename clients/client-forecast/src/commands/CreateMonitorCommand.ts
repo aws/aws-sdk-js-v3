@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMonitorCommand}.
  */
 export interface CreateMonitorCommandInput extends CreateMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMonitorCommand}.
  */
 export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring allows you to see how your predictor's performance changes over time.
  *            For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.
  *        </p>
@@ -48,6 +53,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
+ * @returns {@link CreateMonitorCommandOutput}
  * @see {@link CreateMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitorCommandOutput> {
     return deserializeAws_json1_1CreateMonitorCommand(output, context);
   }

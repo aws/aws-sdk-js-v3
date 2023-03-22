@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateResourceShareCommand}.
  */
 export interface AssociateResourceShareCommandInput extends AssociateResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateResourceShareCommand}.
  */
 export interface AssociateResourceShareCommandOutput extends AssociateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified list of principals and list of resources to a resource share. Principals that
  *             already have access to this resource share immediately receive access to the added resources.
  *             Newly added principals immediately receive access to the resources shared in this resource share. </p>
@@ -48,6 +53,8 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResourceShareCommandInput - {@link AssociateResourceShareCommandInput}
+ * @returns {@link AssociateResourceShareCommandOutput}
  * @see {@link AssociateResourceShareCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -107,6 +114,9 @@ export class AssociateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class AssociateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceShareCommandOutput> {
     return deserializeAws_restJson1AssociateResourceShareCommand(output, context);
   }

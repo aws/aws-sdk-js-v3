@@ -41,6 +41,9 @@ import {
   Rectangle,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export enum OutputSdt {
   SDT_FOLLOW = "SDT_FOLLOW",
   SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
@@ -49,6 +52,7 @@ export enum OutputSdt {
 }
 
 /**
+ * @public
  * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
  */
 export interface DvbSdtSettings {
@@ -74,6 +78,7 @@ export interface DvbSdtSettings {
 }
 
 /**
+ * @public
  * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
  */
 export interface DvbTdtSettings {
@@ -83,47 +88,72 @@ export interface DvbTdtSettings {
   TdtInterval?: number;
 }
 
+/**
+ * @public
+ */
 export enum M2tsEbpAudioInterval {
   VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
   VIDEO_INTERVAL = "VIDEO_INTERVAL",
 }
 
+/**
+ * @public
+ */
 export enum M2tsEbpPlacement {
   VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
   VIDEO_PID = "VIDEO_PID",
 }
 
+/**
+ * @public
+ */
 export enum M2tsEsRateInPes {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum M2tsForceTsVideoEbpOrder {
   DEFAULT = "DEFAULT",
   FORCE = "FORCE",
 }
 
+/**
+ * @public
+ */
 export enum M2tsKlvMetadata {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M2tsNielsenId3 {
   INSERT = "INSERT",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum M2tsPcrControl {
   CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
   PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
 }
 
+/**
+ * @public
+ */
 export enum M2tsRateMode {
   CBR = "CBR",
   VBR = "VBR",
 }
 
 /**
+ * @public
  * Settings for SCTE-35 signals from ESAM. Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
  */
 export interface M2tsScte35Esam {
@@ -133,11 +163,17 @@ export interface M2tsScte35Esam {
   Scte35EsamPid?: number;
 }
 
+/**
+ * @public
+ */
 export enum M2tsScte35Source {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M2tsSegmentationMarkers {
   EBP = "EBP",
   EBP_LEGACY = "EBP_LEGACY",
@@ -147,12 +183,16 @@ export enum M2tsSegmentationMarkers {
   RAI_SEGSTART = "RAI_SEGSTART",
 }
 
+/**
+ * @public
+ */
 export enum M2tsSegmentationStyle {
   MAINTAIN_CADENCE = "MAINTAIN_CADENCE",
   RESET_CADENCE = "RESET_CADENCE",
 }
 
 /**
+ * @public
  * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
  */
 export interface M2tsSettings {
@@ -352,37 +392,56 @@ export interface M2tsSettings {
   VideoPid?: number;
 }
 
+/**
+ * @public
+ */
 export enum M3u8AudioDuration {
   DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
   MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
 }
 
+/**
+ * @public
+ */
 export enum M3u8DataPtsControl {
   ALIGN_TO_VIDEO = "ALIGN_TO_VIDEO",
   AUTO = "AUTO",
 }
 
+/**
+ * @public
+ */
 export enum M3u8NielsenId3 {
   INSERT = "INSERT",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum M3u8PcrControl {
   CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
   PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
 }
 
+/**
+ * @public
+ */
 export enum M3u8Scte35Source {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum TimedMetadata {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
+ * @public
  * These settings relate to the MPEG-2 transport stream (MPEG2-TS) container for the MPEG2-TS segments in your HLS outputs.
  */
 export interface M3u8Settings {
@@ -482,32 +541,48 @@ export interface M3u8Settings {
   VideoPid?: number;
 }
 
+/**
+ * @public
+ */
 export enum MovClapAtom {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum MovCslgAtom {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum MovMpeg2FourCCControl {
   MPEG = "MPEG",
   XDCAM = "XDCAM",
 }
 
+/**
+ * @public
+ */
 export enum MovPaddingControl {
   NONE = "NONE",
   OMNEON = "OMNEON",
 }
 
+/**
+ * @public
+ */
 export enum MovReference {
   EXTERNAL = "EXTERNAL",
   SELF_CONTAINED = "SELF_CONTAINED",
 }
 
 /**
+ * @public
  * These settings relate to your QuickTime MOV output container.
  */
 export interface MovSettings {
@@ -537,22 +612,32 @@ export interface MovSettings {
   Reference?: MovReference | string;
 }
 
+/**
+ * @public
+ */
 export enum Mp4CslgAtom {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum Mp4FreeSpaceBox {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum Mp4MoovPlacement {
   NORMAL = "NORMAL",
   PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
 }
 
 /**
+ * @public
  * These settings relate to your MP4 output container. You can create audio only outputs with this container. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
  */
 export interface Mp4Settings {
@@ -587,52 +672,80 @@ export interface Mp4Settings {
   Mp4MajorBrand?: string;
 }
 
+/**
+ * @public
+ */
 export enum MpdAccessibilityCaptionHints {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum MpdAudioDuration {
   DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
   MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
 }
 
+/**
+ * @public
+ */
 export enum MpdCaptionContainerType {
   FRAGMENTED_MP4 = "FRAGMENTED_MP4",
   RAW = "RAW",
 }
 
+/**
+ * @public
+ */
 export enum MpdKlvMetadata {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum MpdManifestMetadataSignaling {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum MpdScte35Esam {
   INSERT = "INSERT",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum MpdScte35Source {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum MpdTimedMetadata {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum MpdTimedMetadataBoxVersion {
   VERSION_0 = "VERSION_0",
   VERSION_1 = "VERSION_1",
 }
 
 /**
+ * @public
  * These settings relate to the fragmented MP4 container for the segments in your DASH outputs.
  */
 export interface MpdSettings {
@@ -695,11 +808,17 @@ export interface MpdSettings {
   TimedMetadataValue?: string;
 }
 
+/**
+ * @public
+ */
 export enum MxfAfdSignaling {
   COPY_FROM_VIDEO = "COPY_FROM_VIDEO",
   NO_COPY = "NO_COPY",
 }
 
+/**
+ * @public
+ */
 export enum MxfProfile {
   D_10 = "D_10",
   OP1A = "OP1A",
@@ -707,12 +826,16 @@ export enum MxfProfile {
   XDCAM = "XDCAM",
 }
 
+/**
+ * @public
+ */
 export enum MxfXavcDurationMode {
   ALLOW_ANY_DURATION = "ALLOW_ANY_DURATION",
   DROP_FRAMES_FOR_COMPLIANCE = "DROP_FRAMES_FOR_COMPLIANCE",
 }
 
 /**
+ * @public
  * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
  */
 export interface MxfXavcProfileSettings {
@@ -728,6 +851,7 @@ export interface MxfXavcProfileSettings {
 }
 
 /**
+ * @public
  * These settings relate to your MXF output container.
  */
 export interface MxfSettings {
@@ -748,6 +872,7 @@ export interface MxfSettings {
 }
 
 /**
+ * @public
  * Container specific settings.
  */
 export interface ContainerSettings {
@@ -797,11 +922,17 @@ export interface ContainerSettings {
   MxfSettings?: MxfSettings;
 }
 
+/**
+ * @public
+ */
 export enum HlsAudioOnlyContainer {
   AUTOMATIC = "AUTOMATIC",
   M2TS = "M2TS",
 }
 
+/**
+ * @public
+ */
 export enum HlsAudioTrackType {
   ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
   ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
@@ -809,17 +940,24 @@ export enum HlsAudioTrackType {
   AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM",
 }
 
+/**
+ * @public
+ */
 export enum HlsDescriptiveVideoServiceFlag {
   DONT_FLAG = "DONT_FLAG",
   FLAG = "FLAG",
 }
 
+/**
+ * @public
+ */
 export enum HlsIFrameOnlyManifest {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
 /**
+ * @public
  * Settings for HLS output groups
  */
 export interface HlsSettings {
@@ -860,6 +998,7 @@ export interface HlsSettings {
 }
 
 /**
+ * @public
  * Specific settings for this type of output.
  */
 export interface OutputSettings {
@@ -869,17 +1008,26 @@ export interface OutputSettings {
   HlsSettings?: HlsSettings;
 }
 
+/**
+ * @public
+ */
 export enum AfdSignaling {
   AUTO = "AUTO",
   FIXED = "FIXED",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum AntiAlias {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Av1AdaptiveQuantization {
   HIGH = "HIGH",
   HIGHER = "HIGHER",
@@ -889,16 +1037,25 @@ export enum Av1AdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum Av1BitDepth {
   BIT_10 = "BIT_10",
   BIT_8 = "BIT_8",
 }
 
+/**
+ * @public
+ */
 export enum Av1FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Av1FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
@@ -906,6 +1063,7 @@ export enum Av1FramerateConversionAlgorithm {
 }
 
 /**
+ * @public
  * Settings for quality-defined variable bitrate encoding with the AV1 codec. Use these settings only when you set QVBR for Rate control mode (RateControlMode).
  */
 export interface Av1QvbrSettings {
@@ -920,16 +1078,23 @@ export interface Av1QvbrSettings {
   QvbrQualityLevelFineTune?: number;
 }
 
+/**
+ * @public
+ */
 export enum Av1RateControlMode {
   QVBR = "QVBR",
 }
 
+/**
+ * @public
+ */
 export enum Av1SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
  */
 export interface Av1Settings {
@@ -999,6 +1164,9 @@ export interface Av1Settings {
   SpatialAdaptiveQuantization?: Av1SpatialAdaptiveQuantization | string;
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraClass {
   CLASS_100 = "CLASS_100",
   CLASS_200 = "CLASS_200",
@@ -1006,12 +1174,16 @@ export enum AvcIntraClass {
   CLASS_50 = "CLASS_50",
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraUhdQualityTuningLevel {
   MULTI_PASS = "MULTI_PASS",
   SINGLE_PASS = "SINGLE_PASS",
 }
 
 /**
+ * @public
  * Optional when you set AVC-Intra class (avcIntraClass) to Class 4K/2K (CLASS_4K_2K). When you set AVC-Intra class to a different value, this object isn't allowed.
  */
 export interface AvcIntraUhdSettings {
@@ -1021,17 +1193,26 @@ export interface AvcIntraUhdSettings {
   QualityTuningLevel?: AvcIntraUhdQualityTuningLevel | string;
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraFramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraFramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraInterlaceMode {
   BOTTOM_FIELD = "BOTTOM_FIELD",
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
@@ -1040,22 +1221,32 @@ export enum AvcIntraInterlaceMode {
   TOP_FIELD = "TOP_FIELD",
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraScanTypeConversionMode {
   INTERLACED = "INTERLACED",
   INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraSlowPal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum AvcIntraTelecine {
   HARD = "HARD",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * Required when you choose AVC-Intra for your output video codec. For more information about the AVC-Intra settings, see the relevant specification. For detailed information about SD and HD in AVC-Intra, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-Intra, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
  */
 export interface AvcIntraSettings {
@@ -1110,6 +1301,9 @@ export interface AvcIntraSettings {
   Telecine?: AvcIntraTelecine | string;
 }
 
+/**
+ * @public
+ */
 export enum VideoCodec {
   AV1 = "AV1",
   AVC_INTRA = "AVC_INTRA",
@@ -1125,6 +1319,7 @@ export enum VideoCodec {
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
  */
 export interface FrameCaptureSettings {
@@ -1149,6 +1344,9 @@ export interface FrameCaptureSettings {
   Quality?: number;
 }
 
+/**
+ * @public
+ */
 export enum H264AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -1159,6 +1357,9 @@ export enum H264AdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum BandwidthReductionFilterSharpening {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -1166,6 +1367,9 @@ export enum BandwidthReductionFilterSharpening {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum BandwidthReductionFilterStrength {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -1175,6 +1379,7 @@ export enum BandwidthReductionFilterStrength {
 }
 
 /**
+ * @public
  * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
  */
 export interface BandwidthReductionFilter {
@@ -1189,6 +1394,9 @@ export interface BandwidthReductionFilter {
   Strength?: BandwidthReductionFilterStrength | string;
 }
 
+/**
+ * @public
+ */
 export enum H264CodecLevel {
   AUTO = "AUTO",
   LEVEL_1 = "LEVEL_1",
@@ -1209,6 +1417,9 @@ export enum H264CodecLevel {
   LEVEL_5_2 = "LEVEL_5_2",
 }
 
+/**
+ * @public
+ */
 export enum H264CodecProfile {
   BASELINE = "BASELINE",
   HIGH = "HIGH",
@@ -1218,49 +1429,76 @@ export enum H264CodecProfile {
   MAIN = "MAIN",
 }
 
+/**
+ * @public
+ */
 export enum H264DynamicSubGop {
   ADAPTIVE = "ADAPTIVE",
   STATIC = "STATIC",
 }
 
+/**
+ * @public
+ */
 export enum H264EntropyEncoding {
   CABAC = "CABAC",
   CAVLC = "CAVLC",
 }
 
+/**
+ * @public
+ */
 export enum H264FieldEncoding {
   FORCE_FIELD = "FORCE_FIELD",
   MBAFF = "MBAFF",
   PAFF = "PAFF",
 }
 
+/**
+ * @public
+ */
 export enum H264FlickerAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum H264FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum H264GopBReference {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264GopSizeUnits {
   AUTO = "AUTO",
   FRAMES = "FRAMES",
   SECONDS = "SECONDS",
 }
 
+/**
+ * @public
+ */
 export enum H264InterlaceMode {
   BOTTOM_FIELD = "BOTTOM_FIELD",
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
@@ -1269,11 +1507,17 @@ export enum H264InterlaceMode {
   TOP_FIELD = "TOP_FIELD",
 }
 
+/**
+ * @public
+ */
 export enum H264ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum H264QualityTuningLevel {
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
   SINGLE_PASS = "SINGLE_PASS",
@@ -1281,6 +1525,7 @@ export enum H264QualityTuningLevel {
 }
 
 /**
+ * @public
  * Settings for quality-defined variable bitrate encoding with the H.264 codec. Use these settings only when you set QVBR for Rate control mode (RateControlMode).
  */
 export interface H264QvbrSettings {
@@ -1300,60 +1545,91 @@ export interface H264QvbrSettings {
   QvbrQualityLevelFineTune?: number;
 }
 
+/**
+ * @public
+ */
 export enum H264RateControlMode {
   CBR = "CBR",
   QVBR = "QVBR",
   VBR = "VBR",
 }
 
+/**
+ * @public
+ */
 export enum H264RepeatPps {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264ScanTypeConversionMode {
   INTERLACED = "INTERLACED",
   INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
 }
 
+/**
+ * @public
+ */
 export enum H264SceneChangeDetect {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
   TRANSITION_DETECTION = "TRANSITION_DETECTION",
 }
 
+/**
+ * @public
+ */
 export enum H264SlowPal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264Syntax {
   DEFAULT = "DEFAULT",
   RP2027 = "RP2027",
 }
 
+/**
+ * @public
+ */
 export enum H264Telecine {
   HARD = "HARD",
   NONE = "NONE",
   SOFT = "SOFT",
 }
 
+/**
+ * @public
+ */
 export enum H264TemporalAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264UnregisteredSeiTimecode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
  */
 export interface H264Settings {
@@ -1568,6 +1844,9 @@ export interface H264Settings {
   UnregisteredSeiTimecode?: H264UnregisteredSeiTimecode | string;
 }
 
+/**
+ * @public
+ */
 export enum H265AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -1578,11 +1857,17 @@ export enum H265AdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum H265AlternateTransferFunctionSei {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265CodecLevel {
   AUTO = "AUTO",
   LEVEL_1 = "LEVEL_1",
@@ -1600,6 +1885,9 @@ export enum H265CodecLevel {
   LEVEL_6_2 = "LEVEL_6_2",
 }
 
+/**
+ * @public
+ */
 export enum H265CodecProfile {
   MAIN10_HIGH = "MAIN10_HIGH",
   MAIN10_MAIN = "MAIN10_MAIN",
@@ -1611,38 +1899,59 @@ export enum H265CodecProfile {
   MAIN_MAIN = "MAIN_MAIN",
 }
 
+/**
+ * @public
+ */
 export enum H265DynamicSubGop {
   ADAPTIVE = "ADAPTIVE",
   STATIC = "STATIC",
 }
 
+/**
+ * @public
+ */
 export enum H265FlickerAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum H265FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum H265GopBReference {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265GopSizeUnits {
   AUTO = "AUTO",
   FRAMES = "FRAMES",
   SECONDS = "SECONDS",
 }
 
+/**
+ * @public
+ */
 export enum H265InterlaceMode {
   BOTTOM_FIELD = "BOTTOM_FIELD",
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
@@ -1651,11 +1960,17 @@ export enum H265InterlaceMode {
   TOP_FIELD = "TOP_FIELD",
 }
 
+/**
+ * @public
+ */
 export enum H265ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum H265QualityTuningLevel {
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
   SINGLE_PASS = "SINGLE_PASS",
@@ -1663,6 +1978,7 @@ export enum H265QualityTuningLevel {
 }
 
 /**
+ * @public
  * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode (RateControlMode).
  */
 export interface H265QvbrSettings {
@@ -1682,71 +1998,108 @@ export interface H265QvbrSettings {
   QvbrQualityLevelFineTune?: number;
 }
 
+/**
+ * @public
+ */
 export enum H265RateControlMode {
   CBR = "CBR",
   QVBR = "QVBR",
   VBR = "VBR",
 }
 
+/**
+ * @public
+ */
 export enum H265SampleAdaptiveOffsetFilterMode {
   ADAPTIVE = "ADAPTIVE",
   DEFAULT = "DEFAULT",
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum H265ScanTypeConversionMode {
   INTERLACED = "INTERLACED",
   INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
 }
 
+/**
+ * @public
+ */
 export enum H265SceneChangeDetect {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
   TRANSITION_DETECTION = "TRANSITION_DETECTION",
 }
 
+/**
+ * @public
+ */
 export enum H265SlowPal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265Telecine {
   HARD = "HARD",
   NONE = "NONE",
   SOFT = "SOFT",
 }
 
+/**
+ * @public
+ */
 export enum H265TemporalAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265TemporalIds {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265Tiles {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265UnregisteredSeiTimecode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265WriteMp4PackagingType {
   HEV1 = "HEV1",
   HVC1 = "HVC1",
 }
 
 /**
+ * @public
  * Settings for H265 codec
  */
 export interface H265Settings {
@@ -1956,6 +2309,9 @@ export interface H265Settings {
   WriteMp4PackagingType?: H265WriteMp4PackagingType | string;
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2AdaptiveQuantization {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -1963,6 +2319,9 @@ export enum Mpeg2AdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2CodecLevel {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -1971,32 +2330,50 @@ export enum Mpeg2CodecLevel {
   MAIN = "MAIN",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2CodecProfile {
   MAIN = "MAIN",
   PROFILE_422 = "PROFILE_422",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2DynamicSubGop {
   ADAPTIVE = "ADAPTIVE",
   STATIC = "STATIC",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2GopSizeUnits {
   FRAMES = "FRAMES",
   SECONDS = "SECONDS",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2InterlaceMode {
   BOTTOM_FIELD = "BOTTOM_FIELD",
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
@@ -2005,6 +2382,9 @@ export enum Mpeg2InterlaceMode {
   TOP_FIELD = "TOP_FIELD",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2IntraDcPrecision {
   AUTO = "AUTO",
   INTRA_DC_PRECISION_10 = "INTRA_DC_PRECISION_10",
@@ -2013,58 +2393,89 @@ export enum Mpeg2IntraDcPrecision {
   INTRA_DC_PRECISION_9 = "INTRA_DC_PRECISION_9",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2QualityTuningLevel {
   MULTI_PASS = "MULTI_PASS",
   SINGLE_PASS = "SINGLE_PASS",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2RateControlMode {
   CBR = "CBR",
   VBR = "VBR",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2ScanTypeConversionMode {
   INTERLACED = "INTERLACED",
   INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2SceneChangeDetect {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2SlowPal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2Syntax {
   DEFAULT = "DEFAULT",
   D_10 = "D_10",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2Telecine {
   HARD = "HARD",
   NONE = "NONE",
   SOFT = "SOFT",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2TemporalAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
  */
 export interface Mpeg2Settings {
@@ -2234,11 +2645,17 @@ export interface Mpeg2Settings {
   TemporalAdaptiveQuantization?: Mpeg2TemporalAdaptiveQuantization | string;
 }
 
+/**
+ * @public
+ */
 export enum ProresChromaSampling {
   PRESERVE_444_SAMPLING = "PRESERVE_444_SAMPLING",
   SUBSAMPLE_TO_422 = "SUBSAMPLE_TO_422",
 }
 
+/**
+ * @public
+ */
 export enum ProresCodecProfile {
   APPLE_PRORES_422 = "APPLE_PRORES_422",
   APPLE_PRORES_422_HQ = "APPLE_PRORES_422_HQ",
@@ -2248,17 +2665,26 @@ export enum ProresCodecProfile {
   APPLE_PRORES_4444_XQ = "APPLE_PRORES_4444_XQ",
 }
 
+/**
+ * @public
+ */
 export enum ProresFramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum ProresFramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum ProresInterlaceMode {
   BOTTOM_FIELD = "BOTTOM_FIELD",
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
@@ -2267,27 +2693,40 @@ export enum ProresInterlaceMode {
   TOP_FIELD = "TOP_FIELD",
 }
 
+/**
+ * @public
+ */
 export enum ProresParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum ProresScanTypeConversionMode {
   INTERLACED = "INTERLACED",
   INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
 }
 
+/**
+ * @public
+ */
 export enum ProresSlowPal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum ProresTelecine {
   HARD = "HARD",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
  */
 export interface ProresSettings {
@@ -2357,37 +2796,58 @@ export interface ProresSettings {
   Telecine?: ProresTelecine | string;
 }
 
+/**
+ * @public
+ */
 export enum Vc3FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Vc3FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum Vc3InterlaceMode {
   INTERLACED = "INTERLACED",
   PROGRESSIVE = "PROGRESSIVE",
 }
 
+/**
+ * @public
+ */
 export enum Vc3ScanTypeConversionMode {
   INTERLACED = "INTERLACED",
   INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
 }
 
+/**
+ * @public
+ */
 export enum Vc3SlowPal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Vc3Telecine {
   HARD = "HARD",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum Vc3Class {
   CLASS_145_8BIT = "CLASS_145_8BIT",
   CLASS_220_10BIT = "CLASS_220_10BIT",
@@ -2395,6 +2855,7 @@ export enum Vc3Class {
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
  */
 export interface Vc3Settings {
@@ -2444,32 +2905,48 @@ export interface Vc3Settings {
   Vc3Class?: Vc3Class | string;
 }
 
+/**
+ * @public
+ */
 export enum Vp8FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Vp8FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum Vp8ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Vp8QualityTuningLevel {
   MULTI_PASS = "MULTI_PASS",
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
 }
 
+/**
+ * @public
+ */
 export enum Vp8RateControlMode {
   VBR = "VBR",
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
  */
 export interface Vp8Settings {
@@ -2539,32 +3016,48 @@ export interface Vp8Settings {
   RateControlMode?: Vp8RateControlMode | string;
 }
 
+/**
+ * @public
+ */
 export enum Vp9FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Vp9FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum Vp9ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum Vp9QualityTuningLevel {
   MULTI_PASS = "MULTI_PASS",
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
 }
 
+/**
+ * @public
+ */
 export enum Vp9RateControlMode {
   VBR = "VBR",
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
  */
 export interface Vp9Settings {
@@ -2634,6 +3127,9 @@ export interface Vp9Settings {
   RateControlMode?: Vp9RateControlMode | string;
 }
 
+/**
+ * @public
+ */
 export enum XavcAdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -2644,23 +3140,35 @@ export enum XavcAdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum XavcEntropyEncoding {
   AUTO = "AUTO",
   CABAC = "CABAC",
   CAVLC = "CAVLC",
 }
 
+/**
+ * @public
+ */
 export enum XavcFramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum XavcFramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
   FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
+/**
+ * @public
+ */
 export enum XavcProfile {
   XAVC_4K = "XAVC_4K",
   XAVC_4K_INTRA_CBG = "XAVC_4K_INTRA_CBG",
@@ -2669,21 +3177,33 @@ export enum XavcProfile {
   XAVC_HD_INTRA_CBG = "XAVC_HD_INTRA_CBG",
 }
 
+/**
+ * @public
+ */
 export enum XavcSlowPal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum XavcSpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum XavcTemporalAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Xavc4kIntraCbgProfileClass {
   CLASS_100 = "CLASS_100",
   CLASS_300 = "CLASS_300",
@@ -2691,6 +3211,7 @@ export enum Xavc4kIntraCbgProfileClass {
 }
 
 /**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_CBG.
  */
 export interface Xavc4kIntraCbgProfileSettings {
@@ -2700,6 +3221,9 @@ export interface Xavc4kIntraCbgProfileSettings {
   XavcClass?: Xavc4kIntraCbgProfileClass | string;
 }
 
+/**
+ * @public
+ */
 export enum Xavc4kIntraVbrProfileClass {
   CLASS_100 = "CLASS_100",
   CLASS_300 = "CLASS_300",
@@ -2707,6 +3231,7 @@ export enum Xavc4kIntraVbrProfileClass {
 }
 
 /**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_VBR.
  */
 export interface Xavc4kIntraVbrProfileSettings {
@@ -2716,27 +3241,42 @@ export interface Xavc4kIntraVbrProfileSettings {
   XavcClass?: Xavc4kIntraVbrProfileClass | string;
 }
 
+/**
+ * @public
+ */
 export enum Xavc4kProfileBitrateClass {
   BITRATE_CLASS_100 = "BITRATE_CLASS_100",
   BITRATE_CLASS_140 = "BITRATE_CLASS_140",
   BITRATE_CLASS_200 = "BITRATE_CLASS_200",
 }
 
+/**
+ * @public
+ */
 export enum Xavc4kProfileCodecProfile {
   HIGH = "HIGH",
   HIGH_422 = "HIGH_422",
 }
 
+/**
+ * @public
+ */
 export enum XavcFlickerAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum XavcGopBReference {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Xavc4kProfileQualityTuningLevel {
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
   SINGLE_PASS = "SINGLE_PASS",
@@ -2744,6 +3284,7 @@ export enum Xavc4kProfileQualityTuningLevel {
 }
 
 /**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
  */
 export interface Xavc4kProfileSettings {
@@ -2788,6 +3329,9 @@ export interface Xavc4kProfileSettings {
   Slices?: number;
 }
 
+/**
+ * @public
+ */
 export enum XavcHdIntraCbgProfileClass {
   CLASS_100 = "CLASS_100",
   CLASS_200 = "CLASS_200",
@@ -2795,6 +3339,7 @@ export enum XavcHdIntraCbgProfileClass {
 }
 
 /**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD_INTRA_CBG.
  */
 export interface XavcHdIntraCbgProfileSettings {
@@ -2804,12 +3349,18 @@ export interface XavcHdIntraCbgProfileSettings {
   XavcClass?: XavcHdIntraCbgProfileClass | string;
 }
 
+/**
+ * @public
+ */
 export enum XavcHdProfileBitrateClass {
   BITRATE_CLASS_25 = "BITRATE_CLASS_25",
   BITRATE_CLASS_35 = "BITRATE_CLASS_35",
   BITRATE_CLASS_50 = "BITRATE_CLASS_50",
 }
 
+/**
+ * @public
+ */
 export enum XavcInterlaceMode {
   BOTTOM_FIELD = "BOTTOM_FIELD",
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
@@ -2818,18 +3369,25 @@ export enum XavcInterlaceMode {
   TOP_FIELD = "TOP_FIELD",
 }
 
+/**
+ * @public
+ */
 export enum XavcHdProfileQualityTuningLevel {
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
   SINGLE_PASS = "SINGLE_PASS",
   SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
 }
 
+/**
+ * @public
+ */
 export enum XavcHdProfileTelecine {
   HARD = "HARD",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
  */
 export interface XavcHdProfileSettings {
@@ -2880,6 +3438,7 @@ export interface XavcHdProfileSettings {
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value XAVC.
  */
 export interface XavcSettings {
@@ -2965,6 +3524,7 @@ export interface XavcSettings {
 }
 
 /**
+ * @public
  * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
  */
 export interface VideoCodecSettings {
@@ -3029,33 +3589,49 @@ export interface VideoCodecSettings {
   XavcSettings?: XavcSettings;
 }
 
+/**
+ * @public
+ */
 export enum ColorMetadata {
   IGNORE = "IGNORE",
   INSERT = "INSERT",
 }
 
+/**
+ * @public
+ */
 export enum DropFrameTimecode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum RespondToAfd {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
   RESPOND = "RESPOND",
 }
 
+/**
+ * @public
+ */
 export enum ScalingBehavior {
   DEFAULT = "DEFAULT",
   STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT",
 }
 
+/**
+ * @public
+ */
 export enum VideoTimecodeInsertion {
   DISABLED = "DISABLED",
   PIC_TIMING_SEI = "PIC_TIMING_SEI",
 }
 
 /**
+ * @public
  * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
  */
 export interface ClipLimits {
@@ -3080,6 +3656,9 @@ export interface ClipLimits {
   MinimumYUV?: number;
 }
 
+/**
+ * @public
+ */
 export enum ColorSpaceConversion {
   FORCE_601 = "FORCE_601",
   FORCE_709 = "FORCE_709",
@@ -3091,11 +3670,17 @@ export enum ColorSpaceConversion {
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum HDRToSDRToneMapper {
   PRESERVE_DETAILS = "PRESERVE_DETAILS",
   VIBRANT = "VIBRANT",
 }
 
+/**
+ * @public
+ */
 export enum SampleRangeConversion {
   LIMITED_RANGE_CLIP = "LIMITED_RANGE_CLIP",
   LIMITED_RANGE_SQUEEZE = "LIMITED_RANGE_SQUEEZE",
@@ -3103,6 +3688,7 @@ export enum SampleRangeConversion {
 }
 
 /**
+ * @public
  * Settings for color correction.
  */
 export interface ColorCorrector {
@@ -3162,6 +3748,9 @@ export interface ColorCorrector {
   SdrReferenceWhiteLevel?: number;
 }
 
+/**
+ * @public
+ */
 export enum DeinterlaceAlgorithm {
   BLEND = "BLEND",
   BLEND_TICKER = "BLEND_TICKER",
@@ -3169,11 +3758,17 @@ export enum DeinterlaceAlgorithm {
   INTERPOLATE_TICKER = "INTERPOLATE_TICKER",
 }
 
+/**
+ * @public
+ */
 export enum DeinterlacerControl {
   FORCE_ALL_FRAMES = "FORCE_ALL_FRAMES",
   NORMAL = "NORMAL",
 }
 
+/**
+ * @public
+ */
 export enum DeinterlacerMode {
   ADAPTIVE = "ADAPTIVE",
   DEINTERLACE = "DEINTERLACE",
@@ -3181,6 +3776,7 @@ export enum DeinterlacerMode {
 }
 
 /**
+ * @public
  * Settings for deinterlacer
  */
 export interface Deinterlacer {
@@ -3201,6 +3797,7 @@ export interface Deinterlacer {
 }
 
 /**
+ * @public
  * Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
  */
 export interface DolbyVisionLevel6Metadata {
@@ -3215,23 +3812,33 @@ export interface DolbyVisionLevel6Metadata {
   MaxFall?: number;
 }
 
+/**
+ * @public
+ */
 export enum DolbyVisionLevel6Mode {
   PASSTHROUGH = "PASSTHROUGH",
   RECALCULATE = "RECALCULATE",
   SPECIFY = "SPECIFY",
 }
 
+/**
+ * @public
+ */
 export enum DolbyVisionMapping {
   HDR10_1000 = "HDR10_1000",
   HDR10_NOMAP = "HDR10_NOMAP",
 }
 
+/**
+ * @public
+ */
 export enum DolbyVisionProfile {
   PROFILE_5 = "PROFILE_5",
   PROFILE_8_1 = "PROFILE_8_1",
 }
 
 /**
+ * @public
  * Create Dolby Vision Profile 5 or Profile 8.1 compatible video output.
  */
 export interface DolbyVision {
@@ -3257,6 +3864,7 @@ export interface DolbyVision {
 }
 
 /**
+ * @public
  * Setting for HDR10+ metadata insertion
  */
 export interface Hdr10Plus {
@@ -3271,6 +3879,9 @@ export interface Hdr10Plus {
   TargetMonitorNits?: number;
 }
 
+/**
+ * @public
+ */
 export enum NoiseReducerFilter {
   BILATERAL = "BILATERAL",
   CONSERVE = "CONSERVE",
@@ -3283,6 +3894,7 @@ export enum NoiseReducerFilter {
 }
 
 /**
+ * @public
  * Settings for a noise reducer filter
  */
 export interface NoiseReducerFilterSettings {
@@ -3293,6 +3905,7 @@ export interface NoiseReducerFilterSettings {
 }
 
 /**
+ * @public
  * Noise reducer filter settings for spatial filter.
  */
 export interface NoiseReducerSpatialFilterSettings {
@@ -3312,12 +3925,18 @@ export interface NoiseReducerSpatialFilterSettings {
   Strength?: number;
 }
 
+/**
+ * @public
+ */
 export enum NoiseFilterPostTemporalSharpening {
   AUTO = "AUTO",
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum NoiseFilterPostTemporalSharpeningStrength {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -3325,6 +3944,7 @@ export enum NoiseFilterPostTemporalSharpeningStrength {
 }
 
 /**
+ * @public
  * Noise reducer filter settings for temporal filter.
  */
 export interface NoiseReducerTemporalFilterSettings {
@@ -3355,6 +3975,7 @@ export interface NoiseReducerTemporalFilterSettings {
 }
 
 /**
+ * @public
  * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
  */
 export interface NoiseReducer {
@@ -3379,6 +4000,9 @@ export interface NoiseReducer {
   TemporalFilterSettings?: NoiseReducerTemporalFilterSettings;
 }
 
+/**
+ * @public
+ */
 export enum WatermarkingStrength {
   DEFAULT = "DEFAULT",
   LIGHTER = "LIGHTER",
@@ -3388,6 +4012,7 @@ export enum WatermarkingStrength {
 }
 
 /**
+ * @public
  * For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
  */
 export interface NexGuardFileMarkerSettings {
@@ -3413,6 +4038,7 @@ export interface NexGuardFileMarkerSettings {
 }
 
 /**
+ * @public
  * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
  */
 export interface PartnerWatermarking {
@@ -3422,6 +4048,9 @@ export interface PartnerWatermarking {
   NexguardFileMarkerSettings?: NexGuardFileMarkerSettings;
 }
 
+/**
+ * @public
+ */
 export enum TimecodeBurninPosition {
   BOTTOM_CENTER = "BOTTOM_CENTER",
   BOTTOM_LEFT = "BOTTOM_LEFT",
@@ -3435,6 +4064,7 @@ export enum TimecodeBurninPosition {
 }
 
 /**
+ * @public
  * Settings for burning the output timecode and specified prefix into the output.
  */
 export interface TimecodeBurnin {
@@ -3455,6 +4085,7 @@ export interface TimecodeBurnin {
 }
 
 /**
+ * @public
  * Find additional transcoding features under Preprocessors (VideoPreprocessors). Enable the features at each output individually. These features are disabled by default.
  */
 export interface VideoPreprocessor {
@@ -3500,6 +4131,7 @@ export interface VideoPreprocessor {
 }
 
 /**
+ * @public
  * Settings related to video encoding of your output. The specific video settings depend on the video codec that you choose. When you work directly in your JSON job specification, include one instance of Video description (VideoDescription) per output.
  */
 export interface VideoDescription {
@@ -3580,6 +4212,7 @@ export interface VideoDescription {
 }
 
 /**
+ * @public
  * Each output in your job is a collection of settings that describes how you want MediaConvert to encode a single output file or stream. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/create-outputs.html.
  */
 export interface Output {
@@ -3625,6 +4258,7 @@ export interface Output {
 }
 
 /**
+ * @public
  * Group of outputs
  */
 export interface OutputGroup {
@@ -3654,6 +4288,9 @@ export interface OutputGroup {
   Outputs?: Output[];
 }
 
+/**
+ * @public
+ */
 export enum TimecodeSource {
   EMBEDDED = "EMBEDDED",
   SPECIFIEDSTART = "SPECIFIEDSTART",
@@ -3661,6 +4298,7 @@ export enum TimecodeSource {
 }
 
 /**
+ * @public
  * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
  */
 export interface TimecodeConfig {
@@ -3686,6 +4324,7 @@ export interface TimecodeConfig {
 }
 
 /**
+ * @public
  * Insert user-defined custom ID3 metadata (id3) at timecodes (timecode) that you specify. In each output that you want to include this metadata, you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
  */
 export interface TimedMetadataInsertion {
@@ -3696,6 +4335,7 @@ export interface TimedMetadataInsertion {
 }
 
 /**
+ * @public
  * JobSettings contains all the transcode settings for a job.
  */
 export interface JobSettings {
@@ -3760,11 +4400,17 @@ export interface JobSettings {
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
 
+/**
+ * @public
+ */
 export enum SimulateReservedQueue {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   CANCELED = "CANCELED",
   COMPLETE = "COMPLETE",
@@ -3773,6 +4419,9 @@ export enum JobStatus {
   SUBMITTED = "SUBMITTED",
 }
 
+/**
+ * @public
+ */
 export enum StatusUpdateInterval {
   SECONDS_10 = "SECONDS_10",
   SECONDS_12 = "SECONDS_12",
@@ -3792,6 +4441,7 @@ export enum StatusUpdateInterval {
 }
 
 /**
+ * @public
  * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
  */
 export interface Timing {
@@ -3812,6 +4462,7 @@ export interface Timing {
 }
 
 /**
+ * @public
  * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  */
 export interface Job {
@@ -3942,6 +4593,7 @@ export interface Job {
 }
 
 /**
+ * @public
  * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
  */
 export interface JobTemplateSettings {
@@ -4006,12 +4658,16 @@ export interface JobTemplateSettings {
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   CUSTOM = "CUSTOM",
   SYSTEM = "SYSTEM",
 }
 
 /**
+ * @public
  * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
  */
 export interface JobTemplate {
@@ -4082,6 +4738,7 @@ export interface JobTemplate {
 }
 
 /**
+ * @public
  * Settings for preset
  */
 export interface PresetSettings {
@@ -4107,6 +4764,7 @@ export interface PresetSettings {
 }
 
 /**
+ * @public
  * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
  */
 export interface Preset {
@@ -4151,26 +4809,39 @@ export interface Preset {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export enum PricingPlan {
   ON_DEMAND = "ON_DEMAND",
   RESERVED = "RESERVED",
 }
 
+/**
+ * @public
+ */
 export enum Commitment {
   ONE_YEAR = "ONE_YEAR",
 }
 
+/**
+ * @public
+ */
 export enum RenewalType {
   AUTO_RENEW = "AUTO_RENEW",
   EXPIRE = "EXPIRE",
 }
 
+/**
+ * @public
+ */
 export enum ReservationPlanStatus {
   ACTIVE = "ACTIVE",
   EXPIRED = "EXPIRED",
 }
 
 /**
+ * @public
  * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
  */
 export interface ReservationPlan {
@@ -4205,12 +4876,16 @@ export interface ReservationPlan {
   Status?: ReservationPlanStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum QueueStatus {
   ACTIVE = "ACTIVE",
   PAUSED = "PAUSED",
 }
 
 /**
+ * @public
  * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
  */
 export interface Queue {
@@ -4270,6 +4945,9 @@ export interface Queue {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCertificateRequest {
   /**
    * The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
@@ -4277,9 +4955,13 @@ export interface AssociateCertificateRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCertificateResponse {}
 
 /**
+ * @public
  * The service can't process your request because of a problem in the request. Please check your request form and syntax.
  */
 export class BadRequestException extends __BaseException {
@@ -4301,6 +4983,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * The service couldn't complete your request because there is a conflict with the current state of the resource.
  */
 export class ConflictException extends __BaseException {
@@ -4322,6 +5005,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * You don't have permissions for this action with the credentials you sent.
  */
 export class ForbiddenException extends __BaseException {
@@ -4343,6 +5027,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * The service encountered an unexpected condition and can't fulfill your request.
  */
 export class InternalServerErrorException extends __BaseException {
@@ -4364,6 +5049,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * The resource you requested doesn't exist.
  */
 export class NotFoundException extends __BaseException {
@@ -4385,6 +5071,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -4405,6 +5092,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRequest {
   /**
    * The Job ID of the job to be cancelled.
@@ -4412,8 +5102,14 @@ export interface CancelJobRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobResponse {}
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
@@ -4481,6 +5177,9 @@ export interface CreateJobRequest {
   UserMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -4488,6 +5187,9 @@ export interface CreateJobResponse {
   Job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateRequest {
   /**
    * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
@@ -4540,6 +5242,9 @@ export interface CreateJobTemplateRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateResponse {
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -4547,6 +5252,9 @@ export interface CreateJobTemplateResponse {
   JobTemplate?: JobTemplate;
 }
 
+/**
+ * @public
+ */
 export interface CreatePresetRequest {
   /**
    * Optional. A category for the preset you are creating.
@@ -4574,6 +5282,9 @@ export interface CreatePresetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -4582,6 +5293,7 @@ export interface CreatePresetResponse {
 }
 
 /**
+ * @public
  * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
  */
 export interface ReservationPlanSettings {
@@ -4601,6 +5313,9 @@ export interface ReservationPlanSettings {
   ReservedSlots: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateQueueRequest {
   /**
    * Optional. A description of the queue that you are creating.
@@ -4633,6 +5348,9 @@ export interface CreateQueueRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
@@ -4640,6 +5358,9 @@ export interface CreateQueueResponse {
   Queue?: Queue;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateRequest {
   /**
    * The name of the job template to be deleted.
@@ -4647,12 +5368,24 @@ export interface DeleteJobTemplateRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePolicyRequest {}
 
+/**
+ * @public
+ */
 export interface DeletePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePresetRequest {
   /**
    * The name of the preset to be deleted.
@@ -4660,8 +5393,14 @@ export interface DeletePresetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePresetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteQueueRequest {
   /**
    * The name of the queue that you want to delete.
@@ -4669,14 +5408,21 @@ export interface DeleteQueueRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueueResponse {}
 
+/**
+ * @public
+ */
 export enum DescribeEndpointsMode {
   DEFAULT = "DEFAULT",
   GET_ONLY = "GET_ONLY",
 }
 
 /**
+ * @public
  * DescribeEndpointsRequest
  */
 export interface DescribeEndpointsRequest {
@@ -4696,6 +5442,9 @@ export interface DescribeEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsResponse {
   /**
    * List of endpoints
@@ -4708,6 +5457,9 @@ export interface DescribeEndpointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCertificateRequest {
   /**
    * The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
@@ -4715,8 +5467,14 @@ export interface DisassociateCertificateRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCertificateResponse {}
 
+/**
+ * @public
+ */
 export interface GetJobRequest {
   /**
    * the job ID of the job.

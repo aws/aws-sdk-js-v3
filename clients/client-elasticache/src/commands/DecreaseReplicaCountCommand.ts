@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DecreaseReplicaCountCommand}.
  */
 export interface DecreaseReplicaCountCommandInput extends DecreaseReplicaCountMessage {}
 /**
+ * @public
+ *
  * The output of {@link DecreaseReplicaCountCommand}.
  */
 export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
  *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
  *             is performed with no cluster down time.</p>
@@ -48,6 +53,8 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * const response = await client.send(command);
  * ```
  *
+ * @param DecreaseReplicaCountCommandInput - {@link DecreaseReplicaCountCommandInput}
+ * @returns {@link DecreaseReplicaCountCommandOutput}
  * @see {@link DecreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link DecreaseReplicaCountCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -109,6 +116,9 @@ export class DecreaseReplicaCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecreaseReplicaCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DecreaseReplicaCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecreaseReplicaCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDecreaseReplicaCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecreaseReplicaCountCommandOutput> {
     return deserializeAws_queryDecreaseReplicaCountCommand(output, context);
   }

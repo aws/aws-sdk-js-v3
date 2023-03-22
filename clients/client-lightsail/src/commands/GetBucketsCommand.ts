@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketsCommand}.
  */
 export interface GetBucketsCommandInput extends GetBucketsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketsCommand}.
  */
 export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
  *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access feature for your Lightsail buckets.</p>
@@ -50,6 +55,8 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketsCommandInput - {@link GetBucketsCommandInput}
+ * @returns {@link GetBucketsCommandOutput}
  * @see {@link GetBucketsCommandInput} for command's `input` shape.
  * @see {@link GetBucketsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetBucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class GetBucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketsCommandOutput> {
     return deserializeAws_json1_1GetBucketsCommand(output, context);
   }

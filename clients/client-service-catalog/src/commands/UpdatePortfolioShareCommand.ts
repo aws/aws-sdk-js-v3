@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePortfolioShareCommand}.
  */
 export interface UpdatePortfolioShareCommandInput extends UpdatePortfolioShareInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePortfolioShareCommand}.
  */
 export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing
  *          or Principal sharing for an existing portfolio share. </p>
  *          <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>
@@ -60,6 +65,8 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePortfolioShareCommandInput - {@link UpdatePortfolioShareCommandInput}
+ * @returns {@link UpdatePortfolioShareCommandOutput}
  * @see {@link UpdatePortfolioShareCommandInput} for command's `input` shape.
  * @see {@link UpdatePortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdatePortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdatePortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortfolioShareCommandOutput> {
     return deserializeAws_json1_1UpdatePortfolioShareCommand(output, context);
   }

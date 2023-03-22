@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationTemplatesCommand}.
  */
 export interface ListRecommendationTemplatesCommandInput extends ListRecommendationTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationTemplatesCommand}.
  */
 export interface ListRecommendationTemplatesCommandOutput
@@ -37,6 +41,7 @@ export interface ListRecommendationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recommendation templates for the AWS Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListRecommendationTemplatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationTemplatesCommandInput - {@link ListRecommendationTemplatesCommandInput}
+ * @returns {@link ListRecommendationTemplatesCommandOutput}
  * @see {@link ListRecommendationTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListRecommendationTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListRecommendationTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecommendationTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

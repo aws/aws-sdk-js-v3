@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationsCommand}.
  */
 export interface DescribeConfigurationsCommandInput extends DescribeConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationsCommand}.
  */
 export interface DescribeConfigurationsCommandOutput extends DescribeConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attributes for a list of configuration item IDs.</p>
  *          <note>
  *             <p>All of the supplied IDs must be for the same asset type from one of the
@@ -73,6 +78,8 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationsCommandInput - {@link DescribeConfigurationsCommandInput}
+ * @returns {@link DescribeConfigurationsCommandOutput}
  * @see {@link DescribeConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribeConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationsCommandOutput> {
     return deserializeAws_json1_1DescribeConfigurationsCommand(output, context);
   }

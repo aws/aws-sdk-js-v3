@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayRouteCommand}.
  */
 export interface UpdateGatewayRouteCommandInput extends UpdateGatewayRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayRouteCommand}.
  */
 export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing gateway route that is associated to a specified virtual gateway in a
  *          service mesh.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayRouteCommandInput - {@link UpdateGatewayRouteCommandInput}
+ * @returns {@link UpdateGatewayRouteCommandOutput}
  * @see {@link UpdateGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayRouteCommandOutput> {
     return deserializeAws_restJson1UpdateGatewayRouteCommand(output, context);
   }

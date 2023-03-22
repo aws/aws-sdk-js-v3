@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelServicePipelineDeploymentCommand}.
  */
 export interface CancelServicePipelineDeploymentCommandInput extends CancelServicePipelineDeploymentInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelServicePipelineDeploymentCommand}.
  */
 export interface CancelServicePipelineDeploymentCommandOutput
@@ -37,6 +41,7 @@ export interface CancelServicePipelineDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>.
  *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html">Update a service pipeline</a> in the
  *         <i>Proton User guide</i>.</p>
@@ -63,6 +68,8 @@ export interface CancelServicePipelineDeploymentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelServicePipelineDeploymentCommandInput - {@link CancelServicePipelineDeploymentCommandInput}
+ * @returns {@link CancelServicePipelineDeploymentCommandOutput}
  * @see {@link CancelServicePipelineDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelServicePipelineDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -104,6 +111,9 @@ export class CancelServicePipelineDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelServicePipelineDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class CancelServicePipelineDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelServicePipelineDeploymentCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class CancelServicePipelineDeploymentCommand extends $Command<
     return serializeAws_json1_0CancelServicePipelineDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

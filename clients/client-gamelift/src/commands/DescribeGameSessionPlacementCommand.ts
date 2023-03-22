@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameSessionPlacementCommand}.
  */
 export interface DescribeGameSessionPlacementCommandInput extends DescribeGameSessionPlacementInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameSessionPlacementCommand}.
  */
 export interface DescribeGameSessionPlacementCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeGameSessionPlacementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information, including current status, about a game session placement
  *             request. </p>
  *         <p>To get game session placement details, specify the placement ID.</p>
@@ -55,6 +60,8 @@ export interface DescribeGameSessionPlacementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionPlacementCommandInput - {@link DescribeGameSessionPlacementCommandInput}
+ * @returns {@link DescribeGameSessionPlacementCommandOutput}
  * @see {@link DescribeGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGameSessionPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

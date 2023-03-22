@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBatchJobCommand}.
  */
 export interface StartBatchJobCommandInput extends StartBatchJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBatchJobCommand}.
  */
 export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a batch job and returns the unique identifier of this execution of the batch job.
  *          The associated application must be running in order to start the batch job.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBatchJobCommandInput - {@link StartBatchJobCommandInput}
+ * @returns {@link StartBatchJobCommandOutput}
  * @see {@link StartBatchJobCommandInput} for command's `input` shape.
  * @see {@link StartBatchJobCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -88,6 +95,9 @@ export class StartBatchJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBatchJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartBatchJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBatchJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartBatchJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBatchJobCommandOutput> {
     return deserializeAws_restJson1StartBatchJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
  *          returned by the <code>StartQuery</code> operation, and an ARN for
  *             <code>EventDataStore</code>.</p>
@@ -48,6 +53,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
+ * @returns {@link GetQueryResultsCommandOutput}
  * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -108,6 +115,9 @@ export class GetQueryResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class GetQueryResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetQueryResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryResultsCommandOutput> {
     return deserializeAws_json1_1GetQueryResultsCommand(output, context);
   }

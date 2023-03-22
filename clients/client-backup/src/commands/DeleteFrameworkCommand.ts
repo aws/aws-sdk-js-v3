@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFrameworkCommand}.
  */
 export interface DeleteFrameworkCommandInput extends DeleteFrameworkInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFrameworkCommand}.
  */
 export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the framework specified by a framework name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFrameworkCommandInput - {@link DeleteFrameworkCommandInput}
+ * @returns {@link DeleteFrameworkCommandOutput}
  * @see {@link DeleteFrameworkCommandInput} for command's `input` shape.
  * @see {@link DeleteFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFrameworkCommandOutput> {
     return deserializeAws_restJson1DeleteFrameworkCommand(output, context);
   }

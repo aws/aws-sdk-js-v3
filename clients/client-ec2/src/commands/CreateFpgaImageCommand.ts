@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateFpgaImageCommand, serializeAws_ec2CreateFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFpgaImageCommand}.
  */
 export interface CreateFpgaImageCommandInput extends CreateFpgaImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFpgaImageCommand}.
  */
 export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p>
  *          <p>The create operation is asynchronous. To verify that the AFI is ready for use,
  *          check the output logs.</p>
@@ -48,6 +53,8 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFpgaImageCommandInput - {@link CreateFpgaImageCommandInput}
+ * @returns {@link CreateFpgaImageCommandOutput}
  * @see {@link CreateFpgaImageCommandInput} for command's `input` shape.
  * @see {@link CreateFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class CreateFpgaImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFpgaImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class CreateFpgaImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateFpgaImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFpgaImageCommandOutput> {
     return deserializeAws_ec2CreateFpgaImageCommand(output, context);
   }

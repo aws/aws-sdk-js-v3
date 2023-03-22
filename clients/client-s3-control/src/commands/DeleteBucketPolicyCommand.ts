@@ -22,15 +22,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketPolicyCommand}.
  */
 export interface DeleteBucketPolicyCommandInput extends DeleteBucketPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketPolicyCommand}.
  */
 export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket policy. To delete an S3 bucket policy,
  *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html">DeleteBucketPolicy</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -77,6 +82,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketPolicyCommandInput - {@link DeleteBucketPolicyCommandInput}
+ * @returns {@link DeleteBucketPolicyCommandOutput}
  * @see {@link DeleteBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -104,6 +111,9 @@ export class DeleteBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DeleteBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketPolicyCommandOutput> {
     return deserializeAws_restXmlDeleteBucketPolicyCommand(output, context);
   }

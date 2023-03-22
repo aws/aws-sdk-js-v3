@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmPublicVirtualInterfaceCommand}.
  */
 export interface ConfirmPublicVirtualInterfaceCommandInput extends ConfirmPublicVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmPublicVirtualInterfaceCommand}.
  */
 export interface ConfirmPublicVirtualInterfaceCommandOutput
@@ -37,6 +41,7 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts ownership of a public virtual interface created by another Amazon Web Services account.</p>
  *          <p>After the virtual interface owner makes this call, the specified virtual interface is
  *       created and made available to handle traffic.</p>
@@ -50,6 +55,8 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmPublicVirtualInterfaceCommandInput - {@link ConfirmPublicVirtualInterfaceCommandInput}
+ * @returns {@link ConfirmPublicVirtualInterfaceCommandOutput}
  * @see {@link ConfirmPublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmPublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmPublicVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmPublicVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

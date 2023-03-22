@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReserveContactCommand}.
  */
 export interface ReserveContactCommandInput extends ReserveContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReserveContactCommand}.
  */
 export interface ReserveContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reserves a contact using specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param ReserveContactCommandInput - {@link ReserveContactCommandInput}
+ * @returns {@link ReserveContactCommandOutput}
  * @see {@link ReserveContactCommandInput} for command's `input` shape.
  * @see {@link ReserveContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class ReserveContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReserveContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ReserveContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReserveContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReserveContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReserveContactCommandOutput> {
     return deserializeAws_restJson1ReserveContactCommand(output, context);
   }

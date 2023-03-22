@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteJobCommand}.
  */
 export interface DeleteJobCommandInput extends DeleteJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteJobCommand}.
  */
 export interface DeleteJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a job and its related job executions.</p>
  *          <p>Deleting a job may take time, depending on the number of job
  *         executions created for the job and various other factors. While the job
@@ -49,6 +54,8 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
+ * @returns {@link DeleteJobCommandOutput}
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobCommandOutput> {
     return deserializeAws_restJson1DeleteJobCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachPrincipalPolicyCommand}.
  */
 export interface AttachPrincipalPolicyCommandInput extends AttachPrincipalPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachPrincipalPolicyCommand}.
  */
 export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Attaches the specified policy to the specified principal (certificate or other
@@ -48,6 +53,8 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachPrincipalPolicyCommandInput - {@link AttachPrincipalPolicyCommandInput}
+ * @returns {@link AttachPrincipalPolicyCommandOutput}
  * @see {@link AttachPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class AttachPrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachPrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class AttachPrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachPrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AttachPrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachPrincipalPolicyCommandOutput> {
     return deserializeAws_restJson1AttachPrincipalPolicyCommand(output, context);
   }

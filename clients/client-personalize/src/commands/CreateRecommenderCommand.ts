@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecommenderCommand}.
  */
 export interface CreateRecommenderCommandInput extends CreateRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecommenderCommand}.
  */
 export interface CreateRecommenderCommandOutput extends CreateRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a recommender with the recipe (a Domain dataset group use case) you specify.
  *       You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
@@ -121,6 +126,8 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecommenderCommandInput - {@link CreateRecommenderCommandInput}
+ * @returns {@link CreateRecommenderCommandOutput}
  * @see {@link CreateRecommenderCommandInput} for command's `input` shape.
  * @see {@link CreateRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -162,6 +169,9 @@ export class CreateRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,10 +211,16 @@ export class CreateRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecommenderCommandOutput> {
     return deserializeAws_json1_1CreateRecommenderCommand(output, context);
   }

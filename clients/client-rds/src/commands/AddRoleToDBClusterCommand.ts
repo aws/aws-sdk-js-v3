@@ -21,15 +21,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddRoleToDBClusterCommand}.
  */
 export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddRoleToDBClusterCommand}.
  */
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Identity and Access Management (IAM) role with a DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
+ * @returns {@link AddRoleToDBClusterCommandOutput}
  * @see {@link AddRoleToDBClusterCommandInput} for command's `input` shape.
  * @see {@link AddRoleToDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -77,6 +84,9 @@ export class AddRoleToDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddRoleToDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class AddRoleToDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRoleToDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddRoleToDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBClusterCommandOutput> {
     return deserializeAws_queryAddRoleToDBClusterCommand(output, context);
   }

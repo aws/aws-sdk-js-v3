@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceShareCommand}.
  */
 export interface CreateResourceShareCommandInput extends CreateResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceShareCommand}.
  */
 export interface CreateResourceShareCommandOutput extends CreateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
  *             want to share, a list of principals you want to share the resources with, and the
  *             permissions to grant those principals.</p>
@@ -53,6 +58,8 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceShareCommandInput - {@link CreateResourceShareCommandInput}
+ * @returns {@link CreateResourceShareCommandOutput}
  * @see {@link CreateResourceShareCommandInput} for command's `input` shape.
  * @see {@link CreateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -111,6 +118,9 @@ export class CreateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class CreateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceShareCommandOutput> {
     return deserializeAws_restJson1CreateResourceShareCommand(output, context);
   }

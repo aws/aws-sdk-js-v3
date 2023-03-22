@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApiDestinationCommand}.
  */
 export interface DescribeApiDestinationCommandInput extends DescribeApiDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApiDestinationCommand}.
  */
 export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about an API destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApiDestinationCommandInput - {@link DescribeApiDestinationCommandInput}
+ * @returns {@link DescribeApiDestinationCommandOutput}
  * @see {@link DescribeApiDestinationCommandInput} for command's `input` shape.
  * @see {@link DescribeApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeApiDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApiDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeApiDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeApiDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApiDestinationCommandOutput> {
     return deserializeAws_json1_1DescribeApiDestinationCommand(output, context);
   }

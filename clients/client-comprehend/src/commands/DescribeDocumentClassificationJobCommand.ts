@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDocumentClassificationJobCommand}.
  */
 export interface DescribeDocumentClassificationJobCommandInput extends DescribeDocumentClassificationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDocumentClassificationJobCommand}.
  */
 export interface DescribeDocumentClassificationJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDocumentClassificationJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a document classification job. Use this operation to
  *       get the status of a classification job.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeDocumentClassificationJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDocumentClassificationJobCommandInput - {@link DescribeDocumentClassificationJobCommandInput}
+ * @returns {@link DescribeDocumentClassificationJobCommandOutput}
  * @see {@link DescribeDocumentClassificationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDocumentClassificationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDocumentClassificationJobCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     return serializeAws_json1_1DescribeDocumentClassificationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

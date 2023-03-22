@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySpotFleetRequestCommand}.
  */
 export interface ModifySpotFleetRequestCommandInput extends ModifySpotFleetRequestRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifySpotFleetRequestCommand}.
  */
 export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Spot Fleet request.</p>
  *          <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
  *          <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
@@ -70,6 +75,8 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySpotFleetRequestCommandInput - {@link ModifySpotFleetRequestCommandInput}
+ * @returns {@link ModifySpotFleetRequestCommandOutput}
  * @see {@link ModifySpotFleetRequestCommandInput} for command's `input` shape.
  * @see {@link ModifySpotFleetRequestCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -128,6 +135,9 @@ export class ModifySpotFleetRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySpotFleetRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class ModifySpotFleetRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySpotFleetRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifySpotFleetRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySpotFleetRequestCommandOutput> {
     return deserializeAws_ec2ModifySpotFleetRequestCommand(output, context);
   }

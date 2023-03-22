@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartVariantImportJobCommand}.
  */
 export interface StartVariantImportJobCommandInput extends StartVariantImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartVariantImportJobCommand}.
  */
 export interface StartVariantImportJobCommandOutput extends StartVariantImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a variant import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * const response = await client.send(command);
  * ```
  *
+ * @param StartVariantImportJobCommandInput - {@link StartVariantImportJobCommandInput}
+ * @returns {@link StartVariantImportJobCommandOutput}
  * @see {@link StartVariantImportJobCommandInput} for command's `input` shape.
  * @see {@link StartVariantImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartVariantImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartVariantImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartVariantImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartVariantImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartVariantImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartVariantImportJobCommandOutput> {
     return deserializeAws_restJson1StartVariantImportJobCommand(output, context);
   }

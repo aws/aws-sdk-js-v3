@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCuratedEnvironmentImagesCommand}.
  */
 export interface ListCuratedEnvironmentImagesCommandInput extends ListCuratedEnvironmentImagesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCuratedEnvironmentImagesCommand}.
  */
 export interface ListCuratedEnvironmentImagesCommandOutput
@@ -37,6 +41,7 @@ export interface ListCuratedEnvironmentImagesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about Docker images that are managed by CodeBuild.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCuratedEnvironmentImagesCommandInput - {@link ListCuratedEnvironmentImagesCommandInput}
+ * @returns {@link ListCuratedEnvironmentImagesCommandOutput}
  * @see {@link ListCuratedEnvironmentImagesCommandInput} for command's `input` shape.
  * @see {@link ListCuratedEnvironmentImagesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCuratedEnvironmentImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCuratedEnvironmentImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCuratedEnvironmentImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

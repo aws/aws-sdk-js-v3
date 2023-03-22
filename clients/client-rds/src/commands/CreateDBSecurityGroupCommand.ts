@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBSecurityGroupCommand}.
  */
 export interface CreateDBSecurityGroupCommandInput extends CreateDBSecurityGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBSecurityGroupCommand}.
  */
 export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
  *          <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
  *          <note>
@@ -54,6 +59,8 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBSecurityGroupCommandInput - {@link CreateDBSecurityGroupCommandInput}
+ * @returns {@link CreateDBSecurityGroupCommandOutput}
  * @see {@link CreateDBSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -105,6 +112,9 @@ export class CreateDBSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateDBSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSecurityGroupCommandOutput> {
     return deserializeAws_queryCreateDBSecurityGroupCommand(output, context);
   }

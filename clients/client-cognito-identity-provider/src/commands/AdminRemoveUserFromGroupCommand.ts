@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminRemoveUserFromGroupCommand}.
  */
 export interface AdminRemoveUserFromGroupCommandInput extends AdminRemoveUserFromGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminRemoveUserFromGroupCommand}.
  */
 export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified user from the specified group.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminRemoveUserFromGroupCommandInput - {@link AdminRemoveUserFromGroupCommandInput}
+ * @returns {@link AdminRemoveUserFromGroupCommandOutput}
  * @see {@link AdminRemoveUserFromGroupCommandInput} for command's `input` shape.
  * @see {@link AdminRemoveUserFromGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -91,6 +98,9 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminRemoveUserFromGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminRemoveUserFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminRemoveUserFromGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminRemoveUserFromGroupCommandOutput> {
     return deserializeAws_json1_1AdminRemoveUserFromGroupCommand(output, context);
   }

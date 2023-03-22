@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfilesCommand}.
  */
 export interface ListProfilesCommandInput extends ListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfilesCommand}.
  */
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all profiles in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfilesCommandInput - {@link ListProfilesCommandInput}
+ * @returns {@link ListProfilesCommandOutput}
  * @see {@link ListProfilesCommandInput} for command's `input` shape.
  * @see {@link ListProfilesCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilesCommandOutput> {
     return deserializeAws_restJson1ListProfilesCommand(output, context);
   }

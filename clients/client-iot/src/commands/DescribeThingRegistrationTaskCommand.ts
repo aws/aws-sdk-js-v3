@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThingRegistrationTaskCommand}.
  */
 export interface DescribeThingRegistrationTaskCommandInput extends DescribeThingRegistrationTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThingRegistrationTaskCommand}.
  */
 export interface DescribeThingRegistrationTaskCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeThingRegistrationTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a bulk thing provisioning task.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingRegistrationTask</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeThingRegistrationTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThingRegistrationTaskCommandInput - {@link DescribeThingRegistrationTaskCommandInput}
+ * @returns {@link DescribeThingRegistrationTaskCommandOutput}
  * @see {@link DescribeThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThingRegistrationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThingRegistrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeThingRegistrationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

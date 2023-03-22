@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCacheSubnetGroupCommand}.
  */
 export interface ModifyCacheSubnetGroupCommandInput extends ModifyCacheSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCacheSubnetGroupCommand}.
  */
 export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing cache subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCacheSubnetGroupCommandInput - {@link ModifyCacheSubnetGroupCommandInput}
+ * @returns {@link ModifyCacheSubnetGroupCommandOutput}
  * @see {@link ModifyCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -140,6 +147,9 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCacheSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,10 +189,16 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCacheSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCacheSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCacheSubnetGroupCommandOutput> {
     return deserializeAws_queryModifyCacheSubnetGroupCommand(output, context);
   }

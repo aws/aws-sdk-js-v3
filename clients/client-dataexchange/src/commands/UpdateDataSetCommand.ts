@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSetCommand}.
  */
 export interface UpdateDataSetCommandInput extends UpdateDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSetCommand}.
  */
 export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation updates a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSetCommandInput - {@link UpdateDataSetCommandInput}
+ * @returns {@link UpdateDataSetCommandOutput}
  * @see {@link UpdateDataSetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSetCommandOutput> {
     return deserializeAws_restJson1UpdateDataSetCommand(output, context);
   }

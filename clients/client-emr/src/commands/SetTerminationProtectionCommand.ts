@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetTerminationProtectionCommand}.
  */
 export interface SetTerminationProtectionCommandInput extends SetTerminationProtectionInput {}
 /**
+ * @public
+ *
  * The output of {@link SetTerminationProtectionCommand}.
  */
 export interface SetTerminationProtectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster
  *          cannot be terminated by user intervention, an API call, or in the event of a job-flow
  *          error. The cluster still terminates upon successful completion of the job flow. Calling
@@ -55,6 +60,8 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTerminationProtectionCommandInput - {@link SetTerminationProtectionCommandInput}
+ * @returns {@link SetTerminationProtectionCommandOutput}
  * @see {@link SetTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link SetTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -82,6 +89,9 @@ export class SetTerminationProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTerminationProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SetTerminationProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTerminationProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetTerminationProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTerminationProtectionCommandOutput> {
     return deserializeAws_json1_1SetTerminationProtectionCommand(output, context);
   }

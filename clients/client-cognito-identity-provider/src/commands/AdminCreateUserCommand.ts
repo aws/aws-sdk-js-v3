@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminCreateUserCommand}.
  */
 export interface AdminCreateUserCommandInput extends AdminCreateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminCreateUserCommand}.
  */
 export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new user in the specified user pool.</p>
  *         <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via
  *             email or phone (SMS).</p>
@@ -81,6 +86,8 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminCreateUserCommandInput - {@link AdminCreateUserCommandInput}
+ * @returns {@link AdminCreateUserCommandOutput}
  * @see {@link AdminCreateUserCommandInput} for command's `input` shape.
  * @see {@link AdminCreateUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -163,6 +170,9 @@ export class AdminCreateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminCreateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,10 +213,16 @@ export class AdminCreateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminCreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminCreateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminCreateUserCommandOutput> {
     return deserializeAws_json1_1AdminCreateUserCommand(output, context);
   }

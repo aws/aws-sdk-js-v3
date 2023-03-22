@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStudioSSOConfigurationRepairCommand}.
  */
 export interface StartStudioSSOConfigurationRepairCommandInput extends StartStudioSSOConfigurationRepairRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStudioSSOConfigurationRepairCommand}.
  */
 export interface StartStudioSSOConfigurationRepairCommandOutput
@@ -37,6 +41,7 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Repairs the IAM Identity Center configuration for a given studio.</p>
  *         <p>If the studio has a valid IAM Identity Center configuration currently associated with
  *             it, this operation will fail with a validation error.</p>
@@ -54,6 +59,8 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStudioSSOConfigurationRepairCommandInput - {@link StartStudioSSOConfigurationRepairCommandInput}
+ * @returns {@link StartStudioSSOConfigurationRepairCommandOutput}
  * @see {@link StartStudioSSOConfigurationRepairCommandInput} for command's `input` shape.
  * @see {@link StartStudioSSOConfigurationRepairCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -101,6 +108,9 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStudioSSOConfigurationRepairCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartStudioSSOConfigurationRepairCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     return serializeAws_restJson1StartStudioSSOConfigurationRepairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

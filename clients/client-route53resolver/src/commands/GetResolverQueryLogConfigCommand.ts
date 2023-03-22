@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverQueryLogConfigCommand}.
  */
 export interface GetResolverQueryLogConfigCommandInput extends GetResolverQueryLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverQueryLogConfigCommand}.
  */
 export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration
  * 			is logging queries for and the location that logs are sent to. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverQueryLogConfigCommandInput - {@link GetResolverQueryLogConfigCommandInput}
+ * @returns {@link GetResolverQueryLogConfigCommandOutput}
  * @see {@link GetResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link GetResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverQueryLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

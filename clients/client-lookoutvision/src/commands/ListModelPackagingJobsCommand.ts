@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelPackagingJobsCommand}.
  */
 export interface ListModelPackagingJobsCommandInput extends ListModelPackagingJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelPackagingJobsCommand}.
  */
 export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists the model packaging jobs created for an Amazon Lookout for Vision project.
  * </p>
@@ -54,6 +59,8 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelPackagingJobsCommandInput - {@link ListModelPackagingJobsCommandInput}
+ * @returns {@link ListModelPackagingJobsCommandOutput}
  * @see {@link ListModelPackagingJobsCommandInput} for command's `input` shape.
  * @see {@link ListModelPackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListModelPackagingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelPackagingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListModelPackagingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelPackagingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListModelPackagingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelPackagingJobsCommandOutput> {
     return deserializeAws_restJson1ListModelPackagingJobsCommand(output, context);
   }

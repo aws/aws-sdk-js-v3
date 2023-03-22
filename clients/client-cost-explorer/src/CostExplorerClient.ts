@@ -175,6 +175,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAnomalyMonitorCommandInput
   | CreateAnomalySubscriptionCommandInput
@@ -214,6 +217,9 @@ export type ServiceInputTypes =
   | UpdateCostAllocationTagsStatusCommandInput
   | UpdateCostCategoryDefinitionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAnomalyMonitorCommandOutput
   | CreateAnomalySubscriptionCommandOutput
@@ -253,6 +259,9 @@ export type ServiceOutputTypes =
   | UpdateCostAllocationTagsStatusCommandOutput
   | UpdateCostCategoryDefinitionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -260,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -369,11 +378,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CostExplorerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -384,10 +396,15 @@ type CostExplorerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CostExplorerClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CostExplorerClient class constructor that set the region, credentials and other options.
  */
 export interface CostExplorerClientConfig extends CostExplorerClientConfigType {}
 
+/**
+ * @public
+ */
 type CostExplorerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -398,11 +415,14 @@ type CostExplorerClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CostExplorerClient class. This is resolved and normalized from the {@link CostExplorerClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CostExplorerClient class. This is resolved and normalized from the {@link CostExplorerClientConfig | constructor configuration interface}.
  */
 export interface CostExplorerClientResolvedConfig extends CostExplorerClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>You can use the Cost Explorer API to programmatically query your cost and usage data.
  *       You can query for aggregated data such as total monthly costs or total daily usage. You can
  *       also query for granular data. This might include the number of daily write operations for

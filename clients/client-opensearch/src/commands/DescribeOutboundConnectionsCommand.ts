@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOutboundConnectionsCommand}.
  */
 export interface DescribeOutboundConnectionsCommandInput extends DescribeOutboundConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOutboundConnectionsCommand}.
  */
 export interface DescribeOutboundConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOutboundConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
  *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -50,6 +55,8 @@ export interface DescribeOutboundConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOutboundConnectionsCommandInput - {@link DescribeOutboundConnectionsCommandInput}
+ * @returns {@link DescribeOutboundConnectionsCommandOutput}
  * @see {@link DescribeOutboundConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOutboundConnectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOutboundConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOutboundConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeOutboundConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

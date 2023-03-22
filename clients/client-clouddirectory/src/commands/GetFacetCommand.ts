@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFacetCommand}.
  */
 export interface GetFacetCommandInput extends GetFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFacetCommand}.
  */
 export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details of the <a>Facet</a>, such as facet name, attributes, <a>Rule</a>s, or <code>ObjectType</code>. You can call this on all kinds of schema
  *       facets -- published, development, or applied.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFacetCommandInput - {@link GetFacetCommandInput}
+ * @returns {@link GetFacetCommandOutput}
  * @see {@link GetFacetCommandInput} for command's `input` shape.
  * @see {@link GetFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFacetCommandOutput> {
     return deserializeAws_restJson1GetFacetCommand(output, context);
   }

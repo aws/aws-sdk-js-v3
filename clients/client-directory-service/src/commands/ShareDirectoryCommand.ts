@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ShareDirectoryCommand}.
  */
 export interface ShareDirectoryCommandInput extends ShareDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ShareDirectoryCommand}.
  */
 export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares a specified directory (<code>DirectoryId</code>) in your Amazon Web Services account (directory
  *       owner) with another Amazon Web Services account (directory consumer). With this operation you can use your
  *       directory from any Amazon Web Services account and from any Amazon VPC within an Amazon Web Services Region.</p>
@@ -58,6 +63,8 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ShareDirectoryCommandInput - {@link ShareDirectoryCommandInput}
+ * @returns {@link ShareDirectoryCommandOutput}
  * @see {@link ShareDirectoryCommandInput} for command's `input` shape.
  * @see {@link ShareDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -112,6 +119,9 @@ export class ShareDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ShareDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class ShareDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ShareDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ShareDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShareDirectoryCommandOutput> {
     return deserializeAws_json1_1ShareDirectoryCommand(output, context);
   }

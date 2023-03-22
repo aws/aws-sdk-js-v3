@@ -26,10 +26,14 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSimulationApplicationCommand}.
  */
 export interface DeleteSimulationApplicationCommandInput extends DeleteSimulationApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSimulationApplicationCommand}.
  */
 export interface DeleteSimulationApplicationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteSimulationApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a simulation application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteSimulationApplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSimulationApplicationCommandInput - {@link DeleteSimulationApplicationCommandInput}
+ * @returns {@link DeleteSimulationApplicationCommandOutput}
  * @see {@link DeleteSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteSimulationApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSimulationApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteSimulationApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSimulationApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

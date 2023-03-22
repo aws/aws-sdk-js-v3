@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryRegisterTypeCommand, serializeAws_queryRegisterTypeCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTypeCommand}.
  */
 export interface RegisterTypeCommandInput extends RegisterTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTypeCommand}.
  */
 export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an extension with the CloudFormation service. Registering an
  *          extension makes it available for use in CloudFormation templates in your Amazon Web Services account, and includes:</p>
  *          <ul>
@@ -69,6 +74,8 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTypeCommandInput - {@link RegisterTypeCommandInput}
+ * @returns {@link RegisterTypeCommandOutput}
  * @see {@link RegisterTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -95,6 +102,9 @@ export class RegisterTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class RegisterTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRegisterTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTypeCommandOutput> {
     return deserializeAws_queryRegisterTypeCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRegionsCommand}.
  */
 export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRegionsCommand}.
  */
 export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the Regions that are configured for multi-Region
  *       replication.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegionsCommandInput - {@link DescribeRegionsCommandInput}
+ * @returns {@link DescribeRegionsCommandOutput}
  * @see {@link DescribeRegionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionsCommandOutput> {
     return deserializeAws_json1_1DescribeRegionsCommand(output, context);
   }

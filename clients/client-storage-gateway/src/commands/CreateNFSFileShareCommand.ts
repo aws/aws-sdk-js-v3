@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNFSFileShareCommand}.
  */
 export interface CreateNFSFileShareCommandInput extends CreateNFSFileShareInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNFSFileShareCommand}.
  */
 export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Network File System (NFS) file share on an existing S3 File Gateway. In
  *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
  *          cloud storage. Storage Gateway exposes file shares using an NFS interface. This operation
@@ -62,6 +67,8 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNFSFileShareCommandInput - {@link CreateNFSFileShareCommandInput}
+ * @returns {@link CreateNFSFileShareCommandOutput}
  * @see {@link CreateNFSFileShareCommandInput} for command's `input` shape.
  * @see {@link CreateNFSFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateNFSFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNFSFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateNFSFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNFSFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNFSFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNFSFileShareCommandOutput> {
     return deserializeAws_json1_1CreateNFSFileShareCommand(output, context);
   }

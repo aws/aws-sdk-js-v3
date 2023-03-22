@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFolderResolvedPermissionsCommand}.
  */
 export interface DescribeFolderResolvedPermissionsCommandInput extends DescribeFolderResolvedPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFolderResolvedPermissionsCommand}.
  */
 export interface DescribeFolderResolvedPermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the folder resolved permissions. Permissions consists of both folder direct permissions and the inherited permissions from the ancestor folders.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFolderResolvedPermissionsCommandInput - {@link DescribeFolderResolvedPermissionsCommandInput}
+ * @returns {@link DescribeFolderResolvedPermissionsCommandOutput}
  * @see {@link DescribeFolderResolvedPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderResolvedPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFolderResolvedPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFolderResolvedPermissionsCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
     return serializeAws_restJson1DescribeFolderResolvedPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

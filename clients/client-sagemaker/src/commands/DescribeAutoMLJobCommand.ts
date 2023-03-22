@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutoMLJobCommand}.
  */
 export interface DescribeAutoMLJobCommandInput extends DescribeAutoMLJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutoMLJobCommand}.
  */
 export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an Amazon SageMaker AutoML job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoMLJobCommandInput - {@link DescribeAutoMLJobCommandInput}
+ * @returns {@link DescribeAutoMLJobCommandOutput}
  * @see {@link DescribeAutoMLJobCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoMLJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeAutoMLJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoMLJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeAutoMLJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAutoMLJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAutoMLJobCommandOutput> {
     return deserializeAws_json1_1DescribeAutoMLJobCommand(output, context);
   }

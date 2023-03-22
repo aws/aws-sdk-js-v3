@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamingImagesCommand}.
  */
 export interface ListStreamingImagesCommandInput extends ListStreamingImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamingImagesCommand}.
  */
 export interface ListStreamingImagesCommandOutput extends ListStreamingImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the streaming image resources available to this studio.</p>
  *         <p>This list will contain both images provided by Amazon Web Services, as well as
  *             streaming images that you have created in your studio.</p>
@@ -48,6 +53,8 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamingImagesCommandInput - {@link ListStreamingImagesCommandInput}
+ * @returns {@link ListStreamingImagesCommandOutput}
  * @see {@link ListStreamingImagesCommandInput} for command's `input` shape.
  * @see {@link ListStreamingImagesCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListStreamingImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamingImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListStreamingImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamingImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStreamingImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamingImagesCommandOutput> {
     return deserializeAws_restJson1ListStreamingImagesCommand(output, context);
   }

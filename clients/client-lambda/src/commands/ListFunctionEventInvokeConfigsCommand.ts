@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionEventInvokeConfigsCommand}.
  */
 export interface ListFunctionEventInvokeConfigsCommandInput extends ListFunctionEventInvokeConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionEventInvokeConfigsCommand}.
  */
 export interface ListFunctionEventInvokeConfigsCommandOutput
@@ -37,6 +41,7 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionEventInvokeConfigsCommandInput - {@link ListFunctionEventInvokeConfigsCommandInput}
+ * @returns {@link ListFunctionEventInvokeConfigsCommandOutput}
  * @see {@link ListFunctionEventInvokeConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionEventInvokeConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionEventInvokeConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFunctionEventInvokeConfigsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     return serializeAws_restJson1ListFunctionEventInvokeConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

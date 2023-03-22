@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverQueryLogConfigPolicyCommand}.
  */
 export interface GetResolverQueryLogConfigPolicyCommandInput extends GetResolverQueryLogConfigPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverQueryLogConfigPolicyCommand}.
  */
 export interface GetResolverQueryLogConfigPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
  * 			operations and resources that you want to allow another Amazon Web Services account to be able to use.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverQueryLogConfigPolicyCommandInput - {@link GetResolverQueryLogConfigPolicyCommandInput}
+ * @returns {@link GetResolverQueryLogConfigPolicyCommandOutput}
  * @see {@link GetResolverQueryLogConfigPolicyCommandInput} for command's `input` shape.
  * @see {@link GetResolverQueryLogConfigPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverQueryLogConfigPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetResolverQueryLogConfigPolicyCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     return serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

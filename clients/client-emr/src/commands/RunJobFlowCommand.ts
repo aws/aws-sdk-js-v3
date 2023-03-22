@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RunJobFlowCommand}.
  */
 export interface RunJobFlowCommandInput extends RunJobFlowInput {}
 /**
+ * @public
+ *
  * The output of {@link RunJobFlowCommand}.
  */
 export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the
  *          steps specified. After the steps complete, the cluster stops and the HDFS partition is
  *          lost. To prevent loss of data, configure the last step of the job flow to store results in
@@ -67,6 +72,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param RunJobFlowCommandInput - {@link RunJobFlowCommandInput}
+ * @returns {@link RunJobFlowCommandOutput}
  * @see {@link RunJobFlowCommandInput} for command's `input` shape.
  * @see {@link RunJobFlowCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -94,6 +101,9 @@ export class RunJobFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunJobFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class RunJobFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunJobFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RunJobFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunJobFlowCommandOutput> {
     return deserializeAws_json1_1RunJobFlowCommand(output, context);
   }

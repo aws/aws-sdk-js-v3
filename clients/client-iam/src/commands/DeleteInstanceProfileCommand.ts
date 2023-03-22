@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceProfileCommand}.
  */
 export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceProfileCommand}.
  */
 export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified instance profile. The instance profile must not have an
  *             associated role.</p>
  *          <important>
@@ -50,6 +55,8 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
+ * @returns {@link DeleteInstanceProfileCommandOutput}
  * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceProfileCommandOutput> {
     return deserializeAws_queryDeleteInstanceProfileCommand(output, context);
   }

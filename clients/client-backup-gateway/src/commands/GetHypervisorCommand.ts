@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetHypervisorCommand}.
  */
 export interface GetHypervisorCommandInput extends GetHypervisorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHypervisorCommand}.
  */
 export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action requests information about the specified hypervisor to which the gateway will connect.
  *       A hypervisor is hardware, software, or firmware that creates and manages virtual machines,
  *       and allocates resources to them.</p>
@@ -48,6 +53,8 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHypervisorCommandInput - {@link GetHypervisorCommandInput}
+ * @returns {@link GetHypervisorCommandOutput}
  * @see {@link GetHypervisorCommandInput} for command's `input` shape.
  * @see {@link GetHypervisorCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetHypervisorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHypervisorCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetHypervisorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHypervisorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetHypervisorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHypervisorCommandOutput> {
     return deserializeAws_json1_0GetHypervisorCommand(output, context);
   }

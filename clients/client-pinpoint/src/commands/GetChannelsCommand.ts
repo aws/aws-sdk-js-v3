@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelsCommand}.
  */
 export interface GetChannelsCommandInput extends GetChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelsCommand}.
  */
 export interface GetChannelsCommandOutput extends GetChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the history and status of each channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelsCommandInput - {@link GetChannelsCommandInput}
+ * @returns {@link GetChannelsCommandOutput}
  * @see {@link GetChannelsCommandInput} for command's `input` shape.
  * @see {@link GetChannelsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelsCommandOutput> {
     return deserializeAws_restJson1GetChannelsCommand(output, context);
   }

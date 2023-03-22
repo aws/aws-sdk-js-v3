@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomLineItemCommand}.
  */
 export interface UpdateCustomLineItemCommandInput extends UpdateCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomLineItemCommand}.
  */
 export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Update an existing custom line item in the current or previous billing period.
  *     </p>
@@ -48,6 +53,8 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomLineItemCommandInput - {@link UpdateCustomLineItemCommandInput}
+ * @returns {@link UpdateCustomLineItemCommandOutput}
  * @see {@link UpdateCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomLineItemCommandOutput> {
     return deserializeAws_restJson1UpdateCustomLineItemCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMountTargetSecurityGroupsCommand}.
  */
 export interface DescribeMountTargetSecurityGroupsCommandInput extends DescribeMountTargetSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMountTargetSecurityGroupsCommand}.
  */
 export interface DescribeMountTargetSecurityGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the security groups currently in effect for a mount target. This operation
  *       requires that the network interface of the mount target has been created and the lifecycle
  *       state of the mount target is not <code>deleted</code>.</p>
@@ -63,6 +68,8 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMountTargetSecurityGroupsCommandInput - {@link DescribeMountTargetSecurityGroupsCommandInput}
+ * @returns {@link DescribeMountTargetSecurityGroupsCommandOutput}
  * @see {@link DescribeMountTargetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -119,6 +126,9 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMountTargetSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,6 +168,9 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
@@ -165,6 +178,9 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     return serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

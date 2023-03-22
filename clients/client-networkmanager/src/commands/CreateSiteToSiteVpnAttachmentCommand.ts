@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSiteToSiteVpnAttachmentCommand}.
  */
 export interface CreateSiteToSiteVpnAttachmentCommandInput extends CreateSiteToSiteVpnAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSiteToSiteVpnAttachmentCommand}.
  */
 export interface CreateSiteToSiteVpnAttachmentCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSiteToSiteVpnAttachmentCommandInput - {@link CreateSiteToSiteVpnAttachmentCommandInput}
+ * @returns {@link CreateSiteToSiteVpnAttachmentCommandOutput}
  * @see {@link CreateSiteToSiteVpnAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateSiteToSiteVpnAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateSiteToSiteVpnAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSiteToSiteVpnAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateSiteToSiteVpnAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSiteToSiteVpnAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

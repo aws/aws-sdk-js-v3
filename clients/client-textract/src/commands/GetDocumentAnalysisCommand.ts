@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentAnalysisCommand}.
  */
 export interface GetDocumentAnalysisCommandInput extends GetDocumentAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentAnalysisCommand}.
  */
 export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  *          document.</p>
  *          <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>,
@@ -110,6 +115,8 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentAnalysisCommandInput - {@link GetDocumentAnalysisCommandInput}
+ * @returns {@link GetDocumentAnalysisCommandOutput}
  * @see {@link GetDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetDocumentAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -167,6 +174,9 @@ export class GetDocumentAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -206,10 +216,16 @@ export class GetDocumentAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDocumentAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentAnalysisCommandOutput> {
     return deserializeAws_json1_1GetDocumentAnalysisCommand(output, context);
   }

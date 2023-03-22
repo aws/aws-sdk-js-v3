@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePermissionGroupCommand}.
  */
 export interface CreatePermissionGroupCommandInput extends CreatePermissionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePermissionGroupCommand}.
  */
 export interface CreatePermissionGroupCommandOutput extends CreatePermissionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePermissionGroupCommandInput - {@link CreatePermissionGroupCommandInput}
+ * @returns {@link CreatePermissionGroupCommandOutput}
  * @see {@link CreatePermissionGroupCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreatePermissionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePermissionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreatePermissionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePermissionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePermissionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionGroupCommandOutput> {
     return deserializeAws_restJson1CreatePermissionGroupCommand(output, context);
   }

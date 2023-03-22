@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpnConnectionOptionsCommand}.
  */
 export interface ModifyVpnConnectionOptionsCommandInput extends ModifyVpnConnectionOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpnConnectionOptionsCommand}.
  */
 export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnectionOptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
  *          <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
  *                 Amazon Web Services side do not change, and the tunnel options do not change. Your
@@ -50,6 +55,8 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpnConnectionOptionsCommandInput - {@link ModifyVpnConnectionOptionsCommandInput}
+ * @returns {@link ModifyVpnConnectionOptionsCommandOutput}
  * @see {@link ModifyVpnConnectionOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnConnectionOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpnConnectionOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpnConnectionOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpnConnectionOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

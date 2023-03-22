@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLongTermPricingCommand}.
  */
 export interface CreateLongTermPricingCommandInput extends CreateLongTermPricingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLongTermPricingCommand}.
  */
 export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job with the long-term usage option for a device. The long-term usage is a
  *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and Amazon Web Services provides discounts for long-term pricing.
  *       </p>
@@ -48,6 +53,8 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLongTermPricingCommandInput - {@link CreateLongTermPricingCommandInput}
+ * @returns {@link CreateLongTermPricingCommandOutput}
  * @see {@link CreateLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link CreateLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateLongTermPricingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLongTermPricingCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateLongTermPricingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLongTermPricingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLongTermPricingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLongTermPricingCommandOutput> {
     return deserializeAws_json1_1CreateLongTermPricingCommand(output, context);
   }

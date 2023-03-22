@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateUserAccessLoggingSettingsCommand}.
  */
 export interface DisassociateUserAccessLoggingSettingsCommandInput
   extends DisassociateUserAccessLoggingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateUserAccessLoggingSettingsCommand}.
  */
 export interface DisassociateUserAccessLoggingSettingsCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates user access logging settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateUserAccessLoggingSettingsCommandInput - {@link DisassociateUserAccessLoggingSettingsCommandInput}
+ * @returns {@link DisassociateUserAccessLoggingSettingsCommandOutput}
  * @see {@link DisassociateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
     return serializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

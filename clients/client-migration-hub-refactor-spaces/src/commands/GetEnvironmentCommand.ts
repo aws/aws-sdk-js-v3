@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnvironmentCommand}.
  */
 export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEnvironmentCommand}.
  */
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
+ * @returns {@link GetEnvironmentCommandOutput}
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
     return deserializeAws_restJson1GetEnvironmentCommand(output, context);
   }

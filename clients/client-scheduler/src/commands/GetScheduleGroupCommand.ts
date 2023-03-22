@@ -26,15 +26,20 @@ import {
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetScheduleGroupCommand}.
  */
 export interface GetScheduleGroupCommandInput extends GetScheduleGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link GetScheduleGroupCommand}.
  */
 export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified schedule group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetScheduleGroupCommandInput - {@link GetScheduleGroupCommandInput}
+ * @returns {@link GetScheduleGroupCommandOutput}
  * @see {@link GetScheduleGroupCommandInput} for command's `input` shape.
  * @see {@link GetScheduleGroupCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetScheduleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetScheduleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetScheduleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetScheduleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetScheduleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetScheduleGroupCommandOutput> {
     return deserializeAws_restJson1GetScheduleGroupCommand(output, context);
   }

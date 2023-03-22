@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRevisionCommand}.
  */
 export interface DeleteRevisionCommandInput extends DeleteRevisionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRevisionCommand}.
  */
 export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes a revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRevisionCommandInput - {@link DeleteRevisionCommandInput}
+ * @returns {@link DeleteRevisionCommandOutput}
  * @see {@link DeleteRevisionCommandInput} for command's `input` shape.
  * @see {@link DeleteRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRevisionCommandOutput> {
     return deserializeAws_restJson1DeleteRevisionCommand(output, context);
   }

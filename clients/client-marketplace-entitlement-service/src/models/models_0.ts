@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MarketplaceEntitlementServiceServiceException as __BaseException } from "./MarketplaceEntitlementServiceServiceException";
 
+/**
+ * @public
+ */
 export enum GetEntitlementFilterName {
   CUSTOMER_IDENTIFIER = "CUSTOMER_IDENTIFIER",
   DIMENSION = "DIMENSION",
 }
 
 /**
+ * @public
  * <p>The GetEntitlementsRequest contains parameters for the GetEntitlements
  *    operation.</p>
  */
@@ -41,6 +45,7 @@ export interface GetEntitlementsRequest {
 }
 
 /**
+ * @public
  * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
  *    for the product.</p>
  */
@@ -71,6 +76,7 @@ export interface EntitlementValue {
 }
 
 /**
+ * @public
  * <p>An entitlement represents capacity in a product owned by the customer. For example, a
  *       customer might own some number of users or seats in an SaaS application or  some amount of
  *       data capacity in a multi-tenant database.</p>
@@ -112,6 +118,7 @@ export interface Entitlement {
 }
 
 /**
+ * @public
  * <p>The GetEntitlementsRequest contains results from the GetEntitlements operation.</p>
  */
 export interface GetEntitlementsResult {
@@ -131,6 +138,7 @@ export interface GetEntitlementsResult {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
  *    message with details on the AWS forums.</p>
  */
@@ -151,6 +159,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters in your request was invalid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -170,6 +179,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The calls to the GetEntitlements API are throttled.</p>
  */
 export class ThrottlingException extends __BaseException {

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAuthenticationProfileCommand}.
  */
 export interface CreateAuthenticationProfileCommandInput extends CreateAuthenticationProfileMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateAuthenticationProfileCommand}.
  */
 export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenticationProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an authentication profile with the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAuthenticationProfileCommandInput - {@link CreateAuthenticationProfileCommandInput}
+ * @returns {@link CreateAuthenticationProfileCommandOutput}
  * @see {@link CreateAuthenticationProfileCommandInput} for command's `input` shape.
  * @see {@link CreateAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateAuthenticationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAuthenticationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateAuthenticationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAuthenticationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateAuthenticationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

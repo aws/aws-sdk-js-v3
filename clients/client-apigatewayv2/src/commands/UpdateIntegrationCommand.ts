@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIntegrationCommand}.
  */
 export interface UpdateIntegrationCommandInput extends UpdateIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIntegrationCommand}.
  */
 export interface UpdateIntegrationCommandOutput extends UpdateIntegrationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateIntegrationCommandOutput extends UpdateIntegrationResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIntegrationCommandInput - {@link UpdateIntegrationCommandInput}
+ * @returns {@link UpdateIntegrationCommandOutput}
  * @see {@link UpdateIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateIntegrationCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIntegrationCommandOutput> {
     return deserializeAws_restJson1UpdateIntegrationCommand(output, context);
   }

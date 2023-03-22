@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProfileCommand}.
  */
 export interface DescribeProfileCommandInput extends DescribeProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProfileCommand}.
  */
 export interface DescribeProfileCommandOutput extends DescribeProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProfileCommandInput - {@link DescribeProfileCommandInput}
+ * @returns {@link DescribeProfileCommandOutput}
  * @see {@link DescribeProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeProfileCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProfileCommandOutput> {
     return deserializeAws_json1_1DescribeProfileCommand(output, context);
   }

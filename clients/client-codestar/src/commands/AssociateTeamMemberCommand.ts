@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTeamMemberCommand}.
  */
 export interface AssociateTeamMemberCommandInput extends AssociateTeamMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTeamMemberCommand}.
  */
 export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTeamMemberCommandInput - {@link AssociateTeamMemberCommandInput}
+ * @returns {@link AssociateTeamMemberCommandOutput}
  * @see {@link AssociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link AssociateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -91,6 +98,9 @@ export class AssociateTeamMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTeamMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AssociateTeamMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateTeamMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTeamMemberCommandOutput> {
     return deserializeAws_json1_1AssociateTeamMemberCommand(output, context);
   }

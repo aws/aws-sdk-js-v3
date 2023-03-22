@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProvisionedConcurrencyConfigCommand}.
  */
 export interface PutProvisionedConcurrencyConfigCommandInput extends PutProvisionedConcurrencyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProvisionedConcurrencyConfigCommand}.
  */
 export interface PutProvisionedConcurrencyConfigCommandOutput
@@ -37,6 +41,7 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProvisionedConcurrencyConfigCommandInput - {@link PutProvisionedConcurrencyConfigCommandInput}
+ * @returns {@link PutProvisionedConcurrencyConfigCommandOutput}
  * @see {@link PutProvisionedConcurrencyConfigCommandInput} for command's `input` shape.
  * @see {@link PutProvisionedConcurrencyConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProvisionedConcurrencyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     return serializeAws_restJson1PutProvisionedConcurrencyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

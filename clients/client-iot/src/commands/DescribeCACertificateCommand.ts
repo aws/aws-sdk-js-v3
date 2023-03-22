@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCACertificateCommand}.
  */
 export interface DescribeCACertificateCommandInput extends DescribeCACertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCACertificateCommand}.
  */
 export interface DescribeCACertificateCommandOutput extends DescribeCACertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a registered CA certificate.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCACertificate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCACertificateCommandInput - {@link DescribeCACertificateCommandInput}
+ * @returns {@link DescribeCACertificateCommandOutput}
  * @see {@link DescribeCACertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCACertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeCACertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCACertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeCACertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCACertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeCACertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCACertificateCommandOutput> {
     return deserializeAws_restJson1DescribeCACertificateCommand(output, context);
   }

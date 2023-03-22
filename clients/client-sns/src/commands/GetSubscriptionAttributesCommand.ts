@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSubscriptionAttributesCommand}.
  */
 export interface GetSubscriptionAttributesCommandInput extends GetSubscriptionAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSubscriptionAttributesCommand}.
  */
 export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all of the properties of a subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubscriptionAttributesCommandInput - {@link GetSubscriptionAttributesCommandInput}
+ * @returns {@link GetSubscriptionAttributesCommandOutput}
  * @see {@link GetSubscriptionAttributesCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSubscriptionAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubscriptionAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSubscriptionAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubscriptionAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSubscriptionAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

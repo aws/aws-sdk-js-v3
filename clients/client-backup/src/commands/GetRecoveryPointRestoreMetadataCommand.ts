@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecoveryPointRestoreMetadataCommand}.
  */
 export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecoveryPointRestoreMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
  */
 export interface GetRecoveryPointRestoreMetadataCommandOutput
@@ -37,6 +41,7 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
+ * @returns {@link GetRecoveryPointRestoreMetadataCommandOutput}
  * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecoveryPointRestoreMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRecoveryPointRestoreMetadataCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     return serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

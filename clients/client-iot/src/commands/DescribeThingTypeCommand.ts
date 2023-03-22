@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThingTypeCommand}.
  */
 export interface DescribeThingTypeCommandInput extends DescribeThingTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThingTypeCommand}.
  */
 export interface DescribeThingTypeCommandOutput extends DescribeThingTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified thing type.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingType</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThingTypeCommandInput - {@link DescribeThingTypeCommandInput}
+ * @returns {@link DescribeThingTypeCommandOutput}
  * @see {@link DescribeThingTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeThingTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThingTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeThingTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeThingTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThingTypeCommandOutput> {
     return deserializeAws_restJson1DescribeThingTypeCommand(output, context);
   }

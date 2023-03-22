@@ -106,6 +106,7 @@ import {
 import { SecretsManagerClient } from "./SecretsManagerClient";
 
 /**
+ * @public
  * <fullname>Amazon Web Services Secrets Manager</fullname>
  *          <p>Amazon Web Services Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.</p>
  *          <p>This guide provides descriptions of the Secrets Manager API. For more information about using this
@@ -135,6 +136,7 @@ import { SecretsManagerClient } from "./SecretsManagerClient";
  */
 export class SecretsManager extends SecretsManagerClient {
   /**
+   * @public
    * <p>Turns off automatic rotation, and if a rotation is currently in
    *       progress, cancels the rotation.</p>
    *          <p>If you cancel a rotation in progress, it can leave the <code>VersionStage</code>
@@ -185,6 +187,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new secret. A <i>secret</i> can be a password, a set of
    *       credentials such as a user name and password, an OAuth token, or other secret information
    *       that you store in an encrypted form in Secrets Manager. The secret also
@@ -249,6 +252,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes the resource-based permission policy attached to the secret. To attach a policy to
    *       a secret, use <a>PutResourcePolicy</a>.</p>
    *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -289,6 +293,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a secret and all of its versions. You can specify a recovery
    *       window during which you can restore the secret. The minimum recovery window is 7 days.
    *       The default recovery window is 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
@@ -346,6 +351,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
    *       only returns fields that have a value in the response. </p>
    *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -386,6 +392,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Generates a random password. We recommend that you specify the
    *       maximum length and include every character type that the system you are generating a password
    *       for can support.</p>
@@ -427,6 +434,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the JSON text of the resource-based policy document attached to the
    *       secret. For more information about permissions policies attached to a secret, see
    *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html">Permissions
@@ -469,6 +477,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
    *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
    *       content.</p>
@@ -517,6 +526,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
    *       that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager console.</p>
    *          <p>ListSecrets is eventually consistent, however it might not reflect changes from the last five minutes.
@@ -557,6 +567,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the versions of a secret. Secrets Manager uses staging labels to indicate the different versions
    *     of a secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">
    *     Secrets Manager concepts: Versions</a>.</p>
@@ -599,6 +610,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Attaches a resource-based permission policy to a secret. A resource-based policy is
    *       optional. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication and access control for Secrets Manager</a>
    *          </p>
@@ -642,6 +654,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new version with a new encrypted secret value and attaches it to the secret. The
    *       version can contain a new <code>SecretString</code> value or a new <code>SecretBinary</code> value. </p>
    *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
@@ -701,6 +714,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the Regions you specify.</p>
    *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
    *          <p>
@@ -740,6 +754,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
    *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
    *          <p>
@@ -779,6 +794,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
    *       stamp. You can access a secret again after it has been restored.</p>
    *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -819,6 +835,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Configures and starts the asynchronous process of rotating the secret. For information about rotation,
    *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration parameters, the operation sets the values for the secret and then immediately starts a rotation. If you don't include the configuration parameters, the operation starts a rotation with the values already stored in the secret. </p>
    *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
@@ -863,6 +880,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Removes the link between the replica secret and the primary secret and promotes the replica to a primary secret in the replica Region.</p>
    *          <p>You must call this operation from the Region in which you want to promote the replica to a primary secret.</p>
    *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -903,6 +921,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
    *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
    *          <p>The following restrictions apply to tags:</p>
@@ -969,6 +988,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Removes specific tags from a secret.</p>
    *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no error
    *       is returned and the secret metadata is unchanged.</p>
@@ -1016,6 +1036,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use <a>PutSecretValue</a>.</p>
    *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.</p>
    *          <p>To change a secret so that it is managed by another service, you need to recreate the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.</p>
@@ -1071,6 +1092,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to
    *       track a version as it progresses through the secret rotation process. Each staging label can be
    *       attached to only one version at a time. To add a staging label to a version when it is already
@@ -1124,6 +1146,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
+   * @public
    * <p>Validates that a resource policy does not grant a wide range of principals access to
    *       your secret. A resource-based policy is optional for secrets.</p>
    *          <p>The API performs three checks when validating the policy:</p>

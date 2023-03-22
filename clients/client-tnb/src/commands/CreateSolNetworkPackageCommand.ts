@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSolNetworkPackageCommand}.
  */
 export interface CreateSolNetworkPackageCommandInput extends CreateSolNetworkPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSolNetworkPackageCommand}.
  */
 export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.
  *       </p>
@@ -50,6 +55,8 @@ export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPa
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSolNetworkPackageCommandInput - {@link CreateSolNetworkPackageCommandInput}
+ * @returns {@link CreateSolNetworkPackageCommandOutput}
  * @see {@link CreateSolNetworkPackageCommandInput} for command's `input` shape.
  * @see {@link CreateSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateSolNetworkPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSolNetworkPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateSolNetworkPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSolNetworkPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSolNetworkPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolNetworkPackageCommandOutput> {
     return deserializeAws_restJson1CreateSolNetworkPackageCommand(output, context);
   }

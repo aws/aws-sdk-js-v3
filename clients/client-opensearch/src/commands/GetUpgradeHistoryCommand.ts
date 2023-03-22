@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUpgradeHistoryCommand}.
  */
 export interface GetUpgradeHistoryCommandInput extends GetUpgradeHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUpgradeHistoryCommand}.
  */
 export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the complete history of the last 10 upgrades performed on an Amazon OpenSearch
  *    Service domain.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUpgradeHistoryCommandInput - {@link GetUpgradeHistoryCommandInput}
+ * @returns {@link GetUpgradeHistoryCommandOutput}
  * @see {@link GetUpgradeHistoryCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeHistoryCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetUpgradeHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUpgradeHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetUpgradeHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUpgradeHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUpgradeHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeHistoryCommandOutput> {
     return deserializeAws_restJson1GetUpgradeHistoryCommand(output, context);
   }

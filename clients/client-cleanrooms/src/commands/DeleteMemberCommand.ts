@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified member from a collaboration. The removed member is placed in the
  *          Removed status and can't interact with the collaboration. The removed member's data is
  *          inaccessible to active members of the collaboration.</p>
@@ -48,6 +53,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
+ * @returns {@link DeleteMemberCommandOutput}
  * @see {@link DeleteMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteMemberCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMemberCommandOutput> {
     return deserializeAws_restJson1DeleteMemberCommand(output, context);
   }

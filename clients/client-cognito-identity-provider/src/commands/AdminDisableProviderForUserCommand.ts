@@ -31,10 +31,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminDisableProviderForUserCommand}.
  */
 export interface AdminDisableProviderForUserCommandInput extends AdminDisableProviderForUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminDisableProviderForUserCommand}.
  */
 export interface AdminDisableProviderForUserCommandOutput
@@ -42,6 +46,7 @@ export interface AdminDisableProviderForUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Prevents the user from signing in with the specified external (SAML or social)
  *             identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools
  *             native username + password user, they can't use their password to sign in. If the user
@@ -80,6 +85,8 @@ export interface AdminDisableProviderForUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminDisableProviderForUserCommandInput - {@link AdminDisableProviderForUserCommandInput}
+ * @returns {@link AdminDisableProviderForUserCommandOutput}
  * @see {@link AdminDisableProviderForUserCommandInput} for command's `input` shape.
  * @see {@link AdminDisableProviderForUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -131,6 +138,9 @@ export class AdminDisableProviderForUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminDisableProviderForUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class AdminDisableProviderForUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminDisableProviderForUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminDisableProviderForUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFacetAttributesCommand}.
  */
 export interface ListFacetAttributesCommandInput extends ListFacetAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFacetAttributesCommand}.
  */
 export interface ListFacetAttributesCommandOutput extends ListFacetAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attributes attached to the facet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFacetAttributesCommandInput - {@link ListFacetAttributesCommandInput}
+ * @returns {@link ListFacetAttributesCommandOutput}
  * @see {@link ListFacetAttributesCommandInput} for command's `input` shape.
  * @see {@link ListFacetAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListFacetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFacetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListFacetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFacetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFacetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacetAttributesCommandOutput> {
     return deserializeAws_restJson1ListFacetAttributesCommand(output, context);
   }

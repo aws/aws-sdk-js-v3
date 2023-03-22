@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCostAndUsageCommand}.
  */
 export interface GetCostAndUsageCommandInput extends GetCostAndUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCostAndUsageCommand}.
  */
 export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves cost and usage metrics for your account. You can specify which cost and
  *       usage-related metric that you want the request to return. For example, you can specify
  *         <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group your
@@ -52,6 +57,8 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCostAndUsageCommandInput - {@link GetCostAndUsageCommandInput}
+ * @returns {@link GetCostAndUsageCommandOutput}
  * @see {@link GetCostAndUsageCommandInput} for command's `input` shape.
  * @see {@link GetCostAndUsageCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetCostAndUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCostAndUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetCostAndUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCostAndUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCostAndUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostAndUsageCommandOutput> {
     return deserializeAws_json1_1GetCostAndUsageCommand(output, context);
   }

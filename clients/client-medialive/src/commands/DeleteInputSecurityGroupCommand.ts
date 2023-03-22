@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInputSecurityGroupCommand}.
  */
 export interface DeleteInputSecurityGroupCommandInput extends DeleteInputSecurityGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInputSecurityGroupCommand}.
  */
 export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInputSecurityGroupCommandInput - {@link DeleteInputSecurityGroupCommandInput}
+ * @returns {@link DeleteInputSecurityGroupCommandOutput}
  * @see {@link DeleteInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInputSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteInputSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInputSecurityGroupCommandOutput> {
     return deserializeAws_restJson1DeleteInputSecurityGroupCommand(output, context);
   }

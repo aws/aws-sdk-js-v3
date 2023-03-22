@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceAttributesCommand}.
  */
 export interface ListInstanceAttributesCommandInput extends ListInstanceAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceAttributesCommand}.
  */
 export interface ListInstanceAttributesCommandOutput extends ListInstanceAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all attribute types for the given instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceAttributesCommandInput - {@link ListInstanceAttributesCommandInput}
+ * @returns {@link ListInstanceAttributesCommandOutput}
  * @see {@link ListInstanceAttributesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListInstanceAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListInstanceAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInstanceAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceAttributesCommandOutput> {
     return deserializeAws_restJson1ListInstanceAttributesCommand(output, context);
   }

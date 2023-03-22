@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteParallelDataCommand}.
  */
 export interface DeleteParallelDataCommandInput extends DeleteParallelDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteParallelDataCommand}.
  */
 export interface DeleteParallelDataCommandOutput extends DeleteParallelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a parallel data resource in Amazon Translate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteParallelDataCommandInput - {@link DeleteParallelDataCommandInput}
+ * @returns {@link DeleteParallelDataCommandOutput}
  * @see {@link DeleteParallelDataCommandInput} for command's `input` shape.
  * @see {@link DeleteParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteParallelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteParallelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteParallelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteParallelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParallelDataCommandOutput> {
     return deserializeAws_json1_1DeleteParallelDataCommand(output, context);
   }

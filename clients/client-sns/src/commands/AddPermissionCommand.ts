@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandInput extends AddPermissionInput {}
 /**
+ * @public
+ *
  * The output of {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a statement to a topic's access control policy, granting access for the specified
  *             Amazon Web Services accounts to the specified actions.</p>
  *          <note>
@@ -47,6 +52,8 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
+ * @returns {@link AddPermissionCommandOutput}
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -83,6 +90,9 @@ export class AddPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
     return deserializeAws_queryAddPermissionCommand(output, context);
   }

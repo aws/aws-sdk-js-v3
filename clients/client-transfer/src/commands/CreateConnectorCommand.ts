@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectorCommand}.
  */
 export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectorCommand}.
  */
 export interface CreateConnectorCommandOutput extends CreateConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the connector, which captures the parameters for an outbound connection for the
  *       AS2 protocol. The connector is required for sending files to an externally hosted AS2 server.
  *       For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create AS2 connectors</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectorCommandInput - {@link CreateConnectorCommandInput}
+ * @returns {@link CreateConnectorCommandOutput}
  * @see {@link CreateConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectorCommandOutput> {
     return deserializeAws_json1_1CreateConnectorCommand(output, context);
   }

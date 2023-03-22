@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SearchTransitGatewayMulticastGroupsCommand}.
  */
 export interface SearchTransitGatewayMulticastGroupsCommandInput extends SearchTransitGatewayMulticastGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchTransitGatewayMulticastGroupsCommand}.
  */
 export interface SearchTransitGatewayMulticastGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchTransitGatewayMulticastGroupsCommandInput - {@link SearchTransitGatewayMulticastGroupsCommandInput}
+ * @returns {@link SearchTransitGatewayMulticastGroupsCommandOutput}
  * @see {@link SearchTransitGatewayMulticastGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchTransitGatewayMulticastGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchTransitGatewayMulticastGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SearchTransitGatewayMulticastGroupsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     return serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

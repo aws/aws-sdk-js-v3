@@ -6,7 +6,7 @@ import { GetRestApisCommand, GetRestApisCommandInput, GetRestApisCommandOutput }
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetRestApisCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetRestApis(
   config: APIGatewayPaginationConfiguration,
   input: GetRestApisCommandInput,

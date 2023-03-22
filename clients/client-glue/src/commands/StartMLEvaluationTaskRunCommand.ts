@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMLEvaluationTaskRunCommand}.
  */
 export interface StartMLEvaluationTaskRunCommandInput extends StartMLEvaluationTaskRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMLEvaluationTaskRunCommand}.
  */
 export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluationTaskRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a task to estimate the quality of the transform. </p>
  *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
  *       those examples to learn from them. The rest of the labels are used as a test to estimate
@@ -51,6 +56,8 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMLEvaluationTaskRunCommandInput - {@link StartMLEvaluationTaskRunCommandInput}
+ * @returns {@link StartMLEvaluationTaskRunCommandOutput}
  * @see {@link StartMLEvaluationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLEvaluationTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -92,6 +99,9 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMLEvaluationTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMLEvaluationTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMLEvaluationTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMLEvaluationTaskRunCommandOutput> {
     return deserializeAws_json1_1StartMLEvaluationTaskRunCommand(output, context);
   }

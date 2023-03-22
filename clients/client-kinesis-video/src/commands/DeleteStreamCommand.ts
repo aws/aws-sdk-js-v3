@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandInput extends DeleteStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>
  *          <p>This method marks the stream for deletion, and makes the data in the stream
  *             inaccessible immediately.</p>
@@ -55,6 +60,8 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
+ * @returns {@link DeleteStreamCommandOutput}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -116,6 +123,9 @@ export class DeleteStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class DeleteStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
     return deserializeAws_restJson1DeleteStreamCommand(output, context);
   }

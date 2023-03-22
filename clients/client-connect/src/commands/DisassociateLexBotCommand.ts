@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateLexBotCommand}.
  */
 export interface DisassociateLexBotCommandInput extends DisassociateLexBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateLexBotCommand}.
  */
 export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
  *    bot.</p>
@@ -43,6 +48,8 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLexBotCommandInput - {@link DisassociateLexBotCommandInput}
+ * @returns {@link DisassociateLexBotCommandOutput}
  * @see {@link DisassociateLexBotCommandInput} for command's `input` shape.
  * @see {@link DisassociateLexBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateLexBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLexBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DisassociateLexBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLexBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateLexBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLexBotCommandOutput> {
     return deserializeAws_restJson1DisassociateLexBotCommand(output, context);
   }

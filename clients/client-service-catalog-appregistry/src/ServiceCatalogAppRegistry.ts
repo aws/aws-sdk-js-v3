@@ -120,10 +120,12 @@ import {
 import { ServiceCatalogAppRegistryClient } from "./ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
  * <p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
  */
 export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   /**
+   * @public
    * <p>Associates an attribute group with an application to augment the application's metadata
    *       with the group's attributes. This feature enables applications to be described with
    *       user-defined details that are machine-readable, such as third-party integrations.</p>
@@ -158,6 +160,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Associates a resource with an application. Both the resource and the application can be specified either by ID or name.</p>
    */
   public associateResource(
@@ -190,6 +193,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Creates a new application that is the top-level node in a hierarchy of related cloud resource abstractions.</p>
    */
   public createApplication(
@@ -222,6 +226,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Creates a new attribute group as a container for user-defined attributes. This feature
    *       enables users to have full control over their cloud application's metadata in a rich
    *       machine-readable format to facilitate integration with automated workflows and third-party
@@ -257,6 +262,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
    */
   public deleteApplication(
@@ -289,6 +295,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Deletes an attribute group, specified either by its attribute group ID or name.</p>
    */
   public deleteAttributeGroup(
@@ -321,6 +328,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>
    */
   public disassociateAttributeGroup(
@@ -353,6 +361,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a resource from application. Both the resource and the application can be specified either by ID or name.</p>
    */
   public disassociateResource(
@@ -385,6 +394,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata information about one of your applications. The application can be specified either by its unique ID or by its name (which is unique within one account in one region at a given point in time). Specify by ID in automated workflows if you want to make sure that the exact same application is returned or a <code>ResourceNotFoundException</code> is thrown, avoiding the ABA addressing problem.</p>
    */
   public getApplication(
@@ -417,6 +427,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Gets the resource associated with the application.</p>
    */
   public getAssociatedResource(
@@ -449,6 +460,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
    */
   public getAttributeGroup(
@@ -481,6 +493,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>
    *       Retrieves a <code>TagKey</code> configuration
    *       from an account.
@@ -516,6 +529,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all of your applications. Results are paginated.</p>
    */
   public listApplications(
@@ -548,6 +562,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
    */
   public listAssociatedAttributeGroups(
@@ -580,6 +595,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>
    *        Lists all
    *        of the resources
@@ -632,6 +648,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Lists all attribute groups which you have access to. Results are paginated.</p>
    */
   public listAttributeGroups(
@@ -664,6 +681,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Lists the details of all attribute groups associated with a specific application. The results display in pages.</p>
    */
   public listAttributeGroupsForApplication(
@@ -696,6 +714,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the tags on the resource.</p>
    */
   public listTagsForResource(
@@ -728,6 +747,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>
    *       Associates a <code>TagKey</code> configuration
    *       to an account.
@@ -763,6 +783,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Syncs the resource with current AppRegistry records.</p>
    *          <p>Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.</p>
    */
@@ -793,6 +814,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified resource.</p>
    *          <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>
    *          <p>This operation returns an empty response if the call was successful.</p>
@@ -821,6 +843,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    *          <p>This operation returns an empty response if the call was successful.</p>
    */
@@ -854,6 +877,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing application with new attributes.</p>
    */
   public updateApplication(
@@ -886,6 +910,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing attribute group with new details. </p>
    */
   public updateAttributeGroup(

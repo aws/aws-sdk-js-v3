@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRemediationExecutionStatusCommand}.
  */
 export interface DescribeRemediationExecutionStatusCommandInput extends DescribeRemediationExecutionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRemediationExecutionStatusCommand}.
  */
 export interface DescribeRemediationExecutionStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRemediationExecutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed.
  * 			When you specify the limit and the next token, you receive a paginated response.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeRemediationExecutionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRemediationExecutionStatusCommandInput - {@link DescribeRemediationExecutionStatusCommandInput}
+ * @returns {@link DescribeRemediationExecutionStatusCommandOutput}
  * @see {@link DescribeRemediationExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRemediationExecutionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRemediationExecutionStatusCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
     return serializeAws_json1_1DescribeRemediationExecutionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

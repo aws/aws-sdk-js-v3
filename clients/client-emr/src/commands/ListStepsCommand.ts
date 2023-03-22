@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ListStepsCommand, serializeAws_json1_1ListStepsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStepsCommand}.
  */
 export interface ListStepsCommandInput extends ListStepsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStepsCommand}.
  */
 export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of steps for the cluster in reverse order unless you specify
  *             <code>stepIds</code> with the request or filter by <code>StepStates</code>. You can
  *          specify a maximum of 10 <code>stepIDs</code>. The CLI automatically
@@ -48,6 +53,8 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStepsCommandInput - {@link ListStepsCommandInput}
+ * @returns {@link ListStepsCommandOutput}
  * @see {@link ListStepsCommandInput} for command's `input` shape.
  * @see {@link ListStepsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStepsCommandOutput> {
     return deserializeAws_json1_1ListStepsCommand(output, context);
   }

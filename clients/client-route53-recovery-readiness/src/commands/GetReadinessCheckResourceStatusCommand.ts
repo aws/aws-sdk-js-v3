@@ -30,10 +30,14 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadinessCheckResourceStatusCommand}.
  */
 export interface GetReadinessCheckResourceStatusCommandInput extends GetReadinessCheckResourceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadinessCheckResourceStatusCommand}.
  */
 export interface GetReadinessCheckResourceStatusCommandOutput
@@ -41,6 +45,7 @@ export interface GetReadinessCheckResourceStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadinessCheckResourceStatusCommandInput - {@link GetReadinessCheckResourceStatusCommandInput}
+ * @returns {@link GetReadinessCheckResourceStatusCommandOutput}
  * @see {@link GetReadinessCheckResourceStatusCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckResourceStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadinessCheckResourceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReadinessCheckResourceStatusCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
     return serializeAws_restJson1GetReadinessCheckResourceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

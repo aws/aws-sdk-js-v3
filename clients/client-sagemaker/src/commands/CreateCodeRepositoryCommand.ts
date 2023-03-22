@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCodeRepositoryCommand}.
  */
 export interface CreateCodeRepositoryCommandInput extends CreateCodeRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCodeRepositoryCommand}.
  */
 export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Git repository as a resource in your SageMaker account. You can associate the
  *             repository with notebook instances so that you can use Git source control for the
  *             notebooks you create. The Git repository is a resource in your SageMaker account, so it can
@@ -52,6 +57,8 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCodeRepositoryCommandInput - {@link CreateCodeRepositoryCommandInput}
+ * @returns {@link CreateCodeRepositoryCommandOutput}
  * @see {@link CreateCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateCodeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCodeRepositoryCommandOutput> {
     return deserializeAws_json1_1CreateCodeRepositoryCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVpcIngressConnectionCommand}.
  */
 export interface UpdateVpcIngressConnectionCommandInput extends UpdateVpcIngressConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVpcIngressConnectionCommand}.
  */
 export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an existing App Runner VPC Ingress Connection resource. The VPC Ingress Connection must be in one of the following states to be updated:</p>
  *          <ul>
  *             <li>
@@ -63,6 +68,8 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcIngressConnectionCommandInput - {@link UpdateVpcIngressConnectionCommandInput}
+ * @returns {@link UpdateVpcIngressConnectionCommandOutput}
  * @see {@link UpdateVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcIngressConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateVpcIngressConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

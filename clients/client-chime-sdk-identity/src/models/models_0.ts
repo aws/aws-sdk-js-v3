@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKIdentityServiceException as __BaseException } from "./ChimeSDKIdentityServiceException";
 
+/**
+ * @public
+ */
 export enum AllowMessages {
   ALL = "ALL",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * <p>The details of an <code>AppInstance</code>, an instance of an Amazon Chime SDK messaging
  *          application.</p>
  */
@@ -40,6 +44,7 @@ export interface AppInstance {
 }
 
 /**
+ * @public
  * <p>The details of a user.</p>
  */
 export interface Identity {
@@ -55,6 +60,7 @@ export interface Identity {
 }
 
 /**
+ * @public
  * <p>The details of an <code>AppInstanceAdmin</code>.</p>
  */
 export interface AppInstanceAdmin {
@@ -75,6 +81,7 @@ export interface AppInstanceAdmin {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceAdmin</code>.</p>
  */
 export interface AppInstanceAdminSummary {
@@ -85,6 +92,7 @@ export interface AppInstanceAdminSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the data for an <code>AppInstance</code>.</p>
  */
 export interface AppInstanceSummary {
@@ -105,6 +113,7 @@ export interface AppInstanceSummary {
 }
 
 /**
+ * @public
  * <p>The details of the retention settings for a channel.</p>
  */
 export interface ChannelRetentionSettings {
@@ -115,6 +124,7 @@ export interface ChannelRetentionSettings {
 }
 
 /**
+ * @public
  * <p>The details of the data-retention settings for an <code>AppInstance</code>.</p>
  */
 export interface AppInstanceRetentionSettings {
@@ -125,6 +135,7 @@ export interface AppInstanceRetentionSettings {
 }
 
 /**
+ * @public
  * <p>The details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUser {
@@ -155,6 +166,7 @@ export interface AppInstanceUser {
 }
 
 /**
+ * @public
  * <p>The attributes of an <code>Endpoint</code>.</p>
  */
 export interface EndpointAttributes {
@@ -169,17 +181,24 @@ export interface EndpointAttributes {
   VoipDeviceToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum EndpointStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
+/**
+ * @public
+ */
 export enum EndpointStatusReason {
   INVALID_DEVICE_TOKEN = "INVALID_DEVICE_TOKEN",
   INVALID_PINPOINT_ARN = "INVALID_PINPOINT_ARN",
 }
 
 /**
+ * @public
  * <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p>
  *          <ul>
  *             <li>
@@ -214,6 +233,9 @@ export interface EndpointState {
   StatusReason?: EndpointStatusReason | string;
 }
 
+/**
+ * @public
+ */
 export enum AppInstanceUserEndpointType {
   APNS = "APNS",
   APNS_SANDBOX = "APNS_SANDBOX",
@@ -221,6 +243,7 @@ export enum AppInstanceUserEndpointType {
 }
 
 /**
+ * @public
  * <p>An endpoint under an Amazon Chime <code>AppInstanceUser</code> that receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
  */
 export interface AppInstanceUserEndpoint {
@@ -297,6 +320,7 @@ export interface AppInstanceUserEndpoint {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceUserEndpoint</code>.</p>
  */
 export interface AppInstanceUserEndpointSummary {
@@ -333,6 +357,7 @@ export interface AppInstanceUserEndpointSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUserSummary {
@@ -352,6 +377,9 @@ export interface AppInstanceUserSummary {
   Metadata?: string;
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   AccessDenied = "AccessDenied",
   BadRequest = "BadRequest",
@@ -371,6 +399,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>The input parameters don't match the service's restrictions.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -394,6 +423,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -418,6 +448,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A tag object containing a key-value pair.</p>
  */
 export interface Tag {
@@ -432,6 +463,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceRequest {
   /**
    * <p>The name of the <code>AppInstance</code>.</p>
@@ -454,6 +488,9 @@ export interface CreateAppInstanceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the <code>AppInstance</code>.</p>
@@ -462,6 +499,7 @@ export interface CreateAppInstanceResponse {
 }
 
 /**
+ * @public
  * <p>The client is permanently forbidden from making the request.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -485,6 +523,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeds the resource limit.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -508,6 +547,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -531,6 +571,7 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -554,6 +595,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client exceeded its request rate limit.</p>
  */
 export class ThrottledClientException extends __BaseException {
@@ -577,6 +619,7 @@ export class ThrottledClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is not currently authorized to make the request.</p>
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -599,6 +642,9 @@ export class UnauthorizedClientException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceAdminRequest {
   /**
    * <p>The ARN of the administrator of the current <code>AppInstance</code>.</p>
@@ -611,6 +657,9 @@ export interface CreateAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceAdminResponse {
   /**
    * <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
@@ -623,6 +672,9 @@ export interface CreateAppInstanceAdminResponse {
   AppInstanceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code> request.</p>
@@ -655,6 +707,9 @@ export interface CreateAppInstanceUserRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceUserResponse {
   /**
    * <p>The user's ARN.</p>
@@ -662,6 +717,9 @@ export interface CreateAppInstanceUserResponse {
   AppInstanceUserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -669,6 +727,9 @@ export interface DeleteAppInstanceRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceAdminRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>'s administrator.</p>
@@ -681,6 +742,9 @@ export interface DeleteAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceUserRequest {
   /**
    * <p>The ARN of the user request being deleted.</p>
@@ -688,6 +752,9 @@ export interface DeleteAppInstanceUserRequest {
   AppInstanceUserArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -700,6 +767,9 @@ export interface DeregisterAppInstanceUserEndpointRequest {
   EndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -707,6 +777,9 @@ export interface DescribeAppInstanceRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceResponse {
   /**
    * <p>The ARN, metadata, created and last-updated timestamps, and the name of the
@@ -715,6 +788,9 @@ export interface DescribeAppInstanceResponse {
   AppInstance?: AppInstance;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceAdminRequest {
   /**
    * <p>The ARN of the <code>AppInstanceAdmin</code>.</p>
@@ -727,6 +803,9 @@ export interface DescribeAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceAdminResponse {
   /**
    * <p>The ARN and name of the <code>AppInstanceUser</code>, the ARN of the
@@ -736,6 +815,9 @@ export interface DescribeAppInstanceAdminResponse {
   AppInstanceAdmin?: AppInstanceAdmin;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -743,6 +825,9 @@ export interface DescribeAppInstanceUserRequest {
   AppInstanceUserArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserResponse {
   /**
    * <p>The name of the <code>AppInstanceUser</code>.</p>
@@ -750,6 +835,9 @@ export interface DescribeAppInstanceUserResponse {
   AppInstanceUser?: AppInstanceUser;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -762,6 +850,9 @@ export interface DescribeAppInstanceUserEndpointRequest {
   EndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserEndpointResponse {
   /**
    * <p>The full details of an <code>AppInstanceUserEndpoint</code>: the <code>AppInstanceUserArn</code>, ID, name, type, resource ARN, attributes,
@@ -770,6 +861,9 @@ export interface DescribeAppInstanceUserEndpointResponse {
   AppInstanceUserEndpoint?: AppInstanceUserEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceRetentionSettingsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -777,6 +871,9 @@ export interface GetAppInstanceRetentionSettingsRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceRetentionSettingsResponse {
   /**
    * <p>The retention settings for the <code>AppInstance</code>.</p>
@@ -790,6 +887,9 @@ export interface GetAppInstanceRetentionSettingsResponse {
   InitiateDeletionTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceAdminsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -808,6 +908,9 @@ export interface ListAppInstanceAdminsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceAdminsResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -826,6 +929,9 @@ export interface ListAppInstanceAdminsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstancesRequest {
   /**
    * <p>The maximum number of <code>AppInstance</code>s that you want to return.</p>
@@ -839,6 +945,9 @@ export interface ListAppInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstancesResponse {
   /**
    * <p>The information for each <code>AppInstance</code>.</p>
@@ -852,6 +961,9 @@ export interface ListAppInstancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUserEndpointsRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -869,6 +981,9 @@ export interface ListAppInstanceUserEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUserEndpointsResponse {
   /**
    * <p>The information for each requested <code>AppInstanceUserEndpoint</code>.</p>
@@ -881,6 +996,9 @@ export interface ListAppInstanceUserEndpointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUsersRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -898,6 +1016,9 @@ export interface ListAppInstanceUsersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUsersResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -915,6 +1036,9 @@ export interface ListAppInstanceUsersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -922,6 +1046,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tag key-value pairs.</p>
@@ -929,6 +1056,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppInstanceRetentionSettingsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -941,6 +1071,9 @@ export interface PutAppInstanceRetentionSettingsRequest {
   AppInstanceRetentionSettings: AppInstanceRetentionSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAppInstanceRetentionSettingsResponse {
   /**
    * <p>The time in days to retain data. Data type: number.</p>
@@ -953,6 +1086,9 @@ export interface PutAppInstanceRetentionSettingsResponse {
   InitiateDeletionTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1006,6 +1142,9 @@ export interface RegisterAppInstanceUserEndpointRequest {
   AllowMessages?: AllowMessages | string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAppInstanceUserEndpointResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1018,6 +1157,9 @@ export interface RegisterAppInstanceUserEndpointResponse {
   EndpointId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1030,6 +1172,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1042,6 +1187,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -1059,6 +1207,9 @@ export interface UpdateAppInstanceRequest {
   Metadata: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -1066,6 +1217,9 @@ export interface UpdateAppInstanceResponse {
   AppInstanceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1083,6 +1237,9 @@ export interface UpdateAppInstanceUserRequest {
   Metadata: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1090,6 +1247,9 @@ export interface UpdateAppInstanceUserResponse {
   AppInstanceUserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1113,6 +1273,9 @@ export interface UpdateAppInstanceUserEndpointRequest {
   AllowMessages?: AllowMessages | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserEndpointResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>

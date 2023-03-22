@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpeakerEnrollmentJobCommand}.
  */
 export interface DescribeSpeakerEnrollmentJobCommandInput extends DescribeSpeakerEnrollmentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpeakerEnrollmentJobCommand}.
  */
 export interface DescribeSpeakerEnrollmentJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified speaker enrollment job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpeakerEnrollmentJobCommandInput - {@link DescribeSpeakerEnrollmentJobCommandInput}
+ * @returns {@link DescribeSpeakerEnrollmentJobCommandOutput}
  * @see {@link DescribeSpeakerEnrollmentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSpeakerEnrollmentJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpeakerEnrollmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpeakerEnrollmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeSpeakerEnrollmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

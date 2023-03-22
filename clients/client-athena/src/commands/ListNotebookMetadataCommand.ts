@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotebookMetadataCommand}.
  */
 export interface ListNotebookMetadataCommandInput extends ListNotebookMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNotebookMetadataCommand}.
  */
 export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the notebook files for the specified workgroup in paginated format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookMetadataCommandInput - {@link ListNotebookMetadataCommandInput}
+ * @returns {@link ListNotebookMetadataCommandOutput}
  * @see {@link ListNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link ListNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListNotebookMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListNotebookMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNotebookMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookMetadataCommandOutput> {
     return deserializeAws_json1_1ListNotebookMetadataCommand(output, context);
   }

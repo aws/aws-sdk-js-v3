@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMergeConflictsCommand}.
  */
 export interface DescribeMergeConflictsCommandInput extends DescribeMergeConflictsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMergeConflictsCommand}.
  */
 export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more merge conflicts in the attempted merge of two
  *             commit specifiers using the squash or three-way merge strategy. If the merge option for
  *             the attempted merge is specified as FAST_FORWARD_MERGE, an exception is thrown.</p>
@@ -48,6 +53,8 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMergeConflictsCommandInput - {@link DescribeMergeConflictsCommandInput}
+ * @returns {@link DescribeMergeConflictsCommandOutput}
  * @see {@link DescribeMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link DescribeMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -148,6 +155,9 @@ export class DescribeMergeConflictsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMergeConflictsCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,10 +197,16 @@ export class DescribeMergeConflictsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMergeConflictsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMergeConflictsCommandOutput> {
     return deserializeAws_json1_1DescribeMergeConflictsCommand(output, context);
   }

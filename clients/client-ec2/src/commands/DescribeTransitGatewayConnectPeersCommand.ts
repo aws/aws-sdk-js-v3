@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayConnectPeersCommand}.
  */
 export interface DescribeTransitGatewayConnectPeersCommandInput extends DescribeTransitGatewayConnectPeersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayConnectPeersCommand}.
  */
 export interface DescribeTransitGatewayConnectPeersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Connect peers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayConnectPeersCommandInput - {@link DescribeTransitGatewayConnectPeersCommandInput}
+ * @returns {@link DescribeTransitGatewayConnectPeersCommandOutput}
  * @see {@link DescribeTransitGatewayConnectPeersCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayConnectPeersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayConnectPeersCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayConnectPeersCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayConnectPeersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

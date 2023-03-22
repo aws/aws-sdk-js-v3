@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadSetActivationJobCommand}.
  */
 export interface GetReadSetActivationJobCommandInput extends GetReadSetActivationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadSetActivationJobCommand}.
  */
 export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a read set activation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivati
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadSetActivationJobCommandInput - {@link GetReadSetActivationJobCommandInput}
+ * @returns {@link GetReadSetActivationJobCommandOutput}
  * @see {@link GetReadSetActivationJobCommandInput} for command's `input` shape.
  * @see {@link GetReadSetActivationJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetReadSetActivationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadSetActivationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetReadSetActivationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadSetActivationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReadSetActivationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadSetActivationJobCommandOutput> {
     return deserializeAws_restJson1GetReadSetActivationJobCommand(output, context);
   }

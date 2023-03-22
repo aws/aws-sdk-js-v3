@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLogStreamsCommand}.
  */
 export interface DescribeLogStreamsCommandInput extends DescribeLogStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLogStreamsCommand}.
  */
 export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the log streams for the specified log group.
  *       You can list all the log streams or filter the results by prefix.
  *       You can also control how the results are ordered.</p>
@@ -55,6 +60,8 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLogStreamsCommandInput - {@link DescribeLogStreamsCommandInput}
+ * @returns {@link DescribeLogStreamsCommandOutput}
  * @see {@link DescribeLogStreamsCommandInput} for command's `input` shape.
  * @see {@link DescribeLogStreamsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeLogStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLogStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeLogStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLogStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLogStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogStreamsCommandOutput> {
     return deserializeAws_json1_1DescribeLogStreamsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStateMachineCommand}.
  */
 export interface DeleteStateMachineCommandInput extends DeleteStateMachineInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStateMachineCommand}.
  */
 export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
  *       status to <code>DELETING</code> and begins the deletion process. </p>
  *
@@ -57,6 +62,8 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStateMachineCommandInput - {@link DeleteStateMachineCommandInput}
+ * @returns {@link DeleteStateMachineCommandOutput}
  * @see {@link DeleteStateMachineCommandInput} for command's `input` shape.
  * @see {@link DeleteStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteStateMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteStateMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteStateMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStateMachineCommandOutput> {
     return deserializeAws_json1_0DeleteStateMachineCommand(output, context);
   }

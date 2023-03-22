@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteControlPanelCommand}.
  */
 export interface DeleteControlPanelCommandInput extends DeleteControlPanelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteControlPanelCommand}.
  */
 export interface DeleteControlPanelCommandOutput extends DeleteControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteControlPanelCommandInput - {@link DeleteControlPanelCommandInput}
+ * @returns {@link DeleteControlPanelCommandOutput}
  * @see {@link DeleteControlPanelCommandInput} for command's `input` shape.
  * @see {@link DeleteControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteControlPanelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlPanelCommandOutput> {
     return deserializeAws_restJson1DeleteControlPanelCommand(output, context);
   }

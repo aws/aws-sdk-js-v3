@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExplainabilitiesCommand}.
  */
 export interface ListExplainabilitiesCommandInput extends ListExplainabilitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExplainabilitiesCommand}.
  */
 export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Explainability resources created using the <a>CreateExplainability</a> operation. This operation returns a summary for
  *             each Explainability. You can filter the list using an array of <a>Filter</a>
  *             objects.</p>
@@ -50,6 +55,8 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExplainabilitiesCommandInput - {@link ListExplainabilitiesCommandInput}
+ * @returns {@link ListExplainabilitiesCommandOutput}
  * @see {@link ListExplainabilitiesCommandInput} for command's `input` shape.
  * @see {@link ListExplainabilitiesCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListExplainabilitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExplainabilitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListExplainabilitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExplainabilitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExplainabilitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExplainabilitiesCommandOutput> {
     return deserializeAws_json1_1ListExplainabilitiesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterOrganizationDelegatedAdminCommand}.
  */
 export interface DeregisterOrganizationDelegatedAdminCommandInput extends DeregisterOrganizationDelegatedAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterOrganizationDelegatedAdminCommand}.
  */
 export interface DeregisterOrganizationDelegatedAdminCommandOutput
@@ -37,6 +41,7 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes CloudTrail delegated administrator permissions from a member account in
  *          an organization.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterOrganizationDelegatedAdminCommandInput - {@link DeregisterOrganizationDelegatedAdminCommandInput}
+ * @returns {@link DeregisterOrganizationDelegatedAdminCommandOutput}
  * @see {@link DeregisterOrganizationDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link DeregisterOrganizationDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -116,6 +123,9 @@ export class DeregisterOrganizationDelegatedAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterOrganizationDelegatedAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,6 +165,9 @@ export class DeregisterOrganizationDelegatedAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterOrganizationDelegatedAdminCommandInput,
     context: __SerdeContext
@@ -162,6 +175,9 @@ export class DeregisterOrganizationDelegatedAdminCommand extends $Command<
     return serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

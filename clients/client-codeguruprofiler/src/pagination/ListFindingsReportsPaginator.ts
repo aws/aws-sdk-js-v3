@@ -10,7 +10,7 @@ import {
 import { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeGuruProfilerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFindingsReportsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFindingsReports(
   config: CodeGuruProfilerPaginationConfiguration,
   input: ListFindingsReportsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivatePipelineCommand}.
  */
 export interface DeactivatePipelineCommandInput extends DeactivatePipelineInput {}
 /**
+ * @public
+ *
  * The output of {@link DeactivatePipelineCommand}.
  */
 export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code>
  *           state until the deactivation process completes.</p>
  *         <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution.
@@ -49,6 +54,8 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivatePipelineCommandInput - {@link DeactivatePipelineCommandInput}
+ * @returns {@link DeactivatePipelineCommandOutput}
  * @see {@link DeactivatePipelineCommandInput} for command's `input` shape.
  * @see {@link DeactivatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeactivatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeactivatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeactivatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivatePipelineCommandOutput> {
     return deserializeAws_json1_1DeactivatePipelineCommand(output, context);
   }

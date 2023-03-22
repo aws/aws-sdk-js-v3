@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryPolicyCommand}.
  */
 export interface GetRepositoryPolicyCommandInput extends GetRepositoryPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryPolicyCommand}.
  */
 export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the repository policy for the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryPolicyCommandInput - {@link GetRepositoryPolicyCommandInput}
+ * @returns {@link GetRepositoryPolicyCommandOutput}
  * @see {@link GetRepositoryPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetRepositoryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetRepositoryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRepositoryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryPolicyCommandOutput> {
     return deserializeAws_json1_1GetRepositoryPolicyCommand(output, context);
   }

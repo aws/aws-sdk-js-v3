@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadLayerPartCommand}.
  */
 export interface UploadLayerPartCommandInput extends UploadLayerPartRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadLayerPartCommand}.
  */
 export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an image layer part to Amazon ECR.</p>
  *         <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size
  *             of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API
@@ -53,6 +58,8 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadLayerPartCommandInput - {@link UploadLayerPartCommandInput}
+ * @returns {@link UploadLayerPartCommandOutput}
  * @see {@link UploadLayerPartCommandInput} for command's `input` shape.
  * @see {@link UploadLayerPartCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -103,6 +110,9 @@ export class UploadLayerPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadLayerPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UploadLayerPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadLayerPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UploadLayerPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadLayerPartCommandOutput> {
     return deserializeAws_json1_1UploadLayerPartCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInAppTemplateCommand}.
  */
 export interface CreateInAppTemplateCommandInput extends CreateInAppTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInAppTemplateCommand}.
  */
 export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new message template for messages using the in-app message channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInAppTemplateCommandInput - {@link CreateInAppTemplateCommandInput}
+ * @returns {@link CreateInAppTemplateCommandOutput}
  * @see {@link CreateInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateInAppTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInAppTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateInAppTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateInAppTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInAppTemplateCommandOutput> {
     return deserializeAws_restJson1CreateInAppTemplateCommand(output, context);
   }

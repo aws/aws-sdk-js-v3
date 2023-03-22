@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUsagePlanCommand}.
  */
 export interface DeleteUsagePlanCommandInput extends DeleteUsagePlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUsagePlanCommand}.
  */
 export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a usage plan of a given plan Id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsagePlanCommandInput - {@link DeleteUsagePlanCommandInput}
+ * @returns {@link DeleteUsagePlanCommandOutput}
  * @see {@link DeleteUsagePlanCommandInput} for command's `input` shape.
  * @see {@link DeleteUsagePlanCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteUsagePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsagePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteUsagePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsagePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUsagePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsagePlanCommandOutput> {
     return deserializeAws_restJson1DeleteUsagePlanCommand(output, context);
   }

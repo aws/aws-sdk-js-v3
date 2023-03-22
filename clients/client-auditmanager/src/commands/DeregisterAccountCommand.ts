@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterAccountCommand}.
  */
 export interface DeregisterAccountCommandInput extends DeregisterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterAccountCommand}.
  */
 export interface DeregisterAccountCommandOutput extends DeregisterAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deregisters an account in Audit Manager. </p>
  *          <note>
  *             <p>Before you deregister, you can use the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html">UpdateSettings</a> API operation to set your preferred data retention policy. By
@@ -55,6 +60,8 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterAccountCommandInput - {@link DeregisterAccountCommandInput}
+ * @returns {@link DeregisterAccountCommandOutput}
  * @see {@link DeregisterAccountCommandInput} for command's `input` shape.
  * @see {@link DeregisterAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeregisterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeregisterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterAccountCommandOutput> {
     return deserializeAws_restJson1DeregisterAccountCommand(output, context);
   }

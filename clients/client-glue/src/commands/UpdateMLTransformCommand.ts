@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMLTransformCommand}.
  */
 export interface UpdateMLTransformCommandInput extends UpdateMLTransformRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMLTransformCommand}.
  */
 export interface UpdateMLTransformCommandOutput extends UpdateMLTransformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
  *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
  *       operation to assess how well your new parameters achieved your goals (such as improving the
@@ -49,6 +54,8 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMLTransformCommandInput - {@link UpdateMLTransformCommandInput}
+ * @returns {@link UpdateMLTransformCommandOutput}
  * @see {@link UpdateMLTransformCommandInput} for command's `input` shape.
  * @see {@link UpdateMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateMLTransformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateMLTransformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMLTransformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLTransformCommandOutput> {
     return deserializeAws_json1_1UpdateMLTransformCommand(output, context);
   }

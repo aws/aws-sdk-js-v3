@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisableStandardsCommand}.
  */
 export interface BatchDisableStandardsCommandInput extends BatchDisableStandardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisableStandardsCommand}.
  */
 export interface BatchDisableStandardsCommandOutput extends BatchDisableStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the standards specified by the provided
  *          <code>StandardsSubscriptionArns</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>Security Hub User
@@ -49,6 +54,8 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisableStandardsCommandInput - {@link BatchDisableStandardsCommandInput}
+ * @returns {@link BatchDisableStandardsCommandOutput}
  * @see {@link BatchDisableStandardsCommandInput} for command's `input` shape.
  * @see {@link BatchDisableStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -86,6 +93,9 @@ export class BatchDisableStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisableStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class BatchDisableStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisableStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDisableStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDisableStandardsCommandOutput> {
     return deserializeAws_restJson1BatchDisableStandardsCommand(output, context);
   }

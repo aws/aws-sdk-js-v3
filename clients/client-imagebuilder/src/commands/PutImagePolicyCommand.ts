@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutImagePolicyCommand}.
  */
 export interface PutImagePolicyCommandInput extends PutImagePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutImagePolicyCommand}.
  */
 export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
  * 			<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
  * 			all principals with whom the resource is shared.</p>
@@ -48,6 +53,8 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutImagePolicyCommandInput - {@link PutImagePolicyCommandInput}
+ * @returns {@link PutImagePolicyCommandOutput}
  * @see {@link PutImagePolicyCommandInput} for command's `input` shape.
  * @see {@link PutImagePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -97,6 +104,9 @@ export class PutImagePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutImagePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class PutImagePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutImagePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutImagePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImagePolicyCommandOutput> {
     return deserializeAws_restJson1PutImagePolicyCommand(output, context);
   }

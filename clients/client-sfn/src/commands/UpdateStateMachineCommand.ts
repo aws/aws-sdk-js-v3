@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStateMachineCommand}.
  */
 export interface UpdateStateMachineCommandInput extends UpdateStateMachineInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStateMachineCommand}.
  */
 export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing state machine by modifying its <code>definition</code>,
  *         <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue
  *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
@@ -61,6 +66,8 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStateMachineCommandInput - {@link UpdateStateMachineCommandInput}
+ * @returns {@link UpdateStateMachineCommandOutput}
  * @see {@link UpdateStateMachineCommandInput} for command's `input` shape.
  * @see {@link UpdateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -110,6 +117,9 @@ export class UpdateStateMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class UpdateStateMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateStateMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStateMachineCommandOutput> {
     return deserializeAws_json1_0UpdateStateMachineCommand(output, context);
   }

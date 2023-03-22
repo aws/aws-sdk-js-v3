@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainConfigCommand}.
  */
 export interface DescribeDomainConfigCommandInput extends DescribeDomainConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainConfigCommand}.
  */
 export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the configuration of an Amazon OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainConfigCommandInput - {@link DescribeDomainConfigCommandInput}
+ * @returns {@link DescribeDomainConfigCommandOutput}
  * @see {@link DescribeDomainConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeDomainConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeDomainConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDomainConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainConfigCommandOutput> {
     return deserializeAws_restJson1DescribeDomainConfigCommand(output, context);
   }

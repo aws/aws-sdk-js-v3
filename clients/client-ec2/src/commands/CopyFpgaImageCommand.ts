@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CopyFpgaImageCommand, serializeAws_ec2CopyFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CopyFpgaImageCommand}.
  */
 export interface CopyFpgaImageCommandInput extends CopyFpgaImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyFpgaImageCommand}.
  */
 export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyFpgaImageCommandInput - {@link CopyFpgaImageCommandInput}
+ * @returns {@link CopyFpgaImageCommandOutput}
  * @see {@link CopyFpgaImageCommandInput} for command's `input` shape.
  * @see {@link CopyFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +73,9 @@ export class CopyFpgaImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyFpgaImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class CopyFpgaImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CopyFpgaImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyFpgaImageCommandOutput> {
     return deserializeAws_ec2CopyFpgaImageCommand(output, context);
   }

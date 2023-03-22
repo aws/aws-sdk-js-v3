@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountCommand}.
  */
 export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountCommand}.
  */
 export interface DescribeAccountCommandOutput extends DescribeAccountResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
  *          the specified account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
+ * @returns {@link DescribeAccountCommandOutput}
  * @see {@link DescribeAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountCommandOutput> {
     return deserializeAws_json1_1DescribeAccountCommand(output, context);
   }

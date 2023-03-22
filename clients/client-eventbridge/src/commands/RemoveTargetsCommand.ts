@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTargetsCommand}.
  */
 export interface RemoveTargetsCommandInput extends RemoveTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTargetsCommand}.
  */
 export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified targets from the specified rule. When the rule is triggered, those
  *       targets are no longer be invoked.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTargetsCommandInput - {@link RemoveTargetsCommandInput}
+ * @returns {@link RemoveTargetsCommandOutput}
  * @see {@link RemoveTargetsCommandInput} for command's `input` shape.
  * @see {@link RemoveTargetsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -95,6 +102,9 @@ export class RemoveTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class RemoveTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTargetsCommandOutput> {
     return deserializeAws_json1_1RemoveTargetsCommand(output, context);
   }

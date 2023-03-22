@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByResponseHeadersPolicyIdCommand}.
  */
 export interface ListDistributionsByResponseHeadersPolicyIdCommandInput
   extends ListDistributionsByResponseHeadersPolicyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByResponseHeadersPolicyIdCommand}.
  */
 export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
@@ -38,6 +42,7 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified response headers policy.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -55,6 +60,8 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByResponseHeadersPolicyIdCommandInput - {@link ListDistributionsByResponseHeadersPolicyIdCommandInput}
+ * @returns {@link ListDistributionsByResponseHeadersPolicyIdCommandOutput}
  * @see {@link ListDistributionsByResponseHeadersPolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByResponseHeadersPolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByResponseHeadersPolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByResponseHeadersPolicyIdCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     return serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

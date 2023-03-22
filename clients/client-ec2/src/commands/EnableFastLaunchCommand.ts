@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableFastLaunchCommand}.
  */
 export interface EnableFastLaunchCommandInput extends EnableFastLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableFastLaunchCommand}.
  */
 export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you enable faster launching for a Windows AMI, images are pre-provisioned,
  * 			using snapshots to launch instances up to 65% faster. To create the optimized Windows
  * 			image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
@@ -54,6 +59,8 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableFastLaunchCommandInput - {@link EnableFastLaunchCommandInput}
+ * @returns {@link EnableFastLaunchCommandOutput}
  * @see {@link EnableFastLaunchCommandInput} for command's `input` shape.
  * @see {@link EnableFastLaunchCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class EnableFastLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableFastLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class EnableFastLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableFastLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EnableFastLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableFastLaunchCommandOutput> {
     return deserializeAws_ec2EnableFastLaunchCommand(output, context);
   }

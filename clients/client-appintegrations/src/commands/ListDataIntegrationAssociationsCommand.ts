@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataIntegrationAssociationsCommand}.
  */
 export interface ListDataIntegrationAssociationsCommandInput extends ListDataIntegrationAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataIntegrationAssociationsCommand}.
  */
 export interface ListDataIntegrationAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDataIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of DataIntegration associations in the account.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -53,6 +58,8 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataIntegrationAssociationsCommandInput - {@link ListDataIntegrationAssociationsCommandInput}
+ * @returns {@link ListDataIntegrationAssociationsCommandOutput}
  * @see {@link ListDataIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDataIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataIntegrationAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDataIntegrationAssociationsCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     return serializeAws_restJson1ListDataIntegrationAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -141,6 +141,7 @@ import {
 import { WorkLinkClient } from "./WorkLinkClient";
 
 /**
+ * @public
  * <p>Amazon WorkLink is a cloud-based service that provides secure access
  *             to internal websites and web apps from iOS and Android phones. In a single step, your users, such as
  *             employees, can access internal websites as efficiently as they access any other public website.
@@ -151,6 +152,7 @@ import { WorkLinkClient } from "./WorkLinkClient";
  */
 export class WorkLink extends WorkLinkClient {
   /**
+   * @public
    * @deprecated
    *
    * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
@@ -185,6 +187,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
@@ -221,6 +224,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
@@ -256,6 +260,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
@@ -285,6 +290,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
@@ -313,6 +319,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes the configuration for delivering audit streams to the customer account.</p>
@@ -347,6 +354,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes the networking configuration to access the internal websites associated with
@@ -382,6 +390,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Provides information about a user's device.</p>
@@ -416,6 +425,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes the device policy configuration for the specified fleet.</p>
@@ -450,6 +460,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Provides information about the domain.</p>
@@ -484,6 +495,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Provides basic information for the specified fleet, excluding identity provider,
@@ -519,6 +531,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes the identity provider configuration of the specified fleet.</p>
@@ -555,6 +568,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Provides information about the certificate authority.</p>
@@ -589,6 +603,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
@@ -623,6 +638,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Disassociates a website authorization provider from a specified fleet. After the
@@ -661,6 +677,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Removes a certificate authority (CA).</p>
@@ -697,6 +714,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Retrieves a list of devices registered with the specified fleet.</p>
@@ -725,6 +743,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Retrieves a list of domains associated to a specified fleet.</p>
@@ -753,6 +772,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Retrieves a list of fleets for the current account and Region.</p>
@@ -781,6 +801,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Retrieves a list of tags for the specified resource.</p>
@@ -815,6 +836,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
@@ -849,6 +871,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Retrieves a list of certificate authorities added for the current account and
@@ -884,6 +907,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
@@ -918,6 +942,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
@@ -952,6 +977,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Signs the user out from all of their devices. The user can sign in again if they have
@@ -981,6 +1007,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Adds or overwrites one or more tags for the specified resource, such as a fleet. Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p>
@@ -1009,6 +1036,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Removes one or more tags from the specified resource.</p>
@@ -1043,6 +1071,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates the audit stream configuration for the fleet.</p>
@@ -1077,6 +1106,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates the company network configuration for the fleet.</p>
@@ -1111,6 +1141,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates the device policy configuration for the fleet.</p>
@@ -1145,6 +1176,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates domain metadata, such as DisplayName.</p>
@@ -1179,6 +1211,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates fleet metadata, such as DisplayName.</p>
@@ -1213,6 +1246,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates the identity provider configuration for the fleet.</p>

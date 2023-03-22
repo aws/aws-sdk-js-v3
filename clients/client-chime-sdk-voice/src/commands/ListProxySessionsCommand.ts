@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProxySessionsCommand}.
  */
 export interface ListProxySessionsCommandInput extends ListProxySessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProxySessionsCommand}.
  */
 export interface ListProxySessionsCommandOutput extends ListProxySessionsResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class ListProxySessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProxySessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class ListProxySessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProxySessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProxySessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProxySessionsCommandOutput> {
     return deserializeAws_restJson1ListProxySessionsCommand(output, context);
   }

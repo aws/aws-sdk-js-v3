@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreFromSnapshotCommand}.
  */
 export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreFromSnapshotCommand}.
  */
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a namespace from a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
+ * @returns {@link RestoreFromSnapshotCommandOutput}
  * @see {@link RestoreFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -88,6 +95,9 @@ export class RestoreFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class RestoreFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreFromSnapshotCommandOutput> {
     return deserializeAws_json1_1RestoreFromSnapshotCommand(output, context);
   }

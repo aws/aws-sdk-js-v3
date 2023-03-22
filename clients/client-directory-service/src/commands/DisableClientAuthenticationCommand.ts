@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableClientAuthenticationCommand}.
  */
 export interface DisableClientAuthenticationCommandInput extends DisableClientAuthenticationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableClientAuthenticationCommand}.
  */
 export interface DisableClientAuthenticationCommandOutput extends DisableClientAuthenticationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables alternative client authentication methods for the specified directory. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableClientAuthenticationCommandInput - {@link DisableClientAuthenticationCommandInput}
+ * @returns {@link DisableClientAuthenticationCommandOutput}
  * @see {@link DisableClientAuthenticationCommandInput} for command's `input` shape.
  * @see {@link DisableClientAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisableClientAuthenticationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableClientAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DisableClientAuthenticationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableClientAuthenticationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableClientAuthenticationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

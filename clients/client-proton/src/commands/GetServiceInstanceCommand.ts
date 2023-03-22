@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceInstanceCommand}.
  */
 export interface GetServiceInstanceCommandInput extends GetServiceInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceInstanceCommand}.
  */
 export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a service instance. A service instance is an instantiation of service template and it runs in a specific environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceInstanceCommandInput - {@link GetServiceInstanceCommandInput}
+ * @returns {@link GetServiceInstanceCommandOutput}
  * @see {@link GetServiceInstanceCommandInput} for command's `input` shape.
  * @see {@link GetServiceInstanceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetServiceInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetServiceInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetServiceInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceInstanceCommandOutput> {
     return deserializeAws_json1_0GetServiceInstanceCommand(output, context);
   }

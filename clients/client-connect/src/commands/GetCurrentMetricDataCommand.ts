@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCurrentMetricDataCommand}.
  */
 export interface GetCurrentMetricDataCommandInput extends GetCurrentMetricDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCurrentMetricDataCommand}.
  */
 export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
  *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
  *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCurrentMetricDataCommandInput - {@link GetCurrentMetricDataCommandInput}
+ * @returns {@link GetCurrentMetricDataCommandOutput}
  * @see {@link GetCurrentMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetCurrentMetricDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetCurrentMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCurrentMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetCurrentMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCurrentMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCurrentMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentMetricDataCommandOutput> {
     return deserializeAws_restJson1GetCurrentMetricDataCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UnmonitorInstancesCommand}.
  */
 export interface UnmonitorInstancesCommandInput extends UnmonitorInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnmonitorInstancesCommand}.
  */
 export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
  *                 your instances and volumes</a> in the
  *             <i>Amazon EC2 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param UnmonitorInstancesCommandInput - {@link UnmonitorInstancesCommandInput}
+ * @returns {@link UnmonitorInstancesCommandOutput}
  * @see {@link UnmonitorInstancesCommandInput} for command's `input` shape.
  * @see {@link UnmonitorInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class UnmonitorInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnmonitorInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class UnmonitorInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnmonitorInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2UnmonitorInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnmonitorInstancesCommandOutput> {
     return deserializeAws_ec2UnmonitorInstancesCommand(output, context);
   }

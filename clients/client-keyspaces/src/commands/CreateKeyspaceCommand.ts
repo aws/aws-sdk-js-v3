@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeyspaceCommand}.
  */
 export interface CreateKeyspaceCommandInput extends CreateKeyspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeyspaceCommand}.
  */
 export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateKeyspace</code> operation adds a new keyspace to your account. In an Amazon Web Services account, keyspace names
  *       must be unique within each Region.</p>
  *          <p>
@@ -52,6 +57,8 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyspaceCommandInput - {@link CreateKeyspaceCommandInput}
+ * @returns {@link CreateKeyspaceCommandOutput}
  * @see {@link CreateKeyspaceCommandInput} for command's `input` shape.
  * @see {@link CreateKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateKeyspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateKeyspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateKeyspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyspaceCommandOutput> {
     return deserializeAws_json1_0CreateKeyspaceCommand(output, context);
   }

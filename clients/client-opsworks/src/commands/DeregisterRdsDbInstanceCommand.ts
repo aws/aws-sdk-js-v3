@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterRdsDbInstanceCommand}.
  */
 export interface DeregisterRdsDbInstanceCommandInput extends DeregisterRdsDbInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterRdsDbInstanceCommand}.
  */
 export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Amazon RDS instance.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterRdsDbInstanceCommandInput - {@link DeregisterRdsDbInstanceCommandInput}
+ * @returns {@link DeregisterRdsDbInstanceCommandOutput}
  * @see {@link DeregisterRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterRdsDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeregisterRdsDbInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterRdsDbInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeregisterRdsDbInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterRdsDbInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterRdsDbInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterRdsDbInstanceCommandOutput> {
     return deserializeAws_json1_1DeregisterRdsDbInstanceCommand(output, context);
   }

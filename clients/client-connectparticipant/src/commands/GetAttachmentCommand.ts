@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAttachmentCommand}.
  */
 export interface GetAttachmentCommandInput extends GetAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAttachmentCommand}.
  */
 export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
  *          <note>
@@ -58,6 +63,8 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttachmentCommandInput - {@link GetAttachmentCommandInput}
+ * @returns {@link GetAttachmentCommandOutput}
  * @see {@link GetAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetAttachmentCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttachmentCommandOutput> {
     return deserializeAws_restJson1GetAttachmentCommand(output, context);
   }

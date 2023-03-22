@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetDefaultPolicyVersionCommand}.
  */
 export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetDefaultPolicyVersionCommand}.
  */
 export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified version of the specified policy as the policy's default (operative)
  *             version.</p>
  *          <p>This operation affects all users, groups, and roles that the policy is attached to. To
@@ -46,6 +51,8 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDefaultPolicyVersionCommandInput - {@link SetDefaultPolicyVersionCommandInput}
+ * @returns {@link SetDefaultPolicyVersionCommandOutput}
  * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -85,6 +92,9 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetDefaultPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultPolicyVersionCommandOutput> {
     return deserializeAws_querySetDefaultPolicyVersionCommand(output, context);
   }

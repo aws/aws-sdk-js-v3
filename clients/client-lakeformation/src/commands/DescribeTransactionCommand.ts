@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransactionCommand}.
  */
 export interface DescribeTransactionCommandInput extends DescribeTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransactionCommand}.
  */
 export interface DescribeTransactionCommandOutput extends DescribeTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a single transaction.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransactionCommandInput - {@link DescribeTransactionCommandInput}
+ * @returns {@link DescribeTransactionCommandOutput}
  * @see {@link DescribeTransactionCommandInput} for command's `input` shape.
  * @see {@link DescribeTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransactionCommandOutput> {
     return deserializeAws_restJson1DescribeTransactionCommand(output, context);
   }

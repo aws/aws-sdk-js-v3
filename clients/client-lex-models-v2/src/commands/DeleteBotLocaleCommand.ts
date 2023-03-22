@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBotLocaleCommand}.
  */
 export interface DeleteBotLocaleCommandInput extends DeleteBotLocaleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBotLocaleCommand}.
  */
 export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a locale from a bot.</p>
  *          <p>When you delete a locale, all intents, slots, and slot types defined
  *          for the locale are also deleted.</p>
@@ -48,6 +53,8 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBotLocaleCommandInput - {@link DeleteBotLocaleCommandInput}
+ * @returns {@link DeleteBotLocaleCommandOutput}
  * @see {@link DeleteBotLocaleCommandInput} for command's `input` shape.
  * @see {@link DeleteBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteBotLocaleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotLocaleCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteBotLocaleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBotLocaleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotLocaleCommandOutput> {
     return deserializeAws_restJson1DeleteBotLocaleCommand(output, context);
   }

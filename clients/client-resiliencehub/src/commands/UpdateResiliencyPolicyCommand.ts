@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResiliencyPolicyCommand}.
  */
 export interface UpdateResiliencyPolicyCommandInput extends UpdateResiliencyPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResiliencyPolicyCommand}.
  */
 export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a resiliency policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPol
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResiliencyPolicyCommandInput - {@link UpdateResiliencyPolicyCommandInput}
+ * @returns {@link UpdateResiliencyPolicyCommandOutput}
  * @see {@link UpdateResiliencyPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateResiliencyPolicyCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateResiliencyPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResiliencyPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateResiliencyPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResiliencyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResiliencyPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResiliencyPolicyCommandOutput> {
     return deserializeAws_restJson1UpdateResiliencyPolicyCommand(output, context);
   }

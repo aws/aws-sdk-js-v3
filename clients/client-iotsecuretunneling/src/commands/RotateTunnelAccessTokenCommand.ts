@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RotateTunnelAccessTokenCommand}.
  */
 export interface RotateTunnelAccessTokenCommandInput extends RotateTunnelAccessTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link RotateTunnelAccessTokenCommand}.
  */
 export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccessTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes the current client access token (CAT) and returns new CAT for clients to
  * 			use when reconnecting to secure tunneling to access the same tunnel.</p>
  * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RotateTunnelAccessToken</a> action.</p>
@@ -58,6 +63,8 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateTunnelAccessTokenCommandInput - {@link RotateTunnelAccessTokenCommandInput}
+ * @returns {@link RotateTunnelAccessTokenCommandOutput}
  * @see {@link RotateTunnelAccessTokenCommandInput} for command's `input` shape.
  * @see {@link RotateTunnelAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
@@ -84,6 +91,9 @@ export class RotateTunnelAccessTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateTunnelAccessTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class RotateTunnelAccessTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RotateTunnelAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RotateTunnelAccessTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateTunnelAccessTokenCommandOutput> {
     return deserializeAws_json1_1RotateTunnelAccessTokenCommand(output, context);
   }

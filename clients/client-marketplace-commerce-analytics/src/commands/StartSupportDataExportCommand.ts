@@ -30,19 +30,24 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSupportDataExportCommand}.
  */
 export interface StartSupportDataExportCommandInput extends StartSupportDataExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSupportDataExportCommand}.
  */
 export interface StartSupportDataExportCommandOutput extends StartSupportDataExportResult, __MetadataBearer {}
 
 /**
+ * @public
  * Given a data set type and a from date, asynchronously publishes the requested customer support data
  *         to the specified S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request
  *         identifier that can be used to correlate requests with notifications from the SNS topic.
- *         Data sets will be published in comma-separated values (CSV) format with the file name {data_set_type}_YYYY-MM-DD'T'HH-mm-ss'Z'.csv.
+ *         Data sets will be published in comma-separated values (CSV) format with the file name \{data_set_type\}_YYYY-MM-DD'T'HH-mm-ss'Z'.csv.
  *         If a file with the same name already exists (e.g. if the same data set is requested twice), the original file will
  *         be overwritten by the new file.
  *         Requires a Role with an attached permissions policy providing Allow permissions for the following actions:
@@ -57,6 +62,8 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSupportDataExportCommandInput - {@link StartSupportDataExportCommandInput}
+ * @returns {@link StartSupportDataExportCommandOutput}
  * @see {@link StartSupportDataExportCommandInput} for command's `input` shape.
  * @see {@link StartSupportDataExportCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for MarketplaceCommerceAnalyticsClient's `config` shape.
@@ -83,6 +90,9 @@ export class StartSupportDataExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSupportDataExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StartSupportDataExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSupportDataExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSupportDataExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSupportDataExportCommandOutput> {
     return deserializeAws_json1_1StartSupportDataExportCommand(output, context);
   }

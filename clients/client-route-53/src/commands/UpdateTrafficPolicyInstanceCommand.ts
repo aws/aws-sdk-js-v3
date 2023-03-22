@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrafficPolicyInstanceCommand}.
  */
 export interface UpdateTrafficPolicyInstanceCommandInput extends UpdateTrafficPolicyInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrafficPolicyInstanceCommand}.
  */
 export interface UpdateTrafficPolicyInstanceCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the resource record sets in a specified hosted zone that were created based on
  * 			the settings in a specified traffic policy version.</p>
  *          <p>When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS
@@ -71,6 +76,8 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrafficPolicyInstanceCommandInput - {@link UpdateTrafficPolicyInstanceCommandInput}
+ * @returns {@link UpdateTrafficPolicyInstanceCommandOutput}
  * @see {@link UpdateTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -116,6 +123,9 @@ export class UpdateTrafficPolicyInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrafficPolicyInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class UpdateTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInboundCrossClusterSearchConnectionCommand}.
  */
 export interface RejectInboundCrossClusterSearchConnectionCommandInput
   extends RejectInboundCrossClusterSearchConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectInboundCrossClusterSearchConnectionCommand}.
  */
 export interface RejectInboundCrossClusterSearchConnectionCommandOutput
@@ -42,6 +46,7 @@ export interface RejectInboundCrossClusterSearchConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface RejectInboundCrossClusterSearchConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInboundCrossClusterSearchConnectionCommandInput - {@link RejectInboundCrossClusterSearchConnectionCommandInput}
+ * @returns {@link RejectInboundCrossClusterSearchConnectionCommandOutput}
  * @see {@link RejectInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInboundCrossClusterSearchConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectInboundCrossClusterSearchConnectionCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
     return serializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

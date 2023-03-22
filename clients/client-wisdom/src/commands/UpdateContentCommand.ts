@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContentCommand}.
  */
 export interface UpdateContentCommandInput extends UpdateContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContentCommand}.
  */
 export interface UpdateContentCommandOutput extends UpdateContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContentCommandInput - {@link UpdateContentCommandInput}
+ * @returns {@link UpdateContentCommandOutput}
  * @see {@link UpdateContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContentCommandOutput> {
     return deserializeAws_restJson1UpdateContentCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link SignalWorkflowExecutionCommand}.
  */
 export interface SignalWorkflowExecutionCommandInput extends SignalWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link SignalWorkflowExecutionCommand}.
  */
 export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records a <code>WorkflowExecutionSignaled</code> event in the workflow execution
  *       history and creates a decision task for the workflow execution identified by the given domain,
  *       workflowId and runId. The event is recorded with the specified user defined signalName and
@@ -79,6 +84,8 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param SignalWorkflowExecutionCommandInput - {@link SignalWorkflowExecutionCommandInput}
+ * @returns {@link SignalWorkflowExecutionCommandOutput}
  * @see {@link SignalWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link SignalWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -108,6 +115,9 @@ export class SignalWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignalWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class SignalWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignalWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SignalWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignalWorkflowExecutionCommandOutput> {
     return deserializeAws_json1_0SignalWorkflowExecutionCommand(output, context);
   }

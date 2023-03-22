@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAnomalyMonitorCommand}.
  */
 export interface UpdateAnomalyMonitorCommandInput extends UpdateAnomalyMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAnomalyMonitorCommand}.
  */
 export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
  *       doesn't change anomalies detected in the past. </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnomalyMonitorCommandInput - {@link UpdateAnomalyMonitorCommandInput}
+ * @returns {@link UpdateAnomalyMonitorCommandOutput}
  * @see {@link UpdateAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateAnomalyMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnomalyMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateAnomalyMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnomalyMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAnomalyMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnomalyMonitorCommandOutput> {
     return deserializeAws_json1_1UpdateAnomalyMonitorCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReferencesCommand}.
  */
 export interface ListReferencesCommandInput extends ListReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReferencesCommand}.
  */
 export interface ListReferencesCommandOutput extends ListReferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of references.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListReferencesCommandOutput extends ListReferencesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReferencesCommandInput - {@link ListReferencesCommandInput}
+ * @returns {@link ListReferencesCommandOutput}
  * @see {@link ListReferencesCommandInput} for command's `input` shape.
  * @see {@link ListReferencesCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReferencesCommandOutput> {
     return deserializeAws_restJson1ListReferencesCommand(output, context);
   }

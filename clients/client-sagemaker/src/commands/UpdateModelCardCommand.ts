@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelCardCommand}.
  */
 export interface UpdateModelCardCommandInput extends UpdateModelCardRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelCardCommand}.
  */
 export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an Amazon SageMaker Model Card.</p>
  *          <important>
  *             <p>You cannot update both model card content and model card status in a single call.</p>
@@ -49,6 +54,8 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelCardCommandInput - {@link UpdateModelCardCommandInput}
+ * @returns {@link UpdateModelCardCommandOutput}
  * @see {@link UpdateModelCardCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateModelCardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelCardCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateModelCardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateModelCardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelCardCommandOutput> {
     return deserializeAws_json1_1UpdateModelCardCommand(output, context);
   }

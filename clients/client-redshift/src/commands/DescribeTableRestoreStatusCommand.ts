@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableRestoreStatusCommand}.
  */
 export interface DescribeTableRestoreStatusCommandInput extends DescribeTableRestoreStatusMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableRestoreStatusCommand}.
  */
 export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreStatusMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value
  *             for the <code>TableRestoreRequestId</code> parameter, then
  *                 <code>DescribeTableRestoreStatus</code> returns the status of all table restore
@@ -51,6 +56,8 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableRestoreStatusCommandInput - {@link DescribeTableRestoreStatusCommandInput}
+ * @returns {@link DescribeTableRestoreStatusCommandOutput}
  * @see {@link DescribeTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableRestoreStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTableRestoreStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

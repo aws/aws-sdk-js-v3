@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomRoutingAcceleratorAttributesCommand}.
  */
 export interface UpdateCustomRoutingAcceleratorAttributesCommandInput
   extends UpdateCustomRoutingAcceleratorAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomRoutingAcceleratorAttributesCommand}.
  */
 export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
@@ -42,6 +46,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the attributes for a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomRoutingAcceleratorAttributesCommandInput - {@link UpdateCustomRoutingAcceleratorAttributesCommandInput}
+ * @returns {@link UpdateCustomRoutingAcceleratorAttributesCommandOutput}
  * @see {@link UpdateCustomRoutingAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomRoutingAcceleratorAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCustomRoutingAcceleratorAttributesCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command<
     return serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

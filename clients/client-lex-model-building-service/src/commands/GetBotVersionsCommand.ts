@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotVersionsCommand}.
  */
 export interface GetBotVersionsCommandInput extends GetBotVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotVersionsCommand}.
  */
 export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about all of the versions of a bot.</p>
  *          <p>The <code>GetBotVersions</code> operation returns a
  *         <code>BotMetadata</code> object for each version of a bot. For example,
@@ -60,6 +65,8 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotVersionsCommandInput - {@link GetBotVersionsCommandInput}
+ * @returns {@link GetBotVersionsCommandOutput}
  * @see {@link GetBotVersionsCommandInput} for command's `input` shape.
  * @see {@link GetBotVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetBotVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetBotVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotVersionsCommandOutput> {
     return deserializeAws_restJson1GetBotVersionsCommand(output, context);
   }

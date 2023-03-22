@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExpressionCommand}.
  */
 export interface DeleteExpressionCommandInput extends DeleteExpressionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExpressionCommand}.
  */
 export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExpressionCommandInput - {@link DeleteExpressionCommandInput}
+ * @returns {@link DeleteExpressionCommandOutput}
  * @see {@link DeleteExpressionCommandInput} for command's `input` shape.
  * @see {@link DeleteExpressionCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteExpressionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExpressionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteExpressionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExpressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteExpressionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExpressionCommandOutput> {
     return deserializeAws_queryDeleteExpressionCommand(output, context);
   }

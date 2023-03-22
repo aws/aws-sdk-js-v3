@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFlowCommand}.
  */
 export interface StartFlowCommandInput extends StartFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFlowCommand}.
  */
 export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Starts a flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFlowCommandInput - {@link StartFlowCommandInput}
+ * @returns {@link StartFlowCommandOutput}
  * @see {@link StartFlowCommandInput} for command's `input` shape.
  * @see {@link StartFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StartFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFlowCommandOutput> {
     return deserializeAws_restJson1StartFlowCommand(output, context);
   }

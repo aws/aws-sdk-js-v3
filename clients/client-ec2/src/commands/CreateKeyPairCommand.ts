@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateKeyPairCommand, serializeAws_ec2CreateKeyPairCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeyPairCommand}.
  */
 export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeyPairCommand}.
  */
 export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the
  *             specified PEM or PPK format. Amazon EC2 stores the public key and displays the private
  *             key for you to save to a file. The private key is returned as an unencrypted PEM encoded
@@ -53,6 +58,8 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyPairCommandInput - {@link CreateKeyPairCommandInput}
+ * @returns {@link CreateKeyPairCommandOutput}
  * @see {@link CreateKeyPairCommandInput} for command's `input` shape.
  * @see {@link CreateKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -87,6 +94,9 @@ export class CreateKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyPairCommandOutput> {
     return deserializeAws_ec2CreateKeyPairCommand(output, context);
   }

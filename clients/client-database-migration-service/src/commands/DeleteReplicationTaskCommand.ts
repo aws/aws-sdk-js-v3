@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationTaskCommand}.
  */
 export interface DeleteReplicationTaskCommandInput extends DeleteReplicationTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationTaskCommand}.
  */
 export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified replication task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTas
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationTaskCommandInput - {@link DeleteReplicationTaskCommandInput}
+ * @returns {@link DeleteReplicationTaskCommandOutput}
  * @see {@link DeleteReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DeleteReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationTaskCommandOutput> {
     return deserializeAws_json1_1DeleteReplicationTaskCommand(output, context);
   }

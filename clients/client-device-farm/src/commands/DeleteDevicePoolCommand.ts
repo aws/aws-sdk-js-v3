@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDevicePoolCommand}.
  */
 export interface DeleteDevicePoolCommandInput extends DeleteDevicePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDevicePoolCommand}.
  */
 export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools
  *             owned by the system.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDevicePoolCommandInput - {@link DeleteDevicePoolCommandInput}
+ * @returns {@link DeleteDevicePoolCommandOutput}
  * @see {@link DeleteDevicePoolCommandInput} for command's `input` shape.
  * @see {@link DeleteDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteDevicePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDevicePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteDevicePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDevicePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDevicePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevicePoolCommandOutput> {
     return deserializeAws_json1_1DeleteDevicePoolCommand(output, context);
   }

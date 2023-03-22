@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLensSharesCommand}.
  */
 export interface ListLensSharesCommandInput extends ListLensSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLensSharesCommand}.
  */
 export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the lens shares associated with the lens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLensSharesCommandInput - {@link ListLensSharesCommandInput}
+ * @returns {@link ListLensSharesCommandOutput}
  * @see {@link ListLensSharesCommandInput} for command's `input` shape.
  * @see {@link ListLensSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListLensSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLensSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListLensSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLensSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLensSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLensSharesCommandOutput> {
     return deserializeAws_restJson1ListLensSharesCommand(output, context);
   }

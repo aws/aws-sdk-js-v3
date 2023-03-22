@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetectStackSetDriftCommand}.
  */
 export interface DetectStackSetDriftCommandInput extends DetectStackSetDriftInput {}
 /**
+ * @public
+ *
  * The output of {@link DetectStackSetDriftCommand}.
  */
 export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a
  *          stack set, it performs drift detection on the stack associated with each stack instance in
  *          the stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation performs drift detection on a stack set</a>.</p>
@@ -90,6 +95,8 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectStackSetDriftCommandInput - {@link DetectStackSetDriftCommandInput}
+ * @returns {@link DetectStackSetDriftCommandOutput}
  * @see {@link DetectStackSetDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackSetDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -123,6 +130,9 @@ export class DetectStackSetDriftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectStackSetDriftCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class DetectStackSetDriftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectStackSetDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetectStackSetDriftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackSetDriftCommandOutput> {
     return deserializeAws_queryDetectStackSetDriftCommand(output, context);
   }

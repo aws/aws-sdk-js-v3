@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetDesiredCapacityCommand}.
  */
 export interface SetDesiredCapacityCommandInput extends SetDesiredCapacityType {}
 /**
+ * @public
+ *
  * The output of {@link SetDesiredCapacityCommand}.
  */
 export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the size of the specified Auto Scaling group.</p>
  *          <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
  *             that is lower than the current size of the group, the Auto Scaling group uses its termination
@@ -46,6 +51,8 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDesiredCapacityCommandInput - {@link SetDesiredCapacityCommandInput}
+ * @returns {@link SetDesiredCapacityCommandOutput}
  * @see {@link SetDesiredCapacityCommandInput} for command's `input` shape.
  * @see {@link SetDesiredCapacityCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -90,6 +97,9 @@ export class SetDesiredCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDesiredCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SetDesiredCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDesiredCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetDesiredCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDesiredCapacityCommandOutput> {
     return deserializeAws_querySetDesiredCapacityCommand(output, context);
   }

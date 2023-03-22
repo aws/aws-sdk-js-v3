@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutInventoryCommand}.
  */
 export interface PutInventoryCommandInput extends PutInventoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutInventoryCommand}.
  */
 export interface PutInventoryCommandOutput extends PutInventoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
  *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
  *    exist.</p>
@@ -48,6 +53,8 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInventoryCommandInput - {@link PutInventoryCommandInput}
+ * @returns {@link PutInventoryCommandOutput}
  * @see {@link PutInventoryCommandInput} for command's `input` shape.
  * @see {@link PutInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -129,6 +136,9 @@ export class PutInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class PutInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInventoryCommandOutput> {
     return deserializeAws_json1_1PutInventoryCommand(output, context);
   }

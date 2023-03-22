@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDhcpOptionsCommand}.
  */
 export interface DeleteDhcpOptionsCommandInput extends DeleteDhcpOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDhcpOptionsCommand}.
  */
 export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDhcpOptionsCommandInput - {@link DeleteDhcpOptionsCommandInput}
+ * @returns {@link DeleteDhcpOptionsCommandOutput}
  * @see {@link DeleteDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link DeleteDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteDhcpOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDhcpOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteDhcpOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDhcpOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteDhcpOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDhcpOptionsCommandOutput> {
     return deserializeAws_ec2DeleteDhcpOptionsCommand(output, context);
   }

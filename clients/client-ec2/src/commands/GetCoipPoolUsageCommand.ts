@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoipPoolUsageCommand}.
  */
 export interface GetCoipPoolUsageCommandInput extends GetCoipPoolUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoipPoolUsageCommand}.
  */
 export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the allocations from the specified customer-owned address pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoipPoolUsageCommandInput - {@link GetCoipPoolUsageCommandInput}
+ * @returns {@link GetCoipPoolUsageCommandOutput}
  * @see {@link GetCoipPoolUsageCommandInput} for command's `input` shape.
  * @see {@link GetCoipPoolUsageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetCoipPoolUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoipPoolUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetCoipPoolUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoipPoolUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetCoipPoolUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoipPoolUsageCommandOutput> {
     return deserializeAws_ec2GetCoipPoolUsageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectVersionsCommand}.
  */
 export interface ListObjectVersionsCommandInput extends ListObjectVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectVersionsCommand}.
  */
 export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about all versions of the objects in a bucket. You can also use request
  *          parameters as selection criteria to return metadata about a subset of all the object
  *          versions.</p>
@@ -84,6 +89,8 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectVersionsCommandInput - {@link ListObjectVersionsCommandInput}
+ * @returns {@link ListObjectVersionsCommandOutput}
  * @see {@link ListObjectVersionsCommandInput} for command's `input` shape.
  * @see {@link ListObjectVersionsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -157,6 +164,9 @@ export class ListObjectVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class ListObjectVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListObjectVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectVersionsCommandOutput> {
     return deserializeAws_restXmlListObjectVersionsCommand(output, context);
   }

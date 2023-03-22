@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBusinessReportScheduleCommand}.
  */
 export interface CreateBusinessReportScheduleCommandInput extends CreateBusinessReportScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBusinessReportScheduleCommand}.
  */
 export interface CreateBusinessReportScheduleCommandOutput
@@ -37,6 +41,7 @@ export interface CreateBusinessReportScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
  *          location with a specified daily or weekly interval.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateBusinessReportScheduleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBusinessReportScheduleCommandInput - {@link CreateBusinessReportScheduleCommandInput}
+ * @returns {@link CreateBusinessReportScheduleCommandOutput}
  * @see {@link CreateBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBusinessReportScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBusinessReportScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

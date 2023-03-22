@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsagePlansCommand}.
  */
 export interface GetUsagePlansCommandInput extends GetUsagePlansRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsagePlansCommand}.
  */
 export interface GetUsagePlansCommandOutput extends UsagePlans, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all the usage plans of the caller's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetUsagePlansCommandOutput extends UsagePlans, __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsagePlansCommandInput - {@link GetUsagePlansCommandInput}
+ * @returns {@link GetUsagePlansCommandOutput}
  * @see {@link GetUsagePlansCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlansCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetUsagePlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsagePlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetUsagePlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsagePlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUsagePlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlansCommandOutput> {
     return deserializeAws_restJson1GetUsagePlansCommand(output, context);
   }

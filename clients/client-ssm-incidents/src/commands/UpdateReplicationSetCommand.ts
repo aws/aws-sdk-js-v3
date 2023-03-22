@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReplicationSetCommand}.
  */
 export interface UpdateReplicationSetCommandInput extends UpdateReplicationSetInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReplicationSetCommand}.
  */
 export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add or delete Regions from your replication set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReplicationSetCommandInput - {@link UpdateReplicationSetCommandInput}
+ * @returns {@link UpdateReplicationSetCommandOutput}
  * @see {@link UpdateReplicationSetCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateReplicationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReplicationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateReplicationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateReplicationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReplicationSetCommandOutput> {
     return deserializeAws_restJson1UpdateReplicationSetCommand(output, context);
   }

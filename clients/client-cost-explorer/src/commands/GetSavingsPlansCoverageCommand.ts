@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSavingsPlansCoverageCommand}.
  */
 export interface GetSavingsPlansCoverageCommandInput extends GetSavingsPlansCoverageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSavingsPlansCoverageCommand}.
  */
 export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCoverageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of
  *       your cost is covered by a Savings Plan. An organization’s management account can see the
  *       coverage of the associated member accounts. This supports dimensions, Cost Categories, and
@@ -74,6 +79,8 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSavingsPlansCoverageCommandInput - {@link GetSavingsPlansCoverageCommandInput}
+ * @returns {@link GetSavingsPlansCoverageCommandOutput}
  * @see {@link GetSavingsPlansCoverageCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansCoverageCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -106,6 +113,9 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSavingsPlansCoverageCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSavingsPlansCoverageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSavingsPlansCoverageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSavingsPlansCoverageCommandOutput> {
     return deserializeAws_json1_1GetSavingsPlansCoverageCommand(output, context);
   }

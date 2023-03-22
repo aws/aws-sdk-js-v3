@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBalancerTargetGroupsCommand}.
  */
 export interface DescribeLoadBalancerTargetGroupsCommandInput extends DescribeLoadBalancerTargetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBalancerTargetGroupsCommand}.
  */
 export interface DescribeLoadBalancerTargetGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
  *          <p>To determine the attachment status of the target group, use the <code>State</code>
  *             element in the response. When you attach a target group to an Auto Scaling group, the initial
@@ -72,6 +77,8 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerTargetGroupsCommandInput - {@link DescribeLoadBalancerTargetGroupsCommandInput}
+ * @returns {@link DescribeLoadBalancerTargetGroupsCommandOutput}
  * @see {@link DescribeLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -123,6 +130,9 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,6 +172,9 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLoadBalancerTargetGroupsCommandInput,
     context: __SerdeContext
@@ -169,6 +182,9 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     return serializeAws_queryDescribeLoadBalancerTargetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

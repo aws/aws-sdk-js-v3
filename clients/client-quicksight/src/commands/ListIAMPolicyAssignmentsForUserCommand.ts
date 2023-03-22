@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIAMPolicyAssignmentsForUserCommand}.
  */
 export interface ListIAMPolicyAssignmentsForUserCommandInput extends ListIAMPolicyAssignmentsForUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIAMPolicyAssignmentsForUserCommand}.
  */
 export interface ListIAMPolicyAssignmentsForUserCommandOutput
@@ -37,6 +41,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
  * 			policies assigned to the specified user and group or groups that the user belongs
  * 			to.</p>
@@ -50,6 +55,8 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIAMPolicyAssignmentsForUserCommandInput - {@link ListIAMPolicyAssignmentsForUserCommandInput}
+ * @returns {@link ListIAMPolicyAssignmentsForUserCommandOutput}
  * @see {@link ListIAMPolicyAssignmentsForUserCommandInput} for command's `input` shape.
  * @see {@link ListIAMPolicyAssignmentsForUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIAMPolicyAssignmentsForUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListIAMPolicyAssignmentsForUserCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     return serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

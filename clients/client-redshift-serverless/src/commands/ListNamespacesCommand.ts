@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListNamespacesCommand}.
  */
 export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNamespacesCommand}.
  */
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a list of specified namespaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
+ * @returns {@link ListNamespacesCommandOutput}
  * @see {@link ListNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListNamespacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamespacesCommandOutput> {
     return deserializeAws_json1_1ListNamespacesCommand(output, context);
   }

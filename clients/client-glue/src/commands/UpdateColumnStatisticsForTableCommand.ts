@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateColumnStatisticsForTableCommand}.
  */
 export interface UpdateColumnStatisticsForTableCommandInput extends UpdateColumnStatisticsForTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateColumnStatisticsForTableCommand}.
  */
 export interface UpdateColumnStatisticsForTableCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateColumnStatisticsForTableCommandInput - {@link UpdateColumnStatisticsForTableCommandInput}
+ * @returns {@link UpdateColumnStatisticsForTableCommandOutput}
  * @see {@link UpdateColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link UpdateColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateColumnStatisticsForTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateColumnStatisticsForTableCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     return serializeAws_json1_1UpdateColumnStatisticsForTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

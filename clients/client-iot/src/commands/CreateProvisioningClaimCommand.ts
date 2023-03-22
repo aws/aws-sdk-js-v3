@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProvisioningClaimCommand}.
  */
 export interface CreateProvisioningClaimCommandInput extends CreateProvisioningClaimRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProvisioningClaimCommand}.
  */
 export interface CreateProvisioningClaimCommandOutput extends CreateProvisioningClaimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a provisioning claim.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningClaim</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisioningClaimCommandInput - {@link CreateProvisioningClaimCommandInput}
+ * @returns {@link CreateProvisioningClaimCommandOutput}
  * @see {@link CreateProvisioningClaimCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningClaimCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateProvisioningClaimCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisioningClaimCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateProvisioningClaimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisioningClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProvisioningClaimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProvisioningClaimCommandOutput> {
     return deserializeAws_restJson1CreateProvisioningClaimCommand(output, context);
   }

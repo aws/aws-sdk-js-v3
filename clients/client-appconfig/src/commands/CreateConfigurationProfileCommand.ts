@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationProfileCommand}.
  */
 export interface CreateConfigurationProfileCommandInput extends CreateConfigurationProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationProfileCommand}.
  */
 export interface CreateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configuration profile, which is information that enables AppConfig
  *          to access the configuration source. Valid configuration sources include the
  *          following:</p>
@@ -85,6 +90,8 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationProfileCommandInput - {@link CreateConfigurationProfileCommandInput}
+ * @returns {@link CreateConfigurationProfileCommandOutput}
  * @see {@link CreateConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -140,6 +147,9 @@ export class CreateConfigurationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,10 +189,16 @@ export class CreateConfigurationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConfigurationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

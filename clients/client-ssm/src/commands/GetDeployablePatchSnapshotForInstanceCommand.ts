@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
 export interface GetDeployablePatchSnapshotForInstanceCommandInput
   extends GetDeployablePatchSnapshotForInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
 export interface GetDeployablePatchSnapshotForInstanceCommandOutput
@@ -38,6 +42,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is
  *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
  *          <note>
@@ -57,6 +62,8 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeployablePatchSnapshotForInstanceCommandInput - {@link GetDeployablePatchSnapshotForInstanceCommandInput}
+ * @returns {@link GetDeployablePatchSnapshotForInstanceCommandOutput}
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeployablePatchSnapshotForInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDeployablePatchSnapshotForInstanceCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     return serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

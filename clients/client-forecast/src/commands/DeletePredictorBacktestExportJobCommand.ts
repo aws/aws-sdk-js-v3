@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePredictorBacktestExportJobCommand}.
  */
 export interface DeletePredictorBacktestExportJobCommandInput extends DeletePredictorBacktestExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePredictorBacktestExportJobCommand}.
  */
 export interface DeletePredictorBacktestExportJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a predictor backtest export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeletePredictorBacktestExportJobCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePredictorBacktestExportJobCommandInput - {@link DeletePredictorBacktestExportJobCommandInput}
+ * @returns {@link DeletePredictorBacktestExportJobCommandOutput}
  * @see {@link DeletePredictorBacktestExportJobCommandInput} for command's `input` shape.
  * @see {@link DeletePredictorBacktestExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeletePredictorBacktestExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePredictorBacktestExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeletePredictorBacktestExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeletePredictorBacktestExportJobCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeletePredictorBacktestExportJobCommand extends $Command<
     return serializeAws_json1_1DeletePredictorBacktestExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

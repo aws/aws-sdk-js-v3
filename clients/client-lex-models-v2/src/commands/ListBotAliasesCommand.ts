@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotAliasesCommand}.
  */
 export interface ListBotAliasesCommandInput extends ListBotAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotAliasesCommand}.
  */
 export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of aliases for the specified bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotAliasesCommandInput - {@link ListBotAliasesCommandInput}
+ * @returns {@link ListBotAliasesCommandOutput}
  * @see {@link ListBotAliasesCommandInput} for command's `input` shape.
  * @see {@link ListBotAliasesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -84,6 +91,9 @@ export class ListBotAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListBotAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBotAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotAliasesCommandOutput> {
     return deserializeAws_restJson1ListBotAliasesCommand(output, context);
   }

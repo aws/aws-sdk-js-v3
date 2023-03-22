@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGraphqlApiCommand}.
  */
 export interface UpdateGraphqlApiCommandInput extends UpdateGraphqlApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGraphqlApiCommand}.
  */
 export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a <code>GraphqlApi</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGraphqlApiCommandInput - {@link UpdateGraphqlApiCommandInput}
+ * @returns {@link UpdateGraphqlApiCommandOutput}
  * @see {@link UpdateGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link UpdateGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateGraphqlApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGraphqlApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateGraphqlApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGraphqlApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGraphqlApiCommandOutput> {
     return deserializeAws_restJson1UpdateGraphqlApiCommand(output, context);
   }

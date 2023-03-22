@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNetworkResourceMetadataCommand}.
  */
 export interface UpdateNetworkResourceMetadataCommandInput extends UpdateNetworkResourceMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNetworkResourceMetadataCommand}.
  */
 export interface UpdateNetworkResourceMetadataCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateNetworkResourceMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the resource metadata for the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateNetworkResourceMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNetworkResourceMetadataCommandInput - {@link UpdateNetworkResourceMetadataCommandInput}
+ * @returns {@link UpdateNetworkResourceMetadataCommandOutput}
  * @see {@link UpdateNetworkResourceMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkResourceMetadataCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNetworkResourceMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNetworkResourceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateNetworkResourceMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -28,15 +28,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link UploadPartCopyCommand}.
  */
 export interface UploadPartCopyCommandInput extends UploadPartCopyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadPartCopyCommand}.
  */
 export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a part by copying data from an existing object as data source. You specify the
  *          data source by adding the request header <code>x-amz-copy-source</code> in your request and
  *          a byte range by adding the request header <code>x-amz-copy-source-range</code> in your
@@ -214,6 +219,8 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadPartCopyCommandInput - {@link UploadPartCopyCommandInput}
+ * @returns {@link UploadPartCopyCommandOutput}
  * @see {@link UploadPartCopyCommandInput} for command's `input` shape.
  * @see {@link UploadPartCopyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -290,6 +297,9 @@ export class UploadPartCopyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadPartCopyCommandInput) {
     // Start section: command_constructor
     super();
@@ -331,10 +341,16 @@ export class UploadPartCopyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadPartCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUploadPartCopyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCopyCommandOutput> {
     return deserializeAws_restXmlUploadPartCopyCommand(output, context);
   }

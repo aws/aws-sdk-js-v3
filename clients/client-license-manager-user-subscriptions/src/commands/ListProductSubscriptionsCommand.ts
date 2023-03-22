@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProductSubscriptionsCommand}.
  */
 export interface ListProductSubscriptionsCommandInput extends ListProductSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProductSubscriptionsCommand}.
  */
 export interface ListProductSubscriptionsCommandOutput extends ListProductSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the user-based subscription products available from an identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProductSubscriptionsCommandInput - {@link ListProductSubscriptionsCommandInput}
+ * @returns {@link ListProductSubscriptionsCommandOutput}
  * @see {@link ListProductSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListProductSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListProductSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProductSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListProductSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProductSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProductSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProductSubscriptionsCommandOutput> {
     return deserializeAws_restJson1ListProductSubscriptionsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessDeviceFromThingCommand}.
  */
 export interface DisassociateWirelessDeviceFromThingCommandInput extends DisassociateWirelessDeviceFromThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessDeviceFromThingCommand}.
  */
 export interface DisassociateWirelessDeviceFromThingCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless device from its currently associated thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessDeviceFromThingCommandInput - {@link DisassociateWirelessDeviceFromThingCommandInput}
+ * @returns {@link DisassociateWirelessDeviceFromThingCommandOutput}
  * @see {@link DisassociateWirelessDeviceFromThingCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessDeviceFromThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessDeviceFromThingCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DisassociateWirelessDeviceFromThingCommand extends $Command<
     return serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

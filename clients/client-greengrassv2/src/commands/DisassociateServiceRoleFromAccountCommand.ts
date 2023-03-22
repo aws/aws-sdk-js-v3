@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateServiceRoleFromAccountCommand}.
  */
 export interface DisassociateServiceRoleFromAccountCommandInput extends DisassociateServiceRoleFromAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateServiceRoleFromAccountCommand}.
  */
 export interface DisassociateServiceRoleFromAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.
  *       Without a service role, IoT Greengrass can't verify the identity of client devices or manage core device
  *       connectivity information. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in
@@ -51,6 +56,8 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
+ * @returns {@link DisassociateServiceRoleFromAccountCommandOutput}
  * @see {@link DisassociateServiceRoleFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -77,6 +84,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceRoleFromAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceRoleFromAccountCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     return serializeAws_restJson1DisassociateServiceRoleFromAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientVpnConnectionsCommand}.
  */
 export interface DescribeClientVpnConnectionsCommandInput extends DescribeClientVpnConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientVpnConnectionsCommand}.
  */
 export interface DescribeClientVpnConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeClientVpnConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes active client connections and connections that have been terminated within the last 60
  * 			minutes for the specified Client VPN endpoint.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeClientVpnConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnConnectionsCommandInput - {@link DescribeClientVpnConnectionsCommandInput}
+ * @returns {@link DescribeClientVpnConnectionsCommandOutput}
  * @see {@link DescribeClientVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeClientVpnConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

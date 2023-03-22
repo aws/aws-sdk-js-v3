@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEmailMonitoringConfigurationCommand}.
  */
 export interface DescribeEmailMonitoringConfigurationCommandInput extends DescribeEmailMonitoringConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEmailMonitoringConfigurationCommand}.
  */
 export interface DescribeEmailMonitoringConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEmailMonitoringConfigurationCommandInput - {@link DescribeEmailMonitoringConfigurationCommandInput}
+ * @returns {@link DescribeEmailMonitoringConfigurationCommandOutput}
  * @see {@link DescribeEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEmailMonitoringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
     return serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

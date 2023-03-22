@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAddressBookCommand}.
  */
 export interface GetAddressBookCommandInput extends GetAddressBookRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAddressBookCommand}.
  */
 export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets address the book details by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAddressBookCommandInput - {@link GetAddressBookCommandInput}
+ * @returns {@link GetAddressBookCommandOutput}
  * @see {@link GetAddressBookCommandInput} for command's `input` shape.
  * @see {@link GetAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAddressBookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAddressBookCommandOutput> {
     return deserializeAws_json1_1GetAddressBookCommand(output, context);
   }

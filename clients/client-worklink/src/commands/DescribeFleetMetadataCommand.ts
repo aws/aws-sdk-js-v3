@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetMetadataCommand}.
  */
 export interface DescribeFleetMetadataCommandInput extends DescribeFleetMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetMetadataCommand}.
  */
 export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Provides basic information for the specified fleet, excluding identity provider,
@@ -49,6 +54,8 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetMetadataCommandInput - {@link DescribeFleetMetadataCommandInput}
+ * @returns {@link DescribeFleetMetadataCommandOutput}
  * @see {@link DescribeFleetMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeFleetMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeFleetMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFleetMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetMetadataCommandOutput> {
     return deserializeAws_restJson1DescribeFleetMetadataCommand(output, context);
   }

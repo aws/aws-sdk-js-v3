@@ -6,7 +6,7 @@ import { MqClient } from "../MqClient";
 import { MqPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MqClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBrokersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBrokers(
   config: MqPaginationConfiguration,
   input: ListBrokersCommandInput,

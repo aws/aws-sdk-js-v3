@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrustCommand}.
  */
 export interface CreateTrustCommandInput extends CreateTrustRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrustCommand}.
  */
 export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For
  *       example, you can establish a trust between your Managed Microsoft AD directory, and your existing
  *       self-managed Microsoft Active Directory. This would allow you to provide users and groups
@@ -52,6 +57,8 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrustCommandInput - {@link CreateTrustCommandInput}
+ * @returns {@link CreateTrustCommandOutput}
  * @see {@link CreateTrustCommandInput} for command's `input` shape.
  * @see {@link CreateTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateTrustCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrustCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateTrustCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTrustCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustCommandOutput> {
     return deserializeAws_json1_1CreateTrustCommand(output, context);
   }

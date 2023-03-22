@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamingDistributionCommand}.
  */
 export interface CreateStreamingDistributionCommandInput extends CreateStreamingDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamingDistributionCommand}.
  */
 export interface CreateStreamingDistributionCommandOutput extends CreateStreamingDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
  * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
  * 			forum.</p>
@@ -48,6 +53,8 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingDistributionCommandInput - {@link CreateStreamingDistributionCommandInput}
+ * @returns {@link CreateStreamingDistributionCommandOutput}
  * @see {@link CreateStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -114,6 +121,9 @@ export class CreateStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class CreateStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeletePhoneNumberCommand}.
  */
 export interface BatchDeletePhoneNumberCommandInput extends BatchDeletePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeletePhoneNumberCommand}.
  */
 export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Moves phone numbers into the
  * <b>Deletion queue</b>. Phone numbers must be disassociated from any users or Amazon Chime Voice Connectors before they can be deleted.
@@ -54,6 +59,8 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeletePhoneNumberCommandInput - {@link BatchDeletePhoneNumberCommandInput}
+ * @returns {@link BatchDeletePhoneNumberCommandOutput}
  * @see {@link BatchDeletePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link BatchDeletePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -98,6 +105,9 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeletePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeletePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeletePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeletePhoneNumberCommandOutput> {
     return deserializeAws_restJson1BatchDeletePhoneNumberCommand(output, context);
   }

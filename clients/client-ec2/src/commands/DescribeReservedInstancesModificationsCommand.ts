@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstancesModificationsCommand}.
  */
 export interface DescribeReservedInstancesModificationsCommandInput
   extends DescribeReservedInstancesModificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstancesModificationsCommand}.
  */
 export interface DescribeReservedInstancesModificationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeReservedInstancesModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeReservedInstancesModificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstancesModificationsCommandInput - {@link DescribeReservedInstancesModificationsCommandInput}
+ * @returns {@link DescribeReservedInstancesModificationsCommandOutput}
  * @see {@link DescribeReservedInstancesModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesModificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstancesModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedInstancesModificationsCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     return serializeAws_ec2DescribeReservedInstancesModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

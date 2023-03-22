@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkflowStepGroupCommand}.
  */
 export interface DeleteWorkflowStepGroupCommandInput extends DeleteWorkflowStepGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkflowStepGroupCommand}.
  */
 export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStep
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkflowStepGroupCommandInput - {@link DeleteWorkflowStepGroupCommandInput}
+ * @returns {@link DeleteWorkflowStepGroupCommandOutput}
  * @see {@link DeleteWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkflowStepGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWorkflowStepGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowStepGroupCommandOutput> {
     return deserializeAws_restJson1DeleteWorkflowStepGroupCommand(output, context);
   }

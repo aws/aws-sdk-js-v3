@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAllFeaturesCommand}.
  */
 export interface EnableAllFeaturesCommandInput extends EnableAllFeaturesRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableAllFeaturesCommand}.
  */
 export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables all features in an organization. This enables the use of organization policies
  *             that can restrict the services and actions that can be called in each account. Until you
  *             enable all features, you have access only to consolidated billing, and you can't use any
@@ -71,6 +76,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAllFeaturesCommandInput - {@link EnableAllFeaturesCommandInput}
+ * @returns {@link EnableAllFeaturesCommandOutput}
  * @see {@link EnableAllFeaturesCommandInput} for command's `input` shape.
  * @see {@link EnableAllFeaturesCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -316,6 +323,9 @@ export class EnableAllFeaturesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAllFeaturesCommandInput) {
     // Start section: command_constructor
     super();
@@ -355,10 +365,16 @@ export class EnableAllFeaturesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAllFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableAllFeaturesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAllFeaturesCommandOutput> {
     return deserializeAws_json1_1EnableAllFeaturesCommand(output, context);
   }

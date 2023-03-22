@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentFrameworkShareRequestsCommand}.
  */
 export interface ListAssessmentFrameworkShareRequestsCommandInput extends ListAssessmentFrameworkShareRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentFrameworkShareRequestsCommand}.
  */
 export interface ListAssessmentFrameworkShareRequestsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of sent or received share requests for custom frameworks in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentFrameworkShareRequestsCommandInput - {@link ListAssessmentFrameworkShareRequestsCommandInput}
+ * @returns {@link ListAssessmentFrameworkShareRequestsCommandOutput}
  * @see {@link ListAssessmentFrameworkShareRequestsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworkShareRequestsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentFrameworkShareRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssessmentFrameworkShareRequestsCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
     return serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

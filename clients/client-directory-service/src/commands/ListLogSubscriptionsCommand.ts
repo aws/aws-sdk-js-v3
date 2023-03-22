@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLogSubscriptionsCommand}.
  */
 export interface ListLogSubscriptionsCommandInput extends ListLogSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLogSubscriptionsCommand}.
  */
 export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the active log subscriptions for the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLogSubscriptionsCommandInput - {@link ListLogSubscriptionsCommandInput}
+ * @returns {@link ListLogSubscriptionsCommandOutput}
  * @see {@link ListLogSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListLogSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListLogSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLogSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListLogSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLogSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLogSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogSubscriptionsCommandOutput> {
     return deserializeAws_json1_1ListLogSubscriptionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvidenceFolderCommand}.
  */
 export interface GetEvidenceFolderCommandInput extends GetEvidenceFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEvidenceFolderCommand}.
  */
 export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns an evidence folder from the specified assessment in Audit Manager.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvidenceFolderCommandInput - {@link GetEvidenceFolderCommandInput}
+ * @returns {@link GetEvidenceFolderCommandOutput}
  * @see {@link GetEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetEvidenceFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvidenceFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetEvidenceFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEvidenceFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEvidenceFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEvidenceFolderCommandOutput> {
     return deserializeAws_restJson1GetEvidenceFolderCommand(output, context);
   }

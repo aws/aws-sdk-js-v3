@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserSettingsCommand}.
  */
 export interface UpdateUserSettingsCommandInput extends UpdateUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserSettingsCommand}.
  */
 export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the user settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserSettingsCommandInput - {@link UpdateUserSettingsCommandInput}
+ * @returns {@link UpdateUserSettingsCommandOutput}
  * @see {@link UpdateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserSettingsCommandOutput> {
     return deserializeAws_restJson1UpdateUserSettingsCommand(output, context);
   }

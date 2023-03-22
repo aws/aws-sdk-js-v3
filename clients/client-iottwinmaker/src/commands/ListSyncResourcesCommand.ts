@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSyncResourcesCommand}.
  */
 export interface ListSyncResourcesCommandInput extends ListSyncResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSyncResourcesCommand}.
  */
 export interface ListSyncResourcesCommandOutput extends ListSyncResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the sync resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSyncResourcesCommandInput - {@link ListSyncResourcesCommandInput}
+ * @returns {@link ListSyncResourcesCommandOutput}
  * @see {@link ListSyncResourcesCommandInput} for command's `input` shape.
  * @see {@link ListSyncResourcesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListSyncResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSyncResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListSyncResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSyncResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSyncResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSyncResourcesCommandOutput> {
     return deserializeAws_restJson1ListSyncResourcesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVolumeRecoveryPointsCommand}.
  */
 export interface ListVolumeRecoveryPointsCommandInput extends ListVolumeRecoveryPointsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVolumeRecoveryPointsCommand}.
  */
 export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecoveryPointsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recovery points for a specified gateway. This operation is only supported in
  *          the cached volume gateway type.</p>
  *
@@ -52,6 +57,8 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVolumeRecoveryPointsCommandInput - {@link ListVolumeRecoveryPointsCommandInput}
+ * @returns {@link ListVolumeRecoveryPointsCommandOutput}
  * @see {@link ListVolumeRecoveryPointsCommandInput} for command's `input` shape.
  * @see {@link ListVolumeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -106,6 +113,9 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVolumeRecoveryPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVolumeRecoveryPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListVolumeRecoveryPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVolumeRecoveryPointsCommandOutput> {
     return deserializeAws_json1_1ListVolumeRecoveryPointsCommand(output, context);
   }

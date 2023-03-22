@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRulesetCommand}.
  */
 export interface DescribeRulesetCommandInput extends DescribeRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRulesetCommand}.
  */
 export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves detailed information about the ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRulesetCommandInput - {@link DescribeRulesetCommandInput}
+ * @returns {@link DescribeRulesetCommandOutput}
  * @see {@link DescribeRulesetCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesetCommandOutput> {
     return deserializeAws_restJson1DescribeRulesetCommand(output, context);
   }

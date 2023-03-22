@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFirewallDomainsCommand}.
  */
 export interface ListFirewallDomainsCommandInput extends ListFirewallDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFirewallDomainsCommand}.
  */
 export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the domains that you have defined for the specified firewall domain list.  </p>
  *          <p>A single call might return only a partial list of the domains. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallDomainsCommandInput - {@link ListFirewallDomainsCommandInput}
+ * @returns {@link ListFirewallDomainsCommandOutput}
  * @see {@link ListFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListFirewallDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListFirewallDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFirewallDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallDomainsCommandOutput> {
     return deserializeAws_json1_1ListFirewallDomainsCommand(output, context);
   }

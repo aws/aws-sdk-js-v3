@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppAssessmentsCommand}.
  */
 export interface ListAppAssessmentsCommandInput extends ListAppAssessmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppAssessmentsCommand}.
  */
 export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the assessments for an AWS Resilience Hub application. You can use request parameters to
  *       refine the results for the response object.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppAssessmentsCommandInput - {@link ListAppAssessmentsCommandInput}
+ * @returns {@link ListAppAssessmentsCommandOutput}
  * @see {@link ListAppAssessmentsCommandInput} for command's `input` shape.
  * @see {@link ListAppAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListAppAssessmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppAssessmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListAppAssessmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppAssessmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAppAssessmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppAssessmentsCommandOutput> {
     return deserializeAws_restJson1ListAppAssessmentsCommand(output, context);
   }

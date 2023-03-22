@@ -200,6 +200,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateApplicationFleetCommandInput
   | AssociateApplicationToEntitlementCommandInput
@@ -267,6 +270,9 @@ export type ServiceInputTypes =
   | UpdateImagePermissionsCommandInput
   | UpdateStackCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateApplicationFleetCommandOutput
   | AssociateApplicationToEntitlementCommandOutput
@@ -334,6 +340,9 @@ export type ServiceOutputTypes =
   | UpdateImagePermissionsCommandOutput
   | UpdateStackCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -341,7 +350,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -450,11 +459,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AppStreamClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -465,10 +477,15 @@ type AppStreamClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AppStreamClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AppStreamClient class constructor that set the region, credentials and other options.
  */
 export interface AppStreamClientConfig extends AppStreamClientConfigType {}
 
+/**
+ * @public
+ */
 type AppStreamClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -479,11 +496,14 @@ type AppStreamClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AppStreamClient class. This is resolved and normalized from the {@link AppStreamClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AppStreamClient class. This is resolved and normalized from the {@link AppStreamClientConfig | constructor configuration interface}.
  */
 export interface AppStreamClientResolvedConfig extends AppStreamClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon AppStream 2.0</fullname>
  *          <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
  *          <note>

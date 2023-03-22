@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetDefaultPolicyVersionCommand}.
  */
 export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetDefaultPolicyVersionCommand}.
  */
 export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified version of the specified policy as the policy's default
  *          (operative) version. This action affects all certificates to which the policy is attached.
  *          To list the principals the policy is attached to, use the <a>ListPrincipalPolicies</a>
@@ -45,6 +50,8 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDefaultPolicyVersionCommandInput - {@link SetDefaultPolicyVersionCommandInput}
+ * @returns {@link SetDefaultPolicyVersionCommandOutput}
  * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetDefaultPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultPolicyVersionCommandOutput> {
     return deserializeAws_restJson1SetDefaultPolicyVersionCommand(output, context);
   }

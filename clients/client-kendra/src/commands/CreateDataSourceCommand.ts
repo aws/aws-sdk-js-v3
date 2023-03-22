@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSourceCommand}.
  */
 export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSourceCommand}.
  */
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data source connector that you want to use with an Amazon Kendra
  *       index.</p>
  *          <p>You specify a name, data source connector type and description for your data source. You
@@ -58,6 +63,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSourceCommandInput - {@link CreateDataSourceCommandInput}
+ * @returns {@link CreateDataSourceCommandOutput}
  * @see {@link CreateDataSourceCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -114,6 +121,9 @@ export class CreateDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class CreateDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceCommandOutput> {
     return deserializeAws_json1_1CreateDataSourceCommand(output, context);
   }

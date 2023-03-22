@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualServicesCommand}.
  */
 export interface ListVirtualServicesCommandInput extends ListVirtualServicesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualServicesCommand}.
  */
 export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing virtual services in a service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualServicesCommandInput - {@link ListVirtualServicesCommandInput}
+ * @returns {@link ListVirtualServicesCommandOutput}
  * @see {@link ListVirtualServicesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualServicesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListVirtualServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListVirtualServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVirtualServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualServicesCommandOutput> {
     return deserializeAws_restJson1ListVirtualServicesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketMetricDataCommand}.
  */
 export interface GetBucketMetricDataCommandInput extends GetBucketMetricDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketMetricDataCommand}.
  */
 export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data points of a specific metric for an Amazon Lightsail bucket.</p>
  *          <p>Metrics report the utilization of a bucket. View and collect metric data regularly to
  *       monitor the number of objects stored in a bucket (including object versions) and the storage
@@ -49,6 +54,8 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketMetricDataCommandInput - {@link GetBucketMetricDataCommandInput}
+ * @returns {@link GetBucketMetricDataCommandOutput}
  * @see {@link GetBucketMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetBucketMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetBucketMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetBucketMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBucketMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketMetricDataCommandOutput> {
     return deserializeAws_json1_1GetBucketMetricDataCommand(output, context);
   }

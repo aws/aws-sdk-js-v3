@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBProxyEndpointCommand}.
  */
 export interface ModifyDBProxyEndpointCommandInput extends ModifyDBProxyEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBProxyEndpointCommand}.
  */
 export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the settings for an existing DB proxy endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBProxyEndpointCommandInput - {@link ModifyDBProxyEndpointCommandInput}
+ * @returns {@link ModifyDBProxyEndpointCommandOutput}
  * @see {@link ModifyDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +88,9 @@ export class ModifyDBProxyEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBProxyEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ModifyDBProxyEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBProxyEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBProxyEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBProxyEndpointCommandOutput> {
     return deserializeAws_queryModifyDBProxyEndpointCommand(output, context);
   }

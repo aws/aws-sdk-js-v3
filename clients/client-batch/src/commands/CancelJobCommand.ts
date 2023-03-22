@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJobCommand}.
  */
 export interface CancelJobCommandInput extends CancelJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJobCommand}.
  */
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a job in an Batch job queue. Jobs that are in the <code>SUBMITTED</code>, <code>PENDING</code>, or
  *    <code>RUNNABLE</code> state are canceled. Jobs that progressed to the <code>STARTING</code> or <code>RUNNING</code>
  *    state aren't canceled. However, the API operation still succeeds, even if no job is canceled. These jobs must be
@@ -49,6 +54,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobCommandInput - {@link CancelJobCommandInput}
+ * @returns {@link CancelJobCommandOutput}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -92,6 +99,9 @@ export class CancelJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CancelJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
     return deserializeAws_restJson1CancelJobCommand(output, context);
   }

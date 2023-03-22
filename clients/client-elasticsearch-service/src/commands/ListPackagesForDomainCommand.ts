@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackagesForDomainCommand}.
  */
 export interface ListPackagesForDomainCommandInput extends ListPackagesForDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackagesForDomainCommand}.
  */
 export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all packages associated with the Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackagesForDomainCommandInput - {@link ListPackagesForDomainCommandInput}
+ * @returns {@link ListPackagesForDomainCommandOutput}
  * @see {@link ListPackagesForDomainCommandInput} for command's `input` shape.
  * @see {@link ListPackagesForDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListPackagesForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackagesForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListPackagesForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackagesForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPackagesForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackagesForDomainCommandOutput> {
     return deserializeAws_restJson1ListPackagesForDomainCommand(output, context);
   }

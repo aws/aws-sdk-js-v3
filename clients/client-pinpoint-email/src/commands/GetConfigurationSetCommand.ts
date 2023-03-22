@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationSetCommand}.
  */
 export interface GetConfigurationSetCommandInput extends GetConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationSetCommand}.
  */
 export interface GetConfigurationSetCommandOutput extends GetConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about an existing configuration set, including the dedicated IP pool
  *             that it's associated with, whether or not it's enabled for sending email, and
  *             more.</p>
@@ -53,6 +58,8 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationSetCommandInput - {@link GetConfigurationSetCommandInput}
+ * @returns {@link GetConfigurationSetCommandOutput}
  * @see {@link GetConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationSetCommandOutput> {
     return deserializeAws_restJson1GetConfigurationSetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateRandomCommand}.
  */
 export interface GenerateRandomCommandInput extends GenerateRandomRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateRandomCommand}.
  */
 export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a random byte string that is cryptographically secure.</p>
  *          <p>You must use the <code>NumberOfBytes</code> parameter to specify the length of the random
  *       byte string. There is no default value for string length.</p>
@@ -60,6 +65,8 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateRandomCommandInput - {@link GenerateRandomCommandInput}
+ * @returns {@link GenerateRandomCommandOutput}
  * @see {@link GenerateRandomCommandInput} for command's `input` shape.
  * @see {@link GenerateRandomCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -151,6 +158,9 @@ export class GenerateRandomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateRandomCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,10 +200,16 @@ export class GenerateRandomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateRandomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateRandomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateRandomCommandOutput> {
     return deserializeAws_json1_1GenerateRandomCommand(output, context);
   }

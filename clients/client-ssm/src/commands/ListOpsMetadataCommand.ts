@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpsMetadataCommand}.
  */
 export interface ListOpsMetadataCommandInput extends ListOpsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpsMetadataCommand}.
  */
 export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
  *    blobs.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpsMetadataCommandInput - {@link ListOpsMetadataCommandInput}
+ * @returns {@link ListOpsMetadataCommandOutput}
  * @see {@link ListOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link ListOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpsMetadataCommandOutput> {
     return deserializeAws_json1_1ListOpsMetadataCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackupPlanCommand}.
  */
 export interface GetBackupPlanCommandInput extends GetBackupPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBackupPlanCommand}.
  */
 export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The
  *          details are the body of a backup plan in JSON format, in addition to plan metadata.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupPlanCommandInput - {@link GetBackupPlanCommandInput}
+ * @returns {@link GetBackupPlanCommandOutput}
  * @see {@link GetBackupPlanCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetBackupPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetBackupPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackupPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupPlanCommandOutput> {
     return deserializeAws_restJson1GetBackupPlanCommand(output, context);
   }

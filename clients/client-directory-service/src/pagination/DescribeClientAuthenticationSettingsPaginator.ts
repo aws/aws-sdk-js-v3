@@ -10,7 +10,7 @@ import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeClientAuthenticationSettingsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeClientAuthenticationSettings(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeClientAuthenticationSettingsCommandInput,

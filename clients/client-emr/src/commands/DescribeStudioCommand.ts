@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStudioCommand}.
  */
 export interface DescribeStudioCommandInput extends DescribeStudioInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStudioCommand}.
  */
 export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
  *          Studio access URL, and so on.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStudioCommandInput - {@link DescribeStudioCommandInput}
+ * @returns {@link DescribeStudioCommandOutput}
  * @see {@link DescribeStudioCommandInput} for command's `input` shape.
  * @see {@link DescribeStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStudioCommandOutput> {
     return deserializeAws_json1_1DescribeStudioCommand(output, context);
   }

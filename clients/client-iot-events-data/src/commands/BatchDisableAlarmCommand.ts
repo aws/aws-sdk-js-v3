@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisableAlarmCommand}.
  */
 export interface BatchDisableAlarmCommandInput extends BatchDisableAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisableAlarmCommand}.
  */
 export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables one or more alarms. The alarms change to the <code>DISABLED</code> state after
  *       you disable them.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisableAlarmCommandInput - {@link BatchDisableAlarmCommandInput}
+ * @returns {@link BatchDisableAlarmCommandOutput}
  * @see {@link BatchDisableAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchDisableAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchDisableAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisableAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchDisableAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisableAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDisableAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDisableAlarmCommandOutput> {
     return deserializeAws_restJson1BatchDisableAlarmCommand(output, context);
   }

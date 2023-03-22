@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataCatalogEncryptionSettingsCommand}.
  */
 export interface GetDataCatalogEncryptionSettingsCommandInput extends GetDataCatalogEncryptionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataCatalogEncryptionSettingsCommand}.
  */
 export interface GetDataCatalogEncryptionSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the security configuration for a specified catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataCatalogEncryptionSettingsCommandInput - {@link GetDataCatalogEncryptionSettingsCommandInput}
+ * @returns {@link GetDataCatalogEncryptionSettingsCommandOutput}
  * @see {@link GetDataCatalogEncryptionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataCatalogEncryptionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDataCatalogEncryptionSettingsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
     return serializeAws_json1_1GetDataCatalogEncryptionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

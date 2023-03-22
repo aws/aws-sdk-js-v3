@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFlowMediaStreamCommand}.
  */
 export interface RemoveFlowMediaStreamCommandInput extends RemoveFlowMediaStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFlowMediaStreamCommand}.
  */
 export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Removes a media stream from a flow. This action is only available if the media stream is not associated with a source or output.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStrea
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFlowMediaStreamCommandInput - {@link RemoveFlowMediaStreamCommandInput}
+ * @returns {@link RemoveFlowMediaStreamCommandOutput}
  * @see {@link RemoveFlowMediaStreamCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowMediaStreamCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class RemoveFlowMediaStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFlowMediaStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RemoveFlowMediaStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFlowMediaStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveFlowMediaStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowMediaStreamCommandOutput> {
     return deserializeAws_restJson1RemoveFlowMediaStreamCommand(output, context);
   }

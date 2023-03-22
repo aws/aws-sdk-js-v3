@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportPlaybackKeyPairCommand}.
  */
 export interface ImportPlaybackKeyPairCommandInput extends ImportPlaybackKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportPlaybackKeyPairCommand}.
  */
 export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
  *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
  *       authorization tokens, to grant viewers access to private channels. For more information, see
@@ -50,6 +55,8 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportPlaybackKeyPairCommandInput - {@link ImportPlaybackKeyPairCommandInput}
+ * @returns {@link ImportPlaybackKeyPairCommandOutput}
  * @see {@link ImportPlaybackKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportPlaybackKeyPairCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -88,6 +95,9 @@ export class ImportPlaybackKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportPlaybackKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ImportPlaybackKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportPlaybackKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportPlaybackKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportPlaybackKeyPairCommandOutput> {
     return deserializeAws_restJson1ImportPlaybackKeyPairCommand(output, context);
   }

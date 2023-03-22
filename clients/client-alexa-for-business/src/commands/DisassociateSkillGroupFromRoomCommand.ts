@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSkillGroupFromRoomCommand}.
  */
 export interface DisassociateSkillGroupFromRoomCommandInput extends DisassociateSkillGroupFromRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSkillGroupFromRoomCommand}.
  */
 export interface DisassociateSkillGroupFromRoomCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a skill group from a specified room. This disables all skills in the
  *          skill group on all devices in the room.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSkillGroupFromRoomCommandInput - {@link DisassociateSkillGroupFromRoomCommandInput}
+ * @returns {@link DisassociateSkillGroupFromRoomCommandOutput}
  * @see {@link DisassociateSkillGroupFromRoomCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillGroupFromRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSkillGroupFromRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateSkillGroupFromRoomCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     return serializeAws_json1_1DisassociateSkillGroupFromRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

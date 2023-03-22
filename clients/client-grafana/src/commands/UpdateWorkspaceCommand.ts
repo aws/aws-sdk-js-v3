@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceCommand}.
  */
 export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceCommand}.
  */
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit
  *             any optional parameters, the existing values of those parameters are not changed.</p>
  *          <p>To modify the user authentication methods that the workspace uses, such as SAML or
@@ -51,6 +56,8 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceCommandInput - {@link UpdateWorkspaceCommandInput}
+ * @returns {@link UpdateWorkspaceCommandOutput}
  * @see {@link UpdateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceCommandOutput> {
     return deserializeAws_restJson1UpdateWorkspaceCommand(output, context);
   }

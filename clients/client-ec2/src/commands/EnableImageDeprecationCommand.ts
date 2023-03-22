@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableImageDeprecationCommand}.
  */
 export interface EnableImageDeprecationCommandInput extends EnableImageDeprecationRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableImageDeprecationCommand}.
  */
 export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables deprecation of the specified AMI at the specified date and time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecat
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableImageDeprecationCommandInput - {@link EnableImageDeprecationCommandInput}
+ * @returns {@link EnableImageDeprecationCommandOutput}
  * @see {@link EnableImageDeprecationCommandInput} for command's `input` shape.
  * @see {@link EnableImageDeprecationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class EnableImageDeprecationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableImageDeprecationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class EnableImageDeprecationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableImageDeprecationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EnableImageDeprecationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableImageDeprecationCommandOutput> {
     return deserializeAws_ec2EnableImageDeprecationCommand(output, context);
   }

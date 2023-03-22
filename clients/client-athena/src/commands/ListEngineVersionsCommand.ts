@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEngineVersionsCommand}.
  */
 export interface ListEngineVersionsCommandInput extends ListEngineVersionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEngineVersionsCommand}.
  */
 export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of engine versions that are available to choose from, including the
  *             Auto option.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEngineVersionsCommandInput - {@link ListEngineVersionsCommandInput}
+ * @returns {@link ListEngineVersionsCommandOutput}
  * @see {@link ListEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEngineVersionsCommandOutput> {
     return deserializeAws_json1_1ListEngineVersionsCommand(output, context);
   }

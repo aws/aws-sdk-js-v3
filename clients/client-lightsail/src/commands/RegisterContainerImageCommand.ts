@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterContainerImageCommand}.
  */
 export interface RegisterContainerImageCommandInput extends RegisterContainerImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterContainerImageCommand}.
  */
 export interface RegisterContainerImageCommandOutput extends RegisterContainerImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a container image to your Amazon Lightsail container service.</p>
  *          <note>
  *             <p>This action is not required if you install and use the Lightsail Control
@@ -52,6 +57,8 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterContainerImageCommandInput - {@link RegisterContainerImageCommandInput}
+ * @returns {@link RegisterContainerImageCommandOutput}
  * @see {@link RegisterContainerImageCommandInput} for command's `input` shape.
  * @see {@link RegisterContainerImageCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -98,6 +105,9 @@ export class RegisterContainerImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterContainerImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class RegisterContainerImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterContainerImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterContainerImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterContainerImageCommandOutput> {
     return deserializeAws_json1_1RegisterContainerImageCommand(output, context);
   }

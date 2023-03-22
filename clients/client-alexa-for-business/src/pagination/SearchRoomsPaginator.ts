@@ -6,7 +6,7 @@ import { SearchRoomsCommand, SearchRoomsCommandInput, SearchRoomsCommandOutput }
 import { AlexaForBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AlexaForBusinessClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchRoomsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchRooms(
   config: AlexaForBusinessPaginationConfiguration,
   input: SearchRoomsCommandInput,

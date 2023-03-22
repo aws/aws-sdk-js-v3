@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsCommand}.
  */
 export interface ListTargetsCommandInput extends ListTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsCommand}.
  */
 export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the notification rule targets for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsCommandInput - {@link ListTargetsCommandInput}
+ * @returns {@link ListTargetsCommandOutput}
  * @see {@link ListTargetsCommandInput} for command's `input` shape.
  * @see {@link ListTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsCommandOutput> {
     return deserializeAws_restJson1ListTargetsCommand(output, context);
   }

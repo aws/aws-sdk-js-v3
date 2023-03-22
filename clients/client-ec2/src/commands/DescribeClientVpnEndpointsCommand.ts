@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientVpnEndpointsCommand}.
  */
 export interface DescribeClientVpnEndpointsCommandInput extends DescribeClientVpnEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientVpnEndpointsCommand}.
  */
 export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientVpnEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Client VPN endpoints in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnEndpointsCommandInput - {@link DescribeClientVpnEndpointsCommandInput}
+ * @returns {@link DescribeClientVpnEndpointsCommandOutput}
  * @see {@link DescribeClientVpnEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientVpnEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeClientVpnEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

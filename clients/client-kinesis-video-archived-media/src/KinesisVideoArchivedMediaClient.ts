@@ -73,6 +73,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | GetClipCommandInput
   | GetDASHStreamingSessionURLCommandInput
@@ -81,6 +84,9 @@ export type ServiceInputTypes =
   | GetMediaForFragmentListCommandInput
   | ListFragmentsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | GetClipCommandOutput
   | GetDASHStreamingSessionURLCommandOutput
@@ -89,6 +95,9 @@ export type ServiceOutputTypes =
   | GetMediaForFragmentListCommandOutput
   | ListFragmentsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -96,7 +105,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -205,7 +214,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
@@ -216,6 +225,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type KinesisVideoArchivedMediaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -226,10 +238,15 @@ type KinesisVideoArchivedMediaClientConfigType = Partial<__SmithyConfiguration<_
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KinesisVideoArchivedMediaClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KinesisVideoArchivedMediaClient class constructor that set the region, credentials and other options.
  */
 export interface KinesisVideoArchivedMediaClientConfig extends KinesisVideoArchivedMediaClientConfigType {}
 
+/**
+ * @public
+ */
 type KinesisVideoArchivedMediaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -240,12 +257,15 @@ type KinesisVideoArchivedMediaClientResolvedConfigType = __SmithyResolvedConfigu
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KinesisVideoArchivedMediaClient class. This is resolved and normalized from the {@link KinesisVideoArchivedMediaClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KinesisVideoArchivedMediaClient class. This is resolved and normalized from the {@link KinesisVideoArchivedMediaClientConfig | constructor configuration interface}.
  */
 export interface KinesisVideoArchivedMediaClientResolvedConfig
   extends KinesisVideoArchivedMediaClientResolvedConfigType {}
 
 /**
+ * @public
  * <p></p>
  */
 export class KinesisVideoArchivedMediaClient extends __Client<

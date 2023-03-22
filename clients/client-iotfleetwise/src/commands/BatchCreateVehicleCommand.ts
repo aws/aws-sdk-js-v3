@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateVehicleCommand}.
  */
 export interface BatchCreateVehicleCommandInput extends BatchCreateVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateVehicleCommand}.
  */
 export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a group, or batch, of vehicles. </p>
  *         <note>
  *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
@@ -52,6 +57,8 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateVehicleCommandInput - {@link BatchCreateVehicleCommandInput}
+ * @returns {@link BatchCreateVehicleCommandOutput}
  * @see {@link BatchCreateVehicleCommandInput} for command's `input` shape.
  * @see {@link BatchCreateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -90,6 +97,9 @@ export class BatchCreateVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class BatchCreateVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0BatchCreateVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateVehicleCommandOutput> {
     return deserializeAws_json1_0BatchCreateVehicleCommand(output, context);
   }

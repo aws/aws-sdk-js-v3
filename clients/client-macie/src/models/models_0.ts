@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MacieServiceException as __BaseException } from "./MacieServiceException";
 
 /**
+ * @public
  * <p>(Discontinued) You do not have required permissions to access the requested resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,6 +29,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateMemberAccountRequest {
   /**
    * <p>(Discontinued) The ID of the Amazon Web Services account that you want to associate with Amazon Macie
@@ -37,6 +41,7 @@ export interface AssociateMemberAccountRequest {
 }
 
 /**
+ * @public
  * <p>(Discontinued) Internal server error.</p>
  */
 export class InternalException extends __BaseException {
@@ -62,6 +67,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  */
@@ -94,6 +100,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
  *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
  */
@@ -125,16 +132,23 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum S3ContinuousClassificationType {
   FULL = "FULL",
 }
 
+/**
+ * @public
+ */
 export enum S3OneTimeClassificationType {
   FULL = "FULL",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * <p>(Discontinued) The classification type that Amazon Macie Classic applies to the
  *       associated S3 resources.</p>
  */
@@ -154,6 +168,7 @@ export interface ClassificationType {
 }
 
 /**
+ * @public
  * <p>(Discontinued) The S3 resources that you want to associate with Amazon Macie Classic
  *       for monitoring and data classification. This data type is used as a request parameter in the
  *       <code>AssociateS3Resources</code> action and a response parameter in the <code>ListS3Resources</code> action. </p>
@@ -178,6 +193,9 @@ export interface S3ResourceClassification {
   classificationType: ClassificationType | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateS3ResourcesRequest {
   /**
    * <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you
@@ -193,6 +211,7 @@ export interface AssociateS3ResourcesRequest {
 }
 
 /**
+ * @public
  * <p>(Discontinued) Contains information about the S3 resource. This data type is used as a
  *       request parameter in the <code>DisassociateS3Resources</code> action and can be used as a response
  *       parameter in the <code>AssociateS3Resources</code> and <code>UpdateS3Resources</code> actions. </p>
@@ -210,6 +229,7 @@ export interface S3Resource {
 }
 
 /**
+ * @public
  * <p>(Discontinued) Includes details about the failed S3 resources.</p>
  */
 export interface FailedS3Resource {
@@ -229,6 +249,9 @@ export interface FailedS3Resource {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateS3ResourcesResult {
   /**
    * <p>(Discontinued) S3 resources that couldn't be associated with Amazon Macie Classic. An
@@ -238,6 +261,7 @@ export interface AssociateS3ResourcesResult {
 }
 
 /**
+ * @public
  * <p>(Discontinued) The classification type that Amazon Macie Classic applies to the
  *       associated S3 resources. At least one of the classification types (<code>oneTime</code> or <code>continuous</code>) must
  *       be specified. </p>
@@ -257,6 +281,9 @@ export interface ClassificationTypeUpdate {
   continuous?: S3ContinuousClassificationType | string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMemberAccountRequest {
   /**
    * <p>(Discontinued) The ID of the member account that you want to remove from Amazon Macie
@@ -265,6 +292,9 @@ export interface DisassociateMemberAccountRequest {
   memberAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateS3ResourcesRequest {
   /**
    * <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you
@@ -279,6 +309,9 @@ export interface DisassociateS3ResourcesRequest {
   associatedS3Resources: S3Resource[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateS3ResourcesResult {
   /**
    * <p>(Discontinued) S3 resources that couldn't be removed from being monitored and
@@ -288,6 +321,9 @@ export interface DisassociateS3ResourcesResult {
   failedS3Resources?: FailedS3Resource[];
 }
 
+/**
+ * @public
+ */
 export interface ListMemberAccountsRequest {
   /**
    * <p>(Discontinued) Use this parameter when paginating results. Set the value of this
@@ -305,6 +341,7 @@ export interface ListMemberAccountsRequest {
 }
 
 /**
+ * @public
  * <p>(Discontinued) Contains information about the Amazon Macie Classic member
  *       account.</p>
  */
@@ -315,6 +352,9 @@ export interface MemberAccount {
   accountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMemberAccountsResult {
   /**
    * <p>(Discontinued) A list of the Amazon Macie Classic member accounts returned by the
@@ -332,6 +372,9 @@ export interface ListMemberAccountsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListS3ResourcesRequest {
   /**
    * <p>(Discontinued) The Amazon Macie Classic member account ID whose associated S3 resources
@@ -354,6 +397,9 @@ export interface ListS3ResourcesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListS3ResourcesResult {
   /**
    * <p>(Discontinued) A list of the associated S3 resources returned by the action.</p>
@@ -370,6 +416,7 @@ export interface ListS3ResourcesResult {
 }
 
 /**
+ * @public
  * <p>(Discontinued) The S3 resources whose classification types you want to update. This
  *       data type is used as a request parameter in the <code>UpdateS3Resources</code> action. </p>
  */
@@ -393,6 +440,9 @@ export interface S3ResourceClassificationUpdate {
   classificationTypeUpdate: ClassificationTypeUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateS3ResourcesRequest {
   /**
    * <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account whose S3
@@ -407,6 +457,9 @@ export interface UpdateS3ResourcesRequest {
   s3ResourcesUpdate: S3ResourceClassificationUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateS3ResourcesResult {
   /**
    * <p>(Discontinued) The S3 resources whose classification types can't be updated. An error

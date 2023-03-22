@@ -30,15 +30,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCloudFormationTemplateCommand}.
  */
 export interface GetCloudFormationTemplateCommandInput extends GetCloudFormationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCloudFormationTemplateCommand}.
  */
 export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormationTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified AWS CloudFormation template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCloudFormationTemplateCommandInput - {@link GetCloudFormationTemplateCommandInput}
+ * @returns {@link GetCloudFormationTemplateCommandOutput}
  * @see {@link GetCloudFormationTemplateCommandInput} for command's `input` shape.
  * @see {@link GetCloudFormationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetCloudFormationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCloudFormationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetCloudFormationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCloudFormationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCloudFormationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

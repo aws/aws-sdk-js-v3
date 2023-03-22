@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityConfigurationCommand}.
  */
 export interface CreateSecurityConfigurationCommandInput extends CreateSecurityConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityConfigurationCommand}.
  */
 export interface CreateSecurityConfigurationCommandOutput extends CreateSecurityConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a security configuration, which is stored in the service and can be specified
  *          when a cluster is created.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
+ * @returns {@link CreateSecurityConfigurationCommandOutput}
  * @see {@link CreateSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateSecurityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateSecurityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSecurityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

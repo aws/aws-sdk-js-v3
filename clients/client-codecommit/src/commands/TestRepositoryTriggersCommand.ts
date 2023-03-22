@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestRepositoryTriggersCommand}.
  */
 export interface TestRepositoryTriggersCommandInput extends TestRepositoryTriggersInput {}
 /**
+ * @public
+ *
  * The output of {@link TestRepositoryTriggersCommand}.
  */
 export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests the functionality of repository triggers by sending information to the trigger
  *             target. If real data is available in the repository, the test sends data from the last
  *             commit. If no data is available, sample data is generated.</p>
@@ -48,6 +53,8 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * const response = await client.send(command);
  * ```
  *
+ * @param TestRepositoryTriggersCommandInput - {@link TestRepositoryTriggersCommandInput}
+ * @returns {@link TestRepositoryTriggersCommandOutput}
  * @see {@link TestRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link TestRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -144,6 +151,9 @@ export class TestRepositoryTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestRepositoryTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class TestRepositoryTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestRepositoryTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TestRepositoryTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRepositoryTriggersCommandOutput> {
     return deserializeAws_json1_1TestRepositoryTriggersCommand(output, context);
   }

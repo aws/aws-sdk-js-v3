@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServicesInScopeCommand}.
  */
 export interface GetServicesInScopeCommandInput extends GetServicesInScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServicesInScopeCommand}.
  */
 export interface GetServicesInScopeCommandOutput extends GetServicesInScopeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all of the Amazon Web Services that you can choose to include
  *          in your assessment. When you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html">create an assessment</a>, specify which of these services you want to include to
  *          narrow the assessment's <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html">scope</a>.</p>
@@ -48,6 +53,8 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServicesInScopeCommandInput - {@link GetServicesInScopeCommandInput}
+ * @returns {@link GetServicesInScopeCommandOutput}
  * @see {@link GetServicesInScopeCommandInput} for command's `input` shape.
  * @see {@link GetServicesInScopeCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetServicesInScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServicesInScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetServicesInScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServicesInScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetServicesInScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServicesInScopeCommandOutput> {
     return deserializeAws_restJson1GetServicesInScopeCommand(output, context);
   }

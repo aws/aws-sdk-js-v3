@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePolicyVersionCommand}.
  */
 export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePolicyVersionCommand}.
  */
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified version from the specified managed policy.</p>
  *          <p>You cannot delete the default version from a policy using this operation. To delete
  *             the default version from a policy, use <a>DeletePolicy</a>. To find out which
@@ -46,6 +51,8 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePolicyVersionCommandInput - {@link DeletePolicyVersionCommandInput}
+ * @returns {@link DeletePolicyVersionCommandOutput}
  * @see {@link DeletePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeletePolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeletePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeletePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyVersionCommandOutput> {
     return deserializeAws_queryDeletePolicyVersionCommand(output, context);
   }

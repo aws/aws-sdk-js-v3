@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecommendationTemplateCommand}.
  */
 export interface CreateRecommendationTemplateCommandInput extends CreateRecommendationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecommendationTemplateCommand}.
  */
 export interface CreateRecommendationTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface CreateRecommendationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new recommendation template for the AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateRecommendationTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecommendationTemplateCommandInput - {@link CreateRecommendationTemplateCommandInput}
+ * @returns {@link CreateRecommendationTemplateCommandOutput}
  * @see {@link CreateRecommendationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateRecommendationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateRecommendationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecommendationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateRecommendationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecommendationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRecommendationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

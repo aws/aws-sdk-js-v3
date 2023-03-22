@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
  */
 export interface ModifyVpcEndpointServicePayerResponsibilityCommandInput
   extends ModifyVpcEndpointServicePayerResponsibilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
  */
 export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the payer responsibility for your VPC endpoint service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointServicePayerResponsibilityCommandInput - {@link ModifyVpcEndpointServicePayerResponsibilityCommandInput}
+ * @returns {@link ModifyVpcEndpointServicePayerResponsibilityCommandOutput}
  * @see {@link ModifyVpcEndpointServicePayerResponsibilityCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointServicePayerResponsibilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointServicePayerResponsibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
     return serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

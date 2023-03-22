@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRadiusCommand}.
  */
 export interface UpdateRadiusCommandInput extends UpdateRadiusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRadiusCommand}.
  */
 export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information
  *          for an AD Connector or Microsoft AD directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRadiusCommandInput - {@link UpdateRadiusCommandInput}
+ * @returns {@link UpdateRadiusCommandOutput}
  * @see {@link UpdateRadiusCommandInput} for command's `input` shape.
  * @see {@link UpdateRadiusCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateRadiusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRadiusCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateRadiusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRadiusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRadiusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRadiusCommandOutput> {
     return deserializeAws_json1_1UpdateRadiusCommand(output, context);
   }

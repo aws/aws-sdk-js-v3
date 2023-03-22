@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlowCommand}.
  */
 export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlowCommand}.
  */
 export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Provides a description of the specified flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlowCommandInput - {@link DescribeFlowCommandInput}
+ * @returns {@link DescribeFlowCommandOutput}
  * @see {@link DescribeFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowCommandOutput> {
     return deserializeAws_restJson1DescribeFlowCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactsCommand}.
  */
 export interface ListContactsCommandInput extends ListContactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactsCommand}.
  */
 export interface ListContactsCommandOutput extends ListContactsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of contacts.</p>
  *          <p>If <code>statusList</code> contains AVAILABLE, the request must include
  *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
@@ -49,6 +54,8 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactsCommandInput - {@link ListContactsCommandInput}
+ * @returns {@link ListContactsCommandOutput}
  * @see {@link ListContactsCommandInput} for command's `input` shape.
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListContactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactsCommandOutput> {
     return deserializeAws_restJson1ListContactsCommand(output, context);
   }

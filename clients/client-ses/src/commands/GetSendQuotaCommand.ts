@@ -18,15 +18,20 @@ import { deserializeAws_queryGetSendQuotaCommand, serializeAws_queryGetSendQuota
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSendQuotaCommand}.
  */
 export interface GetSendQuotaCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSendQuotaCommand}.
  */
 export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the sending limits for the Amazon SES account. </p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -39,6 +44,8 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSendQuotaCommandInput - {@link GetSendQuotaCommandInput}
+ * @returns {@link GetSendQuotaCommandOutput}
  * @see {@link GetSendQuotaCommandInput} for command's `input` shape.
  * @see {@link GetSendQuotaCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetSendQuotaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSendQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetSendQuotaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSendQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSendQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSendQuotaCommandOutput> {
     return deserializeAws_queryGetSendQuotaCommand(output, context);
   }

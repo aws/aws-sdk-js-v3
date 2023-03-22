@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTypedLinkFacetCommand}.
  */
 export interface UpdateTypedLinkFacetCommandInput extends UpdateTypedLinkFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTypedLinkFacetCommand}.
  */
 export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTypedLinkFacetCommandInput - {@link UpdateTypedLinkFacetCommandInput}
+ * @returns {@link UpdateTypedLinkFacetCommandOutput}
  * @see {@link UpdateTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link UpdateTypedLinkFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -105,6 +112,9 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTypedLinkFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTypedLinkFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTypedLinkFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTypedLinkFacetCommandOutput> {
     return deserializeAws_restJson1UpdateTypedLinkFacetCommand(output, context);
   }

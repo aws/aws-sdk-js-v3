@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTextTranslationJobCommand}.
  */
 export interface DescribeTextTranslationJobCommandInput extends DescribeTextTranslationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTextTranslationJobCommand}.
  */
 export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTranslationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with an asynchronous batch translation job including name,
  *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTextTranslationJobCommandInput - {@link DescribeTextTranslationJobCommandInput}
+ * @returns {@link DescribeTextTranslationJobCommandOutput}
  * @see {@link DescribeTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeTextTranslationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTextTranslationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeTextTranslationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTextTranslationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTextTranslationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

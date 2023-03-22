@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ListHsmsCommand, serializeAws_json1_1ListHsmsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHsmsCommand}.
  */
 export interface ListHsmsCommandInput extends ListHsmsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHsmsCommand}.
  */
 export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -58,6 +63,8 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHsmsCommandInput - {@link ListHsmsCommandInput}
+ * @returns {@link ListHsmsCommandOutput}
  * @see {@link ListHsmsCommandInput} for command's `input` shape.
  * @see {@link ListHsmsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListHsmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHsmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListHsmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHsmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHsmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHsmsCommandOutput> {
     return deserializeAws_json1_1ListHsmsCommand(output, context);
   }

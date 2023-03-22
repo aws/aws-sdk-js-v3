@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPlatformApplicationAttributesCommand}.
  */
 export interface GetPlatformApplicationAttributesCommandInput extends GetPlatformApplicationAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPlatformApplicationAttributesCommand}.
  */
 export interface GetPlatformApplicationAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface GetPlatformApplicationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the attributes of the platform application object for the supported push
  *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -50,6 +55,8 @@ export interface GetPlatformApplicationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPlatformApplicationAttributesCommandInput - {@link GetPlatformApplicationAttributesCommandInput}
+ * @returns {@link GetPlatformApplicationAttributesCommandOutput}
  * @see {@link GetPlatformApplicationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlatformApplicationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetPlatformApplicationAttributesCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
     return serializeAws_queryGetPlatformApplicationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetEventsCommand}.
  */
 export interface DescribeFleetEventsCommandInput extends DescribeFleetEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetEventsCommand}.
  */
 export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves entries from a fleet's event log. Fleet events are initiated by changes in
  *             status, such as during fleet creation and termination, changes in capacity, etc. If a
  *             fleet has multiple locations, events are also initiated by changes to status and
@@ -60,6 +65,8 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetEventsCommandInput - {@link DescribeFleetEventsCommandInput}
+ * @returns {@link DescribeFleetEventsCommandOutput}
  * @see {@link DescribeFleetEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetEventsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeFleetEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeFleetEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetEventsCommandOutput> {
     return deserializeAws_json1_1DescribeFleetEventsCommand(output, context);
   }

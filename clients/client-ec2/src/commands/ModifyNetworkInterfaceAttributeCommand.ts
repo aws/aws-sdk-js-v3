@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyNetworkInterfaceAttributeCommand}.
  */
 export interface ModifyNetworkInterfaceAttributeCommandInput extends ModifyNetworkInterfaceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyNetworkInterfaceAttributeCommand}.
  */
 export interface ModifyNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified network interface attribute. You can specify only one
  *             attribute at a time. You can use this action to attach and detach security groups from
  *             an existing EC2 instance.</p>
@@ -46,6 +51,8 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyNetworkInterfaceAttributeCommandInput - {@link ModifyNetworkInterfaceAttributeCommandInput}
+ * @returns {@link ModifyNetworkInterfaceAttributeCommandOutput}
  * @see {@link ModifyNetworkInterfaceAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -127,6 +134,9 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyNetworkInterfaceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,6 +176,9 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
@@ -173,6 +186,9 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     return serializeAws_ec2ModifyNetworkInterfaceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

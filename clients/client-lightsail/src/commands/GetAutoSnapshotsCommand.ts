@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAutoSnapshotsCommand}.
  */
 export interface GetAutoSnapshotsCommandInput extends GetAutoSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAutoSnapshotsCommand}.
  */
 export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the available automatic snapshots for an instance or disk. For more information,
  *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutoSnapshotsCommandInput - {@link GetAutoSnapshotsCommandInput}
+ * @returns {@link GetAutoSnapshotsCommandOutput}
  * @see {@link GetAutoSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetAutoSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetAutoSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutoSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetAutoSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAutoSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAutoSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetAutoSnapshotsCommand(output, context);
   }

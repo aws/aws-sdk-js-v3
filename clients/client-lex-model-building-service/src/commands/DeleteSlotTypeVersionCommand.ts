@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlotTypeVersionCommand}.
  */
 export interface DeleteSlotTypeVersionCommandInput extends DeleteSlotTypeVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlotTypeVersionCommand}.
  */
 export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific version of a slot type. To delete all versions
  *       of a slot type, use the <a>DeleteSlotType</a> operation. </p>
  *          <p>This operation requires permissions for the
@@ -48,6 +53,8 @@ export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlotTypeVersionCommandInput - {@link DeleteSlotTypeVersionCommandInput}
+ * @returns {@link DeleteSlotTypeVersionCommandOutput}
  * @see {@link DeleteSlotTypeVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteSlotTypeVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -108,6 +115,9 @@ export class DeleteSlotTypeVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlotTypeVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DeleteSlotTypeVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSlotTypeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSlotTypeVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSlotTypeVersionCommandOutput> {
     return deserializeAws_restJson1DeleteSlotTypeVersionCommand(output, context);
   }

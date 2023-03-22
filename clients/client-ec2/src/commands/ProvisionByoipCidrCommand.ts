@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionByoipCidrCommand}.
  */
 export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionByoipCidrCommand}.
  */
 export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP
  *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
  *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
@@ -57,6 +62,8 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionByoipCidrCommandInput - {@link ProvisionByoipCidrCommandInput}
+ * @returns {@link ProvisionByoipCidrCommandOutput}
  * @see {@link ProvisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -80,6 +87,9 @@ export class ProvisionByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ProvisionByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ProvisionByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionByoipCidrCommandOutput> {
     return deserializeAws_ec2ProvisionByoipCidrCommand(output, context);
   }

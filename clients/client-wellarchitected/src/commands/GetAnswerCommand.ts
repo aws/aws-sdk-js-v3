@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnswerCommand}.
  */
 export interface GetAnswerCommandInput extends GetAnswerInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAnswerCommand}.
  */
 export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the answer to a specific question in a workload review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnswerCommandInput - {@link GetAnswerCommandInput}
+ * @returns {@link GetAnswerCommandOutput}
  * @see {@link GetAnswerCommandInput} for command's `input` shape.
  * @see {@link GetAnswerCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetAnswerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnswerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetAnswerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAnswerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnswerCommandOutput> {
     return deserializeAws_restJson1GetAnswerCommand(output, context);
   }

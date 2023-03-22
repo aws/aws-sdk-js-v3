@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGeneratedPolicyCommand}.
  */
 export interface GetGeneratedPolicyCommandInput extends GetGeneratedPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGeneratedPolicyCommand}.
  */
 export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeneratedPolicyCommandInput - {@link GetGeneratedPolicyCommandInput}
+ * @returns {@link GetGeneratedPolicyCommandOutput}
  * @see {@link GetGeneratedPolicyCommandInput} for command's `input` shape.
  * @see {@link GetGeneratedPolicyCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetGeneratedPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeneratedPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetGeneratedPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeneratedPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGeneratedPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeneratedPolicyCommandOutput> {
     return deserializeAws_restJson1GetGeneratedPolicyCommand(output, context);
   }

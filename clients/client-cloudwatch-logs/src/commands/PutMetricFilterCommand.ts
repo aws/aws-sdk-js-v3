@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetricFilterCommand}.
  */
 export interface PutMetricFilterCommandInput extends PutMetricFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMetricFilterCommand}.
  */
 export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a metric filter and associates it with the specified log group. With
  *       metric filters, you can configure rules to extract metric data from log events ingested
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
@@ -63,6 +68,8 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricFilterCommandInput - {@link PutMetricFilterCommandInput}
+ * @returns {@link PutMetricFilterCommandOutput}
  * @see {@link PutMetricFilterCommandInput} for command's `input` shape.
  * @see {@link PutMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -101,6 +108,9 @@ export class PutMetricFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class PutMetricFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutMetricFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricFilterCommandOutput> {
     return deserializeAws_json1_1PutMetricFilterCommand(output, context);
   }

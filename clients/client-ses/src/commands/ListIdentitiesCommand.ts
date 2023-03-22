@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIdentitiesCommand}.
  */
 export interface ListIdentitiesCommandInput extends ListIdentitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIdentitiesCommand}.
  */
 export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list containing all of the identities (email addresses and domains) for your
  *             AWS account in the current AWS Region, regardless of verification status.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -48,6 +53,8 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentitiesCommandInput - {@link ListIdentitiesCommandInput}
+ * @returns {@link ListIdentitiesCommandOutput}
  * @see {@link ListIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentitiesCommandOutput> {
     return deserializeAws_queryListIdentitiesCommand(output, context);
   }

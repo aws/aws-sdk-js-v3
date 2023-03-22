@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachRolePolicyCommand}.
  */
 export interface DetachRolePolicyCommandInput extends DetachRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachRolePolicyCommand}.
  */
 export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified managed policy from the specified role.</p>
  *          <p>A role can also have inline policies embedded with it. To delete an inline policy, use
  *                 <a>DeleteRolePolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -45,6 +50,8 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachRolePolicyCommandInput - {@link DetachRolePolicyCommandInput}
+ * @returns {@link DetachRolePolicyCommandOutput}
  * @see {@link DetachRolePolicyCommandInput} for command's `input` shape.
  * @see {@link DetachRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -90,6 +97,9 @@ export class DetachRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DetachRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachRolePolicyCommandOutput> {
     return deserializeAws_queryDetachRolePolicyCommand(output, context);
   }

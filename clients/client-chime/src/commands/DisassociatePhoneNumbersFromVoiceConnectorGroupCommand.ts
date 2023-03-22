@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}.
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
   extends DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}.
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput - {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput}
+ * @returns {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput}
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     return serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

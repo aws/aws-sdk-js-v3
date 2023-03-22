@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectParentPathsCommand}.
  */
 export interface ListObjectParentPathsCommandInput extends ListObjectParentPathsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectParentPathsCommand}.
  */
 export interface ListObjectParentPathsCommandOutput extends ListObjectParentPathsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all available parent paths for any object type such as node, leaf node,
  *       policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
  *          <p>Use this API to evaluate all parents for an object. The call returns all objects from
@@ -53,6 +58,8 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectParentPathsCommandInput - {@link ListObjectParentPathsCommandInput}
+ * @returns {@link ListObjectParentPathsCommandOutput}
  * @see {@link ListObjectParentPathsCommandInput} for command's `input` shape.
  * @see {@link ListObjectParentPathsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -104,6 +111,9 @@ export class ListObjectParentPathsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectParentPathsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ListObjectParentPathsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectParentPathsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListObjectParentPathsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectParentPathsCommandOutput> {
     return deserializeAws_restJson1ListObjectParentPathsCommand(output, context);
   }

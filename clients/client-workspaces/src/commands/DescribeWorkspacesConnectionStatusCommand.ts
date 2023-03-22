@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspacesConnectionStatusCommand}.
  */
 export interface DescribeWorkspacesConnectionStatusCommandInput extends DescribeWorkspacesConnectionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspacesConnectionStatusCommand}.
  */
 export interface DescribeWorkspacesConnectionStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the connection status of the specified WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspacesConnectionStatusCommandInput - {@link DescribeWorkspacesConnectionStatusCommandInput}
+ * @returns {@link DescribeWorkspacesConnectionStatusCommandOutput}
  * @see {@link DescribeWorkspacesConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspacesConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspacesConnectionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspacesConnectionStatusCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     return serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

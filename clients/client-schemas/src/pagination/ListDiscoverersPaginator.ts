@@ -10,7 +10,7 @@ import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SchemasClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDiscoverersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDiscoverers(
   config: SchemasPaginationConfiguration,
   input: ListDiscoverersCommandInput,

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface ListVoiceConnectorTerminationCredentialsCommandInput
   extends ListVoiceConnectorTerminationCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface ListVoiceConnectorTerminationCredentialsCommandOutput
@@ -38,6 +42,7 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVoiceConnectorTerminationCredentialsCommandInput - {@link ListVoiceConnectorTerminationCredentialsCommandInput}
+ * @returns {@link ListVoiceConnectorTerminationCredentialsCommandOutput}
  * @see {@link ListVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     return serializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

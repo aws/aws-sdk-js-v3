@@ -127,6 +127,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddListenerCertificatesCommandInput
   | AddTagsCommandInput
@@ -163,6 +166,9 @@ export type ServiceInputTypes =
   | SetSecurityGroupsCommandInput
   | SetSubnetsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddListenerCertificatesCommandOutput
   | AddTagsCommandOutput
@@ -199,6 +205,9 @@ export type ServiceOutputTypes =
   | SetSecurityGroupsCommandOutput
   | SetSubnetsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -206,7 +215,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -315,11 +324,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ElasticLoadBalancingV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -330,10 +342,15 @@ type ElasticLoadBalancingV2ClientConfigType = Partial<__SmithyConfiguration<__Ht
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ElasticLoadBalancingV2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ElasticLoadBalancingV2Client class constructor that set the region, credentials and other options.
  */
 export interface ElasticLoadBalancingV2ClientConfig extends ElasticLoadBalancingV2ClientConfigType {}
 
+/**
+ * @public
+ */
 type ElasticLoadBalancingV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -344,11 +361,14 @@ type ElasticLoadBalancingV2ClientResolvedConfigType = __SmithyResolvedConfigurat
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ElasticLoadBalancingV2Client class. This is resolved and normalized from the {@link ElasticLoadBalancingV2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ElasticLoadBalancingV2Client class. This is resolved and normalized from the {@link ElasticLoadBalancingV2ClientConfig | constructor configuration interface}.
  */
 export interface ElasticLoadBalancingV2ClientResolvedConfig extends ElasticLoadBalancingV2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Elastic Load Balancing</fullname>
  *          <p>A load balancer distributes incoming traffic across targets, such as your EC2 instances.
  *       This enables you to increase the availability of your application. The load balancer also

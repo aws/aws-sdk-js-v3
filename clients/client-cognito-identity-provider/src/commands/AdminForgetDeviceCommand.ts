@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminForgetDeviceCommand}.
  */
 export interface AdminForgetDeviceCommandInput extends AdminForgetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminForgetDeviceCommand}.
  */
 export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Forgets the device, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminForgetDeviceCommandInput - {@link AdminForgetDeviceCommandInput}
+ * @returns {@link AdminForgetDeviceCommandOutput}
  * @see {@link AdminForgetDeviceCommandInput} for command's `input` shape.
  * @see {@link AdminForgetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -94,6 +101,9 @@ export class AdminForgetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminForgetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class AdminForgetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminForgetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminForgetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminForgetDeviceCommandOutput> {
     return deserializeAws_json1_1AdminForgetDeviceCommand(output, context);
   }

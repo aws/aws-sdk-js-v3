@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAlertCommand}.
  */
 export interface UpdateAlertCommandInput extends UpdateAlertRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAlertCommand}.
  */
 export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Make changes to an existing alert.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAlertCommandInput - {@link UpdateAlertCommandInput}
+ * @returns {@link UpdateAlertCommandOutput}
  * @see {@link UpdateAlertCommandInput} for command's `input` shape.
  * @see {@link UpdateAlertCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateAlertCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAlertCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateAlertCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAlertCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAlertCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAlertCommandOutput> {
     return deserializeAws_restJson1UpdateAlertCommand(output, context);
   }

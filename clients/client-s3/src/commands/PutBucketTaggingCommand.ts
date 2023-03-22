@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketTaggingCommand}.
  */
 export interface PutBucketTaggingCommandInput extends PutBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketTaggingCommand}.
  */
 export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the tags for a bucket.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign
  *          up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost of
@@ -116,6 +121,8 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketTaggingCommandInput - {@link PutBucketTaggingCommandInput}
+ * @returns {@link PutBucketTaggingCommandOutput}
  * @see {@link PutBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -168,6 +175,9 @@ export class PutBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -214,10 +224,16 @@ export class PutBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketTaggingCommandOutput> {
     return deserializeAws_restXmlPutBucketTaggingCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DescribeFleetsCommand, serializeAws_ec2DescribeFleetsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetsCommand}.
  */
 export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetsCommand}.
  */
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -44,6 +49,8 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetsCommandInput - {@link DescribeFleetsCommandInput}
+ * @returns {@link DescribeFleetsCommandOutput}
  * @see {@link DescribeFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -67,6 +74,9 @@ export class DescribeFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DescribeFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetsCommandOutput> {
     return deserializeAws_ec2DescribeFleetsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGroupMembershipCommand}.
  */
 export interface DeleteGroupMembershipCommandInput extends DeleteGroupMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGroupMembershipCommand}.
  */
 export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user from a group so that the user is no longer a member of the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGroupMembershipCommandInput - {@link DeleteGroupMembershipCommandInput}
+ * @returns {@link DeleteGroupMembershipCommandOutput}
  * @see {@link DeleteGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteGroupMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGroupMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteGroupMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGroupMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupMembershipCommandOutput> {
     return deserializeAws_restJson1DeleteGroupMembershipCommand(output, context);
   }

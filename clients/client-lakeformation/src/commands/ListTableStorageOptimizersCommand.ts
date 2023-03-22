@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTableStorageOptimizersCommand}.
  */
 export interface ListTableStorageOptimizersCommandInput extends ListTableStorageOptimizersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTableStorageOptimizersCommand}.
  */
 export interface ListTableStorageOptimizersCommandOutput extends ListTableStorageOptimizersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the configuration of all storage optimizers associated with a specified table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTableStorageOptimizersCommandInput - {@link ListTableStorageOptimizersCommandInput}
+ * @returns {@link ListTableStorageOptimizersCommandOutput}
  * @see {@link ListTableStorageOptimizersCommandInput} for command's `input` shape.
  * @see {@link ListTableStorageOptimizersCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListTableStorageOptimizersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableStorageOptimizersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListTableStorageOptimizersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableStorageOptimizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTableStorageOptimizersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

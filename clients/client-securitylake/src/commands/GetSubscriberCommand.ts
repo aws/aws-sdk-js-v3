@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSubscriberCommand}.
  */
 export interface GetSubscriberCommandInput extends GetSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSubscriberCommand}.
  */
 export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the subscription information for the specified subscription ID. You can get
  *          information about a specific subscriber.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubscriberCommandInput - {@link GetSubscriberCommandInput}
+ * @returns {@link GetSubscriberCommandOutput}
  * @see {@link GetSubscriberCommandInput} for command's `input` shape.
  * @see {@link GetSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubscriberCommandOutput> {
     return deserializeAws_restJson1GetSubscriberCommand(output, context);
   }

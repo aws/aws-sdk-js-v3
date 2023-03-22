@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppInstanceCommand}.
  */
 export interface DescribeAppInstanceCommandInput extends DescribeAppInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppInstanceCommand}.
  */
 export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppInstanceCommandInput - {@link DescribeAppInstanceCommandInput}
+ * @returns {@link DescribeAppInstanceCommandOutput}
  * @see {@link DescribeAppInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAppInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAppInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAppInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppInstanceCommandOutput> {
     return deserializeAws_restJson1DescribeAppInstanceCommand(output, context);
   }

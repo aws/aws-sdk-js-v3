@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptEnvironmentAccountConnectionCommand}.
  */
 export interface AcceptEnvironmentAccountConnectionCommandInput extends AcceptEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link AcceptEnvironmentAccountConnectionCommand}.
  */
 export interface AcceptEnvironmentAccountConnectionCommandOutput
@@ -37,6 +41,7 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
  *       can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
@@ -51,6 +56,8 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptEnvironmentAccountConnectionCommandInput - {@link AcceptEnvironmentAccountConnectionCommandInput}
+ * @returns {@link AcceptEnvironmentAccountConnectionCommandOutput}
  * @see {@link AcceptEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -92,6 +99,9 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command<
     return serializeAws_json1_0AcceptEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

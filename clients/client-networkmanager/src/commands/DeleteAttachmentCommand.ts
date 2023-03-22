@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAttachmentCommand}.
  */
 export interface DeleteAttachmentCommandInput extends DeleteAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAttachmentCommand}.
  */
 export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an attachment. Supports all attachment types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAttachmentCommandInput - {@link DeleteAttachmentCommandInput}
+ * @returns {@link DeleteAttachmentCommandOutput}
  * @see {@link DeleteAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttachmentCommandOutput> {
     return deserializeAws_restJson1DeleteAttachmentCommand(output, context);
   }

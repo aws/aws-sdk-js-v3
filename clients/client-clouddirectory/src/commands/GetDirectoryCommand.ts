@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDirectoryCommand}.
  */
 export interface GetDirectoryCommandInput extends GetDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDirectoryCommand}.
  */
 export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metadata about a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDirectoryCommandInput - {@link GetDirectoryCommandInput}
+ * @returns {@link GetDirectoryCommandOutput}
  * @see {@link GetDirectoryCommandInput} for command's `input` shape.
  * @see {@link GetDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDirectoryCommandOutput> {
     return deserializeAws_restJson1GetDirectoryCommand(output, context);
   }

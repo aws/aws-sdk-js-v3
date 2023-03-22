@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceShareCommand}.
  */
 export interface DeleteResourceShareCommandInput extends DeleteResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceShareCommand}.
  */
 export interface DeleteResourceShareCommandOutput extends DeleteResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified resource share. This doesn't delete any of the resources that were
  *             associated with the resource share; it only stops the sharing of those resources outside of the
  *             Amazon Web Services account that created them.</p>
@@ -48,6 +53,8 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceShareCommandInput - {@link DeleteResourceShareCommandInput}
+ * @returns {@link DeleteResourceShareCommandOutput}
  * @see {@link DeleteResourceShareCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceShareCommandOutput> {
     return deserializeAws_restJson1DeleteResourceShareCommand(output, context);
   }

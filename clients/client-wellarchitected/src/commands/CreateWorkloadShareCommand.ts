@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkloadShareCommand}.
  */
 export interface CreateWorkloadShareCommandInput extends CreateWorkloadShareInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkloadShareCommand}.
  */
 export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a workload share.</p>
  *         <p>The owner of a workload can share it with other Amazon Web Services accounts and IAM users in the same
  *             Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
@@ -51,6 +56,8 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkloadShareCommandInput - {@link CreateWorkloadShareCommandInput}
+ * @returns {@link CreateWorkloadShareCommandOutput}
  * @see {@link CreateWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link CreateWorkloadShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateWorkloadShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkloadShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateWorkloadShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkloadShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorkloadShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkloadShareCommandOutput> {
     return deserializeAws_restJson1CreateWorkloadShareCommand(output, context);
   }

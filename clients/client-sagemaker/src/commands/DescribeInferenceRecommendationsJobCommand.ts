@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInferenceRecommendationsJobCommand}.
  */
 export interface DescribeInferenceRecommendationsJobCommandInput extends DescribeInferenceRecommendationsJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInferenceRecommendationsJobCommand}.
  */
 export interface DescribeInferenceRecommendationsJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the results of the Inference Recommender job.
  *           One or more recommendation jobs are returned.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInferenceRecommendationsJobCommandInput - {@link DescribeInferenceRecommendationsJobCommandInput}
+ * @returns {@link DescribeInferenceRecommendationsJobCommandOutput}
  * @see {@link DescribeInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInferenceRecommendationsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
     return serializeAws_json1_1DescribeInferenceRecommendationsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSequenceStoreCommand}.
  */
 export interface CreateSequenceStoreCommandInput extends CreateSequenceStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSequenceStoreCommand}.
  */
 export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a sequence store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSequenceStoreCommandInput - {@link CreateSequenceStoreCommandInput}
+ * @returns {@link CreateSequenceStoreCommandOutput}
  * @see {@link CreateSequenceStoreCommandInput} for command's `input` shape.
  * @see {@link CreateSequenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateSequenceStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSequenceStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateSequenceStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSequenceStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSequenceStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSequenceStoreCommandOutput> {
     return deserializeAws_restJson1CreateSequenceStoreCommand(output, context);
   }

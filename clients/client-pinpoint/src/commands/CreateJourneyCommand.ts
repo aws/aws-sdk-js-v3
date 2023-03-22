@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJourneyCommand}.
  */
 export interface CreateJourneyCommandInput extends CreateJourneyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJourneyCommand}.
  */
 export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a journey for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJourneyCommandInput - {@link CreateJourneyCommandInput}
+ * @returns {@link CreateJourneyCommandOutput}
  * @see {@link CreateJourneyCommandInput} for command's `input` shape.
  * @see {@link CreateJourneyCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateJourneyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJourneyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateJourneyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJourneyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJourneyCommandOutput> {
     return deserializeAws_restJson1CreateJourneyCommand(output, context);
   }

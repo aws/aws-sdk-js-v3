@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketAclCommand}.
  */
 export interface PutBucketAclCommandInput extends PutBucketAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketAclCommand}.
  */
 export interface PutBucketAclCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set
  *          the ACL of a bucket, you must have <code>WRITE_ACP</code> permission.</p>
@@ -230,6 +235,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketAclCommandInput - {@link PutBucketAclCommandInput}
+ * @returns {@link PutBucketAclCommandOutput}
  * @see {@link PutBucketAclCommandInput} for command's `input` shape.
  * @see {@link PutBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -272,6 +279,9 @@ export class PutBucketAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -316,10 +326,16 @@ export class PutBucketAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketAclCommandOutput> {
     return deserializeAws_restXmlPutBucketAclCommand(output, context);
   }

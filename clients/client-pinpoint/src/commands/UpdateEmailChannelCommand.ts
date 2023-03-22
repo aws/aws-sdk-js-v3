@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmailChannelCommand}.
  */
 export interface UpdateEmailChannelCommandInput extends UpdateEmailChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmailChannelCommand}.
  */
 export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the email channel for an application or updates the status and settings of the email channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmailChannelCommandInput - {@link UpdateEmailChannelCommandInput}
+ * @returns {@link UpdateEmailChannelCommandOutput}
  * @see {@link UpdateEmailChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateEmailChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmailChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateEmailChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEmailChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEmailChannelCommandOutput> {
     return deserializeAws_restJson1UpdateEmailChannelCommand(output, context);
   }

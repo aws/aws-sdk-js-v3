@@ -14,6 +14,7 @@ import {
 import { WorkMailMessageFlowClient } from "./WorkMailMessageFlowClient";
 
 /**
+ * @public
  * <p>The WorkMail Message Flow API provides access to email messages as they are
  *       being
  *       sent and received by
@@ -22,6 +23,7 @@ import { WorkMailMessageFlowClient } from "./WorkMailMessageFlowClient";
  */
 export class WorkMailMessageFlow extends WorkMailMessageFlowClient {
   /**
+   * @public
    * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
    */
   public getRawMessageContent(
@@ -54,6 +56,7 @@ export class WorkMailMessageFlow extends WorkMailMessageFlowClient {
   }
 
   /**
+   * @public
    * <p>Updates the raw content of an in-transit email message, in MIME format.</p>
    *          <p>This example describes how to update in-transit email message. For more information and examples for using this API, see
    *       <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html">

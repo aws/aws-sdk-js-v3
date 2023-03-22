@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetEventCommand, serializeAws_json1_1GetEventCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventCommand}.
  */
 export interface GetEventCommandInput extends GetEventRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventCommand}.
  */
 export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details of events stored with Amazon Fraud Detector. This action does not retrieve prediction results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventCommandInput - {@link GetEventCommandInput}
+ * @returns {@link GetEventCommandOutput}
  * @see {@link GetEventCommandInput} for command's `input` shape.
  * @see {@link GetEventCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventCommandOutput> {
     return deserializeAws_json1_1GetEventCommand(output, context);
   }

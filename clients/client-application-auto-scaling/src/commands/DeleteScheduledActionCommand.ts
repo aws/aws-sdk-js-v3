@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action">Delete a scheduled action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
+ * @returns {@link DeleteScheduledActionCommandOutput}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DeleteScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
     return deserializeAws_json1_1DeleteScheduledActionCommand(output, context);
   }

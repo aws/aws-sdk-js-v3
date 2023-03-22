@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterSubnetGroupsCommand}.
  */
 export interface DescribeClusterSubnetGroupsCommandInput extends DescribeClusterSubnetGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterSubnetGroupsCommand}.
  */
 export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns one or more cluster subnet group objects, which contain metadata about your
  *             cluster subnet groups. By default, this operation returns information about all cluster
  *             subnet groups that are defined in your Amazon Web Services account.</p>
@@ -56,6 +61,8 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterSubnetGroupsCommandInput - {@link DescribeClusterSubnetGroupsCommandInput}
+ * @returns {@link DescribeClusterSubnetGroupsCommandOutput}
  * @see {@link DescribeClusterSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

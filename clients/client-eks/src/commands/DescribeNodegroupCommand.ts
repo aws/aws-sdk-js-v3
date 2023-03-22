@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNodegroupCommand}.
  */
 export interface DescribeNodegroupCommandInput extends DescribeNodegroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNodegroupCommand}.
  */
 export interface DescribeNodegroupCommandOutput extends DescribeNodegroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptive information about an Amazon EKS node group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNodegroupCommandInput - {@link DescribeNodegroupCommandInput}
+ * @returns {@link DescribeNodegroupCommandOutput}
  * @see {@link DescribeNodegroupCommandInput} for command's `input` shape.
  * @see {@link DescribeNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeNodegroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodegroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeNodegroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodegroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeNodegroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNodegroupCommandOutput> {
     return deserializeAws_restJson1DescribeNodegroupCommand(output, context);
   }

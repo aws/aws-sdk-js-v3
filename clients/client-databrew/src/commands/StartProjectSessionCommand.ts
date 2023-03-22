@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartProjectSessionCommand}.
  */
 export interface StartProjectSessionCommandInput extends StartProjectSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartProjectSessionCommand}.
  */
 export interface StartProjectSessionCommandOutput extends StartProjectSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
  *             project.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProjectSessionCommandInput - {@link StartProjectSessionCommandInput}
+ * @returns {@link StartProjectSessionCommandOutput}
  * @see {@link StartProjectSessionCommandInput} for command's `input` shape.
  * @see {@link StartProjectSessionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -82,6 +89,9 @@ export class StartProjectSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProjectSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartProjectSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProjectSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartProjectSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProjectSessionCommandOutput> {
     return deserializeAws_restJson1StartProjectSessionCommand(output, context);
   }

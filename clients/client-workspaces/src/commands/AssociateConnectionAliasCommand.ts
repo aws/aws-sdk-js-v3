@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateConnectionAliasCommand}.
  */
 export interface AssociateConnectionAliasCommandInput extends AssociateConnectionAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateConnectionAliasCommand}.
  */
 export interface AssociateConnectionAliasCommandOutput extends AssociateConnectionAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified connection alias with the specified directory to enable
  *          cross-Region redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -53,6 +58,8 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateConnectionAliasCommandInput - {@link AssociateConnectionAliasCommandInput}
+ * @returns {@link AssociateConnectionAliasCommandOutput}
  * @see {@link AssociateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -94,6 +101,9 @@ export class AssociateConnectionAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class AssociateConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateConnectionAliasCommandOutput> {
     return deserializeAws_json1_1AssociateConnectionAliasCommand(output, context);
   }

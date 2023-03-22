@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDestinationsCommand}.
  */
 export interface DescribeDestinationsCommandInput extends DescribeDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDestinationsCommand}.
  */
 export interface DescribeDestinationsCommandOutput extends DescribeDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDestinationsCommandInput - {@link DescribeDestinationsCommandInput}
+ * @returns {@link DescribeDestinationsCommandOutput}
  * @see {@link DescribeDestinationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDestinationsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDestinationsCommandOutput> {
     return deserializeAws_json1_1DescribeDestinationsCommand(output, context);
   }

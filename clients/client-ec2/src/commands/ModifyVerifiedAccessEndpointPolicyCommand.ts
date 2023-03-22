@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVerifiedAccessEndpointPolicyCommand}.
  */
 export interface ModifyVerifiedAccessEndpointPolicyCommandInput extends ModifyVerifiedAccessEndpointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVerifiedAccessEndpointPolicyCommand}.
  */
 export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Verified Access endpoint policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessEndpointPolicyCommandInput - {@link ModifyVerifiedAccessEndpointPolicyCommandInput}
+ * @returns {@link ModifyVerifiedAccessEndpointPolicyCommandOutput}
  * @see {@link ModifyVerifiedAccessEndpointPolicyCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessEndpointPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessEndpointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVerifiedAccessEndpointPolicyCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
     return serializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

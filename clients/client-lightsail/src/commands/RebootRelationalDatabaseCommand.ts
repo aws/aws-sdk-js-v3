@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootRelationalDatabaseCommand}.
  */
 export interface RebootRelationalDatabaseCommandInput extends RebootRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootRelationalDatabaseCommand}.
  */
 export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a specific database in Amazon Lightsail.</p>
  *          <p>The <code>reboot relational database</code> operation supports tag-based access control
  *       via resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -49,6 +54,8 @@ export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalD
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootRelationalDatabaseCommandInput - {@link RebootRelationalDatabaseCommandInput}
+ * @returns {@link RebootRelationalDatabaseCommandOutput}
  * @see {@link RebootRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link RebootRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class RebootRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class RebootRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebootRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootRelationalDatabaseCommandOutput> {
     return deserializeAws_json1_1RebootRelationalDatabaseCommand(output, context);
   }

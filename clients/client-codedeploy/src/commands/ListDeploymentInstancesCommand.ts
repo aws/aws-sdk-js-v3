@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentInstancesCommand}.
  */
 export interface ListDeploymentInstancesCommandInput extends ListDeploymentInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentInstancesCommand}.
  */
 export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <note>
@@ -55,6 +60,8 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentInstancesCommandInput - {@link ListDeploymentInstancesCommandInput}
+ * @returns {@link ListDeploymentInstancesCommandOutput}
  * @see {@link ListDeploymentInstancesCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -112,6 +119,9 @@ export class ListDeploymentInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class ListDeploymentInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeploymentInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentInstancesCommandOutput> {
     return deserializeAws_json1_1ListDeploymentInstancesCommand(output, context);
   }

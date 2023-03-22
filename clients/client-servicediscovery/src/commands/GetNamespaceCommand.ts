@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetNamespaceCommand}.
  */
 export interface GetNamespaceCommandInput extends GetNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNamespaceCommand}.
  */
 export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNamespaceCommandInput - {@link GetNamespaceCommandInput}
+ * @returns {@link GetNamespaceCommandOutput}
  * @see {@link GetNamespaceCommandInput} for command's `input` shape.
  * @see {@link GetNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -107,6 +114,9 @@ export class GetNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class GetNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNamespaceCommandOutput> {
     return deserializeAws_json1_1GetNamespaceCommand(output, context);
   }

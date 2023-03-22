@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCanaryRunsCommand}.
  */
 export interface GetCanaryRunsCommandInput extends GetCanaryRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCanaryRunsCommand}.
  */
 export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of runs for a specified canary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCanaryRunsCommandInput - {@link GetCanaryRunsCommandInput}
+ * @returns {@link GetCanaryRunsCommandOutput}
  * @see {@link GetCanaryRunsCommandInput} for command's `input` shape.
  * @see {@link GetCanaryRunsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetCanaryRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCanaryRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetCanaryRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCanaryRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCanaryRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCanaryRunsCommandOutput> {
     return deserializeAws_restJson1GetCanaryRunsCommand(output, context);
   }

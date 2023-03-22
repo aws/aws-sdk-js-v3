@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkgroupCommand}.
  */
 export interface UpdateWorkgroupCommandInput extends UpdateWorkgroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkgroupCommand}.
  */
 export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a workgroup with the specified configuration settings. You can't update multiple parameters in one request. For example,
  *       you can update <code>baseCapacity</code> or <code>port</code> in a single request, but you can't update both in the same request.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkgroupCommandInput - {@link UpdateWorkgroupCommandInput}
+ * @returns {@link UpdateWorkgroupCommandOutput}
  * @see {@link UpdateWorkgroupCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateWorkgroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkgroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateWorkgroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWorkgroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkgroupCommandOutput> {
     return deserializeAws_json1_1UpdateWorkgroupCommand(output, context);
   }

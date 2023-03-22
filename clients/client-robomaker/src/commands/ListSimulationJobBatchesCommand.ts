@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSimulationJobBatchesCommand}.
  */
 export interface ListSimulationJobBatchesCommandInput extends ListSimulationJobBatchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSimulationJobBatchesCommand}.
  */
 export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJobBatchesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve
  *          specific simulation batch jobs. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSimulationJobBatchesCommandInput - {@link ListSimulationJobBatchesCommandInput}
+ * @returns {@link ListSimulationJobBatchesCommandOutput}
  * @see {@link ListSimulationJobBatchesCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobBatchesCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListSimulationJobBatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationJobBatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListSimulationJobBatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationJobBatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSimulationJobBatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationJobBatchesCommandOutput> {
     return deserializeAws_restJson1ListSimulationJobBatchesCommand(output, context);
   }

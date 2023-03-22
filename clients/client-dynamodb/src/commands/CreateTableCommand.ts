@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTableCommand}.
  */
 export interface CreateTableCommandInput extends CreateTableInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTableCommand}.
  */
 export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateTable</code> operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
  *             have two tables with same name if you create the tables in different Regions.</p>
  *          <p>
@@ -58,6 +63,8 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTableCommandInput - {@link CreateTableCommandInput}
+ * @returns {@link CreateTableCommandOutput}
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -174,6 +181,9 @@ export class CreateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,10 +221,16 @@ export class CreateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
     return deserializeAws_json1_0CreateTableCommand(output, context);
   }

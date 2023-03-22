@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJobRunCommand}.
  */
 export interface CancelJobRunCommandInput extends CancelJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJobRunCommand}.
  */
 export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
  *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobRunCommandInput - {@link CancelJobRunCommandInput}
+ * @returns {@link CancelJobRunCommandOutput}
  * @see {@link CancelJobRunCommandInput} for command's `input` shape.
  * @see {@link CancelJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -76,6 +83,9 @@ export class CancelJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CancelJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobRunCommandOutput> {
     return deserializeAws_restJson1CancelJobRunCommand(output, context);
   }

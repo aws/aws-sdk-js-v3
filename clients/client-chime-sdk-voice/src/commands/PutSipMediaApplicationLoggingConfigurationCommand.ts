@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSipMediaApplicationLoggingConfigurationCommand}.
  */
 export interface PutSipMediaApplicationLoggingConfigurationCommandInput
   extends PutSipMediaApplicationLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSipMediaApplicationLoggingConfigurationCommand}.
  */
 export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
@@ -54,6 +58,9 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSipMediaApplicationLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +106,9 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutSipMediaApplicationLoggingConfigurationCommandInput,
     context: __SerdeContext
@@ -106,6 +116,9 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     return serializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -10,7 +10,7 @@ import {
 import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CognitoIdentityProviderClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new AdminListUserAuthEventsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateAdminListUserAuthEvents(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: AdminListUserAuthEventsCommandInput,

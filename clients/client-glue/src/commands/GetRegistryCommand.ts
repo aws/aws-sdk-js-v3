@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegistryCommand}.
  */
 export interface GetRegistryCommandInput extends GetRegistryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRegistryCommand}.
  */
 export interface GetRegistryCommandOutput extends GetRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified registry in detail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistryCommandInput - {@link GetRegistryCommandInput}
+ * @returns {@link GetRegistryCommandOutput}
  * @see {@link GetRegistryCommandInput} for command's `input` shape.
  * @see {@link GetRegistryCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistryCommandOutput> {
     return deserializeAws_json1_1GetRegistryCommand(output, context);
   }

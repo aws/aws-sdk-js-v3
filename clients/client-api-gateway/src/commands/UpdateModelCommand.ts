@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelCommand}.
  */
 export interface UpdateModelCommandInput extends UpdateModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelCommand}.
  */
 export interface UpdateModelCommandOutput extends Model, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes information about a model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateModelCommandOutput extends Model, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
+ * @returns {@link UpdateModelCommandOutput}
  * @see {@link UpdateModelCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelCommandOutput> {
     return deserializeAws_restJson1UpdateModelCommand(output, context);
   }

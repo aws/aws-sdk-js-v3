@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ResyncMFADeviceCommand}.
  */
 export interface ResyncMFADeviceCommandInput extends ResyncMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResyncMFADeviceCommand}.
  */
 export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Synchronizes the specified MFA device with its IAM resource object on the Amazon Web Services
  *             servers.</p>
  *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
@@ -44,6 +49,8 @@ export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ResyncMFADeviceCommandInput - {@link ResyncMFADeviceCommandInput}
+ * @returns {@link ResyncMFADeviceCommandOutput}
  * @see {@link ResyncMFADeviceCommandInput} for command's `input` shape.
  * @see {@link ResyncMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ResyncMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResyncMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ResyncMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResyncMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResyncMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResyncMFADeviceCommandOutput> {
     return deserializeAws_queryResyncMFADeviceCommand(output, context);
   }

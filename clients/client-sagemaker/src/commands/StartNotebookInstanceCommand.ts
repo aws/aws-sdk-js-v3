@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartNotebookInstanceCommand}.
  */
 export interface StartNotebookInstanceCommandInput extends StartNotebookInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link StartNotebookInstanceCommand}.
  */
 export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches an ML compute instance with the latest version of the libraries and
  *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the
  *             notebook instance status to <code>InService</code>. A notebook instance's status must be
@@ -44,6 +49,8 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNotebookInstanceCommandInput - {@link StartNotebookInstanceCommandInput}
+ * @returns {@link StartNotebookInstanceCommandOutput}
  * @see {@link StartNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link StartNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class StartNotebookInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class StartNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartNotebookInstanceCommandOutput> {
     return deserializeAws_json1_1StartNotebookInstanceCommand(output, context);
   }

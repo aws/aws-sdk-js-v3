@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceInstanceCommand}.
  */
 export interface GetDeviceInstanceCommandInput extends GetDeviceInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceInstanceCommand}.
  */
 export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a device instance that belongs to a private device fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceInstanceCommandInput - {@link GetDeviceInstanceCommandInput}
+ * @returns {@link GetDeviceInstanceCommandOutput}
  * @see {@link GetDeviceInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceInstanceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDeviceInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetDeviceInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeviceInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceInstanceCommandOutput> {
     return deserializeAws_json1_1GetDeviceInstanceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSyncJobCommand}.
  */
 export interface DeleteSyncJobCommandInput extends DeleteSyncJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSyncJobCommand}.
  */
 export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the SyncJob.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSyncJobCommandInput - {@link DeleteSyncJobCommandInput}
+ * @returns {@link DeleteSyncJobCommandOutput}
  * @see {@link DeleteSyncJobCommandInput} for command's `input` shape.
  * @see {@link DeleteSyncJobCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteSyncJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSyncJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteSyncJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSyncJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSyncJobCommandOutput> {
     return deserializeAws_restJson1DeleteSyncJobCommand(output, context);
   }

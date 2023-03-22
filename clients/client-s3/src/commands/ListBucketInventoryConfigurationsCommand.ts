@@ -26,10 +26,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListBucketInventoryConfigurationsCommand}.
  */
 export interface ListBucketInventoryConfigurationsCommandInput extends ListBucketInventoryConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBucketInventoryConfigurationsCommand}.
  */
 export interface ListBucketInventoryConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListBucketInventoryConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of inventory configurations for the bucket. You can have up to 1,000
  *          analytics configurations per bucket.</p>
  *          <p>This action supports list pagination and does not return more than 100 configurations
@@ -82,6 +87,8 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketInventoryConfigurationsCommandInput - {@link ListBucketInventoryConfigurationsCommandInput}
+ * @returns {@link ListBucketInventoryConfigurationsCommandOutput}
  * @see {@link ListBucketInventoryConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketInventoryConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -111,6 +118,9 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketInventoryConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBucketInventoryConfigurationsCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     return serializeAws_restXmlListBucketInventoryConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

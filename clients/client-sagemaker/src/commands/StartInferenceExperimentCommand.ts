@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartInferenceExperimentCommand}.
  */
 export interface StartInferenceExperimentCommandInput extends StartInferenceExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartInferenceExperimentCommand}.
  */
 export interface StartInferenceExperimentCommandOutput extends StartInferenceExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an inference experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartInferenceExperimentCommandOutput extends StartInferenceExp
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInferenceExperimentCommandInput - {@link StartInferenceExperimentCommandInput}
+ * @returns {@link StartInferenceExperimentCommandOutput}
  * @see {@link StartInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link StartInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class StartInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StartInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInferenceExperimentCommandOutput> {
     return deserializeAws_json1_1StartInferenceExperimentCommand(output, context);
   }

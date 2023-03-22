@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetByteMatchSetCommand}.
  */
 export interface GetByteMatchSetCommandInput extends GetByteMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetByteMatchSetCommand}.
  */
 export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetByteMatchSetCommandInput - {@link GetByteMatchSetCommandInput}
+ * @returns {@link GetByteMatchSetCommandOutput}
  * @see {@link GetByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -116,6 +123,9 @@ export class GetByteMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetByteMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class GetByteMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetByteMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetByteMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetByteMatchSetCommandOutput> {
     return deserializeAws_json1_1GetByteMatchSetCommand(output, context);
   }

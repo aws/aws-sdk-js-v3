@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStoreImageTaskCommand}.
  */
 export interface CreateStoreImageTaskCommandInput extends CreateStoreImageTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStoreImageTaskCommand}.
  */
 export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
  *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
  *         <i>Amazon EC2 User Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStoreImageTaskCommandInput - {@link CreateStoreImageTaskCommandInput}
+ * @returns {@link CreateStoreImageTaskCommandOutput}
  * @see {@link CreateStoreImageTaskCommandInput} for command's `input` shape.
  * @see {@link CreateStoreImageTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class CreateStoreImageTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStoreImageTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateStoreImageTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStoreImageTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateStoreImageTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStoreImageTaskCommandOutput> {
     return deserializeAws_ec2CreateStoreImageTaskCommand(output, context);
   }

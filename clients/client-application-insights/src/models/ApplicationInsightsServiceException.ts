@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from ApplicationInsights service.
  */
 export class ApplicationInsightsServiceException extends __ServiceException {

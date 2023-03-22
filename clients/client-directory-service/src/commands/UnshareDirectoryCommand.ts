@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnshareDirectoryCommand}.
  */
 export interface UnshareDirectoryCommandInput extends UnshareDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnshareDirectoryCommand}.
  */
 export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UnshareDirectoryCommandInput - {@link UnshareDirectoryCommandInput}
+ * @returns {@link UnshareDirectoryCommandOutput}
  * @see {@link UnshareDirectoryCommandInput} for command's `input` shape.
  * @see {@link UnshareDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class UnshareDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnshareDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UnshareDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnshareDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnshareDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnshareDirectoryCommandOutput> {
     return deserializeAws_json1_1UnshareDirectoryCommand(output, context);
   }

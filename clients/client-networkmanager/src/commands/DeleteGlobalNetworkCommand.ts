@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGlobalNetworkCommand}.
  */
 export interface DeleteGlobalNetworkCommandInput extends DeleteGlobalNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGlobalNetworkCommand}.
  */
 export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing global network. You must first delete all global network objects
  *             (devices, links, and sites), deregister all transit gateways, and delete any core networks.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGlobalNetworkCommandInput - {@link DeleteGlobalNetworkCommandInput}
+ * @returns {@link DeleteGlobalNetworkCommandOutput}
  * @see {@link DeleteGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteGlobalNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGlobalNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteGlobalNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGlobalNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalNetworkCommandOutput> {
     return deserializeAws_restJson1DeleteGlobalNetworkCommand(output, context);
   }

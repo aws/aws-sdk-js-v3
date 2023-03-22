@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVPCEConfigurationCommand}.
  */
 export interface UpdateVPCEConfigurationCommandInput extends UpdateVPCEConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVPCEConfigurationCommand}.
  */
 export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVPCEConfigurationCommandInput - {@link UpdateVPCEConfigurationCommandInput}
+ * @returns {@link UpdateVPCEConfigurationCommandOutput}
  * @see {@link UpdateVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateVPCEConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVPCEConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateVPCEConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVPCEConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVPCEConfigurationCommandOutput> {
     return deserializeAws_json1_1UpdateVPCEConfigurationCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePresetCommand}.
  */
 export interface CreatePresetCommandInput extends CreatePresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePresetCommand}.
  */
 export interface CreatePresetCommandOutput extends CreatePresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The CreatePreset operation creates a preset with settings that you specify.</p>
  *         <important>
  *             <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements
@@ -63,6 +68,8 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresetCommandInput - {@link CreatePresetCommandInput}
+ * @returns {@link CreatePresetCommandOutput}
  * @see {@link CreatePresetCommandInput} for command's `input` shape.
  * @see {@link CreatePresetCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreatePresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreatePresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresetCommandOutput> {
     return deserializeAws_restJson1CreatePresetCommand(output, context);
   }

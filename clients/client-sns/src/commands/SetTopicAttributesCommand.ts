@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetTopicAttributesCommand}.
  */
 export interface SetTopicAttributesCommandInput extends SetTopicAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetTopicAttributesCommand}.
  */
 export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
  *          <note>
  *             <p>To remove the ability to change topic permissions, you must deny permissions to
@@ -46,6 +51,8 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTopicAttributesCommandInput - {@link SetTopicAttributesCommandInput}
+ * @returns {@link SetTopicAttributesCommandOutput}
  * @see {@link SetTopicAttributesCommandInput} for command's `input` shape.
  * @see {@link SetTopicAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -86,6 +93,9 @@ export class SetTopicAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTopicAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class SetTopicAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTopicAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetTopicAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTopicAttributesCommandOutput> {
     return deserializeAws_querySetTopicAttributesCommand(output, context);
   }

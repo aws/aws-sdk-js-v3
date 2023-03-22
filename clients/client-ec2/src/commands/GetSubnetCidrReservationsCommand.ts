@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetSubnetCidrReservationsCommand}.
  */
 export interface GetSubnetCidrReservationsCommandInput extends GetSubnetCidrReservationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSubnetCidrReservationsCommand}.
  */
 export interface GetSubnetCidrReservationsCommandOutput extends GetSubnetCidrReservationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the subnet CIDR reservations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSubnetCidrReservationsCommandOutput extends GetSubnetCidrRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubnetCidrReservationsCommandInput - {@link GetSubnetCidrReservationsCommandInput}
+ * @returns {@link GetSubnetCidrReservationsCommandOutput}
  * @see {@link GetSubnetCidrReservationsCommandInput} for command's `input` shape.
  * @see {@link GetSubnetCidrReservationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetSubnetCidrReservationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubnetCidrReservationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetSubnetCidrReservationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubnetCidrReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetSubnetCidrReservationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

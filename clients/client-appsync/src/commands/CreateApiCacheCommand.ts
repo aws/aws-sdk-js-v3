@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApiCacheCommand}.
  */
 export interface CreateApiCacheCommandInput extends CreateApiCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApiCacheCommand}.
  */
 export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cache for the GraphQL API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiCacheCommandInput - {@link CreateApiCacheCommandInput}
+ * @returns {@link CreateApiCacheCommandOutput}
  * @see {@link CreateApiCacheCommandInput} for command's `input` shape.
  * @see {@link CreateApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateApiCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateApiCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateApiCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiCacheCommandOutput> {
     return deserializeAws_restJson1CreateApiCacheCommand(output, context);
   }

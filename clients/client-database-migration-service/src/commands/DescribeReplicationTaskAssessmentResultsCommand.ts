@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationTaskAssessmentResultsCommand}.
  */
 export interface DescribeReplicationTaskAssessmentResultsCommandInput
   extends DescribeReplicationTaskAssessmentResultsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationTaskAssessmentResultsCommand}.
  */
 export interface DescribeReplicationTaskAssessmentResultsCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
  *           Amazon Web Services account.  This action always returns the
  *          latest results.</p>
@@ -58,6 +63,8 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationTaskAssessmentResultsCommandInput - {@link DescribeReplicationTaskAssessmentResultsCommandInput}
+ * @returns {@link DescribeReplicationTaskAssessmentResultsCommandOutput}
  * @see {@link DescribeReplicationTaskAssessmentResultsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskAssessmentResultsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTaskAssessmentResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationTaskAssessmentResultsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     return serializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

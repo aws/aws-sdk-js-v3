@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetAdvisorCollectorCommand}.
  */
 export interface DeleteFleetAdvisorCollectorCommandInput extends DeleteCollectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetAdvisorCollectorCommand}.
  */
 export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Fleet Advisor collector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetAdvisorCollectorCommandInput - {@link DeleteFleetAdvisorCollectorCommandInput}
+ * @returns {@link DeleteFleetAdvisorCollectorCommandOutput}
  * @see {@link DeleteFleetAdvisorCollectorCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetAdvisorCollectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetAdvisorCollectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFleetAdvisorCollectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

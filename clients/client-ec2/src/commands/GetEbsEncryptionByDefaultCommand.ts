@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetEbsEncryptionByDefaultCommand}.
  */
 export interface GetEbsEncryptionByDefaultCommandInput extends GetEbsEncryptionByDefaultRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEbsEncryptionByDefaultCommand}.
  */
 export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryptionByDefaultResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes whether EBS encryption by default is enabled for your account in the current
  *       Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
@@ -49,6 +54,8 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEbsEncryptionByDefaultCommandInput - {@link GetEbsEncryptionByDefaultCommandInput}
+ * @returns {@link GetEbsEncryptionByDefaultCommandOutput}
  * @see {@link GetEbsEncryptionByDefaultCommandInput} for command's `input` shape.
  * @see {@link GetEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEbsEncryptionByDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEbsEncryptionByDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetEbsEncryptionByDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

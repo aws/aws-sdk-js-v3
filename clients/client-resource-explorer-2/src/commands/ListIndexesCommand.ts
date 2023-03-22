@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListIndexesCommand}.
  */
 export interface ListIndexesCommandInput extends ListIndexesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListIndexesCommand}.
  */
 export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all of the indexes in Amazon Web Services Regions that are currently collecting
  *             resource information for Amazon Web Services Resource Explorer.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIndexesCommandInput - {@link ListIndexesCommandInput}
+ * @returns {@link ListIndexesCommandOutput}
  * @see {@link ListIndexesCommandInput} for command's `input` shape.
  * @see {@link ListIndexesCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -90,6 +97,9 @@ export class ListIndexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIndexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListIndexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIndexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndexesCommandOutput> {
     return deserializeAws_restJson1ListIndexesCommand(output, context);
   }

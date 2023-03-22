@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventDataStoresCommand}.
  */
 export interface ListEventDataStoresCommandInput extends ListEventDataStoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventDataStoresCommand}.
  */
 export interface ListEventDataStoresCommandOutput extends ListEventDataStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all event data stores in the account, in the current
  *          region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventDataStoresCommandInput - {@link ListEventDataStoresCommandInput}
+ * @returns {@link ListEventDataStoresCommandOutput}
  * @see {@link ListEventDataStoresCommandInput} for command's `input` shape.
  * @see {@link ListEventDataStoresCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListEventDataStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventDataStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListEventDataStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventDataStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventDataStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventDataStoresCommandOutput> {
     return deserializeAws_json1_1ListEventDataStoresCommand(output, context);
   }

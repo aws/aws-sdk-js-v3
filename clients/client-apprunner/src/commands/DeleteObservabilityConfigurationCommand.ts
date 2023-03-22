@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObservabilityConfigurationCommand}.
  */
 export interface DeleteObservabilityConfigurationCommandInput extends DeleteObservabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObservabilityConfigurationCommand}.
  */
 export interface DeleteObservabilityConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteObservabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner observability configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
  *       configuration that's used by one or more App Runner services.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteObservabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObservabilityConfigurationCommandInput - {@link DeleteObservabilityConfigurationCommandInput}
+ * @returns {@link DeleteObservabilityConfigurationCommandOutput}
  * @see {@link DeleteObservabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteObservabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteObservabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObservabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DeleteObservabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteObservabilityConfigurationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DeleteObservabilityConfigurationCommand extends $Command<
     return serializeAws_json1_0DeleteObservabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

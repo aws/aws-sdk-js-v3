@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePricingPlanCommand}.
  */
 export interface DeletePricingPlanCommandInput extends DeletePricingPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePricingPlanCommand}.
  */
 export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a pricing plan. The pricing plan must not be associated with any billing groups to
  *       delete successfully.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePricingPlanCommandInput - {@link DeletePricingPlanCommandInput}
+ * @returns {@link DeletePricingPlanCommandOutput}
  * @see {@link DeletePricingPlanCommandInput} for command's `input` shape.
  * @see {@link DeletePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeletePricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeletePricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePricingPlanCommandOutput> {
     return deserializeAws_restJson1DeletePricingPlanCommand(output, context);
   }

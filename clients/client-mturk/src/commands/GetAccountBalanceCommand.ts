@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountBalanceCommand}.
  */
 export interface GetAccountBalanceCommandInput extends GetAccountBalanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountBalanceCommand}.
  */
 export interface GetAccountBalanceCommandOutput extends GetAccountBalanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>GetAccountBalance</code> operation retrieves the Prepaid HITs balance in your Amazon Mechanical Turk account if you are a Prepaid Requester.
  *             Alternatively, this operation will retrieve the remaining available AWS Billing usage if you have enabled AWS Billing.
  *             Note: If you have enabled AWS Billing and still have a remaining Prepaid HITs balance, this balance can be viewed on the My Account page in the Requester console.</p>
@@ -48,6 +53,8 @@ export interface GetAccountBalanceCommandOutput extends GetAccountBalanceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountBalanceCommandInput - {@link GetAccountBalanceCommandInput}
+ * @returns {@link GetAccountBalanceCommandOutput}
  * @see {@link GetAccountBalanceCommandInput} for command's `input` shape.
  * @see {@link GetAccountBalanceCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetAccountBalanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountBalanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetAccountBalanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountBalanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAccountBalanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountBalanceCommandOutput> {
     return deserializeAws_json1_1GetAccountBalanceCommand(output, context);
   }

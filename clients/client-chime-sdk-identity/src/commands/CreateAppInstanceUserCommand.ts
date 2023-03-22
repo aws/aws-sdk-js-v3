@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppInstanceUserCommand}.
  */
 export interface CreateAppInstanceUserCommandInput extends CreateAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppInstanceUserCommand}.
  */
 export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a
  *          unique <code>appInstanceUserId</code> and <code>Name</code> for that user.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppInstanceUserCommandInput - {@link CreateAppInstanceUserCommandInput}
+ * @returns {@link CreateAppInstanceUserCommandOutput}
  * @see {@link CreateAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppInstanceUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppInstanceUserCommandOutput> {
     return deserializeAws_restJson1CreateAppInstanceUserCommand(output, context);
   }

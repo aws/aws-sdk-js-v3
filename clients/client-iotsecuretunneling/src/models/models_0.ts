@@ -3,12 +3,18 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecureTunnelingServiceException";
 
+/**
+ * @public
+ */
 export enum ClientMode {
   ALL = "ALL",
   DESTINATION = "DESTINATION",
   SOURCE = "SOURCE",
 }
 
+/**
+ * @public
+ */
 export interface CloseTunnelRequest {
   /**
    * <p>The ID of the tunnel to close.</p>
@@ -22,9 +28,13 @@ export interface CloseTunnelRequest {
   delete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CloseTunnelResponse {}
 
 /**
+ * @public
  * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -43,12 +53,16 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConnectionStatus {
   CONNECTED = "CONNECTED",
   DISCONNECTED = "DISCONNECTED",
 }
 
 /**
+ * @public
  * <p>The state of a connection.</p>
  */
 export interface ConnectionState {
@@ -64,6 +78,9 @@ export interface ConnectionState {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTunnelRequest {
   /**
    * <p>The tunnel to describe.</p>
@@ -72,6 +89,7 @@ export interface DescribeTunnelRequest {
 }
 
 /**
+ * @public
  * <p>The destination configuration.</p>
  */
 export interface DestinationConfig {
@@ -89,12 +107,16 @@ export interface DestinationConfig {
   services: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TunnelStatus {
   CLOSED = "CLOSED",
   OPEN = "OPEN",
 }
 
 /**
+ * @public
  * <p>An arbitary key/value pair used to add searchable metadata to secure tunnel
  * 			resources.</p>
  */
@@ -111,6 +133,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Tunnel timeout configuration.</p>
  */
 export interface TimeoutConfig {
@@ -123,6 +146,7 @@ export interface TimeoutConfig {
 }
 
 /**
+ * @public
  * <p>A connection between a source computer and a destination device.</p>
  */
 export interface Tunnel {
@@ -184,6 +208,9 @@ export interface Tunnel {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTunnelResponse {
   /**
    * <p>The tunnel being described.</p>
@@ -191,6 +218,9 @@ export interface DescribeTunnelResponse {
   tunnel?: Tunnel;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -198,6 +228,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the specified resource.</p>
@@ -205,6 +238,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTunnelsRequest {
   /**
    * <p>The name of the IoT thing associated with the destination device.</p>
@@ -224,6 +260,7 @@ export interface ListTunnelsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the tunnel.</p>
  */
 export interface TunnelSummary {
@@ -258,6 +295,9 @@ export interface TunnelSummary {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTunnelsResponse {
   /**
    * <p>A short description of the tunnels in an Amazon Web Services account.</p>
@@ -272,6 +312,7 @@ export interface ListTunnelsResponse {
 }
 
 /**
+ * @public
  * <p>Thrown when a tunnel limit is exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -290,6 +331,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface OpenTunnelRequest {
   /**
    * <p>A short text description of the tunnel. </p>
@@ -312,6 +356,9 @@ export interface OpenTunnelRequest {
   timeoutConfig?: TimeoutConfig;
 }
 
+/**
+ * @public
+ */
 export interface OpenTunnelResponse {
   /**
    * <p>A unique alpha-numeric tunnel ID.</p>
@@ -336,6 +383,9 @@ export interface OpenTunnelResponse {
   destinationAccessToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RotateTunnelAccessTokenRequest {
   /**
    * <p>The tunnel for which you want to rotate the access tokens.</p>
@@ -354,6 +404,9 @@ export interface RotateTunnelAccessTokenRequest {
   destinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface RotateTunnelAccessTokenResponse {
   /**
    * <p>The Amazon Resource Name for the tunnel.</p>
@@ -373,6 +426,9 @@ export interface RotateTunnelAccessTokenResponse {
   destinationAccessToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -385,8 +441,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -399,6 +461,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

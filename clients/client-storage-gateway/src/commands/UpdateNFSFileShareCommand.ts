@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNFSFileShareCommand}.
  */
 export interface UpdateNFSFileShareCommandInput extends UpdateNFSFileShareInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNFSFileShareCommand}.
  */
 export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Network File System (NFS) file share. This operation is only supported in S3
  *          File Gateways.</p>
  *
@@ -72,6 +77,8 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNFSFileShareCommandInput - {@link UpdateNFSFileShareCommandInput}
+ * @returns {@link UpdateNFSFileShareCommandOutput}
  * @see {@link UpdateNFSFileShareCommandInput} for command's `input` shape.
  * @see {@link UpdateNFSFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateNFSFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNFSFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateNFSFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNFSFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNFSFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNFSFileShareCommandOutput> {
     return deserializeAws_json1_1UpdateNFSFileShareCommand(output, context);
   }

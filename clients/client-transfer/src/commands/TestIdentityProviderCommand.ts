@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link TestIdentityProviderCommand}.
  */
 export interface TestIdentityProviderCommandInput extends TestIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestIdentityProviderCommand}.
  */
 export interface TestIdentityProviderCommandOutput extends TestIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
  *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your identity
  *       provider is set up successfully. We highly recommend that you call this operation to test your
@@ -84,6 +89,8 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * const response = await client.send(command);
  * ```
  *
+ * @param TestIdentityProviderCommandInput - {@link TestIdentityProviderCommandInput}
+ * @returns {@link TestIdentityProviderCommandOutput}
  * @see {@link TestIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link TestIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -120,6 +127,9 @@ export class TestIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class TestIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TestIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestIdentityProviderCommandOutput> {
     return deserializeAws_json1_1TestIdentityProviderCommand(output, context);
   }

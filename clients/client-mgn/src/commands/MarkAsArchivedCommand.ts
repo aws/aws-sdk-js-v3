@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link MarkAsArchivedCommand}.
  */
 export interface MarkAsArchivedCommandInput extends MarkAsArchivedRequest {}
 /**
+ * @public
+ *
  * The output of {@link MarkAsArchivedCommand}.
  */
 export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param MarkAsArchivedCommandInput - {@link MarkAsArchivedCommandInput}
+ * @returns {@link MarkAsArchivedCommandOutput}
  * @see {@link MarkAsArchivedCommandInput} for command's `input` shape.
  * @see {@link MarkAsArchivedCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class MarkAsArchivedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MarkAsArchivedCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class MarkAsArchivedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MarkAsArchivedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MarkAsArchivedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MarkAsArchivedCommandOutput> {
     return deserializeAws_restJson1MarkAsArchivedCommand(output, context);
   }

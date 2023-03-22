@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchContentCommand}.
  */
 export interface SearchContentCommandInput extends SearchContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchContentCommand}.
  */
 export interface SearchContentCommandOutput extends SearchContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for content in a specified knowledge base. Can be used to get a specific content
  *       resource by its name.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchContentCommandInput - {@link SearchContentCommandInput}
+ * @returns {@link SearchContentCommandOutput}
  * @see {@link SearchContentCommandInput} for command's `input` shape.
  * @see {@link SearchContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -79,6 +86,9 @@ export class SearchContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class SearchContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContentCommandOutput> {
     return deserializeAws_restJson1SearchContentCommand(output, context);
   }

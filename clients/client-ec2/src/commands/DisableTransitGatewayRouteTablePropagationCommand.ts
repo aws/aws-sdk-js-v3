@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableTransitGatewayRouteTablePropagationCommand}.
  */
 export interface DisableTransitGatewayRouteTablePropagationCommandInput
   extends DisableTransitGatewayRouteTablePropagationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableTransitGatewayRouteTablePropagationCommand}.
  */
 export interface DisableTransitGatewayRouteTablePropagationCommandOutput
@@ -38,6 +42,7 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified resource attachment from propagating routes to the specified
  *          propagation route table.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableTransitGatewayRouteTablePropagationCommandInput - {@link DisableTransitGatewayRouteTablePropagationCommandInput}
+ * @returns {@link DisableTransitGatewayRouteTablePropagationCommandOutput}
  * @see {@link DisableTransitGatewayRouteTablePropagationCommandInput} for command's `input` shape.
  * @see {@link DisableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableTransitGatewayRouteTablePropagationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableTransitGatewayRouteTablePropagationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
     return serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

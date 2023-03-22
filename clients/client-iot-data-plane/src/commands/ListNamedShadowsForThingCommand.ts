@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNamedShadowsForThingCommand}.
  */
 export interface ListNamedShadowsForThingCommandInput extends ListNamedShadowsForThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNamedShadowsForThingCommand}.
  */
 export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsForThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the shadows for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListNamedShadowsForThing</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamedShadowsForThingCommandInput - {@link ListNamedShadowsForThingCommandInput}
+ * @returns {@link ListNamedShadowsForThingCommandOutput}
  * @see {@link ListNamedShadowsForThingCommandInput} for command's `input` shape.
  * @see {@link ListNamedShadowsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListNamedShadowsForThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamedShadowsForThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListNamedShadowsForThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamedShadowsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNamedShadowsForThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamedShadowsForThingCommandOutput> {
     return deserializeAws_restJson1ListNamedShadowsForThingCommand(output, context);
   }

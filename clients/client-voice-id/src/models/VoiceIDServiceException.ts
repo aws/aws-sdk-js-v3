@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from VoiceID service.
  */
 export class VoiceIDServiceException extends __ServiceException {

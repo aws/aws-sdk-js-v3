@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAlternateContactCommand}.
  */
 export interface PutAlternateContactCommandInput extends PutAlternateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAlternateContactCommand}.
  */
 export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
  *                 updating the alternate contacts</a>.</p>
@@ -49,6 +54,8 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAlternateContactCommandInput - {@link PutAlternateContactCommandInput}
+ * @returns {@link PutAlternateContactCommandOutput}
  * @see {@link PutAlternateContactCommandInput} for command's `input` shape.
  * @see {@link PutAlternateContactCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutAlternateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAlternateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutAlternateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAlternateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutAlternateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAlternateContactCommandOutput> {
     return deserializeAws_restJson1PutAlternateContactCommand(output, context);
   }

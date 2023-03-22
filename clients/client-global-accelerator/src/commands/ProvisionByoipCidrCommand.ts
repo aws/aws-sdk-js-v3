@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionByoipCidrCommand}.
  */
 export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionByoipCidrCommand}.
  */
 export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions an IP address range to use with your Amazon Web Services resources through bring your own IP
  * 			addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned,
  * 			it is ready to be advertised using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html">
@@ -55,6 +60,8 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionByoipCidrCommandInput - {@link ProvisionByoipCidrCommandInput}
+ * @returns {@link ProvisionByoipCidrCommandOutput}
  * @see {@link ProvisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -94,6 +101,9 @@ export class ProvisionByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ProvisionByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ProvisionByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionByoipCidrCommandOutput> {
     return deserializeAws_json1_1ProvisionByoipCidrCommand(output, context);
   }

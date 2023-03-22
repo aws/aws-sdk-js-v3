@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPipelinesCommand}.
  */
 export interface ListPipelinesCommandInput extends ListPipelinesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPipelinesCommand}.
  */
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a summary of all of the pipelines associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
+ * @returns {@link ListPipelinesCommandOutput}
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
     return deserializeAws_json1_1ListPipelinesCommand(output, context);
   }

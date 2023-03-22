@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterThingCommand}.
  */
 export interface RegisterThingCommandInput extends RegisterThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterThingCommand}.
  */
 export interface RegisterThingCommandOutput extends RegisterThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a thing in the device registry. RegisterThing calls other IoT control
  *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
  *             IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Customer Support</a> to raise
@@ -50,6 +55,8 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterThingCommandInput - {@link RegisterThingCommandInput}
+ * @returns {@link RegisterThingCommandOutput}
  * @see {@link RegisterThingCommandInput} for command's `input` shape.
  * @see {@link RegisterThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -95,6 +102,9 @@ export class RegisterThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class RegisterThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterThingCommandOutput> {
     return deserializeAws_restJson1RegisterThingCommand(output, context);
   }

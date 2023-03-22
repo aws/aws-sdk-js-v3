@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEffectiveRecommendationPreferencesCommand}.
  */
 export interface GetEffectiveRecommendationPreferencesCommandInput
   extends GetEffectiveRecommendationPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEffectiveRecommendationPreferencesCommand}.
  */
 export interface GetEffectiveRecommendationPreferencesCommandOutput
@@ -38,6 +42,7 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the recommendation preferences that are in effect for a given resource, such
  *             as enhanced infrastructure metrics. Considers all applicable preferences that you might
  *             have set at the resource, account, and organization level.</p>
@@ -54,6 +59,8 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEffectiveRecommendationPreferencesCommandInput - {@link GetEffectiveRecommendationPreferencesCommandInput}
+ * @returns {@link GetEffectiveRecommendationPreferencesCommandOutput}
  * @see {@link GetEffectiveRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetEffectiveRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -102,6 +109,9 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEffectiveRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEffectiveRecommendationPreferencesCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     return serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

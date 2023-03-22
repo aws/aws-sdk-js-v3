@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFirewallConfigsCommand}.
  */
 export interface ListFirewallConfigsCommandInput extends ListFirewallConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFirewallConfigsCommand}.
  */
 export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. </p>
  *          <p>A single call might return only a partial list of the configurations. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallConfigsCommandInput - {@link ListFirewallConfigsCommandInput}
+ * @returns {@link ListFirewallConfigsCommandOutput}
  * @see {@link ListFirewallConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListFirewallConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListFirewallConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFirewallConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallConfigsCommandOutput> {
     return deserializeAws_json1_1ListFirewallConfigsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteDetectorCommand}.
  */
 export interface BatchDeleteDetectorCommandInput extends BatchDeleteDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteDetectorCommand}.
  */
 export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more detectors that were created. When a detector is deleted, its state will be cleared and the detector will be removed from the list of detectors. The deleted detector will no longer appear if referenced in the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html">ListDetectors</a> API call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteDetectorCommandInput - {@link BatchDeleteDetectorCommandInput}
+ * @returns {@link BatchDeleteDetectorCommandOutput}
  * @see {@link BatchDeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -81,6 +88,9 @@ export class BatchDeleteDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class BatchDeleteDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeleteDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteDetectorCommandOutput> {
     return deserializeAws_restJson1BatchDeleteDetectorCommand(output, context);
   }

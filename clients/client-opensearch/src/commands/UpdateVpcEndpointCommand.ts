@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVpcEndpointCommand}.
  */
 export interface UpdateVpcEndpointCommandInput extends UpdateVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVpcEndpointCommand}.
  */
 export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
+ * @returns {@link UpdateVpcEndpointCommandOutput}
  * @see {@link UpdateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcEndpointCommandOutput> {
     return deserializeAws_restJson1UpdateVpcEndpointCommand(output, context);
   }

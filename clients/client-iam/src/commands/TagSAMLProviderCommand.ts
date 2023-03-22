@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagSAMLProviderCommand}.
  */
 export interface TagSAMLProviderCommandInput extends TagSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagSAMLProviderCommand}.
  */
 export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider.
  *       For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation </a>.
  *       If a tag with the same key name already exists, then that tag is overwritten with the new
@@ -78,6 +83,8 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagSAMLProviderCommandInput - {@link TagSAMLProviderCommandInput}
+ * @returns {@link TagSAMLProviderCommandOutput}
  * @see {@link TagSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link TagSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -121,6 +128,9 @@ export class TagSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class TagSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagSAMLProviderCommandOutput> {
     return deserializeAws_queryTagSAMLProviderCommand(output, context);
   }

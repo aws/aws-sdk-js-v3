@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReportDefinitionCommand}.
  */
 export interface ModifyReportDefinitionCommandInput extends ModifyReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReportDefinitionCommand}.
  */
 export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to programatically update your report preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReportDefinitionCommandInput - {@link ModifyReportDefinitionCommandInput}
+ * @returns {@link ModifyReportDefinitionCommandOutput}
  * @see {@link ModifyReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link ModifyReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
@@ -79,6 +86,9 @@ export class ModifyReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ModifyReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReportDefinitionCommandOutput> {
     return deserializeAws_json1_1ModifyReportDefinitionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayRouteCommand}.
  */
 export interface DeleteTransitGatewayRouteCommandInput extends DeleteTransitGatewayRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayRouteCommand}.
  */
 export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified route from the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayRouteCommandInput - {@link DeleteTransitGatewayRouteCommandInput}
+ * @returns {@link DeleteTransitGatewayRouteCommandOutput}
  * @see {@link DeleteTransitGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteTransitGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteTransitGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTransitGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTransitGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

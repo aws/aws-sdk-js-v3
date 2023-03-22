@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventTypeCommand}.
  */
 export interface DeleteEventTypeCommandInput extends DeleteEventTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventTypeCommand}.
  */
 export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an event type.</p>
  *          <p>You cannot delete an event type that is used in a detector or a model.</p>
  *          <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -48,6 +53,8 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventTypeCommandInput - {@link DeleteEventTypeCommandInput}
+ * @returns {@link DeleteEventTypeCommandOutput}
  * @see {@link DeleteEventTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEventTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteEventTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteEventTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEventTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventTypeCommandOutput> {
     return deserializeAws_json1_1DeleteEventTypeCommand(output, context);
   }

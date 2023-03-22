@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 /**
+ * @public
  * <p>The raw metric data to associate with the resource.</p>
  */
 export interface RawMetricData {
@@ -25,6 +26,9 @@ export interface RawMetricData {
   Value: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutMetricsRequest {
   /**
    * <p>The name of the Trial Component to associate with the metrics.</p>
@@ -37,6 +41,9 @@ export interface BatchPutMetricsRequest {
   MetricData: RawMetricData[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PutMetricsErrorCode {
   CONFLICT_ERROR = "CONFLICT_ERROR",
   INTERNAL_ERROR = "INTERNAL_ERROR",
@@ -45,6 +52,7 @@ export enum PutMetricsErrorCode {
 }
 
 /**
+ * @public
  * <p>An error that occured when putting the metric data.</p>
  */
 export interface BatchPutMetricsError {
@@ -79,6 +87,9 @@ export interface BatchPutMetricsError {
   MetricIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutMetricsResponse {
   /**
    * <p>Lists any errors that occur when inserting metric data.</p>

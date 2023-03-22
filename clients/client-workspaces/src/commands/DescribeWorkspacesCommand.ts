@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspacesCommand}.
  */
 export interface DescribeWorkspacesCommandInput extends DescribeWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspacesCommand}.
  */
 export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified WorkSpaces.</p>
  *          <p>You can filter the results by using the bundle identifier, directory identifier, or
  *          owner, but you can specify only one filter at a time.</p>
@@ -48,6 +53,8 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspacesCommandInput - {@link DescribeWorkspacesCommandInput}
+ * @returns {@link DescribeWorkspacesCommandOutput}
  * @see {@link DescribeWorkspacesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspacesCommandOutput> {
     return deserializeAws_json1_1DescribeWorkspacesCommand(output, context);
   }

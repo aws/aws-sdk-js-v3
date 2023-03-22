@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandInput extends ListResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandOutput extends ListResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resources that you added to a resource share or the resources that are shared with
  *             you.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
+ * @returns {@link ListResourcesCommandOutput}
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesCommandOutput> {
     return deserializeAws_restJson1ListResourcesCommand(output, context);
   }

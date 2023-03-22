@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTemplateAliasCommand}.
  */
 export interface DeleteTemplateAliasCommandInput extends DeleteTemplateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTemplateAliasCommand}.
  */
 export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the item that the specified template alias points to. If you provide a specific
  * 			alias, you delete the version of the template that the alias points to.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTemplateAliasCommandInput - {@link DeleteTemplateAliasCommandInput}
+ * @returns {@link DeleteTemplateAliasCommandOutput}
  * @see {@link DeleteTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteTemplateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTemplateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteTemplateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTemplateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTemplateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateAliasCommandOutput> {
     return deserializeAws_restJson1DeleteTemplateAliasCommand(output, context);
   }

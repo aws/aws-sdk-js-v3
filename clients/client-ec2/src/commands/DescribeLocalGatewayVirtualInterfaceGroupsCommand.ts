@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewayVirtualInterfaceGroupsCommand}.
  */
 export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandInput
   extends DescribeLocalGatewayVirtualInterfaceGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewayVirtualInterfaceGroupsCommand}.
  */
 export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified local gateway virtual interface groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayVirtualInterfaceGroupsCommandInput - {@link DescribeLocalGatewayVirtualInterfaceGroupsCommandInput}
+ * @returns {@link DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput}
  * @see {@link DescribeLocalGatewayVirtualInterfaceGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
     return serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

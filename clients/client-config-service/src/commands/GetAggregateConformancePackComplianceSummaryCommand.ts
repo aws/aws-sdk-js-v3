@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAggregateConformancePackComplianceSummaryCommand}.
  */
 export interface GetAggregateConformancePackComplianceSummaryCommandInput
   extends GetAggregateConformancePackComplianceSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAggregateConformancePackComplianceSummaryCommand}.
  */
 export interface GetAggregateConformancePackComplianceSummaryCommandOutput
@@ -38,6 +42,7 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the count of compliant and noncompliant conformance packs across all Amazon Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter based on Amazon Web Services account ID or Amazon Web Services Region.</p>
  *          <note>
  *             <p>The results can return an empty result page, but if you have a nextToken, the results are displayed on the next page.</p>
@@ -52,6 +57,8 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateConformancePackComplianceSummaryCommandInput - {@link GetAggregateConformancePackComplianceSummaryCommandInput}
+ * @returns {@link GetAggregateConformancePackComplianceSummaryCommandOutput}
  * @see {@link GetAggregateConformancePackComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAggregateConformancePackComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateConformancePackComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAggregateConformancePackComplianceSummaryCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
     return serializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

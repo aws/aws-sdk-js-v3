@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
  */
 export interface DeleteTransitGatewayRouteTableAnnouncementCommandInput
   extends DeleteTransitGatewayRouteTableAnnouncementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
  */
 export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayRouteTableAnnouncementCommandInput - {@link DeleteTransitGatewayRouteTableAnnouncementCommandInput}
+ * @returns {@link DeleteTransitGatewayRouteTableAnnouncementCommandOutput}
  * @see {@link DeleteTransitGatewayRouteTableAnnouncementCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayRouteTableAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayRouteTableAnnouncementCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command<
     return serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

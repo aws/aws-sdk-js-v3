@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetedSentimentDetectionJobsCommand}.
  */
 export interface ListTargetedSentimentDetectionJobsCommandInput extends ListTargetedSentimentDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetedSentimentDetectionJobsCommand}.
  */
 export interface ListTargetedSentimentDetectionJobsCommandOutput
@@ -37,6 +41,7 @@ export interface ListTargetedSentimentDetectionJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListTargetedSentimentDetectionJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetedSentimentDetectionJobsCommandInput - {@link ListTargetedSentimentDetectionJobsCommandInput}
+ * @returns {@link ListTargetedSentimentDetectionJobsCommandOutput}
  * @see {@link ListTargetedSentimentDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListTargetedSentimentDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListTargetedSentimentDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetedSentimentDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListTargetedSentimentDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListTargetedSentimentDetectionJobsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListTargetedSentimentDetectionJobsCommand extends $Command<
     return serializeAws_json1_1ListTargetedSentimentDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

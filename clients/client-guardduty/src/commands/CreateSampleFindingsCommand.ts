@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSampleFindingsCommand}.
  */
 export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSampleFindingsCommand}.
  */
 export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates sample findings of types specified by the list of finding types. If 'NULL' is
  *       specified for <code>findingTypes</code>, the API generates sample findings of all supported
  *       finding types.</p>
@@ -48,6 +53,8 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSampleFindingsCommandInput - {@link CreateSampleFindingsCommandInput}
+ * @returns {@link CreateSampleFindingsCommandOutput}
  * @see {@link CreateSampleFindingsCommandInput} for command's `input` shape.
  * @see {@link CreateSampleFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateSampleFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSampleFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateSampleFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSampleFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSampleFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSampleFindingsCommandOutput> {
     return deserializeAws_restJson1CreateSampleFindingsCommand(output, context);
   }

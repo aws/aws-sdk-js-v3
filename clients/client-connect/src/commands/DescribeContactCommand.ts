@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContactCommand}.
  */
 export interface DescribeContactCommandInput extends DescribeContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContactCommand}.
  */
 export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified contact. </p>
  *          <important>
@@ -53,6 +58,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContactCommandInput - {@link DescribeContactCommandInput}
+ * @returns {@link DescribeContactCommandOutput}
  * @see {@link DescribeContactCommandInput} for command's `input` shape.
  * @see {@link DescribeContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeContactCommandOutput> {
     return deserializeAws_restJson1DescribeContactCommand(output, context);
   }

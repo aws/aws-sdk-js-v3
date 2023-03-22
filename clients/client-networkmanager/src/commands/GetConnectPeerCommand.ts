@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectPeerCommand}.
  */
 export interface GetConnectPeerCommandInput extends GetConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectPeerCommand}.
  */
 export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a core network Connect peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectPeerCommandInput - {@link GetConnectPeerCommandInput}
+ * @returns {@link GetConnectPeerCommandOutput}
  * @see {@link GetConnectPeerCommandInput} for command's `input` shape.
  * @see {@link GetConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectPeerCommandOutput> {
     return deserializeAws_restJson1GetConnectPeerCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SageMakerRuntimeServiceException as __BaseException } from "./SageMakerRuntimeServiceException";
 
 /**
+ * @public
  * <p>Your request caused an exception with an internal dependency. Contact customer
  *             support. </p>
  */
@@ -26,6 +27,7 @@ export class InternalDependencyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> An internal failure occurred. </p>
  */
 export class InternalFailure extends __BaseException {
@@ -46,6 +48,9 @@ export class InternalFailure extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface InvokeEndpointInput {
   /**
    * <p>The name of the endpoint that you specified when you created the endpoint using the
@@ -126,6 +131,9 @@ export interface InvokeEndpointInput {
   EnableExplanations?: string;
 }
 
+/**
+ * @public
+ */
 export interface InvokeEndpointOutput {
   /**
    * <p>Includes the inference provided by the model. </p>
@@ -169,6 +177,7 @@ export interface InvokeEndpointOutput {
 }
 
 /**
+ * @public
  * <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
  *         </p>
  */
@@ -208,6 +217,7 @@ export class ModelError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Either a serverless endpoint variant's resources are still being provisioned, or a
  *             multi-model endpoint is still downloading or loading the target model. Wait and try your
  *             request again.</p>
@@ -231,6 +241,7 @@ export class ModelNotReadyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The service is unavailable. Try your call again. </p>
  */
 export class ServiceUnavailable extends __BaseException {
@@ -252,6 +263,7 @@ export class ServiceUnavailable extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Inspect your request and try again. </p>
  */
 export class ValidationError extends __BaseException {
@@ -272,6 +284,9 @@ export class ValidationError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface InvokeEndpointAsyncInput {
   /**
    * <p>The name of the endpoint that you specified when you created the endpoint using the
@@ -332,6 +347,9 @@ export interface InvokeEndpointAsyncInput {
   InvocationTimeoutSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface InvokeEndpointAsyncOutput {
   /**
    * <p>Identifier for an inference request. This will be the same as the

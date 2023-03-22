@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetAssetPropertyAggregatesCommand}.
  */
 export interface BatchGetAssetPropertyAggregatesCommandInput extends BatchGetAssetPropertyAggregatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetAssetPropertyAggregatesCommand}.
  */
 export interface BatchGetAssetPropertyAggregatesCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
  *       properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAssetPropertyAggregatesCommandInput - {@link BatchGetAssetPropertyAggregatesCommandInput}
+ * @returns {@link BatchGetAssetPropertyAggregatesCommandOutput}
  * @see {@link BatchGetAssetPropertyAggregatesCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyAggregatesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -89,6 +96,9 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAssetPropertyAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetAssetPropertyAggregatesCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
     return serializeAws_restJson1BatchGetAssetPropertyAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

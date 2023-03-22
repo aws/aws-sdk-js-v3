@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetCommand}.
  */
 export interface DescribeFleetCommandInput extends DescribeFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetCommand}.
  */
 export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes a fleet.</p>
@@ -51,6 +56,8 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetCommandInput - {@link DescribeFleetCommandInput}
+ * @returns {@link DescribeFleetCommandOutput}
  * @see {@link DescribeFleetCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetCommandOutput> {
     return deserializeAws_restJson1DescribeFleetCommand(output, context);
   }

@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { IoTThingsGraphServiceException as __BaseException } from "./IoTThingsGraphServiceException";
 
+/**
+ * @public
+ */
 export interface AssociateEntityToThingRequest {
   /**
    * <p>The name of the thing to which the entity is to be associated.</p>
@@ -24,9 +27,13 @@ export interface AssociateEntityToThingRequest {
   namespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface AssociateEntityToThingResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export class InternalFailureException extends __BaseException {
@@ -46,6 +53,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -65,6 +73,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -84,6 +93,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ThrottlingException extends __BaseException {
@@ -102,11 +112,15 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DefinitionLanguage {
   GRAPHQL = "GRAPHQL",
 }
 
 /**
+ * @public
  * <p>A document that defines an entity. </p>
  */
 export interface DefinitionDocument {
@@ -121,6 +135,9 @@ export interface DefinitionDocument {
   text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowTemplateRequest {
   /**
    * <p>The workflow <code>DefinitionDocument</code>.</p>
@@ -135,6 +152,7 @@ export interface CreateFlowTemplateRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains summary information about a workflow.</p>
  */
 export interface FlowTemplateSummary {
@@ -159,6 +177,9 @@ export interface FlowTemplateSummary {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowTemplateResponse {
   /**
    * <p>The summary object that describes the created workflow.</p>
@@ -167,6 +188,7 @@ export interface CreateFlowTemplateResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class LimitExceededException extends __BaseException {
@@ -186,6 +208,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -205,6 +228,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
  */
 export interface MetricsConfiguration {
@@ -220,6 +244,7 @@ export interface MetricsConfiguration {
 }
 
 /**
+ * @public
  * <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>
  */
 export interface Tag {
@@ -234,11 +259,17 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentTarget {
   CLOUD = "CLOUD",
   GREENGRASS = "GREENGRASS",
 }
 
+/**
+ * @public
+ */
 export interface CreateSystemInstanceRequest {
   /**
    * <p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>
@@ -280,6 +311,9 @@ export interface CreateSystemInstanceRequest {
   flowActionsRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum SystemInstanceDeploymentStatus {
   BOOTSTRAP = "BOOTSTRAP",
   DELETED_IN_TARGET = "DELETED_IN_TARGET",
@@ -292,6 +326,7 @@ export enum SystemInstanceDeploymentStatus {
 }
 
 /**
+ * @public
  * <p>An object that contains summary information about a system instance.</p>
  */
 export interface SystemInstanceSummary {
@@ -343,6 +378,9 @@ export interface SystemInstanceSummary {
   greengrassGroupVersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSystemInstanceResponse {
   /**
    * <p>The summary object that describes the new system instance.</p>
@@ -350,6 +388,9 @@ export interface CreateSystemInstanceResponse {
   summary?: SystemInstanceSummary;
 }
 
+/**
+ * @public
+ */
 export interface CreateSystemTemplateRequest {
   /**
    * <p>The <code>DefinitionDocument</code> used to create the system.</p>
@@ -364,6 +405,7 @@ export interface CreateSystemTemplateRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a system.</p>
  */
 export interface SystemTemplateSummary {
@@ -388,6 +430,9 @@ export interface SystemTemplateSummary {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSystemTemplateResponse {
   /**
    * <p>The summary object that describes the created system.</p>
@@ -395,6 +440,9 @@ export interface CreateSystemTemplateResponse {
   summary?: SystemTemplateSummary;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowTemplateRequest {
   /**
    * <p>The ID of the workflow to be deleted.</p>
@@ -406,9 +454,13 @@ export interface DeleteFlowTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowTemplateResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -427,8 +479,14 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceResponse {
   /**
    * <p>The ARN of the namespace to be deleted.</p>
@@ -441,6 +499,9 @@ export interface DeleteNamespaceResponse {
   namespaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSystemInstanceRequest {
   /**
    * <p>The ID of the system instance to be deleted.</p>
@@ -448,8 +509,14 @@ export interface DeleteSystemInstanceRequest {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSystemInstanceResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSystemTemplateRequest {
   /**
    * <p>The ID of the system to be deleted.</p>
@@ -461,9 +528,13 @@ export interface DeleteSystemTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSystemTemplateResponse {}
 
 /**
+ * @public
  * <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>
  */
 export interface DependencyRevision {
@@ -478,6 +549,9 @@ export interface DependencyRevision {
   revisionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeploySystemInstanceRequest {
   /**
    * <p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p>
@@ -489,6 +563,9 @@ export interface DeploySystemInstanceRequest {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeploySystemInstanceResponse {
   /**
    * <p>An object that contains summary information about a system instance that was deployed. </p>
@@ -501,6 +578,9 @@ export interface DeploySystemInstanceResponse {
   greengrassDeploymentId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeprecateFlowTemplateRequest {
   /**
    * <p>The ID of the workflow to be deleted.</p>
@@ -512,8 +592,14 @@ export interface DeprecateFlowTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeprecateFlowTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DeprecateSystemTemplateRequest {
   /**
    * <p>The ID of the system to delete.</p>
@@ -525,8 +611,14 @@ export interface DeprecateSystemTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeprecateSystemTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceRequest {
   /**
    * <p>The name of the user's namespace. Set this to <code>aws</code> to get the public namespace.</p>
@@ -534,6 +626,9 @@ export interface DescribeNamespaceRequest {
   namespaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceResponse {
   /**
    * <p>The ARN of the namespace.</p>
@@ -561,6 +656,9 @@ export interface DescribeNamespaceResponse {
   namespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export enum EntityType {
   ACTION = "ACTION",
   CAPABILITY = "CAPABILITY",
@@ -574,6 +672,9 @@ export enum EntityType {
   STATE = "STATE",
 }
 
+/**
+ * @public
+ */
 export interface DissociateEntityFromThingRequest {
   /**
    * <p>The name of the thing to disassociate.</p>
@@ -586,9 +687,13 @@ export interface DissociateEntityFromThingRequest {
   entityType: EntityType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DissociateEntityFromThingResponse {}
 
 /**
+ * @public
  * <p>Describes the properties of an entity.</p>
  */
 export interface EntityDescription {
@@ -618,6 +723,9 @@ export interface EntityDescription {
   definition?: DefinitionDocument;
 }
 
+/**
+ * @public
+ */
 export enum EntityFilterName {
   NAME = "NAME",
   NAMESPACE = "NAMESPACE",
@@ -626,6 +734,7 @@ export enum EntityFilterName {
 }
 
 /**
+ * @public
  * <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
  *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
  *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
@@ -643,6 +752,9 @@ export interface EntityFilter {
   value?: string[];
 }
 
+/**
+ * @public
+ */
 export enum FlowExecutionEventType {
   ACKNOWLEDGE_TASK_MESSAGE = "ACKNOWLEDGE_TASK_MESSAGE",
   ACTIVITY_FAILED = "ACTIVITY_FAILED",
@@ -664,6 +776,7 @@ export enum FlowExecutionEventType {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a flow event.</p>
  */
 export interface FlowExecutionMessage {
@@ -688,6 +801,9 @@ export interface FlowExecutionMessage {
   payload?: string;
 }
 
+/**
+ * @public
+ */
 export enum FlowExecutionStatus {
   ABORTED = "ABORTED",
   FAILED = "FAILED",
@@ -696,6 +812,7 @@ export enum FlowExecutionStatus {
 }
 
 /**
+ * @public
  * <p>An object that contains summary information about a flow execution.</p>
  */
 export interface FlowExecutionSummary {
@@ -731,6 +848,7 @@ export interface FlowExecutionSummary {
 }
 
 /**
+ * @public
  * <p>An object that contains a workflow's definition and summary information.</p>
  */
 export interface FlowTemplateDescription {
@@ -750,11 +868,15 @@ export interface FlowTemplateDescription {
   validatedNamespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export enum FlowTemplateFilterName {
   DEVICE_MODEL_ID = "DEVICE_MODEL_ID",
 }
 
 /**
+ * @public
  * <p>An object that filters a workflow search.</p>
  */
 export interface FlowTemplateFilter {
@@ -769,6 +891,9 @@ export interface FlowTemplateFilter {
   value: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEntitiesRequest {
   /**
    * <p>An array of entity IDs.</p>
@@ -785,6 +910,9 @@ export interface GetEntitiesRequest {
   namespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEntitiesResponse {
   /**
    * <p>An array of descriptions for the specified entities.</p>
@@ -792,6 +920,9 @@ export interface GetEntitiesResponse {
   descriptions?: EntityDescription[];
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateRequest {
   /**
    * <p>The ID of the workflow.</p>
@@ -808,6 +939,9 @@ export interface GetFlowTemplateRequest {
   revisionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateResponse {
   /**
    * <p>The object that describes the specified workflow.</p>
@@ -815,6 +949,9 @@ export interface GetFlowTemplateResponse {
   description?: FlowTemplateDescription;
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateRevisionsRequest {
   /**
    * <p>The ID of the workflow.</p>
@@ -836,6 +973,9 @@ export interface GetFlowTemplateRevisionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateRevisionsResponse {
   /**
    * <p>An array of objects that provide summary data about each revision.</p>
@@ -848,18 +988,30 @@ export interface GetFlowTemplateRevisionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNamespaceDeletionStatusRequest {}
 
+/**
+ * @public
+ */
 export enum NamespaceDeletionStatusErrorCodes {
   VALIDATION_FAILED = "VALIDATION_FAILED",
 }
 
+/**
+ * @public
+ */
 export enum NamespaceDeletionStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface GetNamespaceDeletionStatusResponse {
   /**
    * <p>The ARN of the namespace that is being deleted.</p>
@@ -887,6 +1039,9 @@ export interface GetNamespaceDeletionStatusResponse {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemInstanceRequest {
   /**
    * <p>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</p>
@@ -899,6 +1054,7 @@ export interface GetSystemInstanceRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains a system instance definition and summary information.</p>
  */
 export interface SystemInstanceDescription {
@@ -940,6 +1096,9 @@ export interface SystemInstanceDescription {
   flowActionsRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemInstanceResponse {
   /**
    * <p>An object that describes the system instance.</p>
@@ -947,6 +1106,9 @@ export interface GetSystemInstanceResponse {
   description?: SystemInstanceDescription;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateRequest {
   /**
    * <p>The ID of the system to get. This ID must be in the user's namespace.</p>
@@ -964,6 +1126,7 @@ export interface GetSystemTemplateRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains a system's definition document and summary information.</p>
  */
 export interface SystemTemplateDescription {
@@ -983,6 +1146,9 @@ export interface SystemTemplateDescription {
   validatedNamespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateResponse {
   /**
    * <p>An object that contains summary data about the system.</p>
@@ -990,6 +1156,9 @@ export interface GetSystemTemplateResponse {
   description?: SystemTemplateDescription;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateRevisionsRequest {
   /**
    * <p>The ID of the system template.</p>
@@ -1011,6 +1180,9 @@ export interface GetSystemTemplateRevisionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateRevisionsResponse {
   /**
    * <p>An array of objects that contain summary data about the system template revisions.</p>
@@ -1023,6 +1195,9 @@ export interface GetSystemTemplateRevisionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUploadStatusRequest {
   /**
    * <p>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action.</p>
@@ -1030,12 +1205,18 @@ export interface GetUploadStatusRequest {
   uploadId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum UploadStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface GetUploadStatusResponse {
   /**
    * <p>The ID of the upload.</p>
@@ -1073,6 +1254,9 @@ export interface GetUploadStatusResponse {
   createdDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowExecutionMessagesRequest {
   /**
    * <p>The ID of the flow execution.</p>
@@ -1090,6 +1274,9 @@ export interface ListFlowExecutionMessagesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowExecutionMessagesResponse {
   /**
    * <p>A list of objects that contain information about events in the specified flow execution.</p>
@@ -1102,6 +1289,9 @@ export interface ListFlowExecutionMessagesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The maximum number of tags to return.</p>
@@ -1119,6 +1309,9 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>List of tags returned by the <code>ListTagsForResource</code> operation.</p>
@@ -1131,6 +1324,9 @@ export interface ListTagsForResourceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchEntitiesRequest {
   /**
    * <p>The entity types for which to search.</p>
@@ -1162,6 +1358,9 @@ export interface SearchEntitiesRequest {
   namespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchEntitiesResponse {
   /**
    * <p>An array of descriptions for each entity returned in the search result.</p>
@@ -1174,6 +1373,9 @@ export interface SearchEntitiesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowExecutionsRequest {
   /**
    * <p>The ID of the system instance that contains the flow.</p>
@@ -1206,6 +1408,9 @@ export interface SearchFlowExecutionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowExecutionsResponse {
   /**
    * <p>An array of objects that contain summary information about each workflow execution in the result set.</p>
@@ -1218,6 +1423,9 @@ export interface SearchFlowExecutionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowTemplatesRequest {
   /**
    * <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>
@@ -1235,6 +1443,9 @@ export interface SearchFlowTemplatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowTemplatesResponse {
   /**
    * <p>An array of objects that contain summary information about each workflow in the result set.</p>
@@ -1247,6 +1458,9 @@ export interface SearchFlowTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SystemInstanceFilterName {
   GREENGRASS_GROUP_NAME = "GREENGRASS_GROUP_NAME",
   STATUS = "STATUS",
@@ -1254,6 +1468,7 @@ export enum SystemInstanceFilterName {
 }
 
 /**
+ * @public
  * <p>An object that filters a system instance search.
  *          Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a
  *          STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>
@@ -1270,6 +1485,9 @@ export interface SystemInstanceFilter {
   value?: string[];
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemInstancesRequest {
   /**
    * <p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and
@@ -1289,6 +1507,9 @@ export interface SearchSystemInstancesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemInstancesResponse {
   /**
    * <p>An array of objects that contain summary data abour the system instances in the result set.</p>
@@ -1301,11 +1522,15 @@ export interface SearchSystemInstancesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SystemTemplateFilterName {
   FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID",
 }
 
 /**
+ * @public
  * <p>An object that filters a system search.</p>
  */
 export interface SystemTemplateFilter {
@@ -1320,6 +1545,9 @@ export interface SystemTemplateFilter {
   value: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemTemplatesRequest {
   /**
    * <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
@@ -1337,6 +1565,9 @@ export interface SearchSystemTemplatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemTemplatesResponse {
   /**
    * <p>An array of objects that contain summary information about each system deployment in the result set.</p>
@@ -1349,6 +1580,9 @@ export interface SearchSystemTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchThingsRequest {
   /**
    * <p>The ID of the entity to which the things are associated.</p>
@@ -1376,6 +1610,7 @@ export interface SearchThingsRequest {
 }
 
 /**
+ * @public
  * <p>An AWS IoT thing.</p>
  */
 export interface Thing {
@@ -1390,6 +1625,9 @@ export interface Thing {
   thingName?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchThingsResponse {
   /**
    * <p>An array of things in the result set.</p>
@@ -1402,6 +1640,9 @@ export interface SearchThingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>
@@ -1414,8 +1655,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UndeploySystemInstanceRequest {
   /**
    * <p>The ID of the system instance to remove from its target.</p>
@@ -1423,6 +1670,9 @@ export interface UndeploySystemInstanceRequest {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface UndeploySystemInstanceResponse {
   /**
    * <p>An object that contains summary information about the system instance that was removed from its target.</p>
@@ -1430,6 +1680,9 @@ export interface UndeploySystemInstanceResponse {
   summary?: SystemInstanceSummary;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
@@ -1443,8 +1696,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFlowTemplateRequest {
   /**
    * <p>The ID of the workflow to be updated.</p>
@@ -1468,6 +1727,9 @@ export interface UpdateFlowTemplateRequest {
   compatibleNamespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowTemplateResponse {
   /**
    * <p>An object containing summary information about the updated workflow.</p>
@@ -1475,6 +1737,9 @@ export interface UpdateFlowTemplateResponse {
   summary?: FlowTemplateSummary;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSystemTemplateRequest {
   /**
    * <p>The ID of the system to be updated.</p>
@@ -1497,6 +1762,9 @@ export interface UpdateSystemTemplateRequest {
   compatibleNamespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSystemTemplateResponse {
   /**
    * <p>An object containing summary information about the updated system.</p>
@@ -1504,6 +1772,9 @@ export interface UpdateSystemTemplateResponse {
   summary?: SystemTemplateSummary;
 }
 
+/**
+ * @public
+ */
 export interface UploadEntityDefinitionsRequest {
   /**
    * <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>
@@ -1522,6 +1793,9 @@ export interface UploadEntityDefinitionsRequest {
   deprecateExistingEntities?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UploadEntityDefinitionsResponse {
   /**
    * <p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>

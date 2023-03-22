@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeIpRulesCommand}.
  */
 export interface AuthorizeIpRulesCommandInput extends AuthorizeIpRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeIpRulesCommand}.
  */
 export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more rules to the specified IP access control group.</p>
  *          <p>This action gives users permission to access their WorkSpaces from the CIDR address
  *          ranges specified in the rules.</p>
@@ -48,6 +53,8 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeIpRulesCommandInput - {@link AuthorizeIpRulesCommandInput}
+ * @returns {@link AuthorizeIpRulesCommandOutput}
  * @see {@link AuthorizeIpRulesCommandInput} for command's `input` shape.
  * @see {@link AuthorizeIpRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -86,6 +93,9 @@ export class AuthorizeIpRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeIpRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class AuthorizeIpRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeIpRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AuthorizeIpRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeIpRulesCommandOutput> {
     return deserializeAws_json1_1AuthorizeIpRulesCommand(output, context);
   }

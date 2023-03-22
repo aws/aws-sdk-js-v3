@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchReadCommand}.
  */
 export interface BatchReadCommandInput extends BatchReadRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchReadCommand}.
  */
 export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs all the read operations in a batch. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchReadCommandInput - {@link BatchReadCommandInput}
+ * @returns {@link BatchReadCommandOutput}
  * @see {@link BatchReadCommandInput} for command's `input` shape.
  * @see {@link BatchReadCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -91,6 +98,9 @@ export class BatchReadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchReadCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class BatchReadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchReadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchReadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchReadCommandOutput> {
     return deserializeAws_restJson1BatchReadCommand(output, context);
   }

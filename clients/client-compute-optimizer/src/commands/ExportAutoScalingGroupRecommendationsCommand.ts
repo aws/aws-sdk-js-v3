@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExportAutoScalingGroupRecommendationsCommand}.
  */
 export interface ExportAutoScalingGroupRecommendationsCommandInput
   extends ExportAutoScalingGroupRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportAutoScalingGroupRecommendationsCommand}.
  */
 export interface ExportAutoScalingGroupRecommendationsCommandOutput
@@ -38,6 +42,7 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports optimization recommendations for Auto Scaling groups.</p>
  *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
@@ -54,6 +59,8 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportAutoScalingGroupRecommendationsCommandInput - {@link ExportAutoScalingGroupRecommendationsCommandInput}
+ * @returns {@link ExportAutoScalingGroupRecommendationsCommandOutput}
  * @see {@link ExportAutoScalingGroupRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportAutoScalingGroupRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -102,6 +109,9 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportAutoScalingGroupRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportAutoScalingGroupRecommendationsCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
     return serializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

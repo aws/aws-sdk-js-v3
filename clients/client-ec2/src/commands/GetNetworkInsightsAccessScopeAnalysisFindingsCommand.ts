@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommand}.
  */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput
   extends GetNetworkInsightsAccessScopeAnalysisFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommand}.
  */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
@@ -38,6 +42,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the findings for the specified Network Access Scope analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput - {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput}
+ * @returns {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput}
  * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     return serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

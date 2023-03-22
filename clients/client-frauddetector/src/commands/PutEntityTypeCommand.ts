@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEntityTypeCommand}.
  */
 export interface PutEntityTypeCommandInput extends PutEntityTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEntityTypeCommand}.
  */
 export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEntityTypeCommandInput - {@link PutEntityTypeCommandInput}
+ * @returns {@link PutEntityTypeCommandOutput}
  * @see {@link PutEntityTypeCommandInput} for command's `input` shape.
  * @see {@link PutEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class PutEntityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEntityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutEntityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutEntityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEntityTypeCommandOutput> {
     return deserializeAws_json1_1PutEntityTypeCommand(output, context);
   }

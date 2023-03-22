@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLabelsCommand}.
  */
 export interface CreateLabelsCommandInput extends CreateLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLabelsCommand}.
  */
 export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified list of labels to the given resource (a document or
  *             folder)</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLabelsCommandInput - {@link CreateLabelsCommandInput}
+ * @returns {@link CreateLabelsCommandOutput}
  * @see {@link CreateLabelsCommandInput} for command's `input` shape.
  * @see {@link CreateLabelsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelsCommandOutput> {
     return deserializeAws_restJson1CreateLabelsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageReplicationStatusCommand}.
  */
 export interface DescribeImageReplicationStatusCommandInput extends DescribeImageReplicationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageReplicationStatusCommand}.
  */
 export interface DescribeImageReplicationStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeImageReplicationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the replication status for a specified image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeImageReplicationStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageReplicationStatusCommandInput - {@link DescribeImageReplicationStatusCommandInput}
+ * @returns {@link DescribeImageReplicationStatusCommandOutput}
  * @see {@link DescribeImageReplicationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeImageReplicationStatusCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeImageReplicationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageReplicationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeImageReplicationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeImageReplicationStatusCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeImageReplicationStatusCommand extends $Command<
     return serializeAws_json1_1DescribeImageReplicationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

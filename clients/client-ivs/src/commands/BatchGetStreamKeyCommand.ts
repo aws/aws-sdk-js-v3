@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetStreamKeyCommand}.
  */
 export interface BatchGetStreamKeyCommandInput extends BatchGetStreamKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetStreamKeyCommand}.
  */
 export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs <a>GetStreamKey</a> on multiple ARNs simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetStreamKeyCommandInput - {@link BatchGetStreamKeyCommandInput}
+ * @returns {@link BatchGetStreamKeyCommandOutput}
  * @see {@link BatchGetStreamKeyCommandInput} for command's `input` shape.
  * @see {@link BatchGetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -69,6 +76,9 @@ export class BatchGetStreamKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetStreamKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class BatchGetStreamKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetStreamKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetStreamKeyCommandOutput> {
     return deserializeAws_restJson1BatchGetStreamKeyCommand(output, context);
   }

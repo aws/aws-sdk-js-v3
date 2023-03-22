@@ -23,15 +23,20 @@ import {
 import { deserializeAws_restJson1GetSdkCommand, serializeAws_restJson1GetSdkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSdkCommand}.
  */
 export interface GetSdkCommandInput extends GetSdkRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSdkCommand}.
  */
 export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a client SDK for a RestApi and Stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSdkCommandInput - {@link GetSdkCommandInput}
+ * @returns {@link GetSdkCommandOutput}
  * @see {@link GetSdkCommandInput} for command's `input` shape.
  * @see {@link GetSdkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSdkCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSdkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSdkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSdkCommandOutput> {
     return deserializeAws_restJson1GetSdkCommand(output, context);
   }

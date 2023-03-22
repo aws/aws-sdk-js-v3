@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserByPrincipalIdCommand}.
  */
 export interface DeleteUserByPrincipalIdCommandInput extends DeleteUserByPrincipalIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserByPrincipalIdCommand}.
  */
 export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrincipalIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user identified by its principal ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserByPrincipalIdCommandInput - {@link DeleteUserByPrincipalIdCommandInput}
+ * @returns {@link DeleteUserByPrincipalIdCommandOutput}
  * @see {@link DeleteUserByPrincipalIdCommandInput} for command's `input` shape.
  * @see {@link DeleteUserByPrincipalIdCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserByPrincipalIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserByPrincipalIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUserByPrincipalIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserByPrincipalIdCommandOutput> {
     return deserializeAws_restJson1DeleteUserByPrincipalIdCommand(output, context);
   }

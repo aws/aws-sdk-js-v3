@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCloudFrontOriginAccessIdentityCommand}.
  */
 export interface DeleteCloudFrontOriginAccessIdentityCommandInput extends DeleteCloudFrontOriginAccessIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCloudFrontOriginAccessIdentityCommand}.
  */
 export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCloudFrontOriginAccessIdentityCommandInput - {@link DeleteCloudFrontOriginAccessIdentityCommandInput}
+ * @returns {@link DeleteCloudFrontOriginAccessIdentityCommandOutput}
  * @see {@link DeleteCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     return serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

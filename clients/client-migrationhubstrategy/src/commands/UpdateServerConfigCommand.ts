@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerConfigCommand}.
  */
 export interface UpdateServerConfigCommandInput extends UpdateServerConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerConfigCommand}.
  */
 export interface UpdateServerConfigCommandOutput extends UpdateServerConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the configuration of the specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerConfigCommandInput - {@link UpdateServerConfigCommandInput}
+ * @returns {@link UpdateServerConfigCommandOutput}
  * @see {@link UpdateServerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateServerConfigCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateServerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateServerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateServerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerConfigCommandOutput> {
     return deserializeAws_restJson1UpdateServerConfigCommand(output, context);
   }

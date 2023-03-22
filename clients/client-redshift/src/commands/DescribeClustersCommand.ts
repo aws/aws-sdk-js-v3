@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClustersCommand}.
  */
 export interface DescribeClustersCommandInput extends DescribeClustersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClustersCommand}.
  */
 export interface DescribeClustersCommandOutput extends ClustersMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns properties of provisioned clusters including general cluster properties,
  *             cluster database properties, maintenance and backup properties, and security and access
  *             properties. This operation supports pagination.
@@ -58,6 +63,8 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
+ * @returns {@link DescribeClustersCommandOutput}
  * @see {@link DescribeClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClustersCommandOutput> {
     return deserializeAws_queryDescribeClustersCommand(output, context);
   }

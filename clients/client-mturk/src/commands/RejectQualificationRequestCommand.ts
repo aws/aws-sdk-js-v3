@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectQualificationRequestCommand}.
  */
 export interface RejectQualificationRequestCommandInput extends RejectQualificationRequestRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectQualificationRequestCommand}.
  */
 export interface RejectQualificationRequestCommandOutput extends RejectQualificationRequestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>RejectQualificationRequest</code>
@@ -52,6 +57,8 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectQualificationRequestCommandInput - {@link RejectQualificationRequestCommandInput}
+ * @returns {@link RejectQualificationRequestCommandOutput}
  * @see {@link RejectQualificationRequestCommandInput} for command's `input` shape.
  * @see {@link RejectQualificationRequestCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -81,6 +88,9 @@ export class RejectQualificationRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectQualificationRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RejectQualificationRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectQualificationRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectQualificationRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteElasticsearchServiceRoleCommand}.
  */
 export interface DeleteElasticsearchServiceRoleCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteElasticsearchServiceRoleCommand}.
  */
 export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteElasticsearchServiceRoleCommandInput - {@link DeleteElasticsearchServiceRoleCommandInput}
+ * @returns {@link DeleteElasticsearchServiceRoleCommandOutput}
  * @see {@link DeleteElasticsearchServiceRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteElasticsearchServiceRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteElasticsearchServiceRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +125,9 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteElasticsearchServiceRoleCommandInput,
     context: __SerdeContext
@@ -122,6 +135,9 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     return serializeAws_restJson1DeleteElasticsearchServiceRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

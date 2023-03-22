@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIntegrationResponseCommand}.
  */
 export interface DeleteIntegrationResponseCommandInput extends DeleteIntegrationResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIntegrationResponseCommand}.
  */
 export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an IntegrationResponses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntegrationResponseCommandInput - {@link DeleteIntegrationResponseCommandInput}
+ * @returns {@link DeleteIntegrationResponseCommandOutput}
  * @see {@link DeleteIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteIntegrationResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntegrationResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteIntegrationResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntegrationResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteIntegrationResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

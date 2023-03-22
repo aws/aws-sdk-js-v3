@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { NimbleServiceException as __BaseException } from "./NimbleServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptEulasRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -23,6 +26,7 @@ export interface AcceptEulasRequest {
 }
 
 /**
+ * @public
  * <p>The acceptance of a EULA, required to use Amazon-provided streaming images.</p>
  */
 export interface EulaAcceptance {
@@ -52,6 +56,9 @@ export interface EulaAcceptance {
   eulaId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptEulasResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -60,6 +67,7 @@ export interface AcceptEulasResponse {
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform this operation. Check your IAM
  *             policies, and ensure that you are using the correct access keys.</p>
  */
@@ -92,6 +100,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation is in progress. </p>
  */
 export class ConflictException extends __BaseException {
@@ -123,6 +132,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred. Please retry your request.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -155,6 +165,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -186,6 +197,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your current quota does not allow you to perform the request action. You can request
  *             increases for some quotas, and other quotas cannot be increased.</p>
  *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
@@ -219,6 +231,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request throughput limit was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -251,6 +264,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the parameters in the request is invalid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -282,6 +296,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
  *             pair.</p>
  */
@@ -298,6 +313,7 @@ export interface ActiveDirectoryComputerAttribute {
 }
 
 /**
+ * @public
  * <p>The configuration for a Directory Service for Microsoft Active Directory studio resource.</p>
  */
 export interface ActiveDirectoryConfiguration {
@@ -319,12 +335,16 @@ export interface ActiveDirectoryConfiguration {
   organizationalUnitDistinguishedName?: string;
 }
 
+/**
+ * @public
+ */
 export enum AutomaticTerminationMode {
   ACTIVATED = "ACTIVATED",
   DEACTIVATED = "DEACTIVATED",
 }
 
 /**
+ * @public
  * <p>The configuration for a render farm that is associated with a studio resource.</p>
  */
 export interface ComputeFarmConfiguration {
@@ -341,11 +361,17 @@ export interface ComputeFarmConfiguration {
   endpoint?: string;
 }
 
+/**
+ * @public
+ */
 export enum StreamingClipboardMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum StreamingInstanceType {
   g3_4xlarge = "g3.4xlarge",
   g3s_xlarge = "g3s.xlarge",
@@ -362,12 +388,16 @@ export enum StreamingInstanceType {
   g5_xlarge = "g5.xlarge",
 }
 
+/**
+ * @public
+ */
 export enum SessionBackupMode {
   AUTOMATIC = "AUTOMATIC",
   DEACTIVATED = "DEACTIVATED",
 }
 
 /**
+ * @public
  * <p>Configures how streaming sessions are backed up when launched from this launch
  *             profile.</p>
  */
@@ -387,16 +417,23 @@ export interface StreamConfigurationSessionBackup {
   maxBackupsToRetain?: number;
 }
 
+/**
+ * @public
+ */
 export enum SessionPersistenceMode {
   ACTIVATED = "ACTIVATED",
   DEACTIVATED = "DEACTIVATED",
 }
 
+/**
+ * @public
+ */
 export enum StreamingSessionStorageMode {
   UPLOAD = "UPLOAD",
 }
 
 /**
+ * @public
  * <p>The upload storage root location (folder) on streaming workstations where files are
  *             uploaded.</p>
  */
@@ -413,6 +450,7 @@ export interface StreamingSessionStorageRoot {
 }
 
 /**
+ * @public
  * <p>The configuration for a streaming session’s upload storage.</p>
  */
 export interface StreamConfigurationSessionStorage {
@@ -429,6 +467,7 @@ export interface StreamConfigurationSessionStorage {
 }
 
 /**
+ * @public
  * <p>Custom volume configuration for the root volumes that are attached to streaming
  *             sessions.</p>
  *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
@@ -455,6 +494,7 @@ export interface VolumeConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration for streaming workstations created using this launch profile.</p>
  */
 export interface StreamConfigurationCreate {
@@ -553,6 +593,9 @@ export interface StreamConfigurationCreate {
   automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -606,6 +649,9 @@ export interface CreateLaunchProfileRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum LaunchProfileState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -617,6 +663,9 @@ export enum LaunchProfileState {
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum LaunchProfileStatusCode {
   ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
   ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
@@ -636,6 +685,7 @@ export enum LaunchProfileStatusCode {
 }
 
 /**
+ * @public
  * <p>A configuration for a streaming session.</p>
  */
 export interface StreamConfiguration {
@@ -732,6 +782,9 @@ export interface StreamConfiguration {
   automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
+/**
+ * @public
+ */
 export enum LaunchProfileValidationState {
   VALIDATION_FAILED = "VALIDATION_FAILED",
   VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
@@ -740,6 +793,9 @@ export enum LaunchProfileValidationState {
   VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
 }
 
+/**
+ * @public
+ */
 export enum LaunchProfileValidationStatusCode {
   VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
   VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY = "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
@@ -752,6 +808,9 @@ export enum LaunchProfileValidationStatusCode {
   VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
 }
 
+/**
+ * @public
+ */
 export enum LaunchProfileValidationType {
   VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT = "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
   VALIDATE_NETWORK_ACL_ASSOCIATION = "VALIDATE_NETWORK_ACL_ASSOCIATION",
@@ -760,6 +819,7 @@ export enum LaunchProfileValidationType {
 }
 
 /**
+ * @public
  * <p>The launch profile validation result.</p>
  */
 export interface ValidationResult {
@@ -786,6 +846,7 @@ export interface ValidationResult {
 }
 
 /**
+ * @public
  * <p>A launch profile controls your artist workforce’s access to studio components, like
  *             compute farms, shared file systems, managed file systems, and license server
  *             configurations, as well as instance types and Amazon Machine Images (AMIs). </p>
@@ -885,6 +946,9 @@ export interface LaunchProfile {
   validationResults?: ValidationResult[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -892,6 +956,9 @@ export interface CreateLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -927,11 +994,15 @@ export interface CreateStreamingImageRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum StreamingImageEncryptionConfigurationKeyType {
   CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
 }
 
 /**
+ * @public
  * <p>Specifies how a streaming image is encrypted.</p>
  */
 export interface StreamingImageEncryptionConfiguration {
@@ -946,6 +1017,9 @@ export interface StreamingImageEncryptionConfiguration {
   keyType: StreamingImageEncryptionConfigurationKeyType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StreamingImageState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -957,6 +1031,9 @@ export enum StreamingImageState {
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum StreamingImageStatusCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
@@ -968,6 +1045,7 @@ export enum StreamingImageStatusCode {
 }
 
 /**
+ * @public
  * <p>Represents a streaming image resource.</p>
  *         <p>Streaming images are used by studio users to select which operating system and
  *             software they want to use in a Nimble Studio streaming session.</p>
@@ -1048,6 +1126,9 @@ export interface StreamingImage {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -1055,6 +1136,9 @@ export interface CreateStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1097,6 +1181,9 @@ export interface CreateStreamingSessionRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum StreamingSessionState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -1111,6 +1198,9 @@ export enum StreamingSessionState {
   STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum StreamingSessionStatusCode {
   ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR = "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
   AMI_VALIDATION_ERROR = "AMI_VALIDATION_ERROR",
@@ -1130,12 +1220,16 @@ export enum StreamingSessionStatusCode {
   STREAMING_SESSION_STOP_IN_PROGRESS = "STREAMING_SESSION_STOP_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum VolumeRetentionMode {
   DELETE = "DELETE",
   RETAIN = "RETAIN",
 }
 
 /**
+ * @public
  * <p>A streaming session is a virtual workstation created using a particular launch
  *             profile.</p>
  */
@@ -1305,6 +1399,9 @@ export interface StreamingSession {
   automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -1312,6 +1409,9 @@ export interface CreateStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionStreamRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1336,6 +1436,9 @@ export interface CreateStreamingSessionStreamRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StreamingSessionStreamState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -1345,6 +1448,9 @@ export enum StreamingSessionStreamState {
   READY = "READY",
 }
 
+/**
+ * @public
+ */
 export enum StreamingSessionStreamStatusCode {
   INTERNAL_ERROR = "INTERNAL_ERROR",
   NETWORK_CONNECTION_ERROR = "NETWORK_CONNECTION_ERROR",
@@ -1355,6 +1461,7 @@ export enum StreamingSessionStreamStatusCode {
 }
 
 /**
+ * @public
  * <p>A stream is an active connection to a streaming session, enabling a studio user to
  *             control the streaming session using a compatible client. Streaming session streams are
  *             compatible with the NICE DCV web client, included in the Nimble Studio portal, or
@@ -1404,6 +1511,9 @@ export interface StreamingSessionStream {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -1411,12 +1521,16 @@ export interface CreateStreamingSessionStreamResponse {
   stream?: StreamingSessionStream;
 }
 
+/**
+ * @public
+ */
 export enum StudioEncryptionConfigurationKeyType {
   AWS_OWNED_KEY = "AWS_OWNED_KEY",
   CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
 }
 
 /**
+ * @public
  * <p>Configuration of the encryption method that is used for the studio.</p>
  */
 export interface StudioEncryptionConfiguration {
@@ -1431,6 +1545,9 @@ export interface StudioEncryptionConfiguration {
   keyType: StudioEncryptionConfigurationKeyType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioRequest {
   /**
    * <p>The IAM role that studio admins will assume when logging in to the
@@ -1474,6 +1591,9 @@ export interface CreateStudioRequest {
   userRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StudioState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -1485,6 +1605,9 @@ export enum StudioState {
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum StudioStatusCode {
   AWS_SSO_ACCESS_DENIED = "AWS_SSO_ACCESS_DENIED",
   AWS_SSO_CONFIGURATION_REPAIRED = "AWS_SSO_CONFIGURATION_REPAIRED",
@@ -1508,6 +1631,7 @@ export enum StudioStatusCode {
 }
 
 /**
+ * @public
  * <p>Represents a studio resource.</p>
  *         <p>A studio is the core resource used with Nimble Studio. You must create a studio
  *             first, before any other resource type can be created. All other resources you create and
@@ -1608,6 +1732,9 @@ export interface Studio {
   userRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -1616,6 +1743,7 @@ export interface CreateStudioResponse {
 }
 
 /**
+ * @public
  * <p>The configuration for a license service that is associated with a studio
  *             resource.</p>
  */
@@ -1628,6 +1756,7 @@ export interface LicenseServiceConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a shared file storage system that is associated with a studio
  *             resource.</p>
  */
@@ -1660,6 +1789,7 @@ export interface SharedFileSystemConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of the studio component, based on component type.</p>
  */
 export interface StudioComponentConfiguration {
@@ -1686,17 +1816,24 @@ export interface StudioComponentConfiguration {
   sharedFileSystemConfiguration?: SharedFileSystemConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum LaunchProfilePlatform {
   LINUX = "LINUX",
   WINDOWS = "WINDOWS",
 }
 
+/**
+ * @public
+ */
 export enum StudioComponentInitializationScriptRunContext {
   SYSTEM_INITIALIZATION = "SYSTEM_INITIALIZATION",
   USER_INITIALIZATION = "USER_INITIALIZATION",
 }
 
 /**
+ * @public
  * <p>Initialization scripts for studio components.</p>
  */
 export interface StudioComponentInitializationScript {
@@ -1723,6 +1860,7 @@ export interface StudioComponentInitializationScript {
 }
 
 /**
+ * @public
  * <p>A parameter for a studio component script, in the form of a key-value pair.</p>
  */
 export interface ScriptParameterKeyValue {
@@ -1737,6 +1875,9 @@ export interface ScriptParameterKeyValue {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum StudioComponentSubtype {
   AMAZON_FSX_FOR_LUSTRE = "AMAZON_FSX_FOR_LUSTRE",
   AMAZON_FSX_FOR_WINDOWS = "AMAZON_FSX_FOR_WINDOWS",
@@ -1744,6 +1885,9 @@ export enum StudioComponentSubtype {
   CUSTOM = "CUSTOM",
 }
 
+/**
+ * @public
+ */
 export enum StudioComponentType {
   ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
   COMPUTE_FARM = "COMPUTE_FARM",
@@ -1752,6 +1896,9 @@ export enum StudioComponentType {
   SHARED_FILE_SYSTEM = "SHARED_FILE_SYSTEM",
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1826,6 +1973,9 @@ export interface CreateStudioComponentRequest {
   runtimeRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum StudioComponentState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -1837,6 +1987,9 @@ export enum StudioComponentState {
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum StudioComponentStatusCode {
   ACTIVE_DIRECTORY_ALREADY_EXISTS = "ACTIVE_DIRECTORY_ALREADY_EXISTS",
   ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
@@ -1851,6 +2004,7 @@ export enum StudioComponentStatusCode {
 }
 
 /**
+ * @public
  * <p>A studio component represents a network resource to be used by a studio's users and
  *             workflows. A typical studio contains studio components for each of the following: render
  *             farm, Active Directory, licensing, and file system.</p>
@@ -1969,6 +2123,9 @@ export interface StudioComponent {
   runtimeRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -1976,6 +2133,9 @@ export interface CreateStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1995,6 +2155,9 @@ export interface DeleteLaunchProfileRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2002,6 +2165,9 @@ export interface DeleteLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2026,8 +2192,14 @@ export interface DeleteLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileMemberResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2047,6 +2219,9 @@ export interface DeleteStreamingImageRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -2054,6 +2229,9 @@ export interface DeleteStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2073,6 +2251,9 @@ export interface DeleteStreamingSessionRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -2080,6 +2261,9 @@ export interface DeleteStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2094,6 +2278,9 @@ export interface DeleteStudioRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -2101,6 +2288,9 @@ export interface DeleteStudioResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2120,6 +2310,9 @@ export interface DeleteStudioComponentRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -2127,6 +2320,9 @@ export interface DeleteStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2146,9 +2342,13 @@ export interface DeleteStudioMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioMemberResponse {}
 
 /**
+ * @public
  * <p>Represents a EULA resource.</p>
  */
 export interface Eula {
@@ -2178,6 +2378,9 @@ export interface Eula {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEulaAcceptancesRequest {
   /**
    * <p>The list of EULA IDs that have been previously accepted.</p>
@@ -2195,6 +2398,9 @@ export interface ListEulaAcceptancesRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEulaAcceptancesResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -2207,6 +2413,9 @@ export interface ListEulaAcceptancesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEulaRequest {
   /**
    * <p>The EULA ID.</p>
@@ -2214,6 +2423,9 @@ export interface GetEulaRequest {
   eulaId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEulaResponse {
   /**
    * <p>The EULA.</p>
@@ -2221,6 +2433,9 @@ export interface GetEulaResponse {
   eula?: Eula;
 }
 
+/**
+ * @public
+ */
 export interface ListEulasRequest {
   /**
    * <p>The list of EULA IDs that should be returned</p>
@@ -2233,6 +2448,9 @@ export interface ListEulasRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEulasResponse {
   /**
    * <p>A collection of EULA resources.</p>
@@ -2245,6 +2463,9 @@ export interface ListEulasResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2257,6 +2478,9 @@ export interface GetLaunchProfileRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2264,6 +2488,9 @@ export interface GetLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileDetailsRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2277,6 +2504,7 @@ export interface GetLaunchProfileDetailsRequest {
 }
 
 /**
+ * @public
  * <p>The studio component's summary.</p>
  */
 export interface StudioComponentSummary {
@@ -2326,6 +2554,9 @@ export interface StudioComponentSummary {
   updatedBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileDetailsResponse {
   /**
    * <p>The launch profile.</p>
@@ -2343,6 +2574,9 @@ export interface GetLaunchProfileDetailsResponse {
   studioComponentSummaries?: StudioComponentSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileInitializationRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2371,6 +2605,7 @@ export interface GetLaunchProfileInitializationRequest {
 }
 
 /**
+ * @public
  * <p>The launch profile initialization Active Directory contains information required for
  *             the launch profile to connect to the Active Directory.</p>
  */
@@ -2413,6 +2648,7 @@ export interface LaunchProfileInitializationActiveDirectory {
 }
 
 /**
+ * @public
  * <p>The launch profile initialization script is used when start streaming session
  *             runs.</p>
  */
@@ -2448,6 +2684,7 @@ export interface LaunchProfileInitializationScript {
 }
 
 /**
+ * @public
  * <p>A launch profile initialization contains information required for a workstation or
  *             server to connect to a launch profile.</p>
  *         <p>This includes scripts, endpoints, security groups, subnets, and other
@@ -2501,6 +2738,9 @@ export interface LaunchProfileInitialization {
   userInitializationScripts?: LaunchProfileInitializationScript[];
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileInitializationResponse {
   /**
    * <p>The launch profile initialization.</p>
@@ -2508,6 +2748,9 @@ export interface GetLaunchProfileInitializationResponse {
   launchProfileInitialization?: LaunchProfileInitialization;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileMemberRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2525,11 +2768,15 @@ export interface GetLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum LaunchProfilePersona {
   USER = "USER",
 }
 
 /**
+ * @public
  * <p>Studio admins can use launch profile membership to delegate launch profile access to
  *             studio users in the Nimble Studio portal without writing or maintaining complex
  *                 IAM policies. A launch profile member is a user association from your
@@ -2579,6 +2826,9 @@ export interface LaunchProfileMembership {
   sid?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileMemberResponse {
   /**
    * <p>The member.</p>
@@ -2586,6 +2836,9 @@ export interface GetLaunchProfileMemberResponse {
   member?: LaunchProfileMembership;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingImageRequest {
   /**
    * <p>The streaming image ID.</p>
@@ -2598,6 +2851,9 @@ export interface GetStreamingImageRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -2605,6 +2861,9 @@ export interface GetStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionRequest {
   /**
    * <p>The streaming session ID.</p>
@@ -2617,6 +2876,9 @@ export interface GetStreamingSessionRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -2624,6 +2886,9 @@ export interface GetStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionBackupRequest {
   /**
    * <p>The ID of the backup.</p>
@@ -2637,6 +2902,7 @@ export interface GetStreamingSessionBackupRequest {
 }
 
 /**
+ * @public
  * <p>Information about the streaming session backup.</p>
  */
 export interface StreamingSessionBackup {
@@ -2694,6 +2960,9 @@ export interface StreamingSessionBackup {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionBackupResponse {
   /**
    * <p>Information about the streaming session backup.</p>
@@ -2701,6 +2970,9 @@ export interface GetStreamingSessionBackupResponse {
   streamingSessionBackup?: StreamingSessionBackup;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionStreamRequest {
   /**
    * <p>The streaming session ID.</p>
@@ -2718,6 +2990,9 @@ export interface GetStreamingSessionStreamRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -2725,6 +3000,9 @@ export interface GetStreamingSessionStreamResponse {
   stream?: StreamingSessionStream;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioRequest {
   /**
    * <p>The studio ID. </p>
@@ -2732,6 +3010,9 @@ export interface GetStudioRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -2739,6 +3020,9 @@ export interface GetStudioResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioComponentRequest {
   /**
    * <p>The studio component ID.</p>
@@ -2751,6 +3035,9 @@ export interface GetStudioComponentRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -2758,6 +3045,9 @@ export interface GetStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioMemberRequest {
   /**
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
@@ -2770,11 +3060,15 @@ export interface GetStudioMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StudioPersona {
   ADMINISTRATOR = "ADMINISTRATOR",
 }
 
 /**
+ * @public
  * <p>A studio member is an association of a user from your studio identity source to
  *             elevated permissions that they are granted in the studio.</p>
  *         <p>When you add a user to your studio using the Nimble Studio console, they are
@@ -2808,6 +3102,9 @@ export interface StudioMembership {
   sid?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioMemberResponse {
   /**
    * <p>The member.</p>
@@ -2815,6 +3112,9 @@ export interface GetStudioMemberResponse {
   member?: StudioMembership;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfileMembersRequest {
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -2837,6 +3137,9 @@ export interface ListLaunchProfileMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfileMembersResponse {
   /**
    * <p>A list of members.</p>
@@ -2849,6 +3152,9 @@ export interface ListLaunchProfileMembersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfilesRequest {
   /**
    * <p>The max number of results to return in the response.</p>
@@ -2876,6 +3182,9 @@ export interface ListLaunchProfilesRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchProfilesResponse {
   /**
    * <p>A collection of launch profiles.</p>
@@ -2889,6 +3198,7 @@ export interface ListLaunchProfilesResponse {
 }
 
 /**
+ * @public
  * <p>A new member that is added to a launch profile.</p>
  */
 export interface NewLaunchProfileMember {
@@ -2903,6 +3213,9 @@ export interface NewLaunchProfileMember {
   principalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLaunchProfileMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2932,8 +3245,14 @@ export interface PutLaunchProfileMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLaunchProfileMembersResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2980,6 +3299,9 @@ export interface UpdateLaunchProfileRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2987,6 +3309,9 @@ export interface UpdateLaunchProfileResponse {
   launchProfile?: LaunchProfile;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3016,6 +3341,9 @@ export interface UpdateLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileMemberResponse {
   /**
    * <p>The updated member. </p>
@@ -3023,6 +3351,9 @@ export interface UpdateLaunchProfileMemberResponse {
   member?: LaunchProfileMembership;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingImagesRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3040,6 +3371,9 @@ export interface ListStreamingImagesRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingImagesResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3052,6 +3386,9 @@ export interface ListStreamingImagesResponse {
   streamingImages?: StreamingImage[];
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionBackupsRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3069,6 +3406,9 @@ export interface ListStreamingSessionBackupsRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionBackupsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3081,6 +3421,9 @@ export interface ListStreamingSessionBackupsResponse {
   streamingSessionBackups?: StreamingSessionBackup[];
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionsRequest {
   /**
    * <p>Filters the request to streaming sessions created by the given user.</p>
@@ -3108,6 +3451,9 @@ export interface ListStreamingSessionsRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamingSessionsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3120,6 +3466,9 @@ export interface ListStreamingSessionsResponse {
   sessions?: StreamingSession[];
 }
 
+/**
+ * @public
+ */
 export interface ListStudioComponentsRequest {
   /**
    * <p>The max number of results to return in the response.</p>
@@ -3147,6 +3496,9 @@ export interface ListStudioComponentsRequest {
   types?: (StudioComponentType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListStudioComponentsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3159,6 +3511,9 @@ export interface ListStudioComponentsResponse {
   studioComponents?: StudioComponent[];
 }
 
+/**
+ * @public
+ */
 export interface ListStudioMembersRequest {
   /**
    * <p>The max number of results to return in the response.</p>
@@ -3176,6 +3531,9 @@ export interface ListStudioMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStudioMembersResponse {
   /**
    * <p>A list of admin members.</p>
@@ -3188,6 +3546,9 @@ export interface ListStudioMembersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudiosRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3195,6 +3556,9 @@ export interface ListStudiosRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudiosResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3207,6 +3571,9 @@ export interface ListStudiosResponse {
   studios: Studio[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
@@ -3214,6 +3581,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
@@ -3223,6 +3593,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A new studio user's membership.</p>
  */
 export interface NewStudioMember {
@@ -3237,6 +3608,9 @@ export interface NewStudioMember {
   principalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3266,6 +3640,9 @@ export interface UpdateStreamingImageRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamingImageResponse {
   /**
    * <p>Represents a streaming image resource.</p>
@@ -3280,6 +3657,9 @@ export interface UpdateStreamingImageResponse {
   streamingImage?: StreamingImage;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3304,6 +3684,9 @@ export interface StartStreamingSessionRequest {
   backupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamingSessionResponse {
   /**
    * <p>A streaming session is a virtual workstation created using a particular launch
@@ -3312,6 +3695,9 @@ export interface StartStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3337,6 +3723,9 @@ export interface StopStreamingSessionRequest {
   volumeRetentionMode?: VolumeRetentionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamingSessionResponse {
   /**
    * <p>A streaming session is a virtual workstation created using a particular launch
@@ -3345,6 +3734,9 @@ export interface StopStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3418,6 +3810,9 @@ export interface UpdateStudioComponentRequest {
   runtimeRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -3425,6 +3820,9 @@ export interface UpdateStudioComponentResponse {
   studioComponent?: StudioComponent;
 }
 
+/**
+ * @public
+ */
 export interface PutStudioMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3449,8 +3847,14 @@ export interface PutStudioMembersRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutStudioMembersResponse {}
 
+/**
+ * @public
+ */
 export interface StartStudioSSOConfigurationRepairRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3465,6 +3869,9 @@ export interface StartStudioSSOConfigurationRepairRequest {
   studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartStudioSSOConfigurationRepairResponse {
   /**
    * <p>Information about a studio.</p>
@@ -3472,6 +3879,9 @@ export interface StartStudioSSOConfigurationRepairResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioRequest {
   /**
    * <p>The IAM role that Studio Admins will assume when logging in to the
@@ -3503,6 +3913,9 @@ export interface UpdateStudioRequest {
   userRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -3510,6 +3923,9 @@ export interface UpdateStudioResponse {
   studio: Studio | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
@@ -3523,8 +3939,14 @@ export interface TagResourceRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Identifies the Amazon Resource Name(ARN) key from which you are removing tags. </p>
@@ -3537,6 +3959,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

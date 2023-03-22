@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAlarmsCommand}.
  */
 export interface ListAlarmsCommandInput extends ListAlarmsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAlarmsCommand}.
  */
 export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists one or more alarms. The operation returns only the metadata associated with each
  *       alarm.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAlarmsCommandInput - {@link ListAlarmsCommandInput}
+ * @returns {@link ListAlarmsCommandOutput}
  * @see {@link ListAlarmsCommandInput} for command's `input` shape.
  * @see {@link ListAlarmsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListAlarmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAlarmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListAlarmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAlarmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlarmsCommandOutput> {
     return deserializeAws_restJson1ListAlarmsCommand(output, context);
   }

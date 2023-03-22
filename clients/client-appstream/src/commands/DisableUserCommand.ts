@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableUserCommand}.
  */
 export interface DisableUserCommandInput extends DisableUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableUserCommand}.
  */
 export interface DisableUserCommandOutput extends DisableUserResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableUserCommandInput - {@link DisableUserCommandInput}
+ * @returns {@link DisableUserCommandOutput}
  * @see {@link DisableUserCommandInput} for command's `input` shape.
  * @see {@link DisableUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +79,9 @@ export class DisableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DisableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableUserCommandOutput> {
     return deserializeAws_json1_1DisableUserCommand(output, context);
   }

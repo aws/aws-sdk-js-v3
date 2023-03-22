@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SNSServiceException as __BaseException } from "./SNSServiceException";
 
+/**
+ * @public
+ */
 export interface AddPermissionInput {
   /**
    * <p>The ARN of the topic whose access control policy you wish to modify.</p>
@@ -29,6 +32,7 @@ export interface AddPermissionInput {
 }
 
 /**
+ * @public
  * <p>Indicates that the user has been denied access to the requested resource.</p>
  */
 export class AuthorizationErrorException extends __BaseException {
@@ -48,6 +52,7 @@ export class AuthorizationErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates an internal service error.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -67,6 +72,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
@@ -87,6 +93,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the requested resource does not exist.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -106,6 +113,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
  */
 export interface CheckIfPhoneNumberIsOptedOutInput {
@@ -116,6 +124,7 @@ export interface CheckIfPhoneNumberIsOptedOutInput {
 }
 
 /**
+ * @public
  * <p>The response from the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
  */
 export interface CheckIfPhoneNumberIsOptedOutResponse {
@@ -138,6 +147,7 @@ export interface CheckIfPhoneNumberIsOptedOutResponse {
 }
 
 /**
+ * @public
  * <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  */
 export class ThrottledException extends __BaseException {
@@ -157,6 +167,7 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input for ConfirmSubscription action.</p>
  */
 export interface ConfirmSubscriptionInput {
@@ -180,6 +191,7 @@ export interface ConfirmSubscriptionInput {
 }
 
 /**
+ * @public
  * <p>Response for ConfirmSubscriptions action.</p>
  */
 export interface ConfirmSubscriptionResponse {
@@ -190,6 +202,7 @@ export interface ConfirmSubscriptionResponse {
 }
 
 /**
+ * @public
  * <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
  *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
  *             Center.</p>
@@ -211,6 +224,7 @@ export class FilterPolicyLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  */
@@ -231,6 +245,7 @@ export class SubscriptionLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input for CreatePlatformApplication action.</p>
  */
 export interface CreatePlatformApplicationInput {
@@ -254,6 +269,7 @@ export interface CreatePlatformApplicationInput {
 }
 
 /**
+ * @public
  * <p>Response from CreatePlatformApplication action.</p>
  */
 export interface CreatePlatformApplicationResponse {
@@ -264,6 +280,7 @@ export interface CreatePlatformApplicationResponse {
 }
 
 /**
+ * @public
  * <p>Response from CreateEndpoint action.</p>
  */
 export interface CreateEndpointResponse {
@@ -274,6 +291,7 @@ export interface CreateEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Input for CreatePlatformEndpoint action.</p>
  */
 export interface CreatePlatformEndpointInput {
@@ -304,6 +322,9 @@ export interface CreatePlatformEndpointInput {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum LanguageCodeString {
   de_DE = "de-DE",
   en_GB = "en-GB",
@@ -320,6 +341,9 @@ export enum LanguageCodeString {
   zh_TW = "zh-TW",
 }
 
+/**
+ * @public
+ */
 export interface CreateSMSSandboxPhoneNumberInput {
   /**
    * <p>The destination phone number to verify. On verification, Amazon SNS adds this phone number
@@ -334,9 +358,13 @@ export interface CreateSMSSandboxPhoneNumberInput {
   LanguageCode?: LanguageCodeString | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSMSSandboxPhoneNumberResult {}
 
 /**
+ * @public
  * <p>Indicates that the specified phone number opted out of receiving SMS messages from
  *             your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
  */
@@ -357,6 +385,7 @@ export class OptedOutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
@@ -377,6 +406,7 @@ export class UserErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
  *             sequentially.</p>
  */
@@ -397,6 +427,7 @@ export class ConcurrentAccessException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The list of tags to be added to the specified topic.</p>
  */
 export interface Tag {
@@ -412,6 +443,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Input for CreateTopic action.</p>
  */
 export interface CreateTopicInput {
@@ -529,6 +561,7 @@ export interface CreateTopicInput {
 }
 
 /**
+ * @public
  * <p>Response from CreateTopic action.</p>
  */
 export interface CreateTopicResponse {
@@ -539,6 +572,7 @@ export interface CreateTopicResponse {
 }
 
 /**
+ * @public
  * <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
  *             request using Signature Version 4.</p>
  */
@@ -559,6 +593,7 @@ export class InvalidSecurityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
  *             short while and then retry the operation.</p>
  */
@@ -579,6 +614,7 @@ export class StaleTagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Can't add more than 50 tags to a topic.</p>
  */
 export class TagLimitExceededException extends __BaseException {
@@ -598,6 +634,7 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request doesn't comply with the IAM tag policy. Correct your request and then
  *             retry it.</p>
  */
@@ -618,6 +655,7 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  */
 export class TopicLimitExceededException extends __BaseException {
@@ -637,6 +675,7 @@ export class TopicLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input for DeleteEndpoint action.</p>
  */
 export interface DeleteEndpointInput {
@@ -647,6 +686,7 @@ export interface DeleteEndpointInput {
 }
 
 /**
+ * @public
  * <p>Input for DeletePlatformApplication action.</p>
  */
 export interface DeletePlatformApplicationInput {
@@ -656,6 +696,9 @@ export interface DeletePlatformApplicationInput {
   PlatformApplicationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSMSSandboxPhoneNumberInput {
   /**
    * <p>The destination phone number to delete.</p>
@@ -663,9 +706,13 @@ export interface DeleteSMSSandboxPhoneNumberInput {
   PhoneNumber: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSMSSandboxPhoneNumberResult {}
 
 /**
+ * @public
  * <p>Can’t perform the action on the specified resource. Make sure that the resource
  *             exists.</p>
  */
@@ -685,6 +732,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteTopicInput {
   /**
    * <p>The ARN of the topic you want to delete.</p>
@@ -692,6 +742,9 @@ export interface DeleteTopicInput {
   TopicArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataProtectionPolicyInput {
   /**
    * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p>
@@ -701,6 +754,9 @@ export interface GetDataProtectionPolicyInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataProtectionPolicyResponse {
   /**
    * <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p>
@@ -709,6 +765,7 @@ export interface GetDataProtectionPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Input for GetEndpointAttributes action.</p>
  */
 export interface GetEndpointAttributesInput {
@@ -719,6 +776,7 @@ export interface GetEndpointAttributesInput {
 }
 
 /**
+ * @public
  * <p>Response from GetEndpointAttributes of the EndpointArn.</p>
  */
 export interface GetEndpointAttributesResponse {
@@ -754,6 +812,7 @@ export interface GetEndpointAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Input for GetPlatformApplicationAttributes action.</p>
  */
 export interface GetPlatformApplicationAttributesInput {
@@ -764,6 +823,7 @@ export interface GetPlatformApplicationAttributesInput {
 }
 
 /**
+ * @public
  * <p>Response for GetPlatformApplicationAttributes action.</p>
  */
 export interface GetPlatformApplicationAttributesResponse {
@@ -812,6 +872,7 @@ export interface GetPlatformApplicationAttributesResponse {
 }
 
 /**
+ * @public
  * <p>The input for the <code>GetSMSAttributes</code> request.</p>
  */
 export interface GetSMSAttributesInput {
@@ -825,6 +886,7 @@ export interface GetSMSAttributesInput {
 }
 
 /**
+ * @public
  * <p>The response from the <code>GetSMSAttributes</code> request.</p>
  */
 export interface GetSMSAttributesResponse {
@@ -834,8 +896,14 @@ export interface GetSMSAttributesResponse {
   attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetSMSSandboxAccountStatusInput {}
 
+/**
+ * @public
+ */
 export interface GetSMSSandboxAccountStatusResult {
   /**
    * <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p>
@@ -844,6 +912,7 @@ export interface GetSMSSandboxAccountStatusResult {
 }
 
 /**
+ * @public
  * <p>Input for GetSubscriptionAttributes.</p>
  */
 export interface GetSubscriptionAttributesInput {
@@ -854,6 +923,7 @@ export interface GetSubscriptionAttributesInput {
 }
 
 /**
+ * @public
  * <p>Response for GetSubscriptionAttributes action.</p>
  */
 export interface GetSubscriptionAttributesResponse {
@@ -957,6 +1027,7 @@ export interface GetSubscriptionAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Input for GetTopicAttributes action.</p>
  */
 export interface GetTopicAttributesInput {
@@ -967,6 +1038,7 @@ export interface GetTopicAttributesInput {
 }
 
 /**
+ * @public
  * <p>Response for GetTopicAttributes action.</p>
  */
 export interface GetTopicAttributesResponse {
@@ -1091,6 +1163,7 @@ export interface GetTopicAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Input for ListEndpointsByPlatformApplication action.</p>
  */
 export interface ListEndpointsByPlatformApplicationInput {
@@ -1107,6 +1180,7 @@ export interface ListEndpointsByPlatformApplicationInput {
 }
 
 /**
+ * @public
  * <p>The endpoint for mobile app and device.</p>
  */
 export interface Endpoint {
@@ -1122,6 +1196,7 @@ export interface Endpoint {
 }
 
 /**
+ * @public
  * <p>Response for ListEndpointsByPlatformApplication action.</p>
  */
 export interface ListEndpointsByPlatformApplicationResponse {
@@ -1137,6 +1212,9 @@ export interface ListEndpointsByPlatformApplicationResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOriginationNumbersRequest {
   /**
    * <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
@@ -1149,12 +1227,18 @@ export interface ListOriginationNumbersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum NumberCapability {
   MMS = "MMS",
   SMS = "SMS",
   VOICE = "VOICE",
 }
 
+/**
+ * @public
+ */
 export enum RouteType {
   Premium = "Premium",
   Promotional = "Promotional",
@@ -1162,6 +1246,7 @@ export enum RouteType {
 }
 
 /**
+ * @public
  * <p>A list of phone numbers and their metadata.</p>
  */
 export interface PhoneNumberInformation {
@@ -1196,6 +1281,9 @@ export interface PhoneNumberInformation {
   NumberCapabilities?: (NumberCapability | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListOriginationNumbersResult {
   /**
    * <p>A <code>NextToken</code> string is returned when you call the
@@ -1211,6 +1299,7 @@ export interface ListOriginationNumbersResult {
 }
 
 /**
+ * @public
  * <p>Indicates that a parameter in the request is invalid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -1232,6 +1321,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the <code>ListPhoneNumbersOptedOut</code> action.</p>
  */
 export interface ListPhoneNumbersOptedOutInput {
@@ -1244,6 +1334,7 @@ export interface ListPhoneNumbersOptedOutInput {
 }
 
 /**
+ * @public
  * <p>The response from the <code>ListPhoneNumbersOptedOut</code> action.</p>
  */
 export interface ListPhoneNumbersOptedOutResponse {
@@ -1262,6 +1353,7 @@ export interface ListPhoneNumbersOptedOutResponse {
 }
 
 /**
+ * @public
  * <p>Input for ListPlatformApplications action.</p>
  */
 export interface ListPlatformApplicationsInput {
@@ -1273,6 +1365,7 @@ export interface ListPlatformApplicationsInput {
 }
 
 /**
+ * @public
  * <p>Platform application object.</p>
  */
 export interface PlatformApplication {
@@ -1288,6 +1381,7 @@ export interface PlatformApplication {
 }
 
 /**
+ * @public
  * <p>Response for ListPlatformApplications action.</p>
  */
 export interface ListPlatformApplicationsResponse {
@@ -1303,6 +1397,9 @@ export interface ListPlatformApplicationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSMSSandboxPhoneNumbersInput {
   /**
    * <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request
@@ -1316,12 +1413,16 @@ export interface ListSMSSandboxPhoneNumbersInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum SMSSandboxPhoneNumberVerificationStatus {
   Pending = "Pending",
   Verified = "Verified",
 }
 
 /**
+ * @public
  * <p>A verified or pending destination phone number in the SMS sandbox.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
@@ -1344,6 +1445,9 @@ export interface SMSSandboxPhoneNumber {
   Status?: SMSSandboxPhoneNumberVerificationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSMSSandboxPhoneNumbersResult {
   /**
    * <p>A list of the calling account's pending and verified phone numbers.</p>
@@ -1359,6 +1463,7 @@ export interface ListSMSSandboxPhoneNumbersResult {
 }
 
 /**
+ * @public
  * <p>Input for ListSubscriptions action.</p>
  */
 export interface ListSubscriptionsInput {
@@ -1369,6 +1474,7 @@ export interface ListSubscriptionsInput {
 }
 
 /**
+ * @public
  * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
  */
 export interface Subscription {
@@ -1399,6 +1505,7 @@ export interface Subscription {
 }
 
 /**
+ * @public
  * <p>Response for ListSubscriptions action</p>
  */
 export interface ListSubscriptionsResponse {
@@ -1415,6 +1522,7 @@ export interface ListSubscriptionsResponse {
 }
 
 /**
+ * @public
  * <p>Input for ListSubscriptionsByTopic action.</p>
  */
 export interface ListSubscriptionsByTopicInput {
@@ -1430,6 +1538,7 @@ export interface ListSubscriptionsByTopicInput {
 }
 
 /**
+ * @public
  * <p>Response for ListSubscriptionsByTopic action.</p>
  */
 export interface ListSubscriptionsByTopicResponse {
@@ -1445,6 +1554,9 @@ export interface ListSubscriptionsByTopicResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the topic for which to list tags.</p>
@@ -1452,6 +1564,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the specified topic.</p>
@@ -1459,6 +1574,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTopicsInput {
   /**
    * <p>Token returned by the previous <code>ListTopics</code> request.</p>
@@ -1467,6 +1585,7 @@ export interface ListTopicsInput {
 }
 
 /**
+ * @public
  * <p>A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's
  *             attributes, use <code>GetTopicAttributes</code>.</p>
  */
@@ -1478,6 +1597,7 @@ export interface Topic {
 }
 
 /**
+ * @public
  * <p>Response for ListTopics action.</p>
  */
 export interface ListTopicsResponse {
@@ -1494,6 +1614,7 @@ export interface ListTopicsResponse {
 }
 
 /**
+ * @public
  * <p>Input for the OptInPhoneNumber action.</p>
  */
 export interface OptInPhoneNumberInput {
@@ -1504,11 +1625,13 @@ export interface OptInPhoneNumberInput {
 }
 
 /**
+ * @public
  * <p>The response for the OptInPhoneNumber action.</p>
  */
 export interface OptInPhoneNumberResponse {}
 
 /**
+ * @public
  * <p>Exception error indicating endpoint disabled.</p>
  */
 export class EndpointDisabledException extends __BaseException {
@@ -1528,6 +1651,7 @@ export class EndpointDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a request parameter does not comply with the associated constraints.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -1547,6 +1671,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  */
@@ -1567,6 +1692,7 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
@@ -1587,6 +1713,7 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the state of the specified resource isn't valid for
  *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
  *                 Customer Master Key</a> in the <i>Key Management Service Developer
@@ -1609,6 +1736,7 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
@@ -1629,6 +1757,7 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
  */
 export class KMSOptInRequired extends __BaseException {
@@ -1648,6 +1777,7 @@ export class KMSOptInRequired extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling. For more information about
  *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
  *             the <i>Key Management Service Developer Guide.</i>
@@ -1670,6 +1800,7 @@ export class KMSThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception error indicating platform application disabled.</p>
  */
 export class PlatformApplicationDisabledException extends __BaseException {
@@ -1689,6 +1820,7 @@ export class PlatformApplicationDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user-specified message attribute value. For string data types, the value attribute
  *             has the same restrictions on the content as the message body. For more information, see
  *                 <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p>
@@ -1722,6 +1854,7 @@ export interface MessageAttributeValue {
 }
 
 /**
+ * @public
  * <p>Input for Publish action.</p>
  */
 export interface PublishInput {
@@ -1853,7 +1986,7 @@ export interface PublishInput {
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
    *                 <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters
    *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
-   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    *          <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
    *             used for deduplication of sent messages. If a message with a particular
    *                 <code>MessageDeduplicationId</code> is sent successfully, any message sent with the
@@ -1869,7 +2002,7 @@ export interface PublishInput {
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
    *                 <code>MessageGroupId</code> can contain up to 128 alphanumeric characters
    *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
-   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    *          <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a
    *             specific message group. Messages that belong to the same message group are processed in
    *             a FIFO manner (however, messages in different message groups might be processed out of
@@ -1879,6 +2012,7 @@ export interface PublishInput {
 }
 
 /**
+ * @public
  * <p>Response for Publish action.</p>
  */
 export interface PublishResponse {
@@ -1899,6 +2033,7 @@ export interface PublishResponse {
 }
 
 /**
+ * @public
  * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
  */
 export class BatchEntryIdsNotDistinctException extends __BaseException {
@@ -1918,6 +2053,7 @@ export class BatchEntryIdsNotDistinctException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The length of all the batch messages put together is more than the limit.</p>
  */
 export class BatchRequestTooLongException extends __BaseException {
@@ -1937,6 +2073,7 @@ export class BatchRequestTooLongException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The batch request doesn't contain any entries.</p>
  */
 export class EmptyBatchRequestException extends __BaseException {
@@ -1956,6 +2093,7 @@ export class EmptyBatchRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification. </p>
  */
 export class InvalidBatchEntryIdException extends __BaseException {
@@ -1975,6 +2113,7 @@ export class InvalidBatchEntryIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the details of a single Amazon SNS message along with an <code>Id</code> that
  *             identifies a message within the batch. </p>
  */
@@ -2085,7 +2224,7 @@ export interface PublishBatchRequestEntry {
    *          <p>
    *             <code>MessageDeduplicationId</code> can contain alphanumeric characters <code>(a-z,
    *                 A-Z, 0-9)</code> and punctuation
-   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    */
   MessageDeduplicationId?: string;
 
@@ -2103,7 +2242,7 @@ export interface PublishBatchRequestEntry {
    *          <p>
    *             <code>MessageGroupId</code> can contain alphanumeric characters <code>(a-z, A-Z,
    *                 0-9)</code> and punctuation
-   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    *          <important>
    *             <p>
    *                <code>MessageGroupId</code> is required for FIFO topics. You can't use it for
@@ -2113,6 +2252,9 @@ export interface PublishBatchRequestEntry {
   MessageGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PublishBatchInput {
   /**
    * <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
@@ -2127,6 +2269,7 @@ export interface PublishBatchInput {
 }
 
 /**
+ * @public
  * <p>Gives a detailed description of failed messages in the batch.</p>
  */
 export interface BatchResultErrorEntry {
@@ -2152,6 +2295,7 @@ export interface BatchResultErrorEntry {
 }
 
 /**
+ * @public
  * <p>Encloses data related to a successful message in a batch request for topic.</p>
  */
 export interface PublishBatchResultEntry {
@@ -2174,6 +2318,9 @@ export interface PublishBatchResultEntry {
   SequenceNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface PublishBatchResponse {
   /**
    * <p>A list of successful <code>PublishBatch</code> responses.</p>
@@ -2187,6 +2334,7 @@ export interface PublishBatchResponse {
 }
 
 /**
+ * @public
  * <p>The batch request contains more entries than permissible.</p>
  */
 export class TooManyEntriesInBatchRequestException extends __BaseException {
@@ -2205,6 +2353,9 @@ export class TooManyEntriesInBatchRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutDataProtectionPolicyInput {
   /**
    * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or
@@ -2223,6 +2374,7 @@ export interface PutDataProtectionPolicyInput {
 }
 
 /**
+ * @public
  * <p>Input for RemovePermission action.</p>
  */
 export interface RemovePermissionInput {
@@ -2238,6 +2390,7 @@ export interface RemovePermissionInput {
 }
 
 /**
+ * @public
  * <p>Input for SetEndpointAttributes action.</p>
  */
 export interface SetEndpointAttributesInput {
@@ -2275,6 +2428,7 @@ export interface SetEndpointAttributesInput {
 }
 
 /**
+ * @public
  * <p>Input for SetPlatformApplicationAttributes action.</p>
  */
 export interface SetPlatformApplicationAttributesInput {
@@ -2392,6 +2546,7 @@ export interface SetPlatformApplicationAttributesInput {
 }
 
 /**
+ * @public
  * <p>The input for the SetSMSAttributes action.</p>
  */
 export interface SetSMSAttributesInput {
@@ -2487,11 +2642,13 @@ export interface SetSMSAttributesInput {
 }
 
 /**
+ * @public
  * <p>The response for the SetSMSAttributes action.</p>
  */
 export interface SetSMSAttributesResponse {}
 
 /**
+ * @public
  * <p>Input for SetSubscriptionAttributes action.</p>
  */
 export interface SetSubscriptionAttributesInput {
@@ -2576,6 +2733,7 @@ export interface SetSubscriptionAttributesInput {
 }
 
 /**
+ * @public
  * <p>Input for SetTopicAttributes action.</p>
  */
 export interface SetTopicAttributesInput {
@@ -2803,6 +2961,7 @@ export interface SetTopicAttributesInput {
 }
 
 /**
+ * @public
  * <p>Input for Subscribe action.</p>
  */
 export interface SubscribeInput {
@@ -2989,6 +3148,7 @@ export interface SubscribeInput {
 }
 
 /**
+ * @public
  * <p>Response for Subscribe action.</p>
  */
 export interface SubscribeResponse {
@@ -3001,6 +3161,9 @@ export interface SubscribeResponse {
   SubscriptionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the topic to which to add tags.</p>
@@ -3014,9 +3177,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Input for Unsubscribe action.</p>
  */
 export interface UnsubscribeInput {
@@ -3026,6 +3193,9 @@ export interface UnsubscribeInput {
   SubscriptionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the topic from which to remove tags.</p>
@@ -3038,9 +3208,13 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
  */
 export class VerificationException extends __BaseException {
@@ -3066,6 +3240,9 @@ export class VerificationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface VerifySMSSandboxPhoneNumberInput {
   /**
    * <p>The destination phone number to verify.</p>
@@ -3080,6 +3257,7 @@ export interface VerifySMSSandboxPhoneNumberInput {
 }
 
 /**
+ * @public
  * <p>The destination phone number's verification status.</p>
  */
 export interface VerifySMSSandboxPhoneNumberResult {}

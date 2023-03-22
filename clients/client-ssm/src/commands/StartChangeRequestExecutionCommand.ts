@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartChangeRequestExecutionCommand}.
  */
 export interface StartChangeRequestExecutionCommandInput extends StartChangeRequestExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartChangeRequestExecutionCommand}.
  */
 export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a change request for Change Manager. The Automation runbooks specified in the
  *    change request run only after all required approvals for the change request have been
  *    received.</p>
@@ -48,6 +53,8 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * const response = await client.send(command);
  * ```
  *
+ * @param StartChangeRequestExecutionCommandInput - {@link StartChangeRequestExecutionCommandInput}
+ * @returns {@link StartChangeRequestExecutionCommandOutput}
  * @see {@link StartChangeRequestExecutionCommandInput} for command's `input` shape.
  * @see {@link StartChangeRequestExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -97,6 +104,9 @@ export class StartChangeRequestExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartChangeRequestExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class StartChangeRequestExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartChangeRequestExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartChangeRequestExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

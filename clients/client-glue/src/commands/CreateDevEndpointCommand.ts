@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDevEndpointCommand}.
  */
 export interface CreateDevEndpointCommandInput extends CreateDevEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDevEndpointCommand}.
  */
 export interface CreateDevEndpointCommandOutput extends CreateDevEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new development endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDevEndpointCommandInput - {@link CreateDevEndpointCommandInput}
+ * @returns {@link CreateDevEndpointCommandOutput}
  * @see {@link CreateDevEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateDevEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDevEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateDevEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDevEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevEndpointCommandOutput> {
     return deserializeAws_json1_1CreateDevEndpointCommand(output, context);
   }

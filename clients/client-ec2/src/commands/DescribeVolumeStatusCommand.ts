@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumeStatusCommand}.
  */
 export interface DescribeVolumeStatusCommandInput extends DescribeVolumeStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumeStatusCommand}.
  */
 export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the specified volumes. Volume status provides the result of the
  *       checks performed on your volumes to determine events that can impair the performance of your
  *       volumes. The performance of a volume can be affected if an issue occurs on the volume's
@@ -79,6 +84,8 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumeStatusCommandInput - {@link DescribeVolumeStatusCommandInput}
+ * @returns {@link DescribeVolumeStatusCommandOutput}
  * @see {@link DescribeVolumeStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumeStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -163,6 +170,9 @@ export class DescribeVolumeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -202,10 +212,16 @@ export class DescribeVolumeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVolumeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumeStatusCommandOutput> {
     return deserializeAws_ec2DescribeVolumeStatusCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFlowOutputCommand}.
  */
 export interface RemoveFlowOutputCommandInput extends RemoveFlowOutputRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFlowOutputCommand}.
  */
 export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Removes an output from an existing flow. This request can be made only on an output that does not have an entitlement associated with it. If the output has an entitlement, you must revoke the entitlement instead. When an entitlement is revoked from a flow, the service automatically removes the associated output.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFlowOutputCommandInput - {@link RemoveFlowOutputCommandInput}
+ * @returns {@link RemoveFlowOutputCommandOutput}
  * @see {@link RemoveFlowOutputCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowOutputCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class RemoveFlowOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFlowOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RemoveFlowOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFlowOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveFlowOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowOutputCommandOutput> {
     return deserializeAws_restJson1RemoveFlowOutputCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApiCommand}.
  */
 export interface AssociateApiCommandInput extends AssociateApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApiCommand}.
  */
 export interface AssociateApiCommandOutput extends AssociateApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Maps an endpoint to your custom domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApiCommandInput - {@link AssociateApiCommandInput}
+ * @returns {@link AssociateApiCommandOutput}
  * @see {@link AssociateApiCommandInput} for command's `input` shape.
  * @see {@link AssociateApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AssociateApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateApiCommandOutput> {
     return deserializeAws_restJson1AssociateApiCommand(output, context);
   }

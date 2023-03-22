@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCodeReviewsCommand}.
  */
 export interface ListCodeReviewsCommandInput extends ListCodeReviewsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCodeReviewsCommand}.
  */
 export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the code reviews that the customer has created in the past 90 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCodeReviewsCommandInput - {@link ListCodeReviewsCommandInput}
+ * @returns {@link ListCodeReviewsCommandOutput}
  * @see {@link ListCodeReviewsCommandInput} for command's `input` shape.
  * @see {@link ListCodeReviewsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListCodeReviewsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCodeReviewsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListCodeReviewsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCodeReviewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCodeReviewsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCodeReviewsCommandOutput> {
     return deserializeAws_restJson1ListCodeReviewsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInputSourcesCommand}.
  */
 export interface ListAppInputSourcesCommandInput extends ListAppInputSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInputSourcesCommand}.
  */
 export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the input sources of the AWS Resilience Hub application. For more information about the
  *       input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
  *         the structure and describe your Resilience Hub application</a>.</p>
@@ -48,6 +53,8 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInputSourcesCommandInput - {@link ListAppInputSourcesCommandInput}
+ * @returns {@link ListAppInputSourcesCommandOutput}
  * @see {@link ListAppInputSourcesCommandInput} for command's `input` shape.
  * @see {@link ListAppInputSourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListAppInputSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInputSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListAppInputSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInputSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAppInputSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInputSourcesCommandOutput> {
     return deserializeAws_restJson1ListAppInputSourcesCommand(output, context);
   }

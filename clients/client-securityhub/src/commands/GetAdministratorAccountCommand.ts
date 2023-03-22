@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandInput extends GetAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the details for the Security Hub administrator account for the current member account.</p>
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
@@ -48,6 +53,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
+ * @returns {@link GetAdministratorAccountCommandOutput}
  * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdministratorAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
     return deserializeAws_restJson1GetAdministratorAccountCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotebookInstanceCommand}.
  */
 export interface CreateNotebookInstanceCommandInput extends CreateNotebookInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotebookInstanceCommand}.
  */
 export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an SageMaker notebook instance. A notebook instance is a machine learning (ML)
  *             compute instance running on a Jupyter notebook. </p>
  *          <p>In a <code>CreateNotebookInstance</code> request, specify the type of ML compute
@@ -80,6 +85,8 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotebookInstanceCommandInput - {@link CreateNotebookInstanceCommandInput}
+ * @returns {@link CreateNotebookInstanceCommandOutput}
  * @see {@link CreateNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateNotebookInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class CreateNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotebookInstanceCommandOutput> {
     return deserializeAws_json1_1CreateNotebookInstanceCommand(output, context);
   }

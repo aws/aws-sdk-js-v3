@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSitesCommand}.
  */
 export interface GetSitesCommandInput extends GetSitesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSitesCommand}.
  */
 export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more of your sites in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSitesCommandInput - {@link GetSitesCommandInput}
+ * @returns {@link GetSitesCommandOutput}
  * @see {@link GetSitesCommandInput} for command's `input` shape.
  * @see {@link GetSitesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetSitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSitesCommandOutput> {
     return deserializeAws_restJson1GetSitesCommand(output, context);
   }

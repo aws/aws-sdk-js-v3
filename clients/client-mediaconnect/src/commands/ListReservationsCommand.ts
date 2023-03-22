@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReservationsCommand}.
  */
 export interface ListReservationsCommandInput extends ListReservationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReservationsCommand}.
  */
 export interface ListReservationsCommandOutput extends ListReservationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays a list of all reservations that have been purchased by this account in the current AWS Region. This list includes all reservations in all states (such as active and expired).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReservationsCommandInput - {@link ListReservationsCommandInput}
+ * @returns {@link ListReservationsCommandOutput}
  * @see {@link ListReservationsCommandInput} for command's `input` shape.
  * @see {@link ListReservationsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListReservationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReservationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListReservationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListReservationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReservationsCommandOutput> {
     return deserializeAws_restJson1ListReservationsCommand(output, context);
   }

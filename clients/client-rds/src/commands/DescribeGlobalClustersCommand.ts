@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGlobalClustersCommand}.
  */
 export interface DescribeGlobalClustersCommandInput extends DescribeGlobalClustersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGlobalClustersCommand}.
  */
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Aurora global database clusters. This API supports pagination.</p>
  *          <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
  *         <i>Amazon Aurora User Guide</i>.</p>
@@ -51,6 +56,8 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
+ * @returns {@link DescribeGlobalClustersCommandOutput}
  * @see {@link DescribeGlobalClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalClustersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeGlobalClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeGlobalClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeGlobalClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalClustersCommandOutput> {
     return deserializeAws_queryDescribeGlobalClustersCommand(output, context);
   }

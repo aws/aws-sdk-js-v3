@@ -30,10 +30,14 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttributeGroupsForApplicationCommand}.
  */
 export interface ListAttributeGroupsForApplicationCommandInput extends ListAttributeGroupsForApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttributeGroupsForApplicationCommand}.
  */
 export interface ListAttributeGroupsForApplicationCommandOutput
@@ -41,6 +45,7 @@ export interface ListAttributeGroupsForApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the details of all attribute groups associated with a specific application. The results display in pages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListAttributeGroupsForApplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttributeGroupsForApplicationCommandInput - {@link ListAttributeGroupsForApplicationCommandInput}
+ * @returns {@link ListAttributeGroupsForApplicationCommandOutput}
  * @see {@link ListAttributeGroupsForApplicationCommandInput} for command's `input` shape.
  * @see {@link ListAttributeGroupsForApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttributeGroupsForApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAttributeGroupsForApplicationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
     return serializeAws_restJson1ListAttributeGroupsForApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

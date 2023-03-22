@@ -440,10 +440,12 @@ import {
 import { GreengrassClient } from "./GreengrassClient";
 
 /**
+ * @public
  * AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS IoT Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.
  */
 export class Greengrass extends GreengrassClient {
   /**
+   * @public
    * Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
    */
   public associateRoleToGroup(
@@ -476,6 +478,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
    */
   public associateServiceRoleToAccount(
@@ -508,6 +511,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.
    */
   public createConnectorDefinition(
@@ -540,6 +544,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a connector definition which has already been defined.
    */
   public createConnectorDefinitionVersion(
@@ -572,6 +577,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each contain exactly one Greengrass core.
    */
   public createCoreDefinition(
@@ -604,6 +610,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.
    */
   public createCoreDefinitionVersion(
@@ -636,6 +643,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.
    */
   public createDeployment(
@@ -668,6 +676,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
    */
   public createDeviceDefinition(
@@ -700,6 +709,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a device definition that has already been defined.
    */
   public createDeviceDefinitionVersion(
@@ -732,6 +742,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.
    */
   public createFunctionDefinition(
@@ -764,6 +775,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a Lambda function definition that has already been defined.
    */
   public createFunctionDefinitionVersion(
@@ -796,6 +808,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup) as a library or command-line application to create and deploy Greengrass groups.
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
@@ -822,6 +835,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.
    */
   public createGroupCertificateAuthority(
@@ -854,6 +868,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a group which has already been defined.
    */
   public createGroupVersion(
@@ -886,6 +901,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a logger definition. You may provide the initial version of the logger definition now or use ''CreateLoggerDefinitionVersion'' at a later time.
    */
   public createLoggerDefinition(
@@ -918,6 +934,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a logger definition that has already been defined.
    */
   public createLoggerDefinitionVersion(
@@ -950,6 +967,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.
    */
   public createResourceDefinition(
@@ -982,6 +1000,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a resource definition that has already been defined.
    */
   public createResourceDefinitionVersion(
@@ -1014,6 +1033,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.
    */
   public createSoftwareUpdateJob(
@@ -1046,6 +1066,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
    */
   public createSubscriptionDefinition(
@@ -1078,6 +1099,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Creates a version of a subscription definition which has already been defined.
    */
   public createSubscriptionDefinitionVersion(
@@ -1110,6 +1132,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a connector definition.
    */
   public deleteConnectorDefinition(
@@ -1142,6 +1165,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a core definition.
    */
   public deleteCoreDefinition(
@@ -1174,6 +1198,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a device definition.
    */
   public deleteDeviceDefinition(
@@ -1206,6 +1231,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a Lambda function definition.
    */
   public deleteFunctionDefinition(
@@ -1238,6 +1264,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a group.
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
@@ -1264,6 +1291,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a logger definition.
    */
   public deleteLoggerDefinition(
@@ -1296,6 +1324,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a resource definition.
    */
   public deleteResourceDefinition(
@@ -1328,6 +1357,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deletes a subscription definition.
    */
   public deleteSubscriptionDefinition(
@@ -1360,6 +1390,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Disassociates the role from a group.
    */
   public disassociateRoleFromGroup(
@@ -1392,6 +1423,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Disassociates the service role from your account. Without a service role, deployments will not work.
    */
   public disassociateServiceRoleFromAccount(
@@ -1424,6 +1456,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves the role associated with a particular group.
    */
   public getAssociatedRole(
@@ -1456,6 +1489,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Returns the status of a bulk deployment.
    */
   public getBulkDeploymentStatus(
@@ -1488,6 +1522,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves the connectivity information for a core.
    */
   public getConnectivityInfo(
@@ -1520,6 +1555,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a connector definition.
    */
   public getConnectorDefinition(
@@ -1552,6 +1588,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.
    */
   public getConnectorDefinitionVersion(
@@ -1584,6 +1621,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a core definition version.
    */
   public getCoreDefinition(
@@ -1616,6 +1654,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a core definition version.
    */
   public getCoreDefinitionVersion(
@@ -1648,6 +1687,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Returns the status of a deployment.
    */
   public getDeploymentStatus(
@@ -1680,6 +1720,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a device definition.
    */
   public getDeviceDefinition(
@@ -1712,6 +1753,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a device definition version.
    */
   public getDeviceDefinitionVersion(
@@ -1744,6 +1786,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a Lambda function definition, including its creation time and latest version.
    */
   public getFunctionDefinition(
@@ -1776,6 +1819,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.
    */
   public getFunctionDefinitionVersion(
@@ -1808,6 +1852,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a group.
    */
   public getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
@@ -1834,6 +1879,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retreives the CA associated with a group. Returns the public key of the CA.
    */
   public getGroupCertificateAuthority(
@@ -1866,6 +1912,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves the current configuration for the CA used by the group.
    */
   public getGroupCertificateConfiguration(
@@ -1898,6 +1945,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a group version.
    */
   public getGroupVersion(
@@ -1930,6 +1978,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a logger definition.
    */
   public getLoggerDefinition(
@@ -1962,6 +2011,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a logger definition version.
    */
   public getLoggerDefinitionVersion(
@@ -1994,6 +2044,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a resource definition, including its creation time and latest version.
    */
   public getResourceDefinition(
@@ -2026,6 +2077,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a resource definition version, including which resources are included in the version.
    */
   public getResourceDefinitionVersion(
@@ -2058,6 +2110,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves the service role that is attached to your account.
    */
   public getServiceRoleForAccount(
@@ -2090,6 +2143,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a subscription definition.
    */
   public getSubscriptionDefinition(
@@ -2122,6 +2176,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves information about a subscription definition version.
    */
   public getSubscriptionDefinitionVersion(
@@ -2154,6 +2209,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Get the runtime configuration of a thing.
    */
   public getThingRuntimeConfiguration(
@@ -2186,6 +2242,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
    */
   public listBulkDeploymentDetailedReports(
@@ -2218,6 +2275,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Returns a list of bulk deployments.
    */
   public listBulkDeployments(
@@ -2250,6 +2308,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of connector definitions.
    */
   public listConnectorDefinitions(
@@ -2282,6 +2341,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
    */
   public listConnectorDefinitionVersions(
@@ -2314,6 +2374,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of core definitions.
    */
   public listCoreDefinitions(
@@ -2346,6 +2407,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a core definition.
    */
   public listCoreDefinitionVersions(
@@ -2378,6 +2440,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Returns a history of deployments for the group.
    */
   public listDeployments(
@@ -2410,6 +2473,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of device definitions.
    */
   public listDeviceDefinitions(
@@ -2442,6 +2506,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a device definition.
    */
   public listDeviceDefinitionVersions(
@@ -2474,6 +2539,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of Lambda function definitions.
    */
   public listFunctionDefinitions(
@@ -2506,6 +2572,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a Lambda function definition.
    */
   public listFunctionDefinitionVersions(
@@ -2538,6 +2605,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves the current CAs for a group.
    */
   public listGroupCertificateAuthorities(
@@ -2570,6 +2638,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of groups.
    */
   public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
@@ -2596,6 +2665,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a group.
    */
   public listGroupVersions(
@@ -2628,6 +2698,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of logger definitions.
    */
   public listLoggerDefinitions(
@@ -2660,6 +2731,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a logger definition.
    */
   public listLoggerDefinitionVersions(
@@ -2692,6 +2764,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of resource definitions.
    */
   public listResourceDefinitions(
@@ -2724,6 +2797,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a resource definition.
    */
   public listResourceDefinitionVersions(
@@ -2756,6 +2830,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of subscription definitions.
    */
   public listSubscriptionDefinitions(
@@ -2788,6 +2863,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Lists the versions of a subscription definition.
    */
   public listSubscriptionDefinitionVersions(
@@ -2820,6 +2896,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Retrieves a list of resource tags for a resource arn.
    */
   public listTagsForResource(
@@ -2852,6 +2929,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Resets a group's deployments.
    */
   public resetDeployments(
@@ -2884,6 +2962,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.
    */
   public startBulkDeployment(
@@ -2916,6 +2995,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.
    */
   public stopBulkDeployment(
@@ -2948,6 +3028,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Adds tags to a Greengrass resource. Valid resources are 'Group', 'ConnectorDefinition', 'CoreDefinition', 'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition', 'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2974,6 +3055,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Remove resource tags from a Greengrass Resource.
    */
   public untagResource(
@@ -3006,6 +3088,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates the connectivity information for the core. Any devices that belong to the group which has this core will receive this information in order to find the location of the core and connect to it.
    */
   public updateConnectivityInfo(
@@ -3038,6 +3121,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a connector definition.
    */
   public updateConnectorDefinition(
@@ -3070,6 +3154,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a core definition.
    */
   public updateCoreDefinition(
@@ -3102,6 +3187,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a device definition.
    */
   public updateDeviceDefinition(
@@ -3134,6 +3220,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a Lambda function definition.
    */
   public updateFunctionDefinition(
@@ -3166,6 +3253,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a group.
    */
   public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
@@ -3192,6 +3280,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates the Certificate expiry time for a group.
    */
   public updateGroupCertificateConfiguration(
@@ -3224,6 +3313,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a logger definition.
    */
   public updateLoggerDefinition(
@@ -3256,6 +3346,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a resource definition.
    */
   public updateResourceDefinition(
@@ -3288,6 +3379,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates a subscription definition.
    */
   public updateSubscriptionDefinition(
@@ -3320,6 +3412,7 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * @public
    * Updates the runtime configuration of a thing.
    */
   public updateThingRuntimeConfiguration(

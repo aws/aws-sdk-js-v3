@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBackupVaultAccessPolicyCommand}.
  */
 export interface PutBackupVaultAccessPolicyCommandInput extends PutBackupVaultAccessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBackupVaultAccessPolicyCommand}.
  */
 export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets a resource-based policy that is used to manage access permissions on the target
  *          backup vault. Requires a backup vault name and an access policy document in JSON
  *          format.</p>
@@ -43,6 +48,8 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBackupVaultAccessPolicyCommandInput - {@link PutBackupVaultAccessPolicyCommandInput}
+ * @returns {@link PutBackupVaultAccessPolicyCommandOutput}
  * @see {@link PutBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -79,6 +86,9 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBackupVaultAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBackupVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutBackupVaultAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

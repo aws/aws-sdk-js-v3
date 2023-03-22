@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetSMSAttributesCommand}.
  */
 export interface SetSMSAttributesCommandInput extends SetSMSAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSMSAttributesCommand}.
  */
 export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this request to set the default settings for sending SMS messages and receiving
  *             daily SMS usage reports.</p>
  *          <p>You can override some of these settings for a single message when you use the
@@ -56,6 +61,8 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSMSAttributesCommandInput - {@link SetSMSAttributesCommandInput}
+ * @returns {@link SetSMSAttributesCommandOutput}
  * @see {@link SetSMSAttributesCommandInput} for command's `input` shape.
  * @see {@link SetSMSAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -92,6 +99,9 @@ export class SetSMSAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSMSAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class SetSMSAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSMSAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetSMSAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSMSAttributesCommandOutput> {
     return deserializeAws_querySetSMSAttributesCommand(output, context);
   }

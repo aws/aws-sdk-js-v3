@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBuildBatchCommand}.
  */
 export interface StartBuildBatchCommandInput extends StartBuildBatchInput {}
 /**
+ * @public
+ *
  * The output of {@link StartBuildBatchCommand}.
  */
 export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a batch build for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBuildBatchCommandInput - {@link StartBuildBatchCommandInput}
+ * @returns {@link StartBuildBatchCommandOutput}
  * @see {@link StartBuildBatchCommandInput} for command's `input` shape.
  * @see {@link StartBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +82,9 @@ export class StartBuildBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBuildBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class StartBuildBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartBuildBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBuildBatchCommandOutput> {
     return deserializeAws_json1_1StartBuildBatchCommand(output, context);
   }

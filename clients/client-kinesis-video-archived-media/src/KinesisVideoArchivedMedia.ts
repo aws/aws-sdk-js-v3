@@ -26,10 +26,12 @@ import {
 import { KinesisVideoArchivedMediaClient } from "./KinesisVideoArchivedMediaClient";
 
 /**
+ * @public
  * <p></p>
  */
 export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   /**
+   * @public
    * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
    *             specified video stream over the specified time range. </p>
    *         <p>Both the StreamName and the StreamARN parameters are optional, but you must specify
@@ -96,6 +98,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You
    *             can then open the URL in a media player to view the stream contents.</p>
    *
@@ -274,6 +277,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL
    *             in a browser or media player to view the stream contents.</p>
    *         <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
@@ -485,6 +489,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
    */
   public getImages(args: GetImagesCommandInput, options?: __HttpHandlerOptions): Promise<GetImagesCommandOutput>;
@@ -511,6 +516,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
+   * @public
    * <p>Gets media for a list of fragments (specified by fragment number) from the archived
    *             data in an Amazon Kinesis video stream.</p>
    *
@@ -579,6 +585,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <a>Fragment</a> objects from the specified stream and
    *             timestamp range within the archived data.</p>
    *         <p>Listing fragments is eventually consistent. This means that even if the producer

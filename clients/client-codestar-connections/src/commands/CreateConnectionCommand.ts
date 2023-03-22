@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectionCommand}.
  */
 export interface CreateConnectionCommandInput extends CreateConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectionCommand}.
  */
 export interface CreateConnectionCommandOutput extends CreateConnectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a connection that can then be given to other AWS services like CodePipeline so
  *       that it can access third-party code repositories. The connection is in pending status until
  *       the third-party connection handshake is completed from the console.</p>
@@ -52,6 +57,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
+ * @returns {@link CreateConnectionCommandOutput}
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionCommandOutput> {
     return deserializeAws_json1_0CreateConnectionCommand(output, context);
   }

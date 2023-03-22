@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFindingsPublicationConfigurationCommand}.
  */
 export interface PutFindingsPublicationConfigurationCommandInput extends PutFindingsPublicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFindingsPublicationConfigurationCommand}.
  */
 export interface PutFindingsPublicationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutFindingsPublicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration settings for publishing findings to Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutFindingsPublicationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFindingsPublicationConfigurationCommandInput - {@link PutFindingsPublicationConfigurationCommandInput}
+ * @returns {@link PutFindingsPublicationConfigurationCommandOutput}
  * @see {@link PutFindingsPublicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutFindingsPublicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFindingsPublicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutFindingsPublicationConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
     return serializeAws_restJson1PutFindingsPublicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

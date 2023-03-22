@@ -19,15 +19,20 @@ import { RunInstancesRequest, RunInstancesRequestFilterSensitiveLog } from "../m
 import { deserializeAws_ec2RunInstancesCommand, serializeAws_ec2RunInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RunInstancesCommand}.
  */
 export interface RunInstancesCommandInput extends RunInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RunInstancesCommand}.
  */
 export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches the specified number of instances using an AMI for which you have
  *             permissions.</p>
  *          <p>You can specify a number of options, or leave the default options. The following rules
@@ -100,6 +105,8 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param RunInstancesCommandInput - {@link RunInstancesCommandInput}
+ * @returns {@link RunInstancesCommandOutput}
  * @see {@link RunInstancesCommandInput} for command's `input` shape.
  * @see {@link RunInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -161,6 +168,9 @@ export class RunInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -198,10 +208,16 @@ export class RunInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RunInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunInstancesCommandOutput> {
     return deserializeAws_ec2RunInstancesCommand(output, context);
   }

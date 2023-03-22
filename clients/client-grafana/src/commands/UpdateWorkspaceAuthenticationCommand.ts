@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceAuthenticationCommand}.
  */
 export interface UpdateWorkspaceAuthenticationCommandInput extends UpdateWorkspaceAuthenticationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceAuthenticationCommand}.
  */
 export interface UpdateWorkspaceAuthenticationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to define the identity provider (IdP) that this workspace
  *             authenticates users from, using SAML. You can also map SAML assertion attributes to
  *             workspace user information and define which groups in the assertion attribute are to
@@ -55,6 +60,8 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceAuthenticationCommandInput - {@link UpdateWorkspaceAuthenticationCommandInput}
+ * @returns {@link UpdateWorkspaceAuthenticationCommandOutput}
  * @see {@link UpdateWorkspaceAuthenticationCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceAuthenticationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWorkspaceAuthenticationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
  */
 export interface DeleteConfigurationSetEventDestinationCommandInput
   extends DeleteConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
  */
 export interface DeleteConfigurationSetEventDestinationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration set event destination. Configuration set event destinations
  *             are associated with configuration sets, which enable you to publish email sending
  *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
@@ -52,6 +57,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetEventDestinationCommandInput - {@link DeleteConfigurationSetEventDestinationCommandInput}
+ * @returns {@link DeleteConfigurationSetEventDestinationCommandOutput}
  * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     return serializeAws_queryDeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContinuousDeploymentPolicyCommand}.
  */
 export interface DeleteContinuousDeploymentPolicyCommandInput extends DeleteContinuousDeploymentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContinuousDeploymentPolicyCommand}.
  */
 export interface DeleteContinuousDeploymentPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a continuous deployment policy.</p>
  *          <p>You cannot delete a continuous deployment policy that's attached to a primary
  * 			distribution. First update your distribution to remove the continuous deployment policy,
@@ -47,6 +52,8 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContinuousDeploymentPolicyCommandInput - {@link DeleteContinuousDeploymentPolicyCommandInput}
+ * @returns {@link DeleteContinuousDeploymentPolicyCommandOutput}
  * @see {@link DeleteContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteContinuousDeploymentPolicyCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
     return serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

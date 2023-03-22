@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkInsightsAccessScopeCommand}.
  */
 export interface CreateNetworkInsightsAccessScopeCommandInput extends CreateNetworkInsightsAccessScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkInsightsAccessScopeCommand}.
  */
 export interface CreateNetworkInsightsAccessScopeCommandOutput
@@ -37,6 +41,7 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Network Access Scope.</p>
  *          <p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams
  *          to verify that their networks on Amazon Web Services conform to their network security and governance
@@ -51,6 +56,8 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkInsightsAccessScopeCommandInput - {@link CreateNetworkInsightsAccessScopeCommandInput}
+ * @returns {@link CreateNetworkInsightsAccessScopeCommandOutput}
  * @see {@link CreateNetworkInsightsAccessScopeCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInsightsAccessScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateNetworkInsightsAccessScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkInsightsAccessScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateNetworkInsightsAccessScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateNetworkInsightsAccessScopeCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateNetworkInsightsAccessScopeCommand extends $Command<
     return serializeAws_ec2CreateNetworkInsightsAccessScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

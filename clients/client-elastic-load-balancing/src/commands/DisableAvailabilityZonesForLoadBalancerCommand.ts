@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAvailabilityZonesForLoadBalancerCommand}.
  */
 export interface DisableAvailabilityZonesForLoadBalancerCommandInput extends RemoveAvailabilityZonesInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableAvailabilityZonesForLoadBalancerCommand}.
  */
 export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
@@ -41,6 +45,7 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer
  *             in EC2-Classic or a default VPC.</p>
  *         <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p>
@@ -60,6 +65,8 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAvailabilityZonesForLoadBalancerCommandInput - {@link DisableAvailabilityZonesForLoadBalancerCommandInput}
+ * @returns {@link DisableAvailabilityZonesForLoadBalancerCommandOutput}
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -110,6 +117,9 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAvailabilityZonesForLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,6 +165,9 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableAvailabilityZonesForLoadBalancerCommandInput,
     context: __SerdeContext
@@ -162,6 +175,9 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     return serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

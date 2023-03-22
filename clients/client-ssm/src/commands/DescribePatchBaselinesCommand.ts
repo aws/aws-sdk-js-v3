@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePatchBaselinesCommand}.
  */
 export interface DescribePatchBaselinesCommandInput extends DescribePatchBaselinesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePatchBaselinesCommand}.
  */
 export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaselinesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the patch baselines in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePatchBaselinesCommandInput - {@link DescribePatchBaselinesCommandInput}
+ * @returns {@link DescribePatchBaselinesCommandOutput}
  * @see {@link DescribePatchBaselinesCommandInput} for command's `input` shape.
  * @see {@link DescribePatchBaselinesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribePatchBaselinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePatchBaselinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribePatchBaselinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePatchBaselinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePatchBaselinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchBaselinesCommandOutput> {
     return deserializeAws_json1_1DescribePatchBaselinesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSentimentDetectionJobCommand}.
  */
 export interface StartSentimentDetectionJobCommandInput extends StartSentimentDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSentimentDetectionJobCommand}.
  */
 export interface StartSentimentDetectionJobCommandOutput extends StartSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous sentiment detection job for a collection of documents. Use the
  *          operation to track the status of a
  *       job.</p>
@@ -48,6 +53,8 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSentimentDetectionJobCommandInput - {@link StartSentimentDetectionJobCommandInput}
+ * @returns {@link StartSentimentDetectionJobCommandOutput}
  * @see {@link StartSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -89,6 +96,9 @@ export class StartSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StartSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

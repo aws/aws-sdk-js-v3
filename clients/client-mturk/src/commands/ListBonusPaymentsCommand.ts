@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBonusPaymentsCommand}.
  */
 export interface ListBonusPaymentsCommandInput extends ListBonusPaymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBonusPaymentsCommand}.
  */
 export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListBonusPayments</code>
@@ -51,6 +56,8 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBonusPaymentsCommandInput - {@link ListBonusPaymentsCommandInput}
+ * @returns {@link ListBonusPaymentsCommandOutput}
  * @see {@link ListBonusPaymentsCommandInput} for command's `input` shape.
  * @see {@link ListBonusPaymentsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListBonusPaymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBonusPaymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListBonusPaymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBonusPaymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBonusPaymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBonusPaymentsCommandOutput> {
     return deserializeAws_json1_1ListBonusPaymentsCommand(output, context);
   }

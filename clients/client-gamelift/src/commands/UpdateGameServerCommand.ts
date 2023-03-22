@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGameServerCommand}.
  */
 export interface UpdateGameServerCommandInput extends UpdateGameServerInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGameServerCommand}.
  */
 export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -82,6 +87,8 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameServerCommandInput - {@link UpdateGameServerCommandInput}
+ * @returns {@link UpdateGameServerCommandOutput}
  * @see {@link UpdateGameServerCommandInput} for command's `input` shape.
  * @see {@link UpdateGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -119,6 +126,9 @@ export class UpdateGameServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class UpdateGameServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGameServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameServerCommandOutput> {
     return deserializeAws_json1_1UpdateGameServerCommand(output, context);
   }

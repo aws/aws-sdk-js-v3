@@ -10,7 +10,7 @@ import { OpenSearchServerlessClient } from "../OpenSearchServerlessClient";
 import { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchServerlessClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSecurityConfigsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSecurityConfigs(
   config: OpenSearchServerlessPaginationConfiguration,
   input: ListSecurityConfigsCommandInput,

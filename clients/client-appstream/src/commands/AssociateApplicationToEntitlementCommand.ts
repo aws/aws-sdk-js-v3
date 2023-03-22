@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApplicationToEntitlementCommand}.
  */
 export interface AssociateApplicationToEntitlementCommandInput extends AssociateApplicationToEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApplicationToEntitlementCommand}.
  */
 export interface AssociateApplicationToEntitlementCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateApplicationToEntitlementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an application to entitle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateApplicationToEntitlementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApplicationToEntitlementCommandInput - {@link AssociateApplicationToEntitlementCommandInput}
+ * @returns {@link AssociateApplicationToEntitlementCommandOutput}
  * @see {@link AssociateApplicationToEntitlementCommandInput} for command's `input` shape.
  * @see {@link AssociateApplicationToEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -83,6 +90,9 @@ export class AssociateApplicationToEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApplicationToEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class AssociateApplicationToEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateApplicationToEntitlementCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class AssociateApplicationToEntitlementCommand extends $Command<
     return serializeAws_json1_1AssociateApplicationToEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

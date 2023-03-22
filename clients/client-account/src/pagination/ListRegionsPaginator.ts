@@ -6,7 +6,7 @@ import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput }
 import { AccountPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AccountClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRegionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRegions(
   config: AccountPaginationConfiguration,
   input: ListRegionsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SampleChannelDataCommand}.
  */
 export interface SampleChannelDataCommandInput extends SampleChannelDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link SampleChannelDataCommand}.
  */
 export interface SampleChannelDataCommandOutput extends SampleChannelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a sample of messages from the specified channel ingested during the specified
  *       timeframe. Up to 10 messages can be retrieved.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param SampleChannelDataCommandInput - {@link SampleChannelDataCommandInput}
+ * @returns {@link SampleChannelDataCommandOutput}
  * @see {@link SampleChannelDataCommandInput} for command's `input` shape.
  * @see {@link SampleChannelDataCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -85,6 +92,9 @@ export class SampleChannelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SampleChannelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class SampleChannelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SampleChannelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SampleChannelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SampleChannelDataCommandOutput> {
     return deserializeAws_restJson1SampleChannelDataCommand(output, context);
   }

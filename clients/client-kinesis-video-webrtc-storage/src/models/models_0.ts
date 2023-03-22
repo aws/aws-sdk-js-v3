@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KinesisVideoWebRTCStorageServiceException as __BaseException } from "./KinesisVideoWebRTCStorageServiceException";
 
 /**
+ * @public
  * <p>You do not have required permissions to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *     </p>
@@ -44,6 +46,7 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value for this input parameter is invalid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -62,6 +65,9 @@ export class InvalidArgumentException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface JoinStorageSessionInput {
   /**
    * <p>
@@ -72,6 +78,7 @@ export interface JoinStorageSessionInput {
 }
 
 /**
+ * @public
  * <p>The specified resource is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {

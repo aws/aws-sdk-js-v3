@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchCommand}.
  */
 export interface DeleteLaunchCommandInput extends DeleteLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchCommand}.
  */
 export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Evidently launch. The feature used for the launch is not deleted.</p>
  *          <p>To stop a launch without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html">StopLaunch</a>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchCommandInput - {@link DeleteLaunchCommandInput}
+ * @returns {@link DeleteLaunchCommandOutput}
  * @see {@link DeleteLaunchCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLaunchCommandOutput> {
     return deserializeAws_restJson1DeleteLaunchCommand(output, context);
   }

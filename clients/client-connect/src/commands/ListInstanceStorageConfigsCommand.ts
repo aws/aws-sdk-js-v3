@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceStorageConfigsCommand}.
  */
 export interface ListInstanceStorageConfigsCommandInput extends ListInstanceStorageConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceStorageConfigsCommand}.
  */
 export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceStorageConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of storage configs for the identified instance and resource
  *    type.</p>
@@ -48,6 +53,8 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceStorageConfigsCommandInput - {@link ListInstanceStorageConfigsCommandInput}
+ * @returns {@link ListInstanceStorageConfigsCommandOutput}
  * @see {@link ListInstanceStorageConfigsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceStorageConfigsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListInstanceStorageConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceStorageConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListInstanceStorageConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceStorageConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInstanceStorageConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTextTranslationJobsCommand}.
  */
 export interface ListTextTranslationJobsCommandInput extends ListTextTranslationJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTextTranslationJobsCommand}.
  */
 export interface ListTextTranslationJobsCommandOutput extends ListTextTranslationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the batch translation jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTextTranslationJobsCommandInput - {@link ListTextTranslationJobsCommandInput}
+ * @returns {@link ListTextTranslationJobsCommandOutput}
  * @see {@link ListTextTranslationJobsCommandInput} for command's `input` shape.
  * @see {@link ListTextTranslationJobsCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListTextTranslationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTextTranslationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListTextTranslationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTextTranslationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTextTranslationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTextTranslationJobsCommandOutput> {
     return deserializeAws_json1_1ListTextTranslationJobsCommand(output, context);
   }

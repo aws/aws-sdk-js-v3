@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssociationCommand}.
  */
 export interface DeleteAssociationCommandInput extends DeleteAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssociationCommand}.
  */
 export interface DeleteAssociationCommandOutput extends DeleteAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified managed
  *    node. If you created the association by using the <code>Targets</code> parameter, then you must
  *    delete the association by using the association ID.</p>
@@ -52,6 +57,8 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
+ * @returns {@link DeleteAssociationCommandOutput}
  * @see {@link DeleteAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -107,6 +114,9 @@ export class DeleteAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DeleteAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssociationCommandOutput> {
     return deserializeAws_json1_1DeleteAssociationCommand(output, context);
   }

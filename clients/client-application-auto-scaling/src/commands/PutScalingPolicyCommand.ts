@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandInput extends PutScalingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>
  *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
  *          dimension. A scaling policy applies to the scalable target identified by those three
@@ -74,6 +79,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
+ * @returns {@link PutScalingPolicyCommandOutput}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -162,6 +169,9 @@ export class PutScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,10 +211,16 @@ export class PutScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
     return deserializeAws_json1_1PutScalingPolicyCommand(output, context);
   }

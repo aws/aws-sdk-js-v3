@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfiguredTableCommand}.
  */
 export interface UpdateConfiguredTableCommandInput extends UpdateConfiguredTableInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfiguredTableCommand}.
  */
 export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfiguredTableCommandInput - {@link UpdateConfiguredTableCommandInput}
+ * @returns {@link UpdateConfiguredTableCommandOutput}
  * @see {@link UpdateConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateConfiguredTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfiguredTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateConfiguredTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConfiguredTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfiguredTableCommandOutput> {
     return deserializeAws_restJson1UpdateConfiguredTableCommand(output, context);
   }

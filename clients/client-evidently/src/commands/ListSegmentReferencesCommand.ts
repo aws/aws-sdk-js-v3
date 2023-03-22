@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSegmentReferencesCommand}.
  */
 export interface ListSegmentReferencesCommandInput extends ListSegmentReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSegmentReferencesCommand}.
  */
 export interface ListSegmentReferencesCommandOutput extends ListSegmentReferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to find which experiments or launches are using a specified segment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSegmentReferencesCommandInput - {@link ListSegmentReferencesCommandInput}
+ * @returns {@link ListSegmentReferencesCommandOutput}
  * @see {@link ListSegmentReferencesCommandInput} for command's `input` shape.
  * @see {@link ListSegmentReferencesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSegmentReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSegmentReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListSegmentReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSegmentReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSegmentReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSegmentReferencesCommandOutput> {
     return deserializeAws_restJson1ListSegmentReferencesCommand(output, context);
   }

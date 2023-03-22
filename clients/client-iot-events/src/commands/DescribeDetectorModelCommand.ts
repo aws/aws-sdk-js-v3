@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDetectorModelCommand}.
  */
 export interface DescribeDetectorModelCommandInput extends DescribeDetectorModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDetectorModelCommand}.
  */
 export interface DescribeDetectorModelCommandOutput extends DescribeDetectorModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
  *       information about the latest version is returned.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDetectorModelCommandInput - {@link DescribeDetectorModelCommandInput}
+ * @returns {@link DescribeDetectorModelCommandOutput}
  * @see {@link DescribeDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeDetectorModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDetectorModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeDetectorModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDetectorModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDetectorModelCommandOutput> {
     return deserializeAws_restJson1DescribeDetectorModelCommand(output, context);
   }

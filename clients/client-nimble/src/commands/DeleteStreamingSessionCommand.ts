@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamingSessionCommand}.
  */
 export interface DeleteStreamingSessionCommandInput extends DeleteStreamingSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamingSessionCommand}.
  */
 export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes streaming session resource.</p>
  *         <p>After invoking this operation, use GetStreamingSession to poll the resource until it
  *             transitions to a <code>DELETED</code> state.</p>
@@ -50,6 +55,8 @@ export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSess
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamingSessionCommandInput - {@link DeleteStreamingSessionCommandInput}
+ * @returns {@link DeleteStreamingSessionCommandOutput}
  * @see {@link DeleteStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteStreamingSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteStreamingSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteStreamingSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamingSessionCommandOutput> {
     return deserializeAws_restJson1DeleteStreamingSessionCommand(output, context);
   }

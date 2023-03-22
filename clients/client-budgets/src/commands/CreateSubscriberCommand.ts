@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriberCommand}.
  */
 export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriberCommand}.
  */
 export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subscriber. You must create the associated budget and notification before you create the subscriber.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriberCommandInput - {@link CreateSubscriberCommandInput}
+ * @returns {@link CreateSubscriberCommandOutput}
  * @see {@link CreateSubscriberCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriberCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubscriberCommandOutput> {
     return deserializeAws_json1_1CreateSubscriberCommand(output, context);
   }

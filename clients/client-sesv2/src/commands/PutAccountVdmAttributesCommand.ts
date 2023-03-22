@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountVdmAttributesCommand}.
  */
 export interface PutAccountVdmAttributesCommandInput extends PutAccountVdmAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountVdmAttributesCommand}.
  */
 export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update your Amazon SES account VDM attributes.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountVdmAttributesCommandInput - {@link PutAccountVdmAttributesCommandInput}
+ * @returns {@link PutAccountVdmAttributesCommandOutput}
  * @see {@link PutAccountVdmAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountVdmAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -76,6 +83,9 @@ export class PutAccountVdmAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountVdmAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class PutAccountVdmAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountVdmAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutAccountVdmAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountVdmAttributesCommandOutput> {
     return deserializeAws_restJson1PutAccountVdmAttributesCommand(output, context);
   }

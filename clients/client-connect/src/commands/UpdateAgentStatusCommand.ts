@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAgentStatusCommand}.
  */
 export interface UpdateAgentStatusCommandInput extends UpdateAgentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAgentStatusCommand}.
  */
 export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates agent status.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAgentStatusCommandInput - {@link UpdateAgentStatusCommandInput}
+ * @returns {@link UpdateAgentStatusCommandOutput}
  * @see {@link UpdateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateAgentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAgentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateAgentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAgentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAgentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAgentStatusCommandOutput> {
     return deserializeAws_restJson1UpdateAgentStatusCommand(output, context);
   }

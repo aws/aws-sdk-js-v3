@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPartitionCommand}.
  */
 export interface GetPartitionCommandInput extends GetPartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPartitionCommand}.
  */
 export interface GetPartitionCommandOutput extends GetPartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a specified partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPartitionCommandInput - {@link GetPartitionCommandInput}
+ * @returns {@link GetPartitionCommandOutput}
  * @see {@link GetPartitionCommandInput} for command's `input` shape.
  * @see {@link GetPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetPartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetPartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartitionCommandOutput> {
     return deserializeAws_json1_1GetPartitionCommand(output, context);
   }

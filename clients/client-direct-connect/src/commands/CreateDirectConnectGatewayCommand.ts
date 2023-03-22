@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectConnectGatewayCommand}.
  */
 export interface CreateDirectConnectGatewayCommandInput extends CreateDirectConnectGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectConnectGatewayCommand}.
  */
 export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set
  *       of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any
  *       Amazon Web Services Region after it is created. The virtual interfaces and virtual private gateways that
@@ -51,6 +56,8 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectConnectGatewayCommandInput - {@link CreateDirectConnectGatewayCommandInput}
+ * @returns {@link CreateDirectConnectGatewayCommandOutput}
  * @see {@link CreateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateDirectConnectGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectConnectGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateDirectConnectGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDirectConnectGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

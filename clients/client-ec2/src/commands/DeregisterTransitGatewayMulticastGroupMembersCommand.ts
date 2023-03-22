@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTransitGatewayMulticastGroupMembersCommand}.
  */
 export interface DeregisterTransitGatewayMulticastGroupMembersCommandInput
   extends DeregisterTransitGatewayMulticastGroupMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTransitGatewayMulticastGroupMembersCommand}.
  */
 export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
@@ -38,6 +42,7 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified members (network interfaces) from the  transit gateway multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTransitGatewayMulticastGroupMembersCommandInput - {@link DeregisterTransitGatewayMulticastGroupMembersCommandInput}
+ * @returns {@link DeregisterTransitGatewayMulticastGroupMembersCommandOutput}
  * @see {@link DeregisterTransitGatewayMulticastGroupMembersCommandInput} for command's `input` shape.
  * @see {@link DeregisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTransitGatewayMulticastGroupMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Comma
     return serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

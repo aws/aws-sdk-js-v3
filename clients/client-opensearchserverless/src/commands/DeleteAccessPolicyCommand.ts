@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
  *                 access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPolicyCommandInput - {@link DeleteAccessPolicyCommandInput}
+ * @returns {@link DeleteAccessPolicyCommandOutput}
  * @see {@link DeleteAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPolicyCommandOutput> {
     return deserializeAws_json1_0DeleteAccessPolicyCommand(output, context);
   }

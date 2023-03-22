@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link TestHypervisorConfigurationCommand}.
  */
 export interface TestHypervisorConfigurationCommandInput extends TestHypervisorConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link TestHypervisorConfigurationCommand}.
  */
 export interface TestHypervisorConfigurationCommandOutput extends TestHypervisorConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests your hypervisor configuration to validate that backup gateway can connect with the
  *       hypervisor and its resources.</p>
  * @example
@@ -47,6 +52,8 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * const response = await client.send(command);
  * ```
  *
+ * @param TestHypervisorConfigurationCommandInput - {@link TestHypervisorConfigurationCommandInput}
+ * @returns {@link TestHypervisorConfigurationCommandOutput}
  * @see {@link TestHypervisorConfigurationCommandInput} for command's `input` shape.
  * @see {@link TestHypervisorConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -86,6 +93,9 @@ export class TestHypervisorConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestHypervisorConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class TestHypervisorConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestHypervisorConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0TestHypervisorConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

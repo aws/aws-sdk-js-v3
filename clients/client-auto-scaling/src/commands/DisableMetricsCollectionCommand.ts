@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DisableMetricsCollectionCommand}.
  */
 export interface DisableMetricsCollectionCommandInput extends DisableMetricsCollectionQuery {}
 /**
+ * @public
+ *
  * The output of {@link DisableMetricsCollectionCommand}.
  */
 export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables group metrics collection for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableMetricsCollectionCommandInput - {@link DisableMetricsCollectionCommandInput}
+ * @returns {@link DisableMetricsCollectionCommandOutput}
  * @see {@link DisableMetricsCollectionCommandInput} for command's `input` shape.
  * @see {@link DisableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -82,6 +89,9 @@ export class DisableMetricsCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableMetricsCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DisableMetricsCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableMetricsCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDisableMetricsCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableMetricsCollectionCommandOutput> {
     return deserializeAws_queryDisableMetricsCollectionCommand(output, context);
   }

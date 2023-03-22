@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableRuleCommand}.
  */
 export interface EnableRuleCommandInput extends EnableRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableRuleCommand}.
  */
 export interface EnableRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified rule. If the rule does not exist, the operation fails.</p>
  *          <p>When you enable a rule, incoming events might not immediately start matching to a newly
  *       enabled rule. Allow a short period of time for changes to take effect.</p>
@@ -43,6 +48,8 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableRuleCommandInput - {@link EnableRuleCommandInput}
+ * @returns {@link EnableRuleCommandOutput}
  * @see {@link EnableRuleCommandInput} for command's `input` shape.
  * @see {@link EnableRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -83,6 +90,9 @@ export class EnableRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class EnableRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableRuleCommandOutput> {
     return deserializeAws_json1_1EnableRuleCommand(output, context);
   }

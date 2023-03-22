@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSetRevisionsCommand}.
  */
 export interface ListDataSetRevisionsCommandInput extends ListDataSetRevisionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSetRevisionsCommand}.
  */
 export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists a data set's revisions sorted by CreatedAt in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSetRevisionsCommandInput - {@link ListDataSetRevisionsCommandInput}
+ * @returns {@link ListDataSetRevisionsCommandOutput}
  * @see {@link ListDataSetRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetRevisionsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListDataSetRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSetRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListDataSetRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSetRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataSetRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetRevisionsCommandOutput> {
     return deserializeAws_restJson1ListDataSetRevisionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSolutionVersionCommand}.
  */
 export interface DescribeSolutionVersionCommandInput extends DescribeSolutionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSolutionVersionCommand}.
  */
 export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a specific version of a solution. For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *          </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSolutionVersionCommandInput - {@link DescribeSolutionVersionCommandInput}
+ * @returns {@link DescribeSolutionVersionCommandOutput}
  * @see {@link DescribeSolutionVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeSolutionVersionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeSolutionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSolutionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeSolutionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSolutionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSolutionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSolutionVersionCommandOutput> {
     return deserializeAws_json1_1DescribeSolutionVersionCommand(output, context);
   }

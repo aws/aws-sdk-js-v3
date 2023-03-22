@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNodeCommand}.
  */
 export interface UpdateNodeCommandInput extends UpdateNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNodeCommand}.
  */
 export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a node configuration with new parameters.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNodeCommandInput - {@link UpdateNodeCommandInput}
+ * @returns {@link UpdateNodeCommandOutput}
  * @see {@link UpdateNodeCommandInput} for command's `input` shape.
  * @see {@link UpdateNodeCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodeCommandOutput> {
     return deserializeAws_restJson1UpdateNodeCommand(output, context);
   }

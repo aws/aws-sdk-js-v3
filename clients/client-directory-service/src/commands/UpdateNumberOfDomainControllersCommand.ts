@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNumberOfDomainControllersCommand}.
  */
 export interface UpdateNumberOfDomainControllersCommandInput extends UpdateNumberOfDomainControllersRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNumberOfDomainControllersCommand}.
  */
 export interface UpdateNumberOfDomainControllersCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or removes domain controllers to or from the directory. Based on the difference
  *       between current value and new value (provided through this API call), domain controllers will
  *       be added or removed. It may take up to 45 minutes for any new domain controllers to become
@@ -52,6 +57,8 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNumberOfDomainControllersCommandInput - {@link UpdateNumberOfDomainControllersCommandInput}
+ * @returns {@link UpdateNumberOfDomainControllersCommandOutput}
  * @see {@link UpdateNumberOfDomainControllersCommandInput} for command's `input` shape.
  * @see {@link UpdateNumberOfDomainControllersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNumberOfDomainControllersCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateNumberOfDomainControllersCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     return serializeAws_json1_1UpdateNumberOfDomainControllersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

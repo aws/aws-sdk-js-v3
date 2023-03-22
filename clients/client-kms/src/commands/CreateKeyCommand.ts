@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1CreateKeyCommand, serializeAws_json1_1CreateKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeyCommand}.
  */
 export interface CreateKeyCommandInput extends CreateKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeyCommand}.
  */
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
  *       You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services
  *       services let you use KMS keys that you create and manage to protect your service
@@ -209,6 +214,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyCommandInput - {@link CreateKeyCommandInput}
+ * @returns {@link CreateKeyCommandOutput}
  * @see {@link CreateKeyCommandInput} for command's `input` shape.
  * @see {@link CreateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -632,6 +639,9 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -669,10 +679,16 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyCommandOutput> {
     return deserializeAws_json1_1CreateKeyCommand(output, context);
   }

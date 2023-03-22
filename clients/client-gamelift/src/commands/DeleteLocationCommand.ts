@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocationCommand}.
  */
 export interface DeleteLocationCommandInput extends DeleteLocationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocationCommand}.
  */
 export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom location.</p>
  *         <p>Before deleting a custom location, review any fleets currently using the custom
  *             location and deregister the location if it is in use. For more information see, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html">DeregisterCompute</a>.</p>
@@ -48,6 +53,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
+ * @returns {@link DeleteLocationCommandOutput}
  * @see {@link DeleteLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLocationCommandOutput> {
     return deserializeAws_json1_1DeleteLocationCommand(output, context);
   }

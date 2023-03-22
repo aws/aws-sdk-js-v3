@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriptionDefinitionCommand}.
  */
 export interface UpdateSubscriptionDefinitionCommandInput extends UpdateSubscriptionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriptionDefinitionCommand}.
  */
 export interface UpdateSubscriptionDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSubscriptionDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Updates a subscription definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriptionDefinitionCommandInput - {@link UpdateSubscriptionDefinitionCommandInput}
+ * @returns {@link UpdateSubscriptionDefinitionCommandOutput}
  * @see {@link UpdateSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriptionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSubscriptionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

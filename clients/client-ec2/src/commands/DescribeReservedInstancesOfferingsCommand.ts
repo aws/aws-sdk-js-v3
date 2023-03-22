@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstancesOfferingsCommand}.
  */
 export interface DescribeReservedInstancesOfferingsCommandInput extends DescribeReservedInstancesOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstancesOfferingsCommand}.
  */
 export interface DescribeReservedInstancesOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeReservedInstancesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>
  *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
@@ -51,6 +56,8 @@ export interface DescribeReservedInstancesOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstancesOfferingsCommandInput - {@link DescribeReservedInstancesOfferingsCommandInput}
+ * @returns {@link DescribeReservedInstancesOfferingsCommandOutput}
  * @see {@link DescribeReservedInstancesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstancesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedInstancesOfferingsCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
     return serializeAws_ec2DescribeReservedInstancesOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

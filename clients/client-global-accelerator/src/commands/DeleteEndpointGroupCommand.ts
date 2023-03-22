@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointGroupCommand}.
  */
 export interface DeleteEndpointGroupCommandInput extends DeleteEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointGroupCommand}.
  */
 export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an endpoint group from a listener.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointGroupCommandInput - {@link DeleteEndpointGroupCommandInput}
+ * @returns {@link DeleteEndpointGroupCommandOutput}
  * @see {@link DeleteEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointGroupCommandOutput> {
     return deserializeAws_json1_1DeleteEndpointGroupCommand(output, context);
   }

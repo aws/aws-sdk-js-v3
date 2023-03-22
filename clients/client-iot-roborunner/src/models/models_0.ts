@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IoTRoboRunnerServiceException as __BaseException } from "./IoTRoboRunnerServiceException";
 
 /**
+ * @public
  *  User does not have sufficient access to perform this action.
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * Cartesian coordinates in 3D space relative to the RoboRunner origin.
  */
 export interface CartesianCoordinates {
@@ -44,6 +46,7 @@ export interface CartesianCoordinates {
 }
 
 /**
+ * @public
  * Exception thrown if a resource in a create request already exists.
  */
 export class ConflictException extends __BaseException {
@@ -62,12 +65,18 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DestinationState {
   DECOMMISSIONED = "DECOMMISSIONED",
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface CreateDestinationRequest {
   /**
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
@@ -95,6 +104,9 @@ export interface CreateDestinationRequest {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDestinationResponse {
   /**
    * Destination ARN.
@@ -123,6 +135,7 @@ export interface CreateDestinationResponse {
 }
 
 /**
+ * @public
  * Exception thrown if something goes wrong within the service.
  */
 export class InternalServerException extends __BaseException {
@@ -142,6 +155,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception thrown if a resource referenced in the request doesn't exist.
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -161,6 +175,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception thrown if the user's AWS account has reached a service limit and the operation cannot proceed.
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -181,6 +196,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception thrown if the api has been called too quickly be the client.
  */
 export class ThrottlingException extends __BaseException {
@@ -203,6 +219,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception thrown if an invalid parameter is provided to an API.
  */
 export class ValidationException extends __BaseException {
@@ -221,6 +238,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteRequest {
   /**
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
@@ -243,6 +263,9 @@ export interface CreateSiteRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteResponse {
   /**
    * Site ARN.
@@ -266,10 +289,14 @@ export interface CreateSiteResponse {
 }
 
 /**
+ * @public
  * Worker orientation measured in units clockwise from north.
  */
 export type Orientation = Orientation.DegreesMember | Orientation.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Orientation {
   /**
    * Degrees, limited on [0, 360)
@@ -296,10 +323,14 @@ export namespace Orientation {
 }
 
 /**
+ * @public
  * Supported coordinates for worker position.
  */
 export type PositionCoordinates = PositionCoordinates.CartesianCoordinatesMember | PositionCoordinates.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace PositionCoordinates {
   /**
    * Cartesian coordinates.
@@ -326,6 +357,7 @@ export namespace PositionCoordinates {
 }
 
 /**
+ * @public
  * Properties of the worker that are provided by the vendor FMS.
  */
 export interface VendorProperties {
@@ -350,6 +382,9 @@ export interface VendorProperties {
   vendorAdditionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerRequest {
   /**
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
@@ -392,6 +427,9 @@ export interface CreateWorkerRequest {
   orientation?: Orientation;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerResponse {
   /**
    * Full ARN of the worker.
@@ -419,6 +457,9 @@ export interface CreateWorkerResponse {
   site: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerFleetRequest {
   /**
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
@@ -441,6 +482,9 @@ export interface CreateWorkerFleetRequest {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerFleetResponse {
   /**
    * Full ARN of the worker fleet.
@@ -463,6 +507,9 @@ export interface CreateWorkerFleetResponse {
   updatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDestinationRequest {
   /**
    * Destination ARN.
@@ -470,8 +517,14 @@ export interface DeleteDestinationRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSiteRequest {
   /**
    * Site ARN.
@@ -479,8 +532,14 @@ export interface DeleteSiteRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSiteResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteWorkerRequest {
   /**
    * Full ARN of the worker.
@@ -488,8 +547,14 @@ export interface DeleteWorkerRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkerResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteWorkerFleetRequest {
   /**
    * Full ARN of the worker fleet.
@@ -497,9 +562,13 @@ export interface DeleteWorkerFleetRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkerFleetResponse {}
 
 /**
+ * @public
  * Area within a facility where work can be performed.
  */
 export interface Destination {
@@ -544,6 +613,9 @@ export interface Destination {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDestinationRequest {
   /**
    * Destination ARN.
@@ -551,6 +623,9 @@ export interface GetDestinationRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDestinationResponse {
   /**
    * Destination ARN.
@@ -593,6 +668,9 @@ export interface GetDestinationResponse {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDestinationsRequest {
   /**
    * Site ARN.
@@ -616,6 +694,9 @@ export interface ListDestinationsRequest {
   state?: DestinationState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDestinationsResponse {
   /**
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
@@ -629,6 +710,9 @@ export interface ListDestinationsResponse {
   destinations?: Destination[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDestinationRequest {
   /**
    * Destination ARN.
@@ -651,6 +735,9 @@ export interface UpdateDestinationRequest {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDestinationResponse {
   /**
    * Destination ARN.
@@ -683,6 +770,9 @@ export interface UpdateDestinationResponse {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSiteRequest {
   /**
    * Site ARN.
@@ -690,6 +780,9 @@ export interface GetSiteRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSiteResponse {
   /**
    * Site ARN.
@@ -727,6 +820,9 @@ export interface GetSiteResponse {
   updatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkerRequest {
   /**
    * Full ARN of the worker.
@@ -734,6 +830,9 @@ export interface GetWorkerRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkerResponse {
   /**
    * Full ARN of the worker.
@@ -796,6 +895,9 @@ export interface GetWorkerResponse {
   orientation?: Orientation;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkerFleetRequest {
   /**
    * Full ARN of the worker fleet.
@@ -803,6 +905,9 @@ export interface GetWorkerFleetRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkerFleetResponse {
   /**
    * Filters access by the worker fleet's identifier
@@ -840,6 +945,9 @@ export interface GetWorkerFleetResponse {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkersRequest {
   /**
    * Site ARN.
@@ -864,6 +972,7 @@ export interface ListWorkersRequest {
 }
 
 /**
+ * @public
  * A unit capable of performing tasks.
  */
 export interface Worker {
@@ -928,6 +1037,9 @@ export interface Worker {
   orientation?: Orientation;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkersResponse {
   /**
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
@@ -941,6 +1053,9 @@ export interface ListWorkersResponse {
   workers?: Worker[];
 }
 
+/**
+ * @public
+ */
 export interface ListSitesRequest {
   /**
    * Maximum number of results to retrieve in a single ListSites call.
@@ -955,6 +1070,7 @@ export interface ListSitesRequest {
 }
 
 /**
+ * @public
  * Facility containing destinations, workers, activities, and tasks.
  */
 export interface Site {
@@ -979,6 +1095,9 @@ export interface Site {
   createdAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSitesResponse {
   /**
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
@@ -992,6 +1111,9 @@ export interface ListSitesResponse {
   sites?: Site[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSiteRequest {
   /**
    * Site ARN.
@@ -1014,6 +1136,9 @@ export interface UpdateSiteRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSiteResponse {
   /**
    * Site ARN.
@@ -1046,6 +1171,9 @@ export interface UpdateSiteResponse {
   updatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkerFleetsRequest {
   /**
    * Site ARN.
@@ -1065,6 +1193,7 @@ export interface ListWorkerFleetsRequest {
 }
 
 /**
+ * @public
  * A collection of workers organized within a facility.
  */
 export interface WorkerFleet {
@@ -1104,6 +1233,9 @@ export interface WorkerFleet {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkerFleetsResponse {
   /**
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
@@ -1117,6 +1249,9 @@ export interface ListWorkerFleetsResponse {
   workerFleets?: WorkerFleet[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkerRequest {
   /**
    * Full ARN of the worker.
@@ -1154,6 +1289,9 @@ export interface UpdateWorkerRequest {
   orientation?: Orientation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkerResponse {
   /**
    * Full ARN of the worker.
@@ -1206,6 +1344,9 @@ export interface UpdateWorkerResponse {
   position?: PositionCoordinates;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkerFleetRequest {
   /**
    * Full ARN of the worker fleet.
@@ -1223,6 +1364,9 @@ export interface UpdateWorkerFleetRequest {
   additionalFixedProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkerFleetResponse {
   /**
    * Full ARN of the worker fleet.

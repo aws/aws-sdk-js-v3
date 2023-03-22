@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationSubnetGroupCommand}.
  */
 export interface DeleteReplicationSubnetGroupCommandInput extends DeleteReplicationSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationSubnetGroupCommand}.
  */
 export interface DeleteReplicationSubnetGroupCommandOutput
@@ -41,6 +45,7 @@ export interface DeleteReplicationSubnetGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationSubnetGroupCommandInput - {@link DeleteReplicationSubnetGroupCommandInput}
+ * @returns {@link DeleteReplicationSubnetGroupCommandOutput}
  * @see {@link DeleteReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReplicationSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

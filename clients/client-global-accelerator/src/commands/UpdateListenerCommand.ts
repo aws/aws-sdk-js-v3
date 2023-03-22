@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateListenerCommand}.
  */
 export interface UpdateListenerCommandInput extends UpdateListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateListenerCommand}.
  */
 export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a listener. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateListenerCommandInput - {@link UpdateListenerCommandInput}
+ * @returns {@link UpdateListenerCommandOutput}
  * @see {@link UpdateListenerCommandInput} for command's `input` shape.
  * @see {@link UpdateListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateListenerCommandOutput> {
     return deserializeAws_json1_1UpdateListenerCommand(output, context);
   }

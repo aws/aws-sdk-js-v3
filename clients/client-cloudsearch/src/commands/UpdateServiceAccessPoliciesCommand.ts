@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceAccessPoliciesCommand}.
  */
 export interface UpdateServiceAccessPoliciesCommandInput extends UpdateServiceAccessPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceAccessPoliciesCommand}.
  */
 export interface UpdateServiceAccessPoliciesCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateServiceAccessPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures the access rules that control access to the domain's document and search endpoints.
  *       For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">
  *         Configuring Access for an Amazon CloudSearch Domain</a>.</p>
@@ -50,6 +55,8 @@ export interface UpdateServiceAccessPoliciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceAccessPoliciesCommandInput - {@link UpdateServiceAccessPoliciesCommandInput}
+ * @returns {@link UpdateServiceAccessPoliciesCommandOutput}
  * @see {@link UpdateServiceAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceAccessPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateServiceAccessPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

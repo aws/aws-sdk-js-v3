@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link FilterLogEventsCommand}.
  */
 export interface FilterLogEventsCommandInput extends FilterLogEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link FilterLogEventsCommand}.
  */
 export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists log events from the specified log group. You can list all the log events or filter the results
  *       using a filter pattern, a time range, and the name of the log stream.</p>
  *          <p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p>
@@ -61,6 +66,8 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param FilterLogEventsCommandInput - {@link FilterLogEventsCommandInput}
+ * @returns {@link FilterLogEventsCommandOutput}
  * @see {@link FilterLogEventsCommandInput} for command's `input` shape.
  * @see {@link FilterLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -93,6 +100,9 @@ export class FilterLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FilterLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class FilterLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FilterLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1FilterLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FilterLogEventsCommandOutput> {
     return deserializeAws_json1_1FilterLogEventsCommand(output, context);
   }

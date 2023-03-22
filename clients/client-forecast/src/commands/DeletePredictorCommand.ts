@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePredictorCommand}.
  */
 export interface DeletePredictorCommandInput extends DeletePredictorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePredictorCommand}.
  */
 export interface DeletePredictorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a predictor created using the <a>DescribePredictor</a> or <a>CreatePredictor</a> operations. You can delete only predictor that have a status of
  *         <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribePredictor</a> operation.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePredictorCommandInput - {@link DeletePredictorCommandInput}
+ * @returns {@link DeletePredictorCommandOutput}
  * @see {@link DeletePredictorCommandInput} for command's `input` shape.
  * @see {@link DeletePredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeletePredictorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeletePredictorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePredictorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePredictorCommandOutput> {
     return deserializeAws_json1_1DeletePredictorCommand(output, context);
   }

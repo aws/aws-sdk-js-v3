@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentCommand}.
  */
 export interface DeleteAssessmentCommandInput extends DeleteAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentCommand}.
  */
 export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentCommandInput - {@link DeleteAssessmentCommandInput}
+ * @returns {@link DeleteAssessmentCommandOutput}
  * @see {@link DeleteAssessmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentCommandOutput> {
     return deserializeAws_restJson1DeleteAssessmentCommand(output, context);
   }

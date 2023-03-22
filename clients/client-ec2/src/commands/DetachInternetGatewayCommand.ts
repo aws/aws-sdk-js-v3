@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DetachInternetGatewayCommand}.
  */
 export interface DetachInternetGatewayCommandInput extends DetachInternetGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachInternetGatewayCommand}.
  */
 export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an internet gateway from a VPC, disabling connectivity between the internet
  * 			and the VPC. The VPC must not contain any running instances with Elastic IP addresses or
  * 			public IPv4 addresses.</p>
@@ -43,6 +48,8 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachInternetGatewayCommandInput - {@link DetachInternetGatewayCommandInput}
+ * @returns {@link DetachInternetGatewayCommandOutput}
  * @see {@link DetachInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DetachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +85,9 @@ export class DetachInternetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DetachInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DetachInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachInternetGatewayCommandOutput> {
     return deserializeAws_ec2DetachInternetGatewayCommand(output, context);
   }

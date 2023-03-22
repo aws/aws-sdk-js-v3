@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDRTRoleCommand}.
  */
 export interface DisassociateDRTRoleCommandInput extends DisassociateDRTRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDRTRoleCommand}.
  */
 export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDRTRoleCommandInput - {@link DisassociateDRTRoleCommandInput}
+ * @returns {@link DisassociateDRTRoleCommandOutput}
  * @see {@link DisassociateDRTRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateDRTRoleCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -82,6 +89,9 @@ export class DisassociateDRTRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDRTRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DisassociateDRTRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDRTRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateDRTRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDRTRoleCommandOutput> {
     return deserializeAws_json1_1DisassociateDRTRoleCommand(output, context);
   }

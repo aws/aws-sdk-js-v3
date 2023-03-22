@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePartitionCommand}.
  */
 export interface UpdatePartitionCommandInput extends UpdatePartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePartitionCommand}.
  */
 export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePartitionCommandInput - {@link UpdatePartitionCommandInput}
+ * @returns {@link UpdatePartitionCommandOutput}
  * @see {@link UpdatePartitionCommandInput} for command's `input` shape.
  * @see {@link UpdatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdatePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdatePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartitionCommandOutput> {
     return deserializeAws_json1_1UpdatePartitionCommand(output, context);
   }

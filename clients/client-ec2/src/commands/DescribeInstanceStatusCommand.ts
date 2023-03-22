@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceStatusCommand}.
  */
 export interface DescribeInstanceStatusCommandInput extends DescribeInstanceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceStatusCommand}.
  */
 export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the specified instances or all of your instances. By default,
  *             only running instances are described, unless you specifically indicate to return the
  *             status of all instances.</p>
@@ -74,6 +79,8 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceStatusCommandInput - {@link DescribeInstanceStatusCommandInput}
+ * @returns {@link DescribeInstanceStatusCommandOutput}
  * @see {@link DescribeInstanceStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -142,6 +149,9 @@ export class DescribeInstanceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class DescribeInstanceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstanceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceStatusCommandOutput> {
     return deserializeAws_ec2DescribeInstanceStatusCommand(output, context);
   }

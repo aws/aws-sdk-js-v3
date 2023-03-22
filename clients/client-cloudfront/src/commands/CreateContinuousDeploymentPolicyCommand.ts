@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContinuousDeploymentPolicyCommand}.
  */
 export interface CreateContinuousDeploymentPolicyCommandInput extends CreateContinuousDeploymentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContinuousDeploymentPolicyCommand}.
  */
 export interface CreateContinuousDeploymentPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a continuous deployment policy that distributes traffic for a custom domain
  * 			name to two different CloudFront distributions.</p>
  *          <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to
@@ -56,6 +61,8 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContinuousDeploymentPolicyCommandInput - {@link CreateContinuousDeploymentPolicyCommandInput}
+ * @returns {@link CreateContinuousDeploymentPolicyCommandOutput}
  * @see {@link CreateContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateContinuousDeploymentPolicyCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command<
     return serializeAws_restXmlCreateContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

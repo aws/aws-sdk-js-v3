@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetListElementsCommand}.
  */
 export interface GetListElementsCommandInput extends GetListElementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetListElementsCommand}.
  */
 export interface GetListElementsCommandOutput extends GetListElementsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Gets all the elements in the specified list.
  *         </p>
@@ -48,6 +53,8 @@ export interface GetListElementsCommandOutput extends GetListElementsResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetListElementsCommandInput - {@link GetListElementsCommandInput}
+ * @returns {@link GetListElementsCommandOutput}
  * @see {@link GetListElementsCommandInput} for command's `input` shape.
  * @see {@link GetListElementsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetListElementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetListElementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetListElementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetListElementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetListElementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetListElementsCommandOutput> {
     return deserializeAws_json1_1GetListElementsCommand(output, context);
   }

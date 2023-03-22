@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAffectedEntitiesForOrganizationCommand}.
  */
 export interface DescribeAffectedEntitiesForOrganizationCommandInput
   extends DescribeAffectedEntitiesForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAffectedEntitiesForOrganizationCommand}.
  */
 export interface DescribeAffectedEntitiesForOrganizationCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of entities that have been affected by one or more events for one or more
  *          accounts in your organization in Organizations, based on the filter criteria. Entities can refer
  *          to individual customer resources, groups of customer resources, or any other construct,
@@ -68,6 +73,8 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAffectedEntitiesForOrganizationCommandInput - {@link DescribeAffectedEntitiesForOrganizationCommandInput}
+ * @returns {@link DescribeAffectedEntitiesForOrganizationCommandOutput}
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAffectedEntitiesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAffectedEntitiesForOrganizationCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     return serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

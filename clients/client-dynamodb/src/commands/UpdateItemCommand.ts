@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateItemCommand}.
  */
 export interface UpdateItemCommandInput extends UpdateItemInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateItemCommand}.
  */
 export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Edits an existing item's attributes, or adds a new item to the table if it does not
  *             already exist. You can put, delete, or add attribute values. You can also perform a
  *             conditional update on an existing item (insert a new attribute name-value pair if it
@@ -52,6 +57,8 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateItemCommandInput - {@link UpdateItemCommandInput}
+ * @returns {@link UpdateItemCommandOutput}
  * @see {@link UpdateItemCommandInput} for command's `input` shape.
  * @see {@link UpdateItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -157,6 +164,9 @@ export class UpdateItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -194,10 +204,16 @@ export class UpdateItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateItemCommandOutput> {
     return deserializeAws_json1_0UpdateItemCommand(output, context);
   }

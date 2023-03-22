@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTaskTemplateCommand}.
  */
 export interface CreateTaskTemplateCommandInput extends CreateTaskTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTaskTemplateCommand}.
  */
 export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new task template in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskTemplateCommandInput - {@link CreateTaskTemplateCommandInput}
+ * @returns {@link CreateTaskTemplateCommandOutput}
  * @see {@link CreateTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateTaskTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateTaskTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTaskTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskTemplateCommandOutput> {
     return deserializeAws_restJson1CreateTaskTemplateCommand(output, context);
   }

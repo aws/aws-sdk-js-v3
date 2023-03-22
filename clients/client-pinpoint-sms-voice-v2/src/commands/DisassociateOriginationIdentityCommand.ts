@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateOriginationIdentityCommand}.
  */
 export interface DisassociateOriginationIdentityCommandInput extends DisassociateOriginationIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateOriginationIdentityCommand}.
  */
 export interface DisassociateOriginationIdentityCommandOutput
@@ -41,6 +45,7 @@ export interface DisassociateOriginationIdentityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified origination identity from an existing pool.</p>
  *         <p>If the origination identity isn't associated with the specified pool, an Error is
  *             returned.</p>
@@ -54,6 +59,8 @@ export interface DisassociateOriginationIdentityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateOriginationIdentityCommandInput - {@link DisassociateOriginationIdentityCommandInput}
+ * @returns {@link DisassociateOriginationIdentityCommandOutput}
  * @see {@link DisassociateOriginationIdentityCommandInput} for command's `input` shape.
  * @see {@link DisassociateOriginationIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -101,6 +108,9 @@ export class DisassociateOriginationIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateOriginationIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class DisassociateOriginationIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateOriginationIdentityCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class DisassociateOriginationIdentityCommand extends $Command<
     return serializeAws_json1_0DisassociateOriginationIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

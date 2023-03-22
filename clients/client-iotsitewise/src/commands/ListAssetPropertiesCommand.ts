@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetPropertiesCommand}.
  */
 export interface ListAssetPropertiesCommandInput extends ListAssetPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetPropertiesCommand}.
  */
 export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of properties associated with an asset.
  *       If you update properties associated with the model before you finish listing all the properties,
  *         you need to start all over again.</p>
@@ -48,6 +53,8 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetPropertiesCommandInput - {@link ListAssetPropertiesCommandInput}
+ * @returns {@link ListAssetPropertiesCommandOutput}
  * @see {@link ListAssetPropertiesCommandInput} for command's `input` shape.
  * @see {@link ListAssetPropertiesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListAssetPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListAssetPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssetPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetPropertiesCommandOutput> {
     return deserializeAws_restJson1ListAssetPropertiesCommand(output, context);
   }

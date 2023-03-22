@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppReplicationConfigurationCommand}.
  */
 export interface GetAppReplicationConfigurationCommandInput extends GetAppReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppReplicationConfigurationCommand}.
  */
 export interface GetAppReplicationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetAppReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the application replication configuration associated with the specified
  *             application.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetAppReplicationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppReplicationConfigurationCommandInput - {@link GetAppReplicationConfigurationCommandInput}
+ * @returns {@link GetAppReplicationConfigurationCommandOutput}
  * @see {@link GetAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAppReplicationConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     return serializeAws_json1_1GetAppReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

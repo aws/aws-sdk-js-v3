@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PromoteReadReplicaCommand}.
  */
 export interface PromoteReadReplicaCommandInput extends PromoteReadReplicaMessage {}
 /**
+ * @public
+ *
  * The output of {@link PromoteReadReplicaCommand}.
  */
 export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
  *          <note>
  *             <ul>
@@ -63,6 +68,8 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * const response = await client.send(command);
  * ```
  *
+ * @param PromoteReadReplicaCommandInput - {@link PromoteReadReplicaCommandInput}
+ * @returns {@link PromoteReadReplicaCommandOutput}
  * @see {@link PromoteReadReplicaCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -111,6 +118,9 @@ export class PromoteReadReplicaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PromoteReadReplicaCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class PromoteReadReplicaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PromoteReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPromoteReadReplicaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PromoteReadReplicaCommandOutput> {
     return deserializeAws_queryPromoteReadReplicaCommand(output, context);
   }

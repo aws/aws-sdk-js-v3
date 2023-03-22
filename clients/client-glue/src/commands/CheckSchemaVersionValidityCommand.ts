@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CheckSchemaVersionValidityCommand}.
  */
 export interface CheckSchemaVersionValidityCommandInput extends CheckSchemaVersionValidityInput {}
 /**
+ * @public
+ *
  * The output of {@link CheckSchemaVersionValidityCommand}.
  */
 export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVersionValidityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates the supplied schema. This call has no side effects, it simply validates using the supplied schema using <code>DataFormat</code> as the format. Since it does not take a schema set name, no compatibility checks are performed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckSchemaVersionValidityCommandInput - {@link CheckSchemaVersionValidityCommandInput}
+ * @returns {@link CheckSchemaVersionValidityCommandOutput}
  * @see {@link CheckSchemaVersionValidityCommandInput} for command's `input` shape.
  * @see {@link CheckSchemaVersionValidityCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class CheckSchemaVersionValidityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckSchemaVersionValidityCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CheckSchemaVersionValidityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckSchemaVersionValidityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckSchemaVersionValidityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

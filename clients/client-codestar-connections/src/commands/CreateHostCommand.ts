@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHostCommand}.
  */
 export interface CreateHostCommandInput extends CreateHostInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateHostCommand}.
  */
 export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource that represents the infrastructure where a third-party provider is
  *       installed. The host is used when you create connections to an installed third-party provider
  *       type, such as GitHub Enterprise Server. You create one host for all connections to that
@@ -57,6 +62,8 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHostCommandInput - {@link CreateHostCommandInput}
+ * @returns {@link CreateHostCommandOutput}
  * @see {@link CreateHostCommandInput} for command's `input` shape.
  * @see {@link CreateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHostCommandOutput> {
     return deserializeAws_json1_0CreateHostCommand(output, context);
   }

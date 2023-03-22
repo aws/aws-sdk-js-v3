@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecoveryGroupsCommand}.
  */
 export interface ListRecoveryGroupsCommandInput extends ListRecoveryGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecoveryGroupsCommand}.
  */
 export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recovery groups in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryGroupsCommandInput - {@link ListRecoveryGroupsCommandInput}
+ * @returns {@link ListRecoveryGroupsCommandOutput}
  * @see {@link ListRecoveryGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryGroupsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListRecoveryGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListRecoveryGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecoveryGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecoveryGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecoveryGroupsCommandOutput> {
     return deserializeAws_restJson1ListRecoveryGroupsCommand(output, context);
   }

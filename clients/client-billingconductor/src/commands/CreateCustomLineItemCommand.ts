@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomLineItemCommand}.
  */
 export interface CreateCustomLineItemCommandInput extends CreateCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomLineItemCommand}.
  */
 export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.
  *     </p>
@@ -48,6 +53,8 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomLineItemCommandInput - {@link CreateCustomLineItemCommandInput}
+ * @returns {@link CreateCustomLineItemCommandOutput}
  * @see {@link CreateCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link CreateCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomLineItemCommandOutput> {
     return deserializeAws_restJson1CreateCustomLineItemCommand(output, context);
   }

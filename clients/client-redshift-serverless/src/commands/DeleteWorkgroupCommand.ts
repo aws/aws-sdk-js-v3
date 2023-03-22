@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkgroupCommand}.
  */
 export interface DeleteWorkgroupCommandInput extends DeleteWorkgroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkgroupCommand}.
  */
 export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkgroupCommandInput - {@link DeleteWorkgroupCommandInput}
+ * @returns {@link DeleteWorkgroupCommandOutput}
  * @see {@link DeleteWorkgroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteWorkgroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkgroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteWorkgroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkgroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkgroupCommandOutput> {
     return deserializeAws_json1_1DeleteWorkgroupCommand(output, context);
   }

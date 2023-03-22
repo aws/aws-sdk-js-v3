@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventDataStoreCommand}.
  */
 export interface CreateEventDataStoreCommandInput extends CreateEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventDataStoreCommand}.
  */
 export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventDataStoreCommandInput - {@link CreateEventDataStoreCommandInput}
+ * @returns {@link CreateEventDataStoreCommandOutput}
  * @see {@link CreateEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link CreateEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -167,6 +174,9 @@ export class CreateEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -206,10 +216,16 @@ export class CreateEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventDataStoreCommandOutput> {
     return deserializeAws_json1_1CreateEventDataStoreCommand(output, context);
   }

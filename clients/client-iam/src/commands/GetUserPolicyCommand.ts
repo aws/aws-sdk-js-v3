@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserPolicyCommand}.
  */
 export interface GetUserPolicyCommandInput extends GetUserPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserPolicyCommand}.
  */
 export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
  *             user.</p>
  *          <note>
@@ -60,6 +65,8 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserPolicyCommandInput - {@link GetUserPolicyCommandInput}
+ * @returns {@link GetUserPolicyCommandOutput}
  * @see {@link GetUserPolicyCommandInput} for command's `input` shape.
  * @see {@link GetUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetUserPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetUserPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetUserPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserPolicyCommandOutput> {
     return deserializeAws_queryGetUserPolicyCommand(output, context);
   }

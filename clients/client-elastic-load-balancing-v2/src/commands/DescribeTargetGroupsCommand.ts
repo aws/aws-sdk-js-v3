@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTargetGroupsCommand}.
  */
 export interface DescribeTargetGroupsCommandInput extends DescribeTargetGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTargetGroupsCommand}.
  */
 export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified target groups or all of your target groups. By default, all target
  *       groups are described. Alternatively, you can specify one of the following to filter the
  *       results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
@@ -53,6 +58,8 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTargetGroupsCommandInput - {@link DescribeTargetGroupsCommandInput}
+ * @returns {@link DescribeTargetGroupsCommandOutput}
  * @see {@link DescribeTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -121,6 +128,9 @@ export class DescribeTargetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class DescribeTargetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTargetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTargetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTargetGroupsCommandOutput> {
     return deserializeAws_queryDescribeTargetGroupsCommand(output, context);
   }

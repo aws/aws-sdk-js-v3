@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the specified IoT policy. To update a policy, create a
  *          new policy version. A managed policy can have up to five versions. If the policy has five
  *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
@@ -53,6 +58,8 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
+ * @returns {@link CreatePolicyVersionCommandOutput}
  * @see {@link CreatePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreatePolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreatePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyVersionCommandOutput> {
     return deserializeAws_restJson1CreatePolicyVersionCommand(output, context);
   }

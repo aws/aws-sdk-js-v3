@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointAccessCommand}.
  */
 export interface DescribeEndpointAccessCommandInput extends DescribeEndpointAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointAccessCommand}.
  */
 export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a Redshift-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointAccessCommandInput - {@link DescribeEndpointAccessCommandInput}
+ * @returns {@link DescribeEndpointAccessCommandOutput}
  * @see {@link DescribeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointAccessCommandOutput> {
     return deserializeAws_queryDescribeEndpointAccessCommand(output, context);
   }

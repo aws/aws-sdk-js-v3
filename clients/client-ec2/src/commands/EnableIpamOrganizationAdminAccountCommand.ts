@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableIpamOrganizationAdminAccountCommand}.
  */
 export interface EnableIpamOrganizationAdminAccountCommandInput extends EnableIpamOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableIpamOrganizationAdminAccountCommand}.
  */
 export interface EnableIpamOrganizationAdminAccountCommandOutput
@@ -37,6 +41,7 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
@@ -49,6 +54,8 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableIpamOrganizationAdminAccountCommandInput - {@link EnableIpamOrganizationAdminAccountCommandInput}
+ * @returns {@link EnableIpamOrganizationAdminAccountCommandOutput}
  * @see {@link EnableIpamOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableIpamOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableIpamOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableIpamOrganizationAdminAccountCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
     return serializeAws_ec2EnableIpamOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

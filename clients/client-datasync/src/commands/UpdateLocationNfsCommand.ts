@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLocationNfsCommand}.
  */
 export interface UpdateLocationNfsCommandInput extends UpdateLocationNfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLocationNfsCommand}.
  */
 export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some of the parameters of a previously created location for Network File System (NFS) access.
  *       For information about creating an NFS location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Creating a location for NFS</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLocationNfsCommandInput - {@link UpdateLocationNfsCommandInput}
+ * @returns {@link UpdateLocationNfsCommandOutput}
  * @see {@link UpdateLocationNfsCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationNfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateLocationNfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLocationNfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateLocationNfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLocationNfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLocationNfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLocationNfsCommandOutput> {
     return deserializeAws_json1_1UpdateLocationNfsCommand(output, context);
   }

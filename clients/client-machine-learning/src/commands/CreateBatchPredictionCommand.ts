@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchPredictionCommand}.
  */
 export interface CreateBatchPredictionCommandInput extends CreateBatchPredictionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchPredictionCommand}.
  */
 export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
  *             by a <code>DataSource</code>. This operation creates a new <code>BatchPrediction</code>, and uses an <code>MLModel</code> and the data
  *             files referenced by the <code>DataSource</code> as information sources.
@@ -57,6 +62,8 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchPredictionCommandInput - {@link CreateBatchPredictionCommandInput}
+ * @returns {@link CreateBatchPredictionCommandOutput}
  * @see {@link CreateBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link CreateBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateBatchPredictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateBatchPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBatchPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchPredictionCommandOutput> {
     return deserializeAws_json1_1CreateBatchPredictionCommand(output, context);
   }

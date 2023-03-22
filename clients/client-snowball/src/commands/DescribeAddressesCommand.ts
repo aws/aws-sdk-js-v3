@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddressesCommand}.
  */
 export interface DescribeAddressesCommandInput extends DescribeAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddressesCommand}.
  */
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one of
  *       the US regions will return addresses from the list of all addresses associated with this
  *       account in all US regions.</p>
@@ -48,6 +53,8 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressesCommandInput - {@link DescribeAddressesCommandInput}
+ * @returns {@link DescribeAddressesCommandOutput}
  * @see {@link DescribeAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -106,6 +113,9 @@ export class DescribeAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DescribeAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressesCommandOutput> {
     return deserializeAws_json1_1DescribeAddressesCommand(output, context);
   }

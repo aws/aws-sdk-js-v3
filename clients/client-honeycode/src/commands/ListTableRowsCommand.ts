@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTableRowsCommand}.
  */
 export interface ListTableRowsCommandInput extends ListTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTableRowsCommand}.
  */
 export interface ListTableRowsCommandOutput extends ListTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook.
  *         </p>
@@ -48,6 +53,8 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTableRowsCommandInput - {@link ListTableRowsCommandInput}
+ * @returns {@link ListTableRowsCommandOutput}
  * @see {@link ListTableRowsCommandInput} for command's `input` shape.
  * @see {@link ListTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRowsCommandOutput> {
     return deserializeAws_restJson1ListTableRowsCommand(output, context);
   }

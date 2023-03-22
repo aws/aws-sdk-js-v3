@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddDraftAppVersionResourceMappingsCommand}.
  */
 export interface AddDraftAppVersionResourceMappingsCommandInput extends AddDraftAppVersionResourceMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddDraftAppVersionResourceMappingsCommand}.
  */
 export interface AddDraftAppVersionResourceMappingsCommandOutput
@@ -37,6 +41,7 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the resource mapping for the draft application version. You can also update an existing resource mapping to a new physical resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AddDraftAppVersionResourceMappingsCommandInput - {@link AddDraftAppVersionResourceMappingsCommandInput}
+ * @returns {@link AddDraftAppVersionResourceMappingsCommandOutput}
  * @see {@link AddDraftAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link AddDraftAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -95,6 +102,9 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddDraftAppVersionResourceMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddDraftAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
     return serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

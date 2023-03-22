@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetConsoleScreenshotCommand}.
  */
 export interface GetConsoleScreenshotCommandInput extends GetConsoleScreenshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConsoleScreenshotCommand}.
  */
 export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a JPG-format screenshot of a running instance to help with
  *             troubleshooting.</p>
  *          <p>The returned content is Base64-encoded.</p>
@@ -48,6 +53,8 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConsoleScreenshotCommandInput - {@link GetConsoleScreenshotCommandInput}
+ * @returns {@link GetConsoleScreenshotCommandOutput}
  * @see {@link GetConsoleScreenshotCommandInput} for command's `input` shape.
  * @see {@link GetConsoleScreenshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetConsoleScreenshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConsoleScreenshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class GetConsoleScreenshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConsoleScreenshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetConsoleScreenshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConsoleScreenshotCommandOutput> {
     return deserializeAws_ec2GetConsoleScreenshotCommand(output, context);
   }

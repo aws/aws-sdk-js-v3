@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCacheParameterGroupCommand}.
  */
 export interface DeleteCacheParameterGroupCommandInput extends DeleteCacheParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCacheParameterGroupCommand}.
  */
 export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified cache parameter
  *             group. You cannot delete a cache parameter group if it is associated with any cache
  *             clusters. You cannot delete the default cache parameter groups in your account.</p>
@@ -46,6 +51,8 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCacheParameterGroupCommandInput - {@link DeleteCacheParameterGroupCommandInput}
+ * @returns {@link DeleteCacheParameterGroupCommandOutput}
  * @see {@link DeleteCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

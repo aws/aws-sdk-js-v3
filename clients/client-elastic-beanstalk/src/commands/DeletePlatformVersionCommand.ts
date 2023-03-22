@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePlatformVersionCommand}.
  */
 export interface DeletePlatformVersionCommandInput extends DeletePlatformVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePlatformVersionCommand}.
  */
 export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified version of a custom platform.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePlatformVersionCommandInput - {@link DeletePlatformVersionCommandInput}
+ * @returns {@link DeletePlatformVersionCommandOutput}
  * @see {@link DeletePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeletePlatformVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePlatformVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeletePlatformVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePlatformVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeletePlatformVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlatformVersionCommandOutput> {
     return deserializeAws_queryDeletePlatformVersionCommand(output, context);
   }

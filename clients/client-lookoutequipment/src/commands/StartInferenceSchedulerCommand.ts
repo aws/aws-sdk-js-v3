@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link StartInferenceSchedulerCommand}.
  */
 export interface StartInferenceSchedulerCommandInput extends StartInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartInferenceSchedulerCommand}.
  */
 export interface StartInferenceSchedulerCommandOutput extends StartInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an inference scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartInferenceSchedulerCommandOutput extends StartInferenceSche
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInferenceSchedulerCommandInput - {@link StartInferenceSchedulerCommandInput}
+ * @returns {@link StartInferenceSchedulerCommandOutput}
  * @see {@link StartInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link StartInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -92,6 +99,9 @@ export class StartInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StartInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StartInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInferenceSchedulerCommandOutput> {
     return deserializeAws_json1_0StartInferenceSchedulerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomDataIdentifierCommand}.
  */
 export interface CreateCustomDataIdentifierCommandInput extends CreateCustomDataIdentifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomDataIdentifierCommand}.
  */
 export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and defines the criteria and other settings for a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomDataIdentifierCommandInput - {@link CreateCustomDataIdentifierCommandInput}
+ * @returns {@link CreateCustomDataIdentifierCommandOutput}
  * @see {@link CreateCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link CreateCustomDataIdentifierCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreateCustomDataIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomDataIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateCustomDataIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomDataIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCustomDataIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

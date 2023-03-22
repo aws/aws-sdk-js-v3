@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppComponentRecommendationsCommand}.
  */
 export interface ListAppComponentRecommendationsCommandInput extends ListAppComponentRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppComponentRecommendationsCommand}.
  */
 export interface ListAppComponentRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAppComponentRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recommendations for an AWS Resilience Hub Application Component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListAppComponentRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppComponentRecommendationsCommandInput - {@link ListAppComponentRecommendationsCommandInput}
+ * @returns {@link ListAppComponentRecommendationsCommandOutput}
  * @see {@link ListAppComponentRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListAppComponentRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppComponentRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAppComponentRecommendationsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListAppComponentRecommendationsCommand extends $Command<
     return serializeAws_restJson1ListAppComponentRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

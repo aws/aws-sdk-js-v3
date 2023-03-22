@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryUpdateRoleCommand, serializeAws_queryUpdateRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoleCommand}.
  */
 export interface UpdateRoleCommandInput extends UpdateRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoleCommand}.
  */
 export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description or maximum session duration setting of a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoleCommandInput - {@link UpdateRoleCommandInput}
+ * @returns {@link UpdateRoleCommandOutput}
  * @see {@link UpdateRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoleCommandOutput> {
     return deserializeAws_queryUpdateRoleCommand(output, context);
   }

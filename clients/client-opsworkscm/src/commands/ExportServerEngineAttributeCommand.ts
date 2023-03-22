@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportServerEngineAttributeCommand}.
  */
 export interface ExportServerEngineAttributeCommandInput extends ExportServerEngineAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportServerEngineAttributeCommand}.
  */
 export interface ExportServerEngineAttributeCommandOutput
@@ -37,6 +41,7 @@ export interface ExportServerEngineAttributeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Exports a specified server engine attribute as a base64-encoded string. For example, you can export user data that you can use in EC2 to associate nodes with a server.
  *     </p>
@@ -59,6 +64,8 @@ export interface ExportServerEngineAttributeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportServerEngineAttributeCommandInput - {@link ExportServerEngineAttributeCommandInput}
+ * @returns {@link ExportServerEngineAttributeCommandOutput}
  * @see {@link ExportServerEngineAttributeCommandInput} for command's `input` shape.
  * @see {@link ExportServerEngineAttributeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -94,6 +101,9 @@ export class ExportServerEngineAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportServerEngineAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ExportServerEngineAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportServerEngineAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExportServerEngineAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

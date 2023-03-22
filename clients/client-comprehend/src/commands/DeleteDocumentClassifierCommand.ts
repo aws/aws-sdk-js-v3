@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDocumentClassifierCommand}.
  */
 export interface DeleteDocumentClassifierCommandInput extends DeleteDocumentClassifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDocumentClassifierCommand}.
  */
 export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously created document classifier</p>
  *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
@@ -52,6 +57,8 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentClassifierCommandInput - {@link DeleteDocumentClassifierCommandInput}
+ * @returns {@link DeleteDocumentClassifierCommandOutput}
  * @see {@link DeleteDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteDocumentClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteDocumentClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDocumentClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentClassifierCommandOutput> {
     return deserializeAws_json1_1DeleteDocumentClassifierCommand(output, context);
   }

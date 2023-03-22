@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { SageMakerGeospatialServiceException as __BaseException } from "./SageMakerGeospatialServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AlgorithmNameCloudRemoval {
   /**
    * INTERPOLATION
@@ -32,6 +36,9 @@ export enum AlgorithmNameCloudRemoval {
   INTERPOLATION = "INTERPOLATION",
 }
 
+/**
+ * @public
+ */
 export enum AlgorithmNameGeoMosaic {
   /**
    * AVERAGE
@@ -91,6 +98,9 @@ export enum AlgorithmNameGeoMosaic {
   SUM = "SUM",
 }
 
+/**
+ * @public
+ */
 export enum AlgorithmNameResampling {
   /**
    * AVERAGE
@@ -151,6 +161,7 @@ export enum AlgorithmNameResampling {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface MultiPolygonGeometryInput {
@@ -161,6 +172,7 @@ export interface MultiPolygonGeometryInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface PolygonGeometryInput {
@@ -171,6 +183,7 @@ export interface PolygonGeometryInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export type AreaOfInterestGeometry =
@@ -178,6 +191,9 @@ export type AreaOfInterestGeometry =
   | AreaOfInterestGeometry.PolygonGeometryMember
   | AreaOfInterestGeometry.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AreaOfInterestGeometry {
   /**
    * <p/>
@@ -217,10 +233,14 @@ export namespace AreaOfInterestGeometry {
 }
 
 /**
+ * @public
  * <p/>
  */
 export type AreaOfInterest = AreaOfInterest.AreaOfInterestGeometryMember | AreaOfInterest.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AreaOfInterest {
   /**
    * <p/>
@@ -247,6 +267,7 @@ export namespace AreaOfInterest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface AssetValue {
@@ -256,6 +277,9 @@ export interface AssetValue {
   Href?: string;
 }
 
+/**
+ * @public
+ */
 export enum OutputType {
   /**
    * FLOAT32
@@ -280,6 +304,7 @@ export enum OutputType {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface Operation {
@@ -300,6 +325,7 @@ export interface Operation {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CustomIndicesInput {
@@ -310,6 +336,7 @@ export interface CustomIndicesInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface BandMathConfigInput {
@@ -325,11 +352,13 @@ export interface BandMathConfigInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface CloudMaskingConfigInput {}
 
 /**
+ * @public
  * <p/>
  */
 export interface CloudRemovalConfigInput {
@@ -349,6 +378,9 @@ export interface CloudRemovalConfigInput {
   TargetBands?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   /**
    * EQUALS
@@ -365,6 +397,7 @@ export enum ComparisonOperator {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ConflictException extends __BaseException {
@@ -391,6 +424,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The structure representing the filters supported by a RasterDataCollection.</p>
  */
 export interface Filter {
@@ -415,6 +449,9 @@ export interface Filter {
   Maximum?: number;
 }
 
+/**
+ * @public
+ */
 export enum DataCollectionType {
   /**
    * PREMIUM
@@ -431,6 +468,7 @@ export enum DataCollectionType {
 }
 
 /**
+ * @public
  * <p>Response object containing details for a specific RasterDataCollection.</p>
  */
 export interface RasterDataCollectionMetadata {
@@ -470,6 +508,9 @@ export interface RasterDataCollectionMetadata {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEarthObservationJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job being deleted.</p>
@@ -477,9 +518,13 @@ export interface DeleteEarthObservationJobInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEarthObservationJobOutput {}
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -506,6 +551,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -532,6 +578,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -558,6 +605,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -583,6 +631,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteVectorEnrichmentJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job being deleted.</p>
@@ -590,9 +641,13 @@ export interface DeleteVectorEnrichmentJobInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVectorEnrichmentJobOutput {}
 
 /**
+ * @public
  * <p/>
  */
 export interface ExportS3DataInput {
@@ -608,6 +663,7 @@ export interface ExportS3DataInput {
 }
 
 /**
+ * @public
  * <p>The response structure for an OutputConfig returned by an ExportEarthObservationJob.</p>
  */
 export interface OutputConfigInput {
@@ -617,6 +673,9 @@ export interface OutputConfigInput {
   S3Data: ExportS3DataInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportEarthObservationJobInput {
   /**
    * <p>The input Amazon Resource Name (ARN) of the Earth Observation job being exported.</p>
@@ -639,6 +698,9 @@ export interface ExportEarthObservationJobInput {
   ExportSourceImages?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum EarthObservationJobExportStatus {
   /**
    * FAILED
@@ -654,6 +716,9 @@ export enum EarthObservationJobExportStatus {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface ExportEarthObservationJobOutput {
   /**
    * <p>The output Amazon Resource Name (ARN) of the Earth Observation job being exported.</p>
@@ -687,6 +752,7 @@ export interface ExportEarthObservationJobOutput {
 }
 
 /**
+ * @public
  * <p>You have exceeded the service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -712,6 +778,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetEarthObservationJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job.</p>
@@ -719,6 +788,9 @@ export interface GetEarthObservationJobInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EarthObservationJobErrorType {
   /**
    * CLIENT_ERROR
@@ -731,6 +803,7 @@ export enum EarthObservationJobErrorType {
 }
 
 /**
+ * @public
  * <p>The structure representing the errors in an EarthObservationJob.</p>
  */
 export interface EarthObservationJobErrorDetails {
@@ -745,6 +818,9 @@ export interface EarthObservationJobErrorDetails {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExportErrorType {
   /**
    * CLIENT_ERROR
@@ -757,6 +833,7 @@ export enum ExportErrorType {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ExportErrorDetailsOutput {
@@ -772,6 +849,7 @@ export interface ExportErrorDetailsOutput {
 }
 
 /**
+ * @public
  * <p>The structure for returning the export error details in a GetEarthObservationJob.</p>
  */
 export interface ExportErrorDetails {
@@ -786,6 +864,9 @@ export interface ExportErrorDetails {
   ExportSourceImages?: ExportErrorDetailsOutput;
 }
 
+/**
+ * @public
+ */
 export enum MetadataProvider {
   /**
    * PLANET_ORDER
@@ -794,6 +875,7 @@ export enum MetadataProvider {
 }
 
 /**
+ * @public
  * <p>Path to Amazon S3 storage location for input data.</p>
  */
 export interface S3DataInput {
@@ -814,10 +896,14 @@ export interface S3DataInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export type EojDataSourceConfigInput = EojDataSourceConfigInput.S3DataMember | EojDataSourceConfigInput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace EojDataSourceConfigInput {
   /**
    * <p/>
@@ -843,6 +929,9 @@ export namespace EojDataSourceConfigInput {
   };
 }
 
+/**
+ * @public
+ */
 export enum LogicalOperator {
   /**
    * AND
@@ -851,6 +940,7 @@ export enum LogicalOperator {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface EoCloudCoverInput {
@@ -866,6 +956,7 @@ export interface EoCloudCoverInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface LandsatCloudCoverLandInput {
@@ -881,6 +972,7 @@ export interface LandsatCloudCoverLandInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface PlatformInput {
@@ -896,6 +988,7 @@ export interface PlatformInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ViewOffNadirInput {
@@ -911,6 +1004,7 @@ export interface ViewOffNadirInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ViewSunAzimuthInput {
@@ -926,6 +1020,7 @@ export interface ViewSunAzimuthInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ViewSunElevationInput {
@@ -941,6 +1036,7 @@ export interface ViewSunElevationInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export type Property =
@@ -952,6 +1048,9 @@ export type Property =
   | Property.ViewSunElevationMember
   | Property.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Property {
   /**
    * <p/>
@@ -1063,6 +1162,7 @@ export namespace Property {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface PropertyFilter {
@@ -1073,6 +1173,7 @@ export interface PropertyFilter {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface PropertyFilters {
@@ -1088,6 +1189,7 @@ export interface PropertyFilters {
 }
 
 /**
+ * @public
  * <p>The input for the time-range filter.</p>
  */
 export interface TimeRangeFilterInput {
@@ -1103,6 +1205,7 @@ export interface TimeRangeFilterInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface RasterDataCollectionQueryOutput {
@@ -1133,6 +1236,7 @@ export interface RasterDataCollectionQueryOutput {
 }
 
 /**
+ * @public
  * <p>The InputConfig for an EarthObservationJob response.</p>
  */
 export interface InputConfigOutput {
@@ -1153,6 +1257,7 @@ export interface InputConfigOutput {
 }
 
 /**
+ * @public
  * <p>Input configuration information for the geomosaic.</p>
  */
 export interface GeoMosaicConfigInput {
@@ -1168,10 +1273,14 @@ export interface GeoMosaicConfigInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface LandCoverSegmentationConfigInput {}
 
+/**
+ * @public
+ */
 export enum Unit {
   /**
    * METERS
@@ -1180,6 +1289,7 @@ export enum Unit {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface UserDefined {
@@ -1195,6 +1305,7 @@ export interface UserDefined {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface OutputResolutionResamplingInput {
@@ -1205,6 +1316,7 @@ export interface OutputResolutionResamplingInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ResamplingConfigInput {
@@ -1224,6 +1336,9 @@ export interface ResamplingConfigInput {
   TargetBands?: string[];
 }
 
+/**
+ * @public
+ */
 export enum PredefinedResolution {
   /**
    * AVERAGE
@@ -1240,6 +1355,7 @@ export enum PredefinedResolution {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface OutputResolutionStackInput {
@@ -1255,6 +1371,7 @@ export interface OutputResolutionStackInput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface StackConfigInput {
@@ -1269,6 +1386,9 @@ export interface StackConfigInput {
   TargetBands?: string[];
 }
 
+/**
+ * @public
+ */
 export enum GroupBy {
   /**
    * ALL
@@ -1280,6 +1400,9 @@ export enum GroupBy {
   YEARLY = "YEARLY",
 }
 
+/**
+ * @public
+ */
 export enum TemporalStatistics {
   /**
    * MEAN
@@ -1296,6 +1419,7 @@ export enum TemporalStatistics {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface TemporalStatisticsConfigInput {
@@ -1315,6 +1439,9 @@ export interface TemporalStatisticsConfigInput {
   TargetBands?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ZonalStatistics {
   /**
    * MAX
@@ -1343,6 +1470,7 @@ export enum ZonalStatistics {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ZonalStatisticsConfigInput {
@@ -1363,6 +1491,7 @@ export interface ZonalStatisticsConfigInput {
 }
 
 /**
+ * @public
  * <p>The input structure for the JobConfig in an EarthObservationJob.</p>
  */
 export type JobConfigInput =
@@ -1377,6 +1506,9 @@ export type JobConfigInput =
   | JobConfigInput.ZonalStatisticsConfigMember
   | JobConfigInput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace JobConfigInput {
   /**
    * <p/>
@@ -1565,6 +1697,7 @@ export namespace JobConfigInput {
 }
 
 /**
+ * @public
  * <p>A single EarthObservationJob output band.</p>
  */
 export interface OutputBand {
@@ -1579,6 +1712,9 @@ export interface OutputBand {
   OutputDataType: OutputType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EarthObservationJobStatus {
   /**
    * COMPLETED
@@ -1614,6 +1750,9 @@ export enum EarthObservationJobStatus {
   STOPPING = "STOPPING",
 }
 
+/**
+ * @public
+ */
 export interface GetEarthObservationJobOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job.</p>
@@ -1686,6 +1825,9 @@ export interface GetEarthObservationJobOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum TargetOptions {
   /**
    * INPUT
@@ -1697,6 +1839,9 @@ export enum TargetOptions {
   OUTPUT = "OUTPUT",
 }
 
+/**
+ * @public
+ */
 export interface GetTileInput {
   /**
    * <p>The x coordinate of the tile input.</p>
@@ -1754,6 +1899,9 @@ export interface GetTileInput {
   OutputDataType?: OutputType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetTileOutput {
   /**
    * <p>The output binary file.</p>
@@ -1761,6 +1909,9 @@ export interface GetTileOutput {
   BinaryFile?: Readable | ReadableStream | Blob;
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   /**
    * ASCENDING
@@ -1772,6 +1923,9 @@ export enum SortOrder {
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface ListEarthObservationJobInput {
   /**
    * <p>A filter that retrieves only jobs with a specific status.</p>
@@ -1801,6 +1955,7 @@ export interface ListEarthObservationJobInput {
 }
 
 /**
+ * @public
  * <p>An object containing information about the output file.</p>
  */
 export interface ListEarthObservationJobOutputConfig {
@@ -1840,6 +1995,9 @@ export interface ListEarthObservationJobOutputConfig {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListEarthObservationJobOutput {
   /**
    * <p>Contains summary information about the Earth Observation jobs.</p>
@@ -1854,6 +2012,7 @@ export interface ListEarthObservationJobOutput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface RasterDataCollectionQueryInput {
@@ -1879,6 +2038,7 @@ export interface RasterDataCollectionQueryInput {
 }
 
 /**
+ * @public
  * <p>Input configuration information.</p>
  */
 export interface InputConfigInput {
@@ -1898,6 +2058,9 @@ export interface InputConfigInput {
   RasterDataCollectionQuery?: RasterDataCollectionQueryInput;
 }
 
+/**
+ * @public
+ */
 export interface StartEarthObservationJobInput {
   /**
    * <p>The name of the Earth Observation job.</p>
@@ -1935,6 +2098,9 @@ export interface StartEarthObservationJobInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartEarthObservationJobOutput {
   /**
    * <p>The name of the Earth Observation job.</p>
@@ -1987,6 +2153,9 @@ export interface StartEarthObservationJobOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StopEarthObservationJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job being stopped.</p>
@@ -1994,9 +2163,13 @@ export interface StopEarthObservationJobInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEarthObservationJobOutput {}
 
 /**
+ * @public
  * <p>The Amazon S3 data for the Vector Enrichment job.</p>
  */
 export interface VectorEnrichmentJobS3Data {
@@ -2012,6 +2185,7 @@ export interface VectorEnrichmentJobS3Data {
 }
 
 /**
+ * @public
  * <p>An object containing information about the output file.</p>
  */
 export interface ExportVectorEnrichmentJobOutputConfig {
@@ -2021,6 +2195,9 @@ export interface ExportVectorEnrichmentJobOutputConfig {
   S3Data: VectorEnrichmentJobS3Data | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportVectorEnrichmentJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
@@ -2039,12 +2216,18 @@ export interface ExportVectorEnrichmentJobInput {
   OutputConfig: ExportVectorEnrichmentJobOutputConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export enum VectorEnrichmentJobExportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface ExportVectorEnrichmentJobOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job being exported.</p>
@@ -2074,6 +2257,7 @@ export interface ExportVectorEnrichmentJobOutput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface Geometry {
@@ -2088,6 +2272,9 @@ export interface Geometry {
   Coordinates: number[][][] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRasterDataCollectionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
@@ -2095,6 +2282,9 @@ export interface GetRasterDataCollectionInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRasterDataCollectionOutput {
   /**
    * <p>The name of the raster data collection.</p>
@@ -2137,6 +2327,9 @@ export interface GetRasterDataCollectionOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetVectorEnrichmentJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
@@ -2144,6 +2337,9 @@ export interface GetVectorEnrichmentJobInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum VectorEnrichmentJobErrorType {
   /**
    * CLIENT_ERROR
@@ -2156,6 +2352,7 @@ export enum VectorEnrichmentJobErrorType {
 }
 
 /**
+ * @public
  * <p>VectorEnrichmentJob error details in response from GetVectorEnrichmentJob.</p>
  */
 export interface VectorEnrichmentJobErrorDetails {
@@ -2171,12 +2368,16 @@ export interface VectorEnrichmentJobErrorDetails {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum VectorEnrichmentJobExportErrorType {
   CLIENT_ERROR = "CLIENT_ERROR",
   SERVER_ERROR = "SERVER_ERROR",
 }
 
 /**
+ * @public
  * <p>VectorEnrichmentJob export error details in response from GetVectorEnrichmentJob.</p>
  */
 export interface VectorEnrichmentJobExportErrorDetails {
@@ -2192,12 +2393,16 @@ export interface VectorEnrichmentJobExportErrorDetails {
 }
 
 /**
+ * @public
  * <p/>
  */
 export type VectorEnrichmentJobDataSourceConfigInput =
   | VectorEnrichmentJobDataSourceConfigInput.S3DataMember
   | VectorEnrichmentJobDataSourceConfigInput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VectorEnrichmentJobDataSourceConfigInput {
   /**
    * <p/>
@@ -2223,11 +2428,15 @@ export namespace VectorEnrichmentJobDataSourceConfigInput {
   };
 }
 
+/**
+ * @public
+ */
 export enum VectorEnrichmentJobDocumentType {
   CSV = "CSV",
 }
 
 /**
+ * @public
  * <p>The input structure for the InputConfig in a VectorEnrichmentJob.</p>
  */
 export interface VectorEnrichmentJobInputConfig {
@@ -2243,6 +2452,7 @@ export interface VectorEnrichmentJobInputConfig {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface MapMatchingConfig {
@@ -2268,6 +2478,7 @@ export interface MapMatchingConfig {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ReverseGeocodingConfig {
@@ -2283,6 +2494,7 @@ export interface ReverseGeocodingConfig {
 }
 
 /**
+ * @public
  * <p>It contains configs such as ReverseGeocodingConfig and MapMatchingConfig.</p>
  */
 export type VectorEnrichmentJobConfig =
@@ -2290,6 +2502,9 @@ export type VectorEnrichmentJobConfig =
   | VectorEnrichmentJobConfig.ReverseGeocodingConfigMember
   | VectorEnrichmentJobConfig.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VectorEnrichmentJobConfig {
   /**
    * <p/>
@@ -2328,6 +2543,9 @@ export namespace VectorEnrichmentJobConfig {
   };
 }
 
+/**
+ * @public
+ */
 export enum VectorEnrichmentJobStatus {
   COMPLETED = "COMPLETED",
   DELETED = "DELETED",
@@ -2339,11 +2557,17 @@ export enum VectorEnrichmentJobStatus {
   STOPPING = "STOPPING",
 }
 
+/**
+ * @public
+ */
 export enum VectorEnrichmentJobType {
   MAP_MATCHING = "MAP_MATCHING",
   REVERSE_GEOCODING = "REVERSE_GEOCODING",
 }
 
+/**
+ * @public
+ */
 export interface GetVectorEnrichmentJobOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
@@ -2417,6 +2641,7 @@ export interface GetVectorEnrichmentJobOutput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface Properties {
@@ -2452,6 +2677,7 @@ export interface Properties {
 }
 
 /**
+ * @public
  * <p>Structure representing the items in the response for SearchRasterDataCollection.</p>
  */
 export interface ItemSource {
@@ -2481,6 +2707,9 @@ export interface ItemSource {
   Properties?: Properties;
 }
 
+/**
+ * @public
+ */
 export interface ListRasterDataCollectionsInput {
   /**
    * <p>If the previous response was truncated, you receive this token.
@@ -2494,6 +2723,9 @@ export interface ListRasterDataCollectionsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRasterDataCollectionsOutput {
   /**
    * <p>Contains summary information about the raster data collection.</p>
@@ -2507,6 +2739,9 @@ export interface ListRasterDataCollectionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to tag.</p>
@@ -2514,6 +2749,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Each tag consists of a key and a value.</p>
@@ -2521,6 +2759,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListVectorEnrichmentJobInput {
   /**
    * <p>A filter that retrieves only jobs with a specific status.</p>
@@ -2550,6 +2791,7 @@ export interface ListVectorEnrichmentJobInput {
 }
 
 /**
+ * @public
  * <p>An object containing information about the output file.</p>
  */
 export interface ListVectorEnrichmentJobOutputConfig {
@@ -2589,6 +2831,9 @@ export interface ListVectorEnrichmentJobOutputConfig {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListVectorEnrichmentJobOutput {
   /**
    * <p>Contains summary information about the Vector Enrichment jobs.</p>
@@ -2603,6 +2848,7 @@ export interface ListVectorEnrichmentJobOutput {
 }
 
 /**
+ * @public
  * <p>This is a RasterDataCollectionQueryInput containing AreaOfInterest, Time Range filter and Property filters.</p>
  */
 export interface RasterDataCollectionQueryWithBandFilterInput {
@@ -2627,6 +2873,9 @@ export interface RasterDataCollectionQueryWithBandFilterInput {
   BandFilter?: string[];
 }
 
+/**
+ * @public
+ */
 export interface SearchRasterDataCollectionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
@@ -2645,6 +2894,9 @@ export interface SearchRasterDataCollectionInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchRasterDataCollectionOutput {
   /**
    * <p/>
@@ -2663,6 +2915,9 @@ export interface SearchRasterDataCollectionOutput {
   Items?: ItemSource[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to tag.</p>
@@ -2675,8 +2930,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to untag.</p>
@@ -2689,8 +2950,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface StartVectorEnrichmentJobInput {
   /**
    * <p>The name of the Vector Enrichment job.</p>
@@ -2728,6 +2995,9 @@ export interface StartVectorEnrichmentJobInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartVectorEnrichmentJobOutput {
   /**
    * <p>The name of the Vector Enrichment job.</p>
@@ -2785,6 +3055,9 @@ export interface StartVectorEnrichmentJobOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StopVectorEnrichmentJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
@@ -2792,6 +3065,9 @@ export interface StopVectorEnrichmentJobInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopVectorEnrichmentJobOutput {}
 
 /**

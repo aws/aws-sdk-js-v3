@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppVersionCommand}.
  */
 export interface UpdateAppVersionCommandInput extends UpdateAppVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppVersionCommand}.
  */
 export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the AWS Resilience Hub application version.</p>
  *          <note>
  *             <p>This API updates the AWS Resilience Hub application draft version. To use this information
@@ -51,6 +56,8 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppVersionCommandInput - {@link UpdateAppVersionCommandInput}
+ * @returns {@link UpdateAppVersionCommandOutput}
  * @see {@link UpdateAppVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateAppVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateAppVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAppVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppVersionCommandOutput> {
     return deserializeAws_restJson1UpdateAppVersionCommand(output, context);
   }

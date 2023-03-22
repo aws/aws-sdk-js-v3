@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUnreferencedMergeCommitCommand}.
  */
 export interface CreateUnreferencedMergeCommitCommandInput extends CreateUnreferencedMergeCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateUnreferencedMergeCommitCommand}.
  */
 export interface CreateUnreferencedMergeCommitCommandOutput
@@ -37,6 +41,7 @@ export interface CreateUnreferencedMergeCommitCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an unreferenced commit that represents the result of merging two branches
  *             using a specified merge strategy. This can help you determine the outcome of a potential
  *             merge. This API cannot be used with the fast-forward merge strategy because that
@@ -55,6 +60,8 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUnreferencedMergeCommitCommandInput - {@link CreateUnreferencedMergeCommitCommandInput}
+ * @returns {@link CreateUnreferencedMergeCommitCommandOutput}
  * @see {@link CreateUnreferencedMergeCommitCommandInput} for command's `input` shape.
  * @see {@link CreateUnreferencedMergeCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -199,6 +206,9 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUnreferencedMergeCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -238,10 +248,16 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUnreferencedMergeCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUnreferencedMergeCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

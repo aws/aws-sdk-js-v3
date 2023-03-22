@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMaintenanceWindowTaskCommand}.
  */
 export interface GetMaintenanceWindowTaskCommandInput extends GetMaintenanceWindowTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMaintenanceWindowTaskCommand}.
  */
 export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a maintenance window task.</p>
  *          <note>
  *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -53,6 +58,8 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMaintenanceWindowTaskCommandInput - {@link GetMaintenanceWindowTaskCommandInput}
+ * @returns {@link GetMaintenanceWindowTaskCommandOutput}
  * @see {@link GetMaintenanceWindowTaskCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowTaskCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMaintenanceWindowTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMaintenanceWindowTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMaintenanceWindowTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMaintenanceWindowTaskCommandOutput> {
     return deserializeAws_json1_1GetMaintenanceWindowTaskCommand(output, context);
   }

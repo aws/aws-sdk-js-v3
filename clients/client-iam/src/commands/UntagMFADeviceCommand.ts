@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagMFADeviceCommand}.
  */
 export interface UntagMFADeviceCommandInput extends UntagMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagMFADeviceCommand}.
  */
 export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the IAM virtual multi-factor authentication (MFA)
  *       device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -43,6 +48,8 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagMFADeviceCommandInput - {@link UntagMFADeviceCommandInput}
+ * @returns {@link UntagMFADeviceCommandOutput}
  * @see {@link UntagMFADeviceCommandInput} for command's `input` shape.
  * @see {@link UntagMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -82,6 +89,9 @@ export class UntagMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UntagMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagMFADeviceCommandOutput> {
     return deserializeAws_queryUntagMFADeviceCommand(output, context);
   }

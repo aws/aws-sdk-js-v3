@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVoiceConnectorCommand}.
  */
 export interface CreateVoiceConnectorCommandInput extends CreateVoiceConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVoiceConnectorCommand}.
  */
 export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>
  *
  *          <p>
@@ -52,6 +57,8 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVoiceConnectorCommandInput - {@link CreateVoiceConnectorCommandInput}
+ * @returns {@link CreateVoiceConnectorCommandOutput}
  * @see {@link CreateVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateVoiceConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateVoiceConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVoiceConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVoiceConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVoiceConnectorCommandOutput> {
     return deserializeAws_restJson1CreateVoiceConnectorCommand(output, context);
   }

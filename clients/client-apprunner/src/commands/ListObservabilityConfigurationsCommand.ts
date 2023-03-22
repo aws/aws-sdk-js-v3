@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListObservabilityConfigurationsCommand}.
  */
 export interface ListObservabilityConfigurationsCommandInput extends ListObservabilityConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObservabilityConfigurationsCommand}.
  */
 export interface ListObservabilityConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListObservabilityConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of active App Runner observability configurations in your Amazon Web Services account. You can query the revisions for a specific
  *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
  *       name.</p>
@@ -52,6 +57,8 @@ export interface ListObservabilityConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObservabilityConfigurationsCommandInput - {@link ListObservabilityConfigurationsCommandInput}
+ * @returns {@link ListObservabilityConfigurationsCommandOutput}
  * @see {@link ListObservabilityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListObservabilityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListObservabilityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObservabilityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class ListObservabilityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListObservabilityConfigurationsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class ListObservabilityConfigurationsCommand extends $Command<
     return serializeAws_json1_0ListObservabilityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

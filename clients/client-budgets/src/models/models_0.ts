@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BudgetsServiceException as __BaseException } from "./BudgetsServiceException";
 
 /**
+ * @public
  * <p>You are not authorized to use this operation with the given parameters.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,12 +28,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ThresholdType {
   ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
   PERCENTAGE = "PERCENTAGE",
 }
 
 /**
+ * @public
  * <p>The trigger threshold of the action. </p>
  */
 export interface ActionThreshold {
@@ -47,18 +52,25 @@ export interface ActionThreshold {
   ActionThresholdType: ThresholdType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ActionType {
   IAM = "APPLY_IAM_POLICY",
   SCP = "APPLY_SCP_POLICY",
   SSM = "RUN_SSM_DOCUMENTS",
 }
 
+/**
+ * @public
+ */
 export enum ApprovalModel {
   AUTO = "AUTOMATIC",
   MANUAL = "MANUAL",
 }
 
 /**
+ * @public
  * <p>The Identity and Access Management (IAM) action definition details. </p>
  */
 export interface IamActionDefinition {
@@ -84,6 +96,7 @@ export interface IamActionDefinition {
 }
 
 /**
+ * @public
  * <p>The service control policies (SCP) action definition details. </p>
  */
 export interface ScpActionDefinition {
@@ -98,12 +111,16 @@ export interface ScpActionDefinition {
   TargetIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ActionSubType {
   STOP_EC2 = "STOP_EC2_INSTANCES",
   STOP_RDS = "STOP_RDS_INSTANCES",
 }
 
 /**
+ * @public
  * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
  */
 export interface SsmActionDefinition {
@@ -124,6 +141,7 @@ export interface SsmActionDefinition {
 }
 
 /**
+ * @public
  * <p>Specifies all of the type-specific parameters. </p>
  */
 export interface Definition {
@@ -143,11 +161,17 @@ export interface Definition {
   SsmActionDefinition?: SsmActionDefinition;
 }
 
+/**
+ * @public
+ */
 export enum NotificationType {
   ACTUAL = "ACTUAL",
   FORECASTED = "FORECASTED",
 }
 
+/**
+ * @public
+ */
 export enum ActionStatus {
   Execution_Failure = "EXECUTION_FAILURE",
   Execution_In_Progress = "EXECUTION_IN_PROGRESS",
@@ -161,12 +185,16 @@ export enum ActionStatus {
   Standby = "STANDBY",
 }
 
+/**
+ * @public
+ */
 export enum SubscriptionType {
   EMAIL = "EMAIL",
   SNS = "SNS",
 }
 
 /**
+ * @public
  * <p>The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.</p>
  * 		       <p>For example, an email subscriber has the following parameters:</p>
  * 		       <ul>
@@ -194,6 +222,7 @@ export interface Subscriber {
 }
 
 /**
+ * @public
  * <p>A budget action resource. </p>
  */
 export interface Action {
@@ -251,6 +280,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>The description of the details for the event. </p>
  */
 export interface ActionHistoryDetails {
@@ -265,6 +295,9 @@ export interface ActionHistoryDetails {
   Action: Action | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EventType {
   CreateAction = "CREATE_ACTION",
   DeleteAction = "DELETE_ACTION",
@@ -274,6 +307,7 @@ export enum EventType {
 }
 
 /**
+ * @public
  * <p>The historical records for a budget action. </p>
  */
 export interface ActionHistory {
@@ -299,12 +333,16 @@ export interface ActionHistory {
   ActionHistoryDetails: ActionHistoryDetails | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AutoAdjustType {
   FORECAST = "FORECAST",
   HISTORICAL = "HISTORICAL",
 }
 
 /**
+ * @public
  * <p>The parameters that define or describe the historical data that your auto-adjusting budget is based on.</p>
  */
 export interface HistoricalOptions {
@@ -336,6 +374,7 @@ export interface HistoricalOptions {
 }
 
 /**
+ * @public
  * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
  */
 export interface AutoAdjustData {
@@ -356,6 +395,7 @@ export interface AutoAdjustData {
 }
 
 /**
+ * @public
  * <p>The amount of cost or usage that's measured for a budget.</p>
  * 		       <p>For example, a <code>Spend</code> for <code>3 GB</code> of S3 usage has the following
  * 			parameters:</p>
@@ -384,6 +424,9 @@ export interface Spend {
   Unit: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BudgetType {
   Cost = "COST",
   RICoverage = "RI_COVERAGE",
@@ -394,6 +437,7 @@ export enum BudgetType {
 }
 
 /**
+ * @public
  * <p>The spend objects that are associated with this budget. The <code>actualSpend</code> tracks
  * 			how much you've used, cost, usage, RI units, or Savings Plans units and the
  * 				<code>forecastedSpend</code> tracks how much that you're predicted to spend based on
@@ -416,6 +460,7 @@ export interface CalculatedSpend {
 }
 
 /**
+ * @public
  * <p>The types of cost that are included in a <code>COST</code> budget, such as tax and subscriptions.</p>
  * 		       <p>
  *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
@@ -491,6 +536,7 @@ export interface CostTypes {
 }
 
 /**
+ * @public
  * <p>The period of time that's covered by a budget. The period has a start date and an end date.
  * 			The start date must come before the end date. There are no restrictions on the end date. </p>
  */
@@ -510,6 +556,9 @@ export interface TimePeriod {
   End?: Date;
 }
 
+/**
+ * @public
+ */
 export enum TimeUnit {
   ANNUALLY = "ANNUALLY",
   DAILY = "DAILY",
@@ -518,6 +567,7 @@ export enum TimeUnit {
 }
 
 /**
+ * @public
  * <p>Represents the output of the <code>CreateBudget</code> operation. The content consists of the detailed metadata and data file information, and the current status of the <code>budget</code> object.</p>
  * 		       <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
  * 		       <p>
@@ -643,18 +693,25 @@ export interface Budget {
   AutoAdjustData?: AutoAdjustData;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   EQUAL_TO = "EQUAL_TO",
   GREATER_THAN = "GREATER_THAN",
   LESS_THAN = "LESS_THAN",
 }
 
+/**
+ * @public
+ */
 export enum NotificationState {
   ALARM = "ALARM",
   OK = "OK",
 }
 
 /**
+ * @public
  * <p>A notification that's associated with a budget. A budget can have up to ten notifications. </p>
  * 		       <p>Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
  * 		       <p>For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:</p>
@@ -709,6 +766,7 @@ export interface Notification {
 }
 
 /**
+ * @public
  * <p>A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
  */
 export interface NotificationWithSubscribers {
@@ -724,6 +782,7 @@ export interface NotificationWithSubscribers {
 }
 
 /**
+ * @public
  * <p> Request of CreateBudget </p>
  */
 export interface CreateBudgetRequest {
@@ -744,11 +803,13 @@ export interface CreateBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of CreateBudget </p>
  */
 export interface CreateBudgetResponse {}
 
 /**
+ * @public
  * <p>You've exceeded the notification or subscriber limit.</p>
  */
 export class CreationLimitExceededException extends __BaseException {
@@ -773,6 +834,7 @@ export class CreationLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The budget name already exists. Budget names must be unique within an account.</p>
  */
 export class DuplicateRecordException extends __BaseException {
@@ -797,6 +859,7 @@ export class DuplicateRecordException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -821,6 +884,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -845,6 +909,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
@@ -870,6 +935,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -923,6 +991,9 @@ export interface CreateBudgetActionRequest {
   Subscribers: Subscriber[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -943,6 +1014,7 @@ export interface CreateBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p>We can’t locate the resource that you specified.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -967,6 +1039,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Request of CreateNotification </p>
  */
 export interface CreateNotificationRequest {
@@ -992,11 +1065,13 @@ export interface CreateNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of CreateNotification </p>
  */
 export interface CreateNotificationResponse {}
 
 /**
+ * @public
  * <p> Request of CreateSubscriber </p>
  */
 export interface CreateSubscriberRequest {
@@ -1022,11 +1097,13 @@ export interface CreateSubscriberRequest {
 }
 
 /**
+ * @public
  * <p> Response of CreateSubscriber </p>
  */
 export interface CreateSubscriberResponse {}
 
 /**
+ * @public
  * <p> Request of DeleteBudget </p>
  */
 export interface DeleteBudgetRequest {
@@ -1042,10 +1119,14 @@ export interface DeleteBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of DeleteBudget </p>
  */
 export interface DeleteBudgetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1065,6 +1146,9 @@ export interface DeleteBudgetActionRequest {
   ActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1083,6 +1167,7 @@ export interface DeleteBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p> The request was received and recognized by the server, but the server rejected that
  *       particular method for the requested resource. </p>
  */
@@ -1108,6 +1193,7 @@ export class ResourceLockedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Request of DeleteNotification </p>
  */
 export interface DeleteNotificationRequest {
@@ -1128,11 +1214,13 @@ export interface DeleteNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of DeleteNotification </p>
  */
 export interface DeleteNotificationResponse {}
 
 /**
+ * @public
  * <p> Request of DeleteSubscriber </p>
  */
 export interface DeleteSubscriberRequest {
@@ -1158,11 +1246,13 @@ export interface DeleteSubscriberRequest {
 }
 
 /**
+ * @public
  * <p> Response of DeleteSubscriber </p>
  */
 export interface DeleteSubscriberResponse {}
 
 /**
+ * @public
  * <p> Request of DescribeBudget </p>
  */
 export interface DescribeBudgetRequest {
@@ -1178,6 +1268,7 @@ export interface DescribeBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of DescribeBudget </p>
  */
 export interface DescribeBudgetResponse {
@@ -1187,6 +1278,9 @@ export interface DescribeBudgetResponse {
   Budget?: Budget;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1206,6 +1300,9 @@ export interface DescribeBudgetActionRequest {
   ActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1225,6 +1322,9 @@ export interface DescribeBudgetActionResponse {
   Action: Action | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionHistoriesRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1260,6 +1360,9 @@ export interface DescribeBudgetActionHistoriesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionHistoriesResponse {
   /**
    * <p>
@@ -1275,6 +1378,7 @@ export interface DescribeBudgetActionHistoriesResponse {
 }
 
 /**
+ * @public
  * <p>The pagination token is invalid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -1298,6 +1402,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForAccountRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1315,6 +1422,9 @@ export interface DescribeBudgetActionsForAccountRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForAccountResponse {
   /**
    * <p>
@@ -1329,6 +1439,9 @@ export interface DescribeBudgetActionsForAccountResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForBudgetRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1351,6 +1464,9 @@ export interface DescribeBudgetActionsForBudgetRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForBudgetResponse {
   /**
    * <p>
@@ -1365,6 +1481,9 @@ export interface DescribeBudgetActionsForBudgetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetNotificationsForAccountRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1385,6 +1504,7 @@ export interface DescribeBudgetNotificationsForAccountRequest {
 }
 
 /**
+ * @public
  * <p>
  *          The budget name and associated notifications for an account.
  *       </p>
@@ -1401,6 +1521,9 @@ export interface BudgetNotificationsForAccount {
   BudgetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetNotificationsForAccountResponse {
   /**
    * <p>
@@ -1416,6 +1539,7 @@ export interface DescribeBudgetNotificationsForAccountResponse {
 }
 
 /**
+ * @public
  * <p>The pagination token expired.</p>
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -1439,6 +1563,9 @@ export class ExpiredNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetPerformanceHistoryRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1467,6 +1594,7 @@ export interface DescribeBudgetPerformanceHistoryRequest {
 }
 
 /**
+ * @public
  * <p>The amount of cost or usage that you created the budget for, compared to your actual costs or usage.</p>
  */
 export interface BudgetedAndActualAmounts {
@@ -1487,6 +1615,7 @@ export interface BudgetedAndActualAmounts {
 }
 
 /**
+ * @public
  * <p>A history of the state of a budget at the end of the budget's specified time period.</p>
  */
 export interface BudgetPerformanceHistory {
@@ -1524,6 +1653,9 @@ export interface BudgetPerformanceHistory {
   BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetPerformanceHistoryResponse {
   /**
    * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
@@ -1538,6 +1670,7 @@ export interface DescribeBudgetPerformanceHistoryResponse {
 }
 
 /**
+ * @public
  * <p> Request of DescribeBudgets </p>
  */
 export interface DescribeBudgetsRequest {
@@ -1558,6 +1691,7 @@ export interface DescribeBudgetsRequest {
 }
 
 /**
+ * @public
  * <p> Response of DescribeBudgets </p>
  */
 export interface DescribeBudgetsResponse {
@@ -1573,6 +1707,7 @@ export interface DescribeBudgetsResponse {
 }
 
 /**
+ * @public
  * <p> Request of DescribeNotificationsForBudget </p>
  */
 export interface DescribeNotificationsForBudgetRequest {
@@ -1598,6 +1733,7 @@ export interface DescribeNotificationsForBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of GetNotificationsForBudget </p>
  */
 export interface DescribeNotificationsForBudgetResponse {
@@ -1613,6 +1749,7 @@ export interface DescribeNotificationsForBudgetResponse {
 }
 
 /**
+ * @public
  * <p> Request of DescribeSubscribersForNotification </p>
  */
 export interface DescribeSubscribersForNotificationRequest {
@@ -1643,6 +1780,7 @@ export interface DescribeSubscribersForNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of DescribeSubscribersForNotification </p>
  */
 export interface DescribeSubscribersForNotificationResponse {
@@ -1657,6 +1795,9 @@ export interface DescribeSubscribersForNotificationResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExecutionType {
   ApproveBudgetAction = "APPROVE_BUDGET_ACTION",
   ResetBudgetAction = "RESET_BUDGET_ACTION",
@@ -1664,6 +1805,9 @@ export enum ExecutionType {
   ReverseBudgetAction = "REVERSE_BUDGET_ACTION",
 }
 
+/**
+ * @public
+ */
 export interface ExecuteBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1690,6 +1834,9 @@ export interface ExecuteBudgetActionRequest {
   ExecutionType: ExecutionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1717,6 +1864,7 @@ export interface ExecuteBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p> Request of UpdateBudget </p>
  */
 export interface UpdateBudgetRequest {
@@ -1732,10 +1880,14 @@ export interface UpdateBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of UpdateBudget </p>
  */
 export interface UpdateBudgetResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1789,6 +1941,9 @@ export interface UpdateBudgetActionRequest {
   Subscribers?: Subscriber[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1816,6 +1971,7 @@ export interface UpdateBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p> Request of UpdateNotification </p>
  */
 export interface UpdateNotificationRequest {
@@ -1841,11 +1997,13 @@ export interface UpdateNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of UpdateNotification </p>
  */
 export interface UpdateNotificationResponse {}
 
 /**
+ * @public
  * <p> Request of UpdateSubscriber </p>
  */
 export interface UpdateSubscriberRequest {
@@ -1876,6 +2034,7 @@ export interface UpdateSubscriberRequest {
 }
 
 /**
+ * @public
  * <p> Response of UpdateSubscriber </p>
  */
 export interface UpdateSubscriberResponse {}

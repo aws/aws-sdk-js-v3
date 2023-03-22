@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFieldLevelEncryptionProfileCommand}.
  */
 export interface DeleteFieldLevelEncryptionProfileCommandInput extends DeleteFieldLevelEncryptionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFieldLevelEncryptionProfileCommand}.
  */
 export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a field-level encryption profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFieldLevelEncryptionProfileCommandInput - {@link DeleteFieldLevelEncryptionProfileCommandInput}
+ * @returns {@link DeleteFieldLevelEncryptionProfileCommandOutput}
  * @see {@link DeleteFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFieldLevelEncryptionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
     return serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

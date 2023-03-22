@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPricingPlansAssociatedWithPricingRuleCommand}.
  */
 export interface ListPricingPlansAssociatedWithPricingRuleCommandInput
   extends ListPricingPlansAssociatedWithPricingRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPricingPlansAssociatedWithPricingRuleCommand}.
  */
 export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
@@ -38,6 +42,7 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       A list of the pricing plans that are associated with a pricing rule.
  *     </p>
@@ -51,6 +56,8 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricingPlansAssociatedWithPricingRuleCommandInput - {@link ListPricingPlansAssociatedWithPricingRuleCommandInput}
+ * @returns {@link ListPricingPlansAssociatedWithPricingRuleCommandOutput}
  * @see {@link ListPricingPlansAssociatedWithPricingRuleCommandInput} for command's `input` shape.
  * @see {@link ListPricingPlansAssociatedWithPricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricingPlansAssociatedWithPricingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPricingPlansAssociatedWithPricingRuleCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     return serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

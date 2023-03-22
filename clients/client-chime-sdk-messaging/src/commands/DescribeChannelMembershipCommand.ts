@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelMembershipCommand}.
  */
 export interface DescribeChannelMembershipCommandInput extends DescribeChannelMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelMembershipCommand}.
  */
 export interface DescribeChannelMembershipCommandOutput extends DescribeChannelMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a user's channel membership.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -55,6 +60,8 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelMembershipCommandInput - {@link DescribeChannelMembershipCommandInput}
+ * @returns {@link DescribeChannelMembershipCommandOutput}
  * @see {@link DescribeChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -99,6 +106,9 @@ export class DescribeChannelMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DescribeChannelMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeChannelMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

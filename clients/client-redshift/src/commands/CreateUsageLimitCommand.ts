@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUsageLimitCommand}.
  */
 export interface CreateUsageLimitCommandInput extends CreateUsageLimitMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateUsageLimitCommand}.
  */
 export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a usage limit for a specified Amazon Redshift feature on a cluster.
  *             The usage limit is identified by the returned usage limit identifier.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUsageLimitCommandInput - {@link CreateUsageLimitCommandInput}
+ * @returns {@link CreateUsageLimitCommandOutput}
  * @see {@link CreateUsageLimitCommandInput} for command's `input` shape.
  * @see {@link CreateUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUsageLimitCommandOutput> {
     return deserializeAws_queryCreateUsageLimitCommand(output, context);
   }

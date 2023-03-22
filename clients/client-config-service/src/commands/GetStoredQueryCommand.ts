@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStoredQueryCommand}.
  */
 export interface GetStoredQueryCommandInput extends GetStoredQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStoredQueryCommand}.
  */
 export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a specific stored query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStoredQueryCommandInput - {@link GetStoredQueryCommandInput}
+ * @returns {@link GetStoredQueryCommandOutput}
  * @see {@link GetStoredQueryCommandInput} for command's `input` shape.
  * @see {@link GetStoredQueryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetStoredQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStoredQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetStoredQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStoredQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetStoredQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStoredQueryCommandOutput> {
     return deserializeAws_json1_1GetStoredQueryCommand(output, context);
   }

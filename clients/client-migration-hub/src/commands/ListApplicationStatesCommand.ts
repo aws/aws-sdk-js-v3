@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationStatesCommand}.
  */
 export interface ListApplicationStatesCommandInput extends ListApplicationStatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationStatesCommand}.
  */
 export interface ListApplicationStatesCommandOutput extends ListApplicationStatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the migration statuses for your applications. If you use the optional
  *             <code>ApplicationIds</code> parameter, only the migration statuses for those
  *          applications will be returned.</p>
@@ -48,6 +53,8 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationStatesCommandInput - {@link ListApplicationStatesCommandInput}
+ * @returns {@link ListApplicationStatesCommandOutput}
  * @see {@link ListApplicationStatesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationStatesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListApplicationStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListApplicationStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationStatesCommandOutput> {
     return deserializeAws_json1_1ListApplicationStatesCommand(output, context);
   }

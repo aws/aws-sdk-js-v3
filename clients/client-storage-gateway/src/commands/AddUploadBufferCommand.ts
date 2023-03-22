@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddUploadBufferCommand}.
  */
 export interface AddUploadBufferCommandInput extends AddUploadBufferInput {}
 /**
+ * @public
+ *
  * The output of {@link AddUploadBufferCommand}.
  */
 export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures one or more gateway local disks as upload buffer for a specified gateway.
  *          This operation is supported for the stored volume, cached volume, and tape gateway
  *          types.</p>
@@ -52,6 +57,8 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param AddUploadBufferCommandInput - {@link AddUploadBufferCommandInput}
+ * @returns {@link AddUploadBufferCommandOutput}
  * @see {@link AddUploadBufferCommandInput} for command's `input` shape.
  * @see {@link AddUploadBufferCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -103,6 +110,9 @@ export class AddUploadBufferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddUploadBufferCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class AddUploadBufferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddUploadBufferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddUploadBufferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddUploadBufferCommandOutput> {
     return deserializeAws_json1_1AddUploadBufferCommand(output, context);
   }

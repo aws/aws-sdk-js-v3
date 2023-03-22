@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVTLDeviceTypeCommand}.
  */
 export interface UpdateVTLDeviceTypeCommandInput extends UpdateVTLDeviceTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVTLDeviceTypeCommand}.
  */
 export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the type of medium changer in a tape gateway. When you activate a tape gateway,
  *          you select a medium changer type for the tape gateway. This operation enables you to select
  *          a different type of medium changer after a tape gateway is activated. This operation is
@@ -49,6 +54,8 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVTLDeviceTypeCommandInput - {@link UpdateVTLDeviceTypeCommandInput}
+ * @returns {@link UpdateVTLDeviceTypeCommandOutput}
  * @see {@link UpdateVTLDeviceTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateVTLDeviceTypeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVTLDeviceTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVTLDeviceTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVTLDeviceTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVTLDeviceTypeCommandOutput> {
     return deserializeAws_json1_1UpdateVTLDeviceTypeCommand(output, context);
   }

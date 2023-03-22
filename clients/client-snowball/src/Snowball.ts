@@ -114,6 +114,7 @@ import {
 import { SnowballClient } from "./SnowballClient";
 
 /**
+ * @public
  * <p>The Amazon Web Services Snow Family provides a petabyte-scale data transport solution that uses
  *       secure devices to transfer large amounts of data between your on-premises data centers and
  *       Amazon Simple Storage Service (Amazon S3). The Snow Family commands described here provide access to the same
@@ -123,6 +124,7 @@ import { SnowballClient } from "./SnowballClient";
  */
 export class Snowball extends SnowballClient {
   /**
+   * @public
    * <p>Cancels a cluster job. You can only cancel a cluster job while it's in the
    *         <code>AwaitingQuorum</code> status. You'll have at least an hour after creating a cluster
    *       job to cancel it.</p>
@@ -157,6 +159,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified job. You can only cancel a job before its <code>JobState</code>
    *       value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code> or
    *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
@@ -186,6 +189,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Creates an address for a Snow device to be shipped to. In most regions,
    *       addresses are validated at the time of creation. The address you provide must be located
    *       within the serviceable area of your region. If the address is invalid or unsupported, then an
@@ -221,6 +225,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The
    *       cluster does not ship until these five node jobs have been created.</p>
    */
@@ -254,6 +259,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Creates a job to import or export data between Amazon S3 and your on-premises data
    *       center. Your Amazon Web Services account must have the right trust policies and permissions in
    *       place to create a job for a Snow device. If you're creating a job for a node in a cluster, you
@@ -407,6 +413,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Creates a job with the long-term usage option for a device. The long-term usage is a
    *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and Amazon Web Services provides discounts for long-term pricing.
    *       </p>
@@ -441,6 +448,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Creates a shipping label that will be used to return the Snow device to Amazon Web Services.</p>
    */
   public createReturnShippingLabel(
@@ -473,6 +481,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Takes an <code>AddressId</code> and returns specific details about that address in the
    *       form of an <code>Address</code> object.</p>
    */
@@ -506,6 +515,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one of
    *       the US regions will return addresses from the list of all addresses associated with this
    *       account in all US regions.</p>
@@ -540,6 +550,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific cluster including shipping information, cluster
    *       status, and other important metadata.</p>
    */
@@ -573,6 +584,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific job including shipping information, job status,
    *       and other important metadata. </p>
    */
@@ -600,6 +612,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Information on the shipping label of a Snow device that is being returned to Amazon Web Services.</p>
    */
   public describeReturnShippingLabel(
@@ -632,6 +645,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns a link to an Amazon S3 presigned URL for the manifest file associated with the
    *       specified <code>JobId</code> value. You can access the manifest file for up to 60 minutes
    *       after this request has been made. To access the manifest file after 60 minutes have passed,
@@ -679,6 +693,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
    *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
    *       has been created.</p>
@@ -723,6 +738,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the Snow Family service limit for your account, and also the
    *       number of Snow devices your account has in use.</p>
    *          <p>The default service limit for the number of Snow devices that you can have at one time
@@ -758,6 +774,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
    *         <code>JobId</code>.</p>
    */
@@ -791,6 +808,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
    *         <code>JobListEntry</code> object is for a job in the specified cluster and contains a job's
    *       state, a job's ID, and other information.</p>
@@ -825,6 +843,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each
    *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
    *       important status information.</p>
@@ -856,6 +875,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)
    *       that are owned by your Amazon Web Services accountthat would be supported for use on a Snow
    *       device. Currently, supported AMIs are based on the CentOS 7 (x86_64) - with Updates HVM,
@@ -892,6 +912,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
    *         <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that
    *       indicates whether the job is a job part, in the case of export jobs. Calling this API action
@@ -922,6 +943,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Lists all long-term pricing types.</p>
    */
   public listLongTermPricing(
@@ -954,6 +976,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Lists all supported versions for Snow on-device services. Returns an
    *       array of <code>ServiceVersion</code> object containing the supported versions for a particular service.</p>
    */
@@ -987,6 +1010,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>
    *       state, you can update some of the information associated with a cluster. Once the cluster
    *       changes to a different job state, usually 60 minutes after the cluster being created, this
@@ -1022,6 +1046,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of
    *       the information associated with a job. Once the job changes to a different job state, usually
    *       within 60 minutes of the job being created, this action is no longer available.</p>
@@ -1050,6 +1075,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Updates the state when a shipment state changes to a different state.</p>
    */
   public updateJobShipmentState(
@@ -1082,6 +1108,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * @public
    * <p>Updates the long-term pricing type.</p>
    */
   public updateLongTermPricing(

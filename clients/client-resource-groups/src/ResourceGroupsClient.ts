@@ -84,6 +84,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateGroupCommandInput
   | DeleteGroupCommandInput
@@ -104,6 +107,9 @@ export type ServiceInputTypes =
   | UpdateGroupCommandInput
   | UpdateGroupQueryCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateGroupCommandOutput
   | DeleteGroupCommandOutput
@@ -124,6 +130,9 @@ export type ServiceOutputTypes =
   | UpdateGroupCommandOutput
   | UpdateGroupQueryCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -131,7 +140,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -240,11 +249,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ResourceGroupsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -255,10 +267,15 @@ type ResourceGroupsClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ResourceGroupsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ResourceGroupsClient class constructor that set the region, credentials and other options.
  */
 export interface ResourceGroupsClientConfig extends ResourceGroupsClientConfigType {}
 
+/**
+ * @public
+ */
 type ResourceGroupsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -269,11 +286,14 @@ type ResourceGroupsClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ResourceGroupsClient class. This is resolved and normalized from the {@link ResourceGroupsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ResourceGroupsClient class. This is resolved and normalized from the {@link ResourceGroupsClientConfig | constructor configuration interface}.
  */
 export interface ResourceGroupsClientResolvedConfig extends ResourceGroupsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Resource Groups lets you organize Amazon Web Services resources such as Amazon Elastic Compute Cloud instances, Amazon Relational Database Service
  *             databases, and Amazon Simple Storage Service buckets into groups using criteria that you define as tags. A
  *             resource group is a collection of resources that match the resource types specified in a

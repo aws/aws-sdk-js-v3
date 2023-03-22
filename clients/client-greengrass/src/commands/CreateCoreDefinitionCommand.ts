@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCoreDefinitionCommand}.
  */
 export interface CreateCoreDefinitionCommandInput extends CreateCoreDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCoreDefinitionCommand}.
  */
 export interface CreateCoreDefinitionCommandOutput extends CreateCoreDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each contain exactly one Greengrass core.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateCoreDefinitionCommandOutput extends CreateCoreDefinitionR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCoreDefinitionCommandInput - {@link CreateCoreDefinitionCommandInput}
+ * @returns {@link CreateCoreDefinitionCommandOutput}
  * @see {@link CreateCoreDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateCoreDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateCoreDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCoreDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateCoreDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCoreDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCoreDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCoreDefinitionCommandOutput> {
     return deserializeAws_restJson1CreateCoreDefinitionCommand(output, context);
   }

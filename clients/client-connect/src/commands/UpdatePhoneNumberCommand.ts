@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
  *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
  *          <important>
@@ -52,6 +57,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
+ * @returns {@link UpdatePhoneNumberCommandOutput}
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdatePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdatePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePhoneNumberCommandOutput> {
     return deserializeAws_restJson1UpdatePhoneNumberCommand(output, context);
   }

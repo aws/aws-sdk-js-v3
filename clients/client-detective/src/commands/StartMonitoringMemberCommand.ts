@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMonitoringMemberCommand}.
  */
 export interface StartMonitoringMemberCommandInput extends StartMonitoringMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMonitoringMemberCommand}.
  */
 export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a request to enable data ingest for a member account that has a status of
  *             <code>ACCEPTED_BUT_DISABLED</code>.</p>
  *          <p>For valid member accounts, the status is updated as follows.</p>
@@ -53,6 +58,8 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMonitoringMemberCommandInput - {@link StartMonitoringMemberCommandInput}
+ * @returns {@link StartMonitoringMemberCommandOutput}
  * @see {@link StartMonitoringMemberCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringMemberCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -110,6 +117,9 @@ export class StartMonitoringMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMonitoringMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class StartMonitoringMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMonitoringMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartMonitoringMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMonitoringMemberCommandOutput> {
     return deserializeAws_restJson1StartMonitoringMemberCommand(output, context);
   }

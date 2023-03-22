@@ -30,15 +30,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceSummaryCommand}.
  */
 export interface GetComplianceSummaryCommandInput extends GetComplianceSummaryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceSummaryCommand}.
  */
 export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a table that shows counts of resources that are noncompliant with their tag
  *             policies.</p>
  *         <p>For more information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
@@ -62,6 +67,8 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceSummaryCommandInput - {@link GetComplianceSummaryCommandInput}
+ * @returns {@link GetComplianceSummaryCommandOutput}
  * @see {@link GetComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -137,6 +144,9 @@ export class GetComplianceSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class GetComplianceSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComplianceSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceSummaryCommandOutput> {
     return deserializeAws_json1_1GetComplianceSummaryCommand(output, context);
   }

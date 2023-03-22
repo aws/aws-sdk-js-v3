@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePortalCommand}.
  */
 export interface CreatePortalCommandInput extends CreatePortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePortalCommand}.
  */
 export interface CreatePortalCommandOutput extends CreatePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
  *       to authenticate portal users and manage user permissions.</p>
  *          <note>
@@ -52,6 +57,8 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePortalCommandInput - {@link CreatePortalCommandInput}
+ * @returns {@link CreatePortalCommandOutput}
  * @see {@link CreatePortalCommandInput} for command's `input` shape.
  * @see {@link CreatePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreatePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreatePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePortalCommandOutput> {
     return deserializeAws_restJson1CreatePortalCommand(output, context);
   }

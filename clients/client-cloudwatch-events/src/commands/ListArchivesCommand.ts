@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListArchivesCommand}.
  */
 export interface ListArchivesCommandInput extends ListArchivesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListArchivesCommand}.
  */
 export interface ListArchivesCommandOutput extends ListArchivesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your archives. You can either list all the archives or you can provide a prefix to
  *       match to the archive names. Filter parameters are exclusive.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListArchivesCommandInput - {@link ListArchivesCommandInput}
+ * @returns {@link ListArchivesCommandOutput}
  * @see {@link ListArchivesCommandInput} for command's `input` shape.
  * @see {@link ListArchivesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListArchivesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListArchivesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListArchivesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArchivesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListArchivesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArchivesCommandOutput> {
     return deserializeAws_json1_1ListArchivesCommand(output, context);
   }

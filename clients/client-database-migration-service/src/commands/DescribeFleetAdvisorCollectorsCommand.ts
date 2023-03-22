@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAdvisorCollectorsCommand}.
  */
 export interface DescribeFleetAdvisorCollectorsCommandInput extends DescribeFleetAdvisorCollectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAdvisorCollectorsCommand}.
  */
 export interface DescribeFleetAdvisorCollectorsCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Fleet Advisor collectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorCollectorsCommandInput - {@link DescribeFleetAdvisorCollectorsCommandInput}
+ * @returns {@link DescribeFleetAdvisorCollectorsCommandOutput}
  * @see {@link DescribeFleetAdvisorCollectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorCollectorsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeFleetAdvisorCollectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorCollectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeFleetAdvisorCollectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetAdvisorCollectorsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeFleetAdvisorCollectorsCommand extends $Command<
     return serializeAws_json1_1DescribeFleetAdvisorCollectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

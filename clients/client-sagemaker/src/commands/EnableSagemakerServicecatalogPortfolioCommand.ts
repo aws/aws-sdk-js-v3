@@ -26,11 +26,15 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
  */
 export interface EnableSagemakerServicecatalogPortfolioCommandInput
   extends EnableSagemakerServicecatalogPortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
  */
 export interface EnableSagemakerServicecatalogPortfolioCommandOutput
@@ -38,6 +42,7 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -50,6 +55,8 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
+ * @returns {@link EnableSagemakerServicecatalogPortfolioCommandOutput}
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSagemakerServicecatalogPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableSagemakerServicecatalogPortfolioCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     return serializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTypedLinkFacetNamesCommand}.
  */
 export interface ListTypedLinkFacetNamesCommandInput extends ListTypedLinkFacetNamesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTypedLinkFacetNamesCommand}.
  */
 export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacetNamesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema.
  *       For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTypedLinkFacetNamesCommandInput - {@link ListTypedLinkFacetNamesCommandInput}
+ * @returns {@link ListTypedLinkFacetNamesCommandOutput}
  * @see {@link ListTypedLinkFacetNamesCommandInput} for command's `input` shape.
  * @see {@link ListTypedLinkFacetNamesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTypedLinkFacetNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTypedLinkFacetNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTypedLinkFacetNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypedLinkFacetNamesCommandOutput> {
     return deserializeAws_restJson1ListTypedLinkFacetNamesCommand(output, context);
   }

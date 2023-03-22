@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectorsCommand}.
  */
 export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectorsCommand}.
  */
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the connectors in this account and Region. The list is limited to
  *          connectors whose name starts with the specified prefix. The response also includes a
  *          description of each of the listed connectors.</p>
@@ -48,6 +53,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
+ * @returns {@link ListConnectorsCommandOutput}
  * @see {@link ListConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ListConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectorsCommandOutput> {
     return deserializeAws_restJson1ListConnectorsCommand(output, context);
   }

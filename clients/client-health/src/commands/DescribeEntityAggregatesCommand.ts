@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntityAggregatesCommand}.
  */
 export interface DescribeEntityAggregatesCommandInput extends DescribeEntityAggregatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntityAggregatesCommand}.
  */
 export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAggregatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of entities that are affected by each of the specified events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntityAggregatesCommandInput - {@link DescribeEntityAggregatesCommandInput}
+ * @returns {@link DescribeEntityAggregatesCommandOutput}
  * @see {@link DescribeEntityAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeEntityAggregatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntityAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeEntityAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntityAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEntityAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityAggregatesCommandOutput> {
     return deserializeAws_json1_1DescribeEntityAggregatesCommand(output, context);
   }

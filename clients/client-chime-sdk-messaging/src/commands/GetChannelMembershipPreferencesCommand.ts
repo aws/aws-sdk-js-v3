@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelMembershipPreferencesCommand}.
  */
 export interface GetChannelMembershipPreferencesCommandInput extends GetChannelMembershipPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelMembershipPreferencesCommand}.
  */
 export interface GetChannelMembershipPreferencesCommandOutput
@@ -41,6 +45,7 @@ export interface GetChannelMembershipPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel.
  *          Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users.
  *          Banned users can't retrieve membership preferences for the channel from which they are banned.</p>
@@ -54,6 +59,8 @@ export interface GetChannelMembershipPreferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelMembershipPreferencesCommandInput - {@link GetChannelMembershipPreferencesCommandInput}
+ * @returns {@link GetChannelMembershipPreferencesCommandOutput}
  * @see {@link GetChannelMembershipPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetChannelMembershipPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetChannelMembershipPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelMembershipPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class GetChannelMembershipPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetChannelMembershipPreferencesCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class GetChannelMembershipPreferencesCommand extends $Command<
     return serializeAws_restJson1GetChannelMembershipPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceAttributeCommand}.
  */
 export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceAttributeCommand}.
  */
 export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribute, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified instance. You can specify only one
  *             attribute at a time. Valid attribute values are: <code>instanceType</code> |
  *                 <code>kernel</code> | <code>ramdisk</code> | <code>userData</code> |
@@ -53,6 +58,8 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAttributeCommandInput - {@link DescribeInstanceAttributeCommandInput}
+ * @returns {@link DescribeInstanceAttributeCommandOutput}
  * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -156,6 +163,9 @@ export class DescribeInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,10 +205,16 @@ export class DescribeInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

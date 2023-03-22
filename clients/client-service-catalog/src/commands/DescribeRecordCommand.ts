@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecordCommand}.
  */
 export interface DescribeRecordCommandInput extends DescribeRecordInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecordCommand}.
  */
 export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified request operation.</p>
  *          <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
  *          <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>).
@@ -54,6 +59,8 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecordCommandInput - {@link DescribeRecordCommandInput}
+ * @returns {@link DescribeRecordCommandOutput}
  * @see {@link DescribeRecordCommandInput} for command's `input` shape.
  * @see {@link DescribeRecordCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecordCommandOutput> {
     return deserializeAws_json1_1DescribeRecordCommand(output, context);
   }

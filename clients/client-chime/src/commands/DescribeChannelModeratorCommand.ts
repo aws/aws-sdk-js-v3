@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelModeratorCommand}.
  */
 export interface DescribeChannelModeratorCommandInput extends DescribeChannelModeratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelModeratorCommand}.
  */
 export interface DescribeChannelModeratorCommandOutput extends DescribeChannelModeratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a single ChannelModerator.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -51,6 +56,8 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelModeratorCommandInput - {@link DescribeChannelModeratorCommandInput}
+ * @returns {@link DescribeChannelModeratorCommandOutput}
  * @see {@link DescribeChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeChannelModeratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelModeratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeChannelModeratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeChannelModeratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelModeratorCommandOutput> {
     return deserializeAws_restJson1DescribeChannelModeratorCommand(output, context);
   }

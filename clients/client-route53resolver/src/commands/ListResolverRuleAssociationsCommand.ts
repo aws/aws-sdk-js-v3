@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverRuleAssociationsCommand}.
  */
 export interface ListResolverRuleAssociationsCommandInput extends ListResolverRuleAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverRuleAssociationsCommand}.
  */
 export interface ListResolverRuleAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListResolverRuleAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListResolverRuleAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverRuleAssociationsCommandInput - {@link ListResolverRuleAssociationsCommandInput}
+ * @returns {@link ListResolverRuleAssociationsCommandOutput}
  * @see {@link ListResolverRuleAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListResolverRuleAssociationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverRuleAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverRuleAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResolverRuleAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

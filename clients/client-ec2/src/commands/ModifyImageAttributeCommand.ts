@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyImageAttributeCommand}.
  */
 export interface ModifyImageAttributeCommandInput extends ModifyImageAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyImageAttributeCommand}.
  */
 export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
  *          <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the following parameters:
  *        <code>Description</code>, <code>ImdsSupport</code>, or <code>LaunchPermission</code>.</p>
@@ -46,6 +51,8 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyImageAttributeCommandInput - {@link ModifyImageAttributeCommandInput}
+ * @returns {@link ModifyImageAttributeCommandOutput}
  * @see {@link ModifyImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -105,6 +112,9 @@ export class ModifyImageAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyImageAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ModifyImageAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyImageAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyImageAttributeCommandOutput> {
     return deserializeAws_ec2ModifyImageAttributeCommand(output, context);
   }

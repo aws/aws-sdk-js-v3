@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutoScalingConfigurationCommand}.
  */
 export interface DescribeAutoScalingConfigurationCommandInput extends DescribeAutoScalingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutoScalingConfigurationCommand}.
  */
 export interface DescribeAutoScalingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoScalingConfigurationCommandInput - {@link DescribeAutoScalingConfigurationCommandInput}
+ * @returns {@link DescribeAutoScalingConfigurationCommandOutput}
  * @see {@link DescribeAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAutoScalingConfigurationCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     return serializeAws_json1_0DescribeAutoScalingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

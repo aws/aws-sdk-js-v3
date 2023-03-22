@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandInput extends CreateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for a directory and assigns the alias to the directory. The alias is used
  *          to construct the access URL for the directory, such as
  *             <code>http://<alias>.awsapps.com</code>.</p>
@@ -51,6 +56,8 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
+ * @returns {@link CreateAliasCommandOutput}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
     return deserializeAws_json1_1CreateAliasCommand(output, context);
   }

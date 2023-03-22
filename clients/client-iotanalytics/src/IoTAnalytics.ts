@@ -170,6 +170,7 @@ import {
 import { IoTAnalyticsClient } from "./IoTAnalyticsClient";
 
 /**
+ * @public
  * <p>IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
  *         You can then query the data and run sophisticated analytics on it.  IoT Analytics enables advanced
  *     data exploration through integration with Jupyter Notebooks and data visualization through integration
@@ -192,6 +193,7 @@ import { IoTAnalyticsClient } from "./IoTAnalyticsClient";
  */
 export class IoTAnalytics extends IoTAnalyticsClient {
   /**
+   * @public
    * <p>Sends messages to a channel.</p>
    */
   public batchPutMessage(
@@ -224,6 +226,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Cancels the reprocessing of data through the pipeline.</p>
    */
   public cancelPipelineReprocessing(
@@ -256,6 +259,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Used to create a channel. A channel collects data from an MQTT topic and archives the raw,
    *       unprocessed messages before publishing the data to a pipeline.</p>
    */
@@ -289,6 +293,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Used to create a dataset. A dataset stores data retrieved from a data store by applying a
    *         <code>queryAction</code> (a SQL query) or a <code>containerAction</code> (executing a
    *       containerized application). This operation creates the skeleton of a dataset. The dataset can
@@ -325,6 +330,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Creates the content of a dataset by applying a <code>queryAction</code> (a SQL query) or a
    *         <code>containerAction</code> (executing a containerized application).</p>
    */
@@ -358,6 +364,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Creates a data store, which is a repository for messages.</p>
    */
   public createDatastore(
@@ -390,6 +397,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Creates a pipeline. A pipeline consumes messages from a channel and allows you to process
    *       the messages before storing them in a data store. You must specify both a <code>channel</code>
    *       and a <code>datastore</code> activity and, optionally, as many as 23 additional activities in
@@ -425,6 +433,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified channel.</p>
    */
   public deleteChannel(
@@ -457,6 +466,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified dataset.</p>
    *          <p>You do not have to delete the content of the dataset before you perform this
    *       operation.</p>
@@ -491,6 +501,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the content of the specified dataset.</p>
    */
   public deleteDatasetContent(
@@ -523,6 +534,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified data store.</p>
    */
   public deleteDatastore(
@@ -555,6 +567,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified pipeline.</p>
    */
   public deletePipeline(
@@ -587,6 +600,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a channel.</p>
    */
   public describeChannel(
@@ -619,6 +633,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a dataset.</p>
    */
   public describeDataset(
@@ -651,6 +666,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a data store.</p>
    */
   public describeDatastore(
@@ -683,6 +699,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current settings of the IoT Analytics logging options.</p>
    */
   public describeLoggingOptions(
@@ -715,6 +732,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a pipeline.</p>
    */
   public describePipeline(
@@ -747,6 +765,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the contents of a dataset as presigned URIs.</p>
    */
   public getDatasetContent(
@@ -779,6 +798,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of channels.</p>
    */
   public listChannels(
@@ -808,6 +828,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Lists information about dataset contents that have been created.</p>
    */
   public listDatasetContents(
@@ -840,6 +861,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about datasets.</p>
    */
   public listDatasets(
@@ -869,6 +891,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of data stores.</p>
    */
   public listDatastores(
@@ -901,6 +924,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of pipelines.</p>
    */
   public listPipelines(
@@ -933,6 +957,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags (metadata) that you have assigned to the resource.</p>
    */
   public listTagsForResource(
@@ -965,6 +990,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Sets or updates the IoT Analytics logging options.</p>
    *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
    *       minute for the change to take effect. Also, if you change the policy attached to the role you
@@ -1001,6 +1027,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Simulates the results of running a pipeline activity on a message payload.</p>
    */
   public runPipelineActivity(
@@ -1033,6 +1060,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a sample of messages from the specified channel ingested during the specified
    *       timeframe. Up to 10 messages can be retrieved.</p>
    */
@@ -1066,6 +1094,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Starts the reprocessing of raw message data through the pipeline.</p>
    */
   public startPipelineReprocessing(
@@ -1098,6 +1127,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
    *       manage a resource.</p>
    */
@@ -1125,6 +1155,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Removes the given tags (metadata) from the resource.</p>
    */
   public untagResource(
@@ -1157,6 +1188,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Used to update the settings of a channel.</p>
    */
   public updateChannel(
@@ -1189,6 +1221,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Updates the settings of a dataset.</p>
    */
   public updateDataset(
@@ -1221,6 +1254,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Used to update the settings of a data store.</p>
    */
   public updateDatastore(
@@ -1253,6 +1287,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Updates the settings of a pipeline. You must specify both a <code>channel</code> and a
    *         <code>datastore</code> activity and, optionally, as many as 23 additional activities in the
    *         <code>pipelineActivities</code> array.</p>

@@ -10,7 +10,7 @@ import {
 import { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeCommitClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBranchesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBranches(
   config: CodeCommitPaginationConfiguration,
   input: ListBranchesCommandInput,

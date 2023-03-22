@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessControlRuleCommand}.
  */
 export interface DeleteAccessControlRuleCommandInput extends DeleteAccessControlRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessControlRuleCommand}.
  */
 export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessControlRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an access control rule for the specified WorkMail organization.</p>
  *          <note>
  *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -49,6 +54,8 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessControlRuleCommandInput - {@link DeleteAccessControlRuleCommandInput}
+ * @returns {@link DeleteAccessControlRuleCommandOutput}
  * @see {@link DeleteAccessControlRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessControlRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteAccessControlRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessControlRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteAccessControlRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessControlRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAccessControlRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessControlRuleCommandOutput> {
     return deserializeAws_json1_1DeleteAccessControlRuleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMembershipCommand}.
  */
 export interface UpdateMembershipCommandInput extends UpdateMembershipInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMembershipCommand}.
  */
 export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMembershipCommandInput - {@link UpdateMembershipCommandInput}
+ * @returns {@link UpdateMembershipCommandOutput}
  * @see {@link UpdateMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMembershipCommandOutput> {
     return deserializeAws_restJson1UpdateMembershipCommand(output, context);
   }

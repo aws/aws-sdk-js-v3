@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDetectMitigationActionsTaskCommand}.
  */
 export interface DescribeDetectMitigationActionsTaskCommandInput extends DescribeDetectMitigationActionsTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDetectMitigationActionsTaskCommand}.
  */
 export interface DescribeDetectMitigationActionsTaskCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets information about a Device Defender ML Detect mitigation action.
  *     </p>
@@ -51,6 +56,8 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDetectMitigationActionsTaskCommandInput - {@link DescribeDetectMitigationActionsTaskCommandInput}
+ * @returns {@link DescribeDetectMitigationActionsTaskCommandOutput}
  * @see {@link DescribeDetectMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeDetectMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDetectMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeDetectMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDetectMitigationActionsTaskCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeDetectMitigationActionsTaskCommand extends $Command<
     return serializeAws_restJson1DescribeDetectMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

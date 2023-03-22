@@ -26,15 +26,20 @@ import {
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScheduleCommand}.
  */
 export interface UpdateScheduleCommandInput extends UpdateScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScheduleCommand}.
  */
 export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and
  *          overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to
@@ -54,6 +59,8 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScheduleCommandInput - {@link UpdateScheduleCommandInput}
+ * @returns {@link UpdateScheduleCommandOutput}
  * @see {@link UpdateScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduleCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduleCommandOutput> {
     return deserializeAws_restJson1UpdateScheduleCommand(output, context);
   }

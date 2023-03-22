@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopServerCommand}.
  */
 export interface StopServerCommandInput extends StopServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopServerCommand}.
  */
 export interface StopServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a file transfer protocol-enabled server from <code>ONLINE</code> to
  *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
  *       jobs. Information tied to your server, such as server and user properties, are not affected by
@@ -52,6 +57,8 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopServerCommandInput - {@link StopServerCommandInput}
+ * @returns {@link StopServerCommandOutput}
  * @see {@link StopServerCommandInput} for command's `input` shape.
  * @see {@link StopServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -91,6 +98,9 @@ export class StopServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StopServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopServerCommandOutput> {
     return deserializeAws_json1_1StopServerCommand(output, context);
   }

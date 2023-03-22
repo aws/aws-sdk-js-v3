@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBotLocaleCommand}.
  */
 export interface DescribeBotLocaleCommandInput extends DescribeBotLocaleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBotLocaleCommand}.
  */
 export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings that a bot has for a specific locale. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBotLocaleCommandInput - {@link DescribeBotLocaleCommandInput}
+ * @returns {@link DescribeBotLocaleCommandOutput}
  * @see {@link DescribeBotLocaleCommandInput} for command's `input` shape.
  * @see {@link DescribeBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeBotLocaleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBotLocaleCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeBotLocaleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBotLocaleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBotLocaleCommandOutput> {
     return deserializeAws_restJson1DescribeBotLocaleCommand(output, context);
   }

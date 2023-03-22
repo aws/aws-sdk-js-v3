@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartNextPendingJobExecutionCommand}.
  */
 export interface StartNextPendingJobExecutionCommandInput extends StartNextPendingJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartNextPendingJobExecutionCommand}.
  */
 export interface StartNextPendingJobExecutionCommandOutput
@@ -37,6 +41,7 @@ export interface StartNextPendingJobExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface StartNextPendingJobExecutionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNextPendingJobExecutionCommandInput - {@link StartNextPendingJobExecutionCommandInput}
+ * @returns {@link StartNextPendingJobExecutionCommandOutput}
  * @see {@link StartNextPendingJobExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNextPendingJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNextPendingJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNextPendingJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartNextPendingJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

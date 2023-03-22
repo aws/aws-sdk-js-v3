@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DrsServiceException as __BaseException } from "./DrsServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS account.</p>
  */
 export interface Account {
@@ -35,6 +37,7 @@ export interface Account {
 }
 
 /**
+ * @public
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -68,6 +71,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Properties of a conversion job</p>
  */
 export interface ConversionProperties {
@@ -98,6 +102,7 @@ export interface ConversionProperties {
 }
 
 /**
+ * @public
  * <p>Information about a server's CPU.</p>
  */
 export interface CPU {
@@ -112,6 +117,9 @@ export interface CPU {
   modelName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateExtendedSourceServerRequest {
   /**
    * <p>This defines the ARN of the source server in staging Account based on which you want to create an extended source server.</p>
@@ -124,6 +132,9 @@ export interface CreateExtendedSourceServerRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationErrorString {
   AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
   FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
@@ -142,6 +153,7 @@ export enum DataReplicationErrorString {
 }
 
 /**
+ * @public
  * <p>Error in data replication.</p>
  */
 export interface DataReplicationError {
@@ -156,6 +168,9 @@ export interface DataReplicationError {
   rawError?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationInitiationStepName {
   ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
   AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
@@ -170,6 +185,9 @@ export enum DataReplicationInitiationStepName {
   WAIT = "WAIT",
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationInitiationStepStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -179,6 +197,7 @@ export enum DataReplicationInitiationStepStatus {
 }
 
 /**
+ * @public
  * <p>Data replication initiation step.</p>
  */
 export interface DataReplicationInitiationStep {
@@ -194,6 +213,7 @@ export interface DataReplicationInitiationStep {
 }
 
 /**
+ * @public
  * <p>Data replication initiation.</p>
  */
 export interface DataReplicationInitiation {
@@ -213,6 +233,9 @@ export interface DataReplicationInitiation {
   steps?: DataReplicationInitiationStep[];
 }
 
+/**
+ * @public
+ */
 export enum DataReplicationState {
   BACKLOG = "BACKLOG",
   CONTINUOUS = "CONTINUOUS",
@@ -227,6 +250,7 @@ export enum DataReplicationState {
 }
 
 /**
+ * @public
  * <p>A disk that should be replicated.</p>
  */
 export interface DataReplicationInfoReplicatedDisk {
@@ -257,6 +281,7 @@ export interface DataReplicationInfoReplicatedDisk {
 }
 
 /**
+ * @public
  * <p>Information about Data Replication</p>
  */
 export interface DataReplicationInfo {
@@ -296,6 +321,9 @@ export interface DataReplicationInfo {
   stagingAvailabilityZone?: string;
 }
 
+/**
+ * @public
+ */
 export enum LastLaunchResult {
   FAILED = "FAILED",
   NOT_STARTED = "NOT_STARTED",
@@ -303,12 +331,16 @@ export enum LastLaunchResult {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export enum LastLaunchType {
   DRILL = "DRILL",
   RECOVERY = "RECOVERY",
 }
 
 /**
+ * @public
  * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
  */
 export interface LifeCycleLastLaunchInitiated {
@@ -328,6 +360,9 @@ export interface LifeCycleLastLaunchInitiated {
   type?: LastLaunchType | string;
 }
 
+/**
+ * @public
+ */
 export enum LaunchStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -337,6 +372,7 @@ export enum LaunchStatus {
 }
 
 /**
+ * @public
  * <p>An object containing information regarding the last launch of a Source Server.</p>
  */
 export interface LifeCycleLastLaunch {
@@ -352,6 +388,7 @@ export interface LifeCycleLastLaunch {
 }
 
 /**
+ * @public
  * <p>An object representing the Source Server Lifecycle.</p>
  */
 export interface LifeCycle {
@@ -381,12 +418,16 @@ export interface LifeCycle {
   lastLaunch?: LifeCycleLastLaunch;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationDirection {
   FAILBACK = "FAILBACK",
   FAILOVER = "FAILOVER",
 }
 
 /**
+ * @public
  * <p>Properties of the cloud environment where this Source Server originated from.</p>
  */
 export interface SourceCloudProperties {
@@ -407,6 +448,7 @@ export interface SourceCloudProperties {
 }
 
 /**
+ * @public
  * <p>An object representing a data storage device on a server.</p>
  */
 export interface Disk {
@@ -422,6 +464,7 @@ export interface Disk {
 }
 
 /**
+ * @public
  * <p>Hints used to uniquely identify a machine.</p>
  */
 export interface IdentificationHints {
@@ -447,6 +490,7 @@ export interface IdentificationHints {
 }
 
 /**
+ * @public
  * <p>Network interface.</p>
  */
 export interface NetworkInterface {
@@ -467,6 +511,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>Operating System.</p>
  */
 export interface OS {
@@ -477,6 +522,7 @@ export interface OS {
 }
 
 /**
+ * @public
  * <p>Properties of the Source Server machine.</p>
  */
 export interface SourceProperties {
@@ -521,6 +567,9 @@ export interface SourceProperties {
   os?: OS;
 }
 
+/**
+ * @public
+ */
 export enum ExtensionStatus {
   EXTENDED = "EXTENDED",
   EXTENSION_ERROR = "EXTENSION_ERROR",
@@ -528,6 +577,7 @@ export enum ExtensionStatus {
 }
 
 /**
+ * @public
  * <p>Staging information related to source server.</p>
  */
 export interface StagingArea {
@@ -555,6 +605,9 @@ export interface StagingArea {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface SourceServer {
   /**
    * <p>The ID of the Source Server.</p>
@@ -617,6 +670,9 @@ export interface SourceServer {
   reversedDirectionSourceServerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateExtendedSourceServerResponse {
   /**
    * <p>Created extended source server.</p>
@@ -625,6 +681,7 @@ export interface CreateExtendedSourceServerResponse {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or failure.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -650,6 +707,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource for this operation was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -683,6 +741,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be completed because its exceeded the service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -728,6 +787,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -765,6 +825,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The account performing the request has not been initialized.</p>
  */
 export class UninitializedAccountException extends __BaseException {
@@ -786,6 +847,7 @@ export class UninitializedAccountException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Validate exception field.</p>
  */
 export interface ValidationExceptionField {
@@ -800,6 +862,9 @@ export interface ValidationExceptionField {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -808,6 +873,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -840,11 +906,17 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationDataPlaneRouting {
   PRIVATE_IP = "PRIVATE_IP",
   PUBLIC_IP = "PUBLIC_IP",
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationDefaultLargeStagingDiskType {
   AUTO = "AUTO",
   GP2 = "GP2",
@@ -852,11 +924,17 @@ export enum ReplicationConfigurationDefaultLargeStagingDiskType {
   ST1 = "ST1",
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationEbsEncryption {
   CUSTOM = "CUSTOM",
   DEFAULT = "DEFAULT",
 }
 
+/**
+ * @public
+ */
 export enum PITPolicyRuleUnits {
   DAY = "DAY",
   HOUR = "HOUR",
@@ -864,6 +942,7 @@ export enum PITPolicyRuleUnits {
 }
 
 /**
+ * @public
  * <p>A rule in the Point in Time (PIT) policy representing when to take snapshots and how long to retain them for.</p>
  */
 export interface PITPolicyRule {
@@ -893,6 +972,9 @@ export interface PITPolicyRule {
   enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>The subnet to be used by the replication staging area.</p>
@@ -965,6 +1047,9 @@ export interface CreateReplicationConfigurationTemplateRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfigurationTemplate {
   /**
    * <p>The Replication Configuration Template ID.</p>
@@ -1047,6 +1132,9 @@ export interface ReplicationConfigurationTemplate {
   pitPolicy?: PITPolicyRule[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the Job to be deleted.</p>
@@ -1054,8 +1142,14 @@ export interface DeleteJobRequest {
   jobID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRecoveryInstanceRequest {
   /**
    * <p>The ID of the Recovery Instance to be deleted.</p>
@@ -1063,6 +1157,9 @@ export interface DeleteRecoveryInstanceRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateRequest {
   /**
    * <p>The ID of the Replication Configuration Template to be deleted.</p>
@@ -1070,8 +1167,14 @@ export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerRequest {
   /**
    * <p>The ID of the Source Server to be deleted.</p>
@@ -1079,8 +1182,14 @@ export interface DeleteSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsRequest {
   /**
    * <p>The ID of the Job for which Job log items will be retrieved.</p>
@@ -1098,6 +1207,9 @@ export interface DescribeJobLogItemsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum JobLogEvent {
   CLEANUP_END = "CLEANUP_END",
   CLEANUP_FAIL = "CLEANUP_FAIL",
@@ -1119,6 +1231,7 @@ export enum JobLogEvent {
 }
 
 /**
+ * @public
  * <p>Metadata associated with a Job log.</p>
  */
 export interface JobLogEventData {
@@ -1149,6 +1262,7 @@ export interface JobLogEventData {
 }
 
 /**
+ * @public
  * <p>A log outputted by a Job.</p>
  */
 export interface JobLog {
@@ -1168,6 +1282,9 @@ export interface JobLog {
   eventData?: JobLogEventData;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsResponse {
   /**
    * <p>An array of Job log items.</p>
@@ -1181,6 +1298,7 @@ export interface DescribeJobLogItemsResponse {
 }
 
 /**
+ * @public
  * <p>A set of filters by which to return Jobs.</p>
  */
 export interface DescribeJobsRequestFilters {
@@ -1200,6 +1318,9 @@ export interface DescribeJobsRequestFilters {
   toDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsRequest {
   /**
    * <p>A set of filters by which to return Jobs.</p>
@@ -1217,6 +1338,9 @@ export interface DescribeJobsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum InitiatedBy {
   DIAGNOSTIC = "DIAGNOSTIC",
   FAILBACK = "FAILBACK",
@@ -1227,6 +1351,7 @@ export enum InitiatedBy {
 }
 
 /**
+ * @public
  * <p>Represents a server participating in an asynchronous Job.</p>
  */
 export interface ParticipatingServer {
@@ -1246,12 +1371,18 @@ export interface ParticipatingServer {
   launchStatus?: LaunchStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   COMPLETED = "COMPLETED",
   PENDING = "PENDING",
   STARTED = "STARTED",
 }
 
+/**
+ * @public
+ */
 export enum JobType {
   CREATE_CONVERTED_SNAPSHOT = "CREATE_CONVERTED_SNAPSHOT",
   LAUNCH = "LAUNCH",
@@ -1259,6 +1390,7 @@ export enum JobType {
 }
 
 /**
+ * @public
  * <p>A job is an asynchronous workflow.</p>
  */
 export interface Job {
@@ -1308,6 +1440,9 @@ export interface Job {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsResponse {
   /**
    * <p>An array of Jobs.</p>
@@ -1321,6 +1456,7 @@ export interface DescribeJobsResponse {
 }
 
 /**
+ * @public
  * <p>A set of filters by which to return Recovery Instances.</p>
  */
 export interface DescribeRecoveryInstancesRequestFilters {
@@ -1335,6 +1471,9 @@ export interface DescribeRecoveryInstancesRequestFilters {
   sourceServerIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoveryInstancesRequest {
   /**
    * <p>A set of filters by which to return Recovery Instances.</p>
@@ -1352,6 +1491,9 @@ export interface DescribeRecoveryInstancesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FailbackReplicationError {
   AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
   FAILBACK_CLIENT_NOT_SEEN = "FAILBACK_CLIENT_NOT_SEEN",
@@ -1377,6 +1519,7 @@ export enum FailbackReplicationError {
 }
 
 /**
+ * @public
  * <p>Error in data replication.</p>
  */
 export interface RecoveryInstanceDataReplicationError {
@@ -1391,6 +1534,9 @@ export interface RecoveryInstanceDataReplicationError {
   rawError?: string;
 }
 
+/**
+ * @public
+ */
 export enum RecoveryInstanceDataReplicationInitiationStepName {
   ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
   AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
@@ -1412,6 +1558,9 @@ export enum RecoveryInstanceDataReplicationInitiationStepName {
   WAIT = "WAIT",
 }
 
+/**
+ * @public
+ */
 export enum RecoveryInstanceDataReplicationInitiationStepStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1421,6 +1570,7 @@ export enum RecoveryInstanceDataReplicationInitiationStepStatus {
 }
 
 /**
+ * @public
  * <p>Data replication initiation step.</p>
  */
 export interface RecoveryInstanceDataReplicationInitiationStep {
@@ -1436,6 +1586,7 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
 }
 
 /**
+ * @public
  * <p>Data replication initiation.</p>
  */
 export interface RecoveryInstanceDataReplicationInitiation {
@@ -1450,6 +1601,9 @@ export interface RecoveryInstanceDataReplicationInitiation {
   steps?: RecoveryInstanceDataReplicationInitiationStep[];
 }
 
+/**
+ * @public
+ */
 export enum RecoveryInstanceDataReplicationState {
   BACKLOG = "BACKLOG",
   CONTINUOUS = "CONTINUOUS",
@@ -1466,6 +1620,7 @@ export enum RecoveryInstanceDataReplicationState {
 }
 
 /**
+ * @public
  * <p>A disk that should be replicated.</p>
  */
 export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
@@ -1496,6 +1651,7 @@ export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
 }
 
 /**
+ * @public
  * <p>Information about Data Replication</p>
  */
 export interface RecoveryInstanceDataReplicationInfo {
@@ -1535,6 +1691,9 @@ export interface RecoveryInstanceDataReplicationInfo {
   stagingAvailabilityZone?: string;
 }
 
+/**
+ * @public
+ */
 export enum EC2InstanceState {
   NOT_FOUND = "NOT_FOUND",
   PENDING = "PENDING",
@@ -1545,11 +1704,17 @@ export enum EC2InstanceState {
   TERMINATED = "TERMINATED",
 }
 
+/**
+ * @public
+ */
 export enum FailbackLaunchType {
   DRILL = "DRILL",
   RECOVERY = "RECOVERY",
 }
 
+/**
+ * @public
+ */
 export enum FailbackState {
   FAILBACK_COMPLETED = "FAILBACK_COMPLETED",
   FAILBACK_ERROR = "FAILBACK_ERROR",
@@ -1561,6 +1726,7 @@ export enum FailbackState {
 }
 
 /**
+ * @public
  * <p>An object representing failback related information of the Recovery Instance.</p>
  */
 export interface RecoveryInstanceFailback {
@@ -1615,12 +1781,16 @@ export interface RecoveryInstanceFailback {
   failbackLaunchType?: FailbackLaunchType | string;
 }
 
+/**
+ * @public
+ */
 export enum OriginEnvironment {
   AWS = "AWS",
   ON_PREMISES = "ON_PREMISES",
 }
 
 /**
+ * @public
  * <p>An object representing a block storage device on the Recovery Instance.</p>
  */
 export interface RecoveryInstanceDisk {
@@ -1641,6 +1811,7 @@ export interface RecoveryInstanceDisk {
 }
 
 /**
+ * @public
  * <p>Properties of the Recovery Instance machine.</p>
  */
 export interface RecoveryInstanceProperties {
@@ -1681,6 +1852,7 @@ export interface RecoveryInstanceProperties {
 }
 
 /**
+ * @public
  * <p>A Recovery Instance is a replica of a Source Server running on EC2.</p>
  */
 export interface RecoveryInstance {
@@ -1755,6 +1927,9 @@ export interface RecoveryInstance {
   originAvailabilityZone?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoveryInstancesResponse {
   /**
    * <p>The token of the next Recovery Instance to retrieve.</p>
@@ -1768,6 +1943,7 @@ export interface DescribeRecoveryInstancesResponse {
 }
 
 /**
+ * @public
  * <p>A set of filters by which to return Recovery Snapshots.</p>
  */
 export interface DescribeRecoverySnapshotsRequestFilters {
@@ -1782,11 +1958,17 @@ export interface DescribeRecoverySnapshotsRequestFilters {
   toDateTime?: string;
 }
 
+/**
+ * @public
+ */
 export enum RecoverySnapshotsOrder {
   ASC = "ASC",
   DESC = "DESC",
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoverySnapshotsRequest {
   /**
    * <p>Filter Recovery Snapshots by Source Server ID.</p>
@@ -1815,6 +1997,7 @@ export interface DescribeRecoverySnapshotsRequest {
 }
 
 /**
+ * @public
  * <p>A snapshot of a Source Server used during recovery.</p>
  */
 export interface RecoverySnapshot {
@@ -1844,6 +2027,9 @@ export interface RecoverySnapshot {
   ebsSnapshots?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoverySnapshotsResponse {
   /**
    * <p>An array of Recovery Snapshots.</p>
@@ -1856,6 +2042,9 @@ export interface DescribeRecoverySnapshotsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
    * <p>The IDs of the Replication Configuration Templates to retrieve. An empty list means all Replication Configuration Templates.</p>
@@ -1873,6 +2062,9 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesResponse {
   /**
    * <p>An array of Replication Configuration Templates.</p>
@@ -1886,6 +2078,7 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>A set of filters by which to return Source Servers.</p>
  */
 export interface DescribeSourceServersRequestFilters {
@@ -1905,6 +2098,9 @@ export interface DescribeSourceServersRequestFilters {
   stagingAccountIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersRequest {
   /**
    * <p>A set of filters by which to return Source Servers.</p>
@@ -1922,6 +2118,9 @@ export interface DescribeSourceServersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersResponse {
   /**
    * <p>An array of Source Servers.</p>
@@ -1934,6 +2133,9 @@ export interface DescribeSourceServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectRecoveryInstanceRequest {
   /**
    * <p>The ID of the Recovery Instance to disconnect.</p>
@@ -1941,6 +2143,9 @@ export interface DisconnectRecoveryInstanceRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectSourceServerRequest {
   /**
    * <p>The ID of the Source Server to disconnect.</p>
@@ -1948,10 +2153,19 @@ export interface DisconnectSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InitializeServiceRequest {}
 
+/**
+ * @public
+ */
 export interface InitializeServiceResponse {}
 
+/**
+ * @public
+ */
 export interface ListExtensibleSourceServersRequest {
   /**
    * <p>The Id of the staging Account to retrieve extensible source servers from.</p>
@@ -1970,6 +2184,7 @@ export interface ListExtensibleSourceServersRequest {
 }
 
 /**
+ * @public
  * <p>Source server in staging account that extended source server connected to.</p>
  */
 export interface StagingSourceServer {
@@ -1989,6 +2204,9 @@ export interface StagingSourceServer {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListExtensibleSourceServersResponse {
   /**
    * <p>A list of source servers on a staging Account that are extensible.</p>
@@ -2001,6 +2219,9 @@ export interface ListExtensibleSourceServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStagingAccountsRequest {
   /**
    * <p>The maximum number of staging Accounts to retrieve.</p>
@@ -2013,6 +2234,9 @@ export interface ListStagingAccountsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStagingAccountsResponse {
   /**
    * <p>An array of staging AWS Accounts.</p>
@@ -2025,6 +2249,9 @@ export interface ListStagingAccountsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource whose tags should be returned.</p>
@@ -2032,6 +2259,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags of the requested resource.</p>
@@ -2039,6 +2269,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetFailbackReplicationConfigurationRequest {
   /**
    * <p>The ID of the Recovery Instance whose failback replication configuration should be returned.</p>
@@ -2046,6 +2279,9 @@ export interface GetFailbackReplicationConfigurationRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFailbackReplicationConfigurationResponse {
   /**
    * <p>The ID of the Recovery Instance.</p>
@@ -2068,6 +2304,9 @@ export interface GetFailbackReplicationConfigurationResponse {
   usePrivateIP?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ReverseReplicationRequest {
   /**
    * <p>The ID of the Recovery Instance that we want to reverse the replication for.</p>
@@ -2075,6 +2314,9 @@ export interface ReverseReplicationRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ReverseReplicationResponse {
   /**
    * <p>ARN of created SourceServer.</p>
@@ -2082,6 +2324,9 @@ export interface ReverseReplicationResponse {
   reversedDirectionSourceServerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFailbackLaunchRequest {
   /**
    * <p>The IDs of the Recovery Instance whose failback launch we want to request.</p>
@@ -2094,6 +2339,9 @@ export interface StartFailbackLaunchRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartFailbackLaunchResponse {
   /**
    * <p>The failback launch Job.</p>
@@ -2101,6 +2349,9 @@ export interface StartFailbackLaunchResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface StopFailbackRequest {
   /**
    * <p>The ID of the Recovery Instance we want to stop failback for.</p>
@@ -2108,6 +2359,9 @@ export interface StopFailbackRequest {
   recoveryInstanceID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateRecoveryInstancesRequest {
   /**
    * <p>The IDs of the Recovery Instances that should be terminated.</p>
@@ -2115,6 +2369,9 @@ export interface TerminateRecoveryInstancesRequest {
   recoveryInstanceIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateRecoveryInstancesResponse {
   /**
    * <p>The Job for terminating the Recovery Instances.</p>
@@ -2122,6 +2379,9 @@ export interface TerminateRecoveryInstancesResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFailbackReplicationConfigurationRequest {
   /**
    * <p>The ID of the Recovery Instance.</p>
@@ -2144,6 +2404,9 @@ export interface UpdateFailbackReplicationConfigurationRequest {
   usePrivateIP?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>The Replication Configuration Template ID.</p>
@@ -2221,6 +2484,9 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   pitPolicy?: PITPolicyRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchConfigurationRequest {
   /**
    * <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
@@ -2228,12 +2494,16 @@ export interface GetLaunchConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum LaunchDisposition {
   STARTED = "STARTED",
   STOPPED = "STOPPED",
 }
 
 /**
+ * @public
  * <p>Configuration of a machine's license.</p>
  */
 export interface Licensing {
@@ -2243,11 +2513,17 @@ export interface Licensing {
   osByol?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TargetInstanceTypeRightSizingMethod {
   BASIC = "BASIC",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfiguration {
   /**
    * <p>The ID of the Source Server for this launch configuration.</p>
@@ -2290,6 +2566,9 @@ export interface LaunchConfiguration {
   licensing?: Licensing;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationConfigurationRequest {
   /**
    * <p>The ID of the Source Serve for this Replication Configuration.r</p>
@@ -2297,6 +2576,9 @@ export interface GetReplicationConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
   AUTO = "AUTO",
   GP2 = "GP2",
@@ -2308,6 +2590,7 @@ export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
 }
 
 /**
+ * @public
  * <p>The configuration of a disk of the Source Server to be replicated.</p>
  */
 export interface ReplicationConfigurationReplicatedDisk {
@@ -2342,6 +2625,9 @@ export interface ReplicationConfigurationReplicatedDisk {
   optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfiguration {
   /**
    * <p>The ID of the Source Server for this Replication Configuration.</p>
@@ -2424,6 +2710,9 @@ export interface ReplicationConfiguration {
   pitPolicy?: PITPolicyRule[];
 }
 
+/**
+ * @public
+ */
 export interface RetryDataReplicationRequest {
   /**
    * <p>The ID of the Source Server whose data replication should be retried.</p>
@@ -2432,6 +2721,7 @@ export interface RetryDataReplicationRequest {
 }
 
 /**
+ * @public
  * <p>An object representing the Source Server to recover.</p>
  */
 export interface StartRecoveryRequestSourceServer {
@@ -2446,6 +2736,9 @@ export interface StartRecoveryRequestSourceServer {
   recoverySnapshotID?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRecoveryRequest {
   /**
    * <p>The Source Servers that we want to start a Recovery Job for.</p>
@@ -2463,6 +2756,9 @@ export interface StartRecoveryRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartRecoveryResponse {
   /**
    * <p>The Recovery Job.</p>
@@ -2470,6 +2766,9 @@ export interface StartRecoveryResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface StartReplicationRequest {
   /**
    * <p>The ID of the Source Server to start replication for.</p>
@@ -2477,6 +2776,9 @@ export interface StartReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReplicationResponse {
   /**
    * <p>The Source Server that this action was targeted on.</p>
@@ -2484,6 +2786,9 @@ export interface StartReplicationResponse {
   sourceServer?: SourceServer;
 }
 
+/**
+ * @public
+ */
 export interface StopReplicationRequest {
   /**
    * <p>The ID of the Source Server to stop replication for.</p>
@@ -2491,6 +2796,9 @@ export interface StopReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopReplicationResponse {
   /**
    * <p>The Source Server that this action was targeted on.</p>
@@ -2498,6 +2806,9 @@ export interface StopReplicationResponse {
   sourceServer?: SourceServer;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchConfigurationRequest {
   /**
    * <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
@@ -2535,6 +2846,9 @@ export interface UpdateLaunchConfigurationRequest {
   licensing?: Licensing;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>The ID of the Source Server for this Replication Configuration.</p>
@@ -2617,6 +2931,9 @@ export interface UpdateReplicationConfigurationRequest {
   pitPolicy?: PITPolicyRule[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>ARN of the resource for which tags are to be added or updated.</p>
@@ -2629,6 +2946,9 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>ARN of the resource for which tags are to be removed.</p>

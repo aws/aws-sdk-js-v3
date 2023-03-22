@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListComplianceSummariesCommand}.
  */
 export interface ListComplianceSummariesCommandInput extends ListComplianceSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComplianceSummariesCommand}.
  */
 export interface ListComplianceSummariesCommandOutput extends ListComplianceSummariesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
  *    example, this call can return State Manager associations, patches, or custom compliance types
  *    according to the filter criteria that you specify.</p>
@@ -48,6 +53,8 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComplianceSummariesCommandInput - {@link ListComplianceSummariesCommandInput}
+ * @returns {@link ListComplianceSummariesCommandOutput}
  * @see {@link ListComplianceSummariesCommandInput} for command's `input` shape.
  * @see {@link ListComplianceSummariesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListComplianceSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComplianceSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListComplianceSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComplianceSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListComplianceSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComplianceSummariesCommandOutput> {
     return deserializeAws_json1_1ListComplianceSummariesCommand(output, context);
   }

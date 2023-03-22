@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyHapgCommand}.
  */
 export interface ModifyHapgCommandInput extends ModifyHapgRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyHapgCommand}.
  */
 export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -56,6 +61,8 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyHapgCommandInput - {@link ModifyHapgCommandInput}
+ * @returns {@link ModifyHapgCommandOutput}
  * @see {@link ModifyHapgCommandInput} for command's `input` shape.
  * @see {@link ModifyHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class ModifyHapgCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyHapgCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ModifyHapgCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyHapgCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyHapgCommandOutput> {
     return deserializeAws_json1_1ModifyHapgCommand(output, context);
   }

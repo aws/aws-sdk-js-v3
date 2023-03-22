@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeyPhrasesDetectionJobsCommand}.
  */
 export interface ListKeyPhrasesDetectionJobsCommandInput extends ListKeyPhrasesDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeyPhrasesDetectionJobsCommand}.
  */
 export interface ListKeyPhrasesDetectionJobsCommandOutput
@@ -37,6 +41,7 @@ export interface ListKeyPhrasesDetectionJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of key phrase detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListKeyPhrasesDetectionJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeyPhrasesDetectionJobsCommandInput - {@link ListKeyPhrasesDetectionJobsCommandInput}
+ * @returns {@link ListKeyPhrasesDetectionJobsCommandOutput}
  * @see {@link ListKeyPhrasesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListKeyPhrasesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeyPhrasesDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeyPhrasesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

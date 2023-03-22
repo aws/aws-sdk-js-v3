@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateServiceRoleToAccountCommand}.
  */
 export interface AssociateServiceRoleToAccountCommandInput extends AssociateServiceRoleToAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateServiceRoleToAccountCommand}.
  */
 export interface AssociateServiceRoleToAccountCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateServiceRoleToAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateServiceRoleToAccountCommandInput - {@link AssociateServiceRoleToAccountCommandInput}
+ * @returns {@link AssociateServiceRoleToAccountCommandOutput}
  * @see {@link AssociateServiceRoleToAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceRoleToAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +84,9 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateServiceRoleToAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateServiceRoleToAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateServiceRoleToAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

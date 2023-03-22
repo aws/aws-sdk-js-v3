@@ -10,7 +10,7 @@ import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTTwinMakerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEntitiesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEntities(
   config: IoTTwinMakerPaginationConfiguration,
   input: ListEntitiesCommandInput,

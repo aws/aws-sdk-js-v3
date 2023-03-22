@@ -356,6 +356,7 @@ import {
 } from "./commands/UpdateReportPlanCommand";
 
 /**
+ * @public
  * <fullname>Backup</fullname>
  *          <p>Backup is a unified backup service designed to protect Amazon Web Services
  *          services and their associated data. Backup simplifies the creation, migration,
@@ -364,6 +365,7 @@ import {
  */
 export class Backup extends BackupClient {
   /**
+   * @public
    * <p>This action removes the specified legal hold on a recovery point.
    *          This action can only be performed by a user with sufficient permissions.</p>
    */
@@ -397,6 +399,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
    *          document that contains information that Backup uses to schedule tasks that
    *          create recovery points for resources.</p>
@@ -433,6 +436,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.
    *          For examples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json">Assigning resources programmatically</a>. </p>
    */
@@ -466,6 +470,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Creates a logical container where backups are stored. A <code>CreateBackupVault</code>
    *          request includes a name, optionally one or more resource tags, an encryption key, and a
    *          request ID.</p>
@@ -504,6 +509,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Creates a framework with one or more controls. A framework is a collection of controls
    *          that you can use to evaluate your backup practices. By using pre-built customizable
    *          controls to define your policies, you can evaluate whether your backup practices comply
@@ -539,6 +545,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>This action creates a legal hold on a recovery point (backup). A legal hold
    *          is a restraint on altering or deleting a backup until an authorized user cancels the
    *          legal hold. Any actions to delete or disassociate a recovery point will fail with
@@ -574,6 +581,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Creates a report plan. A report plan is a document that contains information about the
    *          contents of the report and where Backup will deliver it.</p>
    *          <p>If you call <code>CreateReportPlan</code> with a plan that already exists, you receive
@@ -609,6 +617,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes a backup plan. A backup plan can only be deleted after all associated selections
    *          of resources have been deleted. Deleting a backup plan deletes the current version of a
    *          backup plan. Previous versions, if any, will still exist.</p>
@@ -643,6 +652,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes the resource selection associated with a backup plan that is specified by the
    *             <code>SelectionId</code>.</p>
    */
@@ -676,6 +686,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is
    *          empty.</p>
    */
@@ -709,6 +720,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes the policy document that manages permissions on a backup vault.</p>
    */
   public deleteBackupVaultAccessPolicy(
@@ -741,6 +753,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes Backup Vault Lock from a backup vault specified by a backup vault
    *          name.</p>
    *          <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
@@ -778,6 +791,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes event notifications for the specified backup vault.</p>
    */
   public deleteBackupVaultNotifications(
@@ -810,6 +824,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes the framework specified by a framework name.</p>
    */
   public deleteFramework(
@@ -842,6 +857,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes the recovery point specified by a recovery point ID.</p>
    *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
    *          the existing continuous backup and stops future continuous backup.</p>
@@ -886,6 +902,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes the report plan specified by a report plan name.</p>
    */
   public deleteReportPlan(
@@ -918,6 +935,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns backup job details for the specified <code>BackupJobId</code>.</p>
    */
   public describeBackupJob(
@@ -950,6 +968,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about a backup vault specified by its name.</p>
    */
   public describeBackupVault(
@@ -982,6 +1001,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata associated with creating a copy of a resource.</p>
    */
   public describeCopyJob(
@@ -1014,6 +1034,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns the framework details for the specified <code>FrameworkName</code>.</p>
    */
   public describeFramework(
@@ -1046,6 +1067,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Describes whether the Amazon Web Services account is opted in to cross-account backup.
    *          Returns an error if the account is not a member of an Organizations organization.
    *          Example: <code>describe-global-settings --region us-west-2</code>
@@ -1081,6 +1103,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a saved resource, including the last time it was backed up,
    *          its Amazon Resource Name (ARN), and the Amazon Web Services service type of the saved
    *          resource.</p>
@@ -1115,6 +1138,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
    *          lifecycle.</p>
    */
@@ -1148,6 +1172,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns the current service opt-in settings for the Region. If service opt-in is enabled
    *          for a service, Backup tries to protect that service's resources in this Region,
    *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
@@ -1184,6 +1209,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns the details associated with creating a report as specified by its
    *             <code>ReportJobId</code>.</p>
    */
@@ -1217,6 +1243,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all report plans for an Amazon Web Services account and Amazon Web Services Region.</p>
    */
   public describeReportPlan(
@@ -1249,6 +1276,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata associated with a restore job that is specified by a job ID.</p>
    */
   public describeRestoreJob(
@@ -1281,6 +1309,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified continuous backup recovery point from Backup and
    *          releases control of that continuous backup to the source service, such as Amazon RDS. The source service will continue to create and retain continuous backups using the
    *          lifecycle that you specified in your original backup plan.</p>
@@ -1316,6 +1345,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>This action to a specific child (nested) recovery point removes the relationship
    *          between the specified recovery point and its parent (composite) recovery point.</p>
    */
@@ -1349,6 +1379,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
    */
   public exportBackupPlanTemplate(
@@ -1381,6 +1412,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The
    *          details are the body of a backup plan in JSON format, in addition to plan metadata.</p>
    */
@@ -1414,6 +1446,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a valid JSON document specifying a backup plan or an error.</p>
    */
   public getBackupPlanFromJSON(
@@ -1446,6 +1479,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns the template specified by its <code>templateId</code> as a backup plan.</p>
    */
   public getBackupPlanFromTemplate(
@@ -1478,6 +1512,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns selection metadata and a document in JSON format that specifies a list of
    *          resources that are associated with a backup plan.</p>
    */
@@ -1511,6 +1546,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns the access policy document that is associated with the named backup
    *          vault.</p>
    */
@@ -1544,6 +1580,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns event notifications for the specified backup vault.</p>
    */
   public getBackupVaultNotifications(
@@ -1576,6 +1613,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>This action returns details for a specified legal hold. The details are the
    *          body of a legal hold in JSON format, in addition to metadata.</p>
    */
@@ -1606,6 +1644,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
    */
   public getRecoveryPointRestoreMetadata(
@@ -1638,6 +1677,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns the Amazon Web Services resource types supported by Backup.</p>
    */
   public getSupportedResourceTypes(
@@ -1670,6 +1710,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing backup jobs for an authenticated account for the last 30
    *          days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring tools</a>.</p>
    */
@@ -1703,6 +1744,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all active backup plans for an authenticated account. The list
    *          contains information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
    *          dates, version IDs, plan names, and creator request IDs.</p>
@@ -1737,6 +1779,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
    *          and the creation and deletion dates.</p>
    */
@@ -1770,6 +1813,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),
    *          backup plan IDs, creation and deletion dates, plan names, and version IDs.</p>
    */
@@ -1803,6 +1847,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns an array containing metadata of the resources associated with the target backup
    *          plan.</p>
    */
@@ -1836,6 +1881,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of recovery point storage containers along with information about
    *          them.</p>
    */
@@ -1869,6 +1915,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about your copy jobs.</p>
    */
   public listCopyJobs(
@@ -1898,6 +1945,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all frameworks for an Amazon Web Services account and Amazon Web Services Region.</p>
    */
   public listFrameworks(
@@ -1930,6 +1978,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>This action returns metadata about active and previous legal holds.</p>
    */
   public listLegalHolds(
@@ -1962,6 +2011,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of resources successfully backed up by Backup, including
    *          the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
    *          resource type.</p>
@@ -1996,6 +2046,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about the recovery points stored in a backup vault.</p>
    */
   public listRecoveryPointsByBackupVault(
@@ -2028,6 +2079,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>This action returns recovery point ARNs (Amazon Resource Names) of the
    *          specified legal hold.</p>
    */
@@ -2061,6 +2113,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about all the recovery points of the type specified by a
    *          resource Amazon Resource Name (ARN).</p>
    *          <note>
@@ -2098,6 +2151,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns details about your report jobs.</p>
    */
   public listReportJobs(
@@ -2130,6 +2184,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of your report plans. For detailed information about a single report
    *          plan, use <code>DescribeReportPlan</code>.</p>
    */
@@ -2163,6 +2218,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of jobs that Backup initiated to restore a saved resource,
    *          including details about the recovery process.</p>
    */
@@ -2196,6 +2252,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
    *          backup vault.</p>
    *          <p>
@@ -2227,6 +2284,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Sets a resource-based policy that is used to manage access permissions on the target
    *          backup vault. Requires a backup vault name and an access policy document in JSON
    *          format.</p>
@@ -2261,6 +2319,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Applies Backup Vault Lock to a backup vault, preventing attempts to delete
    *          any recovery point stored in or created in a backup vault. Vault Lock also prevents
    *          attempts to update the lifecycle policy that controls the retention period of any recovery
@@ -2305,6 +2364,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Turns on notifications on a backup vault for the specified topic and events.</p>
    */
   public putBackupVaultNotifications(
@@ -2337,6 +2397,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Starts an on-demand backup job for the specified resource.</p>
    */
   public startBackupJob(
@@ -2369,6 +2430,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Starts a job to create a one-time copy of the specified resource.</p>
    *          <p>Does not support continuous backups.</p>
    */
@@ -2399,6 +2461,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Starts an on-demand report job for the specified report plan.</p>
    */
   public startReportJob(
@@ -2431,6 +2494,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
    */
   public startRestoreJob(
@@ -2463,6 +2527,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
    *          <p>This action is not supported for the following services:
    *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
@@ -2499,6 +2564,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
    *          identified by an Amazon Resource Name (ARN).</p>
    */
@@ -2526,6 +2592,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
    *          identified by an Amazon Resource Name (ARN)</p>
    */
@@ -2559,6 +2626,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the
    *          input document in JSON format. The new version is uniquely identified by a
    *             <code>VersionId</code>.</p>
@@ -2593,6 +2661,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing framework identified by its <code>FrameworkName</code> with the
    *          input document in JSON format.</p>
    */
@@ -2626,6 +2695,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Updates whether the Amazon Web Services account is opted in to cross-account backup.
    *          Returns an error if the account is not an Organizations management account. Use the
    *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
@@ -2660,6 +2730,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Sets the transition lifecycle of a recovery point.</p>
    *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
    *          it expires. Backup transitions and expires backups automatically according to
@@ -2704,6 +2775,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled
    *          for a service, Backup tries to protect that service's resources in this Region,
    *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
@@ -2741,6 +2813,7 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing report plan identified by its <code>ReportPlanName</code> with the
    *          input document in JSON format.</p>
    */

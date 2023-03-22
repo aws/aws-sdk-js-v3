@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { Inspector2ServiceException as __BaseException } from "./Inspector2ServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Status {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -32,6 +36,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * <p>Details the status of Amazon Inspector for each resource type Amazon Inspector scans.</p>
  */
 export interface ResourceStatus {
@@ -52,6 +57,7 @@ export interface ResourceStatus {
 }
 
 /**
+ * @public
  * <p>An Amazon Web Services account within your environment that Amazon Inspector has been enabled for.</p>
  */
 export interface Account {
@@ -71,29 +77,42 @@ export interface Account {
   resourceStatus: ResourceStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AggregationFindingType {
   NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
   PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
 }
 
+/**
+ * @public
+ */
 export enum AggregationResourceType {
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
   AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
 }
 
+/**
+ * @public
+ */
 export enum AccountSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
   HIGH = "HIGH",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASC = "ASC",
   DESC = "DESC",
 }
 
 /**
+ * @public
  * <p>An object that contains details about an aggregation response based on
  *          Amazon Web Services accounts.</p>
  */
@@ -120,6 +139,7 @@ export interface AccountAggregation {
 }
 
 /**
+ * @public
  * <p>An object that contains the counts of aggregated finding per severity.</p>
  */
 export interface SeverityCounts {
@@ -145,6 +165,7 @@ export interface SeverityCounts {
 }
 
 /**
+ * @public
  * <p>An aggregation of findings by Amazon Web Services account ID.</p>
  */
 export interface AccountAggregationResponse {
@@ -159,6 +180,9 @@ export interface AccountAggregationResponse {
   severityCounts?: SeverityCounts;
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   ACCOUNT_IS_ISOLATED = "ACCOUNT_IS_ISOLATED",
@@ -177,6 +201,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>An object that described the state of Amazon Inspector scans for an account.</p>
  */
 export interface State {
@@ -197,6 +222,7 @@ export interface State {
 }
 
 /**
+ * @public
  * <p>Details the state of Amazon Inspector for each resource type Amazon Inspector scans.</p>
  */
 export interface ResourceState {
@@ -217,6 +243,7 @@ export interface ResourceState {
 }
 
 /**
+ * @public
  * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector environment.</p>
  */
 export interface AccountState {
@@ -236,6 +263,9 @@ export interface AccountState {
   resourceState: ResourceState | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StringComparison {
   EQUALS = "EQUALS",
   NOT_EQUALS = "NOT_EQUALS",
@@ -243,6 +273,7 @@ export enum StringComparison {
 }
 
 /**
+ * @public
  * <p>An object that describes the details of a string filter.</p>
  */
 export interface StringFilter {
@@ -257,6 +288,9 @@ export interface StringFilter {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AmiSortBy {
   AFFECTED_INSTANCES = "AFFECTED_INSTANCES",
   ALL = "ALL",
@@ -265,6 +299,7 @@ export enum AmiSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define an aggregation based on Amazon machine images (AMIs).</p>
  */
 export interface AmiAggregation {
@@ -284,6 +319,9 @@ export interface AmiAggregation {
   sortBy?: AmiSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum AwsEcrContainerSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -291,6 +329,7 @@ export enum AwsEcrContainerSortBy {
 }
 
 /**
+ * @public
  * <p>An aggregation of information about Amazon ECR containers.</p>
  */
 export interface AwsEcrContainerAggregation {
@@ -330,11 +369,15 @@ export interface AwsEcrContainerAggregation {
   sortBy?: AwsEcrContainerSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum MapComparison {
   EQUALS = "EQUALS",
 }
 
 /**
+ * @public
  * <p>An object that describes details of a map filter.</p>
  */
 export interface MapFilter {
@@ -354,6 +397,9 @@ export interface MapFilter {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum Ec2InstanceSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -362,6 +408,7 @@ export enum Ec2InstanceSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define an aggregation based on Amazon EC2 instances.</p>
  */
 export interface Ec2InstanceAggregation {
@@ -398,6 +445,9 @@ export interface Ec2InstanceAggregation {
   sortBy?: Ec2InstanceSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum FindingTypeSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -405,6 +455,7 @@ export enum FindingTypeSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define an aggregation based on finding type.</p>
  */
 export interface FindingTypeAggregation {
@@ -429,6 +480,9 @@ export interface FindingTypeAggregation {
   sortBy?: FindingTypeSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum ImageLayerSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -436,6 +490,7 @@ export enum ImageLayerSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define an aggregation based on container image layers.</p>
  */
 export interface ImageLayerAggregation {
@@ -465,6 +520,9 @@ export interface ImageLayerAggregation {
   sortBy?: ImageLayerSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum LambdaFunctionSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -472,6 +530,7 @@ export enum LambdaFunctionSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define a findings aggregation based on AWS Lambda functions.</p>
  */
 export interface LambdaFunctionAggregation {
@@ -506,6 +565,9 @@ export interface LambdaFunctionAggregation {
   sortBy?: LambdaFunctionSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum LambdaLayerSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -513,6 +575,7 @@ export enum LambdaLayerSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define a findings aggregation based on an AWS Lambda function's layers.</p>
  */
 export interface LambdaLayerAggregation {
@@ -543,6 +606,9 @@ export interface LambdaLayerAggregation {
   sortBy?: LambdaLayerSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum PackageSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -550,6 +616,7 @@ export enum PackageSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define an aggregation based on operating system package type.</p>
  */
 export interface PackageAggregation {
@@ -569,6 +636,9 @@ export interface PackageAggregation {
   sortBy?: PackageSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum RepositorySortBy {
   AFFECTED_IMAGES = "AFFECTED_IMAGES",
   ALL = "ALL",
@@ -577,6 +647,7 @@ export enum RepositorySortBy {
 }
 
 /**
+ * @public
  * <p>The details that define an aggregation based on repository.</p>
  */
 export interface RepositoryAggregation {
@@ -596,6 +667,9 @@ export interface RepositoryAggregation {
   sortBy?: RepositorySortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum TitleSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -603,6 +677,7 @@ export enum TitleSortBy {
 }
 
 /**
+ * @public
  * <p>The details that define an aggregation based on finding title.</p>
  */
 export interface TitleAggregation {
@@ -633,6 +708,7 @@ export interface TitleAggregation {
 }
 
 /**
+ * @public
  * <p>Contains details about an aggregation request.</p>
  */
 export type AggregationRequest =
@@ -649,6 +725,9 @@ export type AggregationRequest =
   | AggregationRequest.TitleAggregationMember
   | AggregationRequest.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AggregationRequest {
   /**
    * <p>An object that contains details about an aggregation request based on Amazon Web Services account
@@ -903,6 +982,7 @@ export namespace AggregationRequest {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by AMI.</p>
  */
 export interface AmiAggregationResponse {
@@ -928,6 +1008,7 @@ export interface AmiAggregationResponse {
 }
 
 /**
+ * @public
  * <p>An aggregation of information about Amazon ECR containers.</p>
  */
 export interface AwsEcrContainerAggregationResponse {
@@ -968,6 +1049,7 @@ export interface AwsEcrContainerAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by Amazon EC2 instance.</p>
  */
 export interface Ec2InstanceAggregationResponse {
@@ -1008,6 +1090,7 @@ export interface Ec2InstanceAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding type aggregation.</p>
  */
 export interface FindingTypeAggregationResponse {
@@ -1023,6 +1106,7 @@ export interface FindingTypeAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by image layer.</p>
  */
 export interface ImageLayerAggregationResponse {
@@ -1053,6 +1137,7 @@ export interface ImageLayerAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of an AWS Lambda function finding aggregation.</p>
  */
 export interface LambdaFunctionAggregationResponse {
@@ -1094,6 +1179,7 @@ export interface LambdaFunctionAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of an AWS Lambda function layer finding aggregation.</p>
  */
 export interface LambdaLayerAggregationResponse {
@@ -1124,6 +1210,7 @@ export interface LambdaLayerAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by image layer.</p>
  */
 export interface PackageAggregationResponse {
@@ -1144,6 +1231,7 @@ export interface PackageAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains details on the results of a finding aggregation by repository.</p>
  */
 export interface RepositoryAggregationResponse {
@@ -1169,6 +1257,7 @@ export interface RepositoryAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains details on the results of a finding aggregation by title.</p>
  */
 export interface TitleAggregationResponse {
@@ -1194,6 +1283,7 @@ export interface TitleAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A structure that contains details about the results of an aggregation type.</p>
  */
 export type AggregationResponse =
@@ -1210,6 +1300,9 @@ export type AggregationResponse =
   | AggregationResponse.TitleAggregationMember
   | AggregationResponse.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AggregationResponse {
   /**
    * <p>An object that contains details about an aggregation response based on Amazon Web Services account
@@ -1464,6 +1557,9 @@ export namespace AggregationResponse {
   };
 }
 
+/**
+ * @public
+ */
 export enum AggregationType {
   ACCOUNT = "ACCOUNT",
   AMI = "AMI",
@@ -1478,11 +1574,17 @@ export enum AggregationType {
   TITLE = "TITLE",
 }
 
+/**
+ * @public
+ */
 export enum Architecture {
   ARM64 = "ARM64",
   X86_64 = "X86_64",
 }
 
+/**
+ * @public
+ */
 export interface AssociateMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to be associated.</p>
@@ -1490,6 +1592,9 @@ export interface AssociateMemberRequest {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateMemberResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully associated member account.</p>
@@ -1498,6 +1603,7 @@ export interface AssociateMemberResponse {
 }
 
 /**
+ * @public
  * <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -1524,6 +1630,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1552,6 +1659,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that describes a validation exception.</p>
  */
 export interface ValidationExceptionField {
@@ -1566,6 +1674,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -1573,6 +1684,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  */
@@ -1605,6 +1717,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector organization.</p>
  */
 export interface AutoEnable {
@@ -1628,6 +1741,7 @@ export interface AutoEnable {
 }
 
 /**
+ * @public
  * <p>Details of the Amazon EC2 instance involved in a finding.</p>
  */
 export interface AwsEc2InstanceDetails {
@@ -1683,6 +1797,7 @@ export interface AwsEc2InstanceDetails {
 }
 
 /**
+ * @public
  * <p>The image details of the Amazon ECR container image.</p>
  */
 export interface AwsEcrContainerImageDetails {
@@ -1727,11 +1842,17 @@ export interface AwsEcrContainerImageDetails {
   platform?: string;
 }
 
+/**
+ * @public
+ */
 export enum PackageType {
   IMAGE = "IMAGE",
   ZIP = "ZIP",
 }
 
+/**
+ * @public
+ */
 export enum Runtime {
   GO_1_X = "GO_1_X",
   JAVA_11 = "JAVA_11",
@@ -1749,6 +1870,7 @@ export enum Runtime {
 }
 
 /**
+ * @public
  * <p>The VPC security groups and subnets that are attached to an AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 export interface LambdaVpcConfig {
@@ -1769,6 +1891,7 @@ export interface LambdaVpcConfig {
 }
 
 /**
+ * @public
  * <p> A summary of information about the AWS Lambda function.</p>
  */
 export interface AwsLambdaFunctionDetails {
@@ -1827,6 +1950,7 @@ export interface AwsLambdaFunctionDetails {
 }
 
 /**
+ * @public
  * <p>One or more tags submitted as part of the request is not valid.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -1845,6 +1969,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetAccountStatusRequest {
   /**
    * <p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>
@@ -1853,6 +1980,7 @@ export interface BatchGetAccountStatusRequest {
 }
 
 /**
+ * @public
  * <p>An object with details on why an account failed to enable Amazon Inspector.</p>
  */
 export interface FailedAccount {
@@ -1882,6 +2010,9 @@ export interface FailedAccount {
   errorMessage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetAccountStatusResponse {
   /**
    * <p>An array of objects that provide details on the status of Amazon Inspector for each of the requested accounts.</p>
@@ -1895,6 +2026,7 @@ export interface BatchGetAccountStatusResponse {
 }
 
 /**
+ * @public
  * <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1913,6 +2045,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetFreeTrialInfoRequest {
   /**
    * <p>The account IDs to get free trial status for.</p>
@@ -1920,11 +2055,17 @@ export interface BatchGetFreeTrialInfoRequest {
   accountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FreeTrialStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
+/**
+ * @public
+ */
 export enum FreeTrialType {
   EC2 = "EC2",
   ECR = "ECR",
@@ -1932,6 +2073,7 @@ export enum FreeTrialType {
 }
 
 /**
+ * @public
  * <p>An object that contains information about the Amazon Inspector free trial for an account.</p>
  */
 export interface FreeTrialInfo {
@@ -1957,6 +2099,7 @@ export interface FreeTrialInfo {
 }
 
 /**
+ * @public
  * <p>Information about the Amazon Inspector free trial for an account.</p>
  */
 export interface FreeTrialAccountInfo {
@@ -1971,12 +2114,16 @@ export interface FreeTrialAccountInfo {
   freeTrialInfo: FreeTrialInfo[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FreeTrialInfoErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
 }
 
 /**
+ * @public
  * <p>Information about an error received while accessing free trail data for an account.</p>
  */
 export interface FreeTrialInfoError {
@@ -1996,6 +2143,9 @@ export interface FreeTrialInfoError {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetFreeTrialInfoResponse {
   /**
    * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested accounts.
@@ -2009,6 +2159,9 @@ export interface BatchGetFreeTrialInfoResponse {
   failedAccounts: FreeTrialInfoError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelFindingsReportRequest {
   /**
    * <p>The ID of the report to be canceled.</p>
@@ -2016,6 +2169,9 @@ export interface CancelFindingsReportRequest {
   reportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelFindingsReportResponse {
   /**
    * <p>The ID of the canceled report.</p>
@@ -2024,6 +2180,7 @@ export interface CancelFindingsReportResponse {
 }
 
 /**
+ * @public
  * <p>A conflict occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -2054,6 +2211,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum GroupKey {
   ACCOUNT_ID = "ACCOUNT_ID",
   ECR_REPOSITORY_NAME = "ECR_REPOSITORY_NAME",
@@ -2063,6 +2223,7 @@ export enum GroupKey {
 }
 
 /**
+ * @public
  * <p>a structure that contains information on the count of resources within a group.</p>
  */
 export interface Counts {
@@ -2077,12 +2238,16 @@ export interface Counts {
   groupKey?: GroupKey | string;
 }
 
+/**
+ * @public
+ */
 export enum CoverageStringComparison {
   EQUALS = "EQUALS",
   NOT_EQUALS = "NOT_EQUALS",
 }
 
 /**
+ * @public
  * <p>Contains details of a coverage string filter.</p>
  */
 export interface CoverageStringFilter {
@@ -2097,11 +2262,15 @@ export interface CoverageStringFilter {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CoverageMapComparison {
   EQUALS = "EQUALS",
 }
 
 /**
+ * @public
  * <p>Contains details of a coverage map filter.</p>
  */
 export interface CoverageMapFilter {
@@ -2122,6 +2291,7 @@ export interface CoverageMapFilter {
 }
 
 /**
+ * @public
  * <p>A structure that identifies filter criteria for <code>GetCoverageStatistics</code>.</p>
  */
 export interface CoverageFilterCriteria {
@@ -2186,6 +2356,9 @@ export interface CoverageFilterCriteria {
   lambdaFunctionRuntime?: CoverageStringFilter[];
 }
 
+/**
+ * @public
+ */
 export enum CoverageResourceType {
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
@@ -2193,6 +2366,9 @@ export enum CoverageResourceType {
   AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
 }
 
+/**
+ * @public
+ */
 export enum Ec2Platform {
   LINUX = "LINUX",
   UNKNOWN = "UNKNOWN",
@@ -2200,6 +2376,7 @@ export enum Ec2Platform {
 }
 
 /**
+ * @public
  * <p>Meta data details of an Amazon EC2 instance.</p>
  */
 export interface Ec2Metadata {
@@ -2220,6 +2397,7 @@ export interface Ec2Metadata {
 }
 
 /**
+ * @public
  * <p>Information on the Amazon ECR image metadata associated with a finding.</p>
  */
 export interface EcrContainerImageMetadata {
@@ -2229,6 +2407,9 @@ export interface EcrContainerImageMetadata {
   tags?: string[];
 }
 
+/**
+ * @public
+ */
 export enum EcrScanFrequency {
   CONTINUOUS_SCAN = "CONTINUOUS_SCAN",
   MANUAL = "MANUAL",
@@ -2236,6 +2417,7 @@ export enum EcrScanFrequency {
 }
 
 /**
+ * @public
  * <p>Information on the Amazon ECR repository metadata associated with a finding.</p>
  */
 export interface EcrRepositoryMetadata {
@@ -2251,6 +2433,7 @@ export interface EcrRepositoryMetadata {
 }
 
 /**
+ * @public
  * <p>The AWS Lambda function metadata.</p>
  */
 export interface LambdaFunctionMetadata {
@@ -2276,6 +2459,7 @@ export interface LambdaFunctionMetadata {
 }
 
 /**
+ * @public
  * <p>An object that contains details about the metadata for an Amazon ECR resource.</p>
  */
 export interface ResourceScanMetadata {
@@ -2300,6 +2484,9 @@ export interface ResourceScanMetadata {
   lambdaFunction?: LambdaFunctionMetadata;
 }
 
+/**
+ * @public
+ */
 export enum ScanStatusReason {
   ACCESS_DENIED = "ACCESS_DENIED",
   EC2_INSTANCE_STOPPED = "EC2_INSTANCE_STOPPED",
@@ -2321,12 +2508,16 @@ export enum ScanStatusReason {
   UNSUPPORTED_RUNTIME = "UNSUPPORTED_RUNTIME",
 }
 
+/**
+ * @public
+ */
 export enum ScanStatusCode {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p>The status of the scan.</p>
  */
 export interface ScanStatus {
@@ -2341,12 +2532,16 @@ export interface ScanStatus {
   reason: ScanStatusReason | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ScanType {
   NETWORK = "NETWORK",
   PACKAGE = "PACKAGE",
 }
 
 /**
+ * @public
  * <p>An object that contains details about a resource covered by Amazon Inspector.</p>
  */
 export interface CoveredResource {
@@ -2381,12 +2576,16 @@ export interface CoveredResource {
   resourceMetadata?: ResourceScanMetadata;
 }
 
+/**
+ * @public
+ */
 export enum FilterAction {
   NONE = "NONE",
   SUPPRESS = "SUPPRESS",
 }
 
 /**
+ * @public
  * <p>Contains details on the time range used to filter findings.</p>
  */
 export interface DateFilter {
@@ -2402,6 +2601,7 @@ export interface DateFilter {
 }
 
 /**
+ * @public
  * <p>An object that describes the details of a number filter.</p>
  */
 export interface NumberFilter {
@@ -2417,6 +2617,7 @@ export interface NumberFilter {
 }
 
 /**
+ * @public
  * <p>An object that describes the details of a port range filter.</p>
  */
 export interface PortRangeFilter {
@@ -2432,6 +2633,7 @@ export interface PortRangeFilter {
 }
 
 /**
+ * @public
  * <p>Contains information on the details of a package filter.</p>
  */
 export interface PackageFilter {
@@ -2472,6 +2674,7 @@ export interface PackageFilter {
 }
 
 /**
+ * @public
  * <p>Details on the criteria used to define the filter.</p>
  */
 export interface FilterCriteria {
@@ -2668,6 +2871,9 @@ export interface FilterCriteria {
   exploitAvailable?: StringFilter[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterRequest {
   /**
    * <p>Defines the action that is to be applied to the findings that match the filter.</p>
@@ -2702,6 +2908,9 @@ export interface CreateFilterRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the successfully created filter.</p>
@@ -2710,6 +2919,7 @@ export interface CreateFilterResponse {
 }
 
 /**
+ * @public
  * <p>You have exceeded your service quota. To perform the requested action, remove some of
  *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
  */
@@ -2735,12 +2945,16 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ReportFormat {
   CSV = "CSV",
   JSON = "JSON",
 }
 
 /**
+ * @public
  * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
  */
 export interface Destination {
@@ -2760,6 +2974,9 @@ export interface Destination {
   kmsKeyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFindingsReportRequest {
   /**
    * <p>The filter criteria to apply to the results of the finding report.</p>
@@ -2777,6 +2994,9 @@ export interface CreateFindingsReportRequest {
   s3Destination: Destination | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFindingsReportResponse {
   /**
    * <p>The ID of the report.</p>
@@ -2784,11 +3004,15 @@ export interface CreateFindingsReportResponse {
   reportId?: string;
 }
 
+/**
+ * @public
+ */
 export enum Currency {
   USD = "USD",
 }
 
 /**
+ * @public
  * <p>The CVSS score for a finding.</p>
  */
 export interface CvssScore {
@@ -2814,6 +3038,7 @@ export interface CvssScore {
 }
 
 /**
+ * @public
  * <p>Details on adjustments Amazon Inspector made to the CVSS score for a finding.</p>
  */
 export interface CvssScoreAdjustment {
@@ -2829,6 +3054,7 @@ export interface CvssScoreAdjustment {
 }
 
 /**
+ * @public
  * <p>Information about the CVSS score.</p>
  */
 export interface CvssScoreDetails {
@@ -2863,6 +3089,9 @@ export interface CvssScoreDetails {
   adjustments?: CvssScoreAdjustment[];
 }
 
+/**
+ * @public
+ */
 export enum RelationshipStatus {
   ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
   CANNOT_CREATE_DETECTOR_IN_ORG_MASTER = "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
@@ -2879,6 +3108,7 @@ export enum RelationshipStatus {
 }
 
 /**
+ * @public
  * <p>Details of the Amazon Inspector delegated administrator for your organization.</p>
  */
 export interface DelegatedAdmin {
@@ -2893,12 +3123,16 @@ export interface DelegatedAdmin {
   relationshipStatus?: RelationshipStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum DelegatedAdminStatus {
   DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Details of the Amazon Inspector delegated administrator for your organization.</p>
  */
 export interface DelegatedAdminAccount {
@@ -2913,6 +3147,9 @@ export interface DelegatedAdminAccount {
   status?: DelegatedAdminStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFilterRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the filter to be deleted.</p>
@@ -2920,6 +3157,9 @@ export interface DeleteFilterRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the filter that has been deleted.</p>
@@ -2927,8 +3167,14 @@ export interface DeleteFilterResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>The scan types are automatically enabled for new members of your organization.</p>
@@ -2941,12 +3187,18 @@ export interface DescribeOrganizationConfigurationResponse {
   maxAccountLimitReached?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ResourceScanType {
   EC2 = "EC2",
   ECR = "ECR",
   LAMBDA = "LAMBDA",
 }
 
+/**
+ * @public
+ */
 export interface DisableRequest {
   /**
    * <p>An array of account IDs you want to disable Amazon Inspector scans for.</p>
@@ -2959,6 +3211,9 @@ export interface DisableRequest {
   resourceTypes?: (ResourceScanType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DisableResponse {
   /**
    * <p>Information on the accounts that have had Amazon Inspector scans successfully disabled. Details are
@@ -2973,6 +3228,9 @@ export interface DisableResponse {
   failedAccounts?: FailedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface DisableDelegatedAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID of the current Amazon Inspector delegated administrator.</p>
@@ -2980,6 +3238,9 @@ export interface DisableDelegatedAdminAccountRequest {
   delegatedAdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableDelegatedAdminAccountResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully disabled delegated administrator.</p>
@@ -2987,6 +3248,9 @@ export interface DisableDelegatedAdminAccountResponse {
   delegatedAdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to disassociate.</p>
@@ -2994,6 +3258,9 @@ export interface DisassociateMemberRequest {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMemberResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully disassociated member.</p>
@@ -3001,6 +3268,9 @@ export interface DisassociateMemberResponse {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EcrRescanDuration {
   DAYS_180 = "DAYS_180",
   DAYS_30 = "DAYS_30",
@@ -3008,6 +3278,7 @@ export enum EcrRescanDuration {
 }
 
 /**
+ * @public
  * <p>Details about the ECR automated re-scan duration setting for your environment.</p>
  */
 export interface EcrConfiguration {
@@ -3017,6 +3288,9 @@ export interface EcrConfiguration {
   rescanDuration: EcrRescanDuration | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EcrRescanDurationStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
@@ -3024,6 +3298,7 @@ export enum EcrRescanDurationStatus {
 }
 
 /**
+ * @public
  * <p>Details about the state of any changes to the ECR automated re-scan duration setting.</p>
  */
 export interface EcrRescanDurationState {
@@ -3044,6 +3319,7 @@ export interface EcrRescanDurationState {
 }
 
 /**
+ * @public
  * <p>Details about the state of the ECR scans for your environment.</p>
  */
 export interface EcrConfigurationState {
@@ -3053,6 +3329,9 @@ export interface EcrConfigurationState {
   rescanDurationState?: EcrRescanDurationState;
 }
 
+/**
+ * @public
+ */
 export interface EnableRequest {
   /**
    * <p>A list of account IDs you want to enable Amazon Inspector scans for.</p>
@@ -3070,6 +3349,9 @@ export interface EnableRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableResponse {
   /**
    * <p>Information on the accounts that have had Amazon Inspector scans successfully enabled. Details are
@@ -3084,6 +3366,9 @@ export interface EnableResponse {
   failedAccounts?: FailedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface EnableDelegatedAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
@@ -3096,6 +3381,9 @@ export interface EnableDelegatedAdminAccountRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableDelegatedAdminAccountResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully Amazon Inspector delegated administrator.</p>
@@ -3104,6 +3392,7 @@ export interface EnableDelegatedAdminAccountResponse {
 }
 
 /**
+ * @public
  * <p>The details of an exploit available for a finding discovered in your environment.</p>
  */
 export interface ExploitabilityDetails {
@@ -3113,11 +3402,17 @@ export interface ExploitabilityDetails {
   lastKnownExploitAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ExploitAvailable {
   NO = "NO",
   YES = "YES",
 }
 
+/**
+ * @public
+ */
 export enum ExternalReportStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -3126,6 +3421,7 @@ export enum ExternalReportStatus {
 }
 
 /**
+ * @public
  * <p>Details about a filter.</p>
  */
 export interface Filter {
@@ -3180,6 +3476,9 @@ export interface Filter {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum FixAvailable {
   NO = "NO",
   PARTIAL = "PARTIAL",
@@ -3187,6 +3486,7 @@ export enum FixAvailable {
 }
 
 /**
+ * @public
  * <p>Information about the Amazon Inspector score given to a finding.</p>
  */
 export interface InspectorScoreDetails {
@@ -3197,6 +3497,7 @@ export interface InspectorScoreDetails {
 }
 
 /**
+ * @public
  * <p>Details about the step associated with a finding.</p>
  */
 export interface Step {
@@ -3212,6 +3513,7 @@ export interface Step {
 }
 
 /**
+ * @public
  * <p>Information on the network path associated with a finding.</p>
  */
 export interface NetworkPath {
@@ -3222,6 +3524,7 @@ export interface NetworkPath {
 }
 
 /**
+ * @public
  * <p>Details about the port range associated with a finding.</p>
  */
 export interface PortRange {
@@ -3236,12 +3539,16 @@ export interface PortRange {
   end: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NetworkProtocol {
   TCP = "TCP",
   UDP = "UDP",
 }
 
 /**
+ * @public
  * <p>Contains the details of a network reachability finding.</p>
  */
 export interface NetworkReachabilityDetails {
@@ -3261,6 +3568,9 @@ export interface NetworkReachabilityDetails {
   networkPath: NetworkPath | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PackageManager {
   BUNDLER = "BUNDLER",
   CARGO = "CARGO",
@@ -3281,6 +3591,7 @@ export enum PackageManager {
 }
 
 /**
+ * @public
  * <p>Information on the vulnerable package identified by a finding.</p>
  */
 export interface VulnerablePackage {
@@ -3341,6 +3652,7 @@ export interface VulnerablePackage {
 }
 
 /**
+ * @public
  * <p>Information about a package vulnerability finding.</p>
  */
 export interface PackageVulnerabilityDetails {
@@ -3396,6 +3708,7 @@ export interface PackageVulnerabilityDetails {
 }
 
 /**
+ * @public
  * <p>Details about the recommended course of action to remediate the finding.</p>
  */
 export interface Recommendation {
@@ -3411,6 +3724,7 @@ export interface Recommendation {
 }
 
 /**
+ * @public
  * <p>Information on how to remediate a finding.</p>
  */
 export interface Remediation {
@@ -3421,6 +3735,7 @@ export interface Remediation {
 }
 
 /**
+ * @public
  * <p>Contains details about the resource involved in the finding.</p>
  */
 export interface ResourceDetails {
@@ -3440,6 +3755,9 @@ export interface ResourceDetails {
   awsLambdaFunction?: AwsLambdaFunctionDetails;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
@@ -3448,6 +3766,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Details about the resource involved in a finding.</p>
  */
 export interface Resource {
@@ -3482,6 +3801,9 @@ export interface Resource {
   details?: ResourceDetails;
 }
 
+/**
+ * @public
+ */
 export enum Severity {
   CRITICAL = "CRITICAL",
   HIGH = "HIGH",
@@ -3491,18 +3813,25 @@ export enum Severity {
   UNTRIAGED = "UNTRIAGED",
 }
 
+/**
+ * @public
+ */
 export enum FindingStatus {
   ACTIVE = "ACTIVE",
   CLOSED = "CLOSED",
   SUPPRESSED = "SUPPRESSED",
 }
 
+/**
+ * @public
+ */
 export enum FindingType {
   NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
   PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
 }
 
 /**
+ * @public
  * <p>Details about an Amazon Inspector finding.</p>
  */
 export interface Finding {
@@ -3602,8 +3931,14 @@ export interface Finding {
   exploitabilityDetails?: ExploitabilityDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigurationRequest {}
 
+/**
+ * @public
+ */
 export interface GetConfigurationResponse {
   /**
    * <p>Specifies how the ECR automated re-scan duration is currently configured for your environment.</p>
@@ -3611,8 +3946,14 @@ export interface GetConfigurationResponse {
   ecrConfiguration?: EcrConfigurationState;
 }
 
+/**
+ * @public
+ */
 export interface GetDelegatedAdminAccountRequest {}
 
+/**
+ * @public
+ */
 export interface GetDelegatedAdminAccountResponse {
   /**
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
@@ -3620,6 +3961,9 @@ export interface GetDelegatedAdminAccountResponse {
   delegatedAdmin?: DelegatedAdmin;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsReportStatusRequest {
   /**
    * <p>The ID of the report to retrieve the status of.</p>
@@ -3627,6 +3971,9 @@ export interface GetFindingsReportStatusRequest {
   reportId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReportingErrorCode {
   BUCKET_NOT_FOUND = "BUCKET_NOT_FOUND",
   INCOMPATIBLE_BUCKET_REGION = "INCOMPATIBLE_BUCKET_REGION",
@@ -3636,6 +3983,9 @@ export enum ReportingErrorCode {
   NO_FINDINGS_FOUND = "NO_FINDINGS_FOUND",
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsReportStatusResponse {
   /**
    * <p>The ID of the report.</p>
@@ -3668,6 +4018,9 @@ export interface GetFindingsReportStatusResponse {
   filterCriteria?: FilterCriteria;
 }
 
+/**
+ * @public
+ */
 export interface GetMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to retrieve information on.</p>
@@ -3676,6 +4029,7 @@ export interface GetMemberRequest {
 }
 
 /**
+ * @public
  * <p>Details on a member account in your organization.</p>
  */
 export interface Member {
@@ -3700,6 +4054,9 @@ export interface Member {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMemberResponse {
   /**
    * <p>Details of the retrieved member account.</p>
@@ -3707,12 +4064,18 @@ export interface GetMemberResponse {
   member?: Member;
 }
 
+/**
+ * @public
+ */
 export enum Service {
   EC2 = "EC2",
   ECR = "ECR",
   LAMBDA = "LAMBDA",
 }
 
+/**
+ * @public
+ */
 export interface ListAccountPermissionsRequest {
   /**
    * <p>The service scan type to check permissions for.</p>
@@ -3733,6 +4096,9 @@ export interface ListAccountPermissionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum Operation {
   DISABLE_REPOSITORY = "DISABLE_REPOSITORY",
   DISABLE_SCANNING = "DISABLE_SCANNING",
@@ -3741,6 +4107,7 @@ export enum Operation {
 }
 
 /**
+ * @public
  * <p>Contains information on the permissions an account has within Amazon Inspector.</p>
  */
 export interface Permission {
@@ -3755,6 +4122,9 @@ export interface Permission {
   operation: Operation | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountPermissionsResponse {
   /**
    * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
@@ -3770,6 +4140,9 @@ export interface ListAccountPermissionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -3791,6 +4164,9 @@ export interface ListCoverageRequest {
   filterCriteria?: CoverageFilterCriteria;
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageResponse {
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -3806,6 +4182,9 @@ export interface ListCoverageResponse {
   coveredResources?: CoveredResource[];
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageStatisticsRequest {
   /**
    * <p>An object that contains details on the filters to apply to the coverage data for your
@@ -3827,6 +4206,9 @@ export interface ListCoverageStatisticsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageStatisticsResponse {
   /**
    * <p>An array with the number for each group.</p>
@@ -3847,6 +4229,9 @@ export interface ListCoverageStatisticsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedAdminAccountsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -3862,6 +4247,9 @@ export interface ListDelegatedAdminAccountsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedAdminAccountsResponse {
   /**
    * <p>Details of the Amazon Inspector delegated administrator of your organization.</p>
@@ -3877,6 +4265,9 @@ export interface ListDelegatedAdminAccountsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersRequest {
   /**
    * <p>The Amazon resource number (ARN) of the filter.</p>
@@ -3902,6 +4293,9 @@ export interface ListFiltersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersResponse {
   /**
    * <p>Contains details on the filters associated with your account.</p>
@@ -3917,6 +4311,9 @@ export interface ListFiltersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregationsRequest {
   /**
    * <p>The type of the aggregation request.</p>
@@ -3947,6 +4344,9 @@ export interface ListFindingAggregationsRequest {
   aggregationRequest?: AggregationRequest;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregationsResponse {
   /**
    * <p>The type of aggregation to perform.</p>
@@ -3967,6 +4367,9 @@ export interface ListFindingAggregationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortField {
   AWS_ACCOUNT_ID = "AWS_ACCOUNT_ID",
   COMPONENT_TYPE = "COMPONENT_TYPE",
@@ -3987,6 +4390,7 @@ export enum SortField {
 }
 
 /**
+ * @public
  * <p>Details about the criteria used to sort finding results.</p>
  */
 export interface SortCriteria {
@@ -4001,6 +4405,9 @@ export interface SortCriteria {
   sortOrder: SortOrder | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4026,6 +4433,9 @@ export interface ListFindingsRequest {
   sortCriteria?: SortCriteria;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsResponse {
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -4041,6 +4451,9 @@ export interface ListFindingsResponse {
   findings?: Finding[];
 }
 
+/**
+ * @public
+ */
 export interface ListMembersRequest {
   /**
    * <p>Specifies whether to list only currently associated members if <code>True</code> or to
@@ -4062,6 +4475,9 @@ export interface ListMembersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersResponse {
   /**
    * <p>An object that contains details for each member account.</p>
@@ -4075,6 +4491,9 @@ export interface ListMembersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon resource number (ARN) of the resource to list tags of.</p>
@@ -4082,6 +4501,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
@@ -4089,6 +4511,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListUsageTotalsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4109,6 +4534,9 @@ export interface ListUsageTotalsRequest {
   accountIds?: string[];
 }
 
+/**
+ * @public
+ */
 export enum UsageType {
   EC2_INSTANCE_HOURS = "EC2_INSTANCE_HOURS",
   ECR_INITIAL_SCAN = "ECR_INITIAL_SCAN",
@@ -4117,6 +4545,7 @@ export enum UsageType {
 }
 
 /**
+ * @public
  * <p>Contains usage information about the cost of Amazon Inspector operation.</p>
  */
 export interface Usage {
@@ -4142,6 +4571,7 @@ export interface Usage {
 }
 
 /**
+ * @public
  * <p>The total of usage for an account ID.</p>
  */
 export interface UsageTotal {
@@ -4156,6 +4586,9 @@ export interface UsageTotal {
   usage?: Usage[];
 }
 
+/**
+ * @public
+ */
 export interface ListUsageTotalsResponse {
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -4168,6 +4601,9 @@ export interface ListUsageTotalsResponse {
   totals?: UsageTotal[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to apply a tag to.</p>
@@ -4180,8 +4616,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
@@ -4194,8 +4636,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationRequest {
   /**
    * <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
@@ -4203,8 +4651,14 @@ export interface UpdateConfigurationRequest {
   ecrConfiguration: EcrConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFilterRequest {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
@@ -4237,6 +4691,9 @@ export interface UpdateFilterRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the successfully updated filter.</p>
@@ -4244,6 +4701,9 @@ export interface UpdateFilterResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>Defines which scan types are enabled automatically for new members of your Amazon Inspector organization.</p>
@@ -4251,6 +4711,9 @@ export interface UpdateOrganizationConfigurationRequest {
   autoEnable: AutoEnable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationResponse {
   /**
    * <p>The updated status of scan types automatically enabled for new members of your Amazon Inspector organization.</p>

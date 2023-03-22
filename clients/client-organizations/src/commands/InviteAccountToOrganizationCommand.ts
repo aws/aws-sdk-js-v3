@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InviteAccountToOrganizationCommand}.
  */
 export interface InviteAccountToOrganizationCommandInput extends InviteAccountToOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link InviteAccountToOrganizationCommand}.
  */
 export interface InviteAccountToOrganizationCommandOutput
@@ -37,6 +41,7 @@ export interface InviteAccountToOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an invitation to another account to join your organization as a member account.
  *             Organizations sends email on your behalf to the email address that is associated with the
  *             other account's owner. The invitation is implemented as a <a>Handshake</a>
@@ -73,6 +78,8 @@ export interface InviteAccountToOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param InviteAccountToOrganizationCommandInput - {@link InviteAccountToOrganizationCommandInput}
+ * @returns {@link InviteAccountToOrganizationCommandOutput}
  * @see {@link InviteAccountToOrganizationCommandInput} for command's `input` shape.
  * @see {@link InviteAccountToOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -562,6 +569,9 @@ export class InviteAccountToOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InviteAccountToOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -601,10 +611,16 @@ export class InviteAccountToOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InviteAccountToOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InviteAccountToOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

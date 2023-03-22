@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachPrincipalPolicyCommand}.
  */
 export interface DetachPrincipalPolicyCommandInput extends DetachPrincipalPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachPrincipalPolicyCommand}.
  */
 export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes the specified policy from the specified certificate.</p>
@@ -47,6 +52,8 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachPrincipalPolicyCommandInput - {@link DetachPrincipalPolicyCommandInput}
+ * @returns {@link DetachPrincipalPolicyCommandOutput}
  * @see {@link DetachPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class DetachPrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachPrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DetachPrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachPrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetachPrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachPrincipalPolicyCommandOutput> {
     return deserializeAws_restJson1DetachPrincipalPolicyCommand(output, context);
   }

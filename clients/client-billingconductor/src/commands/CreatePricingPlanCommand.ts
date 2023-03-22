@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePricingPlanCommand}.
  */
 export interface CreatePricingPlanCommandInput extends CreatePricingPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePricingPlanCommand}.
  */
 export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a pricing plan that is used for computing Amazon Web Services charges for billing groups.
  *     </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePricingPlanCommandInput - {@link CreatePricingPlanCommandInput}
+ * @returns {@link CreatePricingPlanCommandOutput}
  * @see {@link CreatePricingPlanCommandInput} for command's `input` shape.
  * @see {@link CreatePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreatePricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreatePricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePricingPlanCommandOutput> {
     return deserializeAws_restJson1CreatePricingPlanCommand(output, context);
   }

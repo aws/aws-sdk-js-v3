@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableProfileCommand}.
  */
 export interface EnableProfileCommandInput extends ScalarProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableProfileCommand}.
  */
 export interface EnableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the roles in a profile to receive session credentials in <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableProfileCommandInput - {@link EnableProfileCommandInput}
+ * @returns {@link EnableProfileCommandOutput}
  * @see {@link EnableProfileCommandInput} for command's `input` shape.
  * @see {@link EnableProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class EnableProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class EnableProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableProfileCommandOutput> {
     return deserializeAws_restJson1EnableProfileCommand(output, context);
   }

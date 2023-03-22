@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatabaseCommand}.
  */
 export interface DescribeDatabaseCommandInput extends DescribeDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatabaseCommand}.
  */
 export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the database, including the database name, time that the
  *          database was created, and the total number of tables found within the database. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
  *             quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-db.html">code sample</a>
@@ -50,6 +55,8 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatabaseCommandInput - {@link DescribeDatabaseCommandInput}
+ * @returns {@link DescribeDatabaseCommandOutput}
  * @see {@link DescribeDatabaseCommandInput} for command's `input` shape.
  * @see {@link DescribeDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatabaseCommandOutput> {
     return deserializeAws_json1_0DescribeDatabaseCommand(output, context);
   }

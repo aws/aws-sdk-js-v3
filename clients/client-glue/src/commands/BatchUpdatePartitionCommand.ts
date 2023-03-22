@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdatePartitionCommand}.
  */
 export interface BatchUpdatePartitionCommandInput extends BatchUpdatePartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdatePartitionCommand}.
  */
 export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates one or more partitions in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdatePartitionCommandInput - {@link BatchUpdatePartitionCommandInput}
+ * @returns {@link BatchUpdatePartitionCommandOutput}
  * @see {@link BatchUpdatePartitionCommandInput} for command's `input` shape.
  * @see {@link BatchUpdatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class BatchUpdatePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdatePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class BatchUpdatePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdatePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchUpdatePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdatePartitionCommandOutput> {
     return deserializeAws_json1_1BatchUpdatePartitionCommand(output, context);
   }

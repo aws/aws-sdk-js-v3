@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteForecastCommand}.
  */
 export interface DeleteForecastCommandInput extends DeleteForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteForecastCommand}.
  */
 export interface DeleteForecastCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
  *       delete only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
  *       To get the status, use the <a>DescribeForecast</a> operation.</p>
@@ -45,6 +50,8 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteForecastCommandInput - {@link DeleteForecastCommandInput}
+ * @returns {@link DeleteForecastCommandOutput}
  * @see {@link DeleteForecastCommandInput} for command's `input` shape.
  * @see {@link DeleteForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteForecastCommandOutput> {
     return deserializeAws_json1_1DeleteForecastCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTaskCommand}.
  */
 export interface CreateTaskCommandInput extends CreateTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTaskCommand}.
  */
 export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instructs one or more devices to start a task, such as unlocking or rebooting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
+ * @returns {@link CreateTaskCommandOutput}
  * @see {@link CreateTaskCommandInput} for command's `input` shape.
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskCommandOutput> {
     return deserializeAws_restJson1CreateTaskCommand(output, context);
   }

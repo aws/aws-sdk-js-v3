@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationRevisionCommand}.
  */
 export interface DescribeConfigurationRevisionCommandInput extends DescribeConfigurationRevisionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationRevisionCommand}.
  */
 export interface DescribeConfigurationRevisionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeConfigurationRevisionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the specified configuration revision for the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeConfigurationRevisionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationRevisionCommandInput - {@link DescribeConfigurationRevisionCommandInput}
+ * @returns {@link DescribeConfigurationRevisionCommandOutput}
  * @see {@link DescribeConfigurationRevisionCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRevisionCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConfigurationRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePartnerEventSourceCommand}.
  */
 export interface DeletePartnerEventSourceCommandInput extends DeletePartnerEventSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePartnerEventSourceCommand}.
  */
 export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation is used by SaaS partners to delete a partner event source. This operation
  *       is not used by Amazon Web Services customers.</p>
  *          <p>When you delete an event source, the status of the corresponding partner event bus in the
@@ -45,6 +50,8 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePartnerEventSourceCommandInput - {@link DeletePartnerEventSourceCommandInput}
+ * @returns {@link DeletePartnerEventSourceCommandOutput}
  * @see {@link DeletePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeletePartnerEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartnerEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeletePartnerEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePartnerEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartnerEventSourceCommandOutput> {
     return deserializeAws_json1_1DeletePartnerEventSourceCommand(output, context);
   }

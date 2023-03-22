@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCodeSigningConfigCommand}.
  */
 export interface DeleteCodeSigningConfigCommandInput extends DeleteCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCodeSigningConfigCommand}.
  */
 export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is
  *       using it. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCodeSigningConfigCommandInput - {@link DeleteCodeSigningConfigCommandInput}
+ * @returns {@link DeleteCodeSigningConfigCommandOutput}
  * @see {@link DeleteCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCodeSigningConfigCommandOutput> {
     return deserializeAws_restJson1DeleteCodeSigningConfigCommand(output, context);
   }

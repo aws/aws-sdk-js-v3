@@ -28,15 +28,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomRoutingListenerCommand}.
  */
 export interface DeleteCustomRoutingListenerCommandInput extends DeleteCustomRoutingListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomRoutingListenerCommand}.
  */
 export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a listener for a custom routing accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomRoutingListenerCommandInput - {@link DeleteCustomRoutingListenerCommandInput}
+ * @returns {@link DeleteCustomRoutingListenerCommandOutput}
  * @see {@link DeleteCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteCustomRoutingListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomRoutingListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteCustomRoutingListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomRoutingListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCustomRoutingListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

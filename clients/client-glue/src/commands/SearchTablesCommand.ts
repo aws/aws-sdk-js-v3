@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchTablesCommand}.
  */
 export interface SearchTablesCommandInput extends SearchTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchTablesCommand}.
  */
 export interface SearchTablesCommandOutput extends SearchTablesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>
  *          <p>You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search. </p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchTablesCommandInput - {@link SearchTablesCommandInput}
+ * @returns {@link SearchTablesCommandOutput}
  * @see {@link SearchTablesCommandInput} for command's `input` shape.
  * @see {@link SearchTablesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -79,6 +86,9 @@ export class SearchTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class SearchTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchTablesCommandOutput> {
     return deserializeAws_json1_1SearchTablesCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableSagemakerServicecatalogPortfolioCommand}.
  */
 export interface DisableSagemakerServicecatalogPortfolioCommandInput
   extends DisableSagemakerServicecatalogPortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableSagemakerServicecatalogPortfolioCommand}.
  */
 export interface DisableSagemakerServicecatalogPortfolioCommandOutput
@@ -38,6 +42,7 @@ export interface DisableSagemakerServicecatalogPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables using Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DisableSagemakerServicecatalogPortfolioCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSagemakerServicecatalogPortfolioCommandInput - {@link DisableSagemakerServicecatalogPortfolioCommandInput}
+ * @returns {@link DisableSagemakerServicecatalogPortfolioCommandOutput}
  * @see {@link DisableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSagemakerServicecatalogPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableSagemakerServicecatalogPortfolioCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
     return serializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

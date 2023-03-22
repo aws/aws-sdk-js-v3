@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ReleasePhoneNumberCommand}.
  */
 export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleasePhoneNumberCommand}.
  */
 export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases an existing origination phone number in your account. Once released, a phone
  *             number is no longer available for sending messages.</p>
  *         <p>If the origination phone number has deletion protection enabled or is associated with
@@ -53,6 +58,8 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleasePhoneNumberCommandInput - {@link ReleasePhoneNumberCommandInput}
+ * @returns {@link ReleasePhoneNumberCommandOutput}
  * @see {@link ReleasePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ReleasePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class ReleasePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleasePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ReleasePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleasePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ReleasePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleasePhoneNumberCommandOutput> {
     return deserializeAws_json1_0ReleasePhoneNumberCommand(output, context);
   }

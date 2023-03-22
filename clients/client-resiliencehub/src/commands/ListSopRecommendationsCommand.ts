@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSopRecommendationsCommand}.
  */
 export interface ListSopRecommendationsCommandInput extends ListSopRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSopRecommendationsCommand}.
  */
 export interface ListSopRecommendationsCommandOutput extends ListSopRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the standard operating procedure (SOP) recommendations for the AWS Resilience Hub
  *       applications.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSopRecommendationsCommandInput - {@link ListSopRecommendationsCommandInput}
+ * @returns {@link ListSopRecommendationsCommandOutput}
  * @see {@link ListSopRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListSopRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListSopRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSopRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListSopRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSopRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSopRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSopRecommendationsCommandOutput> {
     return deserializeAws_restJson1ListSopRecommendationsCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
 export interface DescribeOrganizationConfigRuleStatusesCommandInput
   extends DescribeOrganizationConfigRuleStatusesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
 export interface DescribeOrganizationConfigRuleStatusesCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides organization Config rule deployment status for an organization.</p>
  *          <note>
  *             <p>The status is not considered successful until organization Config rule is successfully deployed in all the member
@@ -56,6 +61,8 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigRuleStatusesCommandInput - {@link DescribeOrganizationConfigRuleStatusesCommandInput}
+ * @returns {@link DescribeOrganizationConfigRuleStatusesCommandOutput}
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigRuleStatusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigRuleStatusesCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
     return serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

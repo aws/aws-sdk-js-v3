@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrialsCommand}.
  */
 export interface ListTrialsCommandInput extends ListTrialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrialsCommand}.
  */
 export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the trials in your account. Specify an experiment name to limit the list to the
  *       trials that are part of that experiment. Specify a trial component name to limit the list to
  *       the trials that associated with that trial component. The list can be filtered to show only
@@ -50,6 +55,8 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrialsCommandInput - {@link ListTrialsCommandInput}
+ * @returns {@link ListTrialsCommandOutput}
  * @see {@link ListTrialsCommandInput} for command's `input` shape.
  * @see {@link ListTrialsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListTrialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListTrialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTrialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrialsCommandOutput> {
     return deserializeAws_json1_1ListTrialsCommand(output, context);
   }

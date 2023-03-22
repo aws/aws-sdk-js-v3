@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTypeCommand}.
  */
 export interface CreateTypeCommandInput extends CreateTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTypeCommand}.
  */
 export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTypeCommandInput - {@link CreateTypeCommandInput}
+ * @returns {@link CreateTypeCommandOutput}
  * @see {@link CreateTypeCommandInput} for command's `input` shape.
  * @see {@link CreateTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTypeCommandOutput> {
     return deserializeAws_restJson1CreateTypeCommand(output, context);
   }

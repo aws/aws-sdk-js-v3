@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactMethodsCommand}.
  */
 export interface GetContactMethodsCommandInput extends GetContactMethodsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactMethodsCommand}.
  */
 export interface GetContactMethodsCommandOutput extends GetContactMethodsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the configured contact methods. Specify a protocol in your
  *       request to return information about a specific contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
@@ -51,6 +56,8 @@ export interface GetContactMethodsCommandOutput extends GetContactMethodsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactMethodsCommandInput - {@link GetContactMethodsCommandInput}
+ * @returns {@link GetContactMethodsCommandOutput}
  * @see {@link GetContactMethodsCommandInput} for command's `input` shape.
  * @see {@link GetContactMethodsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetContactMethodsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactMethodsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetContactMethodsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactMethodsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContactMethodsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactMethodsCommandOutput> {
     return deserializeAws_json1_1GetContactMethodsCommand(output, context);
   }

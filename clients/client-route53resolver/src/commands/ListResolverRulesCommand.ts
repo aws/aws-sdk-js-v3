@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverRulesCommand}.
  */
 export interface ListResolverRulesCommandInput extends ListResolverRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverRulesCommand}.
  */
 export interface ListResolverRulesCommandOutput extends ListResolverRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Resolver rules that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverRulesCommandInput - {@link ListResolverRulesCommandInput}
+ * @returns {@link ListResolverRulesCommandOutput}
  * @see {@link ListResolverRulesCommandInput} for command's `input` shape.
  * @see {@link ListResolverRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListResolverRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListResolverRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResolverRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolverRulesCommandOutput> {
     return deserializeAws_json1_1ListResolverRulesCommand(output, context);
   }

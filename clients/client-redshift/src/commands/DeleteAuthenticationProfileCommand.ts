@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAuthenticationProfileCommand}.
  */
 export interface DeleteAuthenticationProfileCommandInput extends DeleteAuthenticationProfileMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAuthenticationProfileCommand}.
  */
 export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenticationProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAuthenticationProfileCommandInput - {@link DeleteAuthenticationProfileCommandInput}
+ * @returns {@link DeleteAuthenticationProfileCommandOutput}
  * @see {@link DeleteAuthenticationProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteAuthenticationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAuthenticationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteAuthenticationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAuthenticationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAuthenticationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

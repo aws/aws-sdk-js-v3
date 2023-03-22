@@ -76,11 +76,13 @@ import {
 import { IoTRoboRunnerClient } from "./IoTRoboRunnerClient";
 
 /**
+ * @public
  * An example service, deployed with the Octane Service creator,
  * which will echo the string
  */
 export class IoTRoboRunner extends IoTRoboRunnerClient {
   /**
+   * @public
    * Grants permission to create a destination
    */
   public createDestination(
@@ -113,6 +115,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to create a site
    */
   public createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
@@ -139,6 +142,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to create a worker
    */
   public createWorker(
@@ -168,6 +172,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to create a worker fleet
    */
   public createWorkerFleet(
@@ -200,6 +205,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to delete a destination
    */
   public deleteDestination(
@@ -232,6 +238,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to delete a site
    */
   public deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
@@ -258,6 +265,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to delete a worker
    */
   public deleteWorker(
@@ -287,6 +295,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to delete a worker fleet
    */
   public deleteWorkerFleet(
@@ -319,6 +328,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to get a destination
    */
   public getDestination(
@@ -351,6 +361,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to get a site
    */
   public getSite(args: GetSiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSiteCommandOutput>;
@@ -377,6 +388,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to get a worker
    */
   public getWorker(args: GetWorkerCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkerCommandOutput>;
@@ -403,6 +415,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to get a worker fleet
    */
   public getWorkerFleet(
@@ -435,6 +448,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to list destinations
    */
   public listDestinations(
@@ -467,6 +481,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to list sites
    */
   public listSites(args: ListSitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSitesCommandOutput>;
@@ -493,6 +508,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to list worker fleets
    */
   public listWorkerFleets(
@@ -525,6 +541,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to list workers
    */
   public listWorkers(args: ListWorkersCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkersCommandOutput>;
@@ -551,6 +568,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to update a destination
    */
   public updateDestination(
@@ -583,6 +601,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to update a site
    */
   public updateSite(args: UpdateSiteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSiteCommandOutput>;
@@ -609,6 +628,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to update a worker
    */
   public updateWorker(
@@ -638,6 +658,7 @@ export class IoTRoboRunner extends IoTRoboRunnerClient {
   }
 
   /**
+   * @public
    * Grants permission to update a worker fleet
    */
   public updateWorkerFleet(

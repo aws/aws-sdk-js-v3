@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceDefinitionVersionsCommand}.
  */
 export interface ListDeviceDefinitionVersionsCommandInput extends ListDeviceDefinitionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceDefinitionVersionsCommand}.
  */
 export interface ListDeviceDefinitionVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDeviceDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a device definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListDeviceDefinitionVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceDefinitionVersionsCommandInput - {@link ListDeviceDefinitionVersionsCommandInput}
+ * @returns {@link ListDeviceDefinitionVersionsCommandOutput}
  * @see {@link ListDeviceDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceDefinitionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDeviceDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

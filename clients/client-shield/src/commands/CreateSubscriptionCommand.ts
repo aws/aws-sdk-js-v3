@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriptionCommand}.
  */
 export interface CreateSubscriptionCommandInput extends CreateSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriptionCommand}.
  */
 export interface CreateSubscriptionCommandOutput extends CreateSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates Shield Advanced for an account.</p>
  *          <note>
  *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
@@ -51,6 +56,8 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriptionCommandInput - {@link CreateSubscriptionCommandInput}
+ * @returns {@link CreateSubscriptionCommandOutput}
  * @see {@link CreateSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubscriptionCommandOutput> {
     return deserializeAws_json1_1CreateSubscriptionCommand(output, context);
   }

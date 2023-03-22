@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandInput extends GetTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the template body for a specified stack. You can get the template for running or
  *          deleted stacks.</p>
  *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days
@@ -49,6 +54,8 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
+ * @returns {@link GetTemplateCommandOutput}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateCommandOutput> {
     return deserializeAws_queryGetTemplateCommand(output, context);
   }

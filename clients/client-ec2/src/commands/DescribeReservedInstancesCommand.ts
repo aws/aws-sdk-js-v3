@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstancesCommand}.
  */
 export interface DescribeReservedInstancesCommandInput extends DescribeReservedInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstancesCommand}.
  */
 export interface DescribeReservedInstancesCommandOutput extends DescribeReservedInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of the Reserved Instances that you purchased.</p>
  *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
  * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstancesCommandInput - {@link DescribeReservedInstancesCommandInput}
+ * @returns {@link DescribeReservedInstancesCommandOutput}
  * @see {@link DescribeReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeReservedInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeReservedInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeReservedInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

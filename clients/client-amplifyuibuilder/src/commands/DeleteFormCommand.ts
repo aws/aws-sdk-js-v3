@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFormCommand}.
  */
 export interface DeleteFormCommandInput extends DeleteFormRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFormCommand}.
  */
 export interface DeleteFormCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a form from an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFormCommandInput - {@link DeleteFormCommandInput}
+ * @returns {@link DeleteFormCommandOutput}
  * @see {@link DeleteFormCommandInput} for command's `input` shape.
  * @see {@link DeleteFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteFormCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFormCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteFormCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFormCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFormCommandOutput> {
     return deserializeAws_restJson1DeleteFormCommand(output, context);
   }

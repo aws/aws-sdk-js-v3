@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterRdsDbInstanceCommand}.
  */
 export interface RegisterRdsDbInstanceCommandInput extends RegisterRdsDbInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterRdsDbInstanceCommand}.
  */
 export interface RegisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an Amazon RDS instance with a stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface RegisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterRdsDbInstanceCommandInput - {@link RegisterRdsDbInstanceCommandInput}
+ * @returns {@link RegisterRdsDbInstanceCommandOutput}
  * @see {@link RegisterRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterRdsDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class RegisterRdsDbInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterRdsDbInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class RegisterRdsDbInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterRdsDbInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterRdsDbInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterRdsDbInstanceCommandOutput> {
     return deserializeAws_json1_1RegisterRdsDbInstanceCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DynamoDBStreamsServiceException as __BaseException } from "./DynamoDBStreamsServiceException";
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamInput {
@@ -24,12 +25,16 @@ export interface DescribeStreamInput {
   ExclusiveStartShardId?: string;
 }
 
+/**
+ * @public
+ */
 export enum KeyType {
   HASH = "HASH",
   RANGE = "RANGE",
 }
 
 /**
+ * @public
  * <p>Represents <i>a single element</i> of a key schema. A key schema specifies
  *             the attributes that make up the primary key of a table, or the key attributes of an
  *             index.</p>
@@ -75,6 +80,7 @@ export interface KeySchemaElement {
 }
 
 /**
+ * @public
  * <p>The beginning and ending sequence numbers for the stream records contained within a shard.</p>
  */
 export interface SequenceNumberRange {
@@ -90,6 +96,7 @@ export interface SequenceNumberRange {
 }
 
 /**
+ * @public
  * <p>A uniquely identified group of stream records within a stream.</p>
  */
 export interface Shard {
@@ -109,6 +116,9 @@ export interface Shard {
   ParentShardId?: string;
 }
 
+/**
+ * @public
+ */
 export enum StreamStatus {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -116,6 +126,9 @@ export enum StreamStatus {
   ENABLING = "ENABLING",
 }
 
+/**
+ * @public
+ */
 export enum StreamViewType {
   KEYS_ONLY = "KEYS_ONLY",
   NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
@@ -124,6 +137,7 @@ export enum StreamViewType {
 }
 
 /**
+ * @public
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface StreamDescription {
@@ -230,6 +244,7 @@ export interface StreamDescription {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamOutput {
@@ -240,6 +255,7 @@ export interface DescribeStreamOutput {
 }
 
 /**
+ * @public
  * <p>An error occurred on the server side.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -259,6 +275,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a nonexistent table or index. The resource
  *             might not be specified correctly, or its status might not be
  *             <code>ACTIVE</code>.</p>
@@ -280,6 +297,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard
  *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
  *       action.</p>
@@ -301,6 +319,7 @@ export class ExpiredIteratorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsInput {
@@ -315,6 +334,9 @@ export interface GetRecordsInput {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum OperationType {
   INSERT = "INSERT",
   MODIFY = "MODIFY",
@@ -322,6 +344,7 @@ export enum OperationType {
 }
 
 /**
+ * @public
  * <p>Contains details about the type of identity that made the request.</p>
  */
 export interface Identity {
@@ -338,6 +361,7 @@ export interface Identity {
 }
 
 /**
+ * @public
  * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
  *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
  *           include <code>CreateTable</code>, <code>UpdateTable</code>,
@@ -367,6 +391,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation attempted to read past the oldest stream record in a shard.</p>
  *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
  *          <ul>
@@ -396,6 +421,9 @@ export class TrimmedDataAccessException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ShardIteratorType {
   AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
   AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
@@ -404,6 +432,7 @@ export enum ShardIteratorType {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorInput {
@@ -453,6 +482,7 @@ export interface GetShardIteratorInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorOutput {
@@ -463,6 +493,7 @@ export interface GetShardIteratorOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsInput {
@@ -485,6 +516,7 @@ export interface ListStreamsInput {
 }
 
 /**
+ * @public
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface _Stream {
@@ -520,6 +552,7 @@ export interface _Stream {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsOutput {
@@ -540,6 +573,7 @@ export interface ListStreamsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the data for an attribute.</p>
  *          <p>Each attribute value is described as a name-value pair.  The name is the data type, and the value is the data itself.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
@@ -558,6 +592,9 @@ export type AttributeValue =
   | AttributeValue.SSMember
   | AttributeValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AttributeValue {
   /**
    * <p>An attribute of type  String. For example:</p>
@@ -684,7 +721,7 @@ export namespace AttributeValue {
   /**
    * <p>An attribute of type Map.  For example:</p>
    *          <p>
-   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
+   *             <code>"M": \{"Name": \{"S": "Joe"\}, "Age": \{"N": "35"\}\}</code>
    *          </p>
    */
   export interface MMember {
@@ -704,7 +741,7 @@ export namespace AttributeValue {
   /**
    * <p>An attribute of type List.  For example:</p>
    *          <p>
-   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N": "3.14159"}]</code>
+   *             <code>"L": [ \{"S": "Cookies"\} , \{"S": "Coffee"\}, \{"N": "3.14159"\}]</code>
    *          </p>
    */
   export interface LMember {
@@ -805,6 +842,7 @@ export namespace AttributeValue {
 }
 
 /**
+ * @public
  * <p>A description of a single data modification that was performed on an item in a DynamoDB table.</p>
  */
 export interface StreamRecord {
@@ -863,6 +901,7 @@ export interface StreamRecord {
 }
 
 /**
+ * @public
  * <p>A description of a unique event within a stream.</p>
  */
 export interface _Record {
@@ -930,6 +969,7 @@ export interface _Record {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsOutput {

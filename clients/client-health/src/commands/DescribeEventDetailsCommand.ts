@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventDetailsCommand}.
  */
 export interface DescribeEventDetailsCommandInput extends DescribeEventDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventDetailsCommand}.
  */
 export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about one or more specified events. Information includes
  *          standard event data (Amazon Web Services Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a detailed event description, and possible additional metadata
  *          that depends upon the nature of the event. Affected entities are not included. To retrieve
@@ -55,6 +60,8 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventDetailsCommandInput - {@link DescribeEventDetailsCommandInput}
+ * @returns {@link DescribeEventDetailsCommandOutput}
  * @see {@link DescribeEventDetailsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventDetailsCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeEventDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeEventDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventDetailsCommandOutput> {
     return deserializeAws_json1_1DescribeEventDetailsCommand(output, context);
   }

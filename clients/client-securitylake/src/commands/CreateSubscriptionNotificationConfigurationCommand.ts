@@ -26,11 +26,15 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriptionNotificationConfigurationCommand}.
  */
 export interface CreateSubscriptionNotificationConfigurationCommandInput
   extends CreateSubscriptionNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriptionNotificationConfigurationCommand}.
  */
 export interface CreateSubscriptionNotificationConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies the subscriber when new data is written to the data lake for the sources that
  *          the subscriber consumes in Security Lake. You can create only one subscriber notification per
  *          subscriber.</p>
@@ -51,6 +56,8 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriptionNotificationConfigurationCommandInput - {@link CreateSubscriptionNotificationConfigurationCommandInput}
+ * @returns {@link CreateSubscriptionNotificationConfigurationCommandOutput}
  * @see {@link CreateSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriptionNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
     return serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

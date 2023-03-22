@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSkillGroupCommand}.
  */
 export interface GetSkillGroupCommandInput extends GetSkillGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSkillGroupCommand}.
  */
 export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets skill group details by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSkillGroupCommandInput - {@link GetSkillGroupCommandInput}
+ * @returns {@link GetSkillGroupCommandOutput}
  * @see {@link GetSkillGroupCommandInput} for command's `input` shape.
  * @see {@link GetSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class GetSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSkillGroupCommandOutput> {
     return deserializeAws_json1_1GetSkillGroupCommand(output, context);
   }

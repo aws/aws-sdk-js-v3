@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngineVersionsCommand}.
  */
 export interface DescribeEngineVersionsCommandInput extends DescribeEngineVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngineVersionsCommand}.
  */
 export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available Redis engine versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineVersionsCommandInput - {@link DescribeEngineVersionsCommandInput}
+ * @returns {@link DescribeEngineVersionsCommandOutput}
  * @see {@link DescribeEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEngineVersionsCommandOutput> {
     return deserializeAws_json1_1DescribeEngineVersionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SimulateCustomPolicyCommand}.
  */
 export interface SimulateCustomPolicyCommandInput extends SimulateCustomPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link SimulateCustomPolicyCommand}.
  */
 export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with
  *             a list of API operations and Amazon Web Services resources to determine the policies' effective
  *             permissions. The policies are provided as strings.</p>
@@ -69,6 +74,8 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param SimulateCustomPolicyCommandInput - {@link SimulateCustomPolicyCommandInput}
+ * @returns {@link SimulateCustomPolicyCommandOutput}
  * @see {@link SimulateCustomPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulateCustomPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class SimulateCustomPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimulateCustomPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class SimulateCustomPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimulateCustomPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySimulateCustomPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimulateCustomPolicyCommandOutput> {
     return deserializeAws_querySimulateCustomPolicyCommand(output, context);
   }

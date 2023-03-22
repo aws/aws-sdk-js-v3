@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSignalingChannelCommand}.
  */
 export interface DescribeSignalingChannelCommandInput extends DescribeSignalingChannelInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSignalingChannelCommand}.
  */
 export interface DescribeSignalingChannelCommandOutput extends DescribeSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most current information about the signaling channel. You must specify
  *             either the name or the Amazon Resource Name (ARN) of the channel that you want to
  *             describe.</p>
@@ -48,6 +53,8 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSignalingChannelCommandInput - {@link DescribeSignalingChannelCommandInput}
+ * @returns {@link DescribeSignalingChannelCommandOutput}
  * @see {@link DescribeSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link DescribeSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSignalingChannelCommandOutput> {
     return deserializeAws_restJson1DescribeSignalingChannelCommand(output, context);
   }

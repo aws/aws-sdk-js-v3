@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppMonitorsCommand}.
  */
 export interface ListAppMonitorsCommandInput extends ListAppMonitorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppMonitorsCommand}.
  */
 export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Amazon CloudWatch RUM app monitors in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppMonitorsCommandInput - {@link ListAppMonitorsCommandInput}
+ * @returns {@link ListAppMonitorsCommandOutput}
  * @see {@link ListAppMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListAppMonitorsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListAppMonitorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppMonitorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListAppMonitorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAppMonitorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppMonitorsCommandOutput> {
     return deserializeAws_restJson1ListAppMonitorsCommand(output, context);
   }

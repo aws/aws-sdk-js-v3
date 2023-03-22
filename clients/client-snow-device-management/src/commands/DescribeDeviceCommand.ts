@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeviceCommand}.
  */
 export interface DescribeDeviceCommandInput extends DescribeDeviceInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeviceCommand}.
  */
 export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks device-specific information, such as the device type, software version, IP
  *       addresses, and lock status.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
+ * @returns {@link DescribeDeviceCommandOutput}
  * @see {@link DescribeDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeviceCommandOutput> {
     return deserializeAws_restJson1DescribeDeviceCommand(output, context);
   }

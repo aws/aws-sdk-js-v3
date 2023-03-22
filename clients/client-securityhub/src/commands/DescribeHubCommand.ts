@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHubCommand}.
  */
 export interface DescribeHubCommandInput extends DescribeHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHubCommand}.
  */
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the Hub resource in your account, including the
  *          <code>HubArn</code> and the time when you enabled Security Hub.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHubCommandInput - {@link DescribeHubCommandInput}
+ * @returns {@link DescribeHubCommandOutput}
  * @see {@link DescribeHubCommandInput} for command's `input` shape.
  * @see {@link DescribeHubCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHubCommandOutput> {
     return deserializeAws_restJson1DescribeHubCommand(output, context);
   }

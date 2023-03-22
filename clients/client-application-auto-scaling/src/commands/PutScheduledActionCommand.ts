@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutScheduledActionCommand}.
  */
 export interface PutScheduledActionCommandInput extends PutScheduledActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutScheduledActionCommand}.
  */
 export interface PutScheduledActionCommandOutput extends PutScheduledActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p>
  *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
  *          dimension. A scheduled action applies to the scalable target identified by those three
@@ -64,6 +69,8 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScheduledActionCommandInput - {@link PutScheduledActionCommandInput}
+ * @returns {@link PutScheduledActionCommandOutput}
  * @see {@link PutScheduledActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -126,6 +133,9 @@ export class PutScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class PutScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScheduledActionCommandOutput> {
     return deserializeAws_json1_1PutScheduledActionCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePendingAggregationRequestCommand}.
  */
 export interface DeletePendingAggregationRequestCommandInput extends DeletePendingAggregationRequestRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePendingAggregationRequestCommand}.
  */
 export interface DeletePendingAggregationRequestCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes pending authorization requests for a specified
  * 			aggregator account in a specified region.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePendingAggregationRequestCommandInput - {@link DeletePendingAggregationRequestCommandInput}
+ * @returns {@link DeletePendingAggregationRequestCommandOutput}
  * @see {@link DeletePendingAggregationRequestCommandInput} for command's `input` shape.
  * @see {@link DeletePendingAggregationRequestCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePendingAggregationRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeletePendingAggregationRequestCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     return serializeAws_json1_1DeletePendingAggregationRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

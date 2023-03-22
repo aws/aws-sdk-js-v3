@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelStatementCommand}.
  */
 export interface CancelStatementCommandInput extends CancelStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelStatementCommand}.
  */
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
+ * @returns {@link CancelStatementCommandOutput}
  * @see {@link CancelStatementCommandInput} for command's `input` shape.
  * @see {@link CancelStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class CancelStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CancelStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStatementCommandOutput> {
     return deserializeAws_json1_1CancelStatementCommand(output, context);
   }

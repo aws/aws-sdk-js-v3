@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventsByEventTypeCommand}.
  */
 export interface DeleteEventsByEventTypeCommandInput extends DeleteEventsByEventTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventsByEventTypeCommand}.
  */
 export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEventTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all events of a particular event type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventsByEventTypeCommandInput - {@link DeleteEventsByEventTypeCommandInput}
+ * @returns {@link DeleteEventsByEventTypeCommandOutput}
  * @see {@link DeleteEventsByEventTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEventsByEventTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteEventsByEventTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventsByEventTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteEventsByEventTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventsByEventTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEventsByEventTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventsByEventTypeCommandOutput> {
     return deserializeAws_json1_1DeleteEventsByEventTypeCommand(output, context);
   }

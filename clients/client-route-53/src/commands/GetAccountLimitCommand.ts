@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountLimitCommand}.
  */
 export interface GetAccountLimitCommandInput extends GetAccountLimitRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountLimitCommand}.
  */
 export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified limit for the current account, for example, the maximum number of
  * 			health checks that you can create using the account.</p>
  *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -54,6 +59,8 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountLimitCommandInput - {@link GetAccountLimitCommandInput}
+ * @returns {@link GetAccountLimitCommandOutput}
  * @see {@link GetAccountLimitCommandInput} for command's `input` shape.
  * @see {@link GetAccountLimitCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -80,6 +87,9 @@ export class GetAccountLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetAccountLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetAccountLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountLimitCommandOutput> {
     return deserializeAws_restXmlGetAccountLimitCommand(output, context);
   }

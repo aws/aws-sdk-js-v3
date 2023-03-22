@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobTemplateCommand}.
  */
 export interface CreateJobTemplateCommandInput extends CreateJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobTemplateCommand}.
  */
 export interface CreateJobTemplateCommandOutput extends CreateJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job template. Job template stores values of StartJobRun API request in a
  *          template and can be used to start a job run. Job template allows two use cases: avoid
  *          repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
@@ -49,6 +54,8 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobTemplateCommandInput - {@link CreateJobTemplateCommandInput}
+ * @returns {@link CreateJobTemplateCommandOutput}
  * @see {@link CreateJobTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobTemplateCommandOutput> {
     return deserializeAws_restJson1CreateJobTemplateCommand(output, context);
   }

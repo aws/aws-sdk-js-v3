@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReleaseLabelCommand}.
  */
 export interface DescribeReleaseLabelCommandInput extends DescribeReleaseLabelInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReleaseLabelCommand}.
  */
 export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides EMR release label details, such as releases available the region where the API
  *          request is run, and the available applications for a specific EMR release label. Can also
  *          list EMR release versions that support a specified version of Spark.</p>
@@ -48,6 +53,8 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReleaseLabelCommandInput - {@link DescribeReleaseLabelCommandInput}
+ * @returns {@link DescribeReleaseLabelCommandOutput}
  * @see {@link DescribeReleaseLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReleaseLabelCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeReleaseLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReleaseLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeReleaseLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReleaseLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReleaseLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReleaseLabelCommandOutput> {
     return deserializeAws_json1_1DescribeReleaseLabelCommand(output, context);
   }

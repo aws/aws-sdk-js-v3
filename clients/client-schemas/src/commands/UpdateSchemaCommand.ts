@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
+ * @returns {@link UpdateSchemaCommandOutput}
  * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchemaCommandOutput> {
     return deserializeAws_restJson1UpdateSchemaCommand(output, context);
   }

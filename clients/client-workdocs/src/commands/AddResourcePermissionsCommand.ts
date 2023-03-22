@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddResourcePermissionsCommand}.
  */
 export interface AddResourcePermissionsCommandInput extends AddResourcePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddResourcePermissionsCommand}.
  */
 export interface AddResourcePermissionsCommandOutput extends AddResourcePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a set of permissions for the specified folder or document. The resource
  *             permissions are overwritten if the principals already have different
  *             permissions.</p>
@@ -48,6 +53,8 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * const response = await client.send(command);
  * ```
  *
+ * @param AddResourcePermissionsCommandInput - {@link AddResourcePermissionsCommandInput}
+ * @returns {@link AddResourcePermissionsCommandOutput}
  * @see {@link AddResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link AddResourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -88,6 +95,9 @@ export class AddResourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddResourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class AddResourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddResourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddResourcePermissionsCommandOutput> {
     return deserializeAws_restJson1AddResourcePermissionsCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ConnectCasesServiceException as __BaseException } from "./ConnectCasesServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a service
  *       resource associated with the request. Resolve the conflict before retrying this request. See
  *       the accompanying error message for details.</p>
@@ -44,6 +46,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object to store union of Field values.</p>
  */
 export type FieldValueUnion =
@@ -52,6 +55,9 @@ export type FieldValueUnion =
   | FieldValueUnion.StringValueMember
   | FieldValueUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FieldValueUnion {
   /**
    * <p>String value type.</p>
@@ -107,6 +113,7 @@ export namespace FieldValueUnion {
 }
 
 /**
+ * @public
  * <p>Object for case field values.</p>
  */
 export interface FieldValue {
@@ -121,6 +128,9 @@ export interface FieldValue {
   value: FieldValueUnion | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCaseRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -147,6 +157,9 @@ export interface CreateCaseRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCaseResponse {
   /**
    * <p>A unique identifier of the case.</p>
@@ -160,6 +173,7 @@ export interface CreateCaseResponse {
 }
 
 /**
+ * @public
  * <p>We couldn't process your request because of an issue with the server. Try again
  *       later.</p>
  */
@@ -187,6 +201,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We couldn't find the requested resource. Check that your resources exists and were created
  *       in the same Amazon Web Services Region as your request, and try your request again.</p>
  */
@@ -219,6 +234,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -239,6 +255,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request isn't valid. Check the syntax and try again.</p>
  */
 export class ValidationException extends __BaseException {
@@ -258,6 +275,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object for unique identifier of a field.</p>
  */
 export interface FieldIdentifier {
@@ -267,6 +285,9 @@ export interface FieldIdentifier {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCaseRequest {
   /**
    * <p>A unique identifier of the case.</p>
@@ -290,6 +311,9 @@ export interface GetCaseRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCaseResponse {
   /**
    * <p>A list of detailed field information. </p>
@@ -312,6 +336,9 @@ export interface GetCaseResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListCasesForContactRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -336,6 +363,7 @@ export interface ListCasesForContactRequest {
 }
 
 /**
+ * @public
  * <p>Case summary information.</p>
  */
 export interface CaseSummary {
@@ -350,6 +378,9 @@ export interface CaseSummary {
   templateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCasesForContactResponse {
   /**
    * <p>A list of Case summary information.</p>
@@ -362,11 +393,15 @@ export interface ListCasesForContactResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum CommentBodyTextType {
   PLAINTEXT = "Text/Plain",
 }
 
 /**
+ * @public
  * <p>Represents the content of a <code>Comment</code> to be returned to agents.</p>
  */
 export interface CommentContent {
@@ -382,6 +417,7 @@ export interface CommentContent {
 }
 
 /**
+ * @public
  * <p>An object that represents an Amazon Connect contact object. </p>
  */
 export interface Contact {
@@ -392,6 +428,7 @@ export interface Contact {
 }
 
 /**
+ * @public
  * <p>Represents the content of a related item to be created.</p>
  */
 export type RelatedItemInputContent =
@@ -399,6 +436,9 @@ export type RelatedItemInputContent =
   | RelatedItemInputContent.ContactMember
   | RelatedItemInputContent.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RelatedItemInputContent {
   /**
    * <p>Object representing a contact in Amazon Connect as an API request field.</p>
@@ -437,11 +477,17 @@ export namespace RelatedItemInputContent {
   };
 }
 
+/**
+ * @public
+ */
 export enum RelatedItemType {
   COMMENT = "Comment",
   CONTACT = "Contact",
 }
 
+/**
+ * @public
+ */
 export interface CreateRelatedItemRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -464,6 +510,9 @@ export interface CreateRelatedItemRequest {
   content: RelatedItemInputContent | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRelatedItemResponse {
   /**
    * <p>The unique identifier of the related item.</p>
@@ -477,6 +526,7 @@ export interface CreateRelatedItemResponse {
 }
 
 /**
+ * @public
  * <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
  *         Administrator Guide</i>.</p>
  */
@@ -497,11 +547,13 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A filter for related items of type <code>Comment</code>.</p>
  */
 export interface CommentFilter {}
 
 /**
+ * @public
  * <p>A filter for related items of type <code>Contact</code>.</p>
  */
 export interface ContactFilter {
@@ -517,6 +569,7 @@ export interface ContactFilter {
 }
 
 /**
+ * @public
  * <p>The list of types of related items and their parameters to use for filtering.</p>
  */
 export type RelatedItemTypeFilter =
@@ -524,6 +577,9 @@ export type RelatedItemTypeFilter =
   | RelatedItemTypeFilter.ContactMember
   | RelatedItemTypeFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RelatedItemTypeFilter {
   /**
    * <p>A filter for related items of type <code>Contact</code>.</p>
@@ -562,6 +618,9 @@ export namespace RelatedItemTypeFilter {
   };
 }
 
+/**
+ * @public
+ */
 export interface SearchRelatedItemsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -591,6 +650,7 @@ export interface SearchRelatedItemsRequest {
 }
 
 /**
+ * @public
  * <p>An object that represents a content of an Amazon Connect contact object.</p>
  */
 export interface ContactContent {
@@ -612,6 +672,7 @@ export interface ContactContent {
 }
 
 /**
+ * @public
  * <p>Represents the content of a particular type of related item.</p>
  */
 export type RelatedItemContent =
@@ -619,6 +680,9 @@ export type RelatedItemContent =
   | RelatedItemContent.ContactMember
   | RelatedItemContent.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RelatedItemContent {
   /**
    * <p>Represents the content of a contact to be returned to agents.</p>
@@ -658,6 +722,7 @@ export namespace RelatedItemContent {
 }
 
 /**
+ * @public
  * <p>A list of items that represent RelatedItems.</p>
  */
 export interface SearchRelatedItemsResponseItem {
@@ -687,6 +752,9 @@ export interface SearchRelatedItemsResponseItem {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SearchRelatedItemsResponse {
   /**
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
@@ -700,6 +768,7 @@ export interface SearchRelatedItemsResponse {
 }
 
 /**
+ * @public
  * <p>A filter for fields. Only one value can be provided.</p>
  */
 export type FieldFilter =
@@ -711,6 +780,9 @@ export type FieldFilter =
   | FieldFilter.LessThanOrEqualToMember
   | FieldFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FieldFilter {
   /**
    * <p>Object containing field identifier and value information.</p>
@@ -821,12 +893,16 @@ export namespace FieldFilter {
   };
 }
 
+/**
+ * @public
+ */
 export enum Order {
   ASCENDING = "Asc",
   DESCENDING = "Desc",
 }
 
 /**
+ * @public
  * <p>A structured set of sort terms.</p>
  */
 export interface Sort {
@@ -842,6 +918,7 @@ export interface Sort {
 }
 
 /**
+ * @public
  * <p>A list of items that represent cases.</p>
  */
 export interface SearchCasesResponseItem {
@@ -866,6 +943,9 @@ export interface SearchCasesResponseItem {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SearchCasesResponse {
   /**
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
@@ -879,6 +959,9 @@ export interface SearchCasesResponse {
   cases: SearchCasesResponseItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCaseRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -897,8 +980,14 @@ export interface UpdateCaseRequest {
   fields: FieldValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCaseResponse {}
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>The name for your Cases domain. It must be unique for your Amazon Web Services
@@ -907,12 +996,18 @@ export interface CreateDomainRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DomainStatus {
   ACTIVE = "Active",
   CREATION_FAILED = "CreationFailed",
   CREATION_IN_PROGRESS = "CreationInProgress",
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResponse {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -930,6 +1025,9 @@ export interface CreateDomainResponse {
   domainStatus: DomainStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -937,8 +1035,14 @@ export interface DeleteDomainRequest {
   domainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainResponse {}
 
+/**
+ * @public
+ */
 export interface GetCaseEventConfigurationRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -947,6 +1051,7 @@ export interface GetCaseEventConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Details of what case data is published through the case event stream.</p>
  */
 export interface CaseEventIncludedData {
@@ -957,6 +1062,7 @@ export interface CaseEventIncludedData {
 }
 
 /**
+ * @public
  * <p>Details of what related item data is published through the case event stream.</p>
  */
 export interface RelatedItemEventIncludedData {
@@ -967,6 +1073,7 @@ export interface RelatedItemEventIncludedData {
 }
 
 /**
+ * @public
  * <p>Details of what case and related item data is published through the case event
  *       stream.</p>
  */
@@ -983,6 +1090,7 @@ export interface EventIncludedData {
 }
 
 /**
+ * @public
  * <p>Configuration to enable EventBridge case event delivery and determine what data is
  *       delivered.</p>
  */
@@ -999,6 +1107,9 @@ export interface EventBridgeConfiguration {
   includedData?: EventIncludedData;
 }
 
+/**
+ * @public
+ */
 export interface GetCaseEventConfigurationResponse {
   /**
    * <p>Configuration to enable EventBridge case event delivery and determine what data is
@@ -1007,6 +1118,9 @@ export interface GetCaseEventConfigurationResponse {
   eventBridge: EventBridgeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1014,6 +1128,9 @@ export interface GetDomainRequest {
   domainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainResponse {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1046,6 +1163,9 @@ export interface GetDomainResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -1060,6 +1180,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p>Object for the summarized details of the domain.</p>
  */
 export interface DomainSummary {
@@ -1079,6 +1200,9 @@ export interface DomainSummary {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>The Cases domain.</p>
@@ -1091,6 +1215,9 @@ export interface ListDomainsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutCaseEventConfigurationRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1104,8 +1231,14 @@ export interface PutCaseEventConfigurationRequest {
   eventBridge: EventBridgeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutCaseEventConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface BatchGetFieldRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1119,6 +1252,7 @@ export interface BatchGetFieldRequest {
 }
 
 /**
+ * @public
  * <p>Object for errors on fields.</p>
  */
 export interface FieldError {
@@ -1138,11 +1272,17 @@ export interface FieldError {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum FieldNamespace {
   CUSTOM = "Custom",
   SYSTEM = "System",
 }
 
+/**
+ * @public
+ */
 export enum FieldType {
   BOOLEAN = "Boolean",
   DATE_TIME = "DateTime",
@@ -1152,6 +1292,7 @@ export enum FieldType {
 }
 
 /**
+ * @public
  * <p>Object to store detailed field information.</p>
  */
 export interface GetFieldResponse {
@@ -1191,6 +1332,9 @@ export interface GetFieldResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetFieldResponse {
   /**
    * <p>A list of detailed field information. </p>
@@ -1204,6 +1348,7 @@ export interface BatchGetFieldResponse {
 }
 
 /**
+ * @public
  * <p>Object for field Options information.</p>
  */
 export interface FieldOption {
@@ -1226,6 +1371,9 @@ export interface FieldOption {
   active: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutFieldOptionsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1244,6 +1392,7 @@ export interface BatchPutFieldOptionsRequest {
 }
 
 /**
+ * @public
  * <p>Object for field Options errors.</p>
  */
 export interface FieldOptionError {
@@ -1263,6 +1412,9 @@ export interface FieldOptionError {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutFieldOptionsResponse {
   /**
    * <p>A list of field errors. </p>
@@ -1270,6 +1422,9 @@ export interface BatchPutFieldOptionsResponse {
   errors?: FieldOptionError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1292,6 +1447,9 @@ export interface CreateFieldRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldResponse {
   /**
    * <p>The unique identifier of a field.</p>
@@ -1304,6 +1462,9 @@ export interface CreateFieldResponse {
   fieldArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldOptionsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1333,6 +1494,9 @@ export interface ListFieldOptionsRequest {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListFieldOptionsResponse {
   /**
    * <p>A list of <code>FieldOption</code> objects.</p>
@@ -1345,6 +1509,9 @@ export interface ListFieldOptionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1364,6 +1531,7 @@ export interface ListFieldsRequest {
 }
 
 /**
+ * @public
  * <p>Object for the summarized details of the field.</p>
  */
 export interface FieldSummary {
@@ -1393,6 +1561,9 @@ export interface FieldSummary {
   namespace: FieldNamespace | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldsResponse {
   /**
    * <p>List of detailed field information.</p>
@@ -1405,6 +1576,9 @@ export interface ListFieldsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1427,9 +1601,13 @@ export interface UpdateFieldRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldResponse {}
 
 /**
+ * @public
  * <p>Object for field related information.</p>
  */
 export interface FieldItem {
@@ -1440,6 +1618,7 @@ export interface FieldItem {
 }
 
 /**
+ * @public
  * <p>Object for a group of fields and associated properties.</p>
  */
 export interface FieldGroup {
@@ -1455,10 +1634,14 @@ export interface FieldGroup {
 }
 
 /**
+ * @public
  * <p>This represents a sections within a panel or tab of the page layout.</p>
  */
 export type Section = Section.FieldGroupMember | Section.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Section {
   /**
    * <p>Consists of a group of fields and associated properties.</p>
@@ -1485,6 +1668,7 @@ export namespace Section {
 }
 
 /**
+ * @public
  * <p>Ordered list containing different kinds of sections that can be added. A LayoutSections
  *       object can only contain one section.</p>
  */
@@ -1496,6 +1680,7 @@ export interface LayoutSections {
 }
 
 /**
+ * @public
  * <p>Content specific to <code>BasicLayout</code> type. It configures fields in the top panel
  *       and More Info tab of agent application. </p>
  */
@@ -1512,10 +1697,14 @@ export interface BasicLayout {
 }
 
 /**
+ * @public
  * <p>Object to store union of different versions of layout content.</p>
  */
 export type LayoutContent = LayoutContent.BasicMember | LayoutContent.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace LayoutContent {
   /**
    * <p>Content specific to <code>BasicLayout</code> type. It configures fields in the top panel
@@ -1542,6 +1731,9 @@ export namespace LayoutContent {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateLayoutRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1560,6 +1752,9 @@ export interface CreateLayoutRequest {
   content: LayoutContent | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLayoutResponse {
   /**
    * <p>The unique identifier of the layout.</p>
@@ -1572,6 +1767,9 @@ export interface CreateLayoutResponse {
   layoutArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayoutRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1584,6 +1782,9 @@ export interface GetLayoutRequest {
   layoutId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayoutResponse {
   /**
    * <p>The unique identifier of the layout.</p>
@@ -1612,6 +1813,9 @@ export interface GetLayoutResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListLayoutsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1631,6 +1835,7 @@ export interface ListLayoutsRequest {
 }
 
 /**
+ * @public
  * <p>Object for the summarized details of the layout.</p>
  */
 export interface LayoutSummary {
@@ -1650,6 +1855,9 @@ export interface LayoutSummary {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLayoutsResponse {
   /**
    * <p>The layouts for the domain.</p>
@@ -1662,6 +1870,9 @@ export interface ListLayoutsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLayoutRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1685,8 +1896,14 @@ export interface UpdateLayoutRequest {
   content?: LayoutContent;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLayoutResponse {}
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -1694,6 +1911,9 @@ export interface ListTagsForResourceRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
@@ -1701,6 +1921,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -1714,6 +1937,7 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>Object to store configuration of layouts associated to the template.</p>
  */
 export interface LayoutConfiguration {
@@ -1724,6 +1948,7 @@ export interface LayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>List of fields that must have a value provided to create a case.</p>
  */
 export interface RequiredField {
@@ -1733,11 +1958,17 @@ export interface RequiredField {
   fieldId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TemplateStatus {
   ACTIVE = "Active",
   INACTIVE = "Inactive",
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1771,6 +2002,9 @@ export interface CreateTemplateRequest {
   status?: TemplateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateResponse {
   /**
    * <p>A unique identifier of a template.</p>
@@ -1783,6 +2017,9 @@ export interface CreateTemplateResponse {
   templateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1795,6 +2032,9 @@ export interface GetTemplateRequest {
   templateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateResponse {
   /**
    * <p>A unique identifier of a template.</p>
@@ -1838,6 +2078,9 @@ export interface GetTemplateResponse {
   status: TemplateStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1862,6 +2105,7 @@ export interface ListTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>Template summary information.</p>
  */
 export interface TemplateSummary {
@@ -1886,6 +2130,9 @@ export interface TemplateSummary {
   status: TemplateStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesResponse {
   /**
    * <p>List of template summary objects.</p>
@@ -1898,6 +2145,9 @@ export interface ListTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1936,8 +2186,14 @@ export interface UpdateTemplateRequest {
   status?: TemplateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -1951,6 +2207,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p>A filter for cases. Only one value can be provided.</p>
  */
 export type CaseFilter =
@@ -1959,6 +2216,9 @@ export type CaseFilter =
   | CaseFilter.NotMember
   | CaseFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace CaseFilter {
   /**
    * <p>A list of fields to filter on.</p>
@@ -2012,6 +2272,9 @@ export namespace CaseFilter {
   };
 }
 
+/**
+ * @public
+ */
 export interface SearchCasesRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>

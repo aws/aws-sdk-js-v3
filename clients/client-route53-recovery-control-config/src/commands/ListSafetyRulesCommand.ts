@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSafetyRulesCommand}.
  */
 export interface ListSafetyRulesCommandInput extends ListSafetyRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSafetyRulesCommand}.
  */
 export interface ListSafetyRulesCommandOutput extends ListSafetyRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the safety rules (the assertion rules and gating rules) that you've defined for the routing controls in a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListSafetyRulesCommandOutput extends ListSafetyRulesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSafetyRulesCommandInput - {@link ListSafetyRulesCommandInput}
+ * @returns {@link ListSafetyRulesCommandOutput}
  * @see {@link ListSafetyRulesCommandInput} for command's `input` shape.
  * @see {@link ListSafetyRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListSafetyRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSafetyRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListSafetyRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSafetyRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSafetyRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSafetyRulesCommandOutput> {
     return deserializeAws_restJson1ListSafetyRulesCommand(output, context);
   }

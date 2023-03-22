@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesForWebACLCommand}.
  */
 export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesForWebACLCommand}.
  */
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that
  *          are associated with the specified web ACL. If you want the list of Amazon CloudFront resources, use
  *          the CloudFront call <code>ListDistributionsByWebACLId</code>. </p>
@@ -48,6 +53,8 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
+ * @returns {@link ListResourcesForWebACLCommandOutput}
  * @see {@link ListResourcesForWebACLCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -105,6 +112,9 @@ export class ListResourcesForWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesForWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ListResourcesForWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesForWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourcesForWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesForWebACLCommandOutput> {
     return deserializeAws_json1_1ListResourcesForWebACLCommand(output, context);
   }

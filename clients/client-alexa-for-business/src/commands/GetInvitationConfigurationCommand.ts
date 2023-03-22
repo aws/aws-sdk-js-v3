@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInvitationConfigurationCommand}.
  */
 export interface GetInvitationConfigurationCommandInput extends GetInvitationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInvitationConfigurationCommand}.
  */
 export interface GetInvitationConfigurationCommandOutput extends GetInvitationConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configured values for the user enrollment invitation email
  *          template.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInvitationConfigurationCommandInput - {@link GetInvitationConfigurationCommandInput}
+ * @returns {@link GetInvitationConfigurationCommandOutput}
  * @see {@link GetInvitationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetInvitationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetInvitationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInvitationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetInvitationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInvitationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInvitationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpnConnectionRouteCommand}.
  */
 export interface CreateVpnConnectionRouteCommandInput extends CreateVpnConnectionRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpnConnectionRouteCommand}.
  */
 export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a static route associated with a VPN connection between an existing virtual
  *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
  *             from the virtual private gateway to the VPN customer gateway.</p>
@@ -45,6 +50,8 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpnConnectionRouteCommandInput - {@link CreateVpnConnectionRouteCommandInput}
+ * @returns {@link CreateVpnConnectionRouteCommandOutput}
  * @see {@link CreateVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link CreateVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class CreateVpnConnectionRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpnConnectionRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class CreateVpnConnectionRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpnConnectionRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVpnConnectionRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpnConnectionRouteCommandOutput> {
     return deserializeAws_ec2CreateVpnConnectionRouteCommand(output, context);
   }

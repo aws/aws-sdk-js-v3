@@ -45,6 +45,7 @@ import {
 import { SavingsplansClient } from "./SavingsplansClient";
 
 /**
+ * @public
  * <p>Savings Plans are a pricing model that offer significant savings on AWS usage (for
  *         example, on Amazon EC2 instances). You commit to a consistent amount of usage, in USD
  *         per hour, for a term of 1 or 3 years, and receive a lower price for that usage. For
@@ -52,6 +53,7 @@ import { SavingsplansClient } from "./SavingsplansClient";
  */
 export class Savingsplans extends SavingsplansClient {
   /**
+   * @public
    * <p>Creates a Savings Plan.</p>
    */
   public createSavingsPlan(
@@ -84,6 +86,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Deletes the queued purchase for the specified Savings Plan.</p>
    */
   public deleteQueuedSavingsPlan(
@@ -116,6 +119,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified Savings Plans rates.</p>
    */
   public describeSavingsPlanRates(
@@ -148,6 +152,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified Savings Plans.</p>
    */
   public describeSavingsPlans(
@@ -180,6 +185,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified Savings Plans offering rates.</p>
    */
   public describeSavingsPlansOfferingRates(
@@ -212,6 +218,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified Savings Plans offerings.</p>
    */
   public describeSavingsPlansOfferings(
@@ -244,6 +251,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -276,6 +284,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -302,6 +311,7 @@ export class Savingsplans extends SavingsplansClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(

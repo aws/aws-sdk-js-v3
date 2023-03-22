@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVpcAttachmentCommand}.
  */
 export interface GetVpcAttachmentCommandInput extends GetVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVpcAttachmentCommand}.
  */
 export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpcAttachmentCommandInput - {@link GetVpcAttachmentCommandInput}
+ * @returns {@link GetVpcAttachmentCommandOutput}
  * @see {@link GetVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVpcAttachmentCommandOutput> {
     return deserializeAws_restJson1GetVpcAttachmentCommand(output, context);
   }

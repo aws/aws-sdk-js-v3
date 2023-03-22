@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListLoggingConfigurationsCommand}.
  */
 export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLoggingConfigurationsCommand}.
  */
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of your <a>LoggingConfiguration</a> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLoggingConfigurationsCommandInput - {@link ListLoggingConfigurationsCommandInput}
+ * @returns {@link ListLoggingConfigurationsCommandOutput}
  * @see {@link ListLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -97,6 +104,9 @@ export class ListLoggingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLoggingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListLoggingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLoggingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLoggingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

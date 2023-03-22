@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLaunchesCommand}.
  */
 export interface ListLaunchesCommandInput extends ListLaunchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLaunchesCommand}.
  */
 export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration details about all the launches in the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLaunchesCommandInput - {@link ListLaunchesCommandInput}
+ * @returns {@link ListLaunchesCommandOutput}
  * @see {@link ListLaunchesCommandInput} for command's `input` shape.
  * @see {@link ListLaunchesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListLaunchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLaunchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListLaunchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLaunchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLaunchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchesCommandOutput> {
     return deserializeAws_restJson1ListLaunchesCommand(output, context);
   }

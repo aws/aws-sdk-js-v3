@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateBackendAPIModelsCommand}.
  */
 export interface GenerateBackendAPIModelsCommandInput extends GenerateBackendAPIModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateBackendAPIModelsCommand}.
  */
 export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a model schema for an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAP
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateBackendAPIModelsCommandInput - {@link GenerateBackendAPIModelsCommandInput}
+ * @returns {@link GenerateBackendAPIModelsCommandOutput}
  * @see {@link GenerateBackendAPIModelsCommandInput} for command's `input` shape.
  * @see {@link GenerateBackendAPIModelsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class GenerateBackendAPIModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateBackendAPIModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GenerateBackendAPIModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateBackendAPIModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GenerateBackendAPIModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateBackendAPIModelsCommandOutput> {
     return deserializeAws_restJson1GenerateBackendAPIModelsCommand(output, context);
   }

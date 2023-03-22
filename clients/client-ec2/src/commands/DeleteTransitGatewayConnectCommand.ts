@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayConnectCommand}.
  */
 export interface DeleteTransitGatewayConnectCommandInput extends DeleteTransitGatewayConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayConnectCommand}.
  */
 export interface DeleteTransitGatewayConnectCommandOutput extends DeleteTransitGatewayConnectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Connect attachment. You must first delete any Connect peers for
  *             the attachment.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTransitGatewayConnectCommandOutput extends DeleteTransitG
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayConnectCommandInput - {@link DeleteTransitGatewayConnectCommandInput}
+ * @returns {@link DeleteTransitGatewayConnectCommandOutput}
  * @see {@link DeleteTransitGatewayConnectCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayConnectCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteTransitGatewayConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteTransitGatewayConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTransitGatewayConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTransitGatewayConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

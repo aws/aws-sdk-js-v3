@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDocumentStatusCommand}.
  */
 export interface BatchGetDocumentStatusCommandInput extends BatchGetDocumentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDocumentStatusCommand}.
  */
 export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the indexing status for one or more documents submitted
  *             with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
  *                 BatchPutDocument</a> API.</p>
@@ -58,6 +63,8 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDocumentStatusCommandInput - {@link BatchGetDocumentStatusCommandInput}
+ * @returns {@link BatchGetDocumentStatusCommandOutput}
  * @see {@link BatchGetDocumentStatusCommandInput} for command's `input` shape.
  * @see {@link BatchGetDocumentStatusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -105,6 +112,9 @@ export class BatchGetDocumentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDocumentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class BatchGetDocumentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDocumentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDocumentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDocumentStatusCommandOutput> {
     return deserializeAws_json1_1BatchGetDocumentStatusCommand(output, context);
   }

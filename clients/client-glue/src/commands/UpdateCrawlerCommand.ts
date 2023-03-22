@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCrawlerCommand}.
  */
 export interface UpdateCrawlerCommandInput extends UpdateCrawlerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCrawlerCommand}.
  */
 export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a crawler. If a crawler is
  *       running, you must stop it using <code>StopCrawler</code> before updating
  *       it.</p>
@@ -48,6 +53,8 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCrawlerCommandInput - {@link UpdateCrawlerCommandInput}
+ * @returns {@link UpdateCrawlerCommandOutput}
  * @see {@link UpdateCrawlerCommandInput} for command's `input` shape.
  * @see {@link UpdateCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCrawlerCommandOutput> {
     return deserializeAws_json1_1UpdateCrawlerCommand(output, context);
   }

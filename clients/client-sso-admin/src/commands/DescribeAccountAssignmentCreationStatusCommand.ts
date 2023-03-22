@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountAssignmentCreationStatusCommand}.
  */
 export interface DescribeAccountAssignmentCreationStatusCommandInput
   extends DescribeAccountAssignmentCreationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountAssignmentCreationStatusCommand}.
  */
 export interface DescribeAccountAssignmentCreationStatusCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAccountAssignmentCreationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the assignment creation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeAccountAssignmentCreationStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAssignmentCreationStatusCommandInput - {@link DescribeAccountAssignmentCreationStatusCommandInput}
+ * @returns {@link DescribeAccountAssignmentCreationStatusCommandOutput}
  * @see {@link DescribeAccountAssignmentCreationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAssignmentCreationStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeAccountAssignmentCreationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAssignmentCreationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeAccountAssignmentCreationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAccountAssignmentCreationStatusCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeAccountAssignmentCreationStatusCommand extends $Command<
     return serializeAws_json1_1DescribeAccountAssignmentCreationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

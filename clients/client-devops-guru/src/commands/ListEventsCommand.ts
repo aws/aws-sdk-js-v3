@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventsCommand}.
  */
 export interface ListEventsCommandInput extends ListEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventsCommand}.
  */
 export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of the events emitted by the resources that are evaluated by DevOps Guru.
  * 			You can use filters to specify which events are returned. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventsCommandInput - {@link ListEventsCommandInput}
+ * @returns {@link ListEventsCommandOutput}
  * @see {@link ListEventsCommandInput} for command's `input` shape.
  * @see {@link ListEventsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventsCommandOutput> {
     return deserializeAws_restJson1ListEventsCommand(output, context);
   }

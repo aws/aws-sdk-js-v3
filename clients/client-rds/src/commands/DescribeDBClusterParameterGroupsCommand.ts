@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterParameterGroupsCommand}.
  */
 export interface DescribeDBClusterParameterGroupsCommandInput extends DescribeDBClusterParameterGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterParameterGroupsCommand}.
  */
 export interface DescribeDBClusterParameterGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
  *             <code>DBClusterParameterGroupName</code> parameter is specified,
  *             the list will contain only the description of the specified DB cluster parameter group.</p>
@@ -56,6 +61,8 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
+ * @returns {@link DescribeDBClusterParameterGroupsCommandOutput}
  * @see {@link DescribeDBClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBClusterParameterGroupsCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     return serializeAws_queryDescribeDBClusterParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

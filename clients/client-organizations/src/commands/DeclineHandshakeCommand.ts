@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeclineHandshakeCommand}.
  */
 export interface DeclineHandshakeCommandInput extends DeclineHandshakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeclineHandshakeCommand}.
  */
 export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code>
  *             and effectively deactivates the request.</p>
  *          <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
@@ -52,6 +57,8 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeclineHandshakeCommandInput - {@link DeclineHandshakeCommandInput}
+ * @returns {@link DeclineHandshakeCommandOutput}
  * @see {@link DeclineHandshakeCommandInput} for command's `input` shape.
  * @see {@link DeclineHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -270,6 +277,9 @@ export class DeclineHandshakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeclineHandshakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -309,10 +319,16 @@ export class DeclineHandshakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeclineHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeclineHandshakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineHandshakeCommandOutput> {
     return deserializeAws_json1_1DeclineHandshakeCommand(output, context);
   }

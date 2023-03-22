@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTestGridSessionCommand}.
  */
 export interface GetTestGridSessionCommandInput extends GetTestGridSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTestGridSessionCommand}.
  */
 export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>
  *          <ul>
  *             <li>
@@ -55,6 +60,8 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTestGridSessionCommandInput - {@link GetTestGridSessionCommandInput}
+ * @returns {@link GetTestGridSessionCommandOutput}
  * @see {@link GetTestGridSessionCommandInput} for command's `input` shape.
  * @see {@link GetTestGridSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetTestGridSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTestGridSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetTestGridSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTestGridSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTestGridSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestGridSessionCommandOutput> {
     return deserializeAws_json1_1GetTestGridSessionCommand(output, context);
   }

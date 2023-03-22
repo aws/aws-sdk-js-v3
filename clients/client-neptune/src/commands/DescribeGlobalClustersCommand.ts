@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGlobalClustersCommand}.
  */
 export interface DescribeGlobalClustersCommandInput extends DescribeGlobalClustersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGlobalClustersCommand}.
  */
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Neptune global database clusters. This API
  *       supports pagination.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
+ * @returns {@link DescribeGlobalClustersCommandOutput}
  * @see {@link DescribeGlobalClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalClustersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeGlobalClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeGlobalClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeGlobalClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalClustersCommandOutput> {
     return deserializeAws_queryDescribeGlobalClustersCommand(output, context);
   }

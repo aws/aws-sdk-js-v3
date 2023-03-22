@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStackCommand}.
  */
 export interface DeleteStackCommandInput extends DeleteStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStackCommand}.
  */
 export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
+ * @returns {@link DeleteStackCommandOutput}
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackCommandOutput> {
     return deserializeAws_json1_1DeleteStackCommand(output, context);
   }

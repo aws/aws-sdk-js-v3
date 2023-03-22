@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutSolNetworkPackageContentCommand}.
  */
 export interface PutSolNetworkPackageContentCommandInput extends PutSolNetworkPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link PutSolNetworkPackageContentCommand}.
  */
 export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkPackageContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads the contents of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSolNetworkPackageContentCommandInput - {@link PutSolNetworkPackageContentCommandInput}
+ * @returns {@link PutSolNetworkPackageContentCommandOutput}
  * @see {@link PutSolNetworkPackageContentCommandInput} for command's `input` shape.
  * @see {@link PutSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutSolNetworkPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSolNetworkPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutSolNetworkPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSolNetworkPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSolNetworkPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

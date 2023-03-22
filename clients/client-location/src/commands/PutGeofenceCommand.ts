@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutGeofenceCommand}.
  */
 export interface PutGeofenceCommandInput extends PutGeofenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutGeofenceCommand}.
  */
 export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores a geofence geometry in a given geofence collection, or updates the geometry of
  *             an existing geofence if a geofence ID is included in the request. </p>
  * @example
@@ -47,6 +52,8 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutGeofenceCommandInput - {@link PutGeofenceCommandInput}
+ * @returns {@link PutGeofenceCommandOutput}
  * @see {@link PutGeofenceCommandInput} for command's `input` shape.
  * @see {@link PutGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutGeofenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutGeofenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutGeofenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutGeofenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutGeofenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGeofenceCommandOutput> {
     return deserializeAws_restJson1PutGeofenceCommand(output, context);
   }

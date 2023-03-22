@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchSnoozeAlarmCommand}.
  */
 export interface BatchSnoozeAlarmCommandInput extends BatchSnoozeAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchSnoozeAlarmCommand}.
  */
 export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes one or more alarms to the snooze mode. The alarms change to the
  *         <code>SNOOZE_DISABLED</code> state after you set them to the snooze mode.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchSnoozeAlarmCommandInput - {@link BatchSnoozeAlarmCommandInput}
+ * @returns {@link BatchSnoozeAlarmCommandOutput}
  * @see {@link BatchSnoozeAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchSnoozeAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchSnoozeAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchSnoozeAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchSnoozeAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchSnoozeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchSnoozeAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchSnoozeAlarmCommandOutput> {
     return deserializeAws_restJson1BatchSnoozeAlarmCommand(output, context);
   }

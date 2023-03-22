@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutCoreNetworkPolicyCommand}.
  */
 export interface PutCoreNetworkPolicyCommandInput extends PutCoreNetworkPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutCoreNetworkPolicyCommand}.
  */
 export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and the submitted policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCoreNetworkPolicyCommandInput - {@link PutCoreNetworkPolicyCommandInput}
+ * @returns {@link PutCoreNetworkPolicyCommandOutput}
  * @see {@link PutCoreNetworkPolicyCommandInput} for command's `input` shape.
  * @see {@link PutCoreNetworkPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class PutCoreNetworkPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCoreNetworkPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class PutCoreNetworkPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCoreNetworkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutCoreNetworkPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCoreNetworkPolicyCommandOutput> {
     return deserializeAws_restJson1PutCoreNetworkPolicyCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagSAMLProviderCommand}.
  */
 export interface UntagSAMLProviderCommandInput extends UntagSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagSAMLProviderCommand}.
  */
 export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the specified Security Assertion Markup Language (SAML)
  *       identity provider in IAM. For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity
  *         federation</a>. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
@@ -44,6 +49,8 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagSAMLProviderCommandInput - {@link UntagSAMLProviderCommandInput}
+ * @returns {@link UntagSAMLProviderCommandOutput}
  * @see {@link UntagSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link UntagSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -83,6 +90,9 @@ export class UntagSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UntagSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagSAMLProviderCommandOutput> {
     return deserializeAws_queryUntagSAMLProviderCommand(output, context);
   }

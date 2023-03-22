@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterPackageVersionCommand}.
  */
 export interface DeregisterPackageVersionCommandInput extends DeregisterPackageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterPackageVersionCommand}.
  */
 export interface DeregisterPackageVersionCommandOutput extends DeregisterPackageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a package version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterPackageVersionCommandInput - {@link DeregisterPackageVersionCommandInput}
+ * @returns {@link DeregisterPackageVersionCommandOutput}
  * @see {@link DeregisterPackageVersionCommandInput} for command's `input` shape.
  * @see {@link DeregisterPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeregisterPackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterPackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeregisterPackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterPackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterPackageVersionCommandOutput> {
     return deserializeAws_restJson1DeregisterPackageVersionCommand(output, context);
   }

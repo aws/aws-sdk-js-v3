@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventSelectorsCommand}.
  */
 export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventSelectorsCommand}.
  */
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings for the event selectors that you configured for your trail. The
  *          information returned for your event selectors includes the following:</p>
  *          <ul>
@@ -74,6 +79,8 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventSelectorsCommandInput - {@link GetEventSelectorsCommandInput}
+ * @returns {@link GetEventSelectorsCommandOutput}
  * @see {@link GetEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetEventSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -147,6 +154,9 @@ export class GetEventSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class GetEventSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEventSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventSelectorsCommandOutput> {
     return deserializeAws_json1_1GetEventSelectorsCommand(output, context);
   }

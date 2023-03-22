@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVirtualNodeCommand}.
  */
 export interface CreateVirtualNodeCommandInput extends CreateVirtualNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVirtualNodeCommand}.
  */
 export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual node within a service mesh.</p>
  *          <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS service or a Kubernetes deployment. When you create a virtual node, you can
  *          specify the service discovery information for your task group, and whether the proxy
@@ -69,6 +74,8 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualNodeCommandInput - {@link CreateVirtualNodeCommandInput}
+ * @returns {@link CreateVirtualNodeCommandOutput}
  * @see {@link CreateVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -121,6 +128,9 @@ export class CreateVirtualNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class CreateVirtualNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVirtualNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualNodeCommandOutput> {
     return deserializeAws_restJson1CreateVirtualNodeCommand(output, context);
   }

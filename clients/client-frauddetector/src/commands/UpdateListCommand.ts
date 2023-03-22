@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateListCommand}.
  */
 export interface UpdateListCommandInput extends UpdateListRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateListCommand}.
  */
 export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Updates a list.
  *         </p>
@@ -48,6 +53,8 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateListCommandInput - {@link UpdateListCommandInput}
+ * @returns {@link UpdateListCommandOutput}
  * @see {@link UpdateListCommandInput} for command's `input` shape.
  * @see {@link UpdateListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateListCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateListCommandOutput> {
     return deserializeAws_json1_1UpdateListCommand(output, context);
   }

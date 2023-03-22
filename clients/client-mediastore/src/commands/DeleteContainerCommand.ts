@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerCommand}.
  */
 export interface DeleteContainerCommandInput extends DeleteContainerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerCommand}.
  */
 export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>
  *          request, delete any objects in the container or in any folders in the container. You can
  *          delete only empty containers. </p>
@@ -48,6 +53,8 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerCommandInput - {@link DeleteContainerCommandInput}
+ * @returns {@link DeleteContainerCommandOutput}
  * @see {@link DeleteContainerCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteContainerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteContainerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContainerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerCommandOutput> {
     return deserializeAws_json1_1DeleteContainerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheSecurityGroupsCommand}.
  */
 export interface DescribeCacheSecurityGroupsCommandInput extends DescribeCacheSecurityGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheSecurityGroupsCommand}.
  */
 export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of cache security group
  *             descriptions. If a cache security group name is specified, the list contains only
  *             the description of that group. This applicable only when you have ElastiCache in Classic setup
@@ -49,6 +54,8 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheSecurityGroupsCommandInput - {@link DescribeCacheSecurityGroupsCommandInput}
+ * @returns {@link DescribeCacheSecurityGroupsCommandOutput}
  * @see {@link DescribeCacheSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

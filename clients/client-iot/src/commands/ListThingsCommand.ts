@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingsCommand}.
  */
 export interface ListThingsCommandInput extends ListThingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingsCommand}.
  */
 export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example,
  * 			calling <code>ListThings</code> with attributeName=Color and attributeValue=Red
  * 			retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. For more
@@ -54,6 +59,8 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingsCommandInput - {@link ListThingsCommandInput}
+ * @returns {@link ListThingsCommandOutput}
  * @see {@link ListThingsCommandInput} for command's `input` shape.
  * @see {@link ListThingsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListThingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListThingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingsCommandOutput> {
     return deserializeAws_restJson1ListThingsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceLogLevelCommand}.
  */
 export interface GetResourceLogLevelCommandInput extends GetResourceLogLevelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceLogLevelCommand}.
  */
 export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the log-level override, if any, for a given resource-ID and resource-type. It can be used for
  *             a wireless device or a wireless gateway.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceLogLevelCommandInput - {@link GetResourceLogLevelCommandInput}
+ * @returns {@link GetResourceLogLevelCommandOutput}
  * @see {@link GetResourceLogLevelCommandInput} for command's `input` shape.
  * @see {@link GetResourceLogLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetResourceLogLevelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceLogLevelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetResourceLogLevelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceLogLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourceLogLevelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceLogLevelCommandOutput> {
     return deserializeAws_restJson1GetResourceLogLevelCommand(output, context);
   }

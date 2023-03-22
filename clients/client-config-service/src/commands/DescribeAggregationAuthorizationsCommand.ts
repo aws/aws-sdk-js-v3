@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAggregationAuthorizationsCommand}.
  */
 export interface DescribeAggregationAuthorizationsCommandInput extends DescribeAggregationAuthorizationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAggregationAuthorizationsCommand}.
  */
 export interface DescribeAggregationAuthorizationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAggregationAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of authorizations granted to various aggregator
  * 			accounts and regions.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregationAuthorizationsCommandInput - {@link DescribeAggregationAuthorizationsCommandInput}
+ * @returns {@link DescribeAggregationAuthorizationsCommandOutput}
  * @see {@link DescribeAggregationAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregationAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregationAuthorizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAggregationAuthorizationsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     return serializeAws_json1_1DescribeAggregationAuthorizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

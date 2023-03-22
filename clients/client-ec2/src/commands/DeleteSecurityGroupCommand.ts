@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecurityGroupCommand}.
  */
 export interface DeleteSecurityGroupCommandInput extends DeleteSecurityGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecurityGroupCommand}.
  */
 export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a security group.</p>
  *          <p>If you attempt to delete a security group that is associated with an instance, or is
  * 			  referenced by another security group, the operation fails with
@@ -48,6 +53,8 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityGroupCommandInput - {@link DeleteSecurityGroupCommandInput}
+ * @returns {@link DeleteSecurityGroupCommandOutput}
  * @see {@link DeleteSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityGroupCommandOutput> {
     return deserializeAws_ec2DeleteSecurityGroupCommand(output, context);
   }

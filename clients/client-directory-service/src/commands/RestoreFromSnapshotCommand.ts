@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreFromSnapshotCommand}.
  */
 export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreFromSnapshotCommand}.
  */
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a directory using an existing directory snapshot.</p>
  *          <p>When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.</p>
  *          <p>This action returns as soon as the restore operation is initiated. You can monitor the
@@ -51,6 +56,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
+ * @returns {@link RestoreFromSnapshotCommandOutput}
  * @see {@link RestoreFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -86,6 +93,9 @@ export class RestoreFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class RestoreFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreFromSnapshotCommandOutput> {
     return deserializeAws_json1_1RestoreFromSnapshotCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClusterCommand}.
  */
 export interface GetClusterCommandInput extends GetClusterInput {}
 /**
+ * @public
+ *
  * The output of {@link GetClusterCommand}.
  */
 export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific Elastic DocumentDB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterCommandInput - {@link GetClusterCommandInput}
+ * @returns {@link GetClusterCommandOutput}
  * @see {@link GetClusterCommandInput} for command's `input` shape.
  * @see {@link GetClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCommandOutput> {
     return deserializeAws_restJson1GetClusterCommand(output, context);
   }

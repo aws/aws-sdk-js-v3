@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandInput extends ListComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of components that can be filtered by name, or by using
  * 			the listed <code>filters</code> to streamline results. Newly created components
  * 			can take up to two minutes to appear in the ListComponents API Results.</p>
@@ -57,6 +62,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
+ * @returns {@link ListComponentsCommandOutput}
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -103,6 +110,9 @@ export class ListComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ListComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentsCommandOutput> {
     return deserializeAws_restJson1ListComponentsCommand(output, context);
   }

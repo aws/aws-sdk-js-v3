@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetTimeBasedAutoScalingCommand}.
  */
 export interface SetTimeBasedAutoScalingCommandInput extends SetTimeBasedAutoScalingRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetTimeBasedAutoScalingCommand}.
  */
 export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the time-based auto scaling configuration for a specified instance. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
  *         Load with Time-based and Load-based Instances</a>.</p>
@@ -48,6 +53,8 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTimeBasedAutoScalingCommandInput - {@link SetTimeBasedAutoScalingCommandInput}
+ * @returns {@link SetTimeBasedAutoScalingCommandOutput}
  * @see {@link SetTimeBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link SetTimeBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTimeBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTimeBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetTimeBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTimeBasedAutoScalingCommandOutput> {
     return deserializeAws_json1_1SetTimeBasedAutoScalingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCachePolicyCommand}.
  */
 export interface CreateCachePolicyCommandInput extends CreateCachePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCachePolicyCommand}.
  */
 export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cache policy.</p>
  *          <p>After you create a cache policy, you can attach it to one or more cache behaviors.
  * 			When it's attached to a cache behavior, the cache policy determines the
@@ -68,6 +73,8 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCachePolicyCommandInput - {@link CreateCachePolicyCommandInput}
+ * @returns {@link CreateCachePolicyCommandOutput}
  * @see {@link CreateCachePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -125,6 +132,9 @@ export class CreateCachePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCachePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class CreateCachePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCachePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateCachePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCachePolicyCommandOutput> {
     return deserializeAws_restXmlCreateCachePolicyCommand(output, context);
   }

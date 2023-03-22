@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableSecurityHubCommand}.
  */
 export interface DisableSecurityHubCommandInput extends DisableSecurityHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableSecurityHubCommand}.
  */
 export interface DisableSecurityHubCommandOutput extends DisableSecurityHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all
  *          Regions, you must submit one request per Region where you have enabled Security Hub.</p>
  *          <p>When you disable Security Hub for an administrator account, it doesn't disable Security Hub for any associated
@@ -54,6 +59,8 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSecurityHubCommandInput - {@link DisableSecurityHubCommandInput}
+ * @returns {@link DisableSecurityHubCommandOutput}
  * @see {@link DisableSecurityHubCommandInput} for command's `input` shape.
  * @see {@link DisableSecurityHubCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -90,6 +97,9 @@ export class DisableSecurityHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSecurityHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DisableSecurityHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableSecurityHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableSecurityHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableSecurityHubCommandOutput> {
     return deserializeAws_restJson1DisableSecurityHubCommand(output, context);
   }

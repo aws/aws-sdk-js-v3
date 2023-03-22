@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSolNetworkOperationCommand}.
  */
 export interface CancelSolNetworkOperationCommandInput extends CancelSolNetworkOperationInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelSolNetworkOperationCommand}.
  */
 export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a network operation.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @example
@@ -42,6 +47,8 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSolNetworkOperationCommandInput - {@link CancelSolNetworkOperationCommandInput}
+ * @returns {@link CancelSolNetworkOperationCommandOutput}
  * @see {@link CancelSolNetworkOperationCommandInput} for command's `input` shape.
  * @see {@link CancelSolNetworkOperationCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -80,6 +87,9 @@ export class CancelSolNetworkOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSolNetworkOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CancelSolNetworkOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSolNetworkOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelSolNetworkOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

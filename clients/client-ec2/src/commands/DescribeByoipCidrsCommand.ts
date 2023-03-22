@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeByoipCidrsCommand}.
  */
 export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeByoipCidrsCommand}.
  */
 export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>
  *          <p>To describe the address pools that were created when you provisioned the address
  *           ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeByoipCidrsCommandInput - {@link DescribeByoipCidrsCommandInput}
+ * @returns {@link DescribeByoipCidrsCommandOutput}
  * @see {@link DescribeByoipCidrsCommandInput} for command's `input` shape.
  * @see {@link DescribeByoipCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeByoipCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeByoipCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeByoipCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeByoipCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeByoipCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeByoipCidrsCommandOutput> {
     return deserializeAws_ec2DescribeByoipCidrsCommand(output, context);
   }

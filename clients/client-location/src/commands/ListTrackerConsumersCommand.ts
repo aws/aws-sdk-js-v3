@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrackerConsumersCommand}.
  */
 export interface ListTrackerConsumersCommandInput extends ListTrackerConsumersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrackerConsumersCommand}.
  */
 export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists geofence collections currently associated to the given tracker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrackerConsumersCommandInput - {@link ListTrackerConsumersCommandInput}
+ * @returns {@link ListTrackerConsumersCommandOutput}
  * @see {@link ListTrackerConsumersCommandInput} for command's `input` shape.
  * @see {@link ListTrackerConsumersCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTrackerConsumersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrackerConsumersCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListTrackerConsumersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrackerConsumersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTrackerConsumersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrackerConsumersCommandOutput> {
     return deserializeAws_restJson1ListTrackerConsumersCommand(output, context);
   }

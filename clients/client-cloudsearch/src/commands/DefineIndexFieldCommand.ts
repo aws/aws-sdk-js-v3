@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DefineIndexFieldCommand}.
  */
 export interface DefineIndexFieldCommandInput extends DefineIndexFieldRequest {}
 /**
+ * @public
+ *
  * The output of {@link DefineIndexFieldCommand}.
  */
 export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures an <code><a>IndexField</a></code> for the search domain. Used to create new fields and modify existing ones. You must specify the name of the domain you are configuring and an index field configuration. The index field configuration specifies a unique name, the index field type, and the options you want to configure for the field. The options you can specify depend on the <code><a>IndexFieldType</a></code>. If the field exists, the new configuration replaces the old one. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DefineIndexFieldCommandInput - {@link DefineIndexFieldCommandInput}
+ * @returns {@link DefineIndexFieldCommandOutput}
  * @see {@link DefineIndexFieldCommandInput} for command's `input` shape.
  * @see {@link DefineIndexFieldCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -88,6 +95,9 @@ export class DefineIndexFieldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DefineIndexFieldCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DefineIndexFieldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DefineIndexFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDefineIndexFieldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineIndexFieldCommandOutput> {
     return deserializeAws_queryDefineIndexFieldCommand(output, context);
   }

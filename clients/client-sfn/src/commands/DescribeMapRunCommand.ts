@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMapRunCommand}.
  */
 export interface DescribeMapRunCommandInput extends DescribeMapRunInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMapRunCommand}.
  */
 export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a Map Run's configuration, progress, and results. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMapRunCommandInput - {@link DescribeMapRunCommandInput}
+ * @returns {@link DescribeMapRunCommandOutput}
  * @see {@link DescribeMapRunCommandInput} for command's `input` shape.
  * @see {@link DescribeMapRunCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeMapRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMapRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeMapRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMapRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeMapRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMapRunCommandOutput> {
     return deserializeAws_json1_0DescribeMapRunCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePoolsCommand}.
  */
 export interface DescribePoolsCommandInput extends DescribePoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePoolsCommand}.
  */
 export interface DescribePoolsCommandOutput extends DescribePoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified pools or all pools associated with your Amazon Web Services
  *             account.</p>
  *         <p>If you specify pool IDs, the output includes information for only the specified pools.
@@ -59,6 +64,8 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePoolsCommandInput - {@link DescribePoolsCommandInput}
+ * @returns {@link DescribePoolsCommandOutput}
  * @see {@link DescribePoolsCommandInput} for command's `input` shape.
  * @see {@link DescribePoolsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class DescribePoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribePoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribePoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePoolsCommandOutput> {
     return deserializeAws_json1_0DescribePoolsCommand(output, context);
   }

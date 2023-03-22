@@ -22,15 +22,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteScheduledQueryCommand}.
  */
 export interface ExecuteScheduledQueryCommandInput extends ExecuteScheduledQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteScheduledQueryCommand}.
  */
 export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> You can use this API to run a scheduled query manually. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteScheduledQueryCommandInput - {@link ExecuteScheduledQueryCommandInput}
+ * @returns {@link ExecuteScheduledQueryCommandOutput}
  * @see {@link ExecuteScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link ExecuteScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -85,6 +92,9 @@ export class ExecuteScheduledQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteScheduledQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ExecuteScheduledQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ExecuteScheduledQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteScheduledQueryCommandOutput> {
     return deserializeAws_json1_0ExecuteScheduledQueryCommand(output, context);
   }

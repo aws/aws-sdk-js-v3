@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageVersionCommand}.
  */
 export interface CreateImageVersionCommandInput extends CreateImageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageVersionCommand}.
  */
 export interface CreateImageVersionCommandOutput extends CreateImageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
  *         represents the Amazon Elastic Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageVersionCommandInput - {@link CreateImageVersionCommandInput}
+ * @returns {@link CreateImageVersionCommandOutput}
  * @see {@link CreateImageVersionCommandInput} for command's `input` shape.
  * @see {@link CreateImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateImageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateImageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateImageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageVersionCommandOutput> {
     return deserializeAws_json1_1CreateImageVersionCommand(output, context);
   }

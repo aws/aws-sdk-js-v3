@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuiteDefinitionsCommand}.
  */
 export interface ListSuiteDefinitionsCommandInput extends ListSuiteDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuiteDefinitionsCommand}.
  */
 export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Advisor test suites you have created.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteDefinitions</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuiteDefinitionsCommandInput - {@link ListSuiteDefinitionsCommandInput}
+ * @returns {@link ListSuiteDefinitionsCommandOutput}
  * @see {@link ListSuiteDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSuiteDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListSuiteDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuiteDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListSuiteDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSuiteDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSuiteDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSuiteDefinitionsCommandOutput> {
     return deserializeAws_restJson1ListSuiteDefinitionsCommand(output, context);
   }

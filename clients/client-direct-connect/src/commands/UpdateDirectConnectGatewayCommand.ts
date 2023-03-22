@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDirectConnectGatewayCommand}.
  */
 export interface UpdateDirectConnectGatewayCommandInput extends UpdateDirectConnectGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDirectConnectGatewayCommand}.
  */
 export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectConnectGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of a current Direct Connect gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDirectConnectGatewayCommandInput - {@link UpdateDirectConnectGatewayCommandInput}
+ * @returns {@link UpdateDirectConnectGatewayCommandOutput}
  * @see {@link UpdateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDirectConnectGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDirectConnectGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

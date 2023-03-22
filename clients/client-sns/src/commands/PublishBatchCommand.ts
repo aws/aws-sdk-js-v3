@@ -23,15 +23,20 @@ import { deserializeAws_queryPublishBatchCommand, serializeAws_queryPublishBatch
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PublishBatchCommand}.
  */
 export interface PublishBatchCommandInput extends PublishBatchInput {}
 /**
+ * @public
+ *
  * The output of {@link PublishBatchCommand}.
  */
 export interface PublishBatchCommandOutput extends PublishBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes up to ten messages to the specified topic. This is a batch version of
  *                 <code>Publish</code>. For FIFO topics, multiple messages within a single batch are
  *             published in the order they are sent, and messages are deduplicated within the batch and
@@ -63,6 +68,8 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishBatchCommandInput - {@link PublishBatchCommandInput}
+ * @returns {@link PublishBatchCommandOutput}
  * @see {@link PublishBatchCommandInput} for command's `input` shape.
  * @see {@link PublishBatchCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -157,6 +164,9 @@ export class PublishBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -194,10 +204,16 @@ export class PublishBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPublishBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishBatchCommandOutput> {
     return deserializeAws_queryPublishBatchCommand(output, context);
   }

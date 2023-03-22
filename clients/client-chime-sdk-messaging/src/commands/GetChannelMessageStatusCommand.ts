@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelMessageStatusCommand}.
  */
 export interface GetChannelMessageStatusCommandInput extends GetChannelMessageStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelMessageStatusCommand}.
  */
 export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to
  *          retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>
  *          <p>Messages can have any one of these statuses.</p>
@@ -83,6 +88,8 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelMessageStatusCommandInput - {@link GetChannelMessageStatusCommandInput}
+ * @returns {@link GetChannelMessageStatusCommandOutput}
  * @see {@link GetChannelMessageStatusCommandInput} for command's `input` shape.
  * @see {@link GetChannelMessageStatusCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -124,6 +131,9 @@ export class GetChannelMessageStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelMessageStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class GetChannelMessageStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelMessageStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChannelMessageStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelMessageStatusCommandOutput> {
     return deserializeAws_restJson1GetChannelMessageStatusCommand(output, context);
   }

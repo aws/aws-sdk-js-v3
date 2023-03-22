@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCommentCommand}.
  */
 export interface UpdateCommentCommandInput extends UpdateCommentInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCommentCommand}.
  */
 export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the contents of a comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCommentCommandInput - {@link UpdateCommentCommandInput}
+ * @returns {@link UpdateCommentCommandOutput}
  * @see {@link UpdateCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateCommentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCommentCommandOutput> {
     return deserializeAws_json1_1UpdateCommentCommand(output, context);
   }

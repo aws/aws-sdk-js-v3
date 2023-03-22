@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOpsMetadataCommand}.
  */
 export interface GetOpsMetadataCommandInput extends GetOpsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOpsMetadataCommand}.
  */
 export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>View operational metadata related to an application in Application Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpsMetadataCommandInput - {@link GetOpsMetadataCommandInput}
+ * @returns {@link GetOpsMetadataCommandOutput}
  * @see {@link GetOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link GetOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpsMetadataCommandOutput> {
     return deserializeAws_json1_1GetOpsMetadataCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSpotFleetRequestsCommand}.
  */
 export interface CancelSpotFleetRequestsCommandInput extends CancelSpotFleetRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelSpotFleetRequestsCommand}.
  */
 export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified Spot Fleet requests.</p>
  *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.</p>
  *          <p>You must also specify whether a canceled Spot Fleet request should terminate its instances. If you
@@ -52,6 +57,8 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSpotFleetRequestsCommandInput - {@link CancelSpotFleetRequestsCommandInput}
+ * @returns {@link CancelSpotFleetRequestsCommandOutput}
  * @see {@link CancelSpotFleetRequestsCommandInput} for command's `input` shape.
  * @see {@link CancelSpotFleetRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -125,6 +132,9 @@ export class CancelSpotFleetRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSpotFleetRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class CancelSpotFleetRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSpotFleetRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelSpotFleetRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSpotFleetRequestsCommandOutput> {
     return deserializeAws_ec2CancelSpotFleetRequestsCommand(output, context);
   }

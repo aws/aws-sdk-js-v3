@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppInstanceRetentionSettingsCommand}.
  */
 export interface PutAppInstanceRetentionSettingsCommandInput extends PutAppInstanceRetentionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppInstanceRetentionSettingsCommand}.
  */
 export interface PutAppInstanceRetentionSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains
  *          data.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppInstanceRetentionSettingsCommandInput - {@link PutAppInstanceRetentionSettingsCommandInput}
+ * @returns {@link PutAppInstanceRetentionSettingsCommandOutput}
  * @see {@link PutAppInstanceRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link PutAppInstanceRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppInstanceRetentionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAppInstanceRetentionSettingsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command<
     return serializeAws_restJson1PutAppInstanceRetentionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

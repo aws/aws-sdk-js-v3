@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationLayerAutomaticResponseCommand}.
  */
 export interface UpdateApplicationLayerAutomaticResponseCommandInput
   extends UpdateApplicationLayerAutomaticResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationLayerAutomaticResponseCommand}.
  */
 export interface UpdateApplicationLayerAutomaticResponseCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Shield Advanced automatic application layer DDoS mitigation configuration for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface UpdateApplicationLayerAutomaticResponseCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationLayerAutomaticResponseCommandInput - {@link UpdateApplicationLayerAutomaticResponseCommandInput}
+ * @returns {@link UpdateApplicationLayerAutomaticResponseCommandOutput}
  * @see {@link UpdateApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationLayerAutomaticResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApplicationLayerAutomaticResponseCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command<
     return serializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

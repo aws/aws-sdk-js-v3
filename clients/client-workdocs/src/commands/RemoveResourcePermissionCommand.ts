@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveResourcePermissionCommand}.
  */
 export interface RemoveResourcePermissionCommandInput extends RemoveResourcePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveResourcePermissionCommand}.
  */
 export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the permission for the specified principal from the specified
  *             resource.</p>
  * @example
@@ -42,6 +47,8 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveResourcePermissionCommandInput - {@link RemoveResourcePermissionCommandInput}
+ * @returns {@link RemoveResourcePermissionCommandOutput}
  * @see {@link RemoveResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -79,6 +86,9 @@ export class RemoveResourcePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class RemoveResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveResourcePermissionCommandOutput> {
     return deserializeAws_restJson1RemoveResourcePermissionCommand(output, context);
   }

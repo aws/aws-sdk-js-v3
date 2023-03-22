@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { PinpointSMSVoiceV2ServiceException as __BaseException } from "./PinpointSMSVoiceV2ServiceException";
 
+/**
+ * @public
+ */
 export enum AccessDeniedExceptionReason {
   ACCOUNT_DISABLED = "ACCOUNT_DISABLED",
   INSUFFICIENT_ACCOUNT_REPUTATION = "INSUFFICIENT_ACCOUNT_REPUTATION",
 }
 
 /**
+ * @public
  * <p>The request was denied because you don't have sufficient permissions to access the
  *             resource.</p>
  */
@@ -35,11 +39,15 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccountAttributeName {
   ACCOUNT_TIER = "ACCOUNT_TIER",
 }
 
 /**
+ * @public
  * <p>Displays the attributes associated with a single Amazon Web Services account.</p>
  */
 export interface AccountAttribute {
@@ -54,6 +62,9 @@ export interface AccountAttribute {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AccountLimitName {
   CONFIGURATION_SETS = "CONFIGURATION_SETS",
   OPT_OUT_LISTS = "OPT_OUT_LISTS",
@@ -62,6 +73,7 @@ export enum AccountLimitName {
 }
 
 /**
+ * @public
  * <p>The current resource quotas associated with an Amazon Web Services account.</p>
  */
 export interface AccountLimit {
@@ -81,6 +93,9 @@ export interface AccountLimit {
   Max: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateOriginationIdentityRequest {
   /**
    * <p>The pool to update with the new Identity. This value can be either the PoolId or
@@ -110,6 +125,9 @@ export interface AssociateOriginationIdentityRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateOriginationIdentityResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the pool that is now associated with the origination
@@ -139,6 +157,9 @@ export interface AssociateOriginationIdentityResult {
   IsoCountryCode?: string;
 }
 
+/**
+ * @public
+ */
 export enum ConflictExceptionReason {
   DELETION_PROTECTION_ENABLED = "DELETION_PROTECTION_ENABLED",
   DESTINATION_PHONE_NUMBER_NOT_VERIFIED = "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
@@ -161,6 +182,9 @@ export enum ConflictExceptionReason {
   TWO_WAY_CONFIG_MISMATCH = "TWO_WAY_CONFIG_MISMATCH",
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   ACCOUNT = "account",
   CONFIGURATION_SET = "configuration-set",
@@ -175,6 +199,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Your request has conflicting operations. This can occur if you're trying to perform
  *             more than one operation on the same resource at the same time or it could be that the
  *             requested action isn't valid for the current state or configuration of the
@@ -216,6 +241,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The API encountered an unexpected error and couldn't complete the request. You might
  *             be able to successfully issue the request again in the future.</p>
  */
@@ -244,6 +270,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A requested resource couldn't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -275,6 +302,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ServiceQuotaExceededExceptionReason {
   CONFIGURATION_SETS_PER_ACCOUNT = "CONFIGURATION_SETS_PER_ACCOUNT",
   DAILY_DESTINATION_CALL_LIMIT = "DAILY_DESTINATION_CALL_LIMIT",
@@ -292,6 +322,7 @@ export enum ServiceQuotaExceededExceptionReason {
 }
 
 /**
+ * @public
  * <p>The request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -318,6 +349,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error that occurred because too many requests were sent during a certain amount of
  *             time.</p>
  */
@@ -343,6 +375,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The field associated with the validation exception.</p>
  */
 export interface ValidationExceptionField {
@@ -358,6 +391,9 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_ADD_OPTED_OUT_NUMBER = "CANNOT_ADD_OPTED_OUT_NUMBER",
   CANNOT_PARSE = "CANNOT_PARSE",
@@ -386,6 +422,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>A validation exception for a field.</p>
  */
 export class ValidationException extends __BaseException {
@@ -418,6 +455,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the destination configuration to use when publishing message sending events.
  *         </p>
  */
@@ -434,6 +472,9 @@ export interface CloudWatchLogsDestination {
   LogGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConfigurationSetFilterName {
   DEFAULT_MESSAGE_TYPE = "default-message-type",
   DEFAULT_SENDER_ID = "default-sender-id",
@@ -442,6 +483,7 @@ export enum ConfigurationSetFilterName {
 }
 
 /**
+ * @public
  * <p>The information for configuration sets that meet a specified criteria.</p>
  */
 export interface ConfigurationSetFilter {
@@ -456,12 +498,16 @@ export interface ConfigurationSetFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MessageType {
   PROMOTIONAL = "PROMOTIONAL",
   TRANSACTIONAL = "TRANSACTIONAL",
 }
 
 /**
+ * @public
  * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with an Kinesis Data Firehose event
  *             destination.</p>
  *         <p>Event destinations, such as Kinesis Data Firehose, are associated with configuration
@@ -480,6 +526,9 @@ export interface KinesisFirehoseDestination {
   DeliveryStreamArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EventType {
   ALL = "ALL",
   TEXT_ALL = "TEXT_ALL",
@@ -509,6 +558,7 @@ export enum EventType {
 }
 
 /**
+ * @public
  * <p>An object that defines an Amazon SNS destination for events. You can use
  *                 Amazon SNS to send notification when certain events occur.</p>
  */
@@ -521,6 +571,7 @@ export interface SnsDestination {
 }
 
 /**
+ * @public
  * <p>Contains information about an event destination.</p>
  *         <p>Event destinations are associated with configuration sets, which enable you to publish
  *             message sending events to
@@ -563,6 +614,7 @@ export interface EventDestination {
 }
 
 /**
+ * @public
  * <p>Information related to a given configuration set in your Amazon Web Services
  *             account.</p>
  */
@@ -602,6 +654,7 @@ export interface ConfigurationSetInformation {
 }
 
 /**
+ * @public
  * <p>The list of tags to be added to the specified topic.</p>
  */
 export interface Tag {
@@ -616,6 +669,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfigurationSetRequest {
   /**
    * <p>The name to use for the new configuration set.</p>
@@ -635,6 +691,9 @@ export interface CreateConfigurationSetRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfigurationSetResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the newly created configuration set.</p>
@@ -658,6 +717,9 @@ export interface CreateConfigurationSetResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventDestinationRequest {
   /**
    * <p>Either the name of the configuration set or the configuration set ARN to apply event
@@ -701,6 +763,9 @@ export interface CreateEventDestinationRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventDestinationResult {
   /**
    * <p>The ARN of the configuration set.</p>
@@ -718,6 +783,9 @@ export interface CreateEventDestinationResult {
   EventDestination?: EventDestination;
 }
 
+/**
+ * @public
+ */
 export interface CreateOptOutListRequest {
   /**
    * <p>The name of the new OptOutList.</p>
@@ -737,6 +805,9 @@ export interface CreateOptOutListRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateOptOutListResult {
   /**
    * <p>The Amazon Resource Name (ARN) for the OptOutList.</p>
@@ -759,6 +830,9 @@ export interface CreateOptOutListResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreatePoolRequest {
   /**
    * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or
@@ -800,12 +874,18 @@ export interface CreatePoolRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PoolStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
   DELETING = "DELETING",
 }
 
+/**
+ * @public
+ */
 export interface CreatePoolResult {
   /**
    * <p>The Amazon Resource Name (ARN) for the pool.</p>
@@ -886,6 +966,9 @@ export interface CreatePoolResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationSetRequest {
   /**
    * <p>The name of the configuration set or the configuration set ARN that you want to
@@ -894,6 +977,9 @@ export interface DeleteConfigurationSetRequest {
   ConfigurationSetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationSetResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted configuration set.</p>
@@ -927,6 +1013,9 @@ export interface DeleteConfigurationSetResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDefaultMessageTypeRequest {
   /**
    * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN)
@@ -937,6 +1026,9 @@ export interface DeleteDefaultMessageTypeRequest {
   ConfigurationSetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDefaultMessageTypeResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
@@ -954,6 +1046,9 @@ export interface DeleteDefaultMessageTypeResult {
   MessageType?: MessageType | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDefaultSenderIdRequest {
   /**
    * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN)
@@ -963,6 +1058,9 @@ export interface DeleteDefaultSenderIdRequest {
   ConfigurationSetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDefaultSenderIdResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
@@ -980,6 +1078,9 @@ export interface DeleteDefaultSenderIdResult {
   SenderId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventDestinationRequest {
   /**
    * <p>The name of the configuration set or the configuration set's Amazon Resource Name
@@ -995,6 +1096,9 @@ export interface DeleteEventDestinationRequest {
   EventDestinationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventDestinationResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
@@ -1012,6 +1116,9 @@ export interface DeleteEventDestinationResult {
   EventDestination?: EventDestination;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeywordRequest {
   /**
    * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or
@@ -1027,12 +1134,18 @@ export interface DeleteKeywordRequest {
   Keyword: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum KeywordAction {
   AUTOMATIC_RESPONSE = "AUTOMATIC_RESPONSE",
   OPT_IN = "OPT_IN",
   OPT_OUT = "OPT_OUT",
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeywordResult {
   /**
    * <p>The PhoneNumberArn or PoolArn that the keyword was associated with.</p>
@@ -1060,6 +1173,9 @@ export interface DeleteKeywordResult {
   KeywordAction?: KeywordAction | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p>
@@ -1072,6 +1188,9 @@ export interface DeleteOptedOutNumberRequest {
   OptedOutNumber: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOptedOutNumberResult {
   /**
    * <p>The OptOutListArn that the phone number was removed from.</p>
@@ -1100,6 +1219,9 @@ export interface DeleteOptedOutNumberResult {
   EndUserOptedOut?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOptOutListRequest {
   /**
    * <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and
@@ -1108,6 +1230,9 @@ export interface DeleteOptOutListRequest {
   OptOutListName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOptOutListResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the OptOutList that was removed.</p>
@@ -1125,6 +1250,9 @@ export interface DeleteOptOutListResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeletePoolRequest {
   /**
    * <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p>
@@ -1132,6 +1260,9 @@ export interface DeletePoolRequest {
   PoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePoolResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the pool that was deleted.</p>
@@ -1201,8 +1332,14 @@ export interface DeletePoolResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTextMessageSpendLimitOverrideRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteTextMessageSpendLimitOverrideResult {
   /**
    * <p>The current monthly limit, in US dollars.</p>
@@ -1210,8 +1347,14 @@ export interface DeleteTextMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceMessageSpendLimitOverrideRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteVoiceMessageSpendLimitOverrideResult {
   /**
    * <p>The current monthly limit, in US dollars.</p>
@@ -1219,6 +1362,9 @@ export interface DeleteVoiceMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesRequest {
   /**
    * <p>The token to be used for the next set of paginated results. You don't need to supply a
@@ -1232,6 +1378,9 @@ export interface DescribeAccountAttributesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesResult {
   /**
    * <p>An array of AccountAttributes objects.</p>
@@ -1245,6 +1394,9 @@ export interface DescribeAccountAttributesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsRequest {
   /**
    * <p>The token to be used for the next set of paginated results. You don't need to supply a
@@ -1258,6 +1410,9 @@ export interface DescribeAccountLimitsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsResult {
   /**
    * <p>An array of AccountLimit objects that show the current spend limits.</p>
@@ -1271,6 +1426,9 @@ export interface DescribeAccountLimitsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationSetsRequest {
   /**
    * <p>An array of strings. Each element can be either a ConfigurationSetName or
@@ -1295,6 +1453,9 @@ export interface DescribeConfigurationSetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationSetsResult {
   /**
    * <p>An array of ConfigurationSets objects.</p>
@@ -1308,11 +1469,15 @@ export interface DescribeConfigurationSetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum KeywordFilterName {
   KEYWORD_ACTION = "keyword-action",
 }
 
 /**
+ * @public
  * <p>The information for keywords that meet a specified criteria.</p>
  */
 export interface KeywordFilter {
@@ -1327,6 +1492,9 @@ export interface KeywordFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeywordsRequest {
   /**
    * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or
@@ -1359,6 +1527,7 @@ export interface DescribeKeywordsRequest {
 }
 
 /**
+ * @public
  * <p>The information for all keywords in a pool.</p>
  */
 export interface KeywordInformation {
@@ -1378,6 +1547,9 @@ export interface KeywordInformation {
   KeywordAction: KeywordAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeywordsResult {
   /**
    * <p>The PhoneNumberArn or PoolArn that is associated with the OriginationIdentity. </p>
@@ -1401,11 +1573,15 @@ export interface DescribeKeywordsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OptedOutFilterName {
   END_USER_OPTED_OUT = "end-user-opted-out",
 }
 
 /**
+ * @public
  * <p>The information for opted out numbers that meet a specified criteria.</p>
  */
 export interface OptedOutFilter {
@@ -1420,6 +1596,9 @@ export interface OptedOutFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOptedOutNumbersRequest {
   /**
    * <p>The OptOutListName or OptOutListArn of the OptOutList. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and
@@ -1450,6 +1629,7 @@ export interface DescribeOptedOutNumbersRequest {
 }
 
 /**
+ * @public
  * <p>The information for an opted out number in an Amazon Web Services account.</p>
  */
 export interface OptedOutNumberInformation {
@@ -1469,6 +1649,9 @@ export interface OptedOutNumberInformation {
   EndUserOptedOut: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOptedOutNumbersResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the OptOutList.</p>
@@ -1493,6 +1676,9 @@ export interface DescribeOptedOutNumbersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOptOutListsRequest {
   /**
    * <p>The OptOutLists to show the details of. This is an array of strings that can be either
@@ -1513,6 +1699,7 @@ export interface DescribeOptOutListsRequest {
 }
 
 /**
+ * @public
  * <p>The information for all OptOutList in an Amazon Web Services account.</p>
  */
 export interface OptOutListInformation {
@@ -1532,6 +1719,9 @@ export interface OptOutListInformation {
   CreatedTimestamp: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOptOutListsResult {
   /**
    * <p>An array of OptOutListInformation objects that contain the details for the requested
@@ -1546,6 +1736,9 @@ export interface DescribeOptOutListsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberFilterName {
   DELETION_PROTECTION_ENABLED = "deletion-protection-enabled",
   ISO_COUNTRY_CODE = "iso-country-code",
@@ -1559,6 +1752,7 @@ export enum PhoneNumberFilterName {
 }
 
 /**
+ * @public
  * <p>The information for a phone number that meets a specified criteria.</p>
  */
 export interface PhoneNumberFilter {
@@ -1573,6 +1767,9 @@ export interface PhoneNumberFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePhoneNumbersRequest {
   /**
    * <p>The unique identifier of phone numbers to find information about. This is an array of
@@ -1597,11 +1794,17 @@ export interface DescribePhoneNumbersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum NumberCapability {
   SMS = "SMS",
   VOICE = "VOICE",
 }
 
+/**
+ * @public
+ */
 export enum NumberType {
   LONG_CODE = "LONG_CODE",
   SHORT_CODE = "SHORT_CODE",
@@ -1609,6 +1812,9 @@ export enum NumberType {
   TOLL_FREE = "TOLL_FREE",
 }
 
+/**
+ * @public
+ */
 export enum NumberStatus {
   ACTIVE = "ACTIVE",
   ASSOCIATING = "ASSOCIATING",
@@ -1618,6 +1824,7 @@ export enum NumberStatus {
 }
 
 /**
+ * @public
  * <p>The information for a phone number in an Amazon Web Services account.</p>
  */
 export interface PhoneNumberInformation {
@@ -1712,6 +1919,9 @@ export interface PhoneNumberInformation {
   CreatedTimestamp: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePhoneNumbersResult {
   /**
    * <p>An array of PhoneNumberInformation objects that contain the details for the requested
@@ -1726,6 +1936,9 @@ export interface DescribePhoneNumbersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PoolFilterName {
   DELETION_PROTECTION_ENABLED = "deletion-protection-enabled",
   MESSAGE_TYPE = "message-type",
@@ -1737,6 +1950,7 @@ export enum PoolFilterName {
 }
 
 /**
+ * @public
  * <p>The information for a pool that meets a specified criteria.</p>
  */
 export interface PoolFilter {
@@ -1751,6 +1965,9 @@ export interface PoolFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePoolsRequest {
   /**
    * <p>The unique identifier of pools to find. This is an array of strings that can be either
@@ -1776,6 +1993,7 @@ export interface DescribePoolsRequest {
 }
 
 /**
+ * @public
  * <p>The information for a pool in an Amazon Web Services account.</p>
  */
 export interface PoolInformation {
@@ -1848,6 +2066,9 @@ export interface PoolInformation {
   CreatedTimestamp: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePoolsResult {
   /**
    * <p>An array of PoolInformation objects that contain the details for the requested pools. </p>
@@ -1861,6 +2082,9 @@ export interface DescribePoolsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SenderIdFilterName {
   ISO_COUNTRY_CODE = "iso-country-code",
   MESSAGE_TYPE = "message-type",
@@ -1868,6 +2092,7 @@ export enum SenderIdFilterName {
 }
 
 /**
+ * @public
  * <p>The information for a sender ID that meets a specified criteria.</p>
  */
 export interface SenderIdFilter {
@@ -1883,6 +2108,7 @@ export interface SenderIdFilter {
 }
 
 /**
+ * @public
  * <p> The alphanumeric sender ID in a specific country that you want to describe. For more
  *             information on sender IDs see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-sender-id.html">Requesting
  *                 sender IDs for SMS messaging with Amazon Pinpoint
@@ -1901,6 +2127,9 @@ export interface SenderIdAndCountry {
   IsoCountryCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSenderIdsRequest {
   /**
    * <p>An array of SenderIdAndCountry objects to search for.</p>
@@ -1925,6 +2154,7 @@ export interface DescribeSenderIdsRequest {
 }
 
 /**
+ * @public
  * <p>The information for all SenderIds in an Amazon Web Services account.</p>
  */
 export interface SenderIdInformation {
@@ -1957,6 +2187,9 @@ export interface SenderIdInformation {
   MonthlyLeasingPrice: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSenderIdsResult {
   /**
    * <p>An array of SernderIdInformation objects that contain the details for the requested
@@ -1971,6 +2204,9 @@ export interface DescribeSenderIdsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpendLimitsRequest {
   /**
    * <p>The token to be used for the next set of paginated results. You don't need to supply a
@@ -1984,12 +2220,16 @@ export interface DescribeSpendLimitsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum SpendLimitName {
   TEXT_MESSAGE_MONTHLY_SPEND_LIMIT = "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
   VOICE_MESSAGE_MONTHLY_SPEND_LIMIT = "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
 }
 
 /**
+ * @public
  * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
  *             text messages. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-spend-threshold.html">
  *                 Requesting increases to your monthly SMS spending quota for Amazon Pinpoint
@@ -2023,6 +2263,9 @@ export interface SpendLimit {
   Overridden: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpendLimitsResult {
   /**
    * <p>An array of SpendLimit objects that contain the details for the requested spend
@@ -2037,11 +2280,17 @@ export interface DescribeSpendLimitsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DestinationCountryParameterKey {
   IN_ENTITY_ID = "IN_ENTITY_ID",
   IN_TEMPLATE_ID = "IN_TEMPLATE_ID",
 }
 
+/**
+ * @public
+ */
 export interface DisassociateOriginationIdentityRequest {
   /**
    * <p>The unique identifier for the pool to disassociate with the origination identity. This
@@ -2071,6 +2320,9 @@ export interface DisassociateOriginationIdentityRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateOriginationIdentityResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the pool.</p>
@@ -2099,12 +2351,16 @@ export interface DisassociateOriginationIdentityResult {
   IsoCountryCode?: string;
 }
 
+/**
+ * @public
+ */
 export enum PoolOriginationIdentitiesFilterName {
   ISO_COUNTRY_CODE = "iso-country-code",
   NUMBER_CAPABILITY = "number-capability",
 }
 
 /**
+ * @public
  * <p>Information about origination identities associated with a pool that meets a specified
  *             criteria.</p>
  */
@@ -2120,6 +2376,9 @@ export interface PoolOriginationIdentitiesFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPoolOriginationIdentitiesRequest {
   /**
    * <p>The unique identifier for the pool. This value can be either the PoolId or
@@ -2145,6 +2404,7 @@ export interface ListPoolOriginationIdentitiesRequest {
 }
 
 /**
+ * @public
  * <p>The metadata for an origination identity associated with a pool.</p>
  */
 export interface OriginationIdentityMetadata {
@@ -2171,6 +2431,9 @@ export interface OriginationIdentityMetadata {
   NumberCapabilities: (NumberCapability | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPoolOriginationIdentitiesResult {
   /**
    * <p>The Amazon Resource Name (ARN) for the pool.</p>
@@ -2194,6 +2457,9 @@ export interface ListPoolOriginationIdentitiesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to query for.</p>
@@ -2201,6 +2467,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>The ARN of the resource.</p>
@@ -2213,6 +2482,9 @@ export interface ListTagsForResourceResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutKeywordRequest {
   /**
    * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or
@@ -2249,6 +2521,9 @@ export interface PutKeywordRequest {
   KeywordAction?: KeywordAction | string;
 }
 
+/**
+ * @public
+ */
 export interface PutKeywordResult {
   /**
    * <p>The PhoneNumberArn or PoolArn that the keyword was associated with.</p>
@@ -2276,6 +2551,9 @@ export interface PutKeywordResult {
   KeywordAction?: KeywordAction | string;
 }
 
+/**
+ * @public
+ */
 export interface PutOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to add the phone number to.</p>
@@ -2288,6 +2566,9 @@ export interface PutOptedOutNumberRequest {
   OptedOutNumber: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutOptedOutNumberResult {
   /**
    * <p>The OptOutListArn that the phone number was removed from.</p>
@@ -2316,6 +2597,9 @@ export interface PutOptedOutNumberResult {
   EndUserOptedOut?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ReleasePhoneNumberRequest {
   /**
    * <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and
@@ -2324,6 +2608,9 @@ export interface ReleasePhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ReleasePhoneNumberResult {
   /**
    * <p>The PhoneNumberArn of the phone number that was released.</p>
@@ -2402,12 +2689,18 @@ export interface ReleasePhoneNumberResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export enum RequestableNumberType {
   LONG_CODE = "LONG_CODE",
   TEN_DLC = "TEN_DLC",
   TOLL_FREE = "TOLL_FREE",
 }
 
+/**
+ * @public
+ */
 export interface RequestPhoneNumberRequest {
   /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -2469,6 +2762,9 @@ export interface RequestPhoneNumberRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RequestPhoneNumberResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the requested phone number.</p>
@@ -2566,6 +2862,9 @@ export interface RequestPhoneNumberResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface SendTextMessageRequest {
   /**
    * <p>The destination phone number in E.164 format.</p>
@@ -2635,6 +2934,9 @@ export interface SendTextMessageRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface SendTextMessageResult {
   /**
    * <p>The unique identifier for the message.</p>
@@ -2642,11 +2944,17 @@ export interface SendTextMessageResult {
   MessageId?: string;
 }
 
+/**
+ * @public
+ */
 export enum VoiceMessageBodyTextType {
   SSML = "SSML",
   TEXT = "TEXT",
 }
 
+/**
+ * @public
+ */
 export enum VoiceId {
   AMY = "AMY",
   ASTRID = "ASTRID",
@@ -2709,6 +3017,9 @@ export enum VoiceId {
   ZHIYU = "ZHIYU",
 }
 
+/**
+ * @public
+ */
 export interface SendVoiceMessageRequest {
   /**
    * <p>The destination phone number in E.164 format.</p>
@@ -2777,6 +3088,9 @@ export interface SendVoiceMessageRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface SendVoiceMessageResult {
   /**
    * <p>The unique identifier for the message.</p>
@@ -2784,6 +3098,9 @@ export interface SendVoiceMessageResult {
   MessageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultMessageTypeRequest {
   /**
    * <p>The configuration set to update with a new default message type. This field can be the
@@ -2799,6 +3116,9 @@ export interface SetDefaultMessageTypeRequest {
   MessageType: MessageType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultMessageTypeResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated configuration set.</p>
@@ -2816,6 +3136,9 @@ export interface SetDefaultMessageTypeResult {
   MessageType?: MessageType | string;
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultSenderIdRequest {
   /**
    * <p>The configuration set to updated with a new default SenderId. This field can be the
@@ -2833,6 +3156,9 @@ export interface SetDefaultSenderIdRequest {
   SenderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultSenderIdResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated configuration set.</p>
@@ -2850,6 +3176,9 @@ export interface SetDefaultSenderIdResult {
   SenderId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTextMessageSpendLimitOverrideRequest {
   /**
    * <p>The new monthly limit to enforce on text messages.</p>
@@ -2857,6 +3186,9 @@ export interface SetTextMessageSpendLimitOverrideRequest {
   MonthlyLimit: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetTextMessageSpendLimitOverrideResult {
   /**
    * <p>The current monthly limit to enforce on sending text messages.</p>
@@ -2864,6 +3196,9 @@ export interface SetTextMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
 
+/**
+ * @public
+ */
 export interface SetVoiceMessageSpendLimitOverrideRequest {
   /**
    * <p>The new monthly limit to enforce on voice messages.</p>
@@ -2871,6 +3206,9 @@ export interface SetVoiceMessageSpendLimitOverrideRequest {
   MonthlyLimit: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetVoiceMessageSpendLimitOverrideResult {
   /**
    * <p>The current monthly limit to enforce on sending voice messages.</p>
@@ -2878,6 +3216,9 @@ export interface SetVoiceMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2890,8 +3231,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2904,8 +3251,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UpdateEventDestinationRequest {
   /**
    * <p>The configuration set to update with the new event destination. Valid values for this
@@ -2946,6 +3299,9 @@ export interface UpdateEventDestinationRequest {
   SnsDestination?: SnsDestination;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventDestinationResult {
   /**
    * <p>The Amazon Resource Name (ARN) for the ConfigurationSet that was updated.</p>
@@ -2964,6 +3320,9 @@ export interface UpdateEventDestinationResult {
   EventDestination?: EventDestination;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberRequest {
   /**
    * <p>The unique identifier of the phone number. Valid values for this field can be either
@@ -3004,6 +3363,9 @@ export interface UpdatePhoneNumberRequest {
   DeletionProtectionEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated phone number.</p>
@@ -3085,6 +3447,9 @@ export interface UpdatePhoneNumberResult {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePoolRequest {
   /**
    * <p>The unique identifier of the pool to update. Valid values are either the PoolId or
@@ -3129,6 +3494,9 @@ export interface UpdatePoolRequest {
   DeletionProtectionEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePoolResult {
   /**
    * <p>The ARN of the pool.</p>

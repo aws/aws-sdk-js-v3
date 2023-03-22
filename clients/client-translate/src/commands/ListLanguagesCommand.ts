@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLanguagesCommand}.
  */
 export interface ListLanguagesCommandInput extends ListLanguagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLanguagesCommand}.
  */
 export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLanguagesCommandInput - {@link ListLanguagesCommandInput}
+ * @returns {@link ListLanguagesCommandOutput}
  * @see {@link ListLanguagesCommandInput} for command's `input` shape.
  * @see {@link ListLanguagesCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListLanguagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLanguagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListLanguagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLanguagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLanguagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLanguagesCommandOutput> {
     return deserializeAws_json1_1ListLanguagesCommand(output, context);
   }

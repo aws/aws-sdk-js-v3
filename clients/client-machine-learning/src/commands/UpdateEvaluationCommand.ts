@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEvaluationCommand}.
  */
 export interface UpdateEvaluationCommandInput extends UpdateEvaluationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEvaluationCommand}.
  */
 export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
  *         <p>You can use the <code>GetEvaluation</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEvaluationCommandInput - {@link UpdateEvaluationCommandInput}
+ * @returns {@link UpdateEvaluationCommandOutput}
  * @see {@link UpdateEvaluationCommandInput} for command's `input` shape.
  * @see {@link UpdateEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEvaluationCommandOutput> {
     return deserializeAws_json1_1UpdateEvaluationCommand(output, context);
   }

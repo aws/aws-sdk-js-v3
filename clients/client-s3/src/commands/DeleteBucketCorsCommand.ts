@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketCorsCommand}.
  */
 export interface DeleteBucketCorsCommandInput extends DeleteBucketCorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketCorsCommand}.
  */
 export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the <code>cors</code> configuration information set for the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:PutBucketCORS</code> action. The bucket owner has this permission by default
@@ -61,6 +66,8 @@ export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketCorsCommandInput - {@link DeleteBucketCorsCommandInput}
+ * @returns {@link DeleteBucketCorsCommandOutput}
  * @see {@link DeleteBucketCorsCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteBucketCorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketCorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteBucketCorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketCorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketCorsCommandOutput> {
     return deserializeAws_restXmlDeleteBucketCorsCommand(output, context);
   }

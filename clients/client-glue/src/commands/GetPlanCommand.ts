@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetPlanCommand, serializeAws_json1_1GetPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPlanCommand}.
  */
 export interface GetPlanCommandInput extends GetPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPlanCommand}.
  */
 export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets code to perform a specified mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPlanCommandInput - {@link GetPlanCommandInput}
+ * @returns {@link GetPlanCommandOutput}
  * @see {@link GetPlanCommandInput} for command's `input` shape.
  * @see {@link GetPlanCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -71,6 +78,9 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlanCommandOutput> {
     return deserializeAws_json1_1GetPlanCommand(output, context);
   }

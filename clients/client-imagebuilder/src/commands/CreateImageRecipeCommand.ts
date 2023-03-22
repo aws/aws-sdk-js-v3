@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageRecipeCommand}.
  */
 export interface CreateImageRecipeCommandInput extends CreateImageRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageRecipeCommand}.
  */
 export interface CreateImageRecipeCommandOutput extends CreateImageRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
  * 			assessed.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageRecipeCommandInput - {@link CreateImageRecipeCommandInput}
+ * @returns {@link CreateImageRecipeCommandOutput}
  * @see {@link CreateImageRecipeCommandInput} for command's `input` shape.
  * @see {@link CreateImageRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateImageRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class CreateImageRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImageRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateImageRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageRecipeCommandOutput> {
     return deserializeAws_restJson1CreateImageRecipeCommand(output, context);
   }

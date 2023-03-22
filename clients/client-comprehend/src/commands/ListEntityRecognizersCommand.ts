@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntityRecognizersCommand}.
  */
 export interface ListEntityRecognizersCommandInput extends ListEntityRecognizersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntityRecognizersCommand}.
  */
 export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the properties of all entity recognizers that you created, including
  *       recognizers currently in training. Allows you to filter the list of recognizers based on
  *       criteria such as status and submission time. This call returns up to 500 entity recognizers in
@@ -51,6 +56,8 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntityRecognizersCommandInput - {@link ListEntityRecognizersCommandInput}
+ * @returns {@link ListEntityRecognizersCommandOutput}
  * @see {@link ListEntityRecognizersCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizersCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListEntityRecognizersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntityRecognizersCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListEntityRecognizersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntityRecognizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEntityRecognizersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntityRecognizersCommandOutput> {
     return deserializeAws_json1_1ListEntityRecognizersCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePlacementGroupCommand}.
  */
 export interface DeletePlacementGroupCommandInput extends DeletePlacementGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePlacementGroupCommand}.
  */
 export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified placement group. You must terminate all instances in the
  *             placement group before you can delete the placement group. For more information, see
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -43,6 +48,8 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePlacementGroupCommandInput - {@link DeletePlacementGroupCommandInput}
+ * @returns {@link DeletePlacementGroupCommandOutput}
  * @see {@link DeletePlacementGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePlacementGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +85,9 @@ export class DeletePlacementGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePlacementGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeletePlacementGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePlacementGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeletePlacementGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlacementGroupCommandOutput> {
     return deserializeAws_ec2DeletePlacementGroupCommand(output, context);
   }

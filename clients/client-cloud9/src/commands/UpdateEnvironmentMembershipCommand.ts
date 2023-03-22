@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnvironmentMembershipCommand}.
  */
 export interface UpdateEnvironmentMembershipCommandInput extends UpdateEnvironmentMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnvironmentMembershipCommand}.
  */
 export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the settings of an existing environment member for an Cloud9 development
  *       environment.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentMembershipCommandInput - {@link UpdateEnvironmentMembershipCommandInput}
+ * @returns {@link UpdateEnvironmentMembershipCommandOutput}
  * @see {@link UpdateEnvironmentMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -114,6 +121,9 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEnvironmentMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

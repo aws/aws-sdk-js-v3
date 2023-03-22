@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartJobCommand}.
  */
 export interface StartJobCommandInput extends StartJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartJobCommand}.
  */
 export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts a new job for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param StartJobCommandInput - {@link StartJobCommandInput}
+ * @returns {@link StartJobCommandOutput}
  * @see {@link StartJobCommandInput} for command's `input` shape.
  * @see {@link StartJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobCommandOutput> {
     return deserializeAws_restJson1StartJobCommand(output, context);
   }

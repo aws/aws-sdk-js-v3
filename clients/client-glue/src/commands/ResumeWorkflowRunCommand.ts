@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeWorkflowRunCommand}.
  */
 export interface ResumeWorkflowRunCommandInput extends ResumeWorkflowRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeWorkflowRunCommand}.
  */
 export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeWorkflowRunCommandInput - {@link ResumeWorkflowRunCommandInput}
+ * @returns {@link ResumeWorkflowRunCommandOutput}
  * @see {@link ResumeWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link ResumeWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class ResumeWorkflowRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeWorkflowRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ResumeWorkflowRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeWorkflowRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResumeWorkflowRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeWorkflowRunCommandOutput> {
     return deserializeAws_json1_1ResumeWorkflowRunCommand(output, context);
   }

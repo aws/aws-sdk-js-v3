@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVersionsCommand}.
  */
 export interface ListVersionsCommandInput extends ListVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVersionsCommand}.
  */
 export interface ListVersionsCommandOutput extends ListVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
  *    supports.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVersionsCommandInput - {@link ListVersionsCommandInput}
+ * @returns {@link ListVersionsCommandOutput}
  * @see {@link ListVersionsCommandInput} for command's `input` shape.
  * @see {@link ListVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVersionsCommandOutput> {
     return deserializeAws_restJson1ListVersionsCommand(output, context);
   }

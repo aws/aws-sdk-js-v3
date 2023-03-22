@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutUsersCommand}.
  */
 export interface PutUsersCommandInput extends PutUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutUsersCommand}.
  */
 export interface PutUsersCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more users to a Users dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing Users Incrementally</a>.</p>
  * @example
@@ -46,6 +51,8 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutUsersCommandInput - {@link PutUsersCommandInput}
+ * @returns {@link PutUsersCommandOutput}
  * @see {@link PutUsersCommandInput} for command's `input` shape.
  * @see {@link PutUsersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
@@ -78,6 +85,9 @@ export class PutUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class PutUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUsersCommandOutput> {
     return deserializeAws_restJson1PutUsersCommand(output, context);
   }

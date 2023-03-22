@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEarthObservationJobCommand}.
  */
 export interface GetEarthObservationJobCommandInput extends GetEarthObservationJobInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEarthObservationJobCommand}.
  */
 export interface GetEarthObservationJobCommandOutput extends GetEarthObservationJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the details for a previously initiated Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetEarthObservationJobCommandOutput extends GetEarthObservation
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEarthObservationJobCommandInput - {@link GetEarthObservationJobCommandInput}
+ * @returns {@link GetEarthObservationJobCommandOutput}
  * @see {@link GetEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link GetEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetEarthObservationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEarthObservationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetEarthObservationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEarthObservationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEarthObservationJobCommandOutput> {
     return deserializeAws_restJson1GetEarthObservationJobCommand(output, context);
   }

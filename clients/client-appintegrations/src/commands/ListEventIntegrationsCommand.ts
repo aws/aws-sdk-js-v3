@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventIntegrationsCommand}.
  */
 export interface ListEventIntegrationsCommandInput extends ListEventIntegrationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventIntegrationsCommand}.
  */
 export interface ListEventIntegrationsCommandOutput extends ListEventIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of event integrations in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventIntegrationsCommandInput - {@link ListEventIntegrationsCommandInput}
+ * @returns {@link ListEventIntegrationsCommandOutput}
  * @see {@link ListEventIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListEventIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListEventIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListEventIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEventIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventIntegrationsCommandOutput> {
     return deserializeAws_restJson1ListEventIntegrationsCommand(output, context);
   }

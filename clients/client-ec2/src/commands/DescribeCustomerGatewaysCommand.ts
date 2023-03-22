@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomerGatewaysCommand}.
  */
 export interface DescribeCustomerGatewaysCommandInput extends DescribeCustomerGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomerGatewaysCommand}.
  */
 export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your VPN customer gateways.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomerGatewaysCommandInput - {@link DescribeCustomerGatewaysCommandInput}
+ * @returns {@link DescribeCustomerGatewaysCommandOutput}
  * @see {@link DescribeCustomerGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomerGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeCustomerGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomerGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeCustomerGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCustomerGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeCustomerGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomerGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeCustomerGatewaysCommand(output, context);
   }

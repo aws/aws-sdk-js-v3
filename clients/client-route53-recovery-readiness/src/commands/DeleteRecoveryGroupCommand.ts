@@ -25,15 +25,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecoveryGroupCommand}.
  */
 export interface DeleteRecoveryGroupCommandInput extends DeleteRecoveryGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecoveryGroupCommand}.
  */
 export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecoveryGroupCommandInput - {@link DeleteRecoveryGroupCommandInput}
+ * @returns {@link DeleteRecoveryGroupCommandOutput}
  * @see {@link DeleteRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteRecoveryGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecoveryGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteRecoveryGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRecoveryGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecoveryGroupCommandOutput> {
     return deserializeAws_restJson1DeleteRecoveryGroupCommand(output, context);
   }

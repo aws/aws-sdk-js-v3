@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataIntegrationCommand}.
  */
 export interface CreateDataIntegrationCommandInput extends CreateDataIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataIntegrationCommand}.
  */
 export interface CreateDataIntegrationCommandOutput extends CreateDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and persists a DataIntegration resource.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been
@@ -51,6 +56,8 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataIntegrationCommandInput - {@link CreateDataIntegrationCommandInput}
+ * @returns {@link CreateDataIntegrationCommandOutput}
  * @see {@link CreateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link CreateDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataIntegrationCommandOutput> {
     return deserializeAws_restJson1CreateDataIntegrationCommand(output, context);
   }

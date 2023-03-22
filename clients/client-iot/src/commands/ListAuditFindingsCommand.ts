@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAuditFindingsCommand}.
  */
 export interface ListAuditFindingsCommandInput extends ListAuditFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAuditFindingsCommand}.
  */
 export interface ListAuditFindingsCommandOutput extends ListAuditFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the findings (results) of a Device Defender audit or of the audits
  *         performed during a specified time period. (Findings are retained for 90 days.)</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditFindings</a> action.</p>
@@ -48,6 +53,8 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAuditFindingsCommandInput - {@link ListAuditFindingsCommandInput}
+ * @returns {@link ListAuditFindingsCommandOutput}
  * @see {@link ListAuditFindingsCommandInput} for command's `input` shape.
  * @see {@link ListAuditFindingsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListAuditFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAuditFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListAuditFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAuditFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAuditFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAuditFindingsCommandOutput> {
     return deserializeAws_restJson1ListAuditFindingsCommand(output, context);
   }

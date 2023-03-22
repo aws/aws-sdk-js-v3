@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeObservationCommand}.
  */
 export interface DescribeObservationCommandInput extends DescribeObservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeObservationCommand}.
  */
 export interface DescribeObservationCommandOutput extends DescribeObservationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an anomaly or error with the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeObservationCommandInput - {@link DescribeObservationCommandInput}
+ * @returns {@link DescribeObservationCommandOutput}
  * @see {@link DescribeObservationCommandInput} for command's `input` shape.
  * @see {@link DescribeObservationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeObservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeObservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeObservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeObservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeObservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObservationCommandOutput> {
     return deserializeAws_json1_1DescribeObservationCommand(output, context);
   }

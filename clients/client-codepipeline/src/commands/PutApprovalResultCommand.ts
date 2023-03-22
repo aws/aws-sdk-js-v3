@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutApprovalResultCommand}.
  */
 export interface PutApprovalResultCommandInput extends PutApprovalResultInput {}
 /**
+ * @public
+ *
  * The output of {@link PutApprovalResultCommand}.
  */
 export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
  *             responses include Approved and Rejected.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutApprovalResultCommandInput - {@link PutApprovalResultCommandInput}
+ * @returns {@link PutApprovalResultCommandOutput}
  * @see {@link PutApprovalResultCommandInput} for command's `input` shape.
  * @see {@link PutApprovalResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -88,6 +95,9 @@ export class PutApprovalResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutApprovalResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class PutApprovalResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutApprovalResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutApprovalResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutApprovalResultCommandOutput> {
     return deserializeAws_json1_1PutApprovalResultCommand(output, context);
   }

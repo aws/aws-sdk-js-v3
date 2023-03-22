@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCredentialsForIdentityCommand}.
  */
 export interface GetCredentialsForIdentityCommandInput extends GetCredentialsForIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCredentialsForIdentityCommand}.
  */
 export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsForIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns credentials for the provided identity ID. Any provided logins will be
  *          validated against supported login providers. If the token is for
  *          cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service
@@ -50,6 +55,8 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCredentialsForIdentityCommandInput - {@link GetCredentialsForIdentityCommandInput}
+ * @returns {@link GetCredentialsForIdentityCommandOutput}
  * @see {@link GetCredentialsForIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCredentialsForIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetCredentialsForIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCredentialsForIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class GetCredentialsForIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCredentialsForIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCredentialsForIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

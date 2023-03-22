@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDestinationCommand}.
  */
 export interface DeleteDestinationCommandInput extends DeleteDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDestinationCommand}.
  */
 export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified destination, and eventually disables all the
  *       subscription filters that publish to it. This operation does not delete the
  *       physical resource encapsulated by the destination.</p>
@@ -43,6 +48,8 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
+ * @returns {@link DeleteDestinationCommandOutput}
  * @see {@link DeleteDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDestinationCommandOutput> {
     return deserializeAws_json1_1DeleteDestinationCommand(output, context);
   }

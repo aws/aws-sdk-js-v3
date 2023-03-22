@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBlacklistReportsCommand}.
  */
 export interface GetBlacklistReportsCommandInput extends GetBlacklistReportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBlacklistReportsCommand}.
  */
 export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBlacklistReportsCommandInput - {@link GetBlacklistReportsCommandInput}
+ * @returns {@link GetBlacklistReportsCommandOutput}
  * @see {@link GetBlacklistReportsCommandInput} for command's `input` shape.
  * @see {@link GetBlacklistReportsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetBlacklistReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBlacklistReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetBlacklistReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBlacklistReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBlacklistReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlacklistReportsCommandOutput> {
     return deserializeAws_restJson1GetBlacklistReportsCommand(output, context);
   }

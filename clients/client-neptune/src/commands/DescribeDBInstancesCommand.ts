@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBInstancesCommand}.
  */
 export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBInstancesCommand}.
  */
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about provisioned instances, and supports pagination.</p>
  *          <note>
  *             <p>This operation can also return information for Amazon RDS instances
@@ -50,6 +55,8 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBInstancesCommandInput - {@link DescribeDBInstancesCommandInput}
+ * @returns {@link DescribeDBInstancesCommandOutput}
  * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeDBInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeDBInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBInstancesCommandOutput> {
     return deserializeAws_queryDescribeDBInstancesCommand(output, context);
   }

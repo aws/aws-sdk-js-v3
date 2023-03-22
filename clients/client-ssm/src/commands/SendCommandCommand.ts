@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendCommandCommand}.
  */
 export interface SendCommandCommandInput extends SendCommandRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendCommandCommand}.
  */
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs commands on one or more managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param SendCommandCommandInput - {@link SendCommandCommandInput}
+ * @returns {@link SendCommandCommandOutput}
  * @see {@link SendCommandCommandInput} for command's `input` shape.
  * @see {@link SendCommandCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -124,6 +131,9 @@ export class SendCommandCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendCommandCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class SendCommandCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendCommandCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendCommandCommandOutput> {
     return deserializeAws_json1_1SendCommandCommand(output, context);
   }

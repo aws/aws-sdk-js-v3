@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePortfolioShareCommand}.
  */
 export interface CreatePortfolioShareCommandInput extends CreatePortfolioShareInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePortfolioShareCommand}.
  */
 export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares the specified portfolio with the specified account or organization node.
  *          Shares to an organization node can only be created by the management account of an
  *          organization or by a delegated administrator. You can share portfolios to an organization,
@@ -64,6 +69,8 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePortfolioShareCommandInput - {@link CreatePortfolioShareCommandInput}
+ * @returns {@link CreatePortfolioShareCommandOutput}
  * @see {@link CreatePortfolioShareCommandInput} for command's `input` shape.
  * @see {@link CreatePortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreatePortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreatePortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePortfolioShareCommandOutput> {
     return deserializeAws_json1_1CreatePortfolioShareCommand(output, context);
   }

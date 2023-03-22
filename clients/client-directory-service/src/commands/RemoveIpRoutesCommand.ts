@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveIpRoutesCommand}.
  */
 export interface RemoveIpRoutesCommandInput extends RemoveIpRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveIpRoutesCommand}.
  */
 export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes IP address blocks from a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveIpRoutesCommandInput - {@link RemoveIpRoutesCommandInput}
+ * @returns {@link RemoveIpRoutesCommandOutput}
  * @see {@link RemoveIpRoutesCommandInput} for command's `input` shape.
  * @see {@link RemoveIpRoutesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class RemoveIpRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveIpRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class RemoveIpRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveIpRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveIpRoutesCommandOutput> {
     return deserializeAws_json1_1RemoveIpRoutesCommand(output, context);
   }

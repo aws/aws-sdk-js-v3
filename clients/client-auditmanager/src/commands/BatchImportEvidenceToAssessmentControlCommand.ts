@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchImportEvidenceToAssessmentControlCommand}.
  */
 export interface BatchImportEvidenceToAssessmentControlCommandInput
   extends BatchImportEvidenceToAssessmentControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchImportEvidenceToAssessmentControlCommand}.
  */
 export interface BatchImportEvidenceToAssessmentControlCommandOutput
@@ -38,6 +42,7 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
  *          You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by
  *          specifying the S3 URI of the evidence. </p>
@@ -70,6 +75,8 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchImportEvidenceToAssessmentControlCommandInput - {@link BatchImportEvidenceToAssessmentControlCommandInput}
+ * @returns {@link BatchImportEvidenceToAssessmentControlCommandOutput}
  * @see {@link BatchImportEvidenceToAssessmentControlCommandInput} for command's `input` shape.
  * @see {@link BatchImportEvidenceToAssessmentControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -107,6 +114,9 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchImportEvidenceToAssessmentControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchImportEvidenceToAssessmentControlCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
     return serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

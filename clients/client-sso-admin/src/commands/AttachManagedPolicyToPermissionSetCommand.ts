@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link AttachManagedPolicyToPermissionSetCommand}.
  */
 export interface AttachManagedPolicyToPermissionSetCommandInput extends AttachManagedPolicyToPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachManagedPolicyToPermissionSetCommand}.
  */
 export interface AttachManagedPolicyToPermissionSetCommandOutput
@@ -37,6 +41,7 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an AWS managed policy ARN to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
@@ -56,6 +61,8 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachManagedPolicyToPermissionSetCommandInput - {@link AttachManagedPolicyToPermissionSetCommandInput}
+ * @returns {@link AttachManagedPolicyToPermissionSetCommandOutput}
  * @see {@link AttachManagedPolicyToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link AttachManagedPolicyToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -106,6 +113,9 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachManagedPolicyToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachManagedPolicyToPermissionSetCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     return serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

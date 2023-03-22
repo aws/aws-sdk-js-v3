@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEdgePackagingJobsCommand}.
  */
 export interface ListEdgePackagingJobsCommandInput extends ListEdgePackagingJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEdgePackagingJobsCommand}.
  */
 export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of edge packaging jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEdgePackagingJobsCommandInput - {@link ListEdgePackagingJobsCommandInput}
+ * @returns {@link ListEdgePackagingJobsCommandOutput}
  * @see {@link ListEdgePackagingJobsCommandInput} for command's `input` shape.
  * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListEdgePackagingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEdgePackagingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListEdgePackagingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEdgePackagingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEdgePackagingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEdgePackagingJobsCommandOutput> {
     return deserializeAws_json1_1ListEdgePackagingJobsCommand(output, context);
   }

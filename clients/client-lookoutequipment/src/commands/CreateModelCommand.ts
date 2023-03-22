@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelCommand}.
  */
 export interface CreateModelCommandInput extends CreateModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelCommand}.
  */
 export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an ML model for data inference. </p>
  *          <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data.
  *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and
@@ -54,6 +59,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCommandInput - {@link CreateModelCommandInput}
+ * @returns {@link CreateModelCommandOutput}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCommandOutput> {
     return deserializeAws_json1_0CreateModelCommand(output, context);
   }

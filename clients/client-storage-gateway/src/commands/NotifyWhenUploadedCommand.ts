@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyWhenUploadedCommand}.
  */
 export interface NotifyWhenUploadedCommandInput extends NotifyWhenUploadedInput {}
 /**
+ * @public
+ *
  * The output of {@link NotifyWhenUploadedCommand}.
  */
 export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends you notification through CloudWatch Events when all files written to your file
  *          share have been uploaded to S3. Amazon S3.</p>
  *
@@ -58,6 +63,8 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyWhenUploadedCommandInput - {@link NotifyWhenUploadedCommandInput}
+ * @returns {@link NotifyWhenUploadedCommandOutput}
  * @see {@link NotifyWhenUploadedCommandInput} for command's `input` shape.
  * @see {@link NotifyWhenUploadedCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -89,6 +96,9 @@ export class NotifyWhenUploadedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyWhenUploadedCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class NotifyWhenUploadedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyWhenUploadedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyWhenUploadedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWhenUploadedCommandOutput> {
     return deserializeAws_json1_1NotifyWhenUploadedCommand(output, context);
   }

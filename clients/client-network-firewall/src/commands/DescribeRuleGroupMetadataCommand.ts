@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRuleGroupMetadataCommand}.
  */
 export interface DescribeRuleGroupMetadataCommandInput extends DescribeRuleGroupMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRuleGroupMetadataCommand}.
  */
 export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGroupMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>High-level information about a rule group, returned by operations like create and describe.
  *          You can use the information provided in the metadata to retrieve and manage a rule group.
  *          You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>.
@@ -49,6 +54,8 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuleGroupMetadataCommandInput - {@link DescribeRuleGroupMetadataCommandInput}
+ * @returns {@link DescribeRuleGroupMetadataCommandOutput}
  * @see {@link DescribeRuleGroupMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleGroupMetadataCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuleGroupMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuleGroupMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeRuleGroupMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachPolicyCommand}.
  */
 export interface DetachPolicyCommandInput extends DetachPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachPolicyCommand}.
  */
 export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a policy from an object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachPolicyCommandInput - {@link DetachPolicyCommandInput}
+ * @returns {@link DetachPolicyCommandOutput}
  * @see {@link DetachPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -97,6 +104,9 @@ export class DetachPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DetachPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetachPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachPolicyCommandOutput> {
     return deserializeAws_restJson1DetachPolicyCommand(output, context);
   }

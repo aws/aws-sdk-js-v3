@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPackageVersionHistoryCommand}.
  */
 export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPackageVersionHistoryCommand}.
  */
 export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPackageVersionHistoryCommandInput - {@link GetPackageVersionHistoryCommandInput}
+ * @returns {@link GetPackageVersionHistoryCommandOutput}
  * @see {@link GetPackageVersionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionHistoryCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetPackageVersionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPackageVersionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetPackageVersionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPackageVersionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPackageVersionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionHistoryCommandOutput> {
     return deserializeAws_restJson1GetPackageVersionHistoryCommand(output, context);
   }

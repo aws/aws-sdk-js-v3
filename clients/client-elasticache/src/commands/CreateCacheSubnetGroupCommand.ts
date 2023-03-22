@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCacheSubnetGroupCommand}.
  */
 export interface CreateCacheSubnetGroupCommandInput extends CreateCacheSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateCacheSubnetGroupCommand}.
  */
 export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cache subnet group.</p>
  *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheSubnetGroupCommandInput - {@link CreateCacheSubnetGroupCommandInput}
+ * @returns {@link CreateCacheSubnetGroupCommandOutput}
  * @see {@link CreateCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -135,6 +142,9 @@ export class CreateCacheSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class CreateCacheSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheSubnetGroupCommandOutput> {
     return deserializeAws_queryCreateCacheSubnetGroupCommand(output, context);
   }

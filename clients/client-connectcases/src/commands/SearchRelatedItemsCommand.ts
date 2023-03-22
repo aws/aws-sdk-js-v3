@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchRelatedItemsCommand}.
  */
 export interface SearchRelatedItemsCommandInput extends SearchRelatedItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchRelatedItemsCommand}.
  */
 export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for related items that are associated with a case.</p>
  *          <note>
  *             <p>If no filters are provided, this returns all related items associated with a
@@ -50,6 +55,8 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchRelatedItemsCommandInput - {@link SearchRelatedItemsCommandInput}
+ * @returns {@link SearchRelatedItemsCommandOutput}
  * @see {@link SearchRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link SearchRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -90,6 +97,9 @@ export class SearchRelatedItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchRelatedItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SearchRelatedItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchRelatedItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRelatedItemsCommandOutput> {
     return deserializeAws_restJson1SearchRelatedItemsCommand(output, context);
   }

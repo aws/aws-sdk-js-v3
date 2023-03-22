@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExportLensCommand}.
  */
 export interface ExportLensCommandInput extends ExportLensInput {}
 /**
+ * @public
+ *
  * The output of {@link ExportLensCommand}.
  */
 export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Export an existing lens.</p>
  *         <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
  *             in the <i>Well-Architected Tool User Guide</i>. Only the owner of a lens can export it.
@@ -60,6 +65,8 @@ export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportLensCommandInput - {@link ExportLensCommandInput}
+ * @returns {@link ExportLensCommandOutput}
  * @see {@link ExportLensCommandInput} for command's `input` shape.
  * @see {@link ExportLensCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -98,6 +105,9 @@ export class ExportLensCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportLensCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ExportLensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportLensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportLensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportLensCommandOutput> {
     return deserializeAws_restJson1ExportLensCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDefaultClusterParametersCommand}.
  */
 export interface DescribeDefaultClusterParametersCommandInput extends DescribeDefaultClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDefaultClusterParametersCommand}.
  */
 export interface DescribeDefaultClusterParametersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDefaultClusterParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of parameter settings for the specified parameter group
  *             family.</p>
  *          <p>
@@ -53,6 +58,8 @@ export interface DescribeDefaultClusterParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDefaultClusterParametersCommandInput - {@link DescribeDefaultClusterParametersCommandInput}
+ * @returns {@link DescribeDefaultClusterParametersCommandOutput}
  * @see {@link DescribeDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +125,9 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDefaultClusterParametersCommandInput,
     context: __SerdeContext
@@ -122,6 +135,9 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     return serializeAws_queryDescribeDefaultClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

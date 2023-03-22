@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMeetingCommand}.
  */
 export interface CreateMeetingCommandInput extends CreateMeetingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMeetingCommand}.
  */
 export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
  *            in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see
@@ -52,6 +57,8 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeetingCommandInput - {@link CreateMeetingCommandInput}
+ * @returns {@link CreateMeetingCommandOutput}
  * @see {@link CreateMeetingCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateMeetingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeetingCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateMeetingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMeetingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingCommandOutput> {
     return deserializeAws_restJson1CreateMeetingCommand(output, context);
   }

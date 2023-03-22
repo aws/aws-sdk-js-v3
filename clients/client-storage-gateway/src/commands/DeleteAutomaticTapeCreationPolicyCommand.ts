@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAutomaticTapeCreationPolicyCommand}.
  */
 export interface DeleteAutomaticTapeCreationPolicyCommandInput extends DeleteAutomaticTapeCreationPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAutomaticTapeCreationPolicyCommand}.
  */
 export interface DeleteAutomaticTapeCreationPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new
  *          virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway
  *          in your request to remove the policy.</p>
@@ -50,6 +55,8 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAutomaticTapeCreationPolicyCommandInput - {@link DeleteAutomaticTapeCreationPolicyCommandInput}
+ * @returns {@link DeleteAutomaticTapeCreationPolicyCommandOutput}
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutomaticTapeCreationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAutomaticTapeCreationPolicyCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
     return serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateAssessmentReportIntegrityCommand}.
  */
 export interface ValidateAssessmentReportIntegrityCommandInput extends ValidateAssessmentReportIntegrityRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateAssessmentReportIntegrityCommand}.
  */
 export interface ValidateAssessmentReportIntegrityCommandOutput
@@ -37,6 +41,7 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Validates the integrity of an assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateAssessmentReportIntegrityCommandInput - {@link ValidateAssessmentReportIntegrityCommandInput}
+ * @returns {@link ValidateAssessmentReportIntegrityCommandOutput}
  * @see {@link ValidateAssessmentReportIntegrityCommandInput} for command's `input` shape.
  * @see {@link ValidateAssessmentReportIntegrityCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateAssessmentReportIntegrityCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ValidateAssessmentReportIntegrityCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
     return serializeAws_restJson1ValidateAssessmentReportIntegrityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

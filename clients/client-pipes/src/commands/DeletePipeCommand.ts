@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePipeCommand}.
  */
 export interface DeletePipeCommandInput extends DeletePipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePipeCommand}.
  */
 export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an existing pipe. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePipeCommandInput - {@link DeletePipeCommandInput}
+ * @returns {@link DeletePipeCommandOutput}
  * @see {@link DeletePipeCommandInput} for command's `input` shape.
  * @see {@link DeletePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeletePipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeletePipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipeCommandOutput> {
     return deserializeAws_restJson1DeletePipeCommand(output, context);
   }

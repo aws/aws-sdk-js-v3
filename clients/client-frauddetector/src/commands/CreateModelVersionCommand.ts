@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelVersionCommand}.
  */
 export interface CreateModelVersionCommandInput extends CreateModelVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelVersionCommand}.
  */
 export interface CreateModelVersionCommandOutput extends CreateModelVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a version of the model using the specified model type and model id.
  *         </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelVersionCommandInput - {@link CreateModelVersionCommandInput}
+ * @returns {@link CreateModelVersionCommandOutput}
  * @see {@link CreateModelVersionCommandInput} for command's `input` shape.
  * @see {@link CreateModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateModelVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateModelVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateModelVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelVersionCommandOutput> {
     return deserializeAws_json1_1CreateModelVersionCommand(output, context);
   }

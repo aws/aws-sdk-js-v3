@@ -65,6 +65,7 @@ import {
 } from "./commands/UntagResourceCommand";
 
 /**
+ * @public
  * <p>With Application Auto Scaling, you can configure automatic scaling for the following
  *       resources:</p>
  *          <ul>
@@ -139,6 +140,7 @@ import {
  */
 export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   /**
+   * @public
    * <p>Deletes the specified scaling policy for an Application Auto Scaling scalable target.</p>
    *          <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete
    *          the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated
@@ -176,6 +178,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action">Delete a scheduled action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
@@ -209,6 +212,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which
    *          resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. </p>
    *          <note>
@@ -246,6 +250,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the scalable targets in the specified namespace.</p>
    *          <p>You can filter the results using <code>ResourceIds</code> and
    *             <code>ScalableDimension</code>.</p>
@@ -280,6 +285,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Provides descriptive information about the scaling activities in the specified namespace
    *          from the previous six weeks.</p>
    *          <p>You can filter the results using <code>ResourceId</code> and
@@ -316,6 +322,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>
    *          <p>You can filter the results using <code>ResourceId</code>,
    *          <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p>
@@ -351,6 +358,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>
    *          <p>You can filter the results using the <code>ResourceId</code>,
    *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
@@ -387,6 +395,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Returns all the tags on the specified Application Auto Scaling scalable target.</p>
    *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *          resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -421,6 +430,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>
    *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
    *          dimension. A scaling policy applies to the scalable target identified by those three
@@ -477,6 +487,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p>
    *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
    *          dimension. A scheduled action applies to the scalable target identified by those three
@@ -523,6 +534,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Registers or updates a scalable target, which is the resource that you want to
    *          scale.</p>
    *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
@@ -586,6 +598,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Adds or edits tags on an Application Auto Scaling scalable target.</p>
    *          <p>Each tag consists of a tag key and a tag value, which are both case-sensitive strings.
    *          To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag
@@ -623,6 +636,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes tags from an Application Auto Scaling scalable target. To delete a tag, specify the tag key and
    *          the Application Auto Scaling scalable target.</p>
    */

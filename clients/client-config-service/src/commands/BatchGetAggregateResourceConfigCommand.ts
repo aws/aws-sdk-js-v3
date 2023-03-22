@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetAggregateResourceConfigCommand}.
  */
 export interface BatchGetAggregateResourceConfigCommandInput extends BatchGetAggregateResourceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetAggregateResourceConfigCommand}.
  */
 export interface BatchGetAggregateResourceConfigCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetAggregateResourceConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current configuration items for resources that are present in your Config aggregator. The operation also returns a list of resources that are not processed in the current request.
  * 			If there are no unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list. </p>
  *          <note>
@@ -59,6 +64,8 @@ export interface BatchGetAggregateResourceConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAggregateResourceConfigCommandInput - {@link BatchGetAggregateResourceConfigCommandInput}
+ * @returns {@link BatchGetAggregateResourceConfigCommandOutput}
  * @see {@link BatchGetAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link BatchGetAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAggregateResourceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetAggregateResourceConfigCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
     return serializeAws_json1_1BatchGetAggregateResourceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlertManagerDefinitionCommand}.
  */
 export interface DescribeAlertManagerDefinitionCommandInput extends DescribeAlertManagerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlertManagerDefinitionCommand}.
  */
 export interface DescribeAlertManagerDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAlertManagerDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Describes an alert manager definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlertManagerDefinitionCommandInput - {@link DescribeAlertManagerDefinitionCommandInput}
+ * @returns {@link DescribeAlertManagerDefinitionCommandOutput}
  * @see {@link DescribeAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlertManagerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAlertManagerDefinitionCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
     return serializeAws_restJson1DescribeAlertManagerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

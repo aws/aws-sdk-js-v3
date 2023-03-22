@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePipeCommand}.
  */
 export interface CreatePipeCommandInput extends CreatePipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePipeCommand}.
  */
 export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePipeCommandInput - {@link CreatePipeCommandInput}
+ * @returns {@link CreatePipeCommandOutput}
  * @see {@link CreatePipeCommandInput} for command's `input` shape.
  * @see {@link CreatePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreatePipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreatePipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipeCommandOutput> {
     return deserializeAws_restJson1CreatePipeCommand(output, context);
   }

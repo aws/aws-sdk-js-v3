@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserProfileCommand}.
  */
 export interface CreateUserProfileCommandInput extends CreateUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserProfileCommand}.
  */
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a profile for a user that includes user preferences, such as the display name
  *       and email address assocciated with the user, in AWS CodeStar. The user profile is not
  *       project-specific. Information in the user profile is displayed wherever the user's information
@@ -49,6 +54,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserProfileCommandInput - {@link CreateUserProfileCommandInput}
+ * @returns {@link CreateUserProfileCommandOutput}
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserProfileCommandOutput> {
     return deserializeAws_json1_1CreateUserProfileCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProvisioningTemplateCommand}.
  */
 export interface CreateProvisioningTemplateCommandInput extends CreateProvisioningTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProvisioningTemplateCommand}.
  */
 export interface CreateProvisioningTemplateCommandOutput extends CreateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisioningTemplateCommandInput - {@link CreateProvisioningTemplateCommandInput}
+ * @returns {@link CreateProvisioningTemplateCommandOutput}
  * @see {@link CreateProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateProvisioningTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisioningTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateProvisioningTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProvisioningTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

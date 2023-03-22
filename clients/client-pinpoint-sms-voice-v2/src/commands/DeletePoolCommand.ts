@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePoolCommand}.
  */
 export interface DeletePoolCommandInput extends DeletePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePoolCommand}.
  */
 export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing pool. Deleting a pool disassociates all origination identities
  *             from that pool.</p>
  *         <p>If the pool status isn't active or if deletion protection is enabled, an Error is
@@ -56,6 +61,8 @@ export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePoolCommandInput - {@link DeletePoolCommandInput}
+ * @returns {@link DeletePoolCommandOutput}
  * @see {@link DeletePoolCommandInput} for command's `input` shape.
  * @see {@link DeletePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -103,6 +110,9 @@ export class DeletePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeletePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeletePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePoolCommandOutput> {
     return deserializeAws_json1_0DeletePoolCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSMSSandboxPhoneNumberCommand}.
  */
 export interface DeleteSMSSandboxPhoneNumberCommandInput extends DeleteSMSSandboxPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSMSSandboxPhoneNumberCommand}.
  */
 export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS
  *             sandbox.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -55,6 +60,8 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSMSSandboxPhoneNumberCommandInput - {@link DeleteSMSSandboxPhoneNumberCommandInput}
+ * @returns {@link DeleteSMSSandboxPhoneNumberCommandOutput}
  * @see {@link DeleteSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DeleteSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSMSSandboxPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

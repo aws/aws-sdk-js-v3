@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StopDBClusterCommand}.
  */
 export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link StopDBClusterCommand}.
  */
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
  *             cluster must be in the <i>available</i> state. For more information, see
  *                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
@@ -49,6 +54,8 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBClusterCommandInput - {@link StopDBClusterCommandInput}
+ * @returns {@link StopDBClusterCommandOutput}
  * @see {@link StopDBClusterCommandInput} for command's `input` shape.
  * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -83,6 +90,9 @@ export class StopDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class StopDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
     return deserializeAws_queryStopDBClusterCommand(output, context);
   }

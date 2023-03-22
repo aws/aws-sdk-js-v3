@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePullRequestStatusCommand}.
  */
 export interface UpdatePullRequestStatusCommandInput extends UpdatePullRequestStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePullRequestStatusCommand}.
  */
 export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a pull request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePullRequestStatusCommandInput - {@link UpdatePullRequestStatusCommandInput}
+ * @returns {@link UpdatePullRequestStatusCommandOutput}
  * @see {@link UpdatePullRequestStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdatePullRequestStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePullRequestStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdatePullRequestStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePullRequestStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePullRequestStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePullRequestStatusCommandOutput> {
     return deserializeAws_json1_1UpdatePullRequestStatusCommand(output, context);
   }

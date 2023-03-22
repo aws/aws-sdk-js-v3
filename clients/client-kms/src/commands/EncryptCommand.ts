@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1EncryptCommand, serializeAws_json1_1EncryptCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EncryptCommand}.
  */
 export interface EncryptCommandInput extends EncryptRequest {}
 /**
+ * @public
+ *
  * The output of {@link EncryptCommand}.
  */
 export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
  *       asymmetric KMS key with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>.</p>
  *          <p>You can use this operation to encrypt small amounts of arbitrary data, such as a personal
@@ -152,6 +157,8 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param EncryptCommandInput - {@link EncryptCommandInput}
+ * @returns {@link EncryptCommandOutput}
  * @see {@link EncryptCommandInput} for command's `input` shape.
  * @see {@link EncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -250,6 +257,9 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EncryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -287,10 +297,16 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EncryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EncryptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EncryptCommandOutput> {
     return deserializeAws_json1_1EncryptCommand(output, context);
   }

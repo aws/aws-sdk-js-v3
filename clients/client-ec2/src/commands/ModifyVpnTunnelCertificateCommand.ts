@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpnTunnelCertificateCommand}.
  */
 export interface ModifyVpnTunnelCertificateCommandInput extends ModifyVpnTunnelCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpnTunnelCertificateCommand}.
  */
 export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnelCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the VPN tunnel endpoint certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpnTunnelCertificateCommandInput - {@link ModifyVpnTunnelCertificateCommandInput}
+ * @returns {@link ModifyVpnTunnelCertificateCommandOutput}
  * @see {@link ModifyVpnTunnelCertificateCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnTunnelCertificateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpnTunnelCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpnTunnelCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpnTunnelCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWirelessGatewayWithCertificateCommand}.
  */
 export interface AssociateWirelessGatewayWithCertificateCommandInput
   extends AssociateWirelessGatewayWithCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWirelessGatewayWithCertificateCommand}.
  */
 export interface AssociateWirelessGatewayWithCertificateCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a wireless gateway with a certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWirelessGatewayWithCertificateCommandInput - {@link AssociateWirelessGatewayWithCertificateCommandInput}
+ * @returns {@link AssociateWirelessGatewayWithCertificateCommandOutput}
  * @see {@link AssociateWirelessGatewayWithCertificateCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessGatewayWithCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +97,9 @@ export class AssociateWirelessGatewayWithCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWirelessGatewayWithCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class AssociateWirelessGatewayWithCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWirelessGatewayWithCertificateCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class AssociateWirelessGatewayWithCertificateCommand extends $Command<
     return serializeAws_restJson1AssociateWirelessGatewayWithCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

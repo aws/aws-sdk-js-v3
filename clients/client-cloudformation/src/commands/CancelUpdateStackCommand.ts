@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CancelUpdateStackCommand}.
  */
 export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelUpdateStackCommand}.
  */
 export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an update on the specified stack. If the call completes successfully, the stack
  *          rolls back the update and reverts to the previous stack configuration.</p>
  *          <note>
@@ -46,6 +51,8 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelUpdateStackCommandInput - {@link CancelUpdateStackCommandInput}
+ * @returns {@link CancelUpdateStackCommandOutput}
  * @see {@link CancelUpdateStackCommandInput} for command's `input` shape.
  * @see {@link CancelUpdateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -72,6 +79,9 @@ export class CancelUpdateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelUpdateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CancelUpdateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelUpdateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCancelUpdateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelUpdateStackCommandOutput> {
     return deserializeAws_queryCancelUpdateStackCommand(output, context);
   }

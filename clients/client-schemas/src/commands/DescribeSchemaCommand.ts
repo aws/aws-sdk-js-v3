@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSchemaCommand}.
  */
 export interface DescribeSchemaCommandInput extends DescribeSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSchemaCommand}.
  */
 export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the schema definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSchemaCommandInput - {@link DescribeSchemaCommandInput}
+ * @returns {@link DescribeSchemaCommandOutput}
  * @see {@link DescribeSchemaCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSchemaCommandOutput> {
     return deserializeAws_restJson1DescribeSchemaCommand(output, context);
   }

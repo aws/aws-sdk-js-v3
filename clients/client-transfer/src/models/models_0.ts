@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TransferServiceException as __BaseException } from "./TransferServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,16 +25,25 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AgreementStatusType {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
+/**
+ * @public
+ */
 export enum CompressionEnum {
   DISABLED = "DISABLED",
   ZLIB = "ZLIB",
 }
 
+/**
+ * @public
+ */
 export enum EncryptionAlg {
   AES128_CBC = "AES128_CBC",
   AES192_CBC = "AES192_CBC",
@@ -41,11 +51,17 @@ export enum EncryptionAlg {
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum MdnResponse {
   NONE = "NONE",
   SYNC = "SYNC",
 }
 
+/**
+ * @public
+ */
 export enum MdnSigningAlg {
   DEFAULT = "DEFAULT",
   NONE = "NONE",
@@ -55,6 +71,9 @@ export enum MdnSigningAlg {
   SHA512 = "SHA512",
 }
 
+/**
+ * @public
+ */
 export enum SigningAlg {
   NONE = "NONE",
   SHA1 = "SHA1",
@@ -64,6 +83,7 @@ export enum SigningAlg {
 }
 
 /**
+ * @public
  * <p>Contains the details for a connector object. The connector object is used for AS2 outbound
  *       processes, to connect the Transfer Family customer with the trading partner.</p>
  */
@@ -127,27 +147,40 @@ export interface As2ConnectorConfig {
   MdnResponse?: MdnResponse | string;
 }
 
+/**
+ * @public
+ */
 export enum As2Transport {
   HTTP = "HTTP",
 }
 
+/**
+ * @public
+ */
 export enum CertificateStatusType {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
   PENDING_ROTATION = "PENDING_ROTATION",
 }
 
+/**
+ * @public
+ */
 export enum CertificateType {
   CERTIFICATE = "CERTIFICATE",
   CERTIFICATE_WITH_PRIVATE_KEY = "CERTIFICATE_WITH_PRIVATE_KEY",
 }
 
+/**
+ * @public
+ */
 export enum CertificateUsageType {
   ENCRYPTION = "ENCRYPTION",
   SIGNING = "SIGNING",
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer
  *       protocol-enabled server that has VPC as the endpoint type and the server's
  *         <code>VpcEndpointID</code> is not in the available state.</p>
@@ -171,6 +204,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon Elastic File Systems
  *       (Amazon EFS) for storage.</p>
  *          <p>
@@ -189,6 +223,7 @@ export interface EfsFileLocation {
 }
 
 /**
+ * @public
  * <p>Specifies the customer input Amazon S3 file location. If it is used inside <code>copyStepDetails.DestinationFileLocation</code>, it should be the S3 copy destination.</p>
  *          <p>
  *       You need to provide the bucket and key.
@@ -214,6 +249,7 @@ export interface S3InputFileLocation {
 }
 
 /**
+ * @public
  * <p>Specifies the location for the file that's being processed.</p>
  */
 export interface InputFileLocation {
@@ -229,12 +265,16 @@ export interface InputFileLocation {
   EfsFileLocation?: EfsFileLocation;
 }
 
+/**
+ * @public
+ */
 export enum OverwriteExisting {
   FALSE = "FALSE",
   TRUE = "TRUE",
 }
 
 /**
+ * @public
  * <p>Each step type has its own <code>StepDetails</code> structure.</p>
  */
 export interface CopyStepDetails {
@@ -244,15 +284,15 @@ export interface CopyStepDetails {
   Name?: string;
 
   /**
-   * <p>Specifies the location for the file being copied. Use <code>${Transfer:username}</code> or <code>${Transfer:UploadDate}</code> in this field to parametrize the destination
+   * <p>Specifies the location for the file being copied. Use <code>$\{Transfer:username\}</code> or <code>$\{Transfer:UploadDate\}</code> in this field to parametrize the destination
    *       prefix by username or uploaded date.</p>
    *          <ul>
    *             <li>
-   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>${Transfer:username}</code> to copy uploaded files to
+   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>$\{Transfer:username\}</code> to copy uploaded files to
    *         an Amazon S3 bucket that is prefixed with the name of the Transfer Family user that uploaded the file.</p>
    *             </li>
    *             <li>
-   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>${Transfer:UploadDate}</code> to copy uploaded files to
+   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>$\{Transfer:UploadDate\}</code> to copy uploaded files to
    *           an Amazon S3 bucket that is prefixed with the date of the upload.</p>
    *                <note>
    *                   <p>The system resolves <code>UploadDate</code> to a date format of <i>YYYY-MM-DD</i>, based on the date the file
@@ -274,12 +314,12 @@ export interface CopyStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
+   *                <p>To use the previous file as the input, enter <code>$\{previous.file\}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>$\{original.file\}</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -287,11 +327,12 @@ export interface CopyStepDetails {
 }
 
 /**
+ * @public
  * <p>Represents an object that contains entries and targets for
  *         <code>HomeDirectoryMappings</code>.</p>
  *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
  *          <p>
- *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+ *             <code>[ \{ "Entry": "/", "Target": "/bucket_name/home/mydirectory" \} ]</code>
  *          </p>
  */
 export interface HomeDirectoryMapEntry {
@@ -306,12 +347,16 @@ export interface HomeDirectoryMapEntry {
   Target: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HomeDirectoryType {
   LOGICAL = "LOGICAL",
   PATH = "PATH",
 }
 
 /**
+ * @public
  * <p>The full POSIX identity, including user ID (<code>Uid</code>), group ID
  *       (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
  *       your users' access to your Amazon EFS file systems. The POSIX permissions that are set on
@@ -335,6 +380,9 @@ export interface PosixProfile {
   SecondaryGids?: number[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessRequest {
   /**
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
@@ -361,7 +409,7 @@ export interface CreateAccessRequest {
    *       <i>LOGICAL</i>.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
@@ -369,15 +417,15 @@ export interface CreateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/", "Target": "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
-   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
-   *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>$\{Transfer:UserName\}</code>,
+   *      <code>$\{Transfer:HomeDirectory\}</code>, and <code>$\{Transfer:HomeBucket\}</code>.</p>
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
@@ -419,7 +467,7 @@ export interface CreateAccessRequest {
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *          <p>
-   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
+   *             <code>Get-ADGroup -Filter \{samAccountName -like "<i>YourGroupName</i>*"\} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
@@ -428,6 +476,9 @@ export interface CreateAccessRequest {
   ExternalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessResponse {
   /**
    * <p>The identifier of the server that the user is attached to.</p>
@@ -442,6 +493,7 @@ export interface CreateAccessResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
  */
 export class InternalServiceError extends __BaseException {
@@ -463,6 +515,7 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the client submits a malformed request.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -484,6 +537,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource does not exist.</p>
  */
 export class ResourceExistsException extends __BaseException {
@@ -509,6 +563,7 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
  *       service.</p>
  */
@@ -535,6 +590,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -556,6 +612,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to
  *       search for and group a resource for various purposes. You can apply tags to servers, users,
  *       and roles. A tag key can take more than one value. For example, to group servers for
@@ -574,6 +631,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAgreementRequest {
   /**
    * <p>A name or short description to identify the agreement. </p>
@@ -629,6 +689,9 @@ export interface CreateAgreementRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAgreementResponse {
   /**
    * <p>The unique identifier for the agreement. Use this ID for deleting, or updating an
@@ -639,6 +702,7 @@ export interface CreateAgreementResponse {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -659,6 +723,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectorRequest {
   /**
    * <p>The URL of the partner's AS2 endpoint.</p>
@@ -697,6 +764,9 @@ export interface CreateConnectorRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectorResponse {
   /**
    * <p>The unique identifier for the connector, returned after the API call succeeds.</p>
@@ -704,11 +774,17 @@ export interface CreateConnectorResponse {
   ConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProfileType {
   LOCAL = "LOCAL",
   PARTNER = "PARTNER",
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileRequest {
   /**
    * <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the
@@ -742,6 +818,9 @@ export interface CreateProfileRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileResponse {
   /**
    * <p>The unique identifier for the AS2 profile, returned after the API call succeeds.</p>
@@ -749,12 +828,16 @@ export interface CreateProfileResponse {
   ProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Domain {
   EFS = "EFS",
   S3 = "S3",
 }
 
 /**
+ * @public
  * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file
  *       transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server
  *       and resources only within your VPC. To control incoming internet traffic, invoke the
@@ -826,6 +909,9 @@ export interface EndpointDetails {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export enum EndpointType {
   PUBLIC = "PUBLIC",
   VPC = "VPC",
@@ -833,6 +919,7 @@ export enum EndpointType {
 }
 
 /**
+ * @public
  * <p>Returns information related to the type of user authentication that is in use for a file
  *       transfer protocol-enabled server's users. A server can have only one method of
  *       authentication.</p>
@@ -860,6 +947,9 @@ export interface IdentityProviderDetails {
   Function?: string;
 }
 
+/**
+ * @public
+ */
 export enum IdentityProviderType {
   API_GATEWAY = "API_GATEWAY",
   AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE",
@@ -867,11 +957,17 @@ export enum IdentityProviderType {
   SERVICE_MANAGED = "SERVICE_MANAGED",
 }
 
+/**
+ * @public
+ */
 export enum SetStatOption {
   DEFAULT = "DEFAULT",
   ENABLE_NO_OP = "ENABLE_NO_OP",
 }
 
+/**
+ * @public
+ */
 export enum TlsSessionResumptionMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -879,6 +975,7 @@ export enum TlsSessionResumptionMode {
 }
 
 /**
+ * @public
  * <p>
  *       The protocol settings that are configured for your server.
  *     </p>
@@ -963,6 +1060,9 @@ export interface ProtocolDetails {
   As2Transports?: (As2Transport | string)[];
 }
 
+/**
+ * @public
+ */
 export enum Protocol {
   AS2 = "AS2",
   FTP = "FTP",
@@ -971,6 +1071,7 @@ export enum Protocol {
 }
 
 /**
+ * @public
  * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
  *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
  *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
@@ -990,6 +1091,7 @@ export interface WorkflowDetail {
 }
 
 /**
+ * @public
  * <p>Container for the <code>WorkflowDetail</code> data type.
  *       It is used by actions that trigger a workflow to begin execution.</p>
  */
@@ -998,7 +1100,7 @@ export interface WorkflowDetails {
    * <p>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</p>
    *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
    *          <p>
-   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'</code>
+   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '\{"OnUpload":[]\}'</code>
    *          </p>
    */
   OnUpload?: WorkflowDetail[];
@@ -1011,6 +1113,9 @@ export interface WorkflowDetails {
   OnPartialUpload?: WorkflowDetail[];
 }
 
+/**
+ * @public
+ */
 export interface CreateServerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required
@@ -1266,6 +1371,9 @@ export interface CreateServerRequest {
   WorkflowDetails?: WorkflowDetails;
 }
 
+/**
+ * @public
+ */
 export interface CreateServerResponse {
   /**
    * <p>The service-assigned identifier of the server that is created.</p>
@@ -1273,6 +1381,9 @@ export interface CreateServerResponse {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
@@ -1299,8 +1410,8 @@ export interface CreateUserRequest {
    *       <i>LOGICAL</i>.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "/directory1", "Target":
-   *         "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/directory1", "Target":
+   *         "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    *          <p>In most cases, you can use this value instead of the session policy to lock your user
    *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
@@ -1308,15 +1419,15 @@ export interface CreateUserRequest {
    *       parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/", "Target": "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
-   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
-   *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>$\{Transfer:UserName\}</code>,
+   *      <code>$\{Transfer:HomeDirectory\}</code>, and <code>$\{Transfer:HomeBucket\}</code>.</p>
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
@@ -1391,6 +1502,9 @@ export interface CreateUserRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The identifier of the server that the user is attached to.</p>
@@ -1404,6 +1518,7 @@ export interface CreateUserResponse {
 }
 
 /**
+ * @public
  * <p>Each step type has its own <code>StepDetails</code> structure.</p>
  */
 export interface CustomStepDetails {
@@ -1427,23 +1542,27 @@ export interface CustomStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
+   *                <p>To use the previous file as the input, enter <code>$\{previous.file\}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>$\{original.file\}</code>.</p>
    *             </li>
    *          </ul>
    */
   SourceFileLocation?: string;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionType {
   PGP = "PGP",
 }
 
 /**
+ * @public
  * <p>Each step type has its own <code>StepDetails</code> structure.</p>
  */
 export interface DecryptStepDetails {
@@ -1462,12 +1581,12 @@ export interface DecryptStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
+   *                <p>To use the previous file as the input, enter <code>$\{previous.file\}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>$\{original.file\}</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1486,6 +1605,7 @@ export interface DecryptStepDetails {
 }
 
 /**
+ * @public
  * <p>The name of the step, used to identify the delete step.</p>
  */
 export interface DeleteStepDetails {
@@ -1499,12 +1619,12 @@ export interface DeleteStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
+   *                <p>To use the previous file as the input, enter <code>$\{previous.file\}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>$\{original.file\}</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1512,6 +1632,7 @@ export interface DeleteStepDetails {
 }
 
 /**
+ * @public
  * <p>Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.</p>
  */
 export interface S3Tag {
@@ -1527,6 +1648,7 @@ export interface S3Tag {
 }
 
 /**
+ * @public
  * <p>Each step type has its own <code>StepDetails</code> structure.</p>
  *          <p>The key/value pairs used to tag a file during the execution of a workflow step.</p>
  */
@@ -1546,18 +1668,21 @@ export interface TagStepDetails {
    *     for the workflow.</p>
    *          <ul>
    *             <li>
-   *                <p>To use the previous file as the input, enter <code>${previous.file}</code>.
+   *                <p>To use the previous file as the input, enter <code>$\{previous.file\}</code>.
    *           In this case, this workflow step uses the output file from the previous workflow step as input.
    *           This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>To use the originally uploaded file location as input for this step, enter <code>${original.file}</code>.</p>
+   *                <p>To use the originally uploaded file location as input for this step, enter <code>$\{original.file\}</code>.</p>
    *             </li>
    *          </ul>
    */
   SourceFileLocation?: string;
 }
 
+/**
+ * @public
+ */
 export enum WorkflowStepType {
   COPY = "COPY",
   CUSTOM = "CUSTOM",
@@ -1567,6 +1692,7 @@ export enum WorkflowStepType {
 }
 
 /**
+ * @public
  * <p>The basic building block of a workflow.</p>
  */
 export interface WorkflowStep {
@@ -1672,6 +1798,9 @@ export interface WorkflowStep {
   DecryptStepDetails?: DecryptStepDetails;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowRequest {
   /**
    * <p>A textual description for the workflow.</p>
@@ -1742,6 +1871,9 @@ export interface CreateWorkflowRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowResponse {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -1749,11 +1881,17 @@ export interface CreateWorkflowResponse {
   WorkflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CustomStepStatus {
   FAILURE = "FAILURE",
   SUCCESS = "SUCCESS",
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessRequest {
   /**
    * <p>A system-assigned unique identifier for a server that has this user assigned.</p>
@@ -1766,7 +1904,7 @@ export interface DeleteAccessRequest {
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *          <p>
-   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
+   *             <code>Get-ADGroup -Filter \{samAccountName -like "<i>YourGroupName</i>*"\} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
@@ -1775,6 +1913,9 @@ export interface DeleteAccessRequest {
   ExternalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAgreementRequest {
   /**
    * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
@@ -1787,6 +1928,9 @@ export interface DeleteAgreementRequest {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateRequest {
   /**
    * <p>The identifier of the certificate object that you are deleting.</p>
@@ -1794,6 +1938,9 @@ export interface DeleteCertificateRequest {
   CertificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectorRequest {
   /**
    * <p>The unique identifier for the connector.</p>
@@ -1801,6 +1948,9 @@ export interface DeleteConnectorRequest {
   ConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHostKeyRequest {
   /**
    * <p>The identifier of the server that contains the host key that you are deleting.</p>
@@ -1813,6 +1963,9 @@ export interface DeleteHostKeyRequest {
   HostKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileRequest {
   /**
    * <p>The identifier of the profile that you are deleting.</p>
@@ -1820,6 +1973,9 @@ export interface DeleteProfileRequest {
   ProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServerRequest {
   /**
    * <p>A unique system-assigned identifier for a server instance.</p>
@@ -1827,6 +1983,9 @@ export interface DeleteServerRequest {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSshPublicKeyRequest {
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance
@@ -1845,6 +2004,9 @@ export interface DeleteSshPublicKeyRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>A system-assigned unique identifier for a server instance that has the user assigned to
@@ -1858,6 +2020,9 @@ export interface DeleteUserRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowRequest {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -1865,6 +2030,9 @@ export interface DeleteWorkflowRequest {
   WorkflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccessRequest {
   /**
    * <p>A system-assigned unique identifier for a server that has this access assigned.</p>
@@ -1877,7 +2045,7 @@ export interface DescribeAccessRequest {
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *          <p>
-   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
+   *             <code>Get-ADGroup -Filter \{samAccountName -like "<i>YourGroupName</i>*"\} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
@@ -1887,6 +2055,7 @@ export interface DescribeAccessRequest {
 }
 
 /**
+ * @public
  * <p>Describes the properties of the access that was specified.</p>
  */
 export interface DescribedAccess {
@@ -1922,8 +2091,8 @@ export interface DescribedAccess {
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
-   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
-   *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>$\{Transfer:UserName\}</code>,
+   *      <code>$\{Transfer:HomeDirectory\}</code>, and <code>$\{Transfer:HomeBucket\}</code>.</p>
    */
   Policy?: string;
 
@@ -1950,7 +2119,7 @@ export interface DescribedAccess {
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *          <p>
-   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
+   *             <code>Get-ADGroup -Filter \{samAccountName -like "<i>YourGroupName</i>*"\} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
@@ -1959,6 +2128,9 @@ export interface DescribedAccess {
   ExternalId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccessResponse {
   /**
    * <p>A system-assigned unique identifier for a server that has this access assigned.</p>
@@ -1971,6 +2143,9 @@ export interface DescribeAccessResponse {
   Access: DescribedAccess | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAgreementRequest {
   /**
    * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
@@ -1984,6 +2159,7 @@ export interface DescribeAgreementRequest {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an agreement.</p>
  */
 export interface DescribedAgreement {
@@ -2050,6 +2226,9 @@ export interface DescribedAgreement {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAgreementResponse {
   /**
    * <p>The details for the specified agreement, returned as a <code>DescribedAgreement</code>
@@ -2058,6 +2237,9 @@ export interface DescribeAgreementResponse {
   Agreement: DescribedAgreement | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateRequest {
   /**
    * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
@@ -2066,6 +2248,7 @@ export interface DescribeCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Describes the properties of a certificate.</p>
  */
 export interface DescribedCertificate {
@@ -2143,6 +2326,9 @@ export interface DescribedCertificate {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateResponse {
   /**
    * <p>The details for the specified certificate, returned as an object.</p>
@@ -2150,6 +2336,9 @@ export interface DescribeCertificateResponse {
   Certificate: DescribedCertificate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorRequest {
   /**
    * <p>The unique identifier for the connector.</p>
@@ -2158,6 +2347,7 @@ export interface DescribeConnectorRequest {
 }
 
 /**
+ * @public
  * <p>Describes the parameters for the connector, as identified by the
  *       <code>ConnectorId</code>.</p>
  */
@@ -2209,6 +2399,9 @@ export interface DescribedConnector {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorResponse {
   /**
    * <p>The structure that contains the details of the connector.</p>
@@ -2217,6 +2410,7 @@ export interface DescribeConnectorResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using S3 storage.</p>
  */
 export interface S3FileLocation {
@@ -2242,6 +2436,7 @@ export interface S3FileLocation {
 }
 
 /**
+ * @public
  * <p>Specifies the Amazon S3 or EFS file details to be used in the step.</p>
  */
 export interface FileLocation {
@@ -2258,6 +2453,7 @@ export interface FileLocation {
 }
 
 /**
+ * @public
  * <p>Consists of the logging role and the log group name.</p>
  */
 export interface LoggingConfiguration {
@@ -2274,6 +2470,9 @@ export interface LoggingConfiguration {
   LogGroupName?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExecutionErrorType {
   ALREADY_EXISTS = "ALREADY_EXISTS",
   BAD_REQUEST = "BAD_REQUEST",
@@ -2286,6 +2485,7 @@ export enum ExecutionErrorType {
 }
 
 /**
+ * @public
  * <p>Specifies the error message and type, for an error that occurs during the execution of the workflow.</p>
  */
 export interface ExecutionError {
@@ -2343,6 +2543,7 @@ export interface ExecutionError {
 }
 
 /**
+ * @public
  * <p>Specifies the following details for the step: error (if any), outputs (if any), and the step type.</p>
  */
 export interface ExecutionStepResult {
@@ -2396,6 +2597,7 @@ export interface ExecutionStepResult {
 }
 
 /**
+ * @public
  * <p>Specifies the steps in the workflow, as well as the steps to execute in case of any errors during workflow execution.</p>
  */
 export interface ExecutionResults {
@@ -2411,6 +2613,7 @@ export interface ExecutionResults {
 }
 
 /**
+ * @public
  * <p>Specifies the user name, server ID, and session ID for a workflow.</p>
  */
 export interface UserDetails {
@@ -2431,6 +2634,7 @@ export interface UserDetails {
 }
 
 /**
+ * @public
  * <p>A container object for the session details that are associated with a workflow.</p>
  */
 export interface ServiceMetadata {
@@ -2440,6 +2644,9 @@ export interface ServiceMetadata {
   UserDetails: UserDetails | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExecutionStatus {
   COMPLETED = "COMPLETED",
   EXCEPTION = "EXCEPTION",
@@ -2448,6 +2655,7 @@ export enum ExecutionStatus {
 }
 
 /**
+ * @public
  * <p>The details for an execution object.</p>
  */
 export interface DescribedExecution {
@@ -2501,6 +2709,7 @@ export interface DescribedExecution {
 }
 
 /**
+ * @public
  * <p>The details for a server host key.</p>
  */
 export interface DescribedHostKey {
@@ -2569,6 +2778,7 @@ export interface DescribedHostKey {
 }
 
 /**
+ * @public
  * <p>The details for a local or partner AS2 profile. </p>
  */
 export interface DescribedProfile {
@@ -2608,6 +2818,7 @@ export interface DescribedProfile {
 }
 
 /**
+ * @public
  * <p>Describes the properties of a security policy that was specified. For more information
  *       about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
  *         policies</a>.</p>
@@ -2649,6 +2860,9 @@ export interface DescribedSecurityPolicy {
   TlsCiphers?: string[];
 }
 
+/**
+ * @public
+ */
 export enum State {
   OFFLINE = "OFFLINE",
   ONLINE = "ONLINE",
@@ -2659,6 +2873,7 @@ export enum State {
 }
 
 /**
+ * @public
  * <p>Describes the properties of a file transfer protocol-enabled server that was
  *       specified.</p>
  */
@@ -2877,6 +3092,7 @@ export interface DescribedServer {
 }
 
 /**
+ * @public
  * <p>Provides information about the public Secure Shell (SSH) key that is associated with a
  *       user account for the specific file transfer protocol-enabled server (as identified by
  *         <code>ServerId</code>). The information returned includes the date the key was imported, the
@@ -2904,6 +3120,7 @@ export interface SshPublicKey {
 }
 
 /**
+ * @public
  * <p>Describes the properties of a user that was specified.</p>
  */
 export interface DescribedUser {
@@ -2945,8 +3162,8 @@ export interface DescribedUser {
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
-   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
-   *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>$\{Transfer:UserName\}</code>,
+   *      <code>$\{Transfer:HomeDirectory\}</code>, and <code>$\{Transfer:HomeBucket\}</code>.</p>
    */
   Policy?: string;
 
@@ -2989,6 +3206,7 @@ export interface DescribedUser {
 }
 
 /**
+ * @public
  * <p>Describes the properties of the specified workflow</p>
  */
 export interface DescribedWorkflow {
@@ -3023,6 +3241,9 @@ export interface DescribedWorkflow {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExecutionRequest {
   /**
    * <p>A unique identifier for the execution of a workflow.</p>
@@ -3035,6 +3256,9 @@ export interface DescribeExecutionRequest {
   WorkflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExecutionResponse {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -3047,6 +3271,9 @@ export interface DescribeExecutionResponse {
   Execution: DescribedExecution | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostKeyRequest {
   /**
    * <p>The identifier of the server that contains the host key that you want described.</p>
@@ -3059,6 +3286,9 @@ export interface DescribeHostKeyRequest {
   HostKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostKeyResponse {
   /**
    * <p>Returns the details for the specified host key.</p>
@@ -3066,6 +3296,9 @@ export interface DescribeHostKeyResponse {
   HostKey: DescribedHostKey | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProfileRequest {
   /**
    * <p>The identifier of the profile that you want described.</p>
@@ -3073,6 +3306,9 @@ export interface DescribeProfileRequest {
   ProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProfileResponse {
   /**
    * <p>The details of the specified profile, returned as an object.</p>
@@ -3080,6 +3316,9 @@ export interface DescribeProfileResponse {
   Profile: DescribedProfile | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityPolicyRequest {
   /**
    * <p>Specifies the name of the security policy that is attached to the server.</p>
@@ -3087,6 +3326,9 @@ export interface DescribeSecurityPolicyRequest {
   SecurityPolicyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityPolicyResponse {
   /**
    * <p>An array containing the properties of the security policy.</p>
@@ -3094,6 +3336,9 @@ export interface DescribeSecurityPolicyResponse {
   SecurityPolicy: DescribedSecurityPolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServerRequest {
   /**
    * <p>A system-assigned unique identifier for a server.</p>
@@ -3101,6 +3346,9 @@ export interface DescribeServerRequest {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServerResponse {
   /**
    * <p>An array containing the properties of a server with the <code>ServerID</code> you
@@ -3109,6 +3357,9 @@ export interface DescribeServerResponse {
   Server: DescribedServer | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>A system-assigned unique identifier for a server that has this user assigned.</p>
@@ -3122,6 +3373,9 @@ export interface DescribeUserRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>A system-assigned unique identifier for a server that has this user assigned.</p>
@@ -3135,6 +3389,9 @@ export interface DescribeUserResponse {
   User: DescribedUser | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkflowRequest {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -3142,6 +3399,9 @@ export interface DescribeWorkflowRequest {
   WorkflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkflowResponse {
   /**
    * <p>The structure that contains the details of the workflow.</p>
@@ -3149,6 +3409,9 @@ export interface DescribeWorkflowResponse {
   Workflow: DescribedWorkflow | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateRequest {
   /**
    * <p>Specifies whether this certificate is used for signing or encryption.</p>
@@ -3209,6 +3472,9 @@ export interface ImportCertificateRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateResponse {
   /**
    * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
@@ -3216,6 +3482,9 @@ export interface ImportCertificateResponse {
   CertificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportHostKeyRequest {
   /**
    * <p>The identifier of the server that contains the host key that you are importing.</p>
@@ -3239,6 +3508,9 @@ export interface ImportHostKeyRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportHostKeyResponse {
   /**
    * <p>Returns the server identifier that contains the imported key.</p>
@@ -3251,6 +3523,9 @@ export interface ImportHostKeyResponse {
   HostKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportSshPublicKeyRequest {
   /**
    * <p>A system-assigned unique identifier for a server.</p>
@@ -3270,6 +3545,7 @@ export interface ImportSshPublicKeyRequest {
 }
 
 /**
+ * @public
  * <p>Identifies the user, the server they belong to, and the identifier of the SSH public key
  *       associated with that user. A user can have more than one key on each server that they are
  *       associated with.</p>
@@ -3292,6 +3568,7 @@ export interface ImportSshPublicKeyResponse {
 }
 
 /**
+ * @public
  * <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -3312,6 +3589,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAccessesRequest {
   /**
    * <p>Specifies the maximum number of access SIDs to return.</p>
@@ -3333,6 +3613,7 @@ export interface ListAccessesRequest {
 }
 
 /**
+ * @public
  * <p>Lists the properties for one or more specified associated accesses.</p>
  */
 export interface ListedAccess {
@@ -3364,7 +3645,7 @@ export interface ListedAccess {
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *          <p>
-   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
+   *             <code>Get-ADGroup -Filter \{samAccountName -like "<i>YourGroupName</i>*"\} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
@@ -3373,6 +3654,9 @@ export interface ListedAccess {
   ExternalId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessesResponse {
   /**
    * <p>When you can get additional results from the <code>ListAccesses</code> call, a
@@ -3394,6 +3678,9 @@ export interface ListAccessesResponse {
   Accesses: ListedAccess[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAgreementsRequest {
   /**
    * <p>The maximum number of agreements to return.</p>
@@ -3415,6 +3702,7 @@ export interface ListAgreementsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an agreement.</p>
  */
 export interface ListedAgreement {
@@ -3455,6 +3743,9 @@ export interface ListedAgreement {
   PartnerProfileId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAgreementsResponse {
   /**
    * <p>Returns a token that you can use to call <code>ListAgreements</code> again and receive
@@ -3468,6 +3759,9 @@ export interface ListAgreementsResponse {
   Agreements: ListedAgreement[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCertificatesRequest {
   /**
    * <p>The maximum number of certificates to return.</p>
@@ -3484,6 +3778,7 @@ export interface ListCertificatesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the properties of a certificate.</p>
  */
 export interface ListedCertificate {
@@ -3532,6 +3827,9 @@ export interface ListedCertificate {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCertificatesResponse {
   /**
    * <p>Returns the next token, which you can use to list the next certificate.</p>
@@ -3545,6 +3843,9 @@ export interface ListCertificatesResponse {
   Certificates: ListedCertificate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorsRequest {
   /**
    * <p>The maximum number of connectors to return.</p>
@@ -3561,6 +3862,7 @@ export interface ListConnectorsRequest {
 }
 
 /**
+ * @public
  * <p>Returns details of the connector that is specified.</p>
  */
 export interface ListedConnector {
@@ -3580,6 +3882,9 @@ export interface ListedConnector {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorsResponse {
   /**
    * <p>Returns a token that you can use to call <code>ListConnectors</code> again and receive
@@ -3594,6 +3899,7 @@ export interface ListConnectorsResponse {
 }
 
 /**
+ * @public
  * <p>Returns properties of the execution that is specified.</p>
  */
 export interface ListedExecution {
@@ -3621,6 +3927,7 @@ export interface ListedExecution {
 }
 
 /**
+ * @public
  * <p>Returns properties of the host key that's specified.</p>
  */
 export interface ListedHostKey {
@@ -3684,6 +3991,7 @@ export interface ListedHostKey {
 }
 
 /**
+ * @public
  * <p>Returns the properties of the profile that was specified.</p>
  */
 export interface ListedProfile {
@@ -3713,6 +4021,7 @@ export interface ListedProfile {
 }
 
 /**
+ * @public
  * <p>Returns properties of a file transfer protocol-enabled server that was specified.</p>
  */
 export interface ListedServer {
@@ -3781,6 +4090,7 @@ export interface ListedServer {
 }
 
 /**
+ * @public
  * <p>Returns properties of the user that you specify.</p>
  */
 export interface ListedUser {
@@ -3831,6 +4141,7 @@ export interface ListedUser {
 }
 
 /**
+ * @public
  * <p>Contains the identifier, text description, and Amazon Resource Name (ARN) for the
  *       workflow.</p>
  */
@@ -3851,6 +4162,9 @@ export interface ListedWorkflow {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExecutionsRequest {
   /**
    * <p>Specifies the maximum number of executions to return.</p>
@@ -3889,6 +4203,9 @@ export interface ListExecutionsRequest {
   WorkflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListExecutionsResponse {
   /**
    * <p>
@@ -3931,6 +4248,9 @@ export interface ListExecutionsResponse {
   Executions: ListedExecution[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListHostKeysRequest {
   /**
    * <p>The maximum number of host keys to return.</p>
@@ -3950,6 +4270,9 @@ export interface ListHostKeysRequest {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListHostKeysResponse {
   /**
    * <p>Returns a token that you can use to call <code>ListHostKeys</code> again and receive
@@ -3968,6 +4291,9 @@ export interface ListHostKeysResponse {
   HostKeys: ListedHostKey[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProfilesRequest {
   /**
    * <p>The maximum number of profiles to return.</p>
@@ -3988,6 +4314,9 @@ export interface ListProfilesRequest {
   ProfileType?: ProfileType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListProfilesResponse {
   /**
    * <p>Returns a token that you can use to call <code>ListProfiles</code> again and receive
@@ -4001,6 +4330,9 @@ export interface ListProfilesResponse {
   Profiles: ListedProfile[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityPoliciesRequest {
   /**
    * <p>Specifies the number of security policies to return as a response to the
@@ -4017,6 +4349,9 @@ export interface ListSecurityPoliciesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityPoliciesResponse {
   /**
    * <p>When you can get additional results from the <code>ListSecurityPolicies</code> operation,
@@ -4031,6 +4366,9 @@ export interface ListSecurityPoliciesResponse {
   SecurityPolicyNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServersRequest {
   /**
    * <p>Specifies the number of servers to return as a response to the <code>ListServers</code>
@@ -4047,6 +4385,9 @@ export interface ListServersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServersResponse {
   /**
    * <p>When you can get additional results from the <code>ListServers</code> operation, a
@@ -4061,6 +4402,9 @@ export interface ListServersResponse {
   Servers: ListedServer[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN is an
@@ -4082,6 +4426,9 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The ARN you specified to list the tags of.</p>
@@ -4103,6 +4450,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>Specifies the number of users to return as a response to the <code>ListUsers</code>
@@ -4124,6 +4474,9 @@ export interface ListUsersRequest {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>When you can get additional results from the <code>ListUsers</code> call, a
@@ -4145,6 +4498,9 @@ export interface ListUsersResponse {
   Users: ListedUser[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsRequest {
   /**
    * <p>Specifies the maximum number of workflows to return.</p>
@@ -4160,6 +4516,9 @@ export interface ListWorkflowsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsResponse {
   /**
    * <p>
@@ -4175,6 +4534,9 @@ export interface ListWorkflowsResponse {
   Workflows: ListedWorkflow[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendWorkflowStepStateRequest {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -4197,8 +4559,14 @@ export interface SendWorkflowStepStateRequest {
   Status: CustomStepStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendWorkflowStepStateResponse {}
 
+/**
+ * @public
+ */
 export interface StartFileTransferRequest {
   /**
    * <p>The unique identifier for the connector. </p>
@@ -4214,6 +4582,9 @@ export interface StartFileTransferRequest {
   SendFilePaths: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartFileTransferResponse {
   /**
    * <p>Returns the unique identifier for this file transfer. </p>
@@ -4221,6 +4592,9 @@ export interface StartFileTransferResponse {
   TransferId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartServerRequest {
   /**
    * <p>A system-assigned unique identifier for a server that you start.</p>
@@ -4228,6 +4602,9 @@ export interface StartServerRequest {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopServerRequest {
   /**
    * <p>A system-assigned unique identifier for a server that you stopped.</p>
@@ -4235,6 +4612,9 @@ export interface StopServerRequest {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a server, user, or
@@ -4249,6 +4629,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TestIdentityProviderRequest {
   /**
    * <p>A system-assigned identifier for a specific server. That server's user authentication
@@ -4289,6 +4672,9 @@ export interface TestIdentityProviderRequest {
   UserPassword?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestIdentityProviderResponse {
   /**
    * <p>The response that is returned from your API Gateway.</p>
@@ -4314,6 +4700,9 @@ export interface TestIdentityProviderResponse {
   Url: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is
@@ -4328,6 +4717,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccessRequest {
   /**
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
@@ -4354,7 +4746,7 @@ export interface UpdateAccessRequest {
    *       <i>LOGICAL</i>.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *         user to the designated home directory ("<code>chroot</code>"). To do this, you can set
@@ -4362,15 +4754,15 @@ export interface UpdateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/", "Target": "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
-   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
-   *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>$\{Transfer:UserName\}</code>,
+   *      <code>$\{Transfer:HomeDirectory\}</code>, and <code>$\{Transfer:HomeBucket\}</code>.</p>
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
@@ -4412,7 +4804,7 @@ export interface UpdateAccessRequest {
    *     resources over the enabled protocols using Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *          <p>
-   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamAccountName,ObjectSid</code>
+   *             <code>Get-ADGroup -Filter \{samAccountName -like "<i>YourGroupName</i>*"\} -Properties * | Select SamAccountName,ObjectSid</code>
    *          </p>
    *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p>
    *          <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces.
@@ -4421,6 +4813,9 @@ export interface UpdateAccessRequest {
   ExternalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccessResponse {
   /**
    * <p>The identifier of the server that the user is attached to.</p>
@@ -4434,6 +4829,9 @@ export interface UpdateAccessResponse {
   ExternalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgreementRequest {
   /**
    * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
@@ -4492,6 +4890,9 @@ export interface UpdateAgreementRequest {
   AccessRole?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgreementResponse {
   /**
    * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
@@ -4499,6 +4900,9 @@ export interface UpdateAgreementResponse {
   AgreementId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCertificateRequest {
   /**
    * <p>The identifier of the certificate object that you are updating.</p>
@@ -4521,6 +4925,9 @@ export interface UpdateCertificateRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCertificateResponse {
   /**
    * <p>Returns the identifier of the certificate object that you are updating.</p>
@@ -4528,6 +4935,9 @@ export interface UpdateCertificateResponse {
   CertificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectorRequest {
   /**
    * <p>The unique identifier for the connector.</p>
@@ -4566,6 +4976,9 @@ export interface UpdateConnectorRequest {
   LoggingRole?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectorResponse {
   /**
    * <p>Returns the identifier of the connector object that you are updating.</p>
@@ -4573,6 +4986,9 @@ export interface UpdateConnectorResponse {
   ConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHostKeyRequest {
   /**
    * <p>The identifier of the server that contains the host key that you are updating.</p>
@@ -4590,6 +5006,9 @@ export interface UpdateHostKeyRequest {
   Description: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHostKeyResponse {
   /**
    * <p>Returns the server identifier for the server that contains the updated host key.</p>
@@ -4602,6 +5021,9 @@ export interface UpdateHostKeyResponse {
   HostKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileRequest {
   /**
    * <p>The identifier of the profile object that you are updating.</p>
@@ -4614,6 +5036,9 @@ export interface UpdateProfileRequest {
   CertificateIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileResponse {
   /**
    * <p>Returns the identifier for the profile that's being updated.</p>
@@ -4621,6 +5046,9 @@ export interface UpdateProfileResponse {
   ProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required
@@ -4845,12 +5273,15 @@ export interface UpdateServerRequest {
    *     the session disconnects.</p>
    *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
    *          <p>
-   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'</code>
+   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '\{"OnUpload":[]\}'</code>
    *          </p>
    */
   WorkflowDetails?: WorkflowDetails;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServerResponse {
   /**
    * <p>A system-assigned unique identifier for a server that the user account is assigned
@@ -4859,6 +5290,9 @@ export interface UpdateServerResponse {
   ServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserRequest {
   /**
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
@@ -4885,7 +5319,7 @@ export interface UpdateUserRequest {
    *       <i>LOGICAL</i>.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
@@ -4893,15 +5327,15 @@ export interface UpdateUserRequest {
    *       parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ \{ "Entry": "/", "Target": "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
-   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
-   *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>$\{Transfer:UserName\}</code>,
+   *      <code>$\{Transfer:HomeDirectory\}</code>, and <code>$\{Transfer:HomeBucket\}</code>.</p>
    *          <note>
    *             <p>This policy applies only when the domain of <code>ServerId</code> is Amazon S3. Amazon EFS does not use session policies.</p>
    *             <p>For session policies, Transfer Family stores the policy as a JSON blob, instead
@@ -4949,6 +5383,7 @@ export interface UpdateUserRequest {
 }
 
 /**
+ * @public
  * <p>
  *             <code>UpdateUserResponse</code> returns the user name and identifier for the request to
  *       update a user's properties.</p>

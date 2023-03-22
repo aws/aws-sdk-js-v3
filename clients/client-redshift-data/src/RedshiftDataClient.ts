@@ -70,6 +70,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchExecuteStatementCommandInput
   | CancelStatementCommandInput
@@ -82,6 +85,9 @@ export type ServiceInputTypes =
   | ListStatementsCommandInput
   | ListTablesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchExecuteStatementCommandOutput
   | CancelStatementCommandOutput
@@ -94,6 +100,9 @@ export type ServiceOutputTypes =
   | ListStatementsCommandOutput
   | ListTablesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -101,7 +110,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -210,11 +219,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type RedshiftDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -225,10 +237,15 @@ type RedshiftDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of RedshiftDataClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RedshiftDataClient class constructor that set the region, credentials and other options.
  */
 export interface RedshiftDataClientConfig extends RedshiftDataClientConfigType {}
 
+/**
+ * @public
+ */
 type RedshiftDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -239,11 +256,14 @@ type RedshiftDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of RedshiftDataClient class. This is resolved and normalized from the {@link RedshiftDataClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RedshiftDataClient class. This is resolved and normalized from the {@link RedshiftDataClientConfig | constructor configuration interface}.
  */
 export interface RedshiftDataClientResolvedConfig extends RedshiftDataClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You
  *       can run SQL statements, which are committed if the statement succeeds. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see

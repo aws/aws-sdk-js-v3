@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectionAliasPermissionCommand}.
  */
 export interface UpdateConnectionAliasPermissionCommandInput extends UpdateConnectionAliasPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectionAliasPermissionCommand}.
  */
 export interface UpdateConnectionAliasPermissionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateConnectionAliasPermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares or unshares a connection alias with one account by specifying whether that
  *          account has permission to associate the connection alias with a directory. If the
  *          association permission is granted, the connection alias is shared with that account. If the
@@ -69,6 +74,8 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectionAliasPermissionCommandInput - {@link UpdateConnectionAliasPermissionCommandInput}
+ * @returns {@link UpdateConnectionAliasPermissionCommandOutput}
  * @see {@link UpdateConnectionAliasPermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionAliasPermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -113,6 +120,9 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectionAliasPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,6 +162,9 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConnectionAliasPermissionCommandInput,
     context: __SerdeContext
@@ -159,6 +172,9 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     return serializeAws_json1_1UpdateConnectionAliasPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

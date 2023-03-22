@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandInput extends GetRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets data records from a Kinesis data stream's shard.</p>
  *          <note>
  *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
@@ -97,6 +102,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecordsCommandInput - {@link GetRecordsCommandInput}
+ * @returns {@link GetRecordsCommandOutput}
  * @see {@link GetRecordsCommandInput} for command's `input` shape.
  * @see {@link GetRecordsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -171,6 +178,9 @@ export class GetRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -208,10 +218,16 @@ export class GetRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
     return deserializeAws_json1_1GetRecordsCommand(output, context);
   }

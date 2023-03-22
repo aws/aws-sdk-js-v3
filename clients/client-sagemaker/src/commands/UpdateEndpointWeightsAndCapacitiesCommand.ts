@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointWeightsAndCapacitiesCommand}.
  */
 export interface UpdateEndpointWeightsAndCapacitiesCommandInput extends UpdateEndpointWeightsAndCapacitiesInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointWeightsAndCapacitiesCommand}.
  */
 export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates variant weight of one or more variants associated with an existing
  *             endpoint, or capacity of one variant associated with an existing endpoint. When it
  *             receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After
@@ -52,6 +57,8 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointWeightsAndCapacitiesCommandInput - {@link UpdateEndpointWeightsAndCapacitiesCommandInput}
+ * @returns {@link UpdateEndpointWeightsAndCapacitiesCommandOutput}
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointWeightsAndCapacitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEndpointWeightsAndCapacitiesCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     return serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

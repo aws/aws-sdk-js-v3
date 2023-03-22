@@ -25,15 +25,20 @@ import {
 } from "../SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecordCommand}.
  */
 export interface DeleteRecordCommandInput extends DeleteRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecordCommand}.
  */
 export interface DeleteRecordCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code> API is called a new record will be added to the <code>OfflineStore</code> and the <code>Record</code> will be removed from the <code>OnlineStore</code>. This
  *          record will have a value of <code>True</code> in the <code>is_deleted</code> column.</p>
  * @example
@@ -46,6 +51,8 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecordCommandInput - {@link DeleteRecordCommandInput}
+ * @returns {@link DeleteRecordCommandOutput}
  * @see {@link DeleteRecordCommandInput} for command's `input` shape.
  * @see {@link DeleteRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecordCommandOutput> {
     return deserializeAws_restJson1DeleteRecordCommand(output, context);
   }

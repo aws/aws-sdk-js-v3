@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutPermissionPolicyCommand}.
  */
 export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPermissionPolicyCommand}.
  */
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across
  *          accounts.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
@@ -62,6 +67,8 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionPolicyCommandInput - {@link PutPermissionPolicyCommandInput}
+ * @returns {@link PutPermissionPolicyCommandOutput}
  * @see {@link PutPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -142,6 +149,9 @@ export class PutPermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class PutPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionPolicyCommandOutput> {
     return deserializeAws_json1_1PutPermissionPolicyCommand(output, context);
   }

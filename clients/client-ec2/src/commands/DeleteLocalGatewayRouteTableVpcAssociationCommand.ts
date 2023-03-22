@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
  */
 export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput
   extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
  */
 export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified association between a VPC and local gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocalGatewayRouteTableVpcAssociationCommandInput - {@link DeleteLocalGatewayRouteTableVpcAssociationCommandInput}
+ * @returns {@link DeleteLocalGatewayRouteTableVpcAssociationCommandOutput}
  * @see {@link DeleteLocalGatewayRouteTableVpcAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteTableVpcAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     return serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

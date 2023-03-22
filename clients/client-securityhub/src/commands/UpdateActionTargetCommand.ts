@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateActionTargetCommand}.
  */
 export interface UpdateActionTargetCommandInput extends UpdateActionTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateActionTargetCommand}.
  */
 export interface UpdateActionTargetCommandOutput extends UpdateActionTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and description of a custom action target in Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateActionTargetCommandInput - {@link UpdateActionTargetCommandInput}
+ * @returns {@link UpdateActionTargetCommandOutput}
  * @see {@link UpdateActionTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateActionTargetCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateActionTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateActionTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateActionTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateActionTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateActionTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateActionTargetCommandOutput> {
     return deserializeAws_restJson1UpdateActionTargetCommand(output, context);
   }

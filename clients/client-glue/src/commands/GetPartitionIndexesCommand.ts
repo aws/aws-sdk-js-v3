@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPartitionIndexesCommand}.
  */
 export interface GetPartitionIndexesCommandInput extends GetPartitionIndexesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPartitionIndexesCommand}.
  */
 export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the partition indexes associated with a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPartitionIndexesCommandInput - {@link GetPartitionIndexesCommandInput}
+ * @returns {@link GetPartitionIndexesCommandOutput}
  * @see {@link GetPartitionIndexesCommandInput} for command's `input` shape.
  * @see {@link GetPartitionIndexesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetPartitionIndexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPartitionIndexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetPartitionIndexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPartitionIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPartitionIndexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartitionIndexesCommandOutput> {
     return deserializeAws_json1_1GetPartitionIndexesCommand(output, context);
   }

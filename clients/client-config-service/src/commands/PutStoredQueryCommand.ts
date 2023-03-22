@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutStoredQueryCommand}.
  */
 export interface PutStoredQueryCommandInput extends PutStoredQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutStoredQueryCommand}.
  */
 export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single Amazon Web Services account and a single Amazon Web Services Region.
  * 			You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.</p>
  *          <note>
@@ -52,6 +57,8 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutStoredQueryCommandInput - {@link PutStoredQueryCommandInput}
+ * @returns {@link PutStoredQueryCommandOutput}
  * @see {@link PutStoredQueryCommandInput} for command's `input` shape.
  * @see {@link PutStoredQueryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutStoredQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutStoredQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class PutStoredQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutStoredQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutStoredQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStoredQueryCommandOutput> {
     return deserializeAws_json1_1PutStoredQueryCommand(output, context);
   }

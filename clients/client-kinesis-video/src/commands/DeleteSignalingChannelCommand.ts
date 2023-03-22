@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSignalingChannelCommand}.
  */
 export interface DeleteSignalingChannelCommandInput extends DeleteSignalingChannelInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSignalingChannelCommand}.
  */
 export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an
  *             asynchronous operation. If you don't specify the channel's current version, the most
  *             recent version is deleted.</p>
@@ -48,6 +53,8 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSignalingChannelCommandInput - {@link DeleteSignalingChannelCommandInput}
+ * @returns {@link DeleteSignalingChannelCommandOutput}
  * @see {@link DeleteSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -109,6 +116,9 @@ export class DeleteSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DeleteSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSignalingChannelCommandOutput> {
     return deserializeAws_restJson1DeleteSignalingChannelCommand(output, context);
   }

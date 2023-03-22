@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTaskProtectionCommand}.
  */
 export interface UpdateTaskProtectionCommandInput extends UpdateTaskProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTaskProtectionCommand}.
  */
 export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the protection status of a task. You can set <code>protectionEnabled</code> to
  * 				<code>true</code> to protect your task from termination during scale-in events from
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
@@ -72,6 +77,8 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskProtectionCommandInput - {@link UpdateTaskProtectionCommandInput}
+ * @returns {@link UpdateTaskProtectionCommandOutput}
  * @see {@link UpdateTaskProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -200,6 +207,9 @@ export class UpdateTaskProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -239,10 +249,16 @@ export class UpdateTaskProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTaskProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskProtectionCommandOutput> {
     return deserializeAws_json1_1UpdateTaskProtectionCommand(output, context);
   }

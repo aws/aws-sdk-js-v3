@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupVaultNotificationsCommand}.
  */
 export interface DeleteBackupVaultNotificationsCommandInput extends DeleteBackupVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupVaultNotificationsCommand}.
  */
 export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes event notifications for the specified backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupVaultNotificationsCommandInput - {@link DeleteBackupVaultNotificationsCommandInput}
+ * @returns {@link DeleteBackupVaultNotificationsCommandOutput}
  * @see {@link DeleteBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBackupVaultNotificationsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     return serializeAws_restJson1DeleteBackupVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

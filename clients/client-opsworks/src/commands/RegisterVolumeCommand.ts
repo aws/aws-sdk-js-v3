@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterVolumeCommand}.
  */
 export interface RegisterVolumeCommandInput extends RegisterVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterVolumeCommand}.
  */
 export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
  *       stack at a time. If the volume is already registered, you must first deregister it by calling
  *         <a>DeregisterVolume</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
@@ -53,6 +58,8 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterVolumeCommandInput - {@link RegisterVolumeCommandInput}
+ * @returns {@link RegisterVolumeCommandOutput}
  * @see {@link RegisterVolumeCommandInput} for command's `input` shape.
  * @see {@link RegisterVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -82,6 +89,9 @@ export class RegisterVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class RegisterVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterVolumeCommandOutput> {
     return deserializeAws_json1_1RegisterVolumeCommand(output, context);
   }

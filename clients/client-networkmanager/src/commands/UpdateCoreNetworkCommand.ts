@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCoreNetworkCommand}.
  */
 export interface UpdateCoreNetworkCommandInput extends UpdateCoreNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCoreNetworkCommand}.
  */
 export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCoreNetworkCommandInput - {@link UpdateCoreNetworkCommandInput}
+ * @returns {@link UpdateCoreNetworkCommandOutput}
  * @see {@link UpdateCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link UpdateCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateCoreNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCoreNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateCoreNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCoreNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCoreNetworkCommandOutput> {
     return deserializeAws_restJson1UpdateCoreNetworkCommand(output, context);
   }

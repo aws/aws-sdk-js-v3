@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSinkCommand}.
  */
 export interface GetSinkCommandInput extends GetSinkInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSinkCommand}.
  */
 export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns complete information about one monitoring account sink.</p>
  *         <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSinkCommandInput - {@link GetSinkCommandInput}
+ * @returns {@link GetSinkCommandOutput}
  * @see {@link GetSinkCommandInput} for command's `input` shape.
  * @see {@link GetSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSinkCommandOutput> {
     return deserializeAws_restJson1GetSinkCommand(output, context);
   }

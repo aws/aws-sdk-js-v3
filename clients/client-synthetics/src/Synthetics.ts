@@ -77,6 +77,7 @@ import {
 import { SyntheticsClient } from "./SyntheticsClient";
 
 /**
+ * @public
  * <fullname>Amazon CloudWatch Synthetics</fullname>
  *          <p>You can use Amazon CloudWatch Synthetics to continually monitor your services. You can
  *          create and manage <i>canaries</i>, which are modular, lightweight scripts
@@ -96,6 +97,7 @@ import { SyntheticsClient } from "./SyntheticsClient";
  */
 export class Synthetics extends SyntheticsClient {
   /**
+   * @public
    * <p>Associates a canary with a group. Using groups can help you with
    *          managing and automating your canaries, and you can also view aggregated run results and statistics
    *          for all canaries in a group. </p>
@@ -131,6 +133,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Creates a canary. Canaries are scripts that monitor your endpoints and APIs from the
    *          outside-in. Canaries help you check the availability and latency of your web services and
    *          troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and
@@ -173,6 +176,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Creates a group which you can use to associate canaries with each other, including cross-Region
    *          canaries. Using groups can help you with
    *          managing and automating your canaries, and you can also view aggregated run results and statistics
@@ -211,6 +215,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes the specified canary.</p>
    *          <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes
    *          the Lambda functions and layers that are used by the canary.</p>
@@ -272,6 +277,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a group. The group doesn't need to be empty to be deleted. If there are canaries in the group,
    *          they are not deleted when you delete the group.
    *       </p>
@@ -302,6 +308,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns a list of the canaries in your account, along with full details
    *       about each canary.</p>
    *          <p>This operation supports resource-level authorization using an IAM policy and
@@ -343,6 +350,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
    *
    *          <p>This operation supports resource-level authorization using an IAM policy and
@@ -384,6 +392,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Synthetics canary runtime versions. For more information,
    *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
    *             Canary Runtime Versions</a>.</p>
@@ -418,6 +427,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Removes a canary from a group. You must run this operation in the Region where the canary exists.</p>
    */
   public disassociateResource(
@@ -450,6 +460,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves complete information about one canary. You must specify
    *       the name of the canary that you want. To get a list of canaries
    *       and their names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -478,6 +489,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of runs for a specified canary.</p>
    */
   public getCanaryRuns(
@@ -510,6 +522,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one group. Groups are a global resource, so you can use this operation from
    *       any Region.</p>
    */
@@ -537,6 +550,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the groups that the specified canary is associated with. The canary
    *       that you specify must be in the current Region.</p>
    */
@@ -570,6 +584,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns a list of the ARNs of the canaries that are associated with the specified group.</p>
    */
   public listGroupResources(
@@ -602,6 +617,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all groups in the account, displaying their names, unique IDs, and ARNs. The groups
    *       from all Regions are returned.</p>
    */
@@ -629,6 +645,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with a canary or group.</p>
    */
   public listTagsForResource(
@@ -661,6 +678,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to run a canary that has already been created.
    *          The frequency of the canary runs is determined by the value of the canary's <code>Schedule</code>. To see a canary's schedule,
    *          use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html">GetCanary</a>.</p>
@@ -689,6 +707,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Stops the canary to prevent all future runs. If the canary is currently running,the
    *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
    *          it is not recorded in Synthetics as a completed run.</p>
@@ -719,6 +738,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified canary or group. </p>
    *          <p>Tags can help you organize and categorize your
    *          resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with
@@ -756,6 +776,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
@@ -788,6 +809,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of a canary that has
    *          already been created.</p>
    *          <p>You can't use this operation to update the tags of an existing canary. To

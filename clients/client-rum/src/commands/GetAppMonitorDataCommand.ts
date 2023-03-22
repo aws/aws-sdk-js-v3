@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppMonitorDataCommand}.
  */
 export interface GetAppMonitorDataCommandInput extends GetAppMonitorDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppMonitorDataCommand}.
  */
 export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the raw performance events that RUM has collected from your web application,
  *          so that you can do your own processing or analysis of this data.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppMonitorDataCommandInput - {@link GetAppMonitorDataCommandInput}
+ * @returns {@link GetAppMonitorDataCommandOutput}
  * @see {@link GetAppMonitorDataCommandInput} for command's `input` shape.
  * @see {@link GetAppMonitorDataCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetAppMonitorDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppMonitorDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetAppMonitorDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppMonitorDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAppMonitorDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppMonitorDataCommandOutput> {
     return deserializeAws_restJson1GetAppMonitorDataCommand(output, context);
   }

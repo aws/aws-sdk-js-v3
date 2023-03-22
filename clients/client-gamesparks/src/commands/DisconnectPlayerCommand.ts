@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectPlayerCommand}.
  */
 export interface DisconnectPlayerCommandInput extends DisconnectPlayerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectPlayerCommand}.
  */
 export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects a player from the game runtime.</p>
  *          <p>
  *       If a player has multiple connections, this operation attempts to close all of them.
@@ -49,6 +54,8 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectPlayerCommandInput - {@link DisconnectPlayerCommandInput}
+ * @returns {@link DisconnectPlayerCommandOutput}
  * @see {@link DisconnectPlayerCommandInput} for command's `input` shape.
  * @see {@link DisconnectPlayerCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisconnectPlayerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectPlayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DisconnectPlayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectPlayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisconnectPlayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectPlayerCommandOutput> {
     return deserializeAws_restJson1DisconnectPlayerCommand(output, context);
   }

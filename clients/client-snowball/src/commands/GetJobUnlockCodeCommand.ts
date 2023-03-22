@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobUnlockCodeCommand}.
  */
 export interface GetJobUnlockCodeCommandInput extends GetJobUnlockCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobUnlockCodeCommand}.
  */
 export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
  *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
  *       has been created.</p>
@@ -58,6 +63,8 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobUnlockCodeCommandInput - {@link GetJobUnlockCodeCommandInput}
+ * @returns {@link GetJobUnlockCodeCommandOutput}
  * @see {@link GetJobUnlockCodeCommandInput} for command's `input` shape.
  * @see {@link GetJobUnlockCodeCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -109,6 +116,9 @@ export class GetJobUnlockCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobUnlockCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class GetJobUnlockCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobUnlockCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetJobUnlockCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobUnlockCodeCommandOutput> {
     return deserializeAws_json1_1GetJobUnlockCodeCommand(output, context);
   }

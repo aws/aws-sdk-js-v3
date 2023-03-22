@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateResourcesToCustomLineItemCommand}.
  */
 export interface BatchAssociateResourcesToCustomLineItemCommandInput
   extends BatchAssociateResourcesToCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateResourcesToCustomLineItemCommand}.
  */
 export interface BatchAssociateResourcesToCustomLineItemCommandOutput
@@ -38,6 +42,7 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Associates a batch of resources to a percentage custom line item.
  *     </p>
@@ -51,6 +56,8 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateResourcesToCustomLineItemCommandInput - {@link BatchAssociateResourcesToCustomLineItemCommandInput}
+ * @returns {@link BatchAssociateResourcesToCustomLineItemCommandOutput}
  * @see {@link BatchAssociateResourcesToCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateResourcesToCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -101,6 +108,9 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateResourcesToCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateResourcesToCustomLineItemCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<
     return serializeAws_restJson1BatchAssociateResourcesToCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApnsVoipChannelCommand}.
  */
 export interface UpdateApnsVoipChannelCommandInput extends UpdateApnsVoipChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApnsVoipChannelCommand}.
  */
 export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the APNs VoIP channel for an application or updates the status and settings of the APNs VoIP channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChanne
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApnsVoipChannelCommandInput - {@link UpdateApnsVoipChannelCommandInput}
+ * @returns {@link UpdateApnsVoipChannelCommandOutput}
  * @see {@link UpdateApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApnsVoipChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApnsVoipChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsVoipChannelCommandOutput> {
     return deserializeAws_restJson1UpdateApnsVoipChannelCommand(output, context);
   }

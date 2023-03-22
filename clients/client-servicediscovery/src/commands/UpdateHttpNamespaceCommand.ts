@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHttpNamespaceCommand}.
  */
 export interface UpdateHttpNamespaceCommandInput extends UpdateHttpNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHttpNamespaceCommand}.
  */
 export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an HTTP
  *    namespace.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHttpNamespaceCommandInput - {@link UpdateHttpNamespaceCommandInput}
+ * @returns {@link UpdateHttpNamespaceCommandOutput}
  * @see {@link UpdateHttpNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdateHttpNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateHttpNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHttpNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateHttpNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHttpNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateHttpNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHttpNamespaceCommandOutput> {
     return deserializeAws_json1_1UpdateHttpNamespaceCommand(output, context);
   }

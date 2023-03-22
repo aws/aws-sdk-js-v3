@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticsearchInstanceTypeLimitsCommand}.
  */
 export interface DescribeElasticsearchInstanceTypeLimitsCommandInput
   extends DescribeElasticsearchInstanceTypeLimitsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticsearchInstanceTypeLimitsCommand}.
  */
 export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *     Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
  *     When modifying existing Domain, specify the
@@ -60,6 +65,8 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticsearchInstanceTypeLimitsCommandInput - {@link DescribeElasticsearchInstanceTypeLimitsCommandInput}
+ * @returns {@link DescribeElasticsearchInstanceTypeLimitsCommandOutput}
  * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -101,6 +108,9 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticsearchInstanceTypeLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     return serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

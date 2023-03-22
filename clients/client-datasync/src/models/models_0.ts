@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { DataSyncServiceException as __BaseException } from "./DataSyncServiceException";
 
+/**
+ * @public
+ */
 export enum AgentStatus {
   OFFLINE = "OFFLINE",
   ONLINE = "ONLINE",
 }
 
 /**
+ * @public
  * <p>Represents a single entry in a list (or array) of DataSync agents when
  *       you call the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html">ListAgents</a> operation.</p>
  */
@@ -29,12 +33,16 @@ export interface AgentListEntry {
   Status?: AgentStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum Atime {
   BEST_EFFORT = "BEST_EFFORT",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * <p>CancelTaskExecutionRequest</p>
  */
 export interface CancelTaskExecutionRequest {
@@ -44,9 +52,13 @@ export interface CancelTaskExecutionRequest {
   TaskExecutionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelTaskExecutionResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when an error occurs in the DataSync service.</p>
  */
 export class InternalException extends __BaseException {
@@ -68,6 +80,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the client submits a malformed request.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -91,6 +104,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key-value pair representing a single tag that's been applied to an Amazon Web Services
  *       resource.</p>
  */
@@ -107,6 +121,7 @@ export interface TagListEntry {
 }
 
 /**
+ * @public
  * <p>CreateAgentRequest</p>
  */
 export interface CreateAgentRequest {
@@ -166,6 +181,7 @@ export interface CreateAgentRequest {
 }
 
 /**
+ * @public
  * <p>CreateAgentResponse</p>
  */
 export interface CreateAgentResponse {
@@ -177,6 +193,7 @@ export interface CreateAgentResponse {
 }
 
 /**
+ * @public
  * <p>The subnet and security groups that DataSync uses to access your Amazon EFS file system.</p>
  */
 export interface Ec2Config {
@@ -205,12 +222,16 @@ export interface Ec2Config {
   SecurityGroupArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EfsInTransitEncryption {
   NONE = "NONE",
   TLS1_2 = "TLS1_2",
 }
 
 /**
+ * @public
  * <p>CreateLocationEfsRequest</p>
  */
 export interface CreateLocationEfsRequest {
@@ -262,6 +283,7 @@ export interface CreateLocationEfsRequest {
 }
 
 /**
+ * @public
  * <p>CreateLocationEfs</p>
  */
 export interface CreateLocationEfsResponse {
@@ -272,6 +294,9 @@ export interface CreateLocationEfsResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxLustreRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the FSx for Lustre file system.</p>
@@ -294,6 +319,9 @@ export interface CreateLocationFsxLustreRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxLustreResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Lustre file system location that's
@@ -302,6 +330,9 @@ export interface CreateLocationFsxLustreResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum NfsVersion {
   AUTOMATIC = "AUTOMATIC",
   NFS3 = "NFS3",
@@ -310,6 +341,7 @@ export enum NfsVersion {
 }
 
 /**
+ * @public
  * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
  */
 export interface NfsMountOptions {
@@ -346,6 +378,7 @@ export interface NfsMountOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP file system.</p>
  */
 export interface FsxProtocolNfs {
@@ -355,6 +388,9 @@ export interface FsxProtocolNfs {
   MountOptions?: NfsMountOptions;
 }
 
+/**
+ * @public
+ */
 export enum SmbVersion {
   AUTOMATIC = "AUTOMATIC",
   SMB1 = "SMB1",
@@ -364,6 +400,7 @@ export enum SmbVersion {
 }
 
 /**
+ * @public
  * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
  */
 export interface SmbMountOptions {
@@ -408,6 +445,7 @@ export interface SmbMountOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Accessing FSx for ONTAP file systems</a>.</p>
  */
 export interface FsxProtocolSmb {
@@ -468,6 +506,7 @@ export interface FsxProtocolSmb {
 }
 
 /**
+ * @public
  * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
  */
 export interface FsxProtocol {
@@ -482,6 +521,9 @@ export interface FsxProtocol {
   SMB?: FsxProtocolSmb;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOntapRequest {
   /**
    * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
@@ -533,6 +575,9 @@ export interface CreateLocationFsxOntapRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOntapResponse {
   /**
    * <p>Specifies the ARN of the FSx for ONTAP file system location that you create.</p>
@@ -540,6 +585,9 @@ export interface CreateLocationFsxOntapResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOpenZfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.</p>
@@ -571,6 +619,9 @@ export interface CreateLocationFsxOpenZfsRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOpenZfsResponse {
   /**
    * <p>The ARN of the FSx for OpenZFS file system location that you created.</p>
@@ -578,6 +629,9 @@ export interface CreateLocationFsxOpenZfsResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxWindowsRequest {
   /**
    * <p>Specifies a mount path for your file system using forward slashes. This is where DataSync reads or
@@ -638,6 +692,9 @@ export interface CreateLocationFsxWindowsRequest {
   Password: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxWindowsResponse {
   /**
    * <p>The ARN of the FSx for Windows File Server file system location you created.</p>
@@ -645,12 +702,16 @@ export interface CreateLocationFsxWindowsResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum HdfsAuthenticationType {
   KERBEROS = "KERBEROS",
   SIMPLE = "SIMPLE",
 }
 
 /**
+ * @public
  * <p>The NameNode of the Hadoop Distributed File System (HDFS). The NameNode manages the file
  *       system's namespace. The NameNode performs operations such as opening, closing, and renaming
  *       files and directories. The NameNode contains the information to map blocks of data to the
@@ -670,6 +731,9 @@ export interface HdfsNameNode {
   Port: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HdfsDataTransferProtection {
   AUTHENTICATION = "AUTHENTICATION",
   DISABLED = "DISABLED",
@@ -677,6 +741,9 @@ export enum HdfsDataTransferProtection {
   PRIVACY = "PRIVACY",
 }
 
+/**
+ * @public
+ */
 export enum HdfsRpcProtection {
   AUTHENTICATION = "AUTHENTICATION",
   DISABLED = "DISABLED",
@@ -685,6 +752,7 @@ export enum HdfsRpcProtection {
 }
 
 /**
+ * @public
  * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
  *       and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS)
  *       cluster.</p>
@@ -705,6 +773,9 @@ export interface QopConfiguration {
   DataTransferProtection?: HdfsDataTransferProtection | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationHdfsRequest {
   /**
    * <p>A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write
@@ -807,6 +878,9 @@ export interface CreateLocationHdfsRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationHdfsResponse {
   /**
    * <p>The ARN of the source HDFS cluster location that's created. </p>
@@ -815,6 +889,7 @@ export interface CreateLocationHdfsResponse {
 }
 
 /**
+ * @public
  * <p>A list of Amazon Resource Names (ARNs) of agents to use for a Network File System (NFS)
  *       location.</p>
  */
@@ -826,6 +901,7 @@ export interface OnPremConfig {
 }
 
 /**
+ * @public
  * <p>CreateLocationNfsRequest</p>
  */
 export interface CreateLocationNfsRequest {
@@ -882,6 +958,7 @@ export interface CreateLocationNfsRequest {
 }
 
 /**
+ * @public
  * <p>CreateLocationNfsResponse</p>
  */
 export interface CreateLocationNfsResponse {
@@ -892,12 +969,16 @@ export interface CreateLocationNfsResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum ObjectStorageServerProtocol {
   HTTP = "HTTP",
   HTTPS = "HTTPS",
 }
 
 /**
+ * @public
  * <p>CreateLocationObjectStorageRequest</p>
  */
 export interface CreateLocationObjectStorageRequest {
@@ -957,6 +1038,7 @@ export interface CreateLocationObjectStorageRequest {
 }
 
 /**
+ * @public
  * <p>CreateLocationObjectStorageResponse</p>
  */
 export interface CreateLocationObjectStorageResponse {
@@ -967,6 +1049,7 @@ export interface CreateLocationObjectStorageResponse {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
  *       an Amazon S3 bucket.</p>
  *          <p>For detailed information about using such a role, see Creating a Location for
@@ -979,6 +1062,9 @@ export interface S3Config {
   BucketAccessRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum S3StorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
@@ -991,6 +1077,7 @@ export enum S3StorageClass {
 }
 
 /**
+ * @public
  * <p>CreateLocationS3Request</p>
  */
 export interface CreateLocationS3Request {
@@ -1039,6 +1126,7 @@ export interface CreateLocationS3Request {
 }
 
 /**
+ * @public
  * <p>CreateLocationS3Response</p>
  */
 export interface CreateLocationS3Response {
@@ -1050,6 +1138,7 @@ export interface CreateLocationS3Response {
 }
 
 /**
+ * @public
  * <p>CreateLocationSmbRequest</p>
  */
 export interface CreateLocationSmbRequest {
@@ -1113,6 +1202,7 @@ export interface CreateLocationSmbRequest {
 }
 
 /**
+ * @public
  * <p>CreateLocationSmbResponse</p>
  */
 export interface CreateLocationSmbResponse {
@@ -1122,11 +1212,15 @@ export interface CreateLocationSmbResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum FilterType {
   SIMPLE_PATTERN = "SIMPLE_PATTERN",
 }
 
 /**
+ * @public
  * <p>Specifies which files, folders, and objects to include or exclude when transferring files
  *       from source to destination.</p>
  */
@@ -1147,6 +1241,9 @@ export interface FilterRule {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export enum Gid {
   BOTH = "BOTH",
   INT_VALUE = "INT_VALUE",
@@ -1154,58 +1251,91 @@ export enum Gid {
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum LogLevel {
   BASIC = "BASIC",
   OFF = "OFF",
   TRANSFER = "TRANSFER",
 }
 
+/**
+ * @public
+ */
 export enum Mtime {
   NONE = "NONE",
   PRESERVE = "PRESERVE",
 }
 
+/**
+ * @public
+ */
 export enum ObjectTags {
   NONE = "NONE",
   PRESERVE = "PRESERVE",
 }
 
+/**
+ * @public
+ */
 export enum OverwriteMode {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
 }
 
+/**
+ * @public
+ */
 export enum PosixPermissions {
   NONE = "NONE",
   PRESERVE = "PRESERVE",
 }
 
+/**
+ * @public
+ */
 export enum PreserveDeletedFiles {
   PRESERVE = "PRESERVE",
   REMOVE = "REMOVE",
 }
 
+/**
+ * @public
+ */
 export enum PreserveDevices {
   NONE = "NONE",
   PRESERVE = "PRESERVE",
 }
 
+/**
+ * @public
+ */
 export enum SmbSecurityDescriptorCopyFlags {
   NONE = "NONE",
   OWNER_DACL = "OWNER_DACL",
   OWNER_DACL_SACL = "OWNER_DACL_SACL",
 }
 
+/**
+ * @public
+ */
 export enum TaskQueueing {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum TransferMode {
   ALL = "ALL",
   CHANGED = "CHANGED",
 }
 
+/**
+ * @public
+ */
 export enum Uid {
   BOTH = "BOTH",
   INT_VALUE = "INT_VALUE",
@@ -1213,6 +1343,9 @@ export enum Uid {
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum VerifyMode {
   NONE = "NONE",
   ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED",
@@ -1220,6 +1353,7 @@ export enum VerifyMode {
 }
 
 /**
+ * @public
  * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
  *         DataSync verifies data integrity, set bandwidth limits for your task, among other
  *       options.</p>
@@ -1485,6 +1619,7 @@ export interface Options {
 }
 
 /**
+ * @public
  * <p>Specifies the schedule you want your task to use for repeated executions. For more
  *       information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a>.</p>
  */
@@ -1497,6 +1632,7 @@ export interface TaskSchedule {
 }
 
 /**
+ * @public
  * <p>CreateTaskRequest</p>
  */
 export interface CreateTaskRequest {
@@ -1557,6 +1693,7 @@ export interface CreateTaskRequest {
 }
 
 /**
+ * @public
  * <p>CreateTaskResponse</p>
  */
 export interface CreateTaskResponse {
@@ -1567,6 +1704,7 @@ export interface CreateTaskResponse {
 }
 
 /**
+ * @public
  * <p>DeleteAgentRequest</p>
  */
 export interface DeleteAgentRequest {
@@ -1577,9 +1715,13 @@ export interface DeleteAgentRequest {
   AgentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAgentResponse {}
 
 /**
+ * @public
  * <p>DeleteLocation</p>
  */
 export interface DeleteLocationRequest {
@@ -1589,9 +1731,13 @@ export interface DeleteLocationRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocationResponse {}
 
 /**
+ * @public
  * <p>DeleteTask</p>
  */
 export interface DeleteTaskRequest {
@@ -1601,9 +1747,13 @@ export interface DeleteTaskRequest {
   TaskArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTaskResponse {}
 
 /**
+ * @public
  * <p>DescribeAgent</p>
  */
 export interface DescribeAgentRequest {
@@ -1613,6 +1763,9 @@ export interface DescribeAgentRequest {
   AgentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EndpointType {
   FIPS = "FIPS",
   PRIVATE_LINK = "PRIVATE_LINK",
@@ -1620,6 +1773,7 @@ export enum EndpointType {
 }
 
 /**
+ * @public
  * <p>The VPC endpoint, subnet, and security group that an agent uses to access IP addresses in
  *       a VPC (Virtual Private Cloud).</p>
  */
@@ -1652,6 +1806,7 @@ export interface PrivateLinkConfig {
 }
 
 /**
+ * @public
  * <p>DescribeAgentResponse</p>
  */
 export interface DescribeAgentResponse {
@@ -1697,6 +1852,7 @@ export interface DescribeAgentResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationEfsRequest</p>
  */
 export interface DescribeLocationEfsRequest {
@@ -1707,6 +1863,7 @@ export interface DescribeLocationEfsRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationEfsResponse</p>
  */
 export interface DescribeLocationEfsResponse {
@@ -1747,6 +1904,9 @@ export interface DescribeLocationEfsResponse {
   InTransitEncryption?: EfsInTransitEncryption | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxLustreRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Lustre location to describe. </p>
@@ -1754,6 +1914,9 @@ export interface DescribeLocationFsxLustreRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxLustreResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Lustre location that was described.</p>
@@ -1776,6 +1939,9 @@ export interface DescribeLocationFsxLustreResponse {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOntapRequest {
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP file system location that you want information about.</p>
@@ -1783,6 +1949,9 @@ export interface DescribeLocationFsxOntapRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOntapResponse {
   /**
    * <p>The time that the location was created.</p>
@@ -1821,6 +1990,9 @@ export interface DescribeLocationFsxOntapResponse {
   FsxFilesystemArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOpenZfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS location to describe.</p>
@@ -1828,6 +2000,9 @@ export interface DescribeLocationFsxOpenZfsRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOpenZfsResponse {
   /**
    * <p>The ARN of the FSx for OpenZFS location that was described.</p>
@@ -1860,6 +2035,9 @@ export interface DescribeLocationFsxOpenZfsResponse {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxWindowsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location to
@@ -1868,6 +2046,9 @@ export interface DescribeLocationFsxWindowsRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxWindowsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location that was
@@ -1903,6 +2084,9 @@ export interface DescribeLocationFsxWindowsResponse {
   Domain?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationHdfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the HDFS cluster location to describe.</p>
@@ -1910,6 +2094,9 @@ export interface DescribeLocationHdfsRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationHdfsResponse {
   /**
    * <p>The ARN of the HDFS cluster location.</p>
@@ -1978,6 +2165,7 @@ export interface DescribeLocationHdfsResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationNfsRequest</p>
  */
 export interface DescribeLocationNfsRequest {
@@ -1988,6 +2176,7 @@ export interface DescribeLocationNfsRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationNfsResponse</p>
  */
 export interface DescribeLocationNfsResponse {
@@ -2019,6 +2208,7 @@ export interface DescribeLocationNfsResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationObjectStorageRequest</p>
  */
 export interface DescribeLocationObjectStorageRequest {
@@ -2029,6 +2219,7 @@ export interface DescribeLocationObjectStorageRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationObjectStorageResponse</p>
  */
 export interface DescribeLocationObjectStorageResponse {
@@ -2076,6 +2267,7 @@ export interface DescribeLocationObjectStorageResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationS3Request</p>
  */
 export interface DescribeLocationS3Request {
@@ -2086,6 +2278,7 @@ export interface DescribeLocationS3Request {
 }
 
 /**
+ * @public
  * <p>DescribeLocationS3Response</p>
  */
 export interface DescribeLocationS3Response {
@@ -2129,6 +2322,7 @@ export interface DescribeLocationS3Response {
 }
 
 /**
+ * @public
  * <p>DescribeLocationSmbRequest</p>
  */
 export interface DescribeLocationSmbRequest {
@@ -2139,6 +2333,7 @@ export interface DescribeLocationSmbRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationSmbResponse</p>
  */
 export interface DescribeLocationSmbResponse {
@@ -2181,6 +2376,7 @@ export interface DescribeLocationSmbResponse {
 }
 
 /**
+ * @public
  * <p>DescribeTaskRequest</p>
  */
 export interface DescribeTaskRequest {
@@ -2190,6 +2386,9 @@ export interface DescribeTaskRequest {
   TaskArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TaskStatus {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -2199,6 +2398,7 @@ export enum TaskStatus {
 }
 
 /**
+ * @public
  * <p>DescribeTaskResponse</p>
  */
 export interface DescribeTaskResponse {
@@ -2292,6 +2492,7 @@ export interface DescribeTaskResponse {
 }
 
 /**
+ * @public
  * <p>DescribeTaskExecutionRequest</p>
  */
 export interface DescribeTaskExecutionRequest {
@@ -2301,6 +2502,9 @@ export interface DescribeTaskExecutionRequest {
   TaskExecutionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PhaseStatus {
   ERROR = "ERROR",
   PENDING = "PENDING",
@@ -2308,6 +2512,7 @@ export enum PhaseStatus {
 }
 
 /**
+ * @public
  * <p>Describes the detailed result of a <code>TaskExecution</code> operation. This result
  *       includes the time in milliseconds spent in each phase, the status of the task execution, and
  *       the errors encountered.</p>
@@ -2364,6 +2569,9 @@ export interface TaskExecutionResultDetail {
   ErrorDetail?: string;
 }
 
+/**
+ * @public
+ */
 export enum TaskExecutionStatus {
   ERROR = "ERROR",
   LAUNCHING = "LAUNCHING",
@@ -2375,6 +2583,7 @@ export enum TaskExecutionStatus {
 }
 
 /**
+ * @public
  * <p>DescribeTaskExecutionResponse</p>
  */
 export interface DescribeTaskExecutionResponse {
@@ -2474,6 +2683,7 @@ export interface DescribeTaskExecutionResponse {
 }
 
 /**
+ * @public
  * <p>ListAgentsRequest</p>
  */
 export interface ListAgentsRequest {
@@ -2491,6 +2701,7 @@ export interface ListAgentsRequest {
 }
 
 /**
+ * @public
  * <p>ListAgentsResponse</p>
  */
 export interface ListAgentsResponse {
@@ -2507,12 +2718,18 @@ export interface ListAgentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum LocationFilterName {
   CreationTime = "CreationTime",
   LocationType = "LocationType",
   LocationUri = "LocationUri",
 }
 
+/**
+ * @public
+ */
 export enum Operator {
   BEGINS_WITH = "BeginsWith",
   CONTAINS = "Contains",
@@ -2527,6 +2744,7 @@ export enum Operator {
 }
 
 /**
+ * @public
  * <p>Narrow down the list of resources returned by <code>ListLocations</code>. For example, to
  *       see all your Amazon S3 locations, create a filter using <code>"Name":
  *         "LocationType"</code>, <code>"Operator": "Equals"</code>, and <code>"Values":
@@ -2555,6 +2773,7 @@ export interface LocationFilter {
 }
 
 /**
+ * @public
  * <p>ListLocationsRequest</p>
  */
 export interface ListLocationsRequest {
@@ -2578,6 +2797,7 @@ export interface ListLocationsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in a list of locations. <code>LocationListEntry</code>
  *       returns an array that contains a list of locations when the
  *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html">ListLocations</a>
@@ -2612,6 +2832,7 @@ export interface LocationListEntry {
 }
 
 /**
+ * @public
  * <p>ListLocationsResponse</p>
  */
 export interface ListLocationsResponse {
@@ -2628,6 +2849,7 @@ export interface ListLocationsResponse {
 }
 
 /**
+ * @public
  * <p>ListTagsForResourceRequest</p>
  */
 export interface ListTagsForResourceRequest {
@@ -2648,6 +2870,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>ListTagsForResourceResponse</p>
  */
 export interface ListTagsForResourceResponse {
@@ -2663,6 +2886,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>ListTaskExecutions</p>
  */
 export interface ListTaskExecutionsRequest {
@@ -2684,6 +2908,7 @@ export interface ListTaskExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in a list of task executions.
  *         <code>TaskExecutionListEntry</code> returns an array that contains a list of specific
  *       invocations of a task when the
@@ -2703,6 +2928,7 @@ export interface TaskExecutionListEntry {
 }
 
 /**
+ * @public
  * <p>ListTaskExecutionsResponse</p>
  */
 export interface ListTaskExecutionsResponse {
@@ -2718,12 +2944,16 @@ export interface ListTaskExecutionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum TaskFilterName {
   CreationTime = "CreationTime",
   LocationId = "LocationId",
 }
 
 /**
+ * @public
  * <p>You can use API filters to narrow down the list of resources returned by <code>ListTasks</code>.
  *       For example, to retrieve all tasks on a source location, you can use <code>ListTasks</code>
  *       with filter name <code>LocationId</code> and <code>Operator Equals</code> with the ARN for the
@@ -2751,6 +2981,7 @@ export interface TaskFilter {
 }
 
 /**
+ * @public
  * <p>ListTasksRequest</p>
  */
 export interface ListTasksRequest {
@@ -2775,6 +3006,7 @@ export interface ListTasksRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in a list of tasks. <code>TaskListEntry</code> returns an
  *       array that contains a list of tasks when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTasks.html">ListTasks</a> operation is called.
  *       A task includes the source and destination file systems to sync and the options to use for the
@@ -2798,6 +3030,7 @@ export interface TaskListEntry {
 }
 
 /**
+ * @public
  * <p>ListTasksResponse</p>
  */
 export interface ListTasksResponse {
@@ -2814,6 +3047,7 @@ export interface ListTasksResponse {
 }
 
 /**
+ * @public
  * <p>StartTaskExecutionRequest</p>
  */
 export interface StartTaskExecutionRequest {
@@ -2855,6 +3089,7 @@ export interface StartTaskExecutionRequest {
 }
 
 /**
+ * @public
  * <p>StartTaskExecutionResponse</p>
  */
 export interface StartTaskExecutionResponse {
@@ -2865,6 +3100,7 @@ export interface StartTaskExecutionResponse {
 }
 
 /**
+ * @public
  * <p>TagResourceRequest</p>
  */
 export interface TagResourceRequest {
@@ -2879,9 +3115,13 @@ export interface TagResourceRequest {
   Tags: TagListEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>UntagResourceRequest</p>
  */
 export interface UntagResourceRequest {
@@ -2896,9 +3136,13 @@ export interface UntagResourceRequest {
   Keys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>UpdateAgentRequest</p>
  */
 export interface UpdateAgentRequest {
@@ -2913,8 +3157,14 @@ export interface UpdateAgentRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgentResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationHdfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the source HDFS cluster location.</p>
@@ -2993,8 +3243,14 @@ export interface UpdateLocationHdfsRequest {
   AgentArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationHdfsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationNfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the NFS location to update.</p>
@@ -3034,8 +3290,14 @@ export interface UpdateLocationNfsRequest {
   MountOptions?: NfsMountOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationNfsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationObjectStorageRequest {
   /**
    * <p>Specifies the ARN of the object storage system location that you're updating.</p>
@@ -3088,8 +3350,14 @@ export interface UpdateLocationObjectStorageRequest {
   ServerCertificate?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationObjectStorageResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationSmbRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the SMB location to update.</p>
@@ -3153,9 +3421,13 @@ export interface UpdateLocationSmbRequest {
   MountOptions?: SmbMountOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationSmbResponse {}
 
 /**
+ * @public
  * <p>UpdateTaskResponse</p>
  */
 export interface UpdateTaskRequest {
@@ -3203,8 +3475,14 @@ export interface UpdateTaskRequest {
   Includes?: FilterRule[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTaskExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the specific task execution that is being updated. </p>
@@ -3221,6 +3499,9 @@ export interface UpdateTaskExecutionRequest {
   Options: Options | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskExecutionResponse {}
 
 /**

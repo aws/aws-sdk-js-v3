@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcesByExternalIdCommand}.
  */
 export interface DeleteResourcesByExternalIdCommandInput extends DeleteResourcesByExternalIdInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcesByExternalIdCommand}.
  */
 export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResourcesByExternalIdOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes resources linked to an external ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcesByExternalIdCommandInput - {@link DeleteResourcesByExternalIdCommandInput}
+ * @returns {@link DeleteResourcesByExternalIdCommandOutput}
  * @see {@link DeleteResourcesByExternalIdCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcesByExternalIdCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcesByExternalIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcesByExternalIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResourcesByExternalIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

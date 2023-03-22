@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDedicatedIpPoolCommand}.
  */
 export interface GetDedicatedIpPoolCommandInput extends GetDedicatedIpPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDedicatedIpPoolCommand}.
  */
 export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve information about the dedicated pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDedicatedIpPoolCommandInput - {@link GetDedicatedIpPoolCommandInput}
+ * @returns {@link GetDedicatedIpPoolCommandOutput}
  * @see {@link GetDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link GetDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetDedicatedIpPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDedicatedIpPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetDedicatedIpPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDedicatedIpPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDedicatedIpPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpPoolCommandOutput> {
     return deserializeAws_restJson1GetDedicatedIpPoolCommand(output, context);
   }

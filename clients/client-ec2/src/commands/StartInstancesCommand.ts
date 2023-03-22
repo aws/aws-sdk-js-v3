@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2StartInstancesCommand, serializeAws_ec2StartInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StartInstancesCommand}.
  */
 export interface StartInstancesCommandInput extends StartInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartInstancesCommand}.
  */
 export interface StartInstancesCommandOutput extends StartInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
  *          <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
  *             started. When an instance is stopped, the compute resources are released and you are not
@@ -61,6 +66,8 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInstancesCommandInput - {@link StartInstancesCommandInput}
+ * @returns {@link StartInstancesCommandOutput}
  * @see {@link StartInstancesCommandInput} for command's `input` shape.
  * @see {@link StartInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -114,6 +121,9 @@ export class StartInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class StartInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2StartInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstancesCommandOutput> {
     return deserializeAws_ec2StartInstancesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterSecurityGroupsCommand}.
  */
 export interface DescribeClusterSecurityGroupsCommandInput extends DescribeClusterSecurityGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterSecurityGroupsCommand}.
  */
 export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecurityGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Amazon Redshift security groups. If the name of a security
  *             group is specified, the response will contain only information about only that security
  *             group.</p>
@@ -60,6 +65,8 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterSecurityGroupsCommandInput - {@link DescribeClusterSecurityGroupsCommandInput}
+ * @returns {@link DescribeClusterSecurityGroupsCommandOutput}
  * @see {@link DescribeClusterSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

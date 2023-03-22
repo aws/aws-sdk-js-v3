@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserEndpointsCommand}.
  */
 export interface GetUserEndpointsCommandInput extends GetUserEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserEndpointsCommand}.
  */
 export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserEndpointsCommandInput - {@link GetUserEndpointsCommandInput}
+ * @returns {@link GetUserEndpointsCommandOutput}
  * @see {@link GetUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetUserEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetUserEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUserEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserEndpointsCommandOutput> {
     return deserializeAws_restJson1GetUserEndpointsCommand(output, context);
   }

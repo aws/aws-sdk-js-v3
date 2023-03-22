@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePresignedNotebookUrlCommand}.
  */
 export interface CreatePresignedNotebookUrlCommandInput extends CreatePresignedNotebookUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePresignedNotebookUrlCommand}.
  */
 export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresignedNotebookUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an authentication token and the URL at which the notebook can be accessed. During
  *             programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10
  *             minutes to refresh the authentication token.</p>
@@ -48,6 +53,8 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresignedNotebookUrlCommandInput - {@link CreatePresignedNotebookUrlCommandInput}
+ * @returns {@link CreatePresignedNotebookUrlCommandOutput}
  * @see {@link CreatePresignedNotebookUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedNotebookUrlCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresignedNotebookUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePresignedNotebookUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePresignedNotebookUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

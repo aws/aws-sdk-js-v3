@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLaunchProfilesCommand}.
  */
 export interface ListLaunchProfilesCommandInput extends ListLaunchProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLaunchProfilesCommand}.
  */
 export interface ListLaunchProfilesCommandOutput extends ListLaunchProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the launch profiles a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLaunchProfilesCommandOutput extends ListLaunchProfilesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLaunchProfilesCommandInput - {@link ListLaunchProfilesCommandInput}
+ * @returns {@link ListLaunchProfilesCommandOutput}
  * @see {@link ListLaunchProfilesCommandInput} for command's `input` shape.
  * @see {@link ListLaunchProfilesCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListLaunchProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLaunchProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListLaunchProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLaunchProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLaunchProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchProfilesCommandOutput> {
     return deserializeAws_restJson1ListLaunchProfilesCommand(output, context);
   }

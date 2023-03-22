@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReviewPolicyResultsForHITCommand}.
  */
 export interface ListReviewPolicyResultsForHITCommandInput extends ListReviewPolicyResultsForHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReviewPolicyResultsForHITCommand}.
  */
 export interface ListReviewPolicyResultsForHITCommandOutput
@@ -37,6 +41,7 @@ export interface ListReviewPolicyResultsForHITCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListReviewPolicyResultsForHIT</code> operation retrieves the computed results
  *             and the actions taken in the course of executing your Review Policies for a given HIT.
@@ -54,6 +59,8 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReviewPolicyResultsForHITCommandInput - {@link ListReviewPolicyResultsForHITCommandInput}
+ * @returns {@link ListReviewPolicyResultsForHITCommandOutput}
  * @see {@link ListReviewPolicyResultsForHITCommandInput} for command's `input` shape.
  * @see {@link ListReviewPolicyResultsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReviewPolicyResultsForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReviewPolicyResultsForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReviewPolicyResultsForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCallAnalyticsJobCommand}.
  */
 export interface GetCallAnalyticsJobCommandInput extends GetCallAnalyticsJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCallAnalyticsJobCommand}.
  */
 export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified Call Analytics job.</p>
  *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
  *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
@@ -57,6 +62,8 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCallAnalyticsJobCommandInput - {@link GetCallAnalyticsJobCommandInput}
+ * @returns {@link GetCallAnalyticsJobCommandOutput}
  * @see {@link GetCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link GetCallAnalyticsJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetCallAnalyticsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCallAnalyticsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetCallAnalyticsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCallAnalyticsJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCallAnalyticsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallAnalyticsJobCommandOutput> {
     return deserializeAws_json1_1GetCallAnalyticsJobCommand(output, context);
   }

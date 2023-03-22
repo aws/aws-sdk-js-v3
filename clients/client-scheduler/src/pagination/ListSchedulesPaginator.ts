@@ -10,7 +10,7 @@ import { SchedulerClient } from "../SchedulerClient";
 import { SchedulerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SchedulerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSchedulesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSchedules(
   config: SchedulerPaginationConfiguration,
   input: ListSchedulesCommandInput,

@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartEarthObservationJobCommand}.
  */
 export interface StartEarthObservationJobCommandInput extends StartEarthObservationJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StartEarthObservationJobCommand}.
  */
 export interface StartEarthObservationJobCommandOutput extends StartEarthObservationJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to create an Earth observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEarthObservationJobCommandInput - {@link StartEarthObservationJobCommandInput}
+ * @returns {@link StartEarthObservationJobCommandOutput}
  * @see {@link StartEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link StartEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -94,6 +101,9 @@ export class StartEarthObservationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEarthObservationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class StartEarthObservationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartEarthObservationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEarthObservationJobCommandOutput> {
     return deserializeAws_restJson1StartEarthObservationJobCommand(output, context);
   }

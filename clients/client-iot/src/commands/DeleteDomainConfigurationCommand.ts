@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainConfigurationCommand}.
  */
 export interface DeleteDomainConfigurationCommandInput extends DeleteDomainConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainConfigurationCommand}.
  */
 export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified domain configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDomainConfiguration</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConf
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainConfigurationCommandInput - {@link DeleteDomainConfigurationCommandInput}
+ * @returns {@link DeleteDomainConfigurationCommandOutput}
  * @see {@link DeleteDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteDomainConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteDomainConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDomainConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

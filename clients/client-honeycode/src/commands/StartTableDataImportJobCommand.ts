@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTableDataImportJobCommand}.
  */
 export interface StartTableDataImportJobCommandInput extends StartTableDataImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTableDataImportJobCommand}.
  */
 export interface StartTableDataImportJobCommandOutput extends StartTableDataImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The StartTableDataImportJob API allows you to start an import job on a table. This API will only return
  *             the id of the job that was started. To find out the status of the import request, you need to call the
@@ -50,6 +55,8 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTableDataImportJobCommandInput - {@link StartTableDataImportJobCommandInput}
+ * @returns {@link StartTableDataImportJobCommandOutput}
  * @see {@link StartTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link StartTableDataImportJobCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -104,6 +111,9 @@ export class StartTableDataImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTableDataImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class StartTableDataImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTableDataImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartTableDataImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTableDataImportJobCommandOutput> {
     return deserializeAws_restJson1StartTableDataImportJobCommand(output, context);
   }

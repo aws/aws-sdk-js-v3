@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterIamRolesCommand}.
  */
 export interface ModifyClusterIamRolesCommandInput extends ModifyClusterIamRolesMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterIamRolesCommand}.
  */
 export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRolesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
  *             used by the cluster to access other Amazon Web Services services.</p>
  *          <p>The maximum number of IAM roles that you can associate is subject to a quota.
@@ -50,6 +55,8 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterIamRolesCommandInput - {@link ModifyClusterIamRolesCommandInput}
+ * @returns {@link ModifyClusterIamRolesCommandOutput}
  * @see {@link ModifyClusterIamRolesCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterIamRolesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -80,6 +87,9 @@ export class ModifyClusterIamRolesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterIamRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ModifyClusterIamRolesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterIamRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterIamRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterIamRolesCommandOutput> {
     return deserializeAws_queryModifyClusterIamRolesCommand(output, context);
   }

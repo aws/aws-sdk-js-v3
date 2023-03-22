@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDRTLogBucketCommand}.
  */
 export interface DisassociateDRTLogBucketCommandInput extends DisassociateDRTLogBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDRTLogBucketCommand}.
  */
 export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDRTLogBucketCommandInput - {@link DisassociateDRTLogBucketCommandInput}
+ * @returns {@link DisassociateDRTLogBucketCommandOutput}
  * @see {@link DisassociateDRTLogBucketCommandInput} for command's `input` shape.
  * @see {@link DisassociateDRTLogBucketCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateDRTLogBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDRTLogBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisassociateDRTLogBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDRTLogBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateDRTLogBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDRTLogBucketCommandOutput> {
     return deserializeAws_json1_1DisassociateDRTLogBucketCommand(output, context);
   }

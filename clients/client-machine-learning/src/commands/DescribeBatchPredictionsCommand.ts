@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBatchPredictionsCommand}.
  */
 export interface DescribeBatchPredictionsCommandInput extends DescribeBatchPredictionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBatchPredictionsCommand}.
  */
 export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPredictionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBatchPredictionsCommandInput - {@link DescribeBatchPredictionsCommandInput}
+ * @returns {@link DescribeBatchPredictionsCommandOutput}
  * @see {@link DescribeBatchPredictionsCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchPredictionsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeBatchPredictionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBatchPredictionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeBatchPredictionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBatchPredictionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBatchPredictionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBatchPredictionsCommandOutput> {
     return deserializeAws_json1_1DescribeBatchPredictionsCommand(output, context);
   }

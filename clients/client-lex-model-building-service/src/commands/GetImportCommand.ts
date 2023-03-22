@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetImportCommand}.
  */
 export interface GetImportCommandInput extends GetImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImportCommand}.
  */
 export interface GetImportCommandOutput extends GetImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an import job started with the
  *         <code>StartImport</code> operation.</p>
  * @example
@@ -51,6 +56,8 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportCommandInput - {@link GetImportCommandInput}
+ * @returns {@link GetImportCommandOutput}
  * @see {@link GetImportCommandInput} for command's `input` shape.
  * @see {@link GetImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportCommandOutput> {
     return deserializeAws_restJson1GetImportCommand(output, context);
   }

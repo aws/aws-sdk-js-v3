@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CostAndUsageReportServiceServiceException as __BaseException } from "./CostAndUsageReportServiceServiceException";
 
+/**
+ * @public
+ */
 export enum AdditionalArtifact {
   ATHENA = "ATHENA",
   QUICKSIGHT = "QUICKSIGHT",
@@ -10,6 +13,7 @@ export enum AdditionalArtifact {
 }
 
 /**
+ * @public
  * <p>Deletes the specified report.</p>
  */
 export interface DeleteReportDefinitionRequest {
@@ -20,6 +24,7 @@ export interface DeleteReportDefinitionRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
 export interface DeleteReportDefinitionResponse {
@@ -30,6 +35,7 @@ export interface DeleteReportDefinitionResponse {
 }
 
 /**
+ * @public
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -54,6 +60,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -78,6 +85,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Requests a list of AWS Cost and Usage reports owned by the account.</p>
  */
 export interface DescribeReportDefinitionsRequest {
@@ -92,26 +100,41 @@ export interface DescribeReportDefinitionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SchemaElement {
   RESOURCES = "RESOURCES",
 }
 
+/**
+ * @public
+ */
 export enum CompressionFormat {
   GZIP = "GZIP",
   Parquet = "Parquet",
   ZIP = "ZIP",
 }
 
+/**
+ * @public
+ */
 export enum ReportFormat {
   CSV = "textORcsv",
   Parquet = "Parquet",
 }
 
+/**
+ * @public
+ */
 export enum ReportVersioning {
   CREATE_NEW_REPORT = "CREATE_NEW_REPORT",
   OVERWRITE_REPORT = "OVERWRITE_REPORT",
 }
 
+/**
+ * @public
+ */
 export enum AWSRegion {
   BAHRAIN = "me-south-1",
   BEIJING = "cn-north-1",
@@ -141,6 +164,9 @@ export enum AWSRegion {
   US_STANDARD = "us-east-1",
 }
 
+/**
+ * @public
+ */
 export enum TimeUnit {
   DAILY = "DAILY",
   HOURLY = "HOURLY",
@@ -148,6 +174,7 @@ export enum TimeUnit {
 }
 
 /**
+ * @public
  * <p>The definition of AWS Cost and Usage Report. You can specify the report name,
  *          time unit, report format, compression format, S3 bucket, additional artifacts, and schema
  *          elements in the definition.
@@ -222,6 +249,7 @@ export interface ReportDefinition {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
 export interface DescribeReportDefinitionsResponse {
@@ -236,6 +264,9 @@ export interface DescribeReportDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyReportDefinitionRequest {
   /**
    * <p>The name of the report that you want to create. The name must be unique,
@@ -252,9 +283,13 @@ export interface ModifyReportDefinitionRequest {
   ReportDefinition: ReportDefinition | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyReportDefinitionResponse {}
 
 /**
+ * @public
  * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
  */
 export class DuplicateReportNameException extends __BaseException {
@@ -279,6 +314,7 @@ export class DuplicateReportNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a Cost and Usage Report.</p>
  */
 export interface PutReportDefinitionRequest {
@@ -290,11 +326,13 @@ export interface PutReportDefinitionRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
  */
 export interface PutReportDefinitionResponse {}
 
 /**
+ * @public
  * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  */
 export class ReportLimitReachedException extends __BaseException {

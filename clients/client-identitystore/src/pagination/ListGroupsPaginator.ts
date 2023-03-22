@@ -6,7 +6,7 @@ import { IdentitystoreClient } from "../IdentitystoreClient";
 import { IdentitystorePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IdentitystoreClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGroupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListGroups(
   config: IdentitystorePaginationConfiguration,
   input: ListGroupsCommandInput,

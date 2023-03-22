@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ExportImageCommand, serializeAws_ec2ExportImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ExportImageCommand}.
  */
 export interface ExportImageCommandInput extends ExportImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportImageCommand}.
  */
 export interface ExportImageCommandOutput extends ExportImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM
  *     directly from an Amazon Machine Image (AMI)</a> in the
  *     <i>VM Import/Export User Guide</i>.</p>
@@ -45,6 +50,8 @@ export interface ExportImageCommandOutput extends ExportImageResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportImageCommandInput - {@link ExportImageCommandInput}
+ * @returns {@link ExportImageCommandOutput}
  * @see {@link ExportImageCommandInput} for command's `input` shape.
  * @see {@link ExportImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class ExportImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class ExportImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ExportImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportImageCommandOutput> {
     return deserializeAws_ec2ExportImageCommand(output, context);
   }

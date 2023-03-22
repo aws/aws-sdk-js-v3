@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagOpenIDConnectProviderCommand}.
  */
 export interface UntagOpenIDConnectProviderCommandInput extends UntagOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagOpenIDConnectProviderCommand}.
  */
 export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the specified OpenID Connect (OIDC)-compatible identity
  *       provider in IAM. For more information about OIDC providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>.
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
@@ -47,6 +52,8 @@ export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagOpenIDConnectProviderCommandInput - {@link UntagOpenIDConnectProviderCommandInput}
+ * @returns {@link UntagOpenIDConnectProviderCommandOutput}
  * @see {@link UntagOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link UntagOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,6 +93,9 @@ export class UntagOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UntagOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

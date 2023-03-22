@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactChannelCommand}.
  */
 export interface GetContactChannelCommandInput extends GetContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactChannelCommand}.
  */
 export interface GetContactChannelCommandOutput extends GetContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List details about a specific contact channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetContactChannelCommandOutput extends GetContactChannelResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactChannelCommandInput - {@link GetContactChannelCommandInput}
+ * @returns {@link GetContactChannelCommandOutput}
  * @see {@link GetContactChannelCommandInput} for command's `input` shape.
  * @see {@link GetContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -112,6 +119,9 @@ export class GetContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class GetContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactChannelCommandOutput> {
     return deserializeAws_json1_1GetContactChannelCommand(output, context);
   }

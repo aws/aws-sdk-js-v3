@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateComponentCommand}.
  */
 export interface UpdateComponentCommandInput extends UpdateComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateComponentCommand}.
  */
 export interface UpdateComponentCommandOutput extends UpdateComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the custom component name and/or the list of resources that make up the
  *          component.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComponentCommandInput - {@link UpdateComponentCommandInput}
+ * @returns {@link UpdateComponentCommandOutput}
  * @see {@link UpdateComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentCommandOutput> {
     return deserializeAws_json1_1UpdateComponentCommand(output, context);
   }

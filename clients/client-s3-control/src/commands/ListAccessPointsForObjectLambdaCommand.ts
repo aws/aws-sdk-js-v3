@@ -27,10 +27,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPointsForObjectLambdaCommand}.
  */
 export interface ListAccessPointsForObjectLambdaCommandInput extends ListAccessPointsForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPointsForObjectLambdaCommand}.
  */
 export interface ListAccessPointsForObjectLambdaCommandOutput
@@ -38,6 +42,7 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns some or all (up to 1,000) access points associated with the Object Lambda Access Point per call. If there
  *          are more access points than what can be returned in one call, the response will include a
  *          continuation token that you can use to list the additional access points.</p>
@@ -70,6 +75,8 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPointsForObjectLambdaCommandInput - {@link ListAccessPointsForObjectLambdaCommandInput}
+ * @returns {@link ListAccessPointsForObjectLambdaCommandOutput}
  * @see {@link ListAccessPointsForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link ListAccessPointsForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPointsForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAccessPointsForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlListAccessPointsForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

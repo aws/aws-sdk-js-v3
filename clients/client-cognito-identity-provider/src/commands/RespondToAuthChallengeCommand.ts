@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RespondToAuthChallengeCommand}.
  */
 export interface RespondToAuthChallengeCommandInput extends RespondToAuthChallengeRequest {}
 /**
+ * @public
+ *
  * The output of {@link RespondToAuthChallengeCommand}.
  */
 export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChallengeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Responds to the authentication challenge.</p>
  *
  *          <note>
@@ -68,6 +73,8 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondToAuthChallengeCommandInput - {@link RespondToAuthChallengeCommandInput}
+ * @returns {@link RespondToAuthChallengeCommandOutput}
  * @see {@link RespondToAuthChallengeCommandInput} for command's `input` shape.
  * @see {@link RespondToAuthChallengeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -170,6 +177,9 @@ export class RespondToAuthChallengeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondToAuthChallengeCommandInput) {
     // Start section: command_constructor
     super();
@@ -209,10 +219,16 @@ export class RespondToAuthChallengeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RespondToAuthChallengeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RespondToAuthChallengeCommandOutput> {
     return deserializeAws_json1_1RespondToAuthChallengeCommand(output, context);
   }

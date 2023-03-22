@@ -26,10 +26,14 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link TransferDomainToAnotherAwsAccountCommand}.
  */
 export interface TransferDomainToAnotherAwsAccountCommandInput extends TransferDomainToAnotherAwsAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link TransferDomainToAnotherAwsAccountCommand}.
  */
 export interface TransferDomainToAnotherAwsAccountCommandOutput
@@ -37,6 +41,7 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>
  *          <ul>
  *             <li>
@@ -72,6 +77,8 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param TransferDomainToAnotherAwsAccountCommandInput - {@link TransferDomainToAnotherAwsAccountCommandInput}
+ * @returns {@link TransferDomainToAnotherAwsAccountCommandOutput}
  * @see {@link TransferDomainToAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link TransferDomainToAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -111,6 +118,9 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransferDomainToAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: TransferDomainToAnotherAwsAccountCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
     return serializeAws_json1_1TransferDomainToAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

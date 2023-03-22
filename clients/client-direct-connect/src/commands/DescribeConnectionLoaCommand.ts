@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectionLoaCommand}.
  */
 export interface DescribeConnectionLoaCommandInput extends DescribeConnectionLoaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectionLoaCommand}.
  */
 export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLoaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
@@ -53,6 +58,8 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionLoaCommandInput - {@link DescribeConnectionLoaCommandInput}
+ * @returns {@link DescribeConnectionLoaCommandOutput}
  * @see {@link DescribeConnectionLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionLoaCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeConnectionLoaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionLoaCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeConnectionLoaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionLoaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConnectionLoaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionLoaCommandOutput> {
     return deserializeAws_json1_1DescribeConnectionLoaCommand(output, context);
   }

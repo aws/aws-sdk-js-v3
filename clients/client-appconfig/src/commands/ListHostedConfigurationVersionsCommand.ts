@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostedConfigurationVersionsCommand}.
  */
 export interface ListHostedConfigurationVersionsCommandInput extends ListHostedConfigurationVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHostedConfigurationVersionsCommand}.
  */
 export interface ListHostedConfigurationVersionsCommandOutput extends HostedConfigurationVersions, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists configurations stored in the AppConfig hosted configuration store by
  *          version.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostedConfigurationVersionsCommandInput - {@link ListHostedConfigurationVersionsCommandInput}
+ * @returns {@link ListHostedConfigurationVersionsCommandOutput}
  * @see {@link ListHostedConfigurationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListHostedConfigurationVersionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -103,6 +110,9 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostedConfigurationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListHostedConfigurationVersionsCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
     return serializeAws_restJson1ListHostedConfigurationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

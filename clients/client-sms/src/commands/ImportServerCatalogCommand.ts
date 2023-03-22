@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportServerCatalogCommand}.
  */
 export interface ImportServerCatalogCommandInput extends ImportServerCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportServerCatalogCommand}.
  */
 export interface ImportServerCatalogCommandOutput extends ImportServerCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
  *             monitoring all servers to import.</p>
  *         <p>This call returns immediately, but might take additional time to retrieve all the
@@ -49,6 +54,8 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportServerCatalogCommandInput - {@link ImportServerCatalogCommandInput}
+ * @returns {@link ImportServerCatalogCommandOutput}
  * @see {@link ImportServerCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportServerCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -88,6 +95,9 @@ export class ImportServerCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportServerCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ImportServerCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportServerCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportServerCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportServerCatalogCommandOutput> {
     return deserializeAws_json1_1ImportServerCatalogCommand(output, context);
   }

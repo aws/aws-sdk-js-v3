@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetInstanceHealthCommand}.
  */
 export interface SetInstanceHealthCommandInput extends SetInstanceHealthQuery {}
 /**
+ * @public
+ *
  * The output of {@link SetInstanceHealthCommand}.
  */
 export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the health status of the specified instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
  *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -43,6 +48,8 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetInstanceHealthCommandInput - {@link SetInstanceHealthCommandInput}
+ * @returns {@link SetInstanceHealthCommandOutput}
  * @see {@link SetInstanceHealthCommandInput} for command's `input` shape.
  * @see {@link SetInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -82,6 +89,9 @@ export class SetInstanceHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetInstanceHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SetInstanceHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetInstanceHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetInstanceHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetInstanceHealthCommandOutput> {
     return deserializeAws_querySetInstanceHealthCommand(output, context);
   }

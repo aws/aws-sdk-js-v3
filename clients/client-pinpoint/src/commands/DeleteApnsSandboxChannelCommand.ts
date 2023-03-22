@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApnsSandboxChannelCommand}.
  */
 export interface DeleteApnsSandboxChannelCommandInput extends DeleteApnsSandboxChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApnsSandboxChannelCommand}.
  */
 export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandboxChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandbox
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApnsSandboxChannelCommandInput - {@link DeleteApnsSandboxChannelCommandInput}
+ * @returns {@link DeleteApnsSandboxChannelCommandOutput}
  * @see {@link DeleteApnsSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApnsSandboxChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApnsSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteApnsSandboxChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApnsSandboxChannelCommandOutput> {
     return deserializeAws_restJson1DeleteApnsSandboxChannelCommand(output, context);
   }

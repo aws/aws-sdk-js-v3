@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBProxyTargetGroupsCommand}.
  */
 export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxyTargetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBProxyTargetGroupsCommand}.
  */
 export interface DescribeDBProxyTargetGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBProxyTargetGroupsCommandInput - {@link DescribeDBProxyTargetGroupsCommandInput}
+ * @returns {@link DescribeDBProxyTargetGroupsCommandOutput}
  * @see {@link DescribeDBProxyTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBProxyTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBProxyTargetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBProxyTargetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetParametersForImportCommand}.
  */
 export interface GetParametersForImportCommandInput extends GetParametersForImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetParametersForImportCommand}.
  */
 export interface GetParametersForImportCommandOutput extends GetParametersForImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the items you need to import key material into a symmetric encryption KMS key. For
  *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
@@ -79,6 +84,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * const response = await client.send(command);
  * ```
  *
+ * @param GetParametersForImportCommandInput - {@link GetParametersForImportCommandInput}
+ * @returns {@link GetParametersForImportCommandOutput}
  * @see {@link GetParametersForImportCommandInput} for command's `input` shape.
  * @see {@link GetParametersForImportCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -161,6 +168,9 @@ export class GetParametersForImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetParametersForImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,10 +210,16 @@ export class GetParametersForImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetParametersForImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetParametersForImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersForImportCommandOutput> {
     return deserializeAws_json1_1GetParametersForImportCommand(output, context);
   }

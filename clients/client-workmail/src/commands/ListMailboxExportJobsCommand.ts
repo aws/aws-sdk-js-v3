@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMailboxExportJobsCommand}.
  */
 export interface ListMailboxExportJobsCommandInput extends ListMailboxExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMailboxExportJobsCommand}.
  */
 export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mailbox export jobs started for the specified organization within the last
  *          seven days.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMailboxExportJobsCommandInput - {@link ListMailboxExportJobsCommandInput}
+ * @returns {@link ListMailboxExportJobsCommandOutput}
  * @see {@link ListMailboxExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxExportJobsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListMailboxExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMailboxExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListMailboxExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMailboxExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMailboxExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailboxExportJobsCommandOutput> {
     return deserializeAws_json1_1ListMailboxExportJobsCommand(output, context);
   }

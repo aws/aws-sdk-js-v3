@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePullRequestDescriptionCommand}.
  */
 export interface UpdatePullRequestDescriptionCommandInput extends UpdatePullRequestDescriptionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePullRequestDescriptionCommand}.
  */
 export interface UpdatePullRequestDescriptionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdatePullRequestDescriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the contents of the description of a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdatePullRequestDescriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePullRequestDescriptionCommandInput - {@link UpdatePullRequestDescriptionCommandInput}
+ * @returns {@link UpdatePullRequestDescriptionCommandOutput}
  * @see {@link UpdatePullRequestDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestDescriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdatePullRequestDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePullRequestDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdatePullRequestDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePullRequestDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePullRequestDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCellCommand}.
  */
 export interface UpdateCellCommandInput extends UpdateCellRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCellCommand}.
  */
 export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a cell to replace the list of nested cells with a new list of nested cells.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCellCommandInput - {@link UpdateCellCommandInput}
+ * @returns {@link UpdateCellCommandOutput}
  * @see {@link UpdateCellCommandInput} for command's `input` shape.
  * @see {@link UpdateCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateCellCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCellCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateCellCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCellCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCellCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCellCommandOutput> {
     return deserializeAws_restJson1UpdateCellCommand(output, context);
   }

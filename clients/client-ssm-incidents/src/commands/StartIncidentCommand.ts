@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartIncidentCommand}.
  */
 export interface StartIncidentCommandInput extends StartIncidentInput {}
 /**
+ * @public
+ *
  * The output of {@link StartIncidentCommand}.
  */
 export interface StartIncidentCommandOutput extends StartIncidentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or
  *             manually. </p>
  * @example
@@ -47,6 +52,8 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartIncidentCommandInput - {@link StartIncidentCommandInput}
+ * @returns {@link StartIncidentCommandOutput}
  * @see {@link StartIncidentCommandInput} for command's `input` shape.
  * @see {@link StartIncidentCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -90,6 +97,9 @@ export class StartIncidentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartIncidentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StartIncidentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartIncidentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartIncidentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartIncidentCommandOutput> {
     return deserializeAws_restJson1StartIncidentCommand(output, context);
   }

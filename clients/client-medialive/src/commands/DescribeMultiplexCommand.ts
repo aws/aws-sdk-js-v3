@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMultiplexCommand}.
  */
 export interface DescribeMultiplexCommandInput extends DescribeMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMultiplexCommand}.
  */
 export interface DescribeMultiplexCommandOutput extends DescribeMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Gets details about a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMultiplexCommandOutput extends DescribeMultiplexRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMultiplexCommandInput - {@link DescribeMultiplexCommandInput}
+ * @returns {@link DescribeMultiplexCommandOutput}
  * @see {@link DescribeMultiplexCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMultiplexCommandOutput> {
     return deserializeAws_restJson1DescribeMultiplexCommand(output, context);
   }

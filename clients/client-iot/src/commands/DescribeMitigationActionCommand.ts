@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMitigationActionCommand}.
  */
 export interface DescribeMitigationActionCommandInput extends DescribeMitigationActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMitigationActionCommand}.
  */
 export interface DescribeMitigationActionCommandOutput extends DescribeMitigationActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a mitigation action.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMitigationActionCommandInput - {@link DescribeMitigationActionCommandInput}
+ * @returns {@link DescribeMitigationActionCommandOutput}
  * @see {@link DescribeMitigationActionCommandInput} for command's `input` shape.
  * @see {@link DescribeMitigationActionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeMitigationActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMitigationActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeMitigationActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMitigationActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeMitigationActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMitigationActionCommandOutput> {
     return deserializeAws_restJson1DescribeMitigationActionCommand(output, context);
   }

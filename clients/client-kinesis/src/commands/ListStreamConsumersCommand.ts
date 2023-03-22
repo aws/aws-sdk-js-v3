@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamConsumersCommand}.
  */
 export interface ListStreamConsumersCommandInput extends ListStreamConsumersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamConsumersCommand}.
  */
 export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
  *             and provides information about each consumer.</p>
  *          <p>This operation has a limit of 5 transactions per second per stream.</p>
@@ -48,6 +53,8 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamConsumersCommandInput - {@link ListStreamConsumersCommandInput}
+ * @returns {@link ListStreamConsumersCommandOutput}
  * @see {@link ListStreamConsumersCommandInput} for command's `input` shape.
  * @see {@link ListStreamConsumersCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListStreamConsumersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamConsumersCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListStreamConsumersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamConsumersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStreamConsumersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamConsumersCommandOutput> {
     return deserializeAws_json1_1ListStreamConsumersCommand(output, context);
   }

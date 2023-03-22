@@ -26,10 +26,14 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatalakeExceptionsExpiryCommand}.
  */
 export interface UpdateDatalakeExceptionsExpiryCommandInput extends UpdateDatalakeExceptionsExpiryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatalakeExceptionsExpiryCommand}.
  */
 export interface UpdateDatalakeExceptionsExpiryCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the expiration period for the exception message to your preferred time, and
  *          control the time-to-live (TTL) for the exception message to remain. Exceptions are stored
  *          by default for 2 weeks from when a record was created in Amazon Security Lake. </p>
@@ -50,6 +55,8 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatalakeExceptionsExpiryCommandInput - {@link UpdateDatalakeExceptionsExpiryCommandInput}
+ * @returns {@link UpdateDatalakeExceptionsExpiryCommandOutput}
  * @see {@link UpdateDatalakeExceptionsExpiryCommandInput} for command's `input` shape.
  * @see {@link UpdateDatalakeExceptionsExpiryCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatalakeExceptionsExpiryCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDatalakeExceptionsExpiryCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
     return serializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

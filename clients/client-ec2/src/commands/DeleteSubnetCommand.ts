@@ -18,15 +18,20 @@ import { DeleteSubnetRequest, DeleteSubnetRequestFilterSensitiveLog } from "../m
 import { deserializeAws_ec2DeleteSubnetCommand, serializeAws_ec2DeleteSubnetCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubnetCommand}.
  */
 export interface DeleteSubnetCommandInput extends DeleteSubnetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubnetCommand}.
  */
 export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,6 +43,8 @@ export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubnetCommandInput - {@link DeleteSubnetCommandInput}
+ * @returns {@link DeleteSubnetCommandOutput}
  * @see {@link DeleteSubnetCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteSubnetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubnetCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteSubnetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubnetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteSubnetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetCommandOutput> {
     return deserializeAws_ec2DeleteSubnetCommand(output, context);
   }

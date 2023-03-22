@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ConnectCampaignsServiceException as __BaseException } from "./ConnectCampaignsServiceException";
 
 /**
+ * @public
  * You do not have sufficient access to perform this action.
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * The request could not be processed because of conflict in the current state of the resource.
  */
 export class ConflictException extends __BaseException {
@@ -54,6 +56,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * Predictive Dialer config
  */
 export interface PredictiveDialerConfig {
@@ -64,6 +67,7 @@ export interface PredictiveDialerConfig {
 }
 
 /**
+ * @public
  * Progressive Dialer config
  */
 export interface ProgressiveDialerConfig {
@@ -74,6 +78,7 @@ export interface ProgressiveDialerConfig {
 }
 
 /**
+ * @public
  * The possible types of dialer config parameters
  */
 export type DialerConfig =
@@ -81,6 +86,9 @@ export type DialerConfig =
   | DialerConfig.ProgressiveDialerConfigMember
   | DialerConfig.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DialerConfig {
   /**
    * Progressive Dialer config
@@ -121,6 +129,7 @@ export namespace DialerConfig {
 }
 
 /**
+ * @public
  * Answering Machine Detection config
  */
 export interface AnswerMachineDetectionConfig {
@@ -131,6 +140,7 @@ export interface AnswerMachineDetectionConfig {
 }
 
 /**
+ * @public
  * The configuration used for outbound calls.
  */
 export interface OutboundCallConfig {
@@ -156,6 +166,7 @@ export interface OutboundCallConfig {
 }
 
 /**
+ * @public
  * The request for Create Campaign API.
  */
 export interface CreateCampaignRequest {
@@ -186,6 +197,7 @@ export interface CreateCampaignRequest {
 }
 
 /**
+ * @public
  * The response for Create Campaign API
  */
 export interface CreateCampaignResponse {
@@ -206,6 +218,7 @@ export interface CreateCampaignResponse {
 }
 
 /**
+ * @public
  * Request processing failed because of an error or failure with the service.
  */
 export class InternalServerException extends __BaseException {
@@ -232,6 +245,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * The specified resource was not found.
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -257,6 +271,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Request would cause a service quota to be exceeded.
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -282,6 +297,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * The request was denied due to request throttling.
  */
 export class ThrottlingException extends __BaseException {
@@ -308,6 +324,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * The input fails to satisfy the constraints specified by an AWS service.
  */
 export class ValidationException extends __BaseException {
@@ -333,6 +350,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * DeleteCampaignRequest
  */
 export interface DeleteCampaignRequest {
@@ -343,6 +361,7 @@ export interface DeleteCampaignRequest {
 }
 
 /**
+ * @public
  * DeleteCampaignRequest
  */
 export interface DeleteConnectInstanceConfigRequest {
@@ -353,6 +372,7 @@ export interface DeleteConnectInstanceConfigRequest {
 }
 
 /**
+ * @public
  * The request could not be processed because of conflict in the current state.
  */
 export class InvalidStateException extends __BaseException {
@@ -378,6 +398,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * The request for DeleteInstanceOnboardingJob API.
  */
 export interface DeleteInstanceOnboardingJobRequest {
@@ -388,6 +409,7 @@ export interface DeleteInstanceOnboardingJobRequest {
 }
 
 /**
+ * @public
  * DescribeCampaignRequests
  */
 export interface DescribeCampaignRequest {
@@ -398,6 +420,7 @@ export interface DescribeCampaignRequest {
 }
 
 /**
+ * @public
  * An Amazon Connect campaign.
  */
 export interface Campaign {
@@ -438,6 +461,7 @@ export interface Campaign {
 }
 
 /**
+ * @public
  * DescribeCampaignResponse
  */
 export interface DescribeCampaignResponse {
@@ -448,6 +472,7 @@ export interface DescribeCampaignResponse {
 }
 
 /**
+ * @public
  * GetCampaignStateRequest
  */
 export interface GetCampaignStateRequest {
@@ -457,6 +482,9 @@ export interface GetCampaignStateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CampaignState {
   /**
    * Campaign is in failed state
@@ -481,6 +509,7 @@ export enum CampaignState {
 }
 
 /**
+ * @public
  * GetCampaignStateResponse
  */
 export interface GetCampaignStateResponse {
@@ -491,6 +520,7 @@ export interface GetCampaignStateResponse {
 }
 
 /**
+ * @public
  * GetCampaignStateBatchRequest
  */
 export interface GetCampaignStateBatchRequest {
@@ -500,6 +530,9 @@ export interface GetCampaignStateBatchRequest {
   campaignIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum GetCampaignStateBatchFailureCode {
   /**
    * The specified resource was not found
@@ -512,6 +545,7 @@ export enum GetCampaignStateBatchFailureCode {
 }
 
 /**
+ * @public
  * Failed response of campaign state
  */
 export interface FailedCampaignStateResponse {
@@ -527,6 +561,7 @@ export interface FailedCampaignStateResponse {
 }
 
 /**
+ * @public
  * Successful response of campaign state
  */
 export interface SuccessfulCampaignStateResponse {
@@ -542,6 +577,7 @@ export interface SuccessfulCampaignStateResponse {
 }
 
 /**
+ * @public
  * GetCampaignStateBatchResponse
  */
 export interface GetCampaignStateBatchResponse {
@@ -557,6 +593,7 @@ export interface GetCampaignStateBatchResponse {
 }
 
 /**
+ * @public
  * GetConnectInstanceConfigRequest
  */
 export interface GetConnectInstanceConfigRequest {
@@ -566,11 +603,15 @@ export interface GetConnectInstanceConfigRequest {
   connectInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionType {
   KMS = "KMS",
 }
 
 /**
+ * @public
  * Encryption config for Connect Instance. Note that sensitive data will always be encrypted.
  * If disabled, service will perform encryption with its own key.
  * If enabled, a KMS key id needs to be provided and KMS charges will apply.
@@ -594,6 +635,7 @@ export interface EncryptionConfig {
 }
 
 /**
+ * @public
  * Instance config object
  */
 export interface InstanceConfig {
@@ -617,6 +659,7 @@ export interface InstanceConfig {
 }
 
 /**
+ * @public
  * GetConnectInstanceConfigResponse
  */
 export interface GetConnectInstanceConfigResponse {
@@ -627,6 +670,7 @@ export interface GetConnectInstanceConfigResponse {
 }
 
 /**
+ * @public
  * GetInstanceOnboardingJobStatusRequest
  */
 export interface GetInstanceOnboardingJobStatusRequest {
@@ -636,6 +680,9 @@ export interface GetInstanceOnboardingJobStatusRequest {
   connectInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InstanceOnboardingJobFailureCode {
   EVENT_BRIDGE_ACCESS_DENIED = "EVENT_BRIDGE_ACCESS_DENIED",
   EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED = "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
@@ -645,6 +692,9 @@ export enum InstanceOnboardingJobFailureCode {
   KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
 }
 
+/**
+ * @public
+ */
 export enum InstanceOnboardingJobStatusCode {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -652,6 +702,7 @@ export enum InstanceOnboardingJobStatusCode {
 }
 
 /**
+ * @public
  * Instance onboarding job status object
  */
 export interface InstanceOnboardingJobStatus {
@@ -672,6 +723,7 @@ export interface InstanceOnboardingJobStatus {
 }
 
 /**
+ * @public
  * GetInstanceOnboardingJobStatusResponse
  */
 export interface GetInstanceOnboardingJobStatusResponse {
@@ -681,6 +733,9 @@ export interface GetInstanceOnboardingJobStatusResponse {
   connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
 }
 
+/**
+ * @public
+ */
 export enum InstanceIdFilterOperator {
   /**
    * Equals operator
@@ -689,6 +744,7 @@ export enum InstanceIdFilterOperator {
 }
 
 /**
+ * @public
  * Connect instance identifier filter
  */
 export interface InstanceIdFilter {
@@ -704,6 +760,7 @@ export interface InstanceIdFilter {
 }
 
 /**
+ * @public
  * Filter model by type
  */
 export interface CampaignFilters {
@@ -714,6 +771,7 @@ export interface CampaignFilters {
 }
 
 /**
+ * @public
  * ListCampaignsRequest
  */
 export interface ListCampaignsRequest {
@@ -734,6 +792,7 @@ export interface ListCampaignsRequest {
 }
 
 /**
+ * @public
  * An Amazon Connect campaign summary.
  */
 export interface CampaignSummary {
@@ -759,6 +818,7 @@ export interface CampaignSummary {
 }
 
 /**
+ * @public
  * ListCampaignsResponse
  */
 export interface ListCampaignsResponse {
@@ -774,6 +834,7 @@ export interface ListCampaignsResponse {
 }
 
 /**
+ * @public
  * ListTagsForResource
  */
 export interface ListTagsForResourceRequest {
@@ -784,6 +845,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * ListTagsForResponse
  */
 export interface ListTagsForResourceResponse {
@@ -794,6 +856,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * The request could not be processed because of conflict in the current state of the campaign.
  */
 export class InvalidCampaignStateException extends __BaseException {
@@ -825,6 +888,7 @@ export class InvalidCampaignStateException extends __BaseException {
 }
 
 /**
+ * @public
  * PauseCampaignRequest
  */
 export interface PauseCampaignRequest {
@@ -835,6 +899,7 @@ export interface PauseCampaignRequest {
 }
 
 /**
+ * @public
  * A dial request for a campaign.
  */
 export interface DialRequest {
@@ -860,6 +925,7 @@ export interface DialRequest {
 }
 
 /**
+ * @public
  * PutDialRequestBatchRequest
  */
 export interface PutDialRequestBatchRequest {
@@ -874,6 +940,9 @@ export interface PutDialRequestBatchRequest {
   dialRequests: DialRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FailureCode {
   /**
    * The request failed to satisfy the constraints specified by the service
@@ -890,6 +959,7 @@ export enum FailureCode {
 }
 
 /**
+ * @public
  * A failed request identified by the unique client token.
  */
 export interface FailedRequest {
@@ -910,6 +980,7 @@ export interface FailedRequest {
 }
 
 /**
+ * @public
  * A successful request identified by the unique client token.
  */
 export interface SuccessfulRequest {
@@ -925,6 +996,7 @@ export interface SuccessfulRequest {
 }
 
 /**
+ * @public
  * PutDialRequestBatchResponse
  */
 export interface PutDialRequestBatchResponse {
@@ -940,6 +1012,7 @@ export interface PutDialRequestBatchResponse {
 }
 
 /**
+ * @public
  * ResumeCampaignRequest
  */
 export interface ResumeCampaignRequest {
@@ -950,6 +1023,7 @@ export interface ResumeCampaignRequest {
 }
 
 /**
+ * @public
  * StartCampaignRequest
  */
 export interface StartCampaignRequest {
@@ -960,6 +1034,7 @@ export interface StartCampaignRequest {
 }
 
 /**
+ * @public
  * The request for StartInstanceOnboardingJob API.
  */
 export interface StartInstanceOnboardingJobRequest {
@@ -978,6 +1053,7 @@ export interface StartInstanceOnboardingJobRequest {
 }
 
 /**
+ * @public
  * The response for StartInstanceOnboardingJob API.
  */
 export interface StartInstanceOnboardingJobResponse {
@@ -988,6 +1064,7 @@ export interface StartInstanceOnboardingJobResponse {
 }
 
 /**
+ * @public
  * StopCampaignRequest
  */
 export interface StopCampaignRequest {
@@ -998,6 +1075,7 @@ export interface StopCampaignRequest {
 }
 
 /**
+ * @public
  * TagResourceRequest
  */
 export interface TagResourceRequest {
@@ -1013,6 +1091,7 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * UntagResourceRequest
  */
 export interface UntagResourceRequest {
@@ -1028,6 +1107,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * UpdateCampaignDialerConfigRequest
  */
 export interface UpdateCampaignDialerConfigRequest {
@@ -1043,6 +1123,7 @@ export interface UpdateCampaignDialerConfigRequest {
 }
 
 /**
+ * @public
  * UpdateCampaignNameRequest
  */
 export interface UpdateCampaignNameRequest {
@@ -1058,6 +1139,7 @@ export interface UpdateCampaignNameRequest {
 }
 
 /**
+ * @public
  * UpdateCampaignOutboundCallConfigRequest
  */
 export interface UpdateCampaignOutboundCallConfigRequest {

@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserPoolDomainCommand}.
  */
 export interface CreateUserPoolDomainCommandInput extends CreateUserPoolDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserPoolDomainCommand}.
  */
 export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new domain for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserPoolDomainCommandInput - {@link CreateUserPoolDomainCommandInput}
+ * @returns {@link CreateUserPoolDomainCommandOutput}
  * @see {@link CreateUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateUserPoolDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserPoolDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateUserPoolDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserPoolDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserPoolDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserPoolDomainCommandOutput> {
     return deserializeAws_json1_1CreateUserPoolDomainCommand(output, context);
   }

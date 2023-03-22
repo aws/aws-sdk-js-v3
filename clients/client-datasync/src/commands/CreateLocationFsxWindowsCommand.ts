@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationFsxWindowsCommand}.
  */
 export interface CreateLocationFsxWindowsCommandInput extends CreateLocationFsxWindowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationFsxWindowsCommand}.
  */
 export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationFsxWindowsCommandInput - {@link CreateLocationFsxWindowsCommandInput}
+ * @returns {@link CreateLocationFsxWindowsCommandOutput}
  * @see {@link CreateLocationFsxWindowsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxWindowsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateLocationFsxWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationFsxWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateLocationFsxWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationFsxWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationFsxWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxWindowsCommandOutput> {
     return deserializeAws_json1_1CreateLocationFsxWindowsCommand(output, context);
   }

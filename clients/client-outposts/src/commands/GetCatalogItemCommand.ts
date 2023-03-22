@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCatalogItemCommand}.
  */
 export interface GetCatalogItemCommandInput extends GetCatalogItemInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCatalogItemCommand}.
  */
 export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified catalog item.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCatalogItemCommandInput - {@link GetCatalogItemCommandInput}
+ * @returns {@link GetCatalogItemCommandOutput}
  * @see {@link GetCatalogItemCommandInput} for command's `input` shape.
  * @see {@link GetCatalogItemCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetCatalogItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCatalogItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetCatalogItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCatalogItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCatalogItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCatalogItemCommandOutput> {
     return deserializeAws_restJson1GetCatalogItemCommand(output, context);
   }

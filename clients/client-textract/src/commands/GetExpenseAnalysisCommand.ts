@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetExpenseAnalysisCommand}.
  */
 export interface GetExpenseAnalysisCommandInput extends GetExpenseAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExpenseAnalysisCommand}.
  */
 export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
  *    receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
  *    invoices and receipts.</p>
@@ -62,6 +67,8 @@ export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExpenseAnalysisCommandInput - {@link GetExpenseAnalysisCommandInput}
+ * @returns {@link GetExpenseAnalysisCommandOutput}
  * @see {@link GetExpenseAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetExpenseAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -119,6 +126,9 @@ export class GetExpenseAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExpenseAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class GetExpenseAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExpenseAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetExpenseAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExpenseAnalysisCommandOutput> {
     return deserializeAws_json1_1GetExpenseAnalysisCommand(output, context);
   }

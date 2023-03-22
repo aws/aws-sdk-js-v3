@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDimensionKeysCommand}.
  */
 export interface DescribeDimensionKeysCommandInput extends DescribeDimensionKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDimensionKeysCommand}.
  */
 export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.
  *       </p>
  *          <note>
@@ -51,6 +56,8 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDimensionKeysCommandInput - {@link DescribeDimensionKeysCommandInput}
+ * @returns {@link DescribeDimensionKeysCommandOutput}
  * @see {@link DescribeDimensionKeysCommandInput} for command's `input` shape.
  * @see {@link DescribeDimensionKeysCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeDimensionKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDimensionKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeDimensionKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDimensionKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDimensionKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDimensionKeysCommandOutput> {
     return deserializeAws_json1_1DescribeDimensionKeysCommand(output, context);
   }

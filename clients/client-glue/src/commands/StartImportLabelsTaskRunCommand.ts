@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportLabelsTaskRunCommand}.
  */
 export interface StartImportLabelsTaskRunCommandInput extends StartImportLabelsTaskRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportLabelsTaskRunCommand}.
  */
 export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables you to provide additional labels (examples of truth) to be used to teach the
  *       machine learning transform and improve its quality. This API operation is generally used as
  *       part of the active learning workflow that starts with the
@@ -67,6 +72,8 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportLabelsTaskRunCommandInput - {@link StartImportLabelsTaskRunCommandInput}
+ * @returns {@link StartImportLabelsTaskRunCommandOutput}
  * @see {@link StartImportLabelsTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartImportLabelsTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -105,6 +112,9 @@ export class StartImportLabelsTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportLabelsTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class StartImportLabelsTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportLabelsTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartImportLabelsTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportLabelsTaskRunCommandOutput> {
     return deserializeAws_json1_1StartImportLabelsTaskRunCommand(output, context);
   }

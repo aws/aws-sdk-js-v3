@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserSecurityProfilesCommand}.
  */
 export interface UpdateUserSecurityProfilesCommandInput extends UpdateUserSecurityProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserSecurityProfilesCommand}.
  */
 export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the specified security profiles to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserSecurityProfilesCommandInput - {@link UpdateUserSecurityProfilesCommandInput}
+ * @returns {@link UpdateUserSecurityProfilesCommandOutput}
  * @see {@link UpdateUserSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateUserSecurityProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

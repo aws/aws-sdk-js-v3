@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetBranchCommand, serializeAws_json1_1GetBranchCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBranchCommand}.
  */
 export interface GetBranchCommandInput extends GetBranchInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBranchCommand}.
  */
 export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a repository branch, including its name and the last commit ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBranchCommandInput - {@link GetBranchCommandInput}
+ * @returns {@link GetBranchCommandOutput}
  * @see {@link GetBranchCommandInput} for command's `input` shape.
  * @see {@link GetBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -105,6 +112,9 @@ export class GetBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBranchCommandOutput> {
     return deserializeAws_json1_1GetBranchCommand(output, context);
   }

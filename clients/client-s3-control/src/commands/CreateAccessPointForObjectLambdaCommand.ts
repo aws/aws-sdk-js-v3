@@ -27,10 +27,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessPointForObjectLambdaCommand}.
  */
 export interface CreateAccessPointForObjectLambdaCommandInput extends CreateAccessPointForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessPointForObjectLambdaCommand}.
  */
 export interface CreateAccessPointForObjectLambdaCommandOutput
@@ -38,6 +42,7 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
  *             Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>The following actions are related to
@@ -69,6 +74,8 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPointForObjectLambdaCommandInput - {@link CreateAccessPointForObjectLambdaCommandInput}
+ * @returns {@link CreateAccessPointForObjectLambdaCommandOutput}
  * @see {@link CreateAccessPointForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateAccessPointForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPointForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class CreateAccessPointForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAccessPointForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class CreateAccessPointForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlCreateAccessPointForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

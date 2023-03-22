@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UploadServerCertificateCommand}.
  */
 export interface UploadServerCertificateCommandInput extends UploadServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadServerCertificateCommand}.
  */
 export interface UploadServerCertificateCommandOutput extends UploadServerCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a server certificate entity for the Amazon Web Services account. The server certificate
  *             entity includes a public key certificate, a private key, and an optional certificate
  *             chain, which should all be PEM-encoded.</p>
@@ -69,6 +74,8 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadServerCertificateCommandInput - {@link UploadServerCertificateCommandInput}
+ * @returns {@link UploadServerCertificateCommandOutput}
  * @see {@link UploadServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UploadServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -146,6 +153,9 @@ export class UploadServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class UploadServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUploadServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadServerCertificateCommandOutput> {
     return deserializeAws_queryUploadServerCertificateCommand(output, context);
   }

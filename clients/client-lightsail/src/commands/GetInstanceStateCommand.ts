@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceStateCommand}.
  */
 export interface GetInstanceStateCommandInput extends GetInstanceStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceStateCommand}.
  */
 export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the state of a specific instance. Works on one instance at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceStateCommandInput - {@link GetInstanceStateCommandInput}
+ * @returns {@link GetInstanceStateCommandOutput}
  * @see {@link GetInstanceStateCommandInput} for command's `input` shape.
  * @see {@link GetInstanceStateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetInstanceStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetInstanceStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceStateCommandOutput> {
     return deserializeAws_json1_1GetInstanceStateCommand(output, context);
   }

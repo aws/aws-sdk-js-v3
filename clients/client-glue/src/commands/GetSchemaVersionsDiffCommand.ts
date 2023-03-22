@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaVersionsDiffCommand}.
  */
 export interface GetSchemaVersionsDiffCommandInput extends GetSchemaVersionsDiffInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaVersionsDiffCommand}.
  */
 export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDiffResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
  *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaVersionsDiffCommandInput - {@link GetSchemaVersionsDiffCommandInput}
+ * @returns {@link GetSchemaVersionsDiffCommandOutput}
  * @see {@link GetSchemaVersionsDiffCommandInput} for command's `input` shape.
  * @see {@link GetSchemaVersionsDiffCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSchemaVersionsDiffCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaVersionsDiffCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSchemaVersionsDiffCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaVersionsDiffCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSchemaVersionsDiffCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaVersionsDiffCommandOutput> {
     return deserializeAws_json1_1GetSchemaVersionsDiffCommand(output, context);
   }

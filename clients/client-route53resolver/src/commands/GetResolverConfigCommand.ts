@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverConfigCommand}.
  */
 export interface GetResolverConfigCommandInput extends GetResolverConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverConfigCommand}.
  */
 export interface GetResolverConfigCommandOutput extends GetResolverConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC from
  * 				Amazon Virtual Private Cloud.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResolverConfigCommandOutput extends GetResolverConfigRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverConfigCommandInput - {@link GetResolverConfigCommandInput}
+ * @returns {@link GetResolverConfigCommandOutput}
  * @see {@link GetResolverConfigCommandInput} for command's `input` shape.
  * @see {@link GetResolverConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetResolverConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetResolverConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResolverConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverConfigCommandOutput> {
     return deserializeAws_json1_1GetResolverConfigCommand(output, context);
   }

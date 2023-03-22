@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOptedOutNumbersCommand}.
  */
 export interface DescribeOptedOutNumbersCommandInput extends DescribeOptedOutNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOptedOutNumbersCommand}.
  */
 export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNumbersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified opted out destination numbers or all opted out destination
  *             numbers in an opt-out list.</p>
  *         <p>If you specify opted out numbers, the output includes information for only the
@@ -57,6 +62,8 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOptedOutNumbersCommandInput - {@link DescribeOptedOutNumbersCommandInput}
+ * @returns {@link DescribeOptedOutNumbersCommandOutput}
  * @see {@link DescribeOptedOutNumbersCommandInput} for command's `input` shape.
  * @see {@link DescribeOptedOutNumbersCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeOptedOutNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOptedOutNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeOptedOutNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOptedOutNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeOptedOutNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptedOutNumbersCommandOutput> {
     return deserializeAws_json1_0DescribeOptedOutNumbersCommand(output, context);
   }

@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCookieStickinessPolicyCommand}.
  */
 export interface CreateAppCookieStickinessPolicyCommandInput extends CreateAppCookieStickinessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCookieStickinessPolicyCommand}.
  */
 export interface CreateAppCookieStickinessPolicyCommandOutput
@@ -41,6 +45,7 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>
  *         <p>This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>,
  *             except that the lifetime of the special Elastic Load Balancing cookie, <code>AWSELB</code>,
@@ -60,6 +65,8 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCookieStickinessPolicyCommandInput - {@link CreateAppCookieStickinessPolicyCommandInput}
+ * @returns {@link CreateAppCookieStickinessPolicyCommandOutput}
  * @see {@link CreateAppCookieStickinessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateAppCookieStickinessPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCookieStickinessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAppCookieStickinessPolicyCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     return serializeAws_queryCreateAppCookieStickinessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

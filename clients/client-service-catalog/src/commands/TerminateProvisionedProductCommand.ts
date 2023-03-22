@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateProvisionedProductCommand}.
  */
 export interface TerminateProvisionedProductCommandInput extends TerminateProvisionedProductInput {}
 /**
+ * @public
+ *
  * The output of {@link TerminateProvisionedProductCommand}.
  */
 export interface TerminateProvisionedProductCommandOutput extends TerminateProvisionedProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified provisioned product.</p>
  *          <p>This operation does not delete any records associated with the provisioned product.</p>
  *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
@@ -48,6 +53,8 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateProvisionedProductCommandInput - {@link TerminateProvisionedProductCommandInput}
+ * @returns {@link TerminateProvisionedProductCommandOutput}
  * @see {@link TerminateProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link TerminateProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -74,6 +81,9 @@ export class TerminateProvisionedProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class TerminateProvisionedProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TerminateProvisionedProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

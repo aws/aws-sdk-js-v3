@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingProfileQueuesCommand}.
  */
 export interface UpdateRoutingProfileQueuesCommandInput extends UpdateRoutingProfileQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingProfileQueuesCommand}.
  */
 export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties associated with a set of queues for a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingProfileQueuesCommandInput - {@link UpdateRoutingProfileQueuesCommandInput}
+ * @returns {@link UpdateRoutingProfileQueuesCommandOutput}
  * @see {@link UpdateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingProfileQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingProfileQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRoutingProfileQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

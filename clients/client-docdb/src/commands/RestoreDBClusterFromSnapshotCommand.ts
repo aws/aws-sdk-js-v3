@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cluster from a snapshot or cluster snapshot.</p>
  *         <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p>
  *         <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
@@ -50,6 +55,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterFromSnapshotCommandInput - {@link RestoreDBClusterFromSnapshotCommandInput}
+ * @returns {@link RestoreDBClusterFromSnapshotCommandOutput}
  * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -122,6 +129,9 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBClusterFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

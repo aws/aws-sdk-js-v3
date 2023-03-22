@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSensitiveDataOccurrencesCommand}.
  */
 export interface GetSensitiveDataOccurrencesCommandInput extends GetSensitiveDataOccurrencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSensitiveDataOccurrencesCommand}.
  */
 export interface GetSensitiveDataOccurrencesCommandOutput
@@ -37,6 +41,7 @@ export interface GetSensitiveDataOccurrencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves occurrences of sensitive data reported by a finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSensitiveDataOccurrencesCommandInput - {@link GetSensitiveDataOccurrencesCommandInput}
+ * @returns {@link GetSensitiveDataOccurrencesCommandOutput}
  * @see {@link GetSensitiveDataOccurrencesCommandInput} for command's `input` shape.
  * @see {@link GetSensitiveDataOccurrencesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -89,6 +96,9 @@ export class GetSensitiveDataOccurrencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSensitiveDataOccurrencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetSensitiveDataOccurrencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSensitiveDataOccurrencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSensitiveDataOccurrencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

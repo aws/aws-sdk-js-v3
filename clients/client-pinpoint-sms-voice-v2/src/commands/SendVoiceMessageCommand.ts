@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SendVoiceMessageCommand}.
  */
 export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendVoiceMessageCommand}.
  */
 export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to send a request that sends a text message through Amazon Pinpoint.
  *             This operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to
  *             convert a text script into a voice message.</p>
@@ -52,6 +57,8 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
+ * @returns {@link SendVoiceMessageCommandOutput}
  * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
  * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -102,6 +109,9 @@ export class SendVoiceMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendVoiceMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class SendVoiceMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendVoiceMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendVoiceMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendVoiceMessageCommandOutput> {
     return deserializeAws_json1_0SendVoiceMessageCommand(output, context);
   }

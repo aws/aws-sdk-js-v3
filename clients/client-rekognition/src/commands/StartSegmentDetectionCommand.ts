@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSegmentDetectionCommand}.
  */
 export interface StartSegmentDetectionCommandInput extends StartSegmentDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSegmentDetectionCommand}.
  */
 export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of segment detection in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
  *       the filename of the video. <code>StartSegmentDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
@@ -59,6 +64,8 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSegmentDetectionCommandInput - {@link StartSegmentDetectionCommandInput}
+ * @returns {@link StartSegmentDetectionCommandOutput}
  * @see {@link StartSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link StartSegmentDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -115,6 +122,9 @@ export class StartSegmentDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSegmentDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class StartSegmentDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSegmentDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSegmentDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSegmentDetectionCommandOutput> {
     return deserializeAws_json1_1StartSegmentDetectionCommand(output, context);
   }

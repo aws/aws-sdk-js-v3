@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateDelegationByAssessmentCommand}.
  */
 export interface BatchCreateDelegationByAssessmentCommandInput extends BatchCreateDelegationByAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateDelegationByAssessmentCommand}.
  */
 export interface BatchCreateDelegationByAssessmentCommandOutput
@@ -37,6 +41,7 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a batch of delegations for an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateDelegationByAssessmentCommandInput - {@link BatchCreateDelegationByAssessmentCommandInput}
+ * @returns {@link BatchCreateDelegationByAssessmentCommandOutput}
  * @see {@link BatchCreateDelegationByAssessmentCommandInput} for command's `input` shape.
  * @see {@link BatchCreateDelegationByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateDelegationByAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchCreateDelegationByAssessmentCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
     return serializeAws_restJson1BatchCreateDelegationByAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link LockRuleCommand}.
  */
 export interface LockRuleCommandInput extends LockRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link LockRuleCommand}.
  */
 export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param LockRuleCommandInput - {@link LockRuleCommandInput}
+ * @returns {@link LockRuleCommandOutput}
  * @see {@link LockRuleCommandInput} for command's `input` shape.
  * @see {@link LockRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -77,6 +84,9 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LockRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LockRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1LockRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LockRuleCommandOutput> {
     return deserializeAws_restJson1LockRuleCommand(output, context);
   }

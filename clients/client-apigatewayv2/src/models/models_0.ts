@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ApiGatewayV2ServiceException as __BaseException } from "./ApiGatewayV2ServiceException";
 
 /**
+ * @public
  * <p>Represents a CORS configuration. Supported only for HTTP APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">Configuring CORS</a> for more information.</p>
  */
 export interface Cors {
@@ -38,17 +39,21 @@ export interface Cors {
   MaxAge?: number;
 }
 
+/**
+ * @public
+ */
 export enum ProtocolType {
   HTTP = "HTTP",
   WEBSOCKET = "WEBSOCKET",
 }
 
 /**
+ * @public
  * <p>Represents an API.</p>
  */
 export interface Api {
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The URI of the API, of the form \{api-id\}.execute-api.\{region\}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
 
@@ -88,7 +93,7 @@ export interface Api {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -108,7 +113,7 @@ export interface Api {
   ProtocolType: ProtocolType | string | undefined;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression: string | undefined;
 
@@ -129,6 +134,7 @@ export interface Api {
 }
 
 /**
+ * @public
  * <p>Represents an API mapping.</p>
  */
 export interface ApiMapping {
@@ -153,12 +159,16 @@ export interface ApiMapping {
   Stage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AuthorizerType {
   JWT = "JWT",
   REQUEST = "REQUEST",
 }
 
 /**
+ * @public
  * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
  */
 export interface JWTConfiguration {
@@ -168,13 +178,14 @@ export interface JWTConfiguration {
   Audience?: string[];
 
   /**
-   * <p>The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: https://cognito-idp.<replaceable>{region}</replaceable>.amazonaws.com/<replaceable>{userPoolId}</replaceable>
+   * <p>The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: https://cognito-idp.<replaceable>\{region\}</replaceable>.amazonaws.com/<replaceable>\{userPoolId\}</replaceable>
    *                . Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
    */
   Issuer?: string;
 }
 
 /**
+ * @public
  * <p>Represents an authorizer.</p>
  */
 export interface Authorizer {
@@ -204,8 +215,8 @@ export interface Authorizer {
   AuthorizerType?: AuthorizerType | string;
 
   /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
+   *                , where <replaceable></replaceable>\{region\} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
    */
   AuthorizerUri?: string;
 
@@ -235,6 +246,9 @@ export interface Authorizer {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentStatus {
   DEPLOYED = "DEPLOYED",
   FAILED = "FAILED",
@@ -242,6 +256,7 @@ export enum DeploymentStatus {
 }
 
 /**
+ * @public
  * <p>An immutable representation of an API that can be called by users. A Deployment must be associated with a Stage for it to be callable over the internet.</p>
  */
 export interface Deployment {
@@ -276,6 +291,9 @@ export interface Deployment {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
   PENDING_CERTIFICATE_REIMPORT = "PENDING_CERTIFICATE_REIMPORT",
@@ -283,17 +301,24 @@ export enum DomainNameStatus {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum EndpointType {
   EDGE = "EDGE",
   REGIONAL = "REGIONAL",
 }
 
+/**
+ * @public
+ */
 export enum SecurityPolicy {
   TLS_1_0 = "TLS_1_0",
   TLS_1_2 = "TLS_1_2",
 }
 
 /**
+ * @public
  * <p>The domain name configuration.</p>
  */
 export interface DomainNameConfiguration {
@@ -348,6 +373,9 @@ export interface DomainNameConfiguration {
   OwnershipVerificationCertificateArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface MutualTlsAuthentication {
   /**
    * <p>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.</p>
@@ -366,6 +394,7 @@ export interface MutualTlsAuthentication {
 }
 
 /**
+ * @public
  * <p>Represents a domain name.</p>
  */
 export interface DomainName {
@@ -395,16 +424,25 @@ export interface DomainName {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ConnectionType {
   INTERNET = "INTERNET",
   VPC_LINK = "VPC_LINK",
 }
 
+/**
+ * @public
+ */
 export enum ContentHandlingStrategy {
   CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
   CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
 }
 
+/**
+ * @public
+ */
 export enum IntegrationType {
   AWS = "AWS",
   AWS_PROXY = "AWS_PROXY",
@@ -413,6 +451,9 @@ export enum IntegrationType {
   MOCK = "MOCK",
 }
 
+/**
+ * @public
+ */
 export enum PassthroughBehavior {
   NEVER = "NEVER",
   WHEN_NO_MATCH = "WHEN_NO_MATCH",
@@ -420,6 +461,7 @@ export enum PassthroughBehavior {
 }
 
 /**
+ * @public
  * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
  */
 export interface TlsConfig {
@@ -430,6 +472,7 @@ export interface TlsConfig {
 }
 
 /**
+ * @public
  * <p>Represents an integration.</p>
  */
 export interface Integration {
@@ -504,11 +547,11 @@ export interface Integration {
   PayloadFormatVersion?: string;
 
   /**
-   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>\{location\}</replaceable>.<replaceable>\{name\}</replaceable>
    *           , where
-   *             <replaceable>{location}</replaceable>
+   *             <replaceable>\{location\}</replaceable>
    *            is querystring, path, or header; and
-   *             <replaceable>{name}</replaceable>
+   *             <replaceable>\{name\}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
   RequestParameters?: Record<string, string>;
@@ -540,6 +583,7 @@ export interface Integration {
 }
 
 /**
+ * @public
  * <p>Represents an integration response.</p>
  */
 export interface IntegrationResponse {
@@ -559,7 +603,7 @@ export interface IntegrationResponse {
   IntegrationResponseKey: string | undefined;
 
   /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.\{name\}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.\{name\} or integration.response.body.\{JSON-expression\}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: Record<string, string>;
 
@@ -575,6 +619,7 @@ export interface IntegrationResponse {
 }
 
 /**
+ * @public
  * <p>Represents a data model for an API. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Create Models and Mapping Templates for Request and Response Mappings</a>.</p>
  */
 export interface Model {
@@ -604,6 +649,9 @@ export interface Model {
   Schema?: string;
 }
 
+/**
+ * @public
+ */
 export enum AuthorizationType {
   AWS_IAM = "AWS_IAM",
   CUSTOM = "CUSTOM",
@@ -612,6 +660,7 @@ export enum AuthorizationType {
 }
 
 /**
+ * @public
  * <p>Validation constraints imposed on parameters of a request (path, query string, headers).</p>
  */
 export interface ParameterConstraints {
@@ -622,6 +671,7 @@ export interface ParameterConstraints {
 }
 
 /**
+ * @public
  * <p>Represents a route.</p>
  */
 export interface Route {
@@ -692,6 +742,7 @@ export interface Route {
 }
 
 /**
+ * @public
  * <p>Represents a route response.</p>
  */
 export interface RouteResponse {
@@ -722,6 +773,7 @@ export interface RouteResponse {
 }
 
 /**
+ * @public
  * <p>Settings for logging access in a stage.</p>
  */
 export interface AccessLogSettings {
@@ -736,6 +788,9 @@ export interface AccessLogSettings {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export enum LoggingLevel {
   ERROR = "ERROR",
   INFO = "INFO",
@@ -743,6 +798,7 @@ export enum LoggingLevel {
 }
 
 /**
+ * @public
  * <p>Represents a collection of route settings.</p>
  */
 export interface RouteSettings {
@@ -773,6 +829,7 @@ export interface RouteSettings {
 }
 
 /**
+ * @public
  * <p>Represents an API stage.</p>
  */
 export interface Stage {
@@ -847,6 +904,9 @@ export interface Stage {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum VpcLinkStatus {
   AVAILABLE = "AVAILABLE",
   DELETING = "DELETING",
@@ -855,11 +915,15 @@ export enum VpcLinkStatus {
   PENDING = "PENDING",
 }
 
+/**
+ * @public
+ */
 export enum VpcLinkVersion {
   V2 = "V2",
 }
 
 /**
+ * @public
  * <p>Represents a VPC link.</p>
  */
 export interface VpcLink {
@@ -909,6 +973,9 @@ export interface VpcLink {
   VpcLinkVersion?: VpcLinkVersion | string;
 }
 
+/**
+ * @public
+ */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
@@ -928,6 +995,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -952,6 +1020,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
  */
 export class ConflictException extends __BaseException {
@@ -976,6 +1045,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a new Api resource to represent an API.</p>
  */
 export interface CreateApiRequest {
@@ -1005,7 +1075,7 @@ export interface CreateApiRequest {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -1025,7 +1095,7 @@ export interface CreateApiRequest {
   RouteKey?: string;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
@@ -1045,9 +1115,12 @@ export interface CreateApiRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApiResponse {
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The URI of the API, of the form \{api-id\}.execute-api.\{region\}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
 
@@ -1087,7 +1160,7 @@ export interface CreateApiResponse {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -1107,7 +1180,7 @@ export interface CreateApiResponse {
   ProtocolType?: ProtocolType | string;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
@@ -1128,6 +1201,7 @@ export interface CreateApiResponse {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request was not found. See the message field for more information.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1158,6 +1232,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A limit has been exceeded. See the accompanying error message for details.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1188,6 +1263,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a new ApiMapping resource to represent an API mapping.</p>
  */
 export interface CreateApiMappingRequest {
@@ -1212,6 +1288,9 @@ export interface CreateApiMappingRequest {
   Stage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateApiMappingResponse {
   /**
    * <p>The API identifier.</p>
@@ -1235,6 +1314,7 @@ export interface CreateApiMappingResponse {
 }
 
 /**
+ * @public
  * <p>Creates a new Authorizer resource to represent an authorizer.</p>
  */
 export interface CreateAuthorizerRequest {
@@ -1264,8 +1344,8 @@ export interface CreateAuthorizerRequest {
   AuthorizerType: AuthorizerType | string | undefined;
 
   /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
+   *                , where <replaceable></replaceable>\{region\} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
    */
   AuthorizerUri?: string;
 
@@ -1295,6 +1375,9 @@ export interface CreateAuthorizerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuthorizerResponse {
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
@@ -1322,8 +1405,8 @@ export interface CreateAuthorizerResponse {
   AuthorizerType?: AuthorizerType | string;
 
   /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
+   *                , where <replaceable></replaceable>\{region\} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
    */
   AuthorizerUri?: string;
 
@@ -1354,6 +1437,7 @@ export interface CreateAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>Creates a new Deployment resource to represent a deployment.</p>
  */
 export interface CreateDeploymentRequest {
@@ -1373,6 +1457,9 @@ export interface CreateDeploymentRequest {
   StageName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentResponse {
   /**
    * <p>Specifies whether a deployment was automatically released.</p>
@@ -1405,6 +1492,9 @@ export interface CreateDeploymentResponse {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface MutualTlsAuthenticationInput {
   /**
    * <p>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.</p>
@@ -1418,6 +1508,7 @@ export interface MutualTlsAuthenticationInput {
 }
 
 /**
+ * @public
  * <p>Creates a new DomainName resource to represent a domain name.</p>
  */
 export interface CreateDomainNameRequest {
@@ -1442,6 +1533,9 @@ export interface CreateDomainNameRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainNameResponse {
   /**
    * <p>The API mapping selection expression.</p>
@@ -1470,6 +1564,7 @@ export interface CreateDomainNameResponse {
 }
 
 /**
+ * @public
  * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
  */
 export interface TlsConfigInput {
@@ -1480,6 +1575,7 @@ export interface TlsConfigInput {
 }
 
 /**
+ * @public
  * <p>Creates a new Integration resource to represent an integration.</p>
  */
 export interface CreateIntegrationRequest {
@@ -1544,11 +1640,11 @@ export interface CreateIntegrationRequest {
   PayloadFormatVersion?: string;
 
   /**
-   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>\{location\}</replaceable>.<replaceable>\{name\}</replaceable>
    *                , where
-   *                   <replaceable>{location}</replaceable>
+   *                   <replaceable>\{location\}</replaceable>
    *                 is querystring, path, or header; and
-   *                   <replaceable>{name}</replaceable>
+   *                   <replaceable>\{name\}</replaceable>
    *                 must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API integrations without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt; where action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
   RequestParameters?: Record<string, string>;
@@ -1579,6 +1675,9 @@ export interface CreateIntegrationRequest {
   TlsConfig?: TlsConfigInput;
 }
 
+/**
+ * @public
+ */
 export interface CreateIntegrationResult {
   /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
@@ -1651,11 +1750,11 @@ export interface CreateIntegrationResult {
   PayloadFormatVersion?: string;
 
   /**
-   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>\{location\}</replaceable>.<replaceable>\{name\}</replaceable>
    *           , where
-   *             <replaceable>{location}</replaceable>
+   *             <replaceable>\{location\}</replaceable>
    *            is querystring, path, or header; and
-   *             <replaceable>{name}</replaceable>
+   *             <replaceable>\{name\}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
   RequestParameters?: Record<string, string>;
@@ -1687,6 +1786,7 @@ export interface CreateIntegrationResult {
 }
 
 /**
+ * @public
  * <p>Creates a new IntegrationResponse resource to represent an integration response.</p>
  */
 export interface CreateIntegrationResponseRequest {
@@ -1711,7 +1811,7 @@ export interface CreateIntegrationResponseRequest {
   IntegrationResponseKey: string | undefined;
 
   /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where {name} is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where {name} is a valid and unique response header name and {JSON-expression} is a valid JSON expression without the $ prefix.</p>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.\{name\}, where \{name\} is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.\{name\} or integration.response.body.\{JSON-expression\}, where \{name\} is a valid and unique response header name and \{JSON-expression\} is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: Record<string, string>;
 
@@ -1726,6 +1826,9 @@ export interface CreateIntegrationResponseRequest {
   TemplateSelectionExpression?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -1743,7 +1846,7 @@ export interface CreateIntegrationResponseResponse {
   IntegrationResponseKey?: string;
 
   /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.\{name\}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.\{name\} or integration.response.body.\{JSON-expression\}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: Record<string, string>;
 
@@ -1759,6 +1862,7 @@ export interface CreateIntegrationResponseResponse {
 }
 
 /**
+ * @public
  * <p>Creates a new Model.</p>
  */
 export interface CreateModelRequest {
@@ -1788,6 +1892,9 @@ export interface CreateModelRequest {
   Schema: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateModelResponse {
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -1816,6 +1923,7 @@ export interface CreateModelResponse {
 }
 
 /**
+ * @public
  * <p>Creates a new Route resource to represent a route.</p>
  */
 export interface CreateRouteRequest {
@@ -1880,6 +1988,9 @@ export interface CreateRouteRequest {
   Target?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteResult {
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
@@ -1948,6 +2059,7 @@ export interface CreateRouteResult {
 }
 
 /**
+ * @public
  * <p>Creates a new RouteResponse resource to represent a route response.</p>
  */
 export interface CreateRouteResponseRequest {
@@ -1982,6 +2094,9 @@ export interface CreateRouteResponseRequest {
   RouteResponseKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteResponseResponse {
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -2010,6 +2125,7 @@ export interface CreateRouteResponseResponse {
 }
 
 /**
+ * @public
  * <p>Creates a new Stage resource to represent a stage.</p>
  */
 export interface CreateStageRequest {
@@ -2069,6 +2185,9 @@ export interface CreateStageRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateStageResponse {
   /**
    * <p>Settings for logging access in this stage.</p>
@@ -2142,6 +2261,7 @@ export interface CreateStageResponse {
 }
 
 /**
+ * @public
  * <p>Creates a VPC link</p>
  */
 export interface CreateVpcLinkRequest {
@@ -2166,6 +2286,9 @@ export interface CreateVpcLinkRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcLinkResponse {
   /**
    * <p>The timestamp when the VPC link was created.</p>
@@ -2213,6 +2336,9 @@ export interface CreateVpcLinkResponse {
   VpcLinkVersion?: VpcLinkVersion | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessLogSettingsRequest {
   /**
    * <p>The API identifier.</p>
@@ -2225,6 +2351,9 @@ export interface DeleteAccessLogSettingsRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApiRequest {
   /**
    * <p>The API identifier.</p>
@@ -2232,6 +2361,9 @@ export interface DeleteApiRequest {
   ApiId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApiMappingRequest {
   /**
    * <p>The API mapping identifier.</p>
@@ -2244,6 +2376,9 @@ export interface DeleteApiMappingRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAuthorizerRequest {
   /**
    * <p>The API identifier.</p>
@@ -2256,6 +2391,9 @@ export interface DeleteAuthorizerRequest {
   AuthorizerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCorsConfigurationRequest {
   /**
    * <p>The API identifier.</p>
@@ -2263,6 +2401,9 @@ export interface DeleteCorsConfigurationRequest {
   ApiId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeploymentRequest {
   /**
    * <p>The API identifier.</p>
@@ -2275,6 +2416,9 @@ export interface DeleteDeploymentRequest {
   DeploymentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainNameRequest {
   /**
    * <p>The domain name.</p>
@@ -2282,6 +2426,9 @@ export interface DeleteDomainNameRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntegrationRequest {
   /**
    * <p>The API identifier.</p>
@@ -2294,6 +2441,9 @@ export interface DeleteIntegrationRequest {
   IntegrationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntegrationResponseRequest {
   /**
    * <p>The API identifier.</p>
@@ -2311,6 +2461,9 @@ export interface DeleteIntegrationResponseRequest {
   IntegrationResponseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteModelRequest {
   /**
    * <p>The API identifier.</p>
@@ -2323,6 +2476,9 @@ export interface DeleteModelRequest {
   ModelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteRequest {
   /**
    * <p>The API identifier.</p>
@@ -2335,6 +2491,9 @@ export interface DeleteRouteRequest {
   RouteId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteRequestParameterRequest {
   /**
    * <p>The API identifier.</p>
@@ -2352,6 +2511,9 @@ export interface DeleteRouteRequestParameterRequest {
   RouteId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteResponseRequest {
   /**
    * <p>The API identifier.</p>
@@ -2369,6 +2531,9 @@ export interface DeleteRouteResponseRequest {
   RouteResponseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteSettingsRequest {
   /**
    * <p>The API identifier.</p>
@@ -2386,6 +2551,9 @@ export interface DeleteRouteSettingsRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStageRequest {
   /**
    * <p>The API identifier.</p>
@@ -2398,6 +2566,9 @@ export interface DeleteStageRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcLinkRequest {
   /**
    * <p>The ID of the VPC link.</p>
@@ -2405,8 +2576,14 @@ export interface DeleteVpcLinkRequest {
   VpcLinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcLinkResponse {}
 
+/**
+ * @public
+ */
 export interface ExportApiRequest {
   /**
    * <p>The API identifier.</p>
@@ -2439,6 +2616,9 @@ export interface ExportApiRequest {
   StageName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportApiResponse {
   /**
    * <p>Represents an exported definition of an API in a particular output format, for example, YAML. The API is serialized to the requested specification, for example, OpenAPI 3.0.</p>
@@ -2446,6 +2626,9 @@ export interface ExportApiResponse {
   body?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface GetApiRequest {
   /**
    * <p>The API identifier.</p>
@@ -2453,9 +2636,12 @@ export interface GetApiRequest {
   ApiId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApiResponse {
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The URI of the API, of the form \{api-id\}.execute-api.\{region\}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
 
@@ -2495,7 +2681,7 @@ export interface GetApiResponse {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -2515,7 +2701,7 @@ export interface GetApiResponse {
   ProtocolType?: ProtocolType | string;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
@@ -2535,6 +2721,9 @@ export interface GetApiResponse {
   Warnings?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetApiMappingRequest {
   /**
    * <p>The API mapping identifier.</p>
@@ -2547,6 +2736,9 @@ export interface GetApiMappingRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApiMappingResponse {
   /**
    * <p>The API identifier.</p>
@@ -2569,6 +2761,9 @@ export interface GetApiMappingResponse {
   Stage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetApiMappingsRequest {
   /**
    * <p>The domain name.</p>
@@ -2586,6 +2781,9 @@ export interface GetApiMappingsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetApiMappingsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -2598,6 +2796,9 @@ export interface GetApiMappingsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetApisRequest {
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
@@ -2610,6 +2811,9 @@ export interface GetApisRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetApisResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -2622,6 +2826,9 @@ export interface GetApisResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizerRequest {
   /**
    * <p>The API identifier.</p>
@@ -2634,6 +2841,9 @@ export interface GetAuthorizerRequest {
   AuthorizerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizerResponse {
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
@@ -2661,8 +2871,8 @@ export interface GetAuthorizerResponse {
   AuthorizerType?: AuthorizerType | string;
 
   /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
+   *                , where <replaceable></replaceable>\{region\} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
    */
   AuthorizerUri?: string;
 
@@ -2692,6 +2902,9 @@ export interface GetAuthorizerResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizersRequest {
   /**
    * <p>The API identifier.</p>
@@ -2709,6 +2922,9 @@ export interface GetAuthorizersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAuthorizersResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -2721,6 +2937,9 @@ export interface GetAuthorizersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentRequest {
   /**
    * <p>The API identifier.</p>
@@ -2733,6 +2952,9 @@ export interface GetDeploymentRequest {
   DeploymentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentResponse {
   /**
    * <p>Specifies whether a deployment was automatically released.</p>
@@ -2765,6 +2987,9 @@ export interface GetDeploymentResponse {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentsRequest {
   /**
    * <p>The API identifier.</p>
@@ -2782,6 +3007,9 @@ export interface GetDeploymentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -2794,6 +3022,9 @@ export interface GetDeploymentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainNameRequest {
   /**
    * <p>The domain name.</p>
@@ -2801,6 +3032,9 @@ export interface GetDomainNameRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainNameResponse {
   /**
    * <p>The API mapping selection expression.</p>
@@ -2828,6 +3062,9 @@ export interface GetDomainNameResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainNamesRequest {
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
@@ -2840,6 +3077,9 @@ export interface GetDomainNamesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainNamesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -2852,6 +3092,9 @@ export interface GetDomainNamesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationRequest {
   /**
    * <p>The API identifier.</p>
@@ -2864,6 +3107,9 @@ export interface GetIntegrationRequest {
   IntegrationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationResult {
   /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
@@ -2936,11 +3182,11 @@ export interface GetIntegrationResult {
   PayloadFormatVersion?: string;
 
   /**
-   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>\{location\}</replaceable>.<replaceable>\{name\}</replaceable>
    *           , where
-   *             <replaceable>{location}</replaceable>
+   *             <replaceable>\{location\}</replaceable>
    *            is querystring, path, or header; and
-   *             <replaceable>{name}</replaceable>
+   *             <replaceable>\{name\}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
   RequestParameters?: Record<string, string>;
@@ -2971,6 +3217,9 @@ export interface GetIntegrationResult {
   TlsConfig?: TlsConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationResponseRequest {
   /**
    * <p>The API identifier.</p>
@@ -2988,6 +3237,9 @@ export interface GetIntegrationResponseRequest {
   IntegrationResponseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -3005,7 +3257,7 @@ export interface GetIntegrationResponseResponse {
   IntegrationResponseKey?: string;
 
   /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.\{name\}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.\{name\} or integration.response.body.\{JSON-expression\}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: Record<string, string>;
 
@@ -3020,6 +3272,9 @@ export interface GetIntegrationResponseResponse {
   TemplateSelectionExpression?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationResponsesRequest {
   /**
    * <p>The API identifier.</p>
@@ -3042,6 +3297,9 @@ export interface GetIntegrationResponsesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationResponsesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3054,6 +3312,9 @@ export interface GetIntegrationResponsesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationsRequest {
   /**
    * <p>The API identifier.</p>
@@ -3071,6 +3332,9 @@ export interface GetIntegrationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3083,6 +3347,9 @@ export interface GetIntegrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetModelRequest {
   /**
    * <p>The API identifier.</p>
@@ -3095,6 +3362,9 @@ export interface GetModelRequest {
   ModelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelResponse {
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -3122,6 +3392,9 @@ export interface GetModelResponse {
   Schema?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetModelsRequest {
   /**
    * <p>The API identifier.</p>
@@ -3139,6 +3412,9 @@ export interface GetModelsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetModelsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3151,6 +3427,9 @@ export interface GetModelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetModelTemplateRequest {
   /**
    * <p>The API identifier.</p>
@@ -3163,6 +3442,9 @@ export interface GetModelTemplateRequest {
   ModelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelTemplateResponse {
   /**
    * <p>The template value.</p>
@@ -3170,6 +3452,9 @@ export interface GetModelTemplateResponse {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteRequest {
   /**
    * <p>The API identifier.</p>
@@ -3182,6 +3467,9 @@ export interface GetRouteRequest {
   RouteId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteResult {
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
@@ -3249,6 +3537,9 @@ export interface GetRouteResult {
   Target?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteResponseRequest {
   /**
    * <p>The API identifier.</p>
@@ -3266,6 +3557,9 @@ export interface GetRouteResponseRequest {
   RouteResponseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteResponseResponse {
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -3293,6 +3587,9 @@ export interface GetRouteResponseResponse {
   RouteResponseKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteResponsesRequest {
   /**
    * <p>The API identifier.</p>
@@ -3315,6 +3612,9 @@ export interface GetRouteResponsesRequest {
   RouteId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteResponsesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3327,6 +3627,9 @@ export interface GetRouteResponsesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRoutesRequest {
   /**
    * <p>The API identifier.</p>
@@ -3344,6 +3647,9 @@ export interface GetRoutesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRoutesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3356,6 +3662,9 @@ export interface GetRoutesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetStageRequest {
   /**
    * <p>The API identifier.</p>
@@ -3368,6 +3677,9 @@ export interface GetStageRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStageResponse {
   /**
    * <p>Settings for logging access in this stage.</p>
@@ -3440,6 +3752,9 @@ export interface GetStageResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetStagesRequest {
   /**
    * <p>The API identifier.</p>
@@ -3457,6 +3772,9 @@ export interface GetStagesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetStagesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3469,6 +3787,9 @@ export interface GetStagesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTagsRequest {
   /**
    * <p>The resource ARN for the tag.</p>
@@ -3476,6 +3797,9 @@ export interface GetTagsRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTagsResponse {
   /**
    * <p>Represents a collection of tags associated with the resource.</p>
@@ -3483,6 +3807,9 @@ export interface GetTagsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcLinkRequest {
   /**
    * <p>The ID of the VPC link.</p>
@@ -3490,6 +3817,9 @@ export interface GetVpcLinkRequest {
   VpcLinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcLinkResponse {
   /**
    * <p>The timestamp when the VPC link was created.</p>
@@ -3537,6 +3867,9 @@ export interface GetVpcLinkResponse {
   VpcLinkVersion?: VpcLinkVersion | string;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcLinksRequest {
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
@@ -3549,6 +3882,9 @@ export interface GetVpcLinksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcLinksResponse {
   /**
    * <p>A collection of VPC links.</p>
@@ -3562,6 +3898,7 @@ export interface GetVpcLinksResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ImportApiRequest {
@@ -3581,9 +3918,12 @@ export interface ImportApiRequest {
   FailOnWarnings?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ImportApiResponse {
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The URI of the API, of the form \{api-id\}.execute-api.\{region\}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
 
@@ -3623,7 +3963,7 @@ export interface ImportApiResponse {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -3643,7 +3983,7 @@ export interface ImportApiResponse {
   ProtocolType?: ProtocolType | string;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
@@ -3664,6 +4004,7 @@ export interface ImportApiResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ReimportApiRequest {
@@ -3688,9 +4029,12 @@ export interface ReimportApiRequest {
   FailOnWarnings?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ReimportApiResponse {
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The URI of the API, of the form \{api-id\}.execute-api.\{region\}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
 
@@ -3730,7 +4074,7 @@ export interface ReimportApiResponse {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -3750,7 +4094,7 @@ export interface ReimportApiResponse {
   ProtocolType?: ProtocolType | string;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
@@ -3770,6 +4114,9 @@ export interface ReimportApiResponse {
   Warnings?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ResetAuthorizersCacheRequest {
   /**
    * <p>The API identifier.</p>
@@ -3783,6 +4130,7 @@ export interface ResetAuthorizersCacheRequest {
 }
 
 /**
+ * @public
  * <p>Creates a new Tag resource to represent a tag.</p>
  */
 export interface TagResourceRequest {
@@ -3797,8 +4145,14 @@ export interface TagResourceRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN for the tag.</p>
@@ -3812,6 +4166,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p>Updates an Api.</p>
  */
 export interface UpdateApiRequest {
@@ -3846,7 +4201,7 @@ export interface UpdateApiRequest {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -3861,7 +4216,7 @@ export interface UpdateApiRequest {
   RouteKey?: string;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
@@ -3876,9 +4231,12 @@ export interface UpdateApiRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApiResponse {
   /**
-   * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
+   * <p>The URI of the API, of the form \{api-id\}.execute-api.\{region\}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
    */
   ApiEndpoint?: string;
 
@@ -3918,7 +4276,7 @@ export interface UpdateApiResponse {
   DisableSchemaValidation?: boolean;
 
   /**
-   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
+   * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://\{api_id\}.execute-api.\{region\}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
 
@@ -3938,7 +4296,7 @@ export interface UpdateApiResponse {
   ProtocolType?: ProtocolType | string;
 
   /**
-   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
+   * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
    */
   RouteSelectionExpression?: string;
 
@@ -3959,6 +4317,7 @@ export interface UpdateApiResponse {
 }
 
 /**
+ * @public
  * <p>Updates an ApiMapping.</p>
  */
 export interface UpdateApiMappingRequest {
@@ -3988,6 +4347,9 @@ export interface UpdateApiMappingRequest {
   Stage?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApiMappingResponse {
   /**
    * <p>The API identifier.</p>
@@ -4011,6 +4373,7 @@ export interface UpdateApiMappingResponse {
 }
 
 /**
+ * @public
  * <p>Updates an Authorizer.</p>
  */
 export interface UpdateAuthorizerRequest {
@@ -4045,8 +4408,8 @@ export interface UpdateAuthorizerRequest {
   AuthorizerType?: AuthorizerType | string;
 
   /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
+   *                , where <replaceable></replaceable>\{region\} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
    */
   AuthorizerUri?: string;
 
@@ -4076,6 +4439,9 @@ export interface UpdateAuthorizerRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAuthorizerResponse {
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
@@ -4103,8 +4469,8 @@ export interface UpdateAuthorizerResponse {
   AuthorizerType?: AuthorizerType | string;
 
   /**
-   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-   *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
+   * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
+   *                , where <replaceable></replaceable>\{region\} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
    */
   AuthorizerUri?: string;
 
@@ -4135,6 +4501,7 @@ export interface UpdateAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>Updates a Deployment.</p>
  */
 export interface UpdateDeploymentRequest {
@@ -4154,6 +4521,9 @@ export interface UpdateDeploymentRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeploymentResponse {
   /**
    * <p>Specifies whether a deployment was automatically released.</p>
@@ -4187,6 +4557,7 @@ export interface UpdateDeploymentResponse {
 }
 
 /**
+ * @public
  * <p>Updates a DomainName.</p>
  */
 export interface UpdateDomainNameRequest {
@@ -4206,6 +4577,9 @@ export interface UpdateDomainNameRequest {
   MutualTlsAuthentication?: MutualTlsAuthenticationInput;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainNameResponse {
   /**
    * <p>The API mapping selection expression.</p>
@@ -4234,6 +4608,7 @@ export interface UpdateDomainNameResponse {
 }
 
 /**
+ * @public
  * <p>Updates an Integration.</p>
  */
 export interface UpdateIntegrationRequest {
@@ -4303,11 +4678,11 @@ export interface UpdateIntegrationRequest {
   PayloadFormatVersion?: string;
 
   /**
-   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>\{location\}</replaceable>.<replaceable>\{name\}</replaceable>
    *           , where
-   *             <replaceable>{location}</replaceable>
+   *             <replaceable>\{location\}</replaceable>
    *            is querystring, path, or header; and
-   *             <replaceable>{name}</replaceable>
+   *             <replaceable>\{name\}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API integrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt; where action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.">Transforming API requests and responses</a>.</p>
    */
   RequestParameters?: Record<string, string>;
@@ -4338,6 +4713,9 @@ export interface UpdateIntegrationRequest {
   TlsConfig?: TlsConfigInput;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIntegrationResult {
   /**
    * <p>Specifies whether an integration is managed by API Gateway. If you created an API using using quick create, the resulting integration is managed by API Gateway. You can update a managed integration, but you can't delete it.</p>
@@ -4410,11 +4788,11 @@ export interface UpdateIntegrationResult {
   PayloadFormatVersion?: string;
 
   /**
-   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+   * <p>For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of method.request.<replaceable>\{location\}</replaceable>.<replaceable>\{name\}</replaceable>
    *           , where
-   *             <replaceable>{location}</replaceable>
+   *             <replaceable>\{location\}</replaceable>
    *            is querystring, path, or header; and
-   *             <replaceable>{name}</replaceable>
+   *             <replaceable>\{name\}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
   RequestParameters?: Record<string, string>;
@@ -4446,6 +4824,7 @@ export interface UpdateIntegrationResult {
 }
 
 /**
+ * @public
  * <p>Updates an IntegrationResponses.</p>
  */
 export interface UpdateIntegrationResponseRequest {
@@ -4475,13 +4854,13 @@ export interface UpdateIntegrationResponseRequest {
   IntegrationResponseKey?: string;
 
   /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.<replaceable>{name}</replaceable>
-   *                , where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.<replaceable>{name}</replaceable>
-   *                 or integration.response.body.<replaceable>{JSON-expression}</replaceable>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.<replaceable>\{name\}</replaceable>
+   *                , where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.<replaceable>\{name\}</replaceable>
+   *                 or integration.response.body.<replaceable>\{JSON-expression\}</replaceable>
    *                , where
-   *                   <replaceable>{name}</replaceable>
+   *                   <replaceable>\{name\}</replaceable>
    *                 is a valid and unique response header name and
-   *                   <replaceable>{JSON-expression}</replaceable>
+   *                   <replaceable>\{JSON-expression\}</replaceable>
    *                 is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: Record<string, string>;
@@ -4497,6 +4876,9 @@ export interface UpdateIntegrationResponseRequest {
   TemplateSelectionExpression?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -4514,7 +4896,7 @@ export interface UpdateIntegrationResponseResponse {
   IntegrationResponseKey?: string;
 
   /**
-   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
+   * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.\{name\}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.\{name\} or integration.response.body.\{JSON-expression\}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
   ResponseParameters?: Record<string, string>;
 
@@ -4530,6 +4912,7 @@ export interface UpdateIntegrationResponseResponse {
 }
 
 /**
+ * @public
  * <p>Updates a Model.</p>
  */
 export interface UpdateModelRequest {
@@ -4564,6 +4947,9 @@ export interface UpdateModelRequest {
   Schema?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelResponse {
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -4592,6 +4978,7 @@ export interface UpdateModelResponse {
 }
 
 /**
+ * @public
  * <p>Updates a Route.</p>
  */
 export interface UpdateRouteRequest {
@@ -4661,6 +5048,9 @@ export interface UpdateRouteRequest {
   Target?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRouteResult {
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
@@ -4729,6 +5119,7 @@ export interface UpdateRouteResult {
 }
 
 /**
+ * @public
  * <p>Updates a RouteResponse.</p>
  */
 export interface UpdateRouteResponseRequest {
@@ -4768,6 +5159,9 @@ export interface UpdateRouteResponseRequest {
   RouteResponseKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRouteResponseResponse {
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -4796,6 +5190,7 @@ export interface UpdateRouteResponseResponse {
 }
 
 /**
+ * @public
  * <p>Updates a Stage.</p>
  */
 export interface UpdateStageRequest {
@@ -4850,6 +5245,9 @@ export interface UpdateStageRequest {
   StageVariables?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStageResponse {
   /**
    * <p>Settings for logging access in this stage.</p>
@@ -4923,6 +5321,7 @@ export interface UpdateStageResponse {
 }
 
 /**
+ * @public
  * <p>Updates a VPC link.</p>
  */
 export interface UpdateVpcLinkRequest {
@@ -4937,6 +5336,9 @@ export interface UpdateVpcLinkRequest {
   VpcLinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcLinkResponse {
   /**
    * <p>The timestamp when the VPC link was created.</p>

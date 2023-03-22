@@ -551,10 +551,12 @@ import {
 import { PinpointClient } from "./PinpointClient";
 
 /**
+ * @public
  * <p>Doc Engage API - Amazon Pinpoint API</p>
  */
 export class Pinpoint extends PinpointClient {
   /**
+   * @public
    * <p>Creates an application.</p>
    */
   public createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
@@ -581,6 +583,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>
    */
   public createCampaign(
@@ -613,6 +616,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a message template for messages that are sent through the email channel.</p>
    */
   public createEmailTemplate(
@@ -645,6 +649,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates an export job for an application.</p>
    */
   public createExportJob(
@@ -677,6 +682,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates an import job for an application.</p>
    */
   public createImportJob(
@@ -709,6 +715,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new message template for messages using the in-app message channel.</p>
    */
   public createInAppTemplate(
@@ -741,6 +748,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a journey for an application.</p>
    */
   public createJourney(
@@ -773,6 +781,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a message template for messages that are sent through a push notification channel.</p>
    */
   public createPushTemplate(
@@ -805,6 +814,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
    */
   public createRecommenderConfiguration(
@@ -837,6 +847,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
    */
   public createSegment(
@@ -869,6 +880,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a message template for messages that are sent through the SMS channel.</p>
    */
   public createSmsTemplate(
@@ -901,6 +913,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a message template for messages that are sent through the voice channel.</p>
    */
   public createVoiceTemplate(
@@ -933,6 +946,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteAdmChannel(
@@ -965,6 +979,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the APNs channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteApnsChannel(
@@ -997,6 +1012,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteApnsSandboxChannel(
@@ -1029,6 +1045,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteApnsVoipChannel(
@@ -1061,6 +1078,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteApnsVoipSandboxChannel(
@@ -1093,6 +1111,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes an application.</p>
    */
   public deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
@@ -1119,6 +1138,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the Baidu channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteBaiduChannel(
@@ -1151,6 +1171,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a campaign from an application.</p>
    */
   public deleteCampaign(
@@ -1183,6 +1204,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteEmailChannel(
@@ -1215,6 +1237,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a message template for messages that were sent through the email channel.</p>
    */
   public deleteEmailTemplate(
@@ -1247,6 +1270,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes an endpoint from an application.</p>
    */
   public deleteEndpoint(
@@ -1279,6 +1303,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes the event stream for an application.</p>
    */
   public deleteEventStream(
@@ -1311,6 +1336,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteGcmChannel(
@@ -1343,6 +1369,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a message template for messages sent using the in-app message channel.</p>
    */
   public deleteInAppTemplate(
@@ -1375,6 +1402,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a journey from an application.</p>
    */
   public deleteJourney(
@@ -1407,6 +1435,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
    */
   public deletePushTemplate(
@@ -1439,6 +1468,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>
    */
   public deleteRecommenderConfiguration(
@@ -1471,6 +1501,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a segment from an application.</p>
    */
   public deleteSegment(
@@ -1503,6 +1534,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the SMS channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteSmsChannel(
@@ -1535,6 +1567,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
    */
   public deleteSmsTemplate(
@@ -1567,6 +1600,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes all the endpoints that are associated with a specific user ID.</p>
    */
   public deleteUserEndpoints(
@@ -1599,6 +1633,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
    */
   public deleteVoiceChannel(
@@ -1631,6 +1666,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Deletes a message template for messages that were sent through the voice channel.</p>
    */
   public deleteVoiceTemplate(
@@ -1663,6 +1699,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
    */
   public getAdmChannel(
@@ -1695,6 +1732,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the APNs channel for an application.</p>
    */
   public getApnsChannel(
@@ -1727,6 +1765,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>
    */
   public getApnsSandboxChannel(
@@ -1759,6 +1798,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
    */
   public getApnsVoipChannel(
@@ -1791,6 +1831,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the APNs VoIP sandbox channel for an application.</p>
    */
   public getApnsVoipSandboxChannel(
@@ -1823,6 +1864,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an application.</p>
    */
   public getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
@@ -1849,6 +1891,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
    */
   public getApplicationDateRangeKpi(
@@ -1881,6 +1924,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the settings for an application.</p>
    */
   public getApplicationSettings(
@@ -1913,6 +1957,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
    */
   public getApps(args: GetAppsCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsCommandOutput>;
@@ -1939,6 +1984,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the Baidu channel for an application.</p>
    */
   public getBaiduChannel(
@@ -1971,6 +2017,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status, configuration, and other settings for a campaign.</p>
    */
   public getCampaign(args: GetCampaignCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignCommandOutput>;
@@ -1997,6 +2044,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all the activities for a campaign.</p>
    */
   public getCampaignActivities(
@@ -2029,6 +2077,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
    */
   public getCampaignDateRangeKpi(
@@ -2061,6 +2110,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
    */
   public getCampaigns(
@@ -2090,6 +2140,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
    */
   public getCampaignVersion(
@@ -2122,6 +2173,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status, configuration, and other settings for all versions of a campaign.</p>
    */
   public getCampaignVersions(
@@ -2154,6 +2206,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the history and status of each channel for an application.</p>
    */
   public getChannels(args: GetChannelsCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelsCommandOutput>;
@@ -2180,6 +2233,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the email channel for an application.</p>
    */
   public getEmailChannel(
@@ -2212,6 +2266,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
    */
   public getEmailTemplate(
@@ -2244,6 +2299,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
    */
   public getEndpoint(args: GetEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetEndpointCommandOutput>;
@@ -2270,6 +2326,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the event stream settings for an application.</p>
    */
   public getEventStream(
@@ -2302,6 +2359,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of a specific export job for an application.</p>
    */
   public getExportJob(
@@ -2331,6 +2389,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
    */
   public getExportJobs(
@@ -2363,6 +2422,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
    */
   public getGcmChannel(
@@ -2395,6 +2455,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of a specific import job for an application.</p>
    */
   public getImportJob(
@@ -2424,6 +2485,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of all the import jobs for an application.</p>
    */
   public getImportJobs(
@@ -2456,6 +2518,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the in-app messages targeted for the provided endpoint ID.</p>
    */
   public getInAppMessages(
@@ -2488,6 +2551,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the content and settings of a message template for messages sent through the in-app channel.</p>
    */
   public getInAppTemplate(
@@ -2520,6 +2584,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>
    */
   public getJourney(args: GetJourneyCommandInput, options?: __HttpHandlerOptions): Promise<GetJourneyCommandOutput>;
@@ -2546,6 +2611,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>
    */
   public getJourneyDateRangeKpi(
@@ -2578,6 +2644,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.</p>
    */
   public getJourneyExecutionActivityMetrics(
@@ -2610,6 +2677,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey.</p>
    */
   public getJourneyExecutionMetrics(
@@ -2642,6 +2710,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
    */
   public getPushTemplate(
@@ -2674,6 +2743,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
    */
   public getRecommenderConfiguration(
@@ -2706,6 +2776,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
    */
   public getRecommenderConfigurations(
@@ -2738,6 +2809,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
    */
   public getSegment(args: GetSegmentCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentCommandOutput>;
@@ -2764,6 +2836,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the export jobs for a segment.</p>
    */
   public getSegmentExportJobs(
@@ -2796,6 +2869,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the import jobs for a segment.</p>
    */
   public getSegmentImportJobs(
@@ -2828,6 +2902,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
    */
   public getSegments(args: GetSegmentsCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentsCommandOutput>;
@@ -2854,6 +2929,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.</p>
    */
   public getSegmentVersion(
@@ -2886,6 +2962,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
    */
   public getSegmentVersions(
@@ -2918,6 +2995,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
    */
   public getSmsChannel(
@@ -2950,6 +3028,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
    */
   public getSmsTemplate(
@@ -2982,6 +3061,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
    */
   public getUserEndpoints(
@@ -3014,6 +3094,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status and settings of the voice channel for an application.</p>
    */
   public getVoiceChannel(
@@ -3046,6 +3127,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
    */
   public getVoiceTemplate(
@@ -3078,6 +3160,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
    */
   public listJourneys(
@@ -3107,6 +3190,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, message template, or segment.</p>
    */
   public listTagsForResource(
@@ -3139,6 +3223,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all the message templates that are associated with your Amazon Pinpoint account.</p>
    */
   public listTemplates(
@@ -3171,6 +3256,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all the versions of a specific message template.</p>
    */
   public listTemplateVersions(
@@ -3203,6 +3289,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a phone number.</p>
    */
   public phoneNumberValidate(
@@ -3235,6 +3322,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
    */
   public putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
@@ -3261,6 +3349,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
    */
   public putEventStream(
@@ -3293,6 +3382,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
    */
   public removeAttributes(
@@ -3325,6 +3415,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates and sends a direct message.</p>
    */
   public sendMessages(
@@ -3354,6 +3445,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Send an OTP message</p>
    */
   public sendOTPMessage(
@@ -3386,6 +3478,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates and sends a message to a list of users.</p>
    */
   public sendUsersMessages(
@@ -3418,6 +3511,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags (keys and values) to an application, campaign, message template, or segment.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -3444,6 +3538,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags (keys and values) from an application, campaign, message template, or segment.</p>
    */
   public untagResource(
@@ -3476,6 +3571,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
    */
   public updateAdmChannel(
@@ -3508,6 +3604,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>
    */
   public updateApnsChannel(
@@ -3540,6 +3637,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.</p>
    */
   public updateApnsSandboxChannel(
@@ -3572,6 +3670,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the APNs VoIP channel for an application or updates the status and settings of the APNs VoIP channel for an application.</p>
    */
   public updateApnsVoipChannel(
@@ -3604,6 +3703,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>
    */
   public updateApnsVoipSandboxChannel(
@@ -3636,6 +3736,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates the settings for an application.</p>
    */
   public updateApplicationSettings(
@@ -3668,6 +3769,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>
    */
   public updateBaiduChannel(
@@ -3700,6 +3802,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration and other settings for a campaign.</p>
    */
   public updateCampaign(
@@ -3732,6 +3835,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the email channel for an application or updates the status and settings of the email channel for an application.</p>
    */
   public updateEmailChannel(
@@ -3764,6 +3868,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing message template for messages that are sent through the email channel.</p>
    */
   public updateEmailTemplate(
@@ -3796,6 +3901,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
    */
   public updateEndpoint(
@@ -3828,6 +3934,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
    */
   public updateEndpointsBatch(
@@ -3860,6 +3967,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the GCM channel for an application or updates the status and settings of the GCM channel for an application.</p>
    */
   public updateGcmChannel(
@@ -3892,6 +4000,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing message template for messages sent through the in-app message channel.</p>
    */
   public updateInAppTemplate(
@@ -3924,6 +4033,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration and other settings for a journey.</p>
    */
   public updateJourney(
@@ -3956,6 +4066,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Cancels (stops) an active journey.</p>
    */
   public updateJourneyState(
@@ -3988,6 +4099,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
    */
   public updatePushTemplate(
@@ -4020,6 +4132,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>
    */
   public updateRecommenderConfiguration(
@@ -4052,6 +4165,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
    */
   public updateSegment(
@@ -4084,6 +4198,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the SMS channel for an application or updates the status and settings of the SMS channel for an application.</p>
    */
   public updateSmsChannel(
@@ -4116,6 +4231,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
    */
   public updateSmsTemplate(
@@ -4148,6 +4264,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
    */
   public updateTemplateActiveVersion(
@@ -4180,6 +4297,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>
    */
   public updateVoiceChannel(
@@ -4212,6 +4330,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing message template for messages that are sent through the voice channel.</p>
    */
   public updateVoiceTemplate(
@@ -4244,6 +4363,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * @public
    * <p>Verify an OTP</p>
    */
   public verifyOTPMessage(

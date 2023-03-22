@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJournalS3ExportCommand}.
  */
 export interface DescribeJournalS3ExportCommandInput extends DescribeJournalS3ExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJournalS3ExportCommand}.
  */
 export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3ExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a journal export job, including the ledger name, export ID,
  *          creation time, current status, and the parameters of the original export creation
  *          request.</p>
@@ -54,6 +59,8 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJournalS3ExportCommandInput - {@link DescribeJournalS3ExportCommandInput}
+ * @returns {@link DescribeJournalS3ExportCommandOutput}
  * @see {@link DescribeJournalS3ExportCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalS3ExportCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeJournalS3ExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJournalS3ExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeJournalS3ExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJournalS3ExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJournalS3ExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJournalS3ExportCommandOutput> {
     return deserializeAws_restJson1DescribeJournalS3ExportCommand(output, context);
   }

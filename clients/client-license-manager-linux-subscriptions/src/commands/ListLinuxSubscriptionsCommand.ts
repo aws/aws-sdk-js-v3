@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLinuxSubscriptionsCommand}.
  */
 export interface ListLinuxSubscriptionsCommandInput extends ListLinuxSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLinuxSubscriptionsCommand}.
  */
 export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Linux subscriptions that have been discovered. If you have linked your
  *       organization, the returned results will include data aggregated across your accounts in
  *       Organizations.</p>
@@ -52,6 +57,8 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLinuxSubscriptionsCommandInput - {@link ListLinuxSubscriptionsCommandInput}
+ * @returns {@link ListLinuxSubscriptionsCommandOutput}
  * @see {@link ListLinuxSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListLinuxSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListLinuxSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLinuxSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListLinuxSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLinuxSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLinuxSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLinuxSubscriptionsCommandOutput> {
     return deserializeAws_restJson1ListLinuxSubscriptionsCommand(output, context);
   }

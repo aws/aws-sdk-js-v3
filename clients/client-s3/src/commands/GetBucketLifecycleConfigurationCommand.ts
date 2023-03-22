@@ -26,10 +26,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketLifecycleConfigurationCommand}.
  */
 export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketLifecycleConfigurationCommand}.
  */
 export interface GetBucketLifecycleConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
  *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
@@ -101,6 +106,8 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketLifecycleConfigurationCommandInput - {@link GetBucketLifecycleConfigurationCommandInput}
+ * @returns {@link GetBucketLifecycleConfigurationCommandOutput}
  * @see {@link GetBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -158,6 +165,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -197,6 +207,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
@@ -204,6 +217,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandInput
   extends DeleteApplicationCloudWatchLoggingOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
@@ -42,6 +46,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics application. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationCloudWatchLoggingOptionCommandInput - {@link DeleteApplicationCloudWatchLoggingOptionCommandInput}
+ * @returns {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput}
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     return serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

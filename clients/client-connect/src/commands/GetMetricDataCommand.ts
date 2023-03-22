@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricDataCommand}.
  */
 export interface GetMetricDataCommandInput extends GetMetricDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricDataCommand}.
  */
 export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
  *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
  *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
+ * @returns {@link GetMetricDataCommandOutput}
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataCommandOutput> {
     return deserializeAws_restJson1GetMetricDataCommand(output, context);
   }

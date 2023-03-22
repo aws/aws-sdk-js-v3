@@ -26,10 +26,14 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatalakeExceptionsSubscriptionCommand}.
  */
 export interface DeleteDatalakeExceptionsSubscriptionCommandInput extends DeleteDatalakeExceptionsSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatalakeExceptionsSubscriptionCommand}.
  */
 export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatalakeExceptionsSubscriptionCommandInput - {@link DeleteDatalakeExceptionsSubscriptionCommandInput}
+ * @returns {@link DeleteDatalakeExceptionsSubscriptionCommandOutput}
  * @see {@link DeleteDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatalakeExceptionsSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     return serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

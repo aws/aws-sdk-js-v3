@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGrantCommand}.
  */
 export interface DeleteGrantCommandInput extends DeleteGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGrantCommand}.
  */
 export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGrantCommandInput - {@link DeleteGrantCommandInput}
+ * @returns {@link DeleteGrantCommandOutput}
  * @see {@link DeleteGrantCommandInput} for command's `input` shape.
  * @see {@link DeleteGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGrantCommandOutput> {
     return deserializeAws_json1_1DeleteGrantCommand(output, context);
   }

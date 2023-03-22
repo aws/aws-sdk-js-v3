@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountCustomizationCommand}.
  */
 export interface DescribeAccountCustomizationCommandInput extends DescribeAccountCustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountCustomizationCommand}.
  */
 export interface DescribeAccountCustomizationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAccountCustomizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the customizations associated with the provided Amazon Web Services account and Amazon
  *             Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon QuickSight console evaluates which
  *             customizations to apply by running this API operation with the <code>Resolved</code> flag
@@ -104,6 +109,8 @@ export interface DescribeAccountCustomizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountCustomizationCommandInput - {@link DescribeAccountCustomizationCommandInput}
+ * @returns {@link DescribeAccountCustomizationCommandOutput}
  * @see {@link DescribeAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -148,6 +155,9 @@ export class DescribeAccountCustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,10 +197,16 @@ export class DescribeAccountCustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAccountCustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

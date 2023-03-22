@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UndeploySystemInstanceCommand}.
  */
 export interface UndeploySystemInstanceCommandInput extends UndeploySystemInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UndeploySystemInstanceCommand}.
  */
 export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
@@ -48,6 +53,8 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * const response = await client.send(command);
  * ```
  *
+ * @param UndeploySystemInstanceCommandInput - {@link UndeploySystemInstanceCommandInput}
+ * @returns {@link UndeploySystemInstanceCommandOutput}
  * @see {@link UndeploySystemInstanceCommandInput} for command's `input` shape.
  * @see {@link UndeploySystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -86,6 +93,9 @@ export class UndeploySystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UndeploySystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UndeploySystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeploySystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UndeploySystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeploySystemInstanceCommandOutput> {
     return deserializeAws_json1_1UndeploySystemInstanceCommand(output, context);
   }

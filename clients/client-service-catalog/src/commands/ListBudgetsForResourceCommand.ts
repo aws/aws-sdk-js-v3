@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListBudgetsForResourceCommand}.
  */
 export interface ListBudgetsForResourceCommandInput extends ListBudgetsForResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBudgetsForResourceCommand}.
  */
 export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the budgets associated to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBudgetsForResourceCommandInput - {@link ListBudgetsForResourceCommandInput}
+ * @returns {@link ListBudgetsForResourceCommandOutput}
  * @see {@link ListBudgetsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListBudgetsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListBudgetsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBudgetsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListBudgetsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBudgetsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBudgetsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBudgetsForResourceCommandOutput> {
     return deserializeAws_json1_1ListBudgetsForResourceCommand(output, context);
   }

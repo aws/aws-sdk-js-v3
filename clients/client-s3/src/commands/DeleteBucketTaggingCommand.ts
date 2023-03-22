@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketTaggingCommand}.
  */
 export interface DeleteBucketTaggingCommandInput extends DeleteBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketTaggingCommand}.
  */
 export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the tags from the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:PutBucketTagging</code> action. By default, the bucket owner has this
@@ -57,6 +62,8 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketTaggingCommandInput - {@link DeleteBucketTaggingCommandInput}
+ * @returns {@link DeleteBucketTaggingCommandOutput}
  * @see {@link DeleteBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketTaggingCommandOutput> {
     return deserializeAws_restXmlDeleteBucketTaggingCommand(output, context);
   }

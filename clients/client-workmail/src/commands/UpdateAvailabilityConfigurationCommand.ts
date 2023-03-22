@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAvailabilityConfigurationCommand}.
  */
 export interface UpdateAvailabilityConfigurationCommandInput extends UpdateAvailabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAvailabilityConfigurationCommand}.
  */
 export interface UpdateAvailabilityConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateAvailabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail
  *          organization and domain.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAvailabilityConfigurationCommandInput - {@link UpdateAvailabilityConfigurationCommandInput}
+ * @returns {@link UpdateAvailabilityConfigurationCommandOutput}
  * @see {@link UpdateAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAvailabilityConfigurationCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
     return serializeAws_json1_1UpdateAvailabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

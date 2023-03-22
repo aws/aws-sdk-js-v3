@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBInstanceCommand}.
  */
 export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBInstanceCommand}.
  */
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBInstanceCommandInput - {@link CreateDBInstanceCommandInput}
+ * @returns {@link CreateDBInstanceCommandOutput}
  * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -136,6 +143,9 @@ export class CreateDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class CreateDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBInstanceCommandOutput> {
     return deserializeAws_queryCreateDBInstanceCommand(output, context);
   }

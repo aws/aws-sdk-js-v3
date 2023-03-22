@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTemplateDefinitionCommand}.
  */
 export interface DescribeTemplateDefinitionCommandInput extends DescribeTemplateDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTemplateDefinitionCommand}.
  */
 export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplateDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed description of the definition of a template.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of a template, for instance if you
@@ -54,6 +59,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTemplateDefinitionCommandInput - {@link DescribeTemplateDefinitionCommandInput}
+ * @returns {@link DescribeTemplateDefinitionCommandOutput}
  * @see {@link DescribeTemplateDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplateDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -107,6 +114,9 @@ export class DescribeTemplateDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTemplateDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DescribeTemplateDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTemplateDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTemplateDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

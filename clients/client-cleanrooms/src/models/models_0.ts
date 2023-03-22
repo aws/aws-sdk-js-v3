@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServiceException";
 
+/**
+ * @public
+ */
 export enum AccessDeniedExceptionReason {
   INSUFFICIENT_PERMISSIONS = "INSUFFICIENT_PERMISSIONS",
 }
 
 /**
+ * @public
  * <p>Caller does not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -32,6 +36,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AggregateFunctionName {
   AVG = "AVG",
   COUNT = "COUNT",
@@ -41,6 +48,7 @@ export enum AggregateFunctionName {
 }
 
 /**
+ * @public
  * <p>Column in configured table that can be used in aggregate function in query.</p>
  */
 export interface AggregateColumn {
@@ -55,11 +63,15 @@ export interface AggregateColumn {
   function: AggregateFunctionName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AggregationType {
   COUNT_DISTINCT = "COUNT_DISTINCT",
 }
 
 /**
+ * @public
  * <p>Constraint on query output removing output rows that do not meet a minimum number of distinct values of a specified column.</p>
  */
 export interface AggregationConstraint {
@@ -82,14 +94,23 @@ export interface AggregationConstraint {
   type: AggregationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AnalysisMethod {
   DIRECT_QUERY = "DIRECT_QUERY",
 }
 
+/**
+ * @public
+ */
 export enum JoinRequiredOption {
   QUERY_RUNNER = "QUERY_RUNNER",
 }
 
+/**
+ * @public
+ */
 export enum ScalarFunctions {
   ABS = "ABS",
   CAST = "CAST",
@@ -107,6 +128,7 @@ export enum ScalarFunctions {
 }
 
 /**
+ * @public
  * <p>Enables query structure and specified queries that product aggregate statistics.</p>
  */
 export interface AnalysisRuleAggregation {
@@ -144,6 +166,7 @@ export interface AnalysisRuleAggregation {
 }
 
 /**
+ * @public
  * <p>A type of analysis rule that enables row-level analysis.</p>
  */
 export interface AnalysisRuleList {
@@ -159,6 +182,7 @@ export interface AnalysisRuleList {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on configured table..</p>
  */
 export type AnalysisRulePolicyV1 =
@@ -166,6 +190,9 @@ export type AnalysisRulePolicyV1 =
   | AnalysisRulePolicyV1.ListMember
   | AnalysisRulePolicyV1.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnalysisRulePolicyV1 {
   /**
    * <p>Analysis rule type that enables only list queries on a configured table.</p>
@@ -205,10 +232,14 @@ export namespace AnalysisRulePolicyV1 {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on configured table..</p>
  */
 export type AnalysisRulePolicy = AnalysisRulePolicy.V1Member | AnalysisRulePolicy.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnalysisRulePolicy {
   /**
    * <p>Controls on the query specifications that can be run on configured table..</p>
@@ -234,12 +265,16 @@ export namespace AnalysisRulePolicy {
   };
 }
 
+/**
+ * @public
+ */
 export enum AnalysisRuleType {
   AGGREGATION = "AGGREGATION",
   LIST = "LIST",
 }
 
 /**
+ * @public
  * <p>A specification about how data from the configured table can be used in a query.</p>
  */
 export interface AnalysisRule {
@@ -274,6 +309,9 @@ export interface AnalysisRule {
   policy: AnalysisRulePolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetSchemaInput {
   /**
    * <p>A unique identifier for the collaboration that the schemas belong to. Currently accepts
@@ -288,6 +326,7 @@ export interface BatchGetSchemaInput {
 }
 
 /**
+ * @public
  * <p>An error describing why a schema could not be fetched.</p>
  */
 export interface BatchGetSchemaError {
@@ -308,6 +347,7 @@ export interface BatchGetSchemaError {
 }
 
 /**
+ * @public
  * <p>A column within a schema relation, derived from the underlying AWS Glue table.</p>
  */
 export interface Column {
@@ -322,11 +362,15 @@ export interface Column {
   type: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SchemaType {
   TABLE = "TABLE",
 }
 
 /**
+ * @public
  * <p>A schema is a relation within a collaboration.</p>
  */
 export interface Schema {
@@ -393,6 +437,9 @@ export interface Schema {
   type: SchemaType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetSchemaOutput {
   /**
    * <p>The retrieved list of schemas.</p>
@@ -407,6 +454,7 @@ export interface BatchGetSchemaOutput {
 }
 
 /**
+ * @public
  * <p>Unexpected error during processing of request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -425,6 +473,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   COLLABORATION = "COLLABORATION",
   CONFIGURED_TABLE = "CONFIGURED_TABLE",
@@ -433,6 +484,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Request references a resource which does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -464,6 +516,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -483,6 +536,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes validation errors for specific input parameters.</p>
  */
 export interface ValidationExceptionField {
@@ -497,6 +551,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
   INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
@@ -504,6 +561,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the specified constraints.</p>
  */
 export class ValidationException extends __BaseException {
@@ -534,12 +592,16 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum MemberAbility {
   CAN_QUERY = "CAN_QUERY",
   CAN_RECEIVE_RESULTS = "CAN_RECEIVE_RESULTS",
 }
 
 /**
+ * @public
  * <p>The settings for client-side encryption for cryptographic computing.</p>
  */
 export interface DataEncryptionMetadata {
@@ -565,6 +627,7 @@ export interface DataEncryptionMetadata {
 }
 
 /**
+ * @public
  * <p>Basic metadata used to construct a new member.</p>
  */
 export interface MemberSpecification {
@@ -584,11 +647,17 @@ export interface MemberSpecification {
   displayName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CollaborationQueryLogStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface CreateCollaborationInput {
   /**
    * <p>A list of initial members, not including the creator. This list is immutable.</p>
@@ -635,6 +704,9 @@ export interface CreateCollaborationInput {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum MemberStatus {
   ACTIVE = "ACTIVE",
   INVITED = "INVITED",
@@ -643,6 +715,7 @@ export enum MemberStatus {
 }
 
 /**
+ * @public
  * <p>The multi-party data share environment. The collaboration contains metadata about its purpose and participants.</p>
  */
 export interface Collaboration {
@@ -713,6 +786,9 @@ export interface Collaboration {
   queryLogStatus: CollaborationQueryLogStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCollaborationOutput {
   /**
    * <p>The entire created collaboration object.</p>
@@ -721,6 +797,7 @@ export interface CreateCollaborationOutput {
 }
 
 /**
+ * @public
  * <p>Request denied because service quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -751,6 +828,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollaborationInput {
   /**
    * <p>The identifier for the collaboration.</p>
@@ -758,8 +838,14 @@ export interface DeleteCollaborationInput {
   collaborationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollaborationOutput {}
 
+/**
+ * @public
+ */
 export enum ConflictExceptionReason {
   ALREADY_EXISTS = "ALREADY_EXISTS",
   INVALID_STATE = "INVALID_STATE",
@@ -767,6 +853,7 @@ export enum ConflictExceptionReason {
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -803,6 +890,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMemberInput {
   /**
    * <p>The unique identifier for the associated collaboration.</p>
@@ -815,8 +905,14 @@ export interface DeleteMemberInput {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMemberOutput {}
 
+/**
+ * @public
+ */
 export interface GetCollaborationInput {
   /**
    * <p>The identifier for the collaboration.</p>
@@ -824,6 +920,9 @@ export interface GetCollaborationInput {
   collaborationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCollaborationOutput {
   /**
    * <p>The entire collaboration for this identifier.</p>
@@ -831,6 +930,9 @@ export interface GetCollaborationOutput {
   collaboration: Collaboration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaInput {
   /**
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
@@ -844,6 +946,9 @@ export interface GetSchemaInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaOutput {
   /**
    * <p>The entire schema object.</p>
@@ -851,6 +956,9 @@ export interface GetSchemaOutput {
   schema: Schema | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaAnalysisRuleInput {
   /**
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
@@ -869,6 +977,9 @@ export interface GetSchemaAnalysisRuleInput {
   type: AnalysisRuleType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaAnalysisRuleOutput {
   /**
    * <p>A specification about how data from the configured table can be used.</p>
@@ -876,11 +987,17 @@ export interface GetSchemaAnalysisRuleOutput {
   analysisRule: AnalysisRule | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FilterableMemberStatus {
   ACTIVE = "ACTIVE",
   INVITED = "INVITED",
 }
 
+/**
+ * @public
+ */
 export interface ListCollaborationsInput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -901,6 +1018,7 @@ export interface ListCollaborationsInput {
 }
 
 /**
+ * @public
  * <p>The metadata of the collaboration.</p>
  */
 export interface CollaborationSummary {
@@ -955,6 +1073,9 @@ export interface CollaborationSummary {
   membershipArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCollaborationsOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -967,6 +1088,9 @@ export interface ListCollaborationsOutput {
   collaborationList: CollaborationSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersInput {
   /**
    * <p>The identifier of the collaboration in which the members are listed.</p>
@@ -985,6 +1109,7 @@ export interface ListMembersInput {
 }
 
 /**
+ * @public
  * <p>The member object listed by the request.</p>
  */
 export interface MemberSummary {
@@ -1029,6 +1154,9 @@ export interface MemberSummary {
   membershipArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1041,6 +1169,9 @@ export interface ListMembersOutput {
   memberSummaries: MemberSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasInput {
   /**
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
@@ -1065,6 +1196,7 @@ export interface ListSchemasInput {
 }
 
 /**
+ * @public
  * <p>The schema summary for the objects listed by the request.</p>
  */
 export interface SchemaSummary {
@@ -1114,6 +1246,9 @@ export interface SchemaSummary {
   analysisMethod?: AnalysisMethod | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasOutput {
   /**
    * <p>The retrieved list of schemas.</p>
@@ -1126,6 +1261,9 @@ export interface ListSchemasOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollaborationInput {
   /**
    * <p>The identifier for the collaboration.</p>
@@ -1143,6 +1281,9 @@ export interface UpdateCollaborationInput {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollaborationOutput {
   /**
    * <p>The entire collaboration that has been updated.</p>
@@ -1150,6 +1291,9 @@ export interface UpdateCollaborationOutput {
   collaboration: Collaboration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAssociationInput {
   /**
    * <p>The name of the configured table association. This name is used to query the underlying
@@ -1190,6 +1334,7 @@ export interface CreateConfiguredTableAssociationInput {
 }
 
 /**
+ * @public
  * <p>A configured table association links a configured table to a collaboration.</p>
  */
 export interface ConfiguredTableAssociation {
@@ -1249,6 +1394,9 @@ export interface ConfiguredTableAssociation {
   updateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAssociationOutput {
   /**
    * <p>The entire configured table association object.</p>
@@ -1256,6 +1404,9 @@ export interface CreateConfiguredTableAssociationOutput {
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableAssociationInput {
   /**
    * <p>The unique ID for the configured table association to be deleted. Currently accepts the configured table ID.</p>
@@ -1269,8 +1420,14 @@ export interface DeleteConfiguredTableAssociationInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableAssociationOutput {}
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAssociationInput {
   /**
    * <p>The unique ID for the configured table association to retrieve. Currently accepts the configured table ID.</p>
@@ -1284,6 +1441,9 @@ export interface GetConfiguredTableAssociationInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAssociationOutput {
   /**
    * <p>The entire configured table association object.</p>
@@ -1291,6 +1451,9 @@ export interface GetConfiguredTableAssociationOutput {
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTableAssociationsInput {
   /**
    * <p>A unique identifier for the membership to list configured table associations for. Currently accepts the membership ID.</p>
@@ -1309,6 +1472,7 @@ export interface ListConfiguredTableAssociationsInput {
 }
 
 /**
+ * @public
  * <p>The configured table association summary for the objects listed by the request.</p>
  */
 export interface ConfiguredTableAssociationSummary {
@@ -1355,6 +1519,9 @@ export interface ConfiguredTableAssociationSummary {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTableAssociationsOutput {
   /**
    * <p>The retrieved list of configured table associations.</p>
@@ -1367,6 +1534,9 @@ export interface ListConfiguredTableAssociationsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAssociationInput {
   /**
    * <p>The unique identifier for the configured table association to update. Currently accepts the configured table association ID.</p>
@@ -1390,6 +1560,9 @@ export interface UpdateConfiguredTableAssociationInput {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAssociationOutput {
   /**
    * <p>The entire updated configured table association.</p>
@@ -1398,6 +1571,7 @@ export interface UpdateConfiguredTableAssociationOutput {
 }
 
 /**
+ * @public
  * <p>A reference to a table within an AWS Glue data catalog.</p>
  */
 export interface GlueTableReference {
@@ -1413,11 +1587,15 @@ export interface GlueTableReference {
 }
 
 /**
+ * @public
  * <p>A pointer to the dataset that underlies this table. Currently, this can only be an AWS
  *          Glue table.</p>
  */
 export type TableReference = TableReference.GlueMember | TableReference.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TableReference {
   /**
    * <p>If present, a reference to the AWS Glue table referred to by this table
@@ -1444,6 +1622,9 @@ export namespace TableReference {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableInput {
   /**
    * <p>The name of the configured table.</p>
@@ -1479,12 +1660,16 @@ export interface CreateConfiguredTableInput {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ConfiguredTableAnalysisRuleType {
   AGGREGATION = "AGGREGATION",
   LIST = "LIST",
 }
 
 /**
+ * @public
  * <p>A table that has been configured for use in a collaboration.</p>
  */
 export interface ConfiguredTable {
@@ -1540,6 +1725,9 @@ export interface ConfiguredTable {
   allowedColumns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableOutput {
   /**
    * <p>The created configured table.</p>
@@ -1548,6 +1736,7 @@ export interface CreateConfiguredTableOutput {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on a configured table.</p>
  */
 export type ConfiguredTableAnalysisRulePolicyV1 =
@@ -1555,6 +1744,9 @@ export type ConfiguredTableAnalysisRulePolicyV1 =
   | ConfiguredTableAnalysisRulePolicyV1.ListMember
   | ConfiguredTableAnalysisRulePolicyV1.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfiguredTableAnalysisRulePolicyV1 {
   /**
    * <p>Analysis rule type that enables only list queries on a configured table.</p>
@@ -1594,12 +1786,16 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on a configured table.</p>
  */
 export type ConfiguredTableAnalysisRulePolicy =
   | ConfiguredTableAnalysisRulePolicy.V1Member
   | ConfiguredTableAnalysisRulePolicy.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfiguredTableAnalysisRulePolicy {
   /**
    * <p>Controls on the query specifications that can be run on a configured table.</p>
@@ -1625,6 +1821,9 @@ export namespace ConfiguredTableAnalysisRulePolicy {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAnalysisRuleInput {
   /**
    * <p>The identifier for the configured table to create the analysis rule for. Currently accepts the configured table ID. </p>
@@ -1643,6 +1842,7 @@ export interface CreateConfiguredTableAnalysisRuleInput {
 }
 
 /**
+ * @public
  * <p>A configured table analysis rule, which limits how data for this table can be used.</p>
  */
 export interface ConfiguredTableAnalysisRule {
@@ -1677,6 +1877,9 @@ export interface ConfiguredTableAnalysisRule {
   updateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAnalysisRuleOutput {
   /**
    * <p>The entire created analysis rule.</p>
@@ -1684,6 +1887,9 @@ export interface CreateConfiguredTableAnalysisRuleOutput {
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableInput {
   /**
    * <p>The unique ID for the configured table to delete.</p>
@@ -1692,10 +1898,14 @@ export interface DeleteConfiguredTableInput {
 }
 
 /**
+ * @public
  * <p>The empty output for a successful deletion.</p>
  */
 export interface DeleteConfiguredTableOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableAnalysisRuleInput {
   /**
    * <p>The unique identifier for the configured table that the analysis rule applies to.
@@ -1710,10 +1920,14 @@ export interface DeleteConfiguredTableAnalysisRuleInput {
 }
 
 /**
+ * @public
  * <p>An empty response that indicates a successful delete.</p>
  */
 export interface DeleteConfiguredTableAnalysisRuleOutput {}
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableInput {
   /**
    * <p>The unique ID for the configured table to retrieve.</p>
@@ -1721,6 +1935,9 @@ export interface GetConfiguredTableInput {
   configuredTableIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableOutput {
   /**
    * <p>The retrieved configured table.</p>
@@ -1728,6 +1945,9 @@ export interface GetConfiguredTableOutput {
   configuredTable: ConfiguredTable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAnalysisRuleInput {
   /**
    * <p>The unique identifier for the configured table to retrieve. Currently accepts the configured table ID.</p>
@@ -1740,6 +1960,9 @@ export interface GetConfiguredTableAnalysisRuleInput {
   analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAnalysisRuleOutput {
   /**
    * <p>The entire analysis rule output.</p>
@@ -1747,6 +1970,9 @@ export interface GetConfiguredTableAnalysisRuleOutput {
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTablesInput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1760,6 +1986,7 @@ export interface ListConfiguredTablesInput {
 }
 
 /**
+ * @public
  * <p>The configured table summary for the objects listed by the request.</p>
  */
 export interface ConfiguredTableSummary {
@@ -1799,6 +2026,9 @@ export interface ConfiguredTableSummary {
   analysisMethod: AnalysisMethod | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTablesOutput {
   /**
    * <p>The configured tables listed by the request.</p>
@@ -1811,6 +2041,9 @@ export interface ListConfiguredTablesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableInput {
   /**
    * <p>The identifier for the configured table to update. Currently accepts the configured table ID.</p>
@@ -1828,6 +2061,9 @@ export interface UpdateConfiguredTableInput {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableOutput {
   /**
    * <p>The updated configured table.</p>
@@ -1835,6 +2071,9 @@ export interface UpdateConfiguredTableOutput {
   configuredTable: ConfiguredTable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAnalysisRuleInput {
   /**
    * <p>The unique identifier for the configured table that the analysis rule applies to.
@@ -1853,6 +2092,9 @@ export interface UpdateConfiguredTableAnalysisRuleInput {
   analysisRulePolicy: ConfiguredTableAnalysisRulePolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAnalysisRuleOutput {
   /**
    * <p>The entire updated analysis rule.</p>
@@ -1860,6 +2102,9 @@ export interface UpdateConfiguredTableAnalysisRuleOutput {
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
@@ -1867,6 +2112,9 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>A map of objects specifying each key name and value.</p>
@@ -1874,11 +2122,17 @@ export interface ListTagsForResourceOutput {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MembershipQueryLogStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface CreateMembershipInput {
   /**
    * <p>The unique ID for the associated collaboration.</p>
@@ -1900,6 +2154,9 @@ export interface CreateMembershipInput {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum MembershipStatus {
   ACTIVE = "ACTIVE",
   COLLABORATION_DELETED = "COLLABORATION_DELETED",
@@ -1907,6 +2164,7 @@ export enum MembershipStatus {
 }
 
 /**
+ * @public
  * <p>The membership object.</p>
  */
 export interface Membership {
@@ -1972,6 +2230,9 @@ export interface Membership {
   queryLogStatus: MembershipQueryLogStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMembershipOutput {
   /**
    * <p>The membership that was created.</p>
@@ -1979,6 +2240,9 @@ export interface CreateMembershipOutput {
   membership: Membership | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembershipInput {
   /**
    * <p>The identifier for a membership resource.</p>
@@ -1986,8 +2250,14 @@ export interface DeleteMembershipInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembershipOutput {}
 
+/**
+ * @public
+ */
 export interface GetMembershipInput {
   /**
    * <p>The identifier for a membership resource.</p>
@@ -1995,6 +2265,9 @@ export interface GetMembershipInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMembershipOutput {
   /**
    * <p>The membership retrieved for the provided identifier.</p>
@@ -2002,6 +2275,9 @@ export interface GetMembershipOutput {
   membership: Membership | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProtectedQueryInput {
   /**
    * <p>The identifier for a membership in a protected query instance.</p>
@@ -2015,6 +2291,7 @@ export interface GetProtectedQueryInput {
 }
 
 /**
+ * @public
  * <p>Details of errors thrown by the protected query.</p>
  */
 export interface ProtectedQueryError {
@@ -2030,6 +2307,7 @@ export interface ProtectedQueryError {
 }
 
 /**
+ * @public
  * <p>Contains output information for protected queries with an S3 output type.</p>
  */
 export interface ProtectedQueryS3Output {
@@ -2040,10 +2318,14 @@ export interface ProtectedQueryS3Output {
 }
 
 /**
+ * @public
  * <p>Contains details about the protected query output.</p>
  */
 export type ProtectedQueryOutput = ProtectedQueryOutput.S3Member | ProtectedQueryOutput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ProtectedQueryOutput {
   /**
    * <p>If present, the output for a protected query with an `S3` output type.</p>
@@ -2070,6 +2352,7 @@ export namespace ProtectedQueryOutput {
 }
 
 /**
+ * @public
  * <p>Details about the query results.</p>
  */
 export interface ProtectedQueryResult {
@@ -2079,12 +2362,16 @@ export interface ProtectedQueryResult {
   output: ProtectedQueryOutput | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ResultFormat {
   CSV = "CSV",
   PARQUET = "PARQUET",
 }
 
 /**
+ * @public
  * <p>Contains the configuration to write the query results to S3.</p>
  */
 export interface ProtectedQueryS3OutputConfiguration {
@@ -2105,12 +2392,16 @@ export interface ProtectedQueryS3OutputConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains configuration details for protected query output.</p>
  */
 export type ProtectedQueryOutputConfiguration =
   | ProtectedQueryOutputConfiguration.S3Member
   | ProtectedQueryOutputConfiguration.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ProtectedQueryOutputConfiguration {
   /**
    * <p>Required configuration for a protected query with an `S3` output type.</p>
@@ -2137,6 +2428,7 @@ export namespace ProtectedQueryOutputConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains configurations for protected query results.</p>
  */
 export interface ProtectedQueryResultConfiguration {
@@ -2147,6 +2439,7 @@ export interface ProtectedQueryResultConfiguration {
 }
 
 /**
+ * @public
  * <p>The parameters for the SQL type Protected Query.</p>
  */
 export interface ProtectedQuerySQLParameters {
@@ -2157,6 +2450,7 @@ export interface ProtectedQuerySQLParameters {
 }
 
 /**
+ * @public
  * <p>Contains statistics about the execution of the protected query.</p>
  */
 export interface ProtectedQueryStatistics {
@@ -2166,6 +2460,9 @@ export interface ProtectedQueryStatistics {
   totalDurationInMillis?: number;
 }
 
+/**
+ * @public
+ */
 export enum ProtectedQueryStatus {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
@@ -2177,6 +2474,7 @@ export enum ProtectedQueryStatus {
 }
 
 /**
+ * @public
  * <p>The parameters for an AWS Clean Rooms protected query.</p>
  */
 export interface ProtectedQuery {
@@ -2231,6 +2529,9 @@ export interface ProtectedQuery {
   error?: ProtectedQueryError;
 }
 
+/**
+ * @public
+ */
 export interface GetProtectedQueryOutput {
   /**
    * <p>The query processing metadata.</p>
@@ -2238,6 +2539,9 @@ export interface GetProtectedQueryOutput {
   protectedQuery: ProtectedQuery | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMembershipsInput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2256,6 +2560,7 @@ export interface ListMembershipsInput {
 }
 
 /**
+ * @public
  * <p>The membership object listed by the request.</p>
  */
 export interface MembershipSummary {
@@ -2315,6 +2620,9 @@ export interface MembershipSummary {
   memberAbilities: (MemberAbility | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMembershipsOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2327,6 +2635,9 @@ export interface ListMembershipsOutput {
   membershipSummaries: MembershipSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProtectedQueriesInput {
   /**
    * <p>The identifier for the membership in the collaboration.</p>
@@ -2352,6 +2663,7 @@ export interface ListProtectedQueriesInput {
 }
 
 /**
+ * @public
  * <p>The protected query summary for the objects listed by the request.</p>
  */
 export interface ProtectedQuerySummary {
@@ -2381,6 +2693,9 @@ export interface ProtectedQuerySummary {
   status: ProtectedQueryStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProtectedQueriesOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2393,10 +2708,16 @@ export interface ListProtectedQueriesOutput {
   protectedQueries: ProtectedQuerySummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProtectedQueryType {
   SQL = "SQL",
 }
 
+/**
+ * @public
+ */
 export interface StartProtectedQueryInput {
   /**
    * <p>The type of the protected query to be started.</p>
@@ -2419,6 +2740,9 @@ export interface StartProtectedQueryInput {
   resultConfiguration: ProtectedQueryResultConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartProtectedQueryOutput {
   /**
    * <p>The protected query.</p>
@@ -2426,6 +2750,9 @@ export interface StartProtectedQueryOutput {
   protectedQuery: ProtectedQuery | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMembershipInput {
   /**
    * <p>The unique identifier of the membership.</p>
@@ -2439,6 +2766,9 @@ export interface UpdateMembershipInput {
   queryLogStatus?: MembershipQueryLogStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMembershipOutput {
   /**
    * <p>The membership object.</p>
@@ -2446,10 +2776,16 @@ export interface UpdateMembershipOutput {
   membership: Membership | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TargetProtectedQueryStatus {
   CANCELLED = "CANCELLED",
 }
 
+/**
+ * @public
+ */
 export interface UpdateProtectedQueryInput {
   /**
    * <p>The identifier for a member of a protected query instance.</p>
@@ -2467,6 +2803,9 @@ export interface UpdateProtectedQueryInput {
   targetStatus: TargetProtectedQueryStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProtectedQueryOutput {
   /**
    * <p>The protected query output.</p>
@@ -2474,6 +2813,9 @@ export interface UpdateProtectedQueryOutput {
   protectedQuery: ProtectedQuery | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
@@ -2486,8 +2828,14 @@ export interface TagResourceInput {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
@@ -2500,6 +2848,9 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**

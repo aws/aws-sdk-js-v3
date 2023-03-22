@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSourceLocationsCommand}.
  */
 export interface ListSourceLocationsCommandInput extends ListSourceLocationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSourceLocationsCommand}.
  */
 export interface ListSourceLocationsCommandOutput extends ListSourceLocationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the source locations for a channel. A source location defines the host server URL, and contains a list of sources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSourceLocationsCommandInput - {@link ListSourceLocationsCommandInput}
+ * @returns {@link ListSourceLocationsCommandOutput}
  * @see {@link ListSourceLocationsCommandInput} for command's `input` shape.
  * @see {@link ListSourceLocationsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListSourceLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSourceLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListSourceLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSourceLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSourceLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceLocationsCommandOutput> {
     return deserializeAws_restJson1ListSourceLocationsCommand(output, context);
   }

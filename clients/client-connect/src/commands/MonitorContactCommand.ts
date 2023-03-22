@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link MonitorContactCommand}.
  */
 export interface MonitorContactCommandInput extends MonitorContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link MonitorContactCommand}.
  */
 export interface MonitorContactCommandOutput extends MonitorContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
  *    specified by <i>userId</i> will be set to silent monitoring mode on the
  *    contact.</p>
@@ -48,6 +53,8 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param MonitorContactCommandInput - {@link MonitorContactCommandInput}
+ * @returns {@link MonitorContactCommandOutput}
  * @see {@link MonitorContactCommandInput} for command's `input` shape.
  * @see {@link MonitorContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -92,6 +99,9 @@ export class MonitorContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MonitorContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class MonitorContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MonitorContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MonitorContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorContactCommandOutput> {
     return deserializeAws_restJson1MonitorContactCommand(output, context);
   }

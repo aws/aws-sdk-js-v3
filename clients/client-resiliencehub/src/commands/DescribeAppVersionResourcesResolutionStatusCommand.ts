@@ -26,11 +26,15 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
 export interface DescribeAppVersionResourcesResolutionStatusCommandInput
   extends DescribeAppVersionResourcesResolutionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
 export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resolution status for the specified resolution identifier for an application
  *       version. If <code>resolutionId</code> is not specified, the current resolution status is
  *       returned.</p>
@@ -51,6 +56,8 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppVersionResourcesResolutionStatusCommandInput - {@link DescribeAppVersionResourcesResolutionStatusCommandInput}
+ * @returns {@link DescribeAppVersionResourcesResolutionStatusCommandOutput}
  * @see {@link DescribeAppVersionResourcesResolutionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionResourcesResolutionStatusCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppVersionResourcesResolutionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAppVersionResourcesResolutionStatusCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
     return serializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

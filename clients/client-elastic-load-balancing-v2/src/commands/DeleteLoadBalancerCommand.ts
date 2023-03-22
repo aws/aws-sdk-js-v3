@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoadBalancerCommand}.
  */
 export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoadBalancerCommand}.
  */
 export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load
  *       Balancer. Deleting a load balancer also deletes its listeners.</p>
  *          <p>You can't delete a load balancer if deletion protection is enabled. If the load balancer
@@ -56,6 +61,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
+ * @returns {@link DeleteLoadBalancerCommandOutput}
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DeleteLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoadBalancerCommandOutput> {
     return deserializeAws_queryDeleteLoadBalancerCommand(output, context);
   }

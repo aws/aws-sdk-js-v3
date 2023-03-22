@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackSetCommand}.
  */
 export interface DescribeStackSetCommandInput extends DescribeStackSetInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackSetCommand}.
  */
 export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of the specified stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackSetCommandInput - {@link DescribeStackSetCommandInput}
+ * @returns {@link DescribeStackSetCommandOutput}
  * @see {@link DescribeStackSetCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeStackSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeStackSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStackSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackSetCommandOutput> {
     return deserializeAws_queryDescribeStackSetCommand(output, context);
   }

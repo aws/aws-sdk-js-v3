@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { EKSServiceException as __BaseException } from "./EKSServiceException";
 
 /**
+ * @public
  * <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy
  *             attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
@@ -25,6 +26,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AddonIssueCode {
   ACCESS_DENIED = "AccessDenied",
   ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
@@ -37,6 +41,7 @@ export enum AddonIssueCode {
 }
 
 /**
+ * @public
  * <p>An issue related to an add-on.</p>
  */
 export interface AddonIssue {
@@ -57,6 +62,7 @@ export interface AddonIssue {
 }
 
 /**
+ * @public
  * <p>The health of the add-on.</p>
  */
 export interface AddonHealth {
@@ -67,6 +73,7 @@ export interface AddonHealth {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon EKS add-on from the Amazon Web Services Marketplace.</p>
  */
 export interface MarketplaceInformation {
@@ -81,6 +88,9 @@ export interface MarketplaceInformation {
   productUrl?: string;
 }
 
+/**
+ * @public
+ */
 export enum AddonStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -93,6 +103,7 @@ export enum AddonStatus {
 }
 
 /**
+ * @public
  * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
  *             the <i>Amazon EKS User Guide</i>.</p>
  */
@@ -172,6 +183,7 @@ export interface Addon {
 }
 
 /**
+ * @public
  * <p>Compatibility information.</p>
  */
 export interface Compatibility {
@@ -192,6 +204,7 @@ export interface Compatibility {
 }
 
 /**
+ * @public
  * <p>Information about an add-on version.</p>
  */
 export interface AddonVersionInfo {
@@ -217,6 +230,7 @@ export interface AddonVersionInfo {
 }
 
 /**
+ * @public
  * <p>Information about an add-on.</p>
  */
 export interface AddonInfo {
@@ -252,6 +266,9 @@ export interface AddonInfo {
   marketplaceInformation?: MarketplaceInformation;
 }
 
+/**
+ * @public
+ */
 export enum AMITypes {
   AL2_ARM_64 = "AL2_ARM_64",
   AL2_x86_64 = "AL2_x86_64",
@@ -268,6 +285,7 @@ export enum AMITypes {
 }
 
 /**
+ * @public
  * <p>Identifies the Key Management Service (KMS) key used to encrypt the
  *             secrets.</p>
  */
@@ -282,6 +300,7 @@ export interface Provider {
 }
 
 /**
+ * @public
  * <p>The encryption configuration for the cluster.</p>
  */
 export interface EncryptionConfig {
@@ -297,6 +316,9 @@ export interface EncryptionConfig {
   provider?: Provider;
 }
 
+/**
+ * @public
+ */
 export interface AssociateEncryptionConfigRequest {
   /**
    * <p>The name of the cluster that you are associating with encryption configuration.</p>
@@ -314,6 +336,9 @@ export interface AssociateEncryptionConfigRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   ACCESS_DENIED = "AccessDenied",
   ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
@@ -335,6 +360,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>An object representing an error when an asynchronous operation fails.</p>
  */
 export interface ErrorDetail {
@@ -392,6 +418,9 @@ export interface ErrorDetail {
   resourceIds?: string[];
 }
 
+/**
+ * @public
+ */
 export enum UpdateParamType {
   ADDON_VERSION = "AddonVersion",
   CLUSTER_LOGGING = "ClusterLogging",
@@ -419,6 +448,7 @@ export enum UpdateParamType {
 }
 
 /**
+ * @public
  * <p>An object representing the details of an update request.</p>
  */
 export interface UpdateParam {
@@ -433,6 +463,9 @@ export interface UpdateParam {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum UpdateStatus {
   CANCELLED = "Cancelled",
   FAILED = "Failed",
@@ -440,6 +473,9 @@ export enum UpdateStatus {
   SUCCESSFUL = "Successful",
 }
 
+/**
+ * @public
+ */
 export enum UpdateType {
   ADDON_UPDATE = "AddonUpdate",
   ASSOCIATE_ENCRYPTION_CONFIG = "AssociateEncryptionConfig",
@@ -452,6 +488,7 @@ export enum UpdateType {
 }
 
 /**
+ * @public
  * <p>An object representing an asynchronous update.</p>
  */
 export interface Update {
@@ -486,6 +523,9 @@ export interface Update {
   errors?: ErrorDetail[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateEncryptionConfigResponse {
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -494,6 +534,7 @@ export interface AssociateEncryptionConfigResponse {
 }
 
 /**
+ * @public
  * <p>These errors are usually caused by a client action. Actions can include using an
  *             action or resource on behalf of a user that doesn't have permissions to use the action
  *             or resource or specifying an identifier that is not valid.</p>
@@ -529,6 +570,7 @@ export class ClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  */
@@ -569,6 +611,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is invalid given the state of the cluster. Check the state of the cluster
  *             and the associated operations.</p>
  */
@@ -603,6 +646,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -636,6 +680,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be found. You can view your available clusters with
  *                 <a>ListClusters</a>. You can view your available managed node groups with
  *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
@@ -678,6 +723,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>These errors are usually caused by a server-side issue.</p>
  */
 export class ServerException extends __BaseException {
@@ -711,6 +757,7 @@ export class ServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object representing an OpenID Connect (OIDC) configuration. Before associating an
  *             OIDC identity provider to your cluster, review the considerations in <a href="https://docs.aws.amazon.com/eks/latest/userguide/authenticate-oidc-identity-provider.html">Authenticating
  *                 users for your cluster from an OpenID Connect identity provider</a> in the
@@ -779,6 +826,9 @@ export interface OidcIdentityProviderConfigRequest {
   requiredClaims?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIdentityProviderConfigRequest {
   /**
    * <p>The name of the cluster to associate the configuration to.</p>
@@ -804,6 +854,9 @@ export interface AssociateIdentityProviderConfigRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIdentityProviderConfigResponse {
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -817,6 +870,7 @@ export interface AssociateIdentityProviderConfigResponse {
 }
 
 /**
+ * @public
  * <p>An Auto Scaling group that is associated with an Amazon EKS managed node
  *             group.</p>
  */
@@ -828,12 +882,18 @@ export interface AutoScalingGroup {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export enum ResolveConflicts {
   NONE = "NONE",
   OVERWRITE = "OVERWRITE",
   PRESERVE = "PRESERVE",
 }
 
+/**
+ * @public
+ */
 export interface CreateAddonRequest {
   /**
    * <p>The name of the cluster to create the add-on for.</p>
@@ -916,6 +976,9 @@ export interface CreateAddonRequest {
   configurationValues?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAddonResponse {
   /**
    * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
@@ -924,12 +987,16 @@ export interface CreateAddonResponse {
   addon?: Addon;
 }
 
+/**
+ * @public
+ */
 export enum IpFamily {
   IPV4 = "ipv4",
   IPV6 = "ipv6",
 }
 
 /**
+ * @public
  * <p>The Kubernetes network configuration for the cluster.</p>
  */
 export interface KubernetesNetworkConfigRequest {
@@ -977,6 +1044,9 @@ export interface KubernetesNetworkConfigRequest {
   ipFamily?: IpFamily | string;
 }
 
+/**
+ * @public
+ */
 export enum LogType {
   API = "api",
   AUDIT = "audit",
@@ -986,6 +1056,7 @@ export enum LogType {
 }
 
 /**
+ * @public
  * <p>An object representing the enabled or disabled Kubernetes control plane logs for your
  *             cluster.</p>
  */
@@ -1003,6 +1074,7 @@ export interface LogSetup {
 }
 
 /**
+ * @public
  * <p>An object representing the logging configuration for resources in your cluster.</p>
  */
 export interface Logging {
@@ -1013,6 +1085,7 @@ export interface Logging {
 }
 
 /**
+ * @public
  * <p>The placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
  *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
  *                 considerations</a> in the <i>Amazon EKS User Guide</i>
@@ -1027,6 +1100,7 @@ export interface ControlPlanePlacementRequest {
 }
 
 /**
+ * @public
  * <p>The configuration of your local Amazon EKS cluster on an Amazon Web Services
  *             Outpost. Before creating a cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html">Creating a local
  *                 cluster on an Outpost</a> in the <i>Amazon EKS User Guide</i>. This API isn't available for
@@ -1059,6 +1133,7 @@ export interface OutpostConfigRequest {
 }
 
 /**
+ * @public
  * <p>An object representing the VPC configuration to use for an Amazon EKS
  *             cluster.</p>
  */
@@ -1123,6 +1198,9 @@ export interface VpcConfigRequest {
   publicAccessCidrs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterRequest {
   /**
    * <p>The unique name to give to your cluster.</p>
@@ -1206,6 +1284,7 @@ export interface CreateClusterRequest {
 }
 
 /**
+ * @public
  * <p>An object representing the <code>certificate-authority-data</code> for your
  *             cluster.</p>
  */
@@ -1219,6 +1298,7 @@ export interface Certificate {
 }
 
 /**
+ * @public
  * <p>The full description of your connected cluster.</p>
  */
 export interface ConnectorConfigResponse {
@@ -1250,6 +1330,9 @@ export interface ConnectorConfigResponse {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum ClusterIssueCode {
   ACCESS_DENIED = "AccessDenied",
   CLUSTER_UNREACHABLE = "ClusterUnreachable",
@@ -1260,6 +1343,7 @@ export enum ClusterIssueCode {
 }
 
 /**
+ * @public
  * <p>An issue with your local Amazon EKS cluster on an Amazon Web Services Outpost.
  *             You can't use this API with an Amazon EKS cluster on the Amazon Web Services
  *             cloud.</p>
@@ -1282,6 +1366,7 @@ export interface ClusterIssue {
 }
 
 /**
+ * @public
  * <p>An object representing the health of your local Amazon EKS cluster on an
  *                 Amazon Web Services Outpost. You can't use this API with an Amazon EKS
  *             cluster on the Amazon Web Services cloud. </p>
@@ -1295,6 +1380,7 @@ export interface ClusterHealth {
 }
 
 /**
+ * @public
  * <p>An object representing the <a href="https://openid.net/connect/">OpenID
  *                 Connect</a> (OIDC) identity provider information for the cluster.</p>
  */
@@ -1306,6 +1392,7 @@ export interface OIDC {
 }
 
 /**
+ * @public
  * <p>An object representing an identity provider.</p>
  */
 export interface Identity {
@@ -1317,6 +1404,7 @@ export interface Identity {
 }
 
 /**
+ * @public
  * <p>The Kubernetes network configuration for the cluster. The response contains a value
  *             for <b>serviceIpv6Cidr</b> or <b>serviceIpv4Cidr</b>, but not both. </p>
  */
@@ -1351,6 +1439,7 @@ export interface KubernetesNetworkConfigResponse {
 }
 
 /**
+ * @public
  * <p>The placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
  *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
  */
@@ -1362,6 +1451,7 @@ export interface ControlPlanePlacementResponse {
 }
 
 /**
+ * @public
  * <p>An object representing the configuration of your local Amazon EKS cluster on
  *             an Amazon Web Services Outpost. This API isn't available for Amazon EKS clusters
  *             on the Amazon Web Services cloud.</p>
@@ -1389,6 +1479,7 @@ export interface OutpostConfigResponse {
 }
 
 /**
+ * @public
  * <p>An object representing an Amazon EKS cluster VPC configuration
  *             response.</p>
  */
@@ -1452,6 +1543,9 @@ export interface VpcConfigResponse {
   publicAccessCidrs?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ClusterStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -1462,6 +1556,7 @@ export enum ClusterStatus {
 }
 
 /**
+ * @public
  * <p>An object representing an Amazon EKS cluster.</p>
  */
 export interface Cluster {
@@ -1581,6 +1676,9 @@ export interface Cluster {
   outpostConfig?: OutpostConfigResponse;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
    * <p>The full description of your new cluster.</p>
@@ -1589,6 +1687,7 @@ export interface CreateClusterResponse {
 }
 
 /**
+ * @public
  * <p>You have encountered a service limit on the specified resource.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -1620,6 +1719,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is unavailable. Back off and retry the operation.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1639,6 +1739,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>At least one of your specified cluster subnets is in an Availability Zone that does
  *             not support Amazon EKS. The exception output specifies the supported
  *             Availability Zones for your account, from which you can choose subnets for your
@@ -1680,6 +1781,7 @@ export class UnsupportedAvailabilityZoneException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object representing an Fargate profile selector.</p>
  */
 export interface FargateProfileSelector {
@@ -1695,6 +1797,9 @@ export interface FargateProfileSelector {
   labels?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFargateProfileRequest {
   /**
    * <p>The name of the Fargate profile.</p>
@@ -1746,6 +1851,9 @@ export interface CreateFargateProfileRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum FargateProfileStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -1755,6 +1863,7 @@ export enum FargateProfileStatus {
 }
 
 /**
+ * @public
  * <p>An object representing an Fargate profile.</p>
  */
 export interface FargateProfile {
@@ -1812,6 +1921,9 @@ export interface FargateProfile {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFargateProfileResponse {
   /**
    * <p>The full description of your new Fargate profile.</p>
@@ -1819,12 +1931,16 @@ export interface CreateFargateProfileResponse {
   fargateProfile?: FargateProfile;
 }
 
+/**
+ * @public
+ */
 export enum CapacityTypes {
   ON_DEMAND = "ON_DEMAND",
   SPOT = "SPOT",
 }
 
 /**
+ * @public
  * <p>An object representing a node group launch template specification. The launch template
  *             can't include <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">
  *                <code>SubnetId</code>
@@ -1867,6 +1983,7 @@ export interface LaunchTemplateSpecification {
 }
 
 /**
+ * @public
  * <p>An object representing the remote access configuration for the managed node
  *             group.</p>
  */
@@ -1891,6 +2008,7 @@ export interface RemoteAccessConfig {
 }
 
 /**
+ * @public
  * <p>An object representing the scaling configuration details for the Auto Scaling group
  *             that is associated with your node group. When creating a node group, you must specify
  *             all or none of the properties. When updating a node group, you can specify any or none
@@ -1933,6 +2051,9 @@ export interface NodegroupScalingConfig {
   desiredSize?: number;
 }
 
+/**
+ * @public
+ */
 export enum TaintEffect {
   NO_EXECUTE = "NO_EXECUTE",
   NO_SCHEDULE = "NO_SCHEDULE",
@@ -1940,6 +2061,7 @@ export enum TaintEffect {
 }
 
 /**
+ * @public
  * <p>A property that allows a node to repel a set of pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
  */
 export interface Taint {
@@ -1960,6 +2082,7 @@ export interface Taint {
 }
 
 /**
+ * @public
  * <p>The node group update configuration.</p>
  */
 export interface NodegroupUpdateConfig {
@@ -1978,6 +2101,9 @@ export interface NodegroupUpdateConfig {
   maxUnavailablePercentage?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateNodegroupRequest {
   /**
    * <p>The name of the cluster to create the node group in.</p>
@@ -2128,6 +2254,9 @@ export interface CreateNodegroupRequest {
   releaseVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum NodegroupIssueCode {
   ACCESS_DENIED = "AccessDenied",
   ASG_INSTANCE_LAUNCH_FAILURES = "AsgInstanceLaunchFailures",
@@ -2151,6 +2280,7 @@ export enum NodegroupIssueCode {
 }
 
 /**
+ * @public
  * <p>An object representing an issue with an Amazon EKS resource.</p>
  */
 export interface Issue {
@@ -2270,6 +2400,7 @@ export interface Issue {
 }
 
 /**
+ * @public
  * <p>An object representing the health status of the node group.</p>
  */
 export interface NodegroupHealth {
@@ -2280,6 +2411,7 @@ export interface NodegroupHealth {
 }
 
 /**
+ * @public
  * <p>An object representing the resources associated with the node group, such as Auto
  *             Scaling groups and security groups for remote access.</p>
  */
@@ -2296,6 +2428,9 @@ export interface NodegroupResources {
   remoteAccessSecurityGroup?: string;
 }
 
+/**
+ * @public
+ */
 export enum NodegroupStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -2307,6 +2442,7 @@ export enum NodegroupStatus {
 }
 
 /**
+ * @public
  * <p>An object representing an Amazon EKS managed node group.</p>
  */
 export interface Nodegroup {
@@ -2456,6 +2592,9 @@ export interface Nodegroup {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateNodegroupResponse {
   /**
    * <p>The full description of your new node group.</p>
@@ -2463,6 +2602,9 @@ export interface CreateNodegroupResponse {
   nodegroup?: Nodegroup;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAddonRequest {
   /**
    * <p>The name of the cluster to delete the add-on from.</p>
@@ -2483,6 +2625,9 @@ export interface DeleteAddonRequest {
   preserve?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAddonResponse {
   /**
    * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
@@ -2491,6 +2636,9 @@ export interface DeleteAddonResponse {
   addon?: Addon;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The name of the cluster to delete.</p>
@@ -2498,6 +2646,9 @@ export interface DeleteClusterRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {
   /**
    * <p>The full description of the cluster to delete.</p>
@@ -2505,6 +2656,9 @@ export interface DeleteClusterResponse {
   cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFargateProfileRequest {
   /**
    * <p>The name of the Amazon EKS cluster associated with the Fargate
@@ -2518,6 +2672,9 @@ export interface DeleteFargateProfileRequest {
   fargateProfileName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFargateProfileResponse {
   /**
    * <p>The deleted Fargate profile.</p>
@@ -2525,6 +2682,9 @@ export interface DeleteFargateProfileResponse {
   fargateProfile?: FargateProfile;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNodegroupRequest {
   /**
    * <p>The name of the Amazon EKS cluster that is associated with your node
@@ -2538,6 +2698,9 @@ export interface DeleteNodegroupRequest {
   nodegroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNodegroupResponse {
   /**
    * <p>The full description of your deleted node group.</p>
@@ -2545,6 +2708,9 @@ export interface DeleteNodegroupResponse {
   nodegroup?: Nodegroup;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterClusterRequest {
   /**
    * <p>The name of the connected cluster to deregister.</p>
@@ -2552,6 +2718,9 @@ export interface DeregisterClusterRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterClusterResponse {
   /**
    * <p>An object representing an Amazon EKS cluster.</p>
@@ -2559,6 +2728,9 @@ export interface DeregisterClusterResponse {
   cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddonRequest {
   /**
    * <p>The name of the cluster.</p>
@@ -2573,6 +2745,9 @@ export interface DescribeAddonRequest {
   addonName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddonResponse {
   /**
    * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
@@ -2581,6 +2756,9 @@ export interface DescribeAddonResponse {
   addon?: Addon;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddonConfigurationRequest {
   /**
    * <p>The name of the add-on. The name must match one of the names that <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
@@ -2597,6 +2775,9 @@ export interface DescribeAddonConfigurationRequest {
   addonVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddonConfigurationResponse {
   /**
    * <p>The name of the add-on.</p>
@@ -2617,6 +2798,9 @@ export interface DescribeAddonConfigurationResponse {
   configurationSchema?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddonVersionsRequest {
   /**
    * <p>The Kubernetes versions that you can use the add-on with.</p>
@@ -2666,6 +2850,9 @@ export interface DescribeAddonVersionsRequest {
   owners?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddonVersionsResponse {
   /**
    * <p>The list of available versions with Kubernetes version compatibility and other
@@ -2686,6 +2873,9 @@ export interface DescribeAddonVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterRequest {
   /**
    * <p>The name of the cluster to describe.</p>
@@ -2693,6 +2883,9 @@ export interface DescribeClusterRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterResponse {
   /**
    * <p>The full description of your specified cluster.</p>
@@ -2700,6 +2893,9 @@ export interface DescribeClusterResponse {
   cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFargateProfileRequest {
   /**
    * <p>The name of the Amazon EKS cluster associated with the Fargate
@@ -2713,6 +2909,9 @@ export interface DescribeFargateProfileRequest {
   fargateProfileName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFargateProfileResponse {
   /**
    * <p>The full description of your Fargate profile.</p>
@@ -2721,6 +2920,7 @@ export interface DescribeFargateProfileResponse {
 }
 
 /**
+ * @public
  * <p>An object representing an identity provider configuration.</p>
  */
 export interface IdentityProviderConfig {
@@ -2736,6 +2936,9 @@ export interface IdentityProviderConfig {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderConfigRequest {
   /**
    * <p>The cluster name that the identity provider configuration is associated to.</p>
@@ -2748,6 +2951,9 @@ export interface DescribeIdentityProviderConfigRequest {
   identityProviderConfig: IdentityProviderConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConfigStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -2755,6 +2961,7 @@ export enum ConfigStatus {
 }
 
 /**
+ * @public
  * <p>An object representing the configuration for an OpenID Connect (OIDC) identity
  *             provider. </p>
  */
@@ -2831,6 +3038,7 @@ export interface OidcIdentityProviderConfig {
 }
 
 /**
+ * @public
  * <p>The full description of your identity configuration.</p>
  */
 export interface IdentityProviderConfigResponse {
@@ -2841,6 +3049,9 @@ export interface IdentityProviderConfigResponse {
   oidc?: OidcIdentityProviderConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderConfigResponse {
   /**
    * <p>The object that represents an OpenID Connect (OIDC) identity provider
@@ -2849,6 +3060,9 @@ export interface DescribeIdentityProviderConfigResponse {
   identityProviderConfig?: IdentityProviderConfigResponse;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodegroupRequest {
   /**
    * <p>The name of the Amazon EKS cluster associated with the node group.</p>
@@ -2861,6 +3075,9 @@ export interface DescribeNodegroupRequest {
   nodegroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodegroupResponse {
   /**
    * <p>The full description of your node group.</p>
@@ -2868,6 +3085,9 @@ export interface DescribeNodegroupResponse {
   nodegroup?: Nodegroup;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUpdateRequest {
   /**
    * <p>The name of the Amazon EKS cluster associated with the update.</p>
@@ -2893,6 +3113,9 @@ export interface DescribeUpdateRequest {
   addonName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUpdateResponse {
   /**
    * <p>The full description of the specified update.</p>
@@ -2900,6 +3123,9 @@ export interface DescribeUpdateResponse {
   update?: Update;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateIdentityProviderConfigRequest {
   /**
    * <p>The name of the cluster to disassociate an identity provider from.</p>
@@ -2918,6 +3144,9 @@ export interface DisassociateIdentityProviderConfigRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateIdentityProviderConfigResponse {
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -2925,6 +3154,9 @@ export interface DisassociateIdentityProviderConfigResponse {
   update?: Update;
 }
 
+/**
+ * @public
+ */
 export interface ListAddonsRequest {
   /**
    * <p>The name of the cluster.</p>
@@ -2957,6 +3189,9 @@ export interface ListAddonsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAddonsResponse {
   /**
    * <p>A list of available add-ons.</p>
@@ -2976,6 +3211,9 @@ export interface ListAddonsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersRequest {
   /**
    * <p>The maximum number of cluster results returned by <code>ListClusters</code> in
@@ -3009,6 +3247,9 @@ export interface ListClustersRequest {
   include?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListClustersResponse {
   /**
    * <p>A list of all of the clusters for your account in the specified Region.</p>
@@ -3025,6 +3266,9 @@ export interface ListClustersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFargateProfilesRequest {
   /**
    * <p>The name of the Amazon EKS cluster that you would like to list Fargate profiles in.</p>
@@ -3053,6 +3297,9 @@ export interface ListFargateProfilesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFargateProfilesResponse {
   /**
    * <p>A list of all of the Fargate profiles associated with the specified
@@ -3070,6 +3317,9 @@ export interface ListFargateProfilesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityProviderConfigsRequest {
   /**
    * <p>The cluster name that you want to list identity provider configurations for.</p>
@@ -3099,6 +3349,9 @@ export interface ListIdentityProviderConfigsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityProviderConfigsResponse {
   /**
    * <p>The identity provider configurations for the cluster.</p>
@@ -3114,6 +3367,9 @@ export interface ListIdentityProviderConfigsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodegroupsRequest {
   /**
    * <p>The name of the Amazon EKS cluster that you would like to list node groups
@@ -3142,6 +3398,9 @@ export interface ListNodegroupsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodegroupsResponse {
   /**
    * <p>A list of all of the node groups associated with the specified cluster.</p>
@@ -3159,6 +3418,7 @@ export interface ListNodegroupsResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown if the request contains a semantic error. The precise meaning
  *             will depend on the API, and will be documented in the error message.</p>
  */
@@ -3178,6 +3438,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
@@ -3186,6 +3449,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -3194,6 +3460,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A service resource associated with the request could not be found. Clients should not
  *             retry such requests.</p>
  */
@@ -3213,6 +3480,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListUpdatesRequest {
   /**
    * <p>The name of the Amazon EKS cluster to list updates for.</p>
@@ -3250,6 +3520,9 @@ export interface ListUpdatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUpdatesResponse {
   /**
    * <p>A list of all the updates for the specified cluster and Region.</p>
@@ -3266,6 +3539,9 @@ export interface ListUpdatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ConnectorConfigProvider {
   AKS = "AKS",
   ANTHOS = "ANTHOS",
@@ -3279,6 +3555,7 @@ export enum ConnectorConfigProvider {
 }
 
 /**
+ * @public
  * <p>The configuration sent to a cluster for configuration.</p>
  */
 export interface ConnectorConfigRequest {
@@ -3294,6 +3571,9 @@ export interface ConnectorConfigRequest {
   provider: ConnectorConfigProvider | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterClusterRequest {
   /**
    * <p>Define a unique name for this cluster for your Region.</p>
@@ -3320,6 +3600,9 @@ export interface RegisterClusterRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegisterClusterResponse {
   /**
    * <p>An object representing an Amazon EKS cluster.</p>
@@ -3328,6 +3611,7 @@ export interface RegisterClusterResponse {
 }
 
 /**
+ * @public
  * <p>Required resources (such as service-linked roles) were created and are still
  *             propagating. Retry later.</p>
  */
@@ -3347,6 +3631,9 @@ export class ResourcePropagationDelayException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the supported resources
@@ -3360,8 +3647,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently, the supported
@@ -3375,8 +3668,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAddonRequest {
   /**
    * <p>The name of the cluster.</p>
@@ -3449,6 +3748,9 @@ export interface UpdateAddonRequest {
   configurationValues?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAddonResponse {
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -3456,6 +3758,9 @@ export interface UpdateAddonResponse {
   update?: Update;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterConfigRequest {
   /**
    * <p>The name of the Amazon EKS cluster to update.</p>
@@ -3490,6 +3795,9 @@ export interface UpdateClusterConfigRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterConfigResponse {
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -3497,6 +3805,9 @@ export interface UpdateClusterConfigResponse {
   update?: Update;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterVersionRequest {
   /**
    * <p>The name of the Amazon EKS cluster to update.</p>
@@ -3515,6 +3826,9 @@ export interface UpdateClusterVersionRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterVersionResponse {
   /**
    * <p>The full description of the specified update</p>
@@ -3523,6 +3837,7 @@ export interface UpdateClusterVersionResponse {
 }
 
 /**
+ * @public
  * <p>An object representing a Kubernetes label change for a managed node group.</p>
  */
 export interface UpdateLabelsPayload {
@@ -3538,6 +3853,7 @@ export interface UpdateLabelsPayload {
 }
 
 /**
+ * @public
  * <p>An object representing the details of an update to a taints payload. For more
  *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on
  *                 managed node groups</a>.</p>
@@ -3554,6 +3870,9 @@ export interface UpdateTaintsPayload {
   removeTaints?: Taint[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateNodegroupConfigRequest {
   /**
    * <p>The name of the Amazon EKS cluster that the managed node group resides
@@ -3596,6 +3915,9 @@ export interface UpdateNodegroupConfigRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNodegroupConfigResponse {
   /**
    * <p>An object representing an asynchronous update.</p>
@@ -3603,6 +3925,9 @@ export interface UpdateNodegroupConfigResponse {
   update?: Update;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNodegroupVersionRequest {
   /**
    * <p>The name of the Amazon EKS cluster that is associated with the managed node
@@ -3659,6 +3984,9 @@ export interface UpdateNodegroupVersionRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNodegroupVersionResponse {
   /**
    * <p>An object representing an asynchronous update.</p>

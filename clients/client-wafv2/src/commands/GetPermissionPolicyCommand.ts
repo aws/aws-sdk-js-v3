@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetPermissionPolicyCommand}.
  */
 export interface GetPermissionPolicyCommandInput extends GetPermissionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPermissionPolicyCommand}.
  */
 export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the IAM policy that is attached to the specified rule group.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPermissionPolicyCommandInput - {@link GetPermissionPolicyCommandInput}
+ * @returns {@link GetPermissionPolicyCommandOutput}
  * @see {@link GetPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -101,6 +108,9 @@ export class GetPermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class GetPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionPolicyCommandOutput> {
     return deserializeAws_json1_1GetPermissionPolicyCommand(output, context);
   }

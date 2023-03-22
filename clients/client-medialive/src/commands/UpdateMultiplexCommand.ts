@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMultiplexCommand}.
  */
 export interface UpdateMultiplexCommandInput extends UpdateMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMultiplexCommand}.
  */
 export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMultiplexCommandInput - {@link UpdateMultiplexCommandInput}
+ * @returns {@link UpdateMultiplexCommandOutput}
  * @see {@link UpdateMultiplexCommandInput} for command's `input` shape.
  * @see {@link UpdateMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMultiplexCommandOutput> {
     return deserializeAws_restJson1UpdateMultiplexCommand(output, context);
   }

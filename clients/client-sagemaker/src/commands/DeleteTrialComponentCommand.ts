@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrialComponentCommand}.
  */
 export interface DeleteTrialComponentCommandInput extends DeleteTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrialComponentCommand}.
  */
 export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified trial component. A trial component must be disassociated from all
  *       trials before the trial component can be deleted. To disassociate a trial component from a
  *       trial, call the <a>DisassociateTrialComponent</a> API.</p>
@@ -48,6 +53,8 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrialComponentCommandInput - {@link DeleteTrialComponentCommandInput}
+ * @returns {@link DeleteTrialComponentCommandOutput}
  * @see {@link DeleteTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrialComponentCommandOutput> {
     return deserializeAws_json1_1DeleteTrialComponentCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPointCommand}.
  */
 export interface DeleteAccessPointCommandInput extends DeleteAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPointCommand}.
  */
 export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified access point. After deletion is complete, new clients can no
  *       longer connect to the access points. Clients connected to the access point at the time of
  *       deletion will continue to function until they terminate their connection.</p>
@@ -44,6 +49,8 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPointCommandInput - {@link DeleteAccessPointCommandInput}
+ * @returns {@link DeleteAccessPointCommandOutput}
  * @see {@link DeleteAccessPointCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointCommandOutput> {
     return deserializeAws_restJson1DeleteAccessPointCommand(output, context);
   }

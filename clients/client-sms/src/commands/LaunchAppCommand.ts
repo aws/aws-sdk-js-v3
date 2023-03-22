@@ -23,15 +23,20 @@ import { deserializeAws_json1_1LaunchAppCommand, serializeAws_json1_1LaunchAppCo
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link LaunchAppCommand}.
  */
 export interface LaunchAppCommandInput extends LaunchAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link LaunchAppCommand}.
  */
 export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches the specified application as a stack in CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param LaunchAppCommandInput - {@link LaunchAppCommandInput}
+ * @returns {@link LaunchAppCommandOutput}
  * @see {@link LaunchAppCommandInput} for command's `input` shape.
  * @see {@link LaunchAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -78,6 +85,9 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LaunchAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LaunchAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1LaunchAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LaunchAppCommandOutput> {
     return deserializeAws_json1_1LaunchAppCommand(output, context);
   }

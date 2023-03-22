@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEnvironmentTemplateVersionCommand}.
  */
 export interface DeleteEnvironmentTemplateVersionCommandInput extends DeleteEnvironmentTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEnvironmentTemplateVersionCommand}.
  */
 export interface DeleteEnvironmentTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
  *         <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions
  *       of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
@@ -53,6 +58,8 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentTemplateVersionCommandInput - {@link DeleteEnvironmentTemplateVersionCommandInput}
+ * @returns {@link DeleteEnvironmentTemplateVersionCommandOutput}
  * @see {@link DeleteEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEnvironmentTemplateVersionCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command<
     return serializeAws_json1_0DeleteEnvironmentTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityConfigCommand}.
  */
 export interface UpdateSecurityConfigCommandInput extends UpdateSecurityConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityConfigCommand}.
  */
 export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -52,6 +57,8 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityConfigCommandInput - {@link UpdateSecurityConfigCommandInput}
+ * @returns {@link UpdateSecurityConfigCommandOutput}
  * @see {@link UpdateSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityConfigCommandOutput> {
     return deserializeAws_json1_0UpdateSecurityConfigCommand(output, context);
   }

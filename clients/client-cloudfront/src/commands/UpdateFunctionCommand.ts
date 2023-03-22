@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionCommand}.
  */
 export interface UpdateFunctionCommandInput extends UpdateFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionCommand}.
  */
 export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a CloudFront function.</p>
  *          <p>You can update a function's code or the comment that describes the function. You
  * 			cannot update a function's name.</p>
@@ -51,6 +56,8 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionCommandInput - {@link UpdateFunctionCommandInput}
+ * @returns {@link UpdateFunctionCommandOutput}
  * @see {@link UpdateFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionCommandOutput> {
     return deserializeAws_restXmlUpdateFunctionCommand(output, context);
   }

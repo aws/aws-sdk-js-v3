@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataRepositoryAssociationCommand}.
  */
 export interface CreateDataRepositoryAssociationCommandInput extends CreateDataRepositoryAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataRepositoryAssociationCommand}.
  */
 export interface CreateDataRepositoryAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateDataRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon FSx for Lustre data repository association (DRA). A data
  *             repository association is a link between a directory on the file system and
  *             an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
@@ -64,6 +69,8 @@ export interface CreateDataRepositoryAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataRepositoryAssociationCommandInput - {@link CreateDataRepositoryAssociationCommandInput}
+ * @returns {@link CreateDataRepositoryAssociationCommandOutput}
  * @see {@link CreateDataRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDataRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataRepositoryAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDataRepositoryAssociationCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
     return serializeAws_json1_1CreateDataRepositoryAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

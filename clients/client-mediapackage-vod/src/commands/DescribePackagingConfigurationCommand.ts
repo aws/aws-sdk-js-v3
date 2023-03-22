@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackagingConfigurationCommand}.
  */
 export interface DescribePackagingConfigurationCommandInput extends DescribePackagingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackagingConfigurationCommand}.
  */
 export interface DescribePackagingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribePackagingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Returns a description of a MediaPackage VOD PackagingConfiguration resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribePackagingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackagingConfigurationCommandInput - {@link DescribePackagingConfigurationCommandInput}
+ * @returns {@link DescribePackagingConfigurationCommandOutput}
  * @see {@link DescribePackagingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribePackagingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribePackagingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackagingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DescribePackagingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePackagingConfigurationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DescribePackagingConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribePackagingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

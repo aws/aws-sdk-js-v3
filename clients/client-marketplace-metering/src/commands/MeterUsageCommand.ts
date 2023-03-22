@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MeterUsageCommand}.
  */
 export interface MeterUsageCommandInput extends MeterUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link MeterUsageCommand}.
  */
 export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>API to emit metering records. For identical requests, the API is idempotent. It simply
  *             returns the metering record ID.</p>
  *         <p>
@@ -60,6 +65,8 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param MeterUsageCommandInput - {@link MeterUsageCommandInput}
+ * @returns {@link MeterUsageCommandOutput}
  * @see {@link MeterUsageCommandInput} for command's `input` shape.
  * @see {@link MeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -126,6 +133,9 @@ export class MeterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MeterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class MeterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MeterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MeterUsageCommandOutput> {
     return deserializeAws_json1_1MeterUsageCommand(output, context);
   }

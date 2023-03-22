@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkteamCommand}.
  */
 export interface CreateWorkteamCommandInput extends CreateWorkteamRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkteamCommand}.
  */
 export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new work team for labeling your data. A work team is defined by one or more
  *             Amazon Cognito user pools. You must first create the user pools before you can create a work
  *             team.</p>
@@ -49,6 +54,8 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkteamCommandInput - {@link CreateWorkteamCommandInput}
+ * @returns {@link CreateWorkteamCommandOutput}
  * @see {@link CreateWorkteamCommandInput} for command's `input` shape.
  * @see {@link CreateWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkteamCommandOutput> {
     return deserializeAws_json1_1CreateWorkteamCommand(output, context);
   }

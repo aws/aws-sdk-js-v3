@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayAttachmentsCommand}.
  */
 export interface DescribeTransitGatewayAttachmentsCommandInput extends DescribeTransitGatewayAttachmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayAttachmentsCommand}.
  */
 export interface DescribeTransitGatewayAttachmentsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.
  *          Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayAttachmentsCommandInput - {@link DescribeTransitGatewayAttachmentsCommandInput}
+ * @returns {@link DescribeTransitGatewayAttachmentsCommandOutput}
  * @see {@link DescribeTransitGatewayAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTransitGatewayAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeTransitGatewayAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayAttachmentsCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeTransitGatewayAttachmentsCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

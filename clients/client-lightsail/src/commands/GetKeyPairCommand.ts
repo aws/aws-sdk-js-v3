@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyPairCommand}.
  */
 export interface GetKeyPairCommandInput extends GetKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyPairCommand}.
  */
 export interface GetKeyPairCommandOutput extends GetKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific key pair.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetKeyPairCommandOutput extends GetKeyPairResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyPairCommandInput - {@link GetKeyPairCommandInput}
+ * @returns {@link GetKeyPairCommandOutput}
  * @see {@link GetKeyPairCommandInput} for command's `input` shape.
  * @see {@link GetKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyPairCommandOutput> {
     return deserializeAws_json1_1GetKeyPairCommand(output, context);
   }

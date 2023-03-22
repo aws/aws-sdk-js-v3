@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobsCommand}.
  */
 export interface DescribeJobsCommandInput extends DescribeJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobsCommand}.
  */
 export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a list of Batch jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobsCommandInput - {@link DescribeJobsCommandInput}
+ * @returns {@link DescribeJobsCommandOutput}
  * @see {@link DescribeJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -123,6 +130,9 @@ export class DescribeJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class DescribeJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobsCommandOutput> {
     return deserializeAws_restJson1DescribeJobsCommand(output, context);
   }

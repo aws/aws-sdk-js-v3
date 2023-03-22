@@ -24,15 +24,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopInferenceRecommendationsJobCommand}.
  */
 export interface StopInferenceRecommendationsJobCommandInput extends StopInferenceRecommendationsJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInferenceRecommendationsJobCommand}.
  */
 export interface StopInferenceRecommendationsJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Inference Recommender job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface StopInferenceRecommendationsJobCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInferenceRecommendationsJobCommandInput - {@link StopInferenceRecommendationsJobCommandInput}
+ * @returns {@link StopInferenceRecommendationsJobCommandOutput}
  * @see {@link StopInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link StopInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInferenceRecommendationsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,6 +119,9 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
@@ -116,6 +129,9 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
     return serializeAws_json1_1StopInferenceRecommendationsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

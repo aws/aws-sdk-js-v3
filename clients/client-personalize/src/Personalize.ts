@@ -318,11 +318,13 @@ import {
 import { PersonalizeClient } from "./PersonalizeClient";
 
 /**
+ * @public
  * <p>Amazon Personalize is a machine learning service that makes it easy to add individualized
  *       recommendations to customers.</p>
  */
 export class Personalize extends PersonalizeClient {
   /**
+   * @public
    * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
    *       input file must be in JSON format. For more information, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating a batch inference job</a>.
@@ -358,6 +360,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates a batch segment job. The operation can handle up to 50 million records and the
    *       input file must be in JSON format. For more information, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html">Getting batch recommendations and user segments</a>.</p>
@@ -392,6 +395,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates a campaign that deploys a solution version. When a client calls the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
    *       and
@@ -493,6 +497,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty dataset and adds it to the specified dataset group.
    *       Use <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> to import your training data to a
    *       dataset.</p>
@@ -579,6 +584,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p> Creates a job that exports data from your dataset to an Amazon S3 bucket.
    *       To allow Amazon Personalize to export the training data, you must specify an
    *       service-linked IAM role that gives Amazon Personalize <code>PutObject</code>
@@ -629,6 +635,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty dataset group. A dataset group is a container for
    *       Amazon Personalize resources. A dataset group can contain at most three datasets, one
    *       for each type of dataset:</p>
@@ -741,6 +748,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates a job that imports training data from your data source (an
    *       Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the
    *       training data, you must specify an IAM service role that has permission to
@@ -820,6 +828,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates an event tracker that you use when adding event data to a specified dataset
    *       group using the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
@@ -897,6 +906,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
    */
   public createFilter(
@@ -926,6 +936,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates a metric attribution.
    *       A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you imported the data, you can view reports in Amazon CloudWatch or Amazon S3.
    *       For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
@@ -960,6 +971,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates a recommender with the recipe (a Domain dataset group use case) you specify.
    *       You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
@@ -1067,6 +1079,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
    *       must be in Avro JSON format.</p>
    *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
@@ -1122,6 +1135,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Creates the configuration for training a model. A trained model is known as
    *       a solution. After the configuration is created, you train the model (create a solution)
    *       by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a> operation. Every time you call
@@ -1226,6 +1240,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
    *       operation and must be in the ACTIVE state before calling
    *         <code>CreateSolutionVersion</code>. A new version of the solution is created every time you
@@ -1324,6 +1339,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Removes a campaign by deleting the solution deployment. The solution that
    *       the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no
    *       longer be specified in a
@@ -1361,6 +1377,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a dataset. You can't delete a dataset if an associated
    *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the
    *       CREATE PENDING or IN PROGRESS state. For more information on datasets, see
@@ -1396,6 +1413,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a dataset group. Before you delete a dataset group, you must
    *       delete the following:</p>
    *          <ul>
@@ -1440,6 +1458,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deletes the event tracker. Does not delete the event-interactions dataset from
    *         the associated dataset group. For more
    *         information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
@@ -1474,6 +1493,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a filter.</p>
    */
   public deleteFilter(
@@ -1503,6 +1523,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a metric attribution.</p>
    */
   public deleteMetricAttribution(
@@ -1535,6 +1556,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deactivates and removes a recommender. A deleted recommender can no longer be specified in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
    *     request.</p>
    */
@@ -1568,6 +1590,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a schema. Before deleting a schema, you must delete all
    *       datasets referencing the schema. For more information on schemas, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
@@ -1599,6 +1622,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
    *       Before deleting a solution, you must delete all campaigns based on
    *       the solution. To determine what campaigns are using the solution, call
@@ -1637,6 +1661,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the given algorithm.</p>
    */
   public describeAlgorithm(
@@ -1669,6 +1694,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
    *       status, input and output configurations, and the ARN of the solution version used to generate
    *       the recommendations.</p>
@@ -1703,6 +1729,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Gets the properties of a batch segment job including name, Amazon Resource Name (ARN),
    *       status, input and output configurations, and the ARN of the solution version used to generate
    *       segments.</p>
@@ -1737,6 +1764,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the given campaign, including its status.</p>
    *          <p>A campaign can be in one of the following states:</p>
    *          <ul>
@@ -1781,6 +1809,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the given dataset. For more information on datasets, see
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
    */
@@ -1814,6 +1843,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the dataset export job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>, including the export job status.</p>
    */
   public describeDatasetExportJob(
@@ -1846,6 +1876,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the given dataset group. For more information on dataset
    *       groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
    */
@@ -1879,6 +1910,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>, including the import job status.</p>
    */
   public describeDatasetImportJob(
@@ -1911,6 +1943,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes an event tracker. The response includes the <code>trackingId</code> and
    *       <code>status</code> of the event tracker.
    *       For more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
@@ -1945,6 +1978,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the given feature transformation.</p>
    */
   public describeFeatureTransformation(
@@ -1977,6 +2011,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes a filter's properties.</p>
    */
   public describeFilter(
@@ -2009,6 +2044,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes a metric attribution.</p>
    */
   public describeMetricAttribution(
@@ -2041,6 +2077,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes a recipe.</p>
    *          <p>A recipe contains three items:</p>
    *          <ul>
@@ -2091,6 +2128,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes the given recommender, including its status.</p>
    *          <p>A recommender can be in one of the following states:</p>
    *          <ul>
@@ -2140,6 +2178,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes a schema. For more information on schemas, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
    */
@@ -2173,6 +2212,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes a solution.
    *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
    */
@@ -2206,6 +2246,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Describes a specific version of a solution. For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
    *          </p>
    */
@@ -2239,6 +2280,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Gets the metrics for the specified solution version.</p>
    */
   public getSolutionMetrics(
@@ -2271,6 +2313,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of the batch inference jobs that have been performed off of a solution
    *       version.</p>
    */
@@ -2304,6 +2347,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of the batch segment jobs that have been performed off of a solution
    *       version that you specify.</p>
    */
@@ -2337,6 +2381,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of campaigns that use the given solution.
    *       When a solution is not specified, all the campaigns associated with the account are listed.
    *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
@@ -2372,6 +2417,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of dataset export jobs that use the given dataset. When
    *       a dataset is not specified, all the dataset export jobs associated with
    *       the account are listed. The response provides the properties for each
@@ -2409,6 +2455,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of dataset groups. The response provides the properties
    *       for each dataset group, including the Amazon Resource Name (ARN). For more
    *       information on dataset groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
@@ -2443,6 +2490,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of dataset import jobs that use the given dataset. When
    *       a dataset is not specified, all the dataset import jobs associated with
    *       the account are listed. The response provides the properties for each
@@ -2480,6 +2528,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of datasets contained in the given dataset group. The
    *       response provides the properties for each dataset, including the Amazon
    *       Resource Name (ARN). For more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
@@ -2511,6 +2560,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of event trackers associated with the account.
    *       The response provides the properties for each event tracker, including the Amazon Resource
    *       Name (ARN) and tracking ID. For more
@@ -2546,6 +2596,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Lists all filters that belong to a given dataset group.</p>
    */
   public listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
@@ -2572,6 +2623,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Lists the metrics for the metric attribution.</p>
    */
   public listMetricAttributionMetrics(
@@ -2604,6 +2656,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Lists metric attributions.</p>
    */
   public listMetricAttributions(
@@ -2636,6 +2689,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of available recipes. The response provides the properties
    *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
    */
@@ -2663,6 +2717,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of recommenders in a given Domain dataset group.
    *       When a Domain dataset group is not specified, all the recommenders associated with the account are listed.
    *       The response provides the properties for each recommender, including the Amazon Resource Name (ARN).
@@ -2698,6 +2753,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of schemas associated with the account. The response provides the
    *       properties for each schema, including the Amazon Resource Name (ARN).
    *       For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
@@ -2726,6 +2782,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of solutions that use the given dataset group.
    *       When a dataset group is not specified, all the solutions associated with the account are listed.
    *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
@@ -2761,6 +2818,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of solution versions for the given solution. When a solution is not
    *       specified, all the solution versions associated with the account are listed. The response
    *       provides the properties for each solution version, including the Amazon Resource Name (ARN).</p>
@@ -2795,6 +2853,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Get a list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> attached to a resource.</p>
    */
   public listTagsForResource(
@@ -2827,6 +2886,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Starts a recommender that is INACTIVE. Starting a recommender does not
    *       create any new models, but resumes billing and automatic retraining for the recommender.</p>
    */
@@ -2860,6 +2920,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.</p>
    */
   public stopRecommender(
@@ -2892,6 +2953,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
    *       </p>
    *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
@@ -2937,6 +2999,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Add a list of tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2963,6 +3026,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Remove <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> that are attached to a resource.</p>
    */
   public untagResource(
@@ -2995,6 +3059,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Updates a campaign by either deploying a new solution or changing the value of the
    *       campaign's <code>minProvisionedTPS</code> parameter.</p>
    *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
@@ -3038,6 +3103,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Updates a metric attribution.</p>
    */
   public updateMetricAttribution(
@@ -3070,6 +3136,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * @public
    * <p>Updates the recommender to modify the recommender configuration.</p>
    */
   public updateRecommender(

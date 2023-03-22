@@ -26,15 +26,20 @@ import {
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSavingsPlanRatesCommand}.
  */
 export interface DescribeSavingsPlanRatesCommandInput extends DescribeSavingsPlanRatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSavingsPlanRatesCommand}.
  */
 export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPlanRatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Savings Plans rates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSavingsPlanRatesCommandInput - {@link DescribeSavingsPlanRatesCommandInput}
+ * @returns {@link DescribeSavingsPlanRatesCommandOutput}
  * @see {@link DescribeSavingsPlanRatesCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlanRatesCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSavingsPlanRatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSavingsPlanRatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSavingsPlanRatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSavingsPlanRatesCommandOutput> {
     return deserializeAws_restJson1DescribeSavingsPlanRatesCommand(output, context);
   }

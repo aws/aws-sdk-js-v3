@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackageVersionDependenciesCommand}.
  */
 export interface ListPackageVersionDependenciesCommandInput extends ListPackageVersionDependenciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackageVersionDependenciesCommand}.
  */
 export interface ListPackageVersionDependenciesCommandOutput
@@ -37,6 +41,7 @@ export interface ListPackageVersionDependenciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Returns the direct dependencies for a package version. The dependencies are returned as
  *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
@@ -54,6 +59,8 @@ export interface ListPackageVersionDependenciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackageVersionDependenciesCommandInput - {@link ListPackageVersionDependenciesCommandInput}
+ * @returns {@link ListPackageVersionDependenciesCommandOutput}
  * @see {@link ListPackageVersionDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionDependenciesCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -100,6 +107,9 @@ export class ListPackageVersionDependenciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackageVersionDependenciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class ListPackageVersionDependenciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPackageVersionDependenciesCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class ListPackageVersionDependenciesCommand extends $Command<
     return serializeAws_restJson1ListPackageVersionDependenciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

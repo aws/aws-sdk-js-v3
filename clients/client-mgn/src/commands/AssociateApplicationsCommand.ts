@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApplicationsCommand}.
  */
 export interface AssociateApplicationsCommandInput extends AssociateApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApplicationsCommand}.
  */
 export interface AssociateApplicationsCommandOutput extends AssociateApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate applications to wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApplicationsCommandInput - {@link AssociateApplicationsCommandInput}
+ * @returns {@link AssociateApplicationsCommandOutput}
  * @see {@link AssociateApplicationsCommandInput} for command's `input` shape.
  * @see {@link AssociateApplicationsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class AssociateApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class AssociateApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateApplicationsCommandOutput> {
     return deserializeAws_restJson1AssociateApplicationsCommand(output, context);
   }

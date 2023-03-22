@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportVmImageCommand}.
  */
 export interface ImportVmImageCommandInput extends ImportVmImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportVmImageCommand}.
  */
 export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you export your virtual machine (VM) from its virtualization environment,
  * 			that process creates a set of one or more disk container files that act as
  * 			snapshots of your VM’s environment, settings, and data. The Amazon EC2 API
@@ -54,6 +59,8 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportVmImageCommandInput - {@link ImportVmImageCommandInput}
+ * @returns {@link ImportVmImageCommandOutput}
  * @see {@link ImportVmImageCommandInput} for command's `input` shape.
  * @see {@link ImportVmImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -88,6 +95,9 @@ export class ImportVmImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportVmImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ImportVmImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportVmImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportVmImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportVmImageCommandOutput> {
     return deserializeAws_restJson1ImportVmImageCommand(output, context);
   }

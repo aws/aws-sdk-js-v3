@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ContinueDeploymentCommand}.
  */
 export interface ContinueDeploymentCommandInput extends ContinueDeploymentInput {}
 /**
+ * @public
+ *
  * The output of {@link ContinueDeploymentCommand}.
  */
 export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
  *             the original environment to instances in the replacement environment without waiting for
  *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
@@ -45,6 +50,8 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ContinueDeploymentCommandInput - {@link ContinueDeploymentCommandInput}
+ * @returns {@link ContinueDeploymentCommandOutput}
  * @see {@link ContinueDeploymentCommandInput} for command's `input` shape.
  * @see {@link ContinueDeploymentCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -93,6 +100,9 @@ export class ContinueDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ContinueDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ContinueDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ContinueDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ContinueDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContinueDeploymentCommandOutput> {
     return deserializeAws_json1_1ContinueDeploymentCommand(output, context);
   }

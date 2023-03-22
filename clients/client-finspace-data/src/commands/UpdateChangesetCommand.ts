@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChangesetCommand}.
  */
 export interface UpdateChangesetCommandInput extends UpdateChangesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChangesetCommand}.
  */
 export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a FinSpace Changeset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChangesetCommandInput - {@link UpdateChangesetCommandInput}
+ * @returns {@link UpdateChangesetCommandOutput}
  * @see {@link UpdateChangesetCommandInput} for command's `input` shape.
  * @see {@link UpdateChangesetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateChangesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChangesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateChangesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChangesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateChangesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChangesetCommandOutput> {
     return deserializeAws_restJson1UpdateChangesetCommand(output, context);
   }

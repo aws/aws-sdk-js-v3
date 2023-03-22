@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
   extends BatchAssociateApprovalRuleTemplateWithRepositoriesInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
@@ -38,6 +42,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between an approval rule template and one or more specified repositories. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput - {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput}
+ * @returns {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput}
  * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -106,6 +113,9 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     return serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

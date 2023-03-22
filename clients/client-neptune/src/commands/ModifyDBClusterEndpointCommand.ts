@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterEndpointCommand}.
  */
 export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterEndpointCommand}.
  */
 export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterEndpointCommandInput - {@link ModifyDBClusterEndpointCommandInput}
+ * @returns {@link ModifyDBClusterEndpointCommandOutput}
  * @see {@link ModifyDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -85,6 +92,9 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterEndpointCommandOutput> {
     return deserializeAws_queryModifyDBClusterEndpointCommand(output, context);
   }

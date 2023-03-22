@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link TestRenderTemplateCommand}.
  */
 export interface TestRenderTemplateCommandInput extends TestRenderTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestRenderTemplateCommand}.
  */
 export interface TestRenderTemplateCommandOutput extends TestRenderTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a preview of the MIME content of an email when provided with a template and a
  *             set of replacement data.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -48,6 +53,8 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param TestRenderTemplateCommandInput - {@link TestRenderTemplateCommandInput}
+ * @returns {@link TestRenderTemplateCommandOutput}
  * @see {@link TestRenderTemplateCommandInput} for command's `input` shape.
  * @see {@link TestRenderTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -84,6 +91,9 @@ export class TestRenderTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestRenderTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class TestRenderTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestRenderTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTestRenderTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRenderTemplateCommandOutput> {
     return deserializeAws_queryTestRenderTemplateCommand(output, context);
   }

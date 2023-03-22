@@ -61,10 +61,12 @@ import {
 import { DocDBElasticClient } from "./DocDBElasticClient";
 
 /**
+ * @public
  * <p>The new Amazon Elastic DocumentDB service endpoint.</p>
  */
 export class DocDBElastic extends DocDBElasticClient {
   /**
+   * @public
    * <p>Creates a new Elastic DocumentDB cluster and returns its Cluster structure.</p>
    */
   public createCluster(
@@ -97,6 +99,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of a cluster.</p>
    */
   public createClusterSnapshot(
@@ -129,6 +132,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Delete a Elastic DocumentDB cluster.</p>
    */
   public deleteCluster(
@@ -161,6 +165,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Delete a Elastic DocumentDB snapshot.</p>
    */
   public deleteClusterSnapshot(
@@ -193,6 +198,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific Elastic DocumentDB cluster.</p>
    */
   public getCluster(args: GetClusterCommandInput, options?: __HttpHandlerOptions): Promise<GetClusterCommandOutput>;
@@ -219,6 +225,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific Elastic DocumentDB snapshot</p>
    */
   public getClusterSnapshot(
@@ -251,6 +258,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Returns information about provisioned Elastic DocumentDB clusters.</p>
    */
   public listClusters(
@@ -280,6 +288,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Returns information about Elastic DocumentDB snapshots for a specified cluster.</p>
    */
   public listClusterSnapshots(
@@ -312,6 +321,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags on a Elastic DocumentDB resource</p>
    */
   public listTagsForResource(
@@ -344,6 +354,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Restores a Elastic DocumentDB cluster from a snapshot.</p>
    */
   public restoreClusterFromSnapshot(
@@ -376,6 +387,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Adds metadata tags to a Elastic DocumentDB resource</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -402,6 +414,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Removes metadata tags to a Elastic DocumentDB resource</p>
    */
   public untagResource(
@@ -434,6 +447,7 @@ export class DocDBElastic extends DocDBElasticClient {
   }
 
   /**
+   * @public
    * <p>Modifies a Elastic DocumentDB cluster. This includes updating admin-username/password,
    *     upgrading API version setting up a backup window and maintenance window</p>
    */

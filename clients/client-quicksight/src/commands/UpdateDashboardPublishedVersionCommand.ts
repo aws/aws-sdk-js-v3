@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDashboardPublishedVersionCommand}.
  */
 export interface UpdateDashboardPublishedVersionCommandInput extends UpdateDashboardPublishedVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDashboardPublishedVersionCommand}.
  */
 export interface UpdateDashboardPublishedVersionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDashboardPublishedVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the published version of a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDashboardPublishedVersionCommandInput - {@link UpdateDashboardPublishedVersionCommandInput}
+ * @returns {@link UpdateDashboardPublishedVersionCommandOutput}
  * @see {@link UpdateDashboardPublishedVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardPublishedVersionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDashboardPublishedVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDashboardPublishedVersionCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     return serializeAws_restJson1UpdateDashboardPublishedVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

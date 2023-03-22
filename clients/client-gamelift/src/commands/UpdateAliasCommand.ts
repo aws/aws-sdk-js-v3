@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandInput extends UpdateAliasInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties for an alias. To update properties, specify the alias ID to be
  *             updated and provide the information to be changed. To reassign an alias to another
  *             fleet, provide an updated routing strategy. If successful, the updated alias record is
@@ -55,6 +60,8 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
+ * @returns {@link UpdateAliasCommandOutput}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAliasCommandOutput> {
     return deserializeAws_json1_1UpdateAliasCommand(output, context);
   }

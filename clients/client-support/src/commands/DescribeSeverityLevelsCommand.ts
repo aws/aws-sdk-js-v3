@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSeverityLevelsCommand}.
  */
 export interface DescribeSeverityLevelsCommandInput extends DescribeSeverityLevelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSeverityLevelsCommand}.
  */
 export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLevelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of severity levels that you can assign to a support case. The
  *             severity level for a case is also a field in the <a>CaseDetails</a> data type
  *             that you include for a <a>CreateCase</a> request.</p>
@@ -62,6 +67,8 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSeverityLevelsCommandInput - {@link DescribeSeverityLevelsCommandInput}
+ * @returns {@link DescribeSeverityLevelsCommandOutput}
  * @see {@link DescribeSeverityLevelsCommandInput} for command's `input` shape.
  * @see {@link DescribeSeverityLevelsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeSeverityLevelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSeverityLevelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeSeverityLevelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSeverityLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSeverityLevelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSeverityLevelsCommandOutput> {
     return deserializeAws_json1_1DescribeSeverityLevelsCommand(output, context);
   }

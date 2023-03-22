@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProfileCommand}.
  */
 export interface GetProfileCommandInput extends GetProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProfileCommand}.
  */
 export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a room profile by profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileCommandInput - {@link GetProfileCommandInput}
+ * @returns {@link GetProfileCommandOutput}
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class GetProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
     return deserializeAws_json1_1GetProfileCommand(output, context);
   }

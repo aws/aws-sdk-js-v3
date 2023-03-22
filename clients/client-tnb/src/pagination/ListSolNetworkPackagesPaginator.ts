@@ -10,7 +10,7 @@ import { TnbClient } from "../TnbClient";
 import { TnbPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TnbClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSolNetworkPackagesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSolNetworkPackages(
   config: TnbPaginationConfiguration,
   input: ListSolNetworkPackagesCommandInput,

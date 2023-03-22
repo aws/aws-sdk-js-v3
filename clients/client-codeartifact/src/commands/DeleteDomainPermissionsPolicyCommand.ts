@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainPermissionsPolicyCommand}.
  */
 export interface DeleteDomainPermissionsPolicyCommandInput extends DeleteDomainPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainPermissionsPolicyCommand}.
  */
 export interface DeleteDomainPermissionsPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Deletes the resource policy set on a domain.
  *       </p>
@@ -50,6 +55,8 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainPermissionsPolicyCommandInput - {@link DeleteDomainPermissionsPolicyCommandInput}
+ * @returns {@link DeleteDomainPermissionsPolicyCommandOutput}
  * @see {@link DeleteDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDomainPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

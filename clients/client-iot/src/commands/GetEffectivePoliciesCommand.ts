@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEffectivePoliciesCommand}.
  */
 export interface GetEffectivePoliciesCommandInput extends GetEffectivePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEffectivePoliciesCommand}.
  */
 export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the policies that have an effect on the authorization behavior of the
  *          specified device when it connects to the IoT device gateway.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetEffectivePolicies</a> action.</p>
@@ -48,6 +53,8 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEffectivePoliciesCommandInput - {@link GetEffectivePoliciesCommandInput}
+ * @returns {@link GetEffectivePoliciesCommandOutput}
  * @see {@link GetEffectivePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetEffectivePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEffectivePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetEffectivePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEffectivePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEffectivePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEffectivePoliciesCommandOutput> {
     return deserializeAws_restJson1GetEffectivePoliciesCommand(output, context);
   }

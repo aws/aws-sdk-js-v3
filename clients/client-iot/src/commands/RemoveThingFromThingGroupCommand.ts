@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveThingFromThingGroupCommand}.
  */
 export interface RemoveThingFromThingGroupCommandInput extends RemoveThingFromThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveThingFromThingGroupCommand}.
  */
 export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove the specified thing from the specified group.</p>
  *          <p>You must specify either a <code>thingGroupArn</code> or a
  * 			<code>thingGroupName</code> to identify the thing group and
@@ -52,6 +57,8 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveThingFromThingGroupCommandInput - {@link RemoveThingFromThingGroupCommandInput}
+ * @returns {@link RemoveThingFromThingGroupCommandOutput}
  * @see {@link RemoveThingFromThingGroupCommandInput} for command's `input` shape.
  * @see {@link RemoveThingFromThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class RemoveThingFromThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveThingFromThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RemoveThingFromThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveThingFromThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveThingFromThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

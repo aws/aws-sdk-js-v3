@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaCreationStatusCommand}.
  */
 export interface GetSchemaCreationStatusCommandInput extends GetSchemaCreationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaCreationStatusCommand}.
  */
 export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current status of a schema creation operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaCreationStatusCommandInput - {@link GetSchemaCreationStatusCommandInput}
+ * @returns {@link GetSchemaCreationStatusCommandOutput}
  * @see {@link GetSchemaCreationStatusCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCreationStatusCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSchemaCreationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaCreationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSchemaCreationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaCreationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSchemaCreationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaCreationStatusCommandOutput> {
     return deserializeAws_restJson1GetSchemaCreationStatusCommand(output, context);
   }

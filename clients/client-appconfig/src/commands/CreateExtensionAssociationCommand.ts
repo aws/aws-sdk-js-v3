@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExtensionAssociationCommand}.
  */
 export interface CreateExtensionAssociationCommandInput extends CreateExtensionAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExtensionAssociationCommand}.
  */
 export interface CreateExtensionAssociationCommandOutput extends ExtensionAssociation, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you create an extension or configure an Amazon Web Services authored extension, you
  *          associate the extension with an AppConfig application, environment, or
  *          configuration profile. For example, you can choose to run the <code>AppConfig
@@ -58,6 +63,8 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExtensionAssociationCommandInput - {@link CreateExtensionAssociationCommandInput}
+ * @returns {@link CreateExtensionAssociationCommandOutput}
  * @see {@link CreateExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateExtensionAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExtensionAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateExtensionAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateExtensionAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

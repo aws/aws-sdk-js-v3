@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticLoadBalancersCommand}.
  */
 export interface DescribeElasticLoadBalancersCommandInput extends DescribeElasticLoadBalancersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticLoadBalancersCommand}.
  */
 export interface DescribeElasticLoadBalancersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeElasticLoadBalancersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a stack's Elastic Load Balancing instances.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -56,6 +61,8 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticLoadBalancersCommandInput - {@link DescribeElasticLoadBalancersCommandInput}
+ * @returns {@link DescribeElasticLoadBalancersCommandOutput}
  * @see {@link DescribeElasticLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeElasticLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

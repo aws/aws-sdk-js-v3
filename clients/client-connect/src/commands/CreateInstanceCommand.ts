@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceCommand}.
  */
 export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceCommand}.
  */
 export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does
  *    not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It
@@ -52,6 +57,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
+ * @returns {@link CreateInstanceCommandOutput}
  * @see {@link CreateInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceCommandOutput> {
     return deserializeAws_restJson1CreateInstanceCommand(output, context);
   }

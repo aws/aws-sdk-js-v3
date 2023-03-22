@@ -23,15 +23,20 @@ import { deserializeAws_querySubscribeCommand, serializeAws_querySubscribeComman
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SubscribeCommand}.
  */
 export interface SubscribeCommandInput extends SubscribeInput {}
 /**
+ * @public
+ *
  * The output of {@link SubscribeCommand}.
  */
 export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
  *             if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must
  *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
@@ -48,6 +53,8 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeCommandInput - {@link SubscribeCommandInput}
+ * @returns {@link SubscribeCommandOutput}
  * @see {@link SubscribeCommandInput} for command's `input` shape.
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -93,6 +100,9 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySubscribeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeCommandOutput> {
     return deserializeAws_querySubscribeCommand(output, context);
   }

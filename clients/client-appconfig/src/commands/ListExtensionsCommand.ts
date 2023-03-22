@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExtensionsCommand}.
  */
 export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExtensionsCommand}.
  */
 export interface ListExtensionsCommandOutput extends Extensions, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
  *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -49,6 +54,8 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
+ * @returns {@link ListExtensionsCommandOutput}
  * @see {@link ListExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListExtensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListExtensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListExtensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionsCommandOutput> {
     return deserializeAws_restJson1ListExtensionsCommand(output, context);
   }

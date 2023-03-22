@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS
  *             topic.</p>
  * @example
@@ -42,6 +47,8 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
+ * @returns {@link PutDataProtectionPolicyCommandOutput}
  * @see {@link PutDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -82,6 +89,9 @@ export class PutDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataProtectionPolicyCommandOutput> {
     return deserializeAws_queryPutDataProtectionPolicyCommand(output, context);
   }

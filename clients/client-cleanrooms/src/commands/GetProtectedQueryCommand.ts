@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProtectedQueryCommand}.
  */
 export interface GetProtectedQueryCommandInput extends GetProtectedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetProtectedQueryCommand}.
  */
 export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns query processing metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProtectedQueryCommandInput - {@link GetProtectedQueryCommandInput}
+ * @returns {@link GetProtectedQueryCommandOutput}
  * @see {@link GetProtectedQueryCommandInput} for command's `input` shape.
  * @see {@link GetProtectedQueryCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetProtectedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProtectedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetProtectedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProtectedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetProtectedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProtectedQueryCommandOutput> {
     return deserializeAws_restJson1GetProtectedQueryCommand(output, context);
   }

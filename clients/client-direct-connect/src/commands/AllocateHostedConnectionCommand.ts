@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateHostedConnectionCommand}.
  */
 export interface AllocateHostedConnectionCommandInput extends AllocateHostedConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateHostedConnectionCommand}.
  */
 export interface AllocateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects.</p>
  *          <p>Allocates a VLAN number and a specified amount of capacity (bandwidth) for use by a hosted connection on the specified interconnect or LAG of interconnects.
  *       Amazon Web Services polices the hosted connection for the specified capacity and the Direct Connect Partner must also police the hosted connection for the specified capacity.</p>
@@ -51,6 +56,8 @@ export interface AllocateHostedConnectionCommandOutput extends Connection, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateHostedConnectionCommandInput - {@link AllocateHostedConnectionCommandInput}
+ * @returns {@link AllocateHostedConnectionCommandOutput}
  * @see {@link AllocateHostedConnectionCommandInput} for command's `input` shape.
  * @see {@link AllocateHostedConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class AllocateHostedConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateHostedConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class AllocateHostedConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllocateHostedConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AllocateHostedConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateHostedConnectionCommandOutput> {
     return deserializeAws_json1_1AllocateHostedConnectionCommand(output, context);
   }

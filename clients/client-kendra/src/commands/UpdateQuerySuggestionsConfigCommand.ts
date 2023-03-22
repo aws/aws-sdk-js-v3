@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQuerySuggestionsConfigCommand}.
  */
 export interface UpdateQuerySuggestionsConfigCommandInput extends UpdateQuerySuggestionsConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQuerySuggestionsConfigCommand}.
  */
 export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings of query suggestions for an index.</p>
  *          <p>Amazon Kendra supports partial updates, so you only need to provide
  *             the fields you want to update.</p>
@@ -55,6 +60,8 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQuerySuggestionsConfigCommandInput - {@link UpdateQuerySuggestionsConfigCommandInput}
+ * @returns {@link UpdateQuerySuggestionsConfigCommandOutput}
  * @see {@link UpdateQuerySuggestionsConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateQuerySuggestionsConfigCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateQuerySuggestionsConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQuerySuggestionsConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateQuerySuggestionsConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQuerySuggestionsConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateQuerySuggestionsConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

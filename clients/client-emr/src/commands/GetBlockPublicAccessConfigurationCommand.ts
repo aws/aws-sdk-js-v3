@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBlockPublicAccessConfigurationCommand}.
  */
 export interface GetBlockPublicAccessConfigurationCommandInput extends GetBlockPublicAccessConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBlockPublicAccessConfigurationCommand}.
  */
 export interface GetBlockPublicAccessConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
  *             Public Access for Amazon EMR</a> in the <i>Amazon EMR
  *             Management Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBlockPublicAccessConfigurationCommandInput - {@link GetBlockPublicAccessConfigurationCommandInput}
+ * @returns {@link GetBlockPublicAccessConfigurationCommandOutput}
  * @see {@link GetBlockPublicAccessConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBlockPublicAccessConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBlockPublicAccessConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     return serializeAws_json1_1GetBlockPublicAccessConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

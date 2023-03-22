@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetHistoryCommand}.
  */
 export interface DescribeFleetHistoryCommandInput extends DescribeFleetHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetHistoryCommand}.
  */
 export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the events for the specified EC2 Fleet during the specified time.</p>
  *          <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
  *          that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
@@ -51,6 +56,8 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetHistoryCommandInput - {@link DescribeFleetHistoryCommandInput}
+ * @returns {@link DescribeFleetHistoryCommandOutput}
  * @see {@link DescribeFleetHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeFleetHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeFleetHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFleetHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetHistoryCommandOutput> {
     return deserializeAws_ec2DescribeFleetHistoryCommand(output, context);
   }

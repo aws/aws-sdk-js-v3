@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVerifiedAccessInstanceCommand}.
  */
 export interface CreateVerifiedAccessInstanceCommandInput extends CreateVerifiedAccessInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVerifiedAccessInstanceCommand}.
  */
 export interface CreateVerifiedAccessInstanceCommandOutput
@@ -37,6 +41,7 @@ export interface CreateVerifiedAccessInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants
  *          access only when your security requirements are met.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateVerifiedAccessInstanceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVerifiedAccessInstanceCommandInput - {@link CreateVerifiedAccessInstanceCommandInput}
+ * @returns {@link CreateVerifiedAccessInstanceCommandOutput}
  * @see {@link CreateVerifiedAccessInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateVerifiedAccessInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVerifiedAccessInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateVerifiedAccessInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVerifiedAccessInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVerifiedAccessInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWarmPoolCommand}.
  */
 export interface DescribeWarmPoolCommandInput extends DescribeWarmPoolType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWarmPoolCommand}.
  */
 export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a warm pool and its instances.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWarmPoolCommandInput - {@link DescribeWarmPoolCommandInput}
+ * @returns {@link DescribeWarmPoolCommandOutput}
  * @see {@link DescribeWarmPoolCommandInput} for command's `input` shape.
  * @see {@link DescribeWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeWarmPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWarmPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeWarmPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeWarmPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWarmPoolCommandOutput> {
     return deserializeAws_queryDescribeWarmPoolCommand(output, context);
   }

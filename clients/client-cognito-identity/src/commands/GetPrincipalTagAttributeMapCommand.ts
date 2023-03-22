@@ -27,10 +27,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPrincipalTagAttributeMapCommand}.
  */
 export interface GetPrincipalTagAttributeMapCommandInput extends GetPrincipalTagAttributeMapInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPrincipalTagAttributeMapCommand}.
  */
 export interface GetPrincipalTagAttributeMapCommandOutput
@@ -38,6 +42,7 @@ export interface GetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetPrincipalTagAttributeMapCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPrincipalTagAttributeMapCommandInput - {@link GetPrincipalTagAttributeMapCommandInput}
+ * @returns {@link GetPrincipalTagAttributeMapCommandOutput}
  * @see {@link GetPrincipalTagAttributeMapCommandInput} for command's `input` shape.
  * @see {@link GetPrincipalTagAttributeMapCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetPrincipalTagAttributeMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPrincipalTagAttributeMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetPrincipalTagAttributeMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPrincipalTagAttributeMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPrincipalTagAttributeMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

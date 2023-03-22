@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupVersionCommand}.
  */
 export interface CreateGroupVersionCommandInput extends CreateGroupVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupVersionCommand}.
  */
 export interface CreateGroupVersionCommandOutput extends CreateGroupVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a group which has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupVersionCommandInput - {@link CreateGroupVersionCommandInput}
+ * @returns {@link CreateGroupVersionCommandOutput}
  * @see {@link CreateGroupVersionCommandInput} for command's `input` shape.
  * @see {@link CreateGroupVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateGroupVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateGroupVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGroupVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupVersionCommandOutput> {
     return deserializeAws_restJson1CreateGroupVersionCommand(output, context);
   }

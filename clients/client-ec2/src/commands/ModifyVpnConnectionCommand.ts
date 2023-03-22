@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpnConnectionCommand}.
  */
 export interface ModifyVpnConnectionCommandInput extends ModifyVpnConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpnConnectionCommand}.
  */
 export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To
  *             modify the target gateway, the following migration options are available:</p>
  *          <ul>
@@ -81,6 +86,8 @@ export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpnConnectionCommandInput - {@link ModifyVpnConnectionCommandInput}
+ * @returns {@link ModifyVpnConnectionCommandOutput}
  * @see {@link ModifyVpnConnectionCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -104,6 +111,9 @@ export class ModifyVpnConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpnConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ModifyVpnConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpnConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpnConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpnConnectionCommandOutput> {
     return deserializeAws_ec2ModifyVpnConnectionCommand(output, context);
   }

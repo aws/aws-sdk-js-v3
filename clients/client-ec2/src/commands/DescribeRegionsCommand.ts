@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DescribeRegionsCommand, serializeAws_ec2DescribeRegionsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRegionsCommand}.
  */
 export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRegionsCommand}.
  */
 export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Regions that are enabled for your account, or all Regions.</p>
  *          <p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html">
  *        Amazon Elastic Compute Cloud endpoints and quotas</a>.</p>
@@ -46,6 +51,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegionsCommandInput - {@link DescribeRegionsCommandInput}
+ * @returns {@link DescribeRegionsCommandOutput}
  * @see {@link DescribeRegionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -128,6 +135,9 @@ export class DescribeRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class DescribeRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionsCommandOutput> {
     return deserializeAws_ec2DescribeRegionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProgressUpdateStreamCommand}.
  */
 export interface CreateProgressUpdateStreamCommandInput extends CreateProgressUpdateStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProgressUpdateStreamCommand}.
  */
 export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressUpdateStreamResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a progress update stream which is an AWS resource used for access control as
  *          well as a namespace for migration task names that is implicitly linked to your AWS account.
  *          It must uniquely identify the migration tool as it is used for all updates made by the
@@ -50,6 +55,8 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProgressUpdateStreamCommandInput - {@link CreateProgressUpdateStreamCommandInput}
+ * @returns {@link CreateProgressUpdateStreamCommandOutput}
  * @see {@link CreateProgressUpdateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateProgressUpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProgressUpdateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProgressUpdateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProgressUpdateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

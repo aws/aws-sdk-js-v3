@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourceConfigCommand}.
  */
 export interface PutResourceConfigCommandInput extends PutResourceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourceConfigCommand}.
  */
 export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records the configuration state for the resource provided in the request.
  *
  * 			The configuration state of a resource is represented in Config as Configuration Items.
@@ -50,6 +55,8 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourceConfigCommandInput - {@link PutResourceConfigCommandInput}
+ * @returns {@link PutResourceConfigCommandOutput}
  * @see {@link PutResourceConfigCommandInput} for command's `input` shape.
  * @see {@link PutResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -111,6 +118,9 @@ export class PutResourceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class PutResourceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutResourceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceConfigCommandOutput> {
     return deserializeAws_json1_1PutResourceConfigCommand(output, context);
   }

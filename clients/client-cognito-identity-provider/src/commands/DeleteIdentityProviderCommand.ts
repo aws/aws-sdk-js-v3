@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIdentityProviderCommand}.
  */
 export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIdentityProviderCommand}.
  */
 export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an IdP for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
+ * @returns {@link DeleteIdentityProviderCommandOutput}
  * @see {@link DeleteIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityProviderCommandOutput> {
     return deserializeAws_json1_1DeleteIdentityProviderCommand(output, context);
   }

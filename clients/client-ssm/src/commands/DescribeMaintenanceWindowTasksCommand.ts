@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowTasksCommand}.
  */
 export interface DescribeMaintenanceWindowTasksCommandInput extends DescribeMaintenanceWindowTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowTasksCommand}.
  */
 export interface DescribeMaintenanceWindowTasksCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tasks in a maintenance window.</p>
  *          <note>
  *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -54,6 +59,8 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowTasksCommandInput - {@link DescribeMaintenanceWindowTasksCommandInput}
+ * @returns {@link DescribeMaintenanceWindowTasksCommandOutput}
  * @see {@link DescribeMaintenanceWindowTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowTasksCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowTasksCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command<
     return serializeAws_json1_1DescribeMaintenanceWindowTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

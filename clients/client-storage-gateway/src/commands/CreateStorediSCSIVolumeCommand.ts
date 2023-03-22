@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStorediSCSIVolumeCommand}.
  */
 export interface CreateStorediSCSIVolumeCommandInput extends CreateStorediSCSIVolumeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStorediSCSIVolumeCommand}.
  */
 export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a volume on a specified gateway. This operation is only supported in the stored
  *          volume gateway type.</p>
  *
@@ -57,6 +62,8 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStorediSCSIVolumeCommandInput - {@link CreateStorediSCSIVolumeCommandInput}
+ * @returns {@link CreateStorediSCSIVolumeCommandOutput}
  * @see {@link CreateStorediSCSIVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateStorediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -111,6 +118,9 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStorediSCSIVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStorediSCSIVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStorediSCSIVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStorediSCSIVolumeCommandOutput> {
     return deserializeAws_json1_1CreateStorediSCSIVolumeCommand(output, context);
   }

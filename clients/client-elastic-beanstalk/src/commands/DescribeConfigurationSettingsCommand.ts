@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationSettingsCommand}.
  */
 export interface DescribeConfigurationSettingsCommandInput extends DescribeConfigurationSettingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationSettingsCommand}.
  */
 export interface DescribeConfigurationSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeConfigurationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the settings for the specified configuration set, that is,
  *       either a configuration template or the configuration set associated with a running
  *       environment.</p>
@@ -62,6 +67,8 @@ export interface DescribeConfigurationSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationSettingsCommandInput - {@link DescribeConfigurationSettingsCommandInput}
+ * @returns {@link DescribeConfigurationSettingsCommandOutput}
  * @see {@link DescribeConfigurationSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -141,6 +148,9 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeConfigurationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

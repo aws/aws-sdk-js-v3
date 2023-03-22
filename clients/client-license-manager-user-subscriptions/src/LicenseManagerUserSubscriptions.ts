@@ -59,11 +59,13 @@ import {
 import { LicenseManagerUserSubscriptionsClient } from "./LicenseManagerUserSubscriptionsClient";
 
 /**
+ * @public
  * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with
  *       a per user subscription fee on Amazon EC2 instances.</p>
  */
 export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscriptionsClient {
   /**
+   * @public
    * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>
    *          <note>
    *             <p>Your estimated bill for charges on the number of users and related costs will take 48
@@ -101,6 +103,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Deregisters the identity provider from providing user-based subscriptions.</p>
    */
   public deregisterIdentityProvider(
@@ -133,6 +136,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Disassociates the user from an EC2 instance providing user-based subscriptions.</p>
    */
   public disassociateUser(
@@ -165,6 +169,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Lists the identity providers for user-based subscriptions.</p>
    */
   public listIdentityProviders(
@@ -197,6 +202,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Lists the EC2 instances providing user-based subscriptions.</p>
    */
   public listInstances(
@@ -229,6 +235,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Lists the user-based subscription products available from an identity provider.</p>
    */
   public listProductSubscriptions(
@@ -261,6 +268,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Lists user associations for an identity provider.</p>
    */
   public listUserAssociations(
@@ -293,6 +301,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Registers an identity provider for user-based subscriptions.</p>
    */
   public registerIdentityProvider(
@@ -325,6 +334,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Starts a product subscription for a user with the specified identity provider.</p>
    *          <note>
    *             <p>Your estimated bill for charges on the number of users and related costs will take 48
@@ -362,6 +372,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Stops a product subscription for a user with the specified identity provider.</p>
    */
   public stopProductSubscription(
@@ -394,6 +405,7 @@ export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscript
   }
 
   /**
+   * @public
    * <p>Updates additional product configuration settings for the registered identity
    *       provider.</p>
    */

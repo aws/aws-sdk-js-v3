@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccessCommand}.
  */
 export interface DescribeAccessCommandInput extends DescribeAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccessCommand}.
  */
 export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
  *       server, as identified by its <code>ServerId</code> property and its
  *       <code>ExternalId</code>.</p>
@@ -50,6 +55,8 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccessCommandInput - {@link DescribeAccessCommandInput}
+ * @returns {@link DescribeAccessCommandOutput}
  * @see {@link DescribeAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessCommandOutput> {
     return deserializeAws_json1_1DescribeAccessCommand(output, context);
   }

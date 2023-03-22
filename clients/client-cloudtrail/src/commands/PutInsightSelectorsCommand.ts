@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutInsightSelectorsCommand}.
  */
 export interface PutInsightSelectorsCommandInput extends PutInsightSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutInsightSelectorsCommand}.
  */
 export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
  *          want to enable on an existing trail. You also use <code>PutInsightSelectors</code> to turn
  *          off Insights event logging, by passing an empty list of insight types. The valid Insights
@@ -50,6 +55,8 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInsightSelectorsCommandInput - {@link PutInsightSelectorsCommandInput}
+ * @returns {@link PutInsightSelectorsCommandOutput}
  * @see {@link PutInsightSelectorsCommandInput} for command's `input` shape.
  * @see {@link PutInsightSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -152,6 +159,9 @@ export class PutInsightSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInsightSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,10 +201,16 @@ export class PutInsightSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInsightSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutInsightSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInsightSelectorsCommandOutput> {
     return deserializeAws_json1_1PutInsightSelectorsCommand(output, context);
   }

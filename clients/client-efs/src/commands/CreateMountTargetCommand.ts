@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMountTargetCommand}.
  */
 export interface CreateMountTargetCommandInput extends CreateMountTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMountTargetCommand}.
  */
 export interface CreateMountTargetCommandOutput extends MountTargetDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a mount target for a file system. You can then mount the file system on EC2
  *       instances by using the mount target.</p>
  *          <p>You can create one mount target in each Availability Zone in your VPC. All EC2
@@ -185,6 +190,8 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMountTargetCommandInput - {@link CreateMountTargetCommandInput}
+ * @returns {@link CreateMountTargetCommandOutput}
  * @see {@link CreateMountTargetCommandInput} for command's `input` shape.
  * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -285,6 +292,9 @@ export class CreateMountTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMountTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -324,10 +334,16 @@ export class CreateMountTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMountTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMountTargetCommandOutput> {
     return deserializeAws_restJson1CreateMountTargetCommand(output, context);
   }

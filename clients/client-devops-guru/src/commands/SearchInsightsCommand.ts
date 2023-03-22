@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchInsightsCommand}.
  */
 export interface SearchInsightsCommandInput extends SearchInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchInsightsCommand}.
  */
 export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
  * 			returned by their start time, one or more statuses (<code>ONGOING</code> or <code>CLOSED</code>), one or more severities
  * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
@@ -52,6 +57,8 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchInsightsCommandInput - {@link SearchInsightsCommandInput}
+ * @returns {@link SearchInsightsCommandOutput}
  * @see {@link SearchInsightsCommandInput} for command's `input` shape.
  * @see {@link SearchInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -91,6 +98,9 @@ export class SearchInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class SearchInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchInsightsCommandOutput> {
     return deserializeAws_restJson1SearchInsightsCommand(output, context);
   }

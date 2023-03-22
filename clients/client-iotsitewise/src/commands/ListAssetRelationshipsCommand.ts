@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetRelationshipsCommand}.
  */
 export interface ListAssetRelationshipsCommandInput extends ListAssetRelationshipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetRelationshipsCommand}.
  */
 export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationshipsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
  *       to identify an asset's root asset and all associated assets between that asset and its
  *       root.</p>
@@ -48,6 +53,8 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetRelationshipsCommandInput - {@link ListAssetRelationshipsCommandInput}
+ * @returns {@link ListAssetRelationshipsCommandOutput}
  * @see {@link ListAssetRelationshipsCommandInput} for command's `input` shape.
  * @see {@link ListAssetRelationshipsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListAssetRelationshipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetRelationshipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListAssetRelationshipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetRelationshipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssetRelationshipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetRelationshipsCommandOutput> {
     return deserializeAws_restJson1ListAssetRelationshipsCommand(output, context);
   }

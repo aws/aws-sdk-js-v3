@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
 export interface ListServiceActionsForProvisioningArtifactCommandInput
   extends ListServiceActionsForProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
 export interface ListServiceActionsForProvisioningArtifactCommandOutput
@@ -38,6 +42,7 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceActionsForProvisioningArtifactCommandInput - {@link ListServiceActionsForProvisioningArtifactCommandInput}
+ * @returns {@link ListServiceActionsForProvisioningArtifactCommandOutput}
  * @see {@link ListServiceActionsForProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link ListServiceActionsForProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceActionsForProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServiceActionsForProvisioningArtifactCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     return serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

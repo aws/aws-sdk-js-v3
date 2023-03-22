@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubnetGroupCommand}.
  */
 export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubnetGroupCommand}.
  */
 export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.
  *
  *          When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes.
@@ -49,6 +54,8 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubnetGroupCommandInput - {@link CreateSubnetGroupCommandInput}
+ * @returns {@link CreateSubnetGroupCommandOutput}
  * @see {@link CreateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubnetGroupCommandOutput> {
     return deserializeAws_json1_1CreateSubnetGroupCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteAttachmentUploadCommand}.
  */
 export interface CompleteAttachmentUploadCommandInput extends CompleteAttachmentUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link CompleteAttachmentUploadCommand}.
  */
 export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmentUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
  *             provided in StartAttachmentUpload API. </p>
  *          <note>
@@ -58,6 +63,8 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteAttachmentUploadCommandInput - {@link CompleteAttachmentUploadCommandInput}
+ * @returns {@link CompleteAttachmentUploadCommandOutput}
  * @see {@link CompleteAttachmentUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteAttachmentUploadCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -99,6 +106,9 @@ export class CompleteAttachmentUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteAttachmentUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CompleteAttachmentUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteAttachmentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CompleteAttachmentUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteAttachmentUploadCommandOutput> {
     return deserializeAws_restJson1CompleteAttachmentUploadCommand(output, context);
   }

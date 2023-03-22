@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayConnectCommand}.
  */
 export interface CreateTransitGatewayConnectCommandInput extends CreateTransitGatewayConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayConnectCommand}.
  */
 export interface CreateTransitGatewayConnectCommandOutput extends CreateTransitGatewayConnectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
  *          <p>A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateTransitGatewayConnectCommandOutput extends CreateTransitG
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayConnectCommandInput - {@link CreateTransitGatewayConnectCommandInput}
+ * @returns {@link CreateTransitGatewayConnectCommandOutput}
  * @see {@link CreateTransitGatewayConnectCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayConnectCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class CreateTransitGatewayConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class CreateTransitGatewayConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransitGatewayConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTransitGatewayConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelCommand}.
  */
 export interface GetModelCommandInput extends GetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelCommand}.
  */
 export interface GetModelCommandOutput extends Model, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing model defined for a RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface GetModelCommandOutput extends Model, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelCommandInput - {@link GetModelCommandInput}
+ * @returns {@link GetModelCommandOutput}
  * @see {@link GetModelCommandInput} for command's `input` shape.
  * @see {@link GetModelCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelCommandOutput> {
     return deserializeAws_restJson1GetModelCommand(output, context);
   }

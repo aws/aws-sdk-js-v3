@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUseCaseCommand}.
  */
 export interface CreateUseCaseCommandInput extends CreateUseCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUseCaseCommand}.
  */
 export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a use case for an integration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUseCaseCommandInput - {@link CreateUseCaseCommandInput}
+ * @returns {@link CreateUseCaseCommandOutput}
  * @see {@link CreateUseCaseCommandInput} for command's `input` shape.
  * @see {@link CreateUseCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateUseCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUseCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateUseCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUseCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateUseCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUseCaseCommandOutput> {
     return deserializeAws_restJson1CreateUseCaseCommand(output, context);
   }

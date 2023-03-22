@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAffectedEntitiesCommand}.
  */
 export interface DescribeAffectedEntitiesCommandInput extends DescribeAffectedEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAffectedEntitiesCommand}.
  */
 export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of entities that have been affected by the specified events, based on the
  *          specified filter criteria. Entities can refer to individual customer resources, groups of
  *          customer resources, or any other construct, depending on the Amazon Web Services service. Events that
@@ -63,6 +68,8 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAffectedEntitiesCommandInput - {@link DescribeAffectedEntitiesCommandInput}
+ * @returns {@link DescribeAffectedEntitiesCommandOutput}
  * @see {@link DescribeAffectedEntitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedEntitiesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAffectedEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAffectedEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAffectedEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAffectedEntitiesCommandOutput> {
     return deserializeAws_json1_1DescribeAffectedEntitiesCommand(output, context);
   }

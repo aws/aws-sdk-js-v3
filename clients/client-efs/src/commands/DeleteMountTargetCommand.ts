@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMountTargetCommand}.
  */
 export interface DeleteMountTargetCommandInput extends DeleteMountTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMountTargetCommand}.
  */
 export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified mount target.</p>
  *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
  *       that is being deleted, which might disrupt instances or applications using those mounts. To
@@ -71,6 +76,8 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMountTargetCommandInput - {@link DeleteMountTargetCommandInput}
+ * @returns {@link DeleteMountTargetCommandOutput}
  * @see {@link DeleteMountTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -120,6 +127,9 @@ export class DeleteMountTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMountTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class DeleteMountTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMountTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMountTargetCommandOutput> {
     return deserializeAws_restJson1DeleteMountTargetCommand(output, context);
   }

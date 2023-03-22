@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUsageReportSubscriptionCommand}.
  */
 export interface DeleteUsageReportSubscriptionCommandInput extends DeleteUsageReportSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUsageReportSubscriptionCommand}.
  */
 export interface DeleteUsageReportSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteUsageReportSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables usage report generation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsageReportSubscriptionCommandInput - {@link DeleteUsageReportSubscriptionCommandInput}
+ * @returns {@link DeleteUsageReportSubscriptionCommandOutput}
  * @see {@link DeleteUsageReportSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageReportSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsageReportSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsageReportSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUsageReportSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

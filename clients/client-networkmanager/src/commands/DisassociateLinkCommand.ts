@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateLinkCommand}.
  */
 export interface DisassociateLinkCommandInput extends DisassociateLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateLinkCommand}.
  */
 export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an existing device from a link. You must first disassociate any customer
  *             gateways that are associated with the link.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLinkCommandInput - {@link DisassociateLinkCommandInput}
+ * @returns {@link DisassociateLinkCommandOutput}
  * @see {@link DisassociateLinkCommandInput} for command's `input` shape.
  * @see {@link DisassociateLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisassociateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DisassociateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLinkCommandOutput> {
     return deserializeAws_restJson1DisassociateLinkCommand(output, context);
   }

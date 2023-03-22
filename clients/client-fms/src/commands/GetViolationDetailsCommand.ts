@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetViolationDetailsCommand}.
  */
 export interface GetViolationDetailsCommandInput extends GetViolationDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetViolationDetailsCommand}.
  */
 export interface GetViolationDetailsCommandOutput extends GetViolationDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetViolationDetailsCommandInput - {@link GetViolationDetailsCommandInput}
+ * @returns {@link GetViolationDetailsCommandOutput}
  * @see {@link GetViolationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetViolationDetailsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetViolationDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetViolationDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetViolationDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetViolationDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetViolationDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetViolationDetailsCommandOutput> {
     return deserializeAws_json1_1GetViolationDetailsCommand(output, context);
   }

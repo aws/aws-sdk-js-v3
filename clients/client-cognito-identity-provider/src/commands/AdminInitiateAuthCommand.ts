@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminInitiateAuthCommand}.
  */
 export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminInitiateAuthCommand}.
  */
 export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the authentication flow, as an administrator.</p>
  *
  *          <note>
@@ -71,6 +76,8 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminInitiateAuthCommandInput - {@link AdminInitiateAuthCommandInput}
+ * @returns {@link AdminInitiateAuthCommandOutput}
  * @see {@link AdminInitiateAuthCommandInput} for command's `input` shape.
  * @see {@link AdminInitiateAuthCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -149,6 +156,9 @@ export class AdminInitiateAuthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminInitiateAuthCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class AdminInitiateAuthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminInitiateAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminInitiateAuthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminInitiateAuthCommandOutput> {
     return deserializeAws_json1_1AdminInitiateAuthCommand(output, context);
   }

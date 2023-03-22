@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVerifiedAccessEndpointsCommand}.
  */
 export interface DescribeVerifiedAccessEndpointsCommandInput extends DescribeVerifiedAccessEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVerifiedAccessEndpointsCommand}.
  */
 export interface DescribeVerifiedAccessEndpointsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe Amazon Web Services Verified Access endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVerifiedAccessEndpointsCommandInput - {@link DescribeVerifiedAccessEndpointsCommandInput}
+ * @returns {@link DescribeVerifiedAccessEndpointsCommandOutput}
  * @see {@link DescribeVerifiedAccessEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVerifiedAccessEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVerifiedAccessEndpointsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command<
     return serializeAws_ec2DescribeVerifiedAccessEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

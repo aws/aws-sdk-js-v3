@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PostCommentForComparedCommitCommand}.
  */
 export interface PostCommentForComparedCommitCommandInput extends PostCommentForComparedCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link PostCommentForComparedCommitCommand}.
  */
 export interface PostCommentForComparedCommitCommandOutput
@@ -37,6 +41,7 @@ export interface PostCommentForComparedCommitCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Posts a comment on the comparison between two commits.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PostCommentForComparedCommitCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PostCommentForComparedCommitCommandInput - {@link PostCommentForComparedCommitCommandInput}
+ * @returns {@link PostCommentForComparedCommitCommandOutput}
  * @see {@link PostCommentForComparedCommitCommandInput} for command's `input` shape.
  * @see {@link PostCommentForComparedCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -152,6 +159,9 @@ export class PostCommentForComparedCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostCommentForComparedCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,10 +201,16 @@ export class PostCommentForComparedCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostCommentForComparedCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PostCommentForComparedCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSourceRepositoryBranchCommand}.
  */
 export interface CreateSourceRepositoryBranchCommandInput extends CreateSourceRepositoryBranchRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSourceRepositoryBranchCommand}.
  */
 export interface CreateSourceRepositoryBranchCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSourceRepositoryBranchCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a branch in a specified source repository in Amazon CodeCatalyst. </p>
  *          <note>
  *             <p>This API only creates a branch in a source repository hosted in Amazon CodeCatalyst. You cannot use this API to create a branch in a linked repository.</p>
@@ -51,6 +56,8 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSourceRepositoryBranchCommandInput - {@link CreateSourceRepositoryBranchCommandInput}
+ * @returns {@link CreateSourceRepositoryBranchCommandOutput}
  * @see {@link CreateSourceRepositoryBranchCommandInput} for command's `input` shape.
  * @see {@link CreateSourceRepositoryBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSourceRepositoryBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateSourceRepositoryBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSourceRepositoryBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSourceRepositoryBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

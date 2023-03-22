@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDetectorVersionMetadataCommand}.
  */
 export interface UpdateDetectorVersionMetadataCommandInput extends UpdateDetectorVersionMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDetectorVersionMetadataCommand}.
  */
 export interface UpdateDetectorVersionMetadataCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDetectorVersionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
  *                 <code>INACTIVE</code>). </p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorVersionMetadataCommandInput - {@link UpdateDetectorVersionMetadataCommandInput}
+ * @returns {@link UpdateDetectorVersionMetadataCommandOutput}
  * @see {@link UpdateDetectorVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDetectorVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

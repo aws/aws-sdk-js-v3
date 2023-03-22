@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePackagingGroupCommand}.
  */
 export interface DeletePackagingGroupCommandInput extends DeletePackagingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePackagingGroupCommand}.
  */
 export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a MediaPackage VOD PackagingGroup resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePackagingGroupCommandInput - {@link DeletePackagingGroupCommandInput}
+ * @returns {@link DeletePackagingGroupCommandOutput}
  * @see {@link DeletePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeletePackagingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePackagingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeletePackagingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePackagingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePackagingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackagingGroupCommandOutput> {
     return deserializeAws_restJson1DeletePackagingGroupCommand(output, context);
   }

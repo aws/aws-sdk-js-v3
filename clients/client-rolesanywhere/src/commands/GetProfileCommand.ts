@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetProfileCommand}.
  */
 export interface GetProfileCommandInput extends ScalarProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProfileCommand}.
  */
 export interface GetProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a profile.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileCommandInput - {@link GetProfileCommandInput}
+ * @returns {@link GetProfileCommandOutput}
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
     return deserializeAws_restJson1GetProfileCommand(output, context);
   }

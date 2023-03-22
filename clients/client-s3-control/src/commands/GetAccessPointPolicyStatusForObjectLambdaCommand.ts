@@ -27,11 +27,15 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
  */
 export interface GetAccessPointPolicyStatusForObjectLambdaCommandInput
   extends GetAccessPointPolicyStatusForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
  */
 export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
@@ -39,6 +43,7 @@ export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the status of the resource policy associated with an Object Lambda Access Point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointPolicyStatusForObjectLambdaCommandInput - {@link GetAccessPointPolicyStatusForObjectLambdaCommandInput}
+ * @returns {@link GetAccessPointPolicyStatusForObjectLambdaCommandOutput}
  * @see {@link GetAccessPointPolicyStatusForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyStatusForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointPolicyStatusForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

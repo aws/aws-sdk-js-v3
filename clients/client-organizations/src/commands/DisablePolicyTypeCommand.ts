@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisablePolicyTypeCommand}.
  */
 export interface DisablePolicyTypeCommandInput extends DisablePolicyTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisablePolicyTypeCommand}.
  */
 export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables an organizational policy type in a root. A policy of a certain type can be
  *             attached to entities in a root only if that type is enabled in the root. After you
  *             perform this operation, you no longer can attach policies of the specified type to that
@@ -56,6 +61,8 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DisablePolicyTypeCommandInput - {@link DisablePolicyTypeCommandInput}
+ * @returns {@link DisablePolicyTypeCommandOutput}
  * @see {@link DisablePolicyTypeCommandInput} for command's `input` shape.
  * @see {@link DisablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -445,6 +452,9 @@ export class DisablePolicyTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisablePolicyTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -484,10 +494,16 @@ export class DisablePolicyTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisablePolicyTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisablePolicyTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisablePolicyTypeCommandOutput> {
     return deserializeAws_json1_1DisablePolicyTypeCommand(output, context);
   }

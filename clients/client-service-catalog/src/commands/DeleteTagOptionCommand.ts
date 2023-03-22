@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTagOptionCommand}.
  */
 export interface DeleteTagOptionCommandInput extends DeleteTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTagOptionCommand}.
  */
 export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified TagOption.</p>
  *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTagOptionCommandInput - {@link DeleteTagOptionCommandInput}
+ * @returns {@link DeleteTagOptionCommandOutput}
  * @see {@link DeleteTagOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagOptionCommandOutput> {
     return deserializeAws_json1_1DeleteTagOptionCommand(output, context);
   }

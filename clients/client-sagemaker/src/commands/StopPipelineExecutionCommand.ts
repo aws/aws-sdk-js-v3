@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopPipelineExecutionCommand}.
  */
 export interface StopPipelineExecutionCommandInput extends StopPipelineExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopPipelineExecutionCommand}.
  */
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a pipeline execution.</p>
  *          <p>
  *             <b>Callback Step</b>
@@ -68,6 +73,8 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPipelineExecutionCommandInput - {@link StopPipelineExecutionCommandInput}
+ * @returns {@link StopPipelineExecutionCommandOutput}
  * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -94,6 +101,9 @@ export class StopPipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class StopPipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopPipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipelineExecutionCommandOutput> {
     return deserializeAws_json1_1StopPipelineExecutionCommand(output, context);
   }

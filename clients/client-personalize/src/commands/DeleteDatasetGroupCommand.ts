@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetGroupCommand}.
  */
 export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetGroupCommand}.
  */
 export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dataset group. Before you delete a dataset group, you must
  *       delete the following:</p>
  *          <ul>
@@ -53,6 +58,8 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetGroupCommandInput - {@link DeleteDatasetGroupCommandInput}
+ * @returns {@link DeleteDatasetGroupCommandOutput}
  * @see {@link DeleteDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetGroupCommandOutput> {
     return deserializeAws_json1_1DeleteDatasetGroupCommand(output, context);
   }

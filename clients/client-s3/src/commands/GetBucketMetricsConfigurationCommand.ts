@@ -26,10 +26,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketMetricsConfigurationCommand}.
  */
 export interface GetBucketMetricsConfigurationCommandInput extends GetBucketMetricsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketMetricsConfigurationCommand}.
  */
 export interface GetBucketMetricsConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetBucketMetricsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a metrics configuration (specified by the metrics configuration ID) from the
  *          bucket. Note that this doesn't include the daily storage metrics.</p>
  *          <p> To use this operation, you must have permissions to perform the
@@ -81,6 +86,8 @@ export interface GetBucketMetricsConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketMetricsConfigurationCommandInput - {@link GetBucketMetricsConfigurationCommandInput}
+ * @returns {@link GetBucketMetricsConfigurationCommandOutput}
  * @see {@link GetBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -110,6 +117,9 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketMetricsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketMetricsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketMetricsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

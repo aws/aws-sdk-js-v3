@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeArchiveCommand}.
  */
 export interface DescribeArchiveCommandInput extends DescribeArchiveRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeArchiveCommand}.
  */
 export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about an archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeArchiveCommandInput - {@link DescribeArchiveCommandInput}
+ * @returns {@link DescribeArchiveCommandOutput}
  * @see {@link DescribeArchiveCommandInput} for command's `input` shape.
  * @see {@link DescribeArchiveCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeArchiveCommandOutput> {
     return deserializeAws_json1_1DescribeArchiveCommand(output, context);
   }

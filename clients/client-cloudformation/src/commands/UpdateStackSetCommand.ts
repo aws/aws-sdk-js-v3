@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStackSetCommand}.
  */
 export interface UpdateStackSetCommandInput extends UpdateStackSetInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStackSetCommand}.
  */
 export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the stack set, and associated stack instances in the specified accounts and
  *             Amazon Web Services Regions.</p>
  *          <p>Even if the stack set operation created by updating the stack set fails (completely or
@@ -51,6 +56,8 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStackSetCommandInput - {@link UpdateStackSetCommandInput}
+ * @returns {@link UpdateStackSetCommandOutput}
  * @see {@link UpdateStackSetCommandInput} for command's `input` shape.
  * @see {@link UpdateStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateStackSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStackSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateStackSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateStackSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackSetCommandOutput> {
     return deserializeAws_queryUpdateStackSetCommand(output, context);
   }

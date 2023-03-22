@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuitesCommand}.
  */
 export interface ListSuitesCommandInput extends ListSuitesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuitesCommand}.
  */
 export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about test suites for a given job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuitesCommandInput - {@link ListSuitesCommandInput}
+ * @returns {@link ListSuitesCommandOutput}
  * @see {@link ListSuitesCommandInput} for command's `input` shape.
  * @see {@link ListSuitesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListSuitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListSuitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSuitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSuitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSuitesCommandOutput> {
     return deserializeAws_json1_1ListSuitesCommand(output, context);
   }

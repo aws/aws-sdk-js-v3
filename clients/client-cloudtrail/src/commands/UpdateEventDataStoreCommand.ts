@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventDataStoreCommand}.
  */
 export interface UpdateEventDataStoreCommandInput extends UpdateEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventDataStoreCommand}.
  */
 export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
  *          the ID portion of the ARN. Other parameters are optional, but at least one optional
  *          parameter must be specified, or CloudTrail throws an error.
@@ -56,6 +61,8 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventDataStoreCommandInput - {@link UpdateEventDataStoreCommandInput}
+ * @returns {@link UpdateEventDataStoreCommandOutput}
  * @see {@link UpdateEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -175,6 +182,9 @@ export class UpdateEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -214,10 +224,16 @@ export class UpdateEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventDataStoreCommandOutput> {
     return deserializeAws_json1_1UpdateEventDataStoreCommand(output, context);
   }

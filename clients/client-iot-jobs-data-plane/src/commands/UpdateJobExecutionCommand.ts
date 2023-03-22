@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobExecutionCommand}.
  */
 export interface UpdateJobExecutionCommandInput extends UpdateJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobExecutionCommand}.
  */
 export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobExecutionCommandInput - {@link UpdateJobExecutionCommandInput}
+ * @returns {@link UpdateJobExecutionCommandOutput}
  * @see {@link UpdateJobExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdateJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobExecutionCommandOutput> {
     return deserializeAws_restJson1UpdateJobExecutionCommand(output, context);
   }

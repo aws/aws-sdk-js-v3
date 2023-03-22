@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendActivationCodeCommand}.
  */
 export interface SendActivationCodeCommandInput extends SendActivationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendActivationCodeCommand}.
  */
 export interface SendActivationCodeCommandOutput extends SendActivationCodeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an activation code to a contact channel. The contact can use this code to activate
  *          the contact channel in the console or with the <code>ActivateChannel</code> operation.
  *          Incident Manager can't engage a contact channel until it has been activated.</p>
@@ -48,6 +53,8 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * const response = await client.send(command);
  * ```
  *
+ * @param SendActivationCodeCommandInput - {@link SendActivationCodeCommandInput}
+ * @returns {@link SendActivationCodeCommandOutput}
  * @see {@link SendActivationCodeCommandInput} for command's `input` shape.
  * @see {@link SendActivationCodeCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -105,6 +112,9 @@ export class SendActivationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendActivationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class SendActivationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendActivationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendActivationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendActivationCodeCommandOutput> {
     return deserializeAws_json1_1SendActivationCodeCommand(output, context);
   }

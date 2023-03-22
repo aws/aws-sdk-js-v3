@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLicenseManagerReportGeneratorCommand}.
  */
 export interface DeleteLicenseManagerReportGeneratorCommandInput extends DeleteLicenseManagerReportGeneratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLicenseManagerReportGeneratorCommand}.
  */
 export interface DeleteLicenseManagerReportGeneratorCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified report generator.</p>
  *          <p>This action deletes the report generator, which stops it from generating future reports.
  *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
@@ -50,6 +55,8 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLicenseManagerReportGeneratorCommandInput - {@link DeleteLicenseManagerReportGeneratorCommandInput}
+ * @returns {@link DeleteLicenseManagerReportGeneratorCommandOutput}
  * @see {@link DeleteLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLicenseManagerReportGeneratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
     return serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

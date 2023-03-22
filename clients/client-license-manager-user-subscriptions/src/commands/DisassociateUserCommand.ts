@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateUserCommand}.
  */
 export interface DisassociateUserCommandInput extends DisassociateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateUserCommand}.
  */
 export interface DisassociateUserCommandOutput extends DisassociateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the user from an EC2 instance providing user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateUserCommandInput - {@link DisassociateUserCommandInput}
+ * @returns {@link DisassociateUserCommandOutput}
  * @see {@link DisassociateUserCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +102,9 @@ export class DisassociateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DisassociateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateUserCommandOutput> {
     return deserializeAws_restJson1DisassociateUserCommand(output, context);
   }

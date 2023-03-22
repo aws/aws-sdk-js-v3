@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerAPIMetadataCommand}.
  */
 export interface GetContainerAPIMetadataCommandInput extends GetContainerAPIMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerAPIMetadataCommand}.
  */
 export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Amazon Lightsail containers, such as the current version of the
  *       Lightsail Control (lightsailctl) plugin.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerAPIMetadataCommandInput - {@link GetContainerAPIMetadataCommandInput}
+ * @returns {@link GetContainerAPIMetadataCommandOutput}
  * @see {@link GetContainerAPIMetadataCommandInput} for command's `input` shape.
  * @see {@link GetContainerAPIMetadataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetContainerAPIMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerAPIMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetContainerAPIMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerAPIMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContainerAPIMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerAPIMetadataCommandOutput> {
     return deserializeAws_json1_1GetContainerAPIMetadataCommand(output, context);
   }

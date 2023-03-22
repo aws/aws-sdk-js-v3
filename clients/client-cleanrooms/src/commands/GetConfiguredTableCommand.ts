@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfiguredTableCommand}.
  */
 export interface GetConfiguredTableCommandInput extends GetConfiguredTableInput {}
 /**
+ * @public
+ *
  * The output of {@link GetConfiguredTableCommand}.
  */
 export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfiguredTableCommandInput - {@link GetConfiguredTableCommandInput}
+ * @returns {@link GetConfiguredTableCommandOutput}
  * @see {@link GetConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link GetConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetConfiguredTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfiguredTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetConfiguredTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConfiguredTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfiguredTableCommandOutput> {
     return deserializeAws_restJson1GetConfiguredTableCommand(output, context);
   }

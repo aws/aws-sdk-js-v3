@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePermissionPolicyCommand}.
  */
 export interface DeletePermissionPolicyCommandInput extends DeletePermissionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePermissionPolicyCommand}.
  */
 export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -55,6 +60,8 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionPolicyCommandInput - {@link DeletePermissionPolicyCommandInput}
+ * @returns {@link DeletePermissionPolicyCommandOutput}
  * @see {@link DeletePermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeletePermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeletePermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionPolicyCommandOutput> {
     return deserializeAws_json1_1DeletePermissionPolicyCommand(output, context);
   }

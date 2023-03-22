@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOptOutListCommand}.
  */
 export interface CreateOptOutListCommandInput extends CreateOptOutListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOptOutListCommand}.
  */
 export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new opt-out list.</p>
  *         <p>If the opt-out list name already exists, an Error is returned.</p>
  *         <p>An opt-out list is a list of phone numbers that are opted out, meaning you can't send
@@ -58,6 +63,8 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOptOutListCommandInput - {@link CreateOptOutListCommandInput}
+ * @returns {@link CreateOptOutListCommandOutput}
  * @see {@link CreateOptOutListCommandInput} for command's `input` shape.
  * @see {@link CreateOptOutListCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -105,6 +112,9 @@ export class CreateOptOutListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOptOutListCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateOptOutListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOptOutListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateOptOutListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOptOutListCommandOutput> {
     return deserializeAws_json1_0CreateOptOutListCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServiceIntegrationCommand}.
  */
 export interface DescribeServiceIntegrationCommandInput extends DescribeServiceIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServiceIntegrationCommand}.
  */
 export interface DescribeServiceIntegrationCommandOutput extends DescribeServiceIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the integration status of services that are integrated with DevOps Guru.
  * 			The one service that can be integrated with DevOps Guru
  *       	is Amazon Web Services Systems Manager, which can be used to create an OpsItem for each generated insight. </p>
@@ -48,6 +53,8 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServiceIntegrationCommandInput - {@link DescribeServiceIntegrationCommandInput}
+ * @returns {@link DescribeServiceIntegrationCommandOutput}
  * @see {@link DescribeServiceIntegrationCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceIntegrationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeServiceIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeServiceIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServiceIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeServiceIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainConfigurationCommand}.
  */
 export interface UpdateDomainConfigurationCommandInput extends UpdateDomainConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainConfigurationCommand}.
  */
 export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates values stored in the domain configuration. Domain configurations for default
  *          endpoints can't be updated.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDomainConfiguration</a> action.</p>
@@ -48,6 +53,8 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainConfigurationCommandInput - {@link UpdateDomainConfigurationCommandInput}
+ * @returns {@link UpdateDomainConfigurationCommandOutput}
  * @see {@link UpdateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateDomainConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateDomainConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDomainConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

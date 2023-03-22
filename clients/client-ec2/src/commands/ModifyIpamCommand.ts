@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ModifyIpamCommand, serializeAws_ec2ModifyIpamCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIpamCommand}.
  */
 export interface ModifyIpamCommandInput extends ModifyIpamRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIpamCommand}.
  */
 export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the configurations of an IPAM.
  *       </p>
  * @example
@@ -44,6 +49,8 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIpamCommandInput - {@link ModifyIpamCommandInput}
+ * @returns {@link ModifyIpamCommandOutput}
  * @see {@link ModifyIpamCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -67,6 +74,9 @@ export class ModifyIpamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIpamCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,10 +114,16 @@ export class ModifyIpamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIpamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyIpamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIpamCommandOutput> {
     return deserializeAws_ec2ModifyIpamCommand(output, context);
   }

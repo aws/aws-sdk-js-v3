@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PeerVpcCommand, serializeAws_json1_1PeerVpcCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PeerVpcCommand}.
  */
 export interface PeerVpcCommandInput extends PeerVpcRequest {}
 /**
+ * @public
+ *
  * The output of {@link PeerVpcCommand}.
  */
 export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Peers the Lightsail VPC with the user's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PeerVpcCommandInput - {@link PeerVpcCommandInput}
+ * @returns {@link PeerVpcCommandOutput}
  * @see {@link PeerVpcCommandInput} for command's `input` shape.
  * @see {@link PeerVpcCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -92,6 +99,9 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PeerVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PeerVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PeerVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PeerVpcCommandOutput> {
     return deserializeAws_json1_1PeerVpcCommand(output, context);
   }

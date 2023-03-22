@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceSnapshotCommand}.
  */
 export interface DeleteInstanceSnapshotCommandInput extends DeleteInstanceSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceSnapshotCommand}.
  */
 export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific snapshot of a virtual private server (or
  *       <i>instance</i>).</p>
  *          <p>The <code>delete instance snapshot</code> operation supports tag-based access control via
@@ -50,6 +55,8 @@ export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnaps
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceSnapshotCommandInput - {@link DeleteInstanceSnapshotCommandInput}
+ * @returns {@link DeleteInstanceSnapshotCommandOutput}
  * @see {@link DeleteInstanceSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class DeleteInstanceSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class DeleteInstanceSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInstanceSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceSnapshotCommandOutput> {
     return deserializeAws_json1_1DeleteInstanceSnapshotCommand(output, context);
   }

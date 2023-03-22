@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRootFoldersCommand}.
  */
 export interface DescribeRootFoldersCommandInput extends DescribeRootFoldersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRootFoldersCommand}.
  */
 export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current user's special folders; the <code>RootFolder</code> and the
  *                 <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and
  *             folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid
@@ -54,6 +59,8 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRootFoldersCommandInput - {@link DescribeRootFoldersCommandInput}
+ * @returns {@link DescribeRootFoldersCommandOutput}
  * @see {@link DescribeRootFoldersCommandInput} for command's `input` shape.
  * @see {@link DescribeRootFoldersCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeRootFoldersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRootFoldersCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeRootFoldersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRootFoldersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRootFoldersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRootFoldersCommandOutput> {
     return deserializeAws_restJson1DescribeRootFoldersCommand(output, context);
   }

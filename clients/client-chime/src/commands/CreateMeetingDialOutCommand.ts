@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMeetingDialOutCommand}.
  */
 export interface CreateMeetingDialOutCommandInput extends CreateMeetingDialOutRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMeetingDialOutCommand}.
  */
 export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a public
  *     switched telephone network (PSTN) and join them into a Chime meeting. Also ensures that the From number belongs to the customer.</p>
  *
@@ -50,6 +55,8 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeetingDialOutCommandInput - {@link CreateMeetingDialOutCommandInput}
+ * @returns {@link CreateMeetingDialOutCommandOutput}
  * @see {@link CreateMeetingDialOutCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingDialOutCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateMeetingDialOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeetingDialOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateMeetingDialOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeetingDialOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMeetingDialOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingDialOutCommandOutput> {
     return deserializeAws_restJson1CreateMeetingDialOutCommand(output, context);
   }

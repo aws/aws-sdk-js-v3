@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageBuildersCommand}.
  */
 export interface DescribeImageBuildersCommandInput extends DescribeImageBuildersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageBuildersCommand}.
  */
 export interface DescribeImageBuildersCommandOutput extends DescribeImageBuildersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageBuildersCommandInput - {@link DescribeImageBuildersCommandInput}
+ * @returns {@link DescribeImageBuildersCommandOutput}
  * @see {@link DescribeImageBuildersCommandInput} for command's `input` shape.
  * @see {@link DescribeImageBuildersCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeImageBuildersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageBuildersCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeImageBuildersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageBuildersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImageBuildersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageBuildersCommandOutput> {
     return deserializeAws_json1_1DescribeImageBuildersCommand(output, context);
   }

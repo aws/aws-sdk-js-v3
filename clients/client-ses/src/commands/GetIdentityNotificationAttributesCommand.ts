@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityNotificationAttributesCommand}.
  */
 export interface GetIdentityNotificationAttributesCommandInput extends GetIdentityNotificationAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityNotificationAttributesCommand}.
  */
 export interface GetIdentityNotificationAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface GetIdentityNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a list of verified identities (email addresses and/or domains), returns a
  *             structure describing identity notification attributes.</p>
  *         <p>This operation is throttled at one request per second and can only get notification
@@ -53,6 +58,8 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityNotificationAttributesCommandInput - {@link GetIdentityNotificationAttributesCommandInput}
+ * @returns {@link GetIdentityNotificationAttributesCommandOutput}
  * @see {@link GetIdentityNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityNotificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityNotificationAttributesCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     return serializeAws_queryGetIdentityNotificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

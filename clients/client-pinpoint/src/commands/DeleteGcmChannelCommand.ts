@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGcmChannelCommand}.
  */
 export interface DeleteGcmChannelCommandInput extends DeleteGcmChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGcmChannelCommand}.
  */
 export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGcmChannelCommandInput - {@link DeleteGcmChannelCommandInput}
+ * @returns {@link DeleteGcmChannelCommandOutput}
  * @see {@link DeleteGcmChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteGcmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteGcmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGcmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteGcmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGcmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGcmChannelCommandOutput> {
     return deserializeAws_restJson1DeleteGcmChannelCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RedactConversationMessageCommand}.
  */
 export interface RedactConversationMessageCommandInput extends RedactConversationMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link RedactConversationMessageCommand}.
  */
 export interface RedactConversationMessageCommandOutput extends RedactConversationMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Redacts the specified message from the specified Amazon Chime conversation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RedactConversationMessageCommandOutput extends RedactConversati
  * const response = await client.send(command);
  * ```
  *
+ * @param RedactConversationMessageCommandInput - {@link RedactConversationMessageCommandInput}
+ * @returns {@link RedactConversationMessageCommandOutput}
  * @see {@link RedactConversationMessageCommandInput} for command's `input` shape.
  * @see {@link RedactConversationMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class RedactConversationMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RedactConversationMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class RedactConversationMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RedactConversationMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RedactConversationMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

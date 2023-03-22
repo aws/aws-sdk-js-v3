@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricWidgetImageCommand}.
  */
 export interface GetMetricWidgetImageCommandInput extends GetMetricWidgetImageInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricWidgetImageCommand}.
  */
 export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
  * 			one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
  * 			image into your services and products, such as wiki pages, reports, and documents.
@@ -61,6 +66,8 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricWidgetImageCommandInput - {@link GetMetricWidgetImageCommandInput}
+ * @returns {@link GetMetricWidgetImageCommandOutput}
  * @see {@link GetMetricWidgetImageCommandInput} for command's `input` shape.
  * @see {@link GetMetricWidgetImageCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetMetricWidgetImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricWidgetImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetMetricWidgetImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricWidgetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetMetricWidgetImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricWidgetImageCommandOutput> {
     return deserializeAws_queryGetMetricWidgetImageCommand(output, context);
   }

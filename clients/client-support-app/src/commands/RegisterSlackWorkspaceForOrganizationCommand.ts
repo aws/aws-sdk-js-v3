@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
 export interface RegisterSlackWorkspaceForOrganizationCommandInput
   extends RegisterSlackWorkspaceForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
 export interface RegisterSlackWorkspaceForOrganizationCommandOutput
@@ -38,6 +42,7 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be
  *       part of an organization in Organizations.</p>
  *          <p>If you're the <i>management account</i> and you want to register Slack
@@ -78,6 +83,8 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterSlackWorkspaceForOrganizationCommandInput - {@link RegisterSlackWorkspaceForOrganizationCommandInput}
+ * @returns {@link RegisterSlackWorkspaceForOrganizationCommandOutput}
  * @see {@link RegisterSlackWorkspaceForOrganizationCommandInput} for command's `input` shape.
  * @see {@link RegisterSlackWorkspaceForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -143,6 +150,9 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterSlackWorkspaceForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,6 +192,9 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterSlackWorkspaceForOrganizationCommandInput,
     context: __SerdeContext
@@ -189,6 +202,9 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
     return serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupPolicyCommand}.
  */
 export interface GetGroupPolicyCommandInput extends GetGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupPolicyCommand}.
  */
 export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
  *             group.</p>
  *          <note>
@@ -60,6 +65,8 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupPolicyCommandInput - {@link GetGroupPolicyCommandInput}
+ * @returns {@link GetGroupPolicyCommandOutput}
  * @see {@link GetGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupPolicyCommandOutput> {
     return deserializeAws_queryGetGroupPolicyCommand(output, context);
   }

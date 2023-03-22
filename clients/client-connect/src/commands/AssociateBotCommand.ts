@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateBotCommand}.
  */
 export interface AssociateBotCommandInput extends AssociateBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateBotCommand}.
  */
 export interface AssociateBotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
  *    or Amazon Lex V2 bot.</p>
@@ -43,6 +48,8 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateBotCommandInput - {@link AssociateBotCommandInput}
+ * @returns {@link AssociateBotCommandOutput}
  * @see {@link AssociateBotCommandInput} for command's `input` shape.
  * @see {@link AssociateBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class AssociateBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateBotCommandOutput> {
     return deserializeAws_restJson1AssociateBotCommand(output, context);
   }

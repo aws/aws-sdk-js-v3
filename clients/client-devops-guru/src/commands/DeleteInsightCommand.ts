@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInsightCommand}.
  */
 export interface DeleteInsightCommandInput extends DeleteInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInsightCommand}.
  */
 export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the insight along with the associated anomalies, events and recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInsightCommandInput - {@link DeleteInsightCommandInput}
+ * @returns {@link DeleteInsightCommandOutput}
  * @see {@link DeleteInsightCommandInput} for command's `input` shape.
  * @see {@link DeleteInsightCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInsightCommandOutput> {
     return deserializeAws_restJson1DeleteInsightCommand(output, context);
   }

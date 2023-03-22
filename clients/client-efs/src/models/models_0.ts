@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { EFSServiceException as __BaseException } from "./EFSServiceException";
 
 /**
+ * @public
  * <p>Returned if the access point that you are trying to create already exists, with the
  *             creation token you provided in the request.</p>
  */
@@ -42,6 +43,9 @@ export class AccessPointAlreadyExists extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum LifeCycleState {
   AVAILABLE = "available",
   CREATING = "creating",
@@ -52,6 +56,7 @@ export enum LifeCycleState {
 }
 
 /**
+ * @public
  * <p>The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by
  *       NFS clients using the access point.</p>
  */
@@ -73,6 +78,7 @@ export interface PosixUser {
 }
 
 /**
+ * @public
  * <p>Required if the <code>RootDirectory</code> > <code>Path</code> specified does not exist.
  *       Specifies the POSIX IDs and permissions to apply to the access point's <code>RootDirectory</code> > <code>Path</code>.
  *       If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point.
@@ -104,6 +110,7 @@ export interface CreationInfo {
 }
 
 /**
+ * @public
  * <p>Specifies the directory on the Amazon EFS file system that the access point provides access to.
  *       The access point exposes the specified file system path as
  *       the root directory of your file system to applications using the access point.
@@ -132,6 +139,7 @@ export interface RootDirectory {
 }
 
 /**
+ * @public
  * <p>A tag is a key-value pair. Allowed characters are letters, white space, and numbers that
  *       can be represented in UTF-8, and the following characters:<code> + - = . _ : /</code>.</p>
  */
@@ -148,6 +156,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Provides a description of an EFS file system access point.</p>
  */
 export interface AccessPointDescription {
@@ -204,6 +213,7 @@ export interface AccessPointDescription {
 }
 
 /**
+ * @public
  * <p>Returned if the Amazon Web Services account has already created the maximum number of access points
  *             allowed per file system. For more informaton, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region</a>.</p>
  */
@@ -240,6 +250,7 @@ export class AccessPointLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
  *             requester's Amazon Web Services account.</p>
  */
@@ -276,6 +287,7 @@ export class AccessPointNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the Availability Zone that was specified for a mount target is
  *             different from the Availability Zone that was specified for One Zone storage.
  *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
@@ -312,6 +324,9 @@ export class AvailabilityZonesMismatch extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Status {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -320,6 +335,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * <p>The backup policy for the file system used to create automatic daily backups. If status has a value of
  *       <code>ENABLED</code>, the file system is being automatically backed up. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic backups</a>.</p>
  */
@@ -357,6 +373,9 @@ export interface BackupPolicy {
   Status: Status | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BackupPolicyDescription {
   /**
    * <p>Describes the file system's backup policy, indicating whether automatic backups are
@@ -366,6 +385,7 @@ export interface BackupPolicyDescription {
 }
 
 /**
+ * @public
  * <p>Returned if the request is malformed or contains an error such as an invalid
  *             parameter value or a missing required parameter.</p>
  */
@@ -401,6 +421,9 @@ export class BadRequest extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPointRequest {
   /**
    * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent
@@ -442,6 +465,7 @@ export interface CreateAccessPointRequest {
 }
 
 /**
+ * @public
  * <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
  *             requester's Amazon Web Services account.</p>
  */
@@ -478,6 +502,7 @@ export class FileSystemNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the file system's lifecycle state is not "available".</p>
  */
 export class IncorrectFileSystemLifeCycleState extends __BaseException {
@@ -513,6 +538,7 @@ export class IncorrectFileSystemLifeCycleState extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if an error occurred on the server side.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -548,6 +574,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and
  *             the number of Access Points on the file system is nearing the
  *             <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">limit of 120</a>.</p>
@@ -584,17 +611,26 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum PerformanceMode {
   GENERAL_PURPOSE = "generalPurpose",
   MAX_IO = "maxIO",
 }
 
+/**
+ * @public
+ */
 export enum ThroughputMode {
   BURSTING = "bursting",
   ELASTIC = "elastic",
   PROVISIONED = "provisioned",
 }
 
+/**
+ * @public
+ */
 export interface CreateFileSystemRequest {
   /**
    * <p>A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent
@@ -706,7 +742,7 @@ export interface CreateFileSystemRequest {
   /**
    * <p>Use to create one or more tags associated with the file system. Each
    *         tag is a user-defined key-value pair. Name your file system on creation by including a
-   *         <code>"Key":"Name","Value":"{value}"</code> key-value pair. Each key must be unique. For more
+   *         <code>"Key":"Name","Value":"\{value\}"</code> key-value pair. Each key must be unique. For more
    *         information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
    *         in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
@@ -714,6 +750,7 @@ export interface CreateFileSystemRequest {
 }
 
 /**
+ * @public
  * <p>Returned if the file system you are trying to create already exists, with the
  *             creation token you provided.</p>
  */
@@ -753,6 +790,7 @@ export class FileSystemAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The latest known metered size (in bytes) of data stored in the file system, in its
  *         <code>Value</code> field, and the time at which that size was determined in its
  *         <code>Timestamp</code> field. The value doesn't represent the size of a consistent
@@ -787,6 +825,7 @@ export interface FileSystemSize {
 }
 
 /**
+ * @public
  * <p>A description of the file system.</p>
  */
 export interface FileSystemDescription {
@@ -901,6 +940,7 @@ export interface FileSystemDescription {
 }
 
 /**
+ * @public
  * <p>Returned if the Amazon Web Services account has already created the maximum number of file systems
  *             allowed per account.</p>
  */
@@ -937,6 +977,7 @@ export class FileSystemLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if there's not enough capacity to provision additional throughput. This value
  *             might be returned when you try to create a file system in provisioned throughput mode,
  *             when you attempt to increase the provisioned throughput of an existing file system, or
@@ -976,6 +1017,7 @@ export class InsufficientThroughputCapacity extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
  *             because the throughput limit of 1024 MiB/s has been reached.</p>
  */
@@ -1012,6 +1054,7 @@ export class ThroughputLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
  */
 export class UnsupportedAvailabilityZone extends __BaseException {
@@ -1047,6 +1090,7 @@ export class UnsupportedAvailabilityZone extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateMountTargetRequest {
@@ -1074,6 +1118,7 @@ export interface CreateMountTargetRequest {
 }
 
 /**
+ * @public
  * <p>Returned if the request specified an <code>IpAddress</code> that is already in use
  *             in the subnet.</p>
  */
@@ -1110,6 +1155,7 @@ export class IpAddressInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the mount target would violate one of the specified restrictions based
  *             on the file system's existing mount targets.</p>
  */
@@ -1146,6 +1192,7 @@ export class MountTargetConflict extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides a description of a mount target.</p>
  */
 export interface MountTargetDescription {
@@ -1205,6 +1252,7 @@ export interface MountTargetDescription {
 }
 
 /**
+ * @public
  * <p>The calling account has reached the limit for elastic network interfaces for the
  *             specific Amazon Web Services Region. Either delete some network interfaces or request
  *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Quotas</a>
@@ -1245,6 +1293,7 @@ export class NetworkInterfaceLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if <code>IpAddress</code> was not specified in the request and there are
  *             no free IP addresses in the subnet.</p>
  */
@@ -1281,6 +1330,7 @@ export class NoFreeAddressesInSubnet extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
  *             greater than five.</p>
  */
@@ -1317,6 +1367,7 @@ export class SecurityGroupLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if one of the specified security groups doesn't exist in the subnet's
  *             virtual private cloud (VPC).</p>
  */
@@ -1353,6 +1404,7 @@ export class SecurityGroupNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
  *             request.</p>
  */
@@ -1389,6 +1441,7 @@ export class SubnetNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the destination file system to create in the replication configuration.</p>
  */
 export interface DestinationToCreate {
@@ -1430,6 +1483,9 @@ export interface DestinationToCreate {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationConfigurationRequest {
   /**
    * <p>Specifies the Amazon EFS file system that you want to replicate. This file system cannot already be
@@ -1443,6 +1499,9 @@ export interface CreateReplicationConfigurationRequest {
   Destinations: DestinationToCreate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationStatus {
   DELETING = "DELETING",
   ENABLED = "ENABLED",
@@ -1451,6 +1510,7 @@ export enum ReplicationStatus {
 }
 
 /**
+ * @public
  * <p>Describes the destination file system in the replication configuration.</p>
  */
 export interface Destination {
@@ -1481,6 +1541,9 @@ export interface Destination {
   LastReplicatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfigurationDescription {
   /**
    * <p>The ID of the source Amazon EFS file system that is being replicated.</p>
@@ -1515,6 +1578,7 @@ export interface ReplicationConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Returned if the specified file system does not have a replication
  *             configuration.</p>
  */
@@ -1550,6 +1614,7 @@ export class ReplicationNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  */
 export class ValidationException extends __BaseException {
@@ -1585,6 +1650,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateTagsRequest {
@@ -1601,6 +1667,9 @@ export interface CreateTagsRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPointRequest {
   /**
    * <p>The ID of the access point that you want to delete.</p>
@@ -1609,6 +1678,7 @@ export interface DeleteAccessPointRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteFileSystemRequest {
@@ -1619,6 +1689,7 @@ export interface DeleteFileSystemRequest {
 }
 
 /**
+ * @public
  * <p>Returned if a file system has mount targets.</p>
  */
 export class FileSystemInUse extends __BaseException {
@@ -1653,6 +1724,9 @@ export class FileSystemInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFileSystemPolicyRequest {
   /**
    * <p>Specifies the EFS file system for which to delete the <code>FileSystemPolicy</code>.</p>
@@ -1661,6 +1735,7 @@ export interface DeleteFileSystemPolicyRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteMountTargetRequest {
@@ -1671,6 +1746,7 @@ export interface DeleteMountTargetRequest {
 }
 
 /**
+ * @public
  * <p>The service timed out trying to fulfill the request, and the client should try the
  *             call again.</p>
  */
@@ -1707,6 +1783,7 @@ export class DependencyTimeout extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if there is no mount target with the specified ID found in the
  *             caller's Amazon Web Services account.</p>
  */
@@ -1742,6 +1819,9 @@ export class MountTargetNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationRequest {
   /**
    * <p>The ID of the source file system in the replication configuration.</p>
@@ -1750,6 +1830,7 @@ export interface DeleteReplicationConfigurationRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteTagsRequest {
@@ -1764,6 +1845,9 @@ export interface DeleteTagsRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccessPointsRequest {
   /**
    * <p>(Optional) When retrieving all access points for a file system,
@@ -1790,6 +1874,9 @@ export interface DescribeAccessPointsRequest {
   FileSystemId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccessPointsResponse {
   /**
    * <p>An array of access point descriptions.</p>
@@ -1803,6 +1890,9 @@ export interface DescribeAccessPointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountPreferencesRequest {
   /**
    * <p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of
@@ -1818,17 +1908,24 @@ export interface DescribeAccountPreferencesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ResourceIdType {
   LongId = "LONG_ID",
   ShortId = "SHORT_ID",
 }
 
+/**
+ * @public
+ */
 export enum Resource {
   FileSystem = "FILE_SYSTEM",
   MountTarget = "MOUNT_TARGET",
 }
 
 /**
+ * @public
  * <p>Describes the resource type and its ID preference for the user's Amazon Web Services account, in the current Amazon Web Services Region.</p>
  */
 export interface ResourceIdPreference {
@@ -1843,6 +1940,9 @@ export interface ResourceIdPreference {
   Resources?: (Resource | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountPreferencesResponse {
   /**
    * <p>Describes the resource ID preference setting for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.</p>
@@ -1856,6 +1956,9 @@ export interface DescribeAccountPreferencesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupPolicyRequest {
   /**
    * <p>Specifies which EFS file system to retrieve the <code>BackupPolicy</code> for.</p>
@@ -1864,6 +1967,7 @@ export interface DescribeBackupPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
  */
 export class PolicyNotFound extends __BaseException {
@@ -1898,6 +2002,9 @@ export class PolicyNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeFileSystemPolicyRequest {
   /**
    * <p>Specifies which EFS file system to retrieve the <code>FileSystemPolicy</code> for.</p>
@@ -1905,6 +2012,9 @@ export interface DescribeFileSystemPolicyRequest {
   FileSystemId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface FileSystemPolicyDescription {
   /**
    * <p>Specifies the EFS file system to which the <code>FileSystemPolicy</code> applies.</p>
@@ -1918,6 +2028,7 @@ export interface FileSystemPolicyDescription {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeFileSystemsRequest {
@@ -1948,6 +2059,9 @@ export interface DescribeFileSystemsRequest {
   FileSystemId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFileSystemsResponse {
   /**
    * <p>Present if provided by caller in the request (String).</p>
@@ -1966,6 +2080,9 @@ export interface DescribeFileSystemsResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLifecycleConfigurationRequest {
   /**
    * <p>The ID of the file system whose <code>LifecycleConfiguration</code> object you want to
@@ -1974,6 +2091,9 @@ export interface DescribeLifecycleConfigurationRequest {
   FileSystemId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TransitionToIARules {
   AFTER_14_DAYS = "AFTER_14_DAYS",
   AFTER_1_DAY = "AFTER_1_DAY",
@@ -1983,11 +2103,15 @@ export enum TransitionToIARules {
   AFTER_90_DAYS = "AFTER_90_DAYS",
 }
 
+/**
+ * @public
+ */
 export enum TransitionToPrimaryStorageClassRules {
   AFTER_1_ACCESS = "AFTER_1_ACCESS",
 }
 
 /**
+ * @public
  * <p>Describes a policy used by EFS lifecycle management and EFS Intelligent-Tiering that
  *       specifies when to transition files into and out of the file system's Infrequent Access (IA)
  *       storage class. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Intelligent‐Tiering and EFS Lifecycle
@@ -2019,6 +2143,9 @@ export interface LifecyclePolicy {
   TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules | string;
 }
 
+/**
+ * @public
+ */
 export interface LifecycleConfigurationDescription {
   /**
    * <p>An array of lifecycle management policies. EFS supports a maximum of one
@@ -2028,6 +2155,7 @@ export interface LifecycleConfigurationDescription {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeMountTargetsRequest {
@@ -2065,6 +2193,7 @@ export interface DescribeMountTargetsRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeMountTargetsResponse {
@@ -2089,6 +2218,7 @@ export interface DescribeMountTargetsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeMountTargetSecurityGroupsRequest {
@@ -2098,6 +2228,9 @@ export interface DescribeMountTargetSecurityGroupsRequest {
   MountTargetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMountTargetSecurityGroupsResponse {
   /**
    * <p>An array of security groups.</p>
@@ -2106,6 +2239,7 @@ export interface DescribeMountTargetSecurityGroupsResponse {
 }
 
 /**
+ * @public
  * <p>Returned if the mount target is not in the correct state for the
  *             operation.</p>
  */
@@ -2141,6 +2275,9 @@ export class IncorrectMountTargetState extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationsRequest {
   /**
    * <p>You can retrieve the replication configuration for a specific file system by providing its
@@ -2163,6 +2300,9 @@ export interface DescribeReplicationConfigurationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationsResponse {
   /**
    * <p>The collection of replication configurations that is returned.</p>
@@ -2177,6 +2317,7 @@ export interface DescribeReplicationConfigurationsResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeTagsRequest {
@@ -2201,6 +2342,7 @@ export interface DescribeTagsRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeTagsResponse {
@@ -2225,6 +2367,7 @@ export interface DescribeTagsResponse {
 }
 
 /**
+ * @public
  * <p>Returned if the <code>FileSystemPolicy</code> is malformed or contains an error such
  *             as a parameter value that is not valid or a missing required parameter. Returned in the
  *             case of a policy lockout safety check error.</p>
@@ -2261,6 +2404,9 @@ export class InvalidPolicyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.</p>
@@ -2278,6 +2424,9 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>An array of the tags for the specified EFS resource.</p>
@@ -2292,6 +2441,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyMountTargetSecurityGroupsRequest {
@@ -2306,6 +2456,9 @@ export interface ModifyMountTargetSecurityGroupsRequest {
   SecurityGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface PutAccountPreferencesRequest {
   /**
    * <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account,
@@ -2320,6 +2473,9 @@ export interface PutAccountPreferencesRequest {
   ResourceIdType: ResourceIdType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAccountPreferencesResponse {
   /**
    * <p>Describes the resource type and its ID preference for the user's Amazon Web Services account, in the current Amazon Web Services Region.</p>
@@ -2327,6 +2483,9 @@ export interface PutAccountPreferencesResponse {
   ResourceIdPreference?: ResourceIdPreference;
 }
 
+/**
+ * @public
+ */
 export interface PutBackupPolicyRequest {
   /**
    * <p>Specifies which EFS file system to update the backup policy for.</p>
@@ -2339,6 +2498,9 @@ export interface PutBackupPolicyRequest {
   BackupPolicy: BackupPolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFileSystemPolicyRequest {
   /**
    * <p>The ID of the EFS file system that you want to create or update the <code>FileSystemPolicy</code> for.</p>
@@ -2365,6 +2527,9 @@ export interface PutFileSystemPolicyRequest {
   BypassPolicyLockoutSafetyCheck?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutLifecycleConfigurationRequest {
   /**
    * <p>The ID of the file system for which you are creating the
@@ -2397,6 +2562,9 @@ export interface PutLifecycleConfigurationRequest {
   LifecyclePolicies: LifecyclePolicy[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ID specifying the EFS resource that you want to create a tag for.</p>
@@ -2410,6 +2578,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Specifies the EFS resource that you want to remove tags from.</p>
@@ -2424,6 +2595,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or
  *             decreasing the Provisioned Throughput value.</p>
  */
@@ -2459,6 +2631,9 @@ export class TooManyRequests extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateFileSystemRequest {
   /**
    * <p>The ID of the file system that you want to update.</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeyGroupCommand}.
  */
 export interface CreateKeyGroupCommandInput extends CreateKeyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeyGroupCommand}.
  */
 export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
  *          <p>To create a key group, you must specify at least one public key for the key group.
  * 			After you create a key group, you can reference it from one or more cache behaviors.
@@ -54,6 +59,8 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyGroupCommandInput - {@link CreateKeyGroupCommandInput}
+ * @returns {@link CreateKeyGroupCommandOutput}
  * @see {@link CreateKeyGroupCommandInput} for command's `input` shape.
  * @see {@link CreateKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateKeyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyGroupCommandOutput> {
     return deserializeAws_restXmlCreateKeyGroupCommand(output, context);
   }

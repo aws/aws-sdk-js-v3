@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetFieldLevelEncryptionProfileConfigCommand}.
  */
 export interface GetFieldLevelEncryptionProfileConfigCommandInput extends GetFieldLevelEncryptionProfileConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFieldLevelEncryptionProfileConfigCommand}.
  */
 export interface GetFieldLevelEncryptionProfileConfigCommandOutput
@@ -37,6 +41,7 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the field-level encryption profile configuration information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFieldLevelEncryptionProfileConfigCommandInput - {@link GetFieldLevelEncryptionProfileConfigCommandInput}
+ * @returns {@link GetFieldLevelEncryptionProfileConfigCommandOutput}
  * @see {@link GetFieldLevelEncryptionProfileConfigCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionProfileConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFieldLevelEncryptionProfileConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFieldLevelEncryptionProfileConfigCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
     return serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

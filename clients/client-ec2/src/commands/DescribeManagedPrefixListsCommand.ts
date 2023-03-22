@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeManagedPrefixListsCommand}.
  */
 export interface DescribeManagedPrefixListsCommandInput extends DescribeManagedPrefixListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeManagedPrefixListsCommand}.
  */
 export interface DescribeManagedPrefixListsCommandOutput extends DescribeManagedPrefixListsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
  *          <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeManagedPrefixListsCommandInput - {@link DescribeManagedPrefixListsCommandInput}
+ * @returns {@link DescribeManagedPrefixListsCommandOutput}
  * @see {@link DescribeManagedPrefixListsCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedPrefixListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeManagedPrefixListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeManagedPrefixListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeManagedPrefixListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeManagedPrefixListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeManagedPrefixListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

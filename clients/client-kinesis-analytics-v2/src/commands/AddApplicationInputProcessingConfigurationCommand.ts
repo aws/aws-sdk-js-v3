@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationInputProcessingConfigurationCommand}.
  */
 export interface AddApplicationInputProcessingConfigurationCommandInput
   extends AddApplicationInputProcessingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationInputProcessingConfigurationCommand}.
  */
 export interface AddApplicationInputProcessingConfigurationCommandOutput
@@ -42,6 +46,7 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records
  *       on the input stream before the
  *       application's SQL code executes. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">Amazon Lambda</a>.</p>
@@ -55,6 +60,8 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationInputProcessingConfigurationCommandInput - {@link AddApplicationInputProcessingConfigurationCommandInput}
+ * @returns {@link AddApplicationInputProcessingConfigurationCommandOutput}
  * @see {@link AddApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
  * @see {@link AddApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationInputProcessingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationInputProcessingConfigurationCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSimulationApplicationsCommand}.
  */
 export interface ListSimulationApplicationsCommandInput extends ListSimulationApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSimulationApplicationsCommand}.
  */
 export interface ListSimulationApplicationsCommandOutput extends ListSimulationApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of simulation applications. You can optionally provide filters to
  *          retrieve specific simulation applications. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSimulationApplicationsCommandInput - {@link ListSimulationApplicationsCommandInput}
+ * @returns {@link ListSimulationApplicationsCommandOutput}
  * @see {@link ListSimulationApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationApplicationsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListSimulationApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListSimulationApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSimulationApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

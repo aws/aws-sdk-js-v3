@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoreNetworkChangeEventsCommand}.
  */
 export interface GetCoreNetworkChangeEventsCommandInput extends GetCoreNetworkChangeEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoreNetworkChangeEventsCommand}.
  */
 export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkChangeEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a core network change event.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreNetworkChangeEventsCommandInput - {@link GetCoreNetworkChangeEventsCommandInput}
+ * @returns {@link GetCoreNetworkChangeEventsCommandOutput}
  * @see {@link GetCoreNetworkChangeEventsCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkChangeEventsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetCoreNetworkChangeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreNetworkChangeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCoreNetworkChangeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreNetworkChangeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCoreNetworkChangeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

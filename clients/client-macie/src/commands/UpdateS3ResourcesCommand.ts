@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateS3ResourcesCommand}.
  */
 export interface UpdateS3ResourcesCommandInput extends UpdateS3ResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateS3ResourcesCommand}.
  */
 export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Updates the classification types for the specified S3 resources. If
  *       <code>memberAccountId</code> isn't specified, the action updates the classification types of the S3
  *       resources associated with Amazon Macie Classic for the current Macie Classic administrator
@@ -50,6 +55,8 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateS3ResourcesCommandInput - {@link UpdateS3ResourcesCommandInput}
+ * @returns {@link UpdateS3ResourcesCommandOutput}
  * @see {@link UpdateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link UpdateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateS3ResourcesCommandOutput> {
     return deserializeAws_json1_1UpdateS3ResourcesCommand(output, context);
   }

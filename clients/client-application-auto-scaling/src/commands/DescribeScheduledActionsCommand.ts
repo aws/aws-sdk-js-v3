@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandOutput extends DescribeScheduledActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>
  *          <p>You can filter the results using the <code>ResourceId</code>,
  *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
@@ -54,6 +59,8 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
+ * @returns {@link DescribeScheduledActionsCommandOutput}
  * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -134,6 +141,9 @@ export class DescribeScheduledActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class DescribeScheduledActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScheduledActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledActionsCommandOutput> {
     return deserializeAws_json1_1DescribeScheduledActionsCommand(output, context);
   }

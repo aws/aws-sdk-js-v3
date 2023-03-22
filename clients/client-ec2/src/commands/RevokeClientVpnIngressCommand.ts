@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeClientVpnIngressCommand}.
  */
 export interface RevokeClientVpnIngressCommandInput extends RevokeClientVpnIngressRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeClientVpnIngressCommand}.
  */
 export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngr
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeClientVpnIngressCommandInput - {@link RevokeClientVpnIngressCommandInput}
+ * @returns {@link RevokeClientVpnIngressCommandOutput}
  * @see {@link RevokeClientVpnIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeClientVpnIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class RevokeClientVpnIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeClientVpnIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class RevokeClientVpnIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeClientVpnIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RevokeClientVpnIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeClientVpnIngressCommandOutput> {
     return deserializeAws_ec2RevokeClientVpnIngressCommand(output, context);
   }

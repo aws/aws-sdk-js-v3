@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRecoveryPointCommand}.
  */
 export interface DisassociateRecoveryPointCommandInput extends DisassociateRecoveryPointInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRecoveryPointCommand}.
  */
 export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified continuous backup recovery point from Backup and
  *          releases control of that continuous backup to the source service, such as Amazon RDS. The source service will continue to create and retain continuous backups using the
  *          lifecycle that you specified in your original backup plan.</p>
@@ -44,6 +49,8 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRecoveryPointCommandInput - {@link DisassociateRecoveryPointCommandInput}
+ * @returns {@link DisassociateRecoveryPointCommandOutput}
  * @see {@link DisassociateRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DisassociateRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisassociateRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

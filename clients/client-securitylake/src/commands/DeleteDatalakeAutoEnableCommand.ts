@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatalakeAutoEnableCommand}.
  */
 export interface DeleteDatalakeAutoEnableCommandInput extends DeleteDatalakeAutoEnableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatalakeAutoEnableCommand}.
  */
 export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAutoEnableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>DeleteDatalakeAutoEnable</code> removes automatic enablement of configuration
  *          settings for new member accounts (but keeps settings for the delegated administrator) from
@@ -51,6 +56,8 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatalakeAutoEnableCommandInput - {@link DeleteDatalakeAutoEnableCommandInput}
+ * @returns {@link DeleteDatalakeAutoEnableCommandOutput}
  * @see {@link DeleteDatalakeAutoEnableCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeAutoEnableCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteDatalakeAutoEnableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatalakeAutoEnableCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteDatalakeAutoEnableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDatalakeAutoEnableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatalakeAutoEnableCommandOutput> {
     return deserializeAws_restJson1DeleteDatalakeAutoEnableCommand(output, context);
   }

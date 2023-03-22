@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsageStatisticsCommand}.
  */
 export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsageStatisticsCommand}.
  */
 export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
  *       ID. For newly enabled detectors or data sources, the cost returned will include only the usage
  *       so far under 30 days. This may differ from the cost metrics in the console, which project
@@ -49,6 +54,8 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsageStatisticsCommandInput - {@link GetUsageStatisticsCommandInput}
+ * @returns {@link GetUsageStatisticsCommandOutput}
  * @see {@link GetUsageStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetUsageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetUsageStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsageStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetUsageStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUsageStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageStatisticsCommandOutput> {
     return deserializeAws_restJson1GetUsageStatisticsCommand(output, context);
   }

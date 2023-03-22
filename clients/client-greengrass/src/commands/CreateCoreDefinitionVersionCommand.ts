@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCoreDefinitionVersionCommand}.
  */
 export interface CreateCoreDefinitionVersionCommandInput extends CreateCoreDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCoreDefinitionVersionCommand}.
  */
 export interface CreateCoreDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateCoreDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateCoreDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCoreDefinitionVersionCommandInput - {@link CreateCoreDefinitionVersionCommandInput}
+ * @returns {@link CreateCoreDefinitionVersionCommandOutput}
  * @see {@link CreateCoreDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateCoreDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCoreDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCoreDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCoreDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

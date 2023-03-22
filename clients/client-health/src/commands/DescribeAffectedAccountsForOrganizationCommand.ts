@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
 export interface DescribeAffectedAccountsForOrganizationCommandInput
   extends DescribeAffectedAccountsForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
 export interface DescribeAffectedAccountsForOrganizationCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of accounts in the organization from Organizations that are affected by the
  *          provided event. For more information about the different types of Health events, see
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
@@ -57,6 +62,8 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAffectedAccountsForOrganizationCommandInput - {@link DescribeAffectedAccountsForOrganizationCommandInput}
+ * @returns {@link DescribeAffectedAccountsForOrganizationCommandOutput}
  * @see {@link DescribeAffectedAccountsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedAccountsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAffectedAccountsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAffectedAccountsForOrganizationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     return serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

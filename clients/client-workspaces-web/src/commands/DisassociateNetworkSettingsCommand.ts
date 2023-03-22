@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateNetworkSettingsCommand}.
  */
 export interface DisassociateNetworkSettingsCommandInput extends DisassociateNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateNetworkSettingsCommand}.
  */
 export interface DisassociateNetworkSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateNetworkSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates network settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateNetworkSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateNetworkSettingsCommandInput - {@link DisassociateNetworkSettingsCommandInput}
+ * @returns {@link DisassociateNetworkSettingsCommandOutput}
  * @see {@link DisassociateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisassociateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

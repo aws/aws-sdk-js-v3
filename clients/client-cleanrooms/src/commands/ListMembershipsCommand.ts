@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMembershipsCommand}.
  */
 export interface ListMembershipsCommandInput extends ListMembershipsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMembershipsCommand}.
  */
 export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all memberships resources within the caller's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMembershipsCommandInput - {@link ListMembershipsCommandInput}
+ * @returns {@link ListMembershipsCommandOutput}
  * @see {@link ListMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListMembershipsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListMembershipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMembershipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListMembershipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMembershipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembershipsCommandOutput> {
     return deserializeAws_restJson1ListMembershipsCommand(output, context);
   }

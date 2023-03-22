@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetEbsDefaultKmsKeyIdCommand}.
  */
 export interface ResetEbsDefaultKmsKeyIdCommandInput extends ResetEbsDefaultKmsKeyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetEbsDefaultKmsKeyIdCommand}.
  */
 export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the default KMS key for EBS encryption for your account in this Region
  *       to the Amazon Web Services managed KMS key for EBS.</p>
  *          <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
@@ -51,6 +56,8 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetEbsDefaultKmsKeyIdCommandInput - {@link ResetEbsDefaultKmsKeyIdCommandInput}
+ * @returns {@link ResetEbsDefaultKmsKeyIdCommandOutput}
  * @see {@link ResetEbsDefaultKmsKeyIdCommandInput} for command's `input` shape.
  * @see {@link ResetEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetEbsDefaultKmsKeyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetEbsDefaultKmsKeyIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetEbsDefaultKmsKeyIdCommandOutput> {
     return deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommand(output, context);
   }

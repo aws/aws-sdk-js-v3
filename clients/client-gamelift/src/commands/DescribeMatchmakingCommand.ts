@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMatchmakingCommand}.
  */
 export interface DescribeMatchmakingCommandInput extends DescribeMatchmakingInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMatchmakingCommand}.
  */
 export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
  *             information, including--after a successful match is made--connection information for the
  *             resulting new game session. </p>
@@ -67,6 +72,8 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMatchmakingCommandInput - {@link DescribeMatchmakingCommandInput}
+ * @returns {@link DescribeMatchmakingCommandOutput}
  * @see {@link DescribeMatchmakingCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -101,6 +108,9 @@ export class DescribeMatchmakingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMatchmakingCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DescribeMatchmakingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMatchmakingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMatchmakingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMatchmakingCommandOutput> {
     return deserializeAws_json1_1DescribeMatchmakingCommand(output, context);
   }

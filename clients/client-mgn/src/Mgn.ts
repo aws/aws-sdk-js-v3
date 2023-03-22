@@ -261,10 +261,12 @@ import { UpdateWaveCommand, UpdateWaveCommandInput, UpdateWaveCommandOutput } fr
 import { MgnClient } from "./MgnClient";
 
 /**
+ * @public
  * <p>The Application Migration Service service.</p>
  */
 export class Mgn extends MgnClient {
   /**
+   * @public
    * <p>Archive application.</p>
    */
   public archiveApplication(
@@ -297,6 +299,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Archive wave.</p>
    */
   public archiveWave(args: ArchiveWaveCommandInput, options?: __HttpHandlerOptions): Promise<ArchiveWaveCommandOutput>;
@@ -323,6 +326,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Associate applications to wave.</p>
    */
   public associateApplications(
@@ -355,6 +359,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Associate source servers to application.</p>
    */
   public associateSourceServers(
@@ -387,6 +392,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Allows the user to set the SourceServer.LifeCycle.state property for specific Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER. This command only works if the Source Server is already launchable (dataReplicationInfo.lagDuration is not null.)</p>
    */
   public changeServerLifeCycleState(
@@ -419,6 +425,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Create application.</p>
    */
   public createApplication(
@@ -451,6 +458,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Launch Configuration Template.</p>
    */
   public createLaunchConfigurationTemplate(
@@ -483,6 +491,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Creates a new ReplicationConfigurationTemplate.</p>
    */
   public createReplicationConfigurationTemplate(
@@ -517,6 +526,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Create wave.</p>
    */
   public createWave(args: CreateWaveCommandInput, options?: __HttpHandlerOptions): Promise<CreateWaveCommandOutput>;
@@ -543,6 +553,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Delete application.</p>
    */
   public deleteApplication(
@@ -575,6 +586,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single Job by ID.</p>
    */
   public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
@@ -601,6 +613,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single Launch Configuration Template by ID.</p>
    */
   public deleteLaunchConfigurationTemplate(
@@ -633,6 +646,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single Replication Configuration Template by ID</p>
    */
   public deleteReplicationConfigurationTemplate(
@@ -667,6 +681,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single source server by ID.</p>
    */
   public deleteSourceServer(
@@ -699,6 +714,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Deletes a given vCenter client by ID.</p>
    */
   public deleteVcenterClient(
@@ -731,6 +747,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Delete wave.</p>
    */
   public deleteWave(args: DeleteWaveCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWaveCommandOutput>;
@@ -757,6 +774,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Retrieves detailed job log items with paging.</p>
    */
   public describeJobLogItems(
@@ -789,6 +807,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are normally created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
    */
   public describeJobs(
@@ -818,6 +837,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
    */
   public describeLaunchConfigurationTemplates(
@@ -850,6 +870,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
    */
   public describeReplicationConfigurationTemplates(
@@ -884,6 +905,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all SourceServers or multiple SourceServers by ID.</p>
    */
   public describeSourceServers(
@@ -916,6 +938,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the installed vCenter clients.</p>
    */
   public describeVcenterClients(
@@ -948,6 +971,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Disassociate applications from wave.</p>
    */
   public disassociateApplications(
@@ -980,6 +1004,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Disassociate source servers from application.</p>
    */
   public disassociateSourceServers(
@@ -1012,6 +1037,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communicating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
    */
   public disconnectFromService(
@@ -1044,6 +1070,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
    */
   public finalizeCutover(
@@ -1076,6 +1103,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Lists all LaunchConfigurations available, filtered by Source Server IDs.</p>
    */
   public getLaunchConfiguration(
@@ -1108,6 +1136,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Lists all ReplicationConfigurations, filtered by Source Server ID.</p>
    */
   public getReplicationConfiguration(
@@ -1140,6 +1169,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Initialize Application Migration Service.</p>
    */
   public initializeService(
@@ -1172,6 +1202,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all applications or multiple applications by ID.</p>
    */
   public listApplications(
@@ -1204,6 +1235,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>List export errors.</p>
    */
   public listExportErrors(
@@ -1236,6 +1268,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>List exports.</p>
    */
   public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
@@ -1262,6 +1295,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>List import errors.</p>
    */
   public listImportErrors(
@@ -1294,6 +1328,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>List imports.</p>
    */
   public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
@@ -1320,6 +1355,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>List source server post migration custom actions.</p>
    */
   public listSourceServerActions(
@@ -1352,6 +1388,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>List all tags for your Application Migration Service resources.</p>
    */
   public listTagsForResource(
@@ -1384,6 +1421,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>List template post migration custom actions.</p>
    */
   public listTemplateActions(
@@ -1416,6 +1454,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all waves or multiple waves by ID.</p>
    */
   public listWaves(args: ListWavesCommandInput, options?: __HttpHandlerOptions): Promise<ListWavesCommandOutput>;
@@ -1442,6 +1481,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.</p>
    */
   public markAsArchived(
@@ -1474,6 +1514,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Put source server post migration custom action.</p>
    */
   public putSourceServerAction(
@@ -1506,6 +1547,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Put template post migration custom action.</p>
    */
   public putTemplateAction(
@@ -1538,6 +1580,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Remove source server post migration custom action.</p>
    */
   public removeSourceServerAction(
@@ -1570,6 +1613,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Remove template post migration custom action.</p>
    */
   public removeTemplateAction(
@@ -1602,6 +1646,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for specified SourceServer IDs, regardless of when the previous initiation started. This command will not work if the SourceServer is not stalled or is in a DISCONNECTED or STOPPED state.</p>
    */
   public retryDataReplication(
@@ -1634,6 +1679,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>
    */
   public startCutover(
@@ -1663,6 +1709,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Start export.</p>
    */
   public startExport(args: StartExportCommandInput, options?: __HttpHandlerOptions): Promise<StartExportCommandOutput>;
@@ -1689,6 +1736,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Start import.</p>
    */
   public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
@@ -1715,6 +1763,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Starts replication for SNAPSHOT_SHIPPING agents.</p>
    */
   public startReplication(
@@ -1747,6 +1796,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Launches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
    */
   public startTest(args: StartTestCommandInput, options?: __HttpHandlerOptions): Promise<StartTestCommandOutput>;
@@ -1773,6 +1823,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Adds or overwrites only the specified tags for the specified Application Migration Service resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1799,6 +1850,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Starts a job that terminates specific launched EC2 Test and Cutover instances. This command will not work for any Source Server with a lifecycle.state of TESTING, CUTTING_OVER, or CUTOVER.</p>
    */
   public terminateTargetInstances(
@@ -1831,6 +1883,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Unarchive application.</p>
    */
   public unarchiveApplication(
@@ -1863,6 +1916,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Unarchive wave.</p>
    */
   public unarchiveWave(
@@ -1895,6 +1949,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified set of tags from the specified set of Application Migration Service resources.</p>
    */
   public untagResource(
@@ -1927,6 +1982,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Update application.</p>
    */
   public updateApplication(
@@ -1959,6 +2015,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>
    */
   public updateLaunchConfiguration(
@@ -1991,6 +2048,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Launch Configuration Template by ID.</p>
    */
   public updateLaunchConfigurationTemplate(
@@ -2023,6 +2081,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>
    */
   public updateReplicationConfiguration(
@@ -2055,6 +2114,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Updates multiple ReplicationConfigurationTemplates by ID.</p>
    */
   public updateReplicationConfigurationTemplate(
@@ -2089,6 +2149,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>
    */
   public updateSourceServerReplicationType(
@@ -2121,6 +2182,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * @public
    * <p>Update wave.</p>
    */
   public updateWave(args: UpdateWaveCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWaveCommandOutput>;

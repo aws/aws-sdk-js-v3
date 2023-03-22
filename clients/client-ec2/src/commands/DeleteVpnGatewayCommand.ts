@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpnGatewayCommand}.
  */
 export interface DeleteVpnGatewayCommandInput extends DeleteVpnGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpnGatewayCommand}.
  */
 export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified virtual private gateway. You must first detach the virtual
  *             private gateway from the VPC. Note that you don't need to delete the virtual private
  *             gateway if you plan to delete and recreate the VPN connection between your VPC and your
@@ -44,6 +49,8 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpnGatewayCommandInput - {@link DeleteVpnGatewayCommandInput}
+ * @returns {@link DeleteVpnGatewayCommandOutput}
  * @see {@link DeleteVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteVpnGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpnGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DeleteVpnGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVpnGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpnGatewayCommandOutput> {
     return deserializeAws_ec2DeleteVpnGatewayCommand(output, context);
   }

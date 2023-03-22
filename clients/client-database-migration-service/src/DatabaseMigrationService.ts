@@ -349,6 +349,7 @@ import {
 import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
 
 /**
+ * @public
  * <fullname>Database Migration Service</fullname>
  *          <p>Database Migration Service (DMS) can migrate your data to and from the most
  *          widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL
@@ -362,6 +363,7 @@ import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient
  */
 export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   /**
+   * @public
    * <p>Adds metadata tags to an DMS resource, including replication instance, endpoint,
    *          subnet group, and migration task. These tags can also be used with cost allocation
    *          reporting to track cost associated with DMS resources, or used in a Condition statement in
@@ -399,6 +401,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
    */
   public applyPendingMaintenanceAction(
@@ -431,6 +434,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Starts the analysis of up to 20 source databases to recommend target engines for each
    *             source database. This is a batch version of <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html">StartRecommendations</a>.</p>
    *          <p>The result of analysis of each source database is reported individually in the
@@ -468,6 +472,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Cancels a single premigration assessment run.</p>
    *          <p>This operation prevents any individual assessments from running if they haven't started
    *          running. It also attempts to cancel any individual assessments that are currently
@@ -503,6 +508,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint using the provided settings.</p>
    *          <note>
    *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
@@ -542,6 +548,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p> Creates an DMS event notification subscription. </p>
    *          <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of,
    *          provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and
@@ -589,6 +596,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a Fleet Advisor collector using the specified parameters.</p>
    */
   public createFleetAdvisorCollector(
@@ -621,6 +629,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates the replication instance using the specified parameters.</p>
    *          <p>DMS requires that your account have certain roles with appropriate permissions
    *          before you can create a replication instance. For information on the required roles, see
@@ -658,6 +667,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
    *          <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the
    *           service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>
@@ -692,6 +702,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a replication task using the specified parameters.</p>
    */
   public createReplicationTask(
@@ -724,6 +735,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified certificate. </p>
    */
   public deleteCertificate(
@@ -756,6 +768,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the connection between a replication instance and an endpoint.</p>
    */
   public deleteConnection(
@@ -788,6 +801,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified endpoint.</p>
    *          <note>
    *             <p>All tasks associated with the endpoint must be deleted before you can delete the
@@ -825,6 +839,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p> Deletes an DMS event subscription. </p>
    */
   public deleteEventSubscription(
@@ -857,6 +872,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Fleet Advisor collector.</p>
    */
   public deleteFleetAdvisorCollector(
@@ -889,6 +905,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Fleet Advisor collector databases.</p>
    */
   public deleteFleetAdvisorDatabases(
@@ -921,6 +938,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified replication instance.</p>
    *          <note>
    *             <p>You must delete any migration tasks that are associated with the replication instance
@@ -958,6 +976,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes a subnet group.</p>
    */
   public deleteReplicationSubnetGroup(
@@ -990,6 +1009,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified replication task.</p>
    */
   public deleteReplicationTask(
@@ -1022,6 +1042,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the record of a single premigration assessment run.</p>
    *          <p>This operation removes all metadata that DMS maintains about this assessment run.
    *          However, the operation leaves untouched all information about this assessment run that is
@@ -1057,6 +1078,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the DMS attributes for a customer account. These attributes include DMS
    *          quotas for the account and a unique account identifier in a particular DMS region. DMS
    *          quotas include a list of resource quotas supported by the account, such as the number of
@@ -1095,6 +1117,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of individual assessments that you can specify for a new premigration
    *          assessment run, given one or more parameters.</p>
    *          <p>If you specify an existing migration task, this operation provides the default individual
@@ -1143,6 +1166,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides a description of the certificate.</p>
    */
   public describeCertificates(
@@ -1175,6 +1199,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Describes the status of the connections that have been made between the replication
    *          instance and an endpoint. Connections are created when you test an endpoint.</p>
    */
@@ -1208,6 +1233,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the endpoints for your account in the current region.</p>
    */
   public describeEndpoints(
@@ -1240,6 +1266,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the possible endpoint settings available
    *          when you create an endpoint for a specific database engine.</p>
    */
@@ -1273,6 +1300,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the type of endpoints available.</p>
    */
   public describeEndpointTypes(
@@ -1305,6 +1333,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists categories for all event source types, or, if specified, for a specified source
    *          type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events
    *             and Notifications</a> in the <i>Database Migration Service User
@@ -1341,6 +1370,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p> Lists events for a given source identifier and source type. You can also specify a
    *          start and end time. For more information on DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
    *             Notifications</a> in the <i>Database Migration Service User
@@ -1377,6 +1407,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists all the event subscriptions for a customer account. The description of a
    *          subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>,
    *             <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>,
@@ -1414,6 +1445,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the Fleet Advisor collectors in your account.</p>
    */
   public describeFleetAdvisorCollectors(
@@ -1446,6 +1478,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Fleet Advisor databases in your account.</p>
    */
   public describeFleetAdvisorDatabases(
@@ -1478,6 +1511,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
    *             Advisor collectors. </p>
    */
@@ -1511,6 +1545,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides descriptions of the schemas discovered by your Fleet Advisor
    *             collectors.</p>
    */
@@ -1546,6 +1581,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of schemas detected by Fleet Advisor Collectors in your account.</p>
    */
   public describeFleetAdvisorSchemas(
@@ -1578,6 +1614,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the replication instance types that can be created in the
    *          specified region.</p>
    */
@@ -1613,6 +1650,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>For internal use only</p>
    */
   public describePendingMaintenanceActions(
@@ -1645,6 +1683,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of limitations for recommendations of target Amazon Web Services
    *             engines.</p>
    */
@@ -1678,6 +1717,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of target engine recommendations for your source
    *             databases.</p>
    */
@@ -1711,6 +1751,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the status of the RefreshSchemas operation.</p>
    */
   public describeRefreshSchemasStatus(
@@ -1743,6 +1784,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about replication instances for your account in the current
    *          region.</p>
    */
@@ -1776,6 +1818,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the task logs for the specified task.</p>
    */
   public describeReplicationInstanceTaskLogs(
@@ -1808,6 +1851,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the replication subnet groups.</p>
    */
   public describeReplicationSubnetGroups(
@@ -1840,6 +1884,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
    *           Amazon Web Services account.  This action always returns the
    *          latest results.</p>
@@ -1879,6 +1924,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of premigration assessment runs based on filter
    *          settings.</p>
    *          <p>These filter settings can specify a combination of premigration assessment runs,
@@ -1921,6 +1967,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of individual assessments based on filter settings.</p>
    *          <p>These filter settings can specify a combination of premigration assessment runs,
    *          migration tasks, and assessment status values.</p>
@@ -1957,6 +2004,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about replication tasks for your account in the current
    *          region.</p>
    */
@@ -1990,6 +2038,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the schema for the specified endpoint.</p>
    *          <p></p>
    */
@@ -2023,6 +2072,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns table statistics on the database migration task, including table name, rows
    *          inserted, rows updated, and rows deleted.</p>
    *          <p>Note that the "last updated" column the DMS console only indicates the time that DMS
@@ -2059,6 +2109,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Uploads the specified certificate.</p>
    */
   public importCertificate(
@@ -2091,6 +2142,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists all metadata tags attached to an DMS resource, including
    *          replication instance, endpoint, subnet group, and migration task.
    *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
@@ -2127,6 +2179,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Modifies the specified endpoint.</p>
    *          <note>
    *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
@@ -2166,6 +2219,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing DMS event notification subscription. </p>
    */
   public modifyEventSubscription(
@@ -2198,6 +2252,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Modifies the replication instance to apply new settings. You can change one or more
    *          parameters by specifying these parameters and the new values in the request.</p>
    *          <p>Some settings are applied during the maintenance window.</p>
@@ -2233,6 +2288,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Modifies the settings for the specified replication subnet group.</p>
    */
   public modifyReplicationSubnetGroup(
@@ -2265,6 +2321,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Modifies the specified replication task.</p>
    *          <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>
    *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks</a> in the
@@ -2300,6 +2357,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Moves a replication task from its current replication instance to a different target
    *          replication instance using the specified parameters. The target replication instance must
    *          be created with the same or later DMS version as the current replication
@@ -2335,6 +2393,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
    *          replication instance becomes available again.</p>
    */
@@ -2368,6 +2427,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Populates the schema for the specified endpoint. This is an asynchronous operation and
    *          can take several minutes. You can check the status of this operation by calling the
    *          DescribeRefreshSchemasStatus operation.</p>
@@ -2402,6 +2462,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Reloads the target database table with the source data. </p>
    *          <p>You can only use this operation with a task in the <code>RUNNING</code> state, otherwise the service
    *            will throw an <code>InvalidResourceStateFault</code> exception.</p>
@@ -2433,6 +2494,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Removes metadata tags from an DMS resource, including replication instance,
    *          endpoint, subnet group, and migration task. For more information, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
@@ -2470,6 +2532,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
    */
   public runFleetAdvisorLsaAnalysis(
@@ -2502,6 +2565,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Starts the analysis of your source database to provide recommendations of target
    *             engines.</p>
    *          <p>You can create recommendations for multiple source databases using <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html">BatchStartRecommendations</a>.</p>
@@ -2536,6 +2600,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Starts the replication task.</p>
    *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
    *             <i>Database Migration Service User Guide.</i>
@@ -2571,6 +2636,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p> Starts the replication task assessment for unsupported data types in the source
    *          database. </p>
    *          <p>You can only use this operation for a task if the following conditions are true:</p>
@@ -2617,6 +2683,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Starts a new premigration assessment run for one or more individual assessments
    *          of a migration task.</p>
    *          <p>The assessments that you can specify depend on the source and target database engine and
@@ -2655,6 +2722,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Stops the replication task.</p>
    */
   public stopReplicationTask(
@@ -2687,6 +2755,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Tests the connection between the replication instance and the endpoint.</p>
    */
   public testConnection(
@@ -2719,6 +2788,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * @public
    * <p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to corresponding Amazon EventBridge rules.
    *          By default, this operation migrates subscriptions only when all your replication instance versions are 3.4.6 or higher.
    *          If any replication instances are from versions earlier than 3.4.6, the operation raises an error and tells you

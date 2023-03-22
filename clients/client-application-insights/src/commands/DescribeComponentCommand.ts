@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComponentCommand}.
  */
 export interface DescribeComponentCommandInput extends DescribeComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComponentCommand}.
  */
 export interface DescribeComponentCommandOutput extends DescribeComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a component and lists the resources that are grouped together in a
  *          component.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComponentCommandInput - {@link DescribeComponentCommandInput}
+ * @returns {@link DescribeComponentCommandOutput}
  * @see {@link DescribeComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeComponentCommandOutput> {
     return deserializeAws_json1_1DescribeComponentCommand(output, context);
   }

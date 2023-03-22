@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostedZonesByNameCommand}.
  */
 export interface ListHostedZonesByNameCommandInput extends ListHostedZonesByNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHostedZonesByNameCommand}.
  */
 export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a
  * 				<code>HostedZones</code> child element for each hosted zone created by the current
  * 				Amazon Web Services account. </p>
@@ -102,6 +107,8 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostedZonesByNameCommandInput - {@link ListHostedZonesByNameCommandInput}
+ * @returns {@link ListHostedZonesByNameCommandOutput}
  * @see {@link ListHostedZonesByNameCommandInput} for command's `input` shape.
  * @see {@link ListHostedZonesByNameCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -131,6 +138,9 @@ export class ListHostedZonesByNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostedZonesByNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class ListHostedZonesByNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostedZonesByNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListHostedZonesByNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostedZonesByNameCommandOutput> {
     return deserializeAws_restXmlListHostedZonesByNameCommand(output, context);
   }

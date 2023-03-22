@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteArchiveCommand}.
  */
 export interface DeleteArchiveCommandInput extends DeleteArchiveRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteArchiveCommand}.
  */
 export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
+ * @returns {@link DeleteArchiveCommandOutput}
  * @see {@link DeleteArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArchiveCommandOutput> {
     return deserializeAws_json1_1DeleteArchiveCommand(output, context);
   }

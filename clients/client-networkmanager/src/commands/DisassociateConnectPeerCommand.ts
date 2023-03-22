@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConnectPeerCommand}.
  */
 export interface DisassociateConnectPeerCommandInput extends DisassociateConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConnectPeerCommand}.
  */
 export interface DisassociateConnectPeerCommandOutput extends DisassociateConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a core network Connect peer from a device and a link. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectPeerCommandInput - {@link DisassociateConnectPeerCommandInput}
+ * @returns {@link DisassociateConnectPeerCommandOutput}
  * @see {@link DisassociateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisassociateConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateConnectPeerCommandOutput> {
     return deserializeAws_restJson1DisassociateConnectPeerCommand(output, context);
   }

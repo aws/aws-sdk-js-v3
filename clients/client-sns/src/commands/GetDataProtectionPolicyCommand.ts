@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataProtectionPolicyCommand}.
  */
 export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDataProtectionPolicyCommand}.
  */
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
  *             stored in the specified Amazon SNS topic. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataProtectionPolicyCommandInput - {@link GetDataProtectionPolicyCommandInput}
+ * @returns {@link GetDataProtectionPolicyCommandOutput}
  * @see {@link GetDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataProtectionPolicyCommandOutput> {
     return deserializeAws_queryGetDataProtectionPolicyCommand(output, context);
   }

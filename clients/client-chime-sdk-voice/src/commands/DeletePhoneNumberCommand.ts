@@ -21,10 +21,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePhoneNumberCommand}.
  */
 export interface DeletePhoneNumberCommandInput extends DeletePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePhoneNumberCommand}.
  */
 export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
@@ -46,6 +50,9 @@ export class DeletePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,10 +92,16 @@ export class DeletePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePhoneNumberCommandOutput> {
     return deserializeAws_restJson1DeletePhoneNumberCommand(output, context);
   }

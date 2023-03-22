@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMemberCommand}.
  */
 export interface AssociateMemberCommandInput extends AssociateMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMemberCommand}.
  */
 export interface AssociateMemberCommandOutput extends AssociateMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Amazon Web Services account with an Amazon Inspector delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMemberCommandInput - {@link AssociateMemberCommandInput}
+ * @returns {@link AssociateMemberCommandOutput}
  * @see {@link AssociateMemberCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AssociateMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberCommandOutput> {
     return deserializeAws_restJson1AssociateMemberCommand(output, context);
   }

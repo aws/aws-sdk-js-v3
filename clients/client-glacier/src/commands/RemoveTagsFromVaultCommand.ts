@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsFromVaultCommand}.
  */
 export interface RemoveTagsFromVaultCommandInput extends RemoveTagsFromVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsFromVaultCommand}.
  */
 export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation removes one or more tags from the set of tags attached to a vault. For
  *          more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
  *          This operation is idempotent. The operation will be successful, even if there are no tags
@@ -44,6 +49,8 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromVaultCommandInput - {@link RemoveTagsFromVaultCommandInput}
+ * @returns {@link RemoveTagsFromVaultCommandOutput}
  * @see {@link RemoveTagsFromVaultCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -96,6 +103,9 @@ export class RemoveTagsFromVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class RemoveTagsFromVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsFromVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveTagsFromVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromVaultCommandOutput> {
     return deserializeAws_restJson1RemoveTagsFromVaultCommand(output, context);
   }

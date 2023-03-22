@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExchangeCodeForTokenCommand}.
  */
 export interface ExchangeCodeForTokenCommandInput extends ExchangeCodeForTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExchangeCodeForTokenCommand}.
  */
 export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exchanges an access code for a token.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * const response = await client.send(command);
  * ```
  *
+ * @param ExchangeCodeForTokenCommandInput - {@link ExchangeCodeForTokenCommandInput}
+ * @returns {@link ExchangeCodeForTokenCommandOutput}
  * @see {@link ExchangeCodeForTokenCommandInput} for command's `input` shape.
  * @see {@link ExchangeCodeForTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -72,6 +79,9 @@ export class ExchangeCodeForTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExchangeCodeForTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ExchangeCodeForTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExchangeCodeForTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExchangeCodeForTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExchangeCodeForTokenCommandOutput> {
     return deserializeAws_restJson1ExchangeCodeForTokenCommand(output, context);
   }

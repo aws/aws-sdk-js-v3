@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelZonalShiftCommand}.
  */
 export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelZonalShiftCommand}.
  */
 export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancel a zonal shift in Amazon Route 53 Application Recovery Controller that you've started for a resource in your AWS account in an AWS Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
+ * @returns {@link CancelZonalShiftCommandOutput}
  * @see {@link CancelZonalShiftCommandInput} for command's `input` shape.
  * @see {@link CancelZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -87,6 +94,9 @@ export class CancelZonalShiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelZonalShiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CancelZonalShiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelZonalShiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelZonalShiftCommandOutput> {
     return deserializeAws_restJson1CancelZonalShiftCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelOrderCommand}.
  */
 export interface CancelOrderCommandInput extends CancelOrderInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelOrderCommand}.
  */
 export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified order for an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelOrderCommandInput - {@link CancelOrderCommandInput}
+ * @returns {@link CancelOrderCommandOutput}
  * @see {@link CancelOrderCommandInput} for command's `input` shape.
  * @see {@link CancelOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelOrderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CancelOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelOrderCommandOutput> {
     return deserializeAws_restJson1CancelOrderCommand(output, context);
   }

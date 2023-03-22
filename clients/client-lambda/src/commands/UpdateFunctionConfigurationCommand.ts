@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionConfigurationCommand}.
  */
 export interface UpdateFunctionConfigurationCommandInput extends UpdateFunctionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionConfigurationCommand}.
  */
 export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the version-specific settings of a Lambda function.</p>
  *          <p>When you update a function, Lambda provisions an instance of the function and its supporting
  *       resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify
@@ -57,6 +62,8 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionConfigurationCommandInput - {@link UpdateFunctionConfigurationCommandInput}
+ * @returns {@link UpdateFunctionConfigurationCommandOutput}
  * @see {@link UpdateFunctionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -110,6 +117,9 @@ export class UpdateFunctionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class UpdateFunctionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFunctionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

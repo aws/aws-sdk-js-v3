@@ -27,15 +27,20 @@ import {
 import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchCommand}.
  */
 export interface SearchCommandInput extends SearchRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchCommand}.
  */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:</p>
  *       <ul>
  *          <li><code>simple</code>: search all <code>text</code> and <code>text-array</code> fields for the specified string. Search for phrases, individual terms, and prefixes. </li>
@@ -55,6 +60,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCommandInput - {@link SearchCommandInput}
+ * @returns {@link SearchCommandOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
@@ -81,6 +88,9 @@ export class SearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class SearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
     return deserializeAws_restJson1SearchCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelCommand}.
  */
 export interface GetChannelCommandInput extends GetChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelCommand}.
  */
 export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelCommandInput - {@link GetChannelCommandInput}
+ * @returns {@link GetChannelCommandOutput}
  * @see {@link GetChannelCommandInput} for command's `input` shape.
  * @see {@link GetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelCommandOutput> {
     return deserializeAws_restJson1GetChannelCommand(output, context);
   }

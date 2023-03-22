@@ -10,7 +10,7 @@ import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
 import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkSpacesWebClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUserSettingsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListUserSettings(
   config: WorkSpacesWebPaginationConfiguration,
   input: ListUserSettingsCommandInput,

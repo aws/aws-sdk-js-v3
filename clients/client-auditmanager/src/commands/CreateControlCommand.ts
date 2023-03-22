@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateControlCommand}.
  */
 export interface CreateControlCommandInput extends CreateControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateControlCommand}.
  */
 export interface CreateControlCommandOutput extends CreateControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new custom control in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateControlCommandInput - {@link CreateControlCommandInput}
+ * @returns {@link CreateControlCommandOutput}
  * @see {@link CreateControlCommandInput} for command's `input` shape.
  * @see {@link CreateControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateControlCommandOutput> {
     return deserializeAws_restJson1CreateControlCommand(output, context);
   }

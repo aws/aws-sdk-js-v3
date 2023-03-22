@@ -29,10 +29,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkUnitResultsCommand}.
  */
 export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkUnitResultsCommand}.
  */
 export interface GetWorkUnitResultsCommandOutput
@@ -40,6 +44,7 @@ export interface GetWorkUnitResultsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the work units resulting from the query. Work units can be executed in any order and in parallel. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface GetWorkUnitResultsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkUnitResultsCommandInput - {@link GetWorkUnitResultsCommandInput}
+ * @returns {@link GetWorkUnitResultsCommandOutput}
  * @see {@link GetWorkUnitResultsCommandInput} for command's `input` shape.
  * @see {@link GetWorkUnitResultsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetWorkUnitResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkUnitResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetWorkUnitResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkUnitResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWorkUnitResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

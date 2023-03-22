@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMulticastGroupCommand}.
  */
 export interface DeleteMulticastGroupCommandInput extends DeleteMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMulticastGroupCommand}.
  */
 export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a multicast group if it is not in use by a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMulticastGroupCommandInput - {@link DeleteMulticastGroupCommandInput}
+ * @returns {@link DeleteMulticastGroupCommandOutput}
  * @see {@link DeleteMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteMulticastGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteMulticastGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMulticastGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMulticastGroupCommandOutput> {
     return deserializeAws_restJson1DeleteMulticastGroupCommand(output, context);
   }

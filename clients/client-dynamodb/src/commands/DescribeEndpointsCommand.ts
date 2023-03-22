@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointsCommand}.
  */
 export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointsCommand}.
  */
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the regional endpoint information. This action must be included in your VPC
  *             endpoint policies, or access to the DescribeEndpoints API will be denied. For more information
  *             on policy permissions, please see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints">Internetwork traffic privacy</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
+ * @returns {@link DescribeEndpointsCommandOutput}
  * @see {@link DescribeEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
     return deserializeAws_json1_0DescribeEndpointsCommand(output, context);
   }

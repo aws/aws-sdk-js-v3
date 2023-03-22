@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatastoreCommand}.
  */
 export interface DeleteDatastoreCommandInput extends DeleteDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatastoreCommand}.
  */
 export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatastoreCommandInput - {@link DeleteDatastoreCommandInput}
+ * @returns {@link DeleteDatastoreCommandOutput}
  * @see {@link DeleteDatastoreCommandInput} for command's `input` shape.
  * @see {@link DeleteDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatastoreCommandOutput> {
     return deserializeAws_restJson1DeleteDatastoreCommand(output, context);
   }

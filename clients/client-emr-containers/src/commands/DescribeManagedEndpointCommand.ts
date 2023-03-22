@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeManagedEndpointCommand}.
  */
 export interface DescribeManagedEndpointCommandInput extends DescribeManagedEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeManagedEndpointCommand}.
  */
 export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a managed endpoint. A managed endpoint is a gateway
  *          that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with
  *          your virtual cluster.</p>
@@ -48,6 +53,8 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeManagedEndpointCommandInput - {@link DescribeManagedEndpointCommandInput}
+ * @returns {@link DescribeManagedEndpointCommandOutput}
  * @see {@link DescribeManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedEndpointCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeManagedEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeManagedEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeManagedEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeManagedEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeManagedEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeManagedEndpointCommandOutput> {
     return deserializeAws_restJson1DescribeManagedEndpointCommand(output, context);
   }

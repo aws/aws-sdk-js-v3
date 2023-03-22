@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationAggregatorCommand}.
  */
 export interface PutConfigurationAggregatorCommandInput extends PutConfigurationAggregatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationAggregatorCommand}.
  */
 export interface PutConfigurationAggregatorCommandOutput extends PutConfigurationAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and updates the configuration aggregator with the
  * 			selected source accounts and regions. The source account can be
  * 			individual account(s) or an organization.</p>
@@ -64,6 +69,8 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationAggregatorCommandInput - {@link PutConfigurationAggregatorCommandInput}
+ * @returns {@link PutConfigurationAggregatorCommandOutput}
  * @see {@link PutConfigurationAggregatorCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -129,6 +136,9 @@ export class PutConfigurationAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class PutConfigurationAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigurationAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConfigurationAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

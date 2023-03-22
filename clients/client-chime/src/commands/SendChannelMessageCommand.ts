@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendChannelMessageCommand}.
  */
 export interface SendChannelMessageCommandInput extends SendChannelMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendChannelMessageCommand}.
  */
 export interface SendChannelMessageCommandOutput extends SendChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a message to a particular channel that the member is a part of.</p>
  *
  *          <note>
@@ -55,6 +60,8 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param SendChannelMessageCommandInput - {@link SendChannelMessageCommandInput}
+ * @returns {@link SendChannelMessageCommandOutput}
  * @see {@link SendChannelMessageCommandInput} for command's `input` shape.
  * @see {@link SendChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -100,6 +107,9 @@ export class SendChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class SendChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendChannelMessageCommandOutput> {
     return deserializeAws_restJson1SendChannelMessageCommand(output, context);
   }

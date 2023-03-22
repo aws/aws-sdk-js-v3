@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemaVersionsCommand}.
  */
 export interface ListSchemaVersionsCommandInput extends ListSchemaVersionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemaVersionsCommand}.
  */
 export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of schema versions that you have created, with minimal information. Schema versions in Deleted status will not be included in the results. Empty results will be returned if there are no schema versions available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemaVersionsCommandInput - {@link ListSchemaVersionsCommandInput}
+ * @returns {@link ListSchemaVersionsCommandOutput}
  * @see {@link ListSchemaVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaVersionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSchemaVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemaVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListSchemaVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSchemaVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemaVersionsCommandOutput> {
     return deserializeAws_json1_1ListSchemaVersionsCommand(output, context);
   }

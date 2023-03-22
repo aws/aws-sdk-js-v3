@@ -30,15 +30,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationPolicyCommand}.
  */
 export interface GetApplicationPolicyCommandInput extends GetApplicationPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationPolicyCommand}.
  */
 export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy for the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationPolicyCommandInput - {@link GetApplicationPolicyCommandInput}
+ * @returns {@link GetApplicationPolicyCommandOutput}
  * @see {@link GetApplicationPolicyCommandInput} for command's `input` shape.
  * @see {@link GetApplicationPolicyCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetApplicationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetApplicationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApplicationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationPolicyCommandOutput> {
     return deserializeAws_restJson1GetApplicationPolicyCommand(output, context);
   }

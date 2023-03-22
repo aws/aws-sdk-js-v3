@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHLSStreamingSessionURLCommand}.
  */
 export interface GetHLSStreamingSessionURLCommandInput extends GetHLSStreamingSessionURLInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHLSStreamingSessionURLCommand}.
  */
 export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL
  *             in a browser or media player to view the stream contents.</p>
  *         <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
@@ -229,6 +234,8 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHLSStreamingSessionURLCommandInput - {@link GetHLSStreamingSessionURLCommandInput}
+ * @returns {@link GetHLSStreamingSessionURLCommandOutput}
  * @see {@link GetHLSStreamingSessionURLCommandInput} for command's `input` shape.
  * @see {@link GetHLSStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -292,6 +299,9 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHLSStreamingSessionURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -331,10 +341,16 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHLSStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetHLSStreamingSessionURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

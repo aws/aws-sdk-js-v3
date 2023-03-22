@@ -267,6 +267,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | ApproveSkillCommandInput
   | AssociateContactWithAddressBookCommandInput
@@ -362,6 +365,9 @@ export type ServiceInputTypes =
   | UpdateRoomCommandInput
   | UpdateSkillGroupCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | ApproveSkillCommandOutput
   | AssociateContactWithAddressBookCommandOutput
@@ -457,6 +463,9 @@ export type ServiceOutputTypes =
   | UpdateRoomCommandOutput
   | UpdateSkillGroupCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -464,7 +473,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -573,11 +582,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AlexaForBusinessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -588,10 +600,15 @@ type AlexaForBusinessClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AlexaForBusinessClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AlexaForBusinessClient class constructor that set the region, credentials and other options.
  */
 export interface AlexaForBusinessClientConfig extends AlexaForBusinessClientConfigType {}
 
+/**
+ * @public
+ */
 type AlexaForBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -602,11 +619,14 @@ type AlexaForBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AlexaForBusinessClient class. This is resolved and normalized from the {@link AlexaForBusinessClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AlexaForBusinessClient class. This is resolved and normalized from the {@link AlexaForBusinessClientConfig | constructor configuration interface}.
  */
 export interface AlexaForBusinessClientResolvedConfig extends AlexaForBusinessClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools
  *          to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your
  *          own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations.

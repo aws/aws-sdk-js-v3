@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePullThroughCacheRuleCommand}.
  */
 export interface CreatePullThroughCacheRuleCommandInput extends CreatePullThroughCacheRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePullThroughCacheRuleCommand}.
  */
 export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a pull through cache rule. A pull through cache rule provides a way to cache
  *             images from an external public registry in your Amazon ECR private registry.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePullThroughCacheRuleCommandInput - {@link CreatePullThroughCacheRuleCommandInput}
+ * @returns {@link CreatePullThroughCacheRuleCommandOutput}
  * @see {@link CreatePullThroughCacheRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreatePullThroughCacheRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePullThroughCacheRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreatePullThroughCacheRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePullThroughCacheRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

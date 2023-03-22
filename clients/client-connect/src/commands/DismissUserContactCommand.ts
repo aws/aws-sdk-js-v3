@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DismissUserContactCommand}.
  */
 export interface DismissUserContactCommandInput extends DismissUserContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DismissUserContactCommand}.
  */
 export interface DismissUserContactCommandOutput extends DismissUserContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
  *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
  *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
@@ -50,6 +55,8 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DismissUserContactCommandInput - {@link DismissUserContactCommandInput}
+ * @returns {@link DismissUserContactCommandOutput}
  * @see {@link DismissUserContactCommandInput} for command's `input` shape.
  * @see {@link DismissUserContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -91,6 +98,9 @@ export class DismissUserContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DismissUserContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DismissUserContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DismissUserContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DismissUserContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DismissUserContactCommandOutput> {
     return deserializeAws_restJson1DismissUserContactCommand(output, context);
   }

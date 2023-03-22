@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopICD10CMInferenceJobCommand}.
  */
 export interface StopICD10CMInferenceJobCommandInput extends StopICD10CMInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopICD10CMInferenceJobCommand}.
  */
 export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an InferICD10CM inference job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  * const response = await client.send(command);
  * ```
  *
+ * @param StopICD10CMInferenceJobCommandInput - {@link StopICD10CMInferenceJobCommandInput}
+ * @returns {@link StopICD10CMInferenceJobCommandOutput}
  * @see {@link StopICD10CMInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StopICD10CMInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopICD10CMInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopICD10CMInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StopICD10CMInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopICD10CMInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopICD10CMInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopICD10CMInferenceJobCommandOutput> {
     return deserializeAws_json1_1StopICD10CMInferenceJobCommand(output, context);
   }

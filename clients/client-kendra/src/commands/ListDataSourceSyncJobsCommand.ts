@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSourceSyncJobsCommand}.
  */
 export interface ListDataSourceSyncJobsCommandInput extends ListDataSourceSyncJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSourceSyncJobsCommand}.
  */
 export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets statistics about synchronizing a data source connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSourceSyncJobsCommandInput - {@link ListDataSourceSyncJobsCommandInput}
+ * @returns {@link ListDataSourceSyncJobsCommandOutput}
  * @see {@link ListDataSourceSyncJobsCommandInput} for command's `input` shape.
  * @see {@link ListDataSourceSyncJobsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListDataSourceSyncJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSourceSyncJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListDataSourceSyncJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSourceSyncJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDataSourceSyncJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSourceSyncJobsCommandOutput> {
     return deserializeAws_json1_1ListDataSourceSyncJobsCommand(output, context);
   }

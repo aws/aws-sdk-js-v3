@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminConfirmSignUpCommand}.
  */
 export interface AdminConfirmSignUpCommandInput extends AdminConfirmSignUpRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminConfirmSignUpCommand}.
  */
 export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms user registration as an admin without using a confirmation code. Works on any
  *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
@@ -53,6 +58,8 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminConfirmSignUpCommandInput - {@link AdminConfirmSignUpCommandInput}
+ * @returns {@link AdminConfirmSignUpCommandOutput}
  * @see {@link AdminConfirmSignUpCommandInput} for command's `input` shape.
  * @see {@link AdminConfirmSignUpCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -116,6 +123,9 @@ export class AdminConfirmSignUpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminConfirmSignUpCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class AdminConfirmSignUpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminConfirmSignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminConfirmSignUpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminConfirmSignUpCommandOutput> {
     return deserializeAws_json1_1AdminConfirmSignUpCommand(output, context);
   }

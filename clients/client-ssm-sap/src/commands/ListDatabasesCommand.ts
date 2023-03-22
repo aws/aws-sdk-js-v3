@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatabasesCommand}.
  */
 export interface ListDatabasesCommandInput extends ListDatabasesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDatabasesCommand}.
  */
 export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SAP HANA databases of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
+ * @returns {@link ListDatabasesCommandOutput}
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatabasesCommandOutput> {
     return deserializeAws_restJson1ListDatabasesCommand(output, context);
   }

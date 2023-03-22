@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePackageCommand}.
  */
 export interface AssociatePackageCommandInput extends AssociatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePackageCommand}.
  */
 export interface AssociatePackageCommandOutput extends AssociatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a package with an Amazon OpenSearch Service domain. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
  *     for Amazon OpenSearch Service</a>.</p>
@@ -48,6 +53,8 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePackageCommandInput - {@link AssociatePackageCommandInput}
+ * @returns {@link AssociatePackageCommandOutput}
  * @see {@link AssociatePackageCommandInput} for command's `input` shape.
  * @see {@link AssociatePackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AssociatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociatePackageCommandOutput> {
     return deserializeAws_restJson1AssociatePackageCommand(output, context);
   }

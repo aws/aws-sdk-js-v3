@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelBansCommand}.
  */
 export interface ListChannelBansCommandInput extends ListChannelBansRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelBansCommand}.
  */
 export interface ListChannelBansCommandOutput extends ListChannelBansResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the users banned from a particular channel.</p>
  *
  *          <note>
@@ -53,6 +58,8 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelBansCommandInput - {@link ListChannelBansCommandInput}
+ * @returns {@link ListChannelBansCommandOutput}
  * @see {@link ListChannelBansCommandInput} for command's `input` shape.
  * @see {@link ListChannelBansCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListChannelBansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelBansCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListChannelBansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelBansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChannelBansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelBansCommandOutput> {
     return deserializeAws_restJson1ListChannelBansCommand(output, context);
   }

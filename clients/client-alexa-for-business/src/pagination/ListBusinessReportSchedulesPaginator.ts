@@ -10,7 +10,7 @@ import {
 import { AlexaForBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AlexaForBusinessClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBusinessReportSchedulesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBusinessReportSchedules(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListBusinessReportSchedulesCommandInput,

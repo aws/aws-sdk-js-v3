@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppVersionAppComponentCommand}.
  */
 export interface UpdateAppVersionAppComponentCommandInput extends UpdateAppVersionAppComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppVersionAppComponentCommand}.
  */
 export interface UpdateAppVersionAppComponentCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Application Component in the AWS Resilience Hub application.</p>
  *          <note>
  *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
@@ -51,6 +56,8 @@ export interface UpdateAppVersionAppComponentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppVersionAppComponentCommandInput - {@link UpdateAppVersionAppComponentCommandInput}
+ * @returns {@link UpdateAppVersionAppComponentCommandOutput}
  * @see {@link UpdateAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateAppVersionAppComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppVersionAppComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateAppVersionAppComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppVersionAppComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAppVersionAppComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

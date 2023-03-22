@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallDescriptionCommand}.
  */
 export interface UpdateFirewallDescriptionCommandInput extends UpdateFirewallDescriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallDescriptionCommand}.
  */
 export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDescriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the description for the specified firewall. Use the description to help you
  *          identify the firewall when you're working with it. </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallDescriptionCommandInput - {@link UpdateFirewallDescriptionCommandInput}
+ * @returns {@link UpdateFirewallDescriptionCommandOutput}
  * @see {@link UpdateFirewallDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDescriptionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateFirewallDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateFirewallDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFirewallDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateFirewallDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

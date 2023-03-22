@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MarketplaceCatalogServiceException as __BaseException } from "./MarketplaceCatalogServiceException";
 
 /**
+ * @public
  * <p>Access is denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelChangeSetRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -38,6 +42,9 @@ export interface CancelChangeSetRequest {
   ChangeSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelChangeSetResponse {
   /**
    * <p>The unique identifier for the change set referenced in this request.</p>
@@ -51,6 +58,7 @@ export interface CancelChangeSetResponse {
 }
 
 /**
+ * @public
  * <p>There was an internal service exception.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -72,6 +80,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is currently in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -93,6 +102,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource wasn't found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -114,6 +124,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Too many requests.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -135,6 +146,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error occurred during validation.</p>
  */
 export class ValidationException extends __BaseException {
@@ -155,6 +167,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeChangeSetRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -171,6 +186,7 @@ export interface DescribeChangeSetRequest {
 }
 
 /**
+ * @public
  * <p>An entity contains data that describes your product, its supported features, and how
  *             it can be used or launched by your customer. </p>
  */
@@ -187,6 +203,7 @@ export interface Entity {
 }
 
 /**
+ * @public
  * <p>Details about the error.</p>
  */
 export interface ErrorDetail {
@@ -202,6 +219,7 @@ export interface ErrorDetail {
 }
 
 /**
+ * @public
  * <p>This object is a container for common summary information about the change. The
  *             summary doesn't contain the whole change structure.</p>
  */
@@ -233,11 +251,17 @@ export interface ChangeSummary {
   ChangeName?: string;
 }
 
+/**
+ * @public
+ */
 export enum FailureCode {
   ClientError = "CLIENT_ERROR",
   ServerFault = "SERVER_FAULT",
 }
 
+/**
+ * @public
+ */
 export enum ChangeStatus {
   APPLYING = "APPLYING",
   CANCELLED = "CANCELLED",
@@ -246,6 +270,9 @@ export enum ChangeStatus {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeChangeSetResponse {
   /**
    * <p>Required. The unique identifier for the change set referenced in this request.</p>
@@ -302,6 +329,9 @@ export interface DescribeChangeSetResponse {
   ChangeSet?: ChangeSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -316,6 +346,9 @@ export interface DescribeEntityRequest {
   EntityId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityResponse {
   /**
    * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
@@ -347,6 +380,7 @@ export interface DescribeEntityResponse {
 }
 
 /**
+ * @public
  * <p>Currently, the specified resource is not supported.</p>
  */
 export class ResourceNotSupportedException extends __BaseException {
@@ -368,6 +402,7 @@ export class ResourceNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A filter object, used to optionally filter results from calls to the
  *                 <code>ListEntities</code> and <code>ListChangeSets</code> actions.</p>
  */
@@ -427,12 +462,16 @@ export interface Filter {
   ValueList?: string[];
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
 /**
+ * @public
  * <p>An object that contains two attributes, <code>SortBy</code> and
  *             <code>SortOrder</code>.</p>
  */
@@ -453,6 +492,9 @@ export interface Sort {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListChangeSetsRequest {
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
@@ -486,6 +528,7 @@ export interface ListChangeSetsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a change set returned in a list of change sets when the
  *                 <code>ListChangeSets</code> action is called.</p>
  */
@@ -539,6 +582,9 @@ export interface ChangeSetSummaryListItem {
   FailureCode?: FailureCode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListChangeSetsResponse {
   /**
    * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
@@ -551,6 +597,9 @@ export interface ListChangeSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesRequest {
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
@@ -588,6 +637,7 @@ export interface ListEntitiesRequest {
 }
 
 /**
+ * @public
  * <p>This object is a container for common summary information about the entity. The
  *             summary doesn't contain the whole entity structure, but it does contain information
  *             common across all entities.</p>
@@ -628,6 +678,9 @@ export interface EntitySummary {
   Visibility?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesResponse {
   /**
    * <p> Array of <code>EntitySummary</code> object.</p>
@@ -640,6 +693,9 @@ export interface ListEntitiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to list
@@ -649,6 +705,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>A list of objects specifying each key name and value.</p>
  */
 export interface Tag {
@@ -663,6 +720,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Required. The ARN associated with the resource you want to list tags on.</p>
@@ -677,6 +737,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The maximum number of open requests per account has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -698,6 +759,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that contains the <code>ChangeType</code>, <code>Details</code>, and
  *                 <code>Entity</code>.</p>
  */
@@ -731,6 +793,9 @@ export interface Change {
   ChangeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartChangeSetRequest {
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
@@ -761,6 +826,9 @@ export interface StartChangeSetRequest {
   ChangeSetTags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartChangeSetResponse {
   /**
    * <p>Unique identifier generated for the request.</p>
@@ -773,6 +841,9 @@ export interface StartChangeSetResponse {
   ChangeSetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
@@ -787,8 +858,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
@@ -803,6 +880,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

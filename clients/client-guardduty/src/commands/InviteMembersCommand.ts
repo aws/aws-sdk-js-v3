@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InviteMembersCommand}.
  */
 export interface InviteMembersCommandInput extends InviteMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link InviteMembersCommand}.
  */
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Invites other Amazon Web Services accounts (created as members of the current Amazon Web Services account by
  *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage these
  *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
@@ -48,6 +53,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param InviteMembersCommandInput - {@link InviteMembersCommandInput}
+ * @returns {@link InviteMembersCommandOutput}
  * @see {@link InviteMembersCommandInput} for command's `input` shape.
  * @see {@link InviteMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class InviteMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InviteMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class InviteMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InviteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InviteMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InviteMembersCommandOutput> {
     return deserializeAws_restJson1InviteMembersCommand(output, context);
   }

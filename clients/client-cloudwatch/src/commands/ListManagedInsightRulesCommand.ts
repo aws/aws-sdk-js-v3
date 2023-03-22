@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedInsightRulesCommand}.
  */
 export interface ListManagedInsightRulesCommandInput extends ListManagedInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedInsightRulesCommand}.
  */
 export interface ListManagedInsightRulesCommandOutput extends ListManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Returns a list
  * 			that contains the number
@@ -52,6 +57,8 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedInsightRulesCommandInput - {@link ListManagedInsightRulesCommandInput}
+ * @returns {@link ListManagedInsightRulesCommandOutput}
  * @see {@link ListManagedInsightRulesCommandInput} for command's `input` shape.
  * @see {@link ListManagedInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListManagedInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListManagedInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListManagedInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedInsightRulesCommandOutput> {
     return deserializeAws_queryListManagedInsightRulesCommand(output, context);
   }

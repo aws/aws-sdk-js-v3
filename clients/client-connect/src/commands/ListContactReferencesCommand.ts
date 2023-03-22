@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactReferencesCommand}.
  */
 export interface ListContactReferencesCommandInput extends ListContactReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactReferencesCommand}.
  */
 export interface ListContactReferencesCommandOutput extends ListContactReferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>For the specified <code>referenceTypes</code>, returns a list of references associated with
  *    the contact. </p>
@@ -48,6 +53,8 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactReferencesCommandInput - {@link ListContactReferencesCommandInput}
+ * @returns {@link ListContactReferencesCommandOutput}
  * @see {@link ListContactReferencesCommandInput} for command's `input` shape.
  * @see {@link ListContactReferencesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListContactReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListContactReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListContactReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactReferencesCommandOutput> {
     return deserializeAws_restJson1ListContactReferencesCommand(output, context);
   }

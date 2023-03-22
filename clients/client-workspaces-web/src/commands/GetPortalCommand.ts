@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPortalCommand}.
  */
 export interface GetPortalCommandInput extends GetPortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPortalCommand}.
  */
 export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPortalCommandInput - {@link GetPortalCommandInput}
+ * @returns {@link GetPortalCommandOutput}
  * @see {@link GetPortalCommandInput} for command's `input` shape.
  * @see {@link GetPortalCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetPortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetPortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPortalCommandOutput> {
     return deserializeAws_restJson1GetPortalCommand(output, context);
   }

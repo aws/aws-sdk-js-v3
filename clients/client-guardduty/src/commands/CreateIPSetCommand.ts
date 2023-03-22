@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIPSetCommand}.
  */
 export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIPSetCommand}.
  */
 export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An
  *       IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services
  *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
@@ -49,6 +54,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
+ * @returns {@link CreateIPSetCommandOutput}
  * @see {@link CreateIPSetCommandInput} for command's `input` shape.
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIPSetCommandOutput> {
     return deserializeAws_restJson1CreateIPSetCommand(output, context);
   }

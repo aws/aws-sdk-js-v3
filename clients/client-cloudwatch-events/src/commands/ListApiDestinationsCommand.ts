@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApiDestinationsCommand}.
  */
 export interface ListApiDestinationsCommandInput extends ListApiDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApiDestinationsCommand}.
  */
 export interface ListApiDestinationsCommandOutput extends ListApiDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of API destination in the account in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApiDestinationsCommandInput - {@link ListApiDestinationsCommandInput}
+ * @returns {@link ListApiDestinationsCommandOutput}
  * @see {@link ListApiDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListApiDestinationsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListApiDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApiDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListApiDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApiDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApiDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApiDestinationsCommandOutput> {
     return deserializeAws_json1_1ListApiDestinationsCommand(output, context);
   }

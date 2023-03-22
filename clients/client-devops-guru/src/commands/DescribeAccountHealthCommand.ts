@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountHealthCommand}.
  */
 export interface DescribeAccountHealthCommandInput extends DescribeAccountHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountHealthCommand}.
  */
 export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the number of open reactive insights, the number of open proactive insights,
  * 			and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the
  * 			health of operations in your Amazon Web Services account. </p>
@@ -48,6 +53,8 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountHealthCommandInput - {@link DescribeAccountHealthCommandInput}
+ * @returns {@link DescribeAccountHealthCommandOutput}
  * @see {@link DescribeAccountHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAccountHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAccountHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAccountHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountHealthCommandOutput> {
     return deserializeAws_restJson1DescribeAccountHealthCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReportJobCommand}.
  */
 export interface StartReportJobCommandInput extends StartReportJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StartReportJobCommand}.
  */
 export interface StartReportJobCommandOutput extends StartReportJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand report job for the specified report plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReportJobCommandInput - {@link StartReportJobCommandInput}
+ * @returns {@link StartReportJobCommandOutput}
  * @see {@link StartReportJobCommandInput} for command's `input` shape.
  * @see {@link StartReportJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class StartReportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartReportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartReportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReportJobCommandOutput> {
     return deserializeAws_restJson1StartReportJobCommand(output, context);
   }

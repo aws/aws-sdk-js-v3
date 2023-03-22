@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAssetsCommand}.
  */
 export interface DisassociateAssetsCommandInput extends DisassociateAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAssetsCommand}.
  */
 export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
  *       parent asset's model.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAssetsCommandInput - {@link DisassociateAssetsCommandInput}
+ * @returns {@link DisassociateAssetsCommandOutput}
  * @see {@link DisassociateAssetsCommandInput} for command's `input` shape.
  * @see {@link DisassociateAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisassociateAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DisassociateAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAssetsCommandOutput> {
     return deserializeAws_restJson1DisassociateAssetsCommand(output, context);
   }

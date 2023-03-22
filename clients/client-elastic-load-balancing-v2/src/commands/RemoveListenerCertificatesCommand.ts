@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveListenerCertificatesCommand}.
  */
 export interface RemoveListenerCertificatesCommandInput extends RemoveListenerCertificatesInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveListenerCertificatesCommand}.
  */
 export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerCertificatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  * @example
@@ -51,6 +56,8 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveListenerCertificatesCommandInput - {@link RemoveListenerCertificatesCommandInput}
+ * @returns {@link RemoveListenerCertificatesCommandOutput}
  * @see {@link RemoveListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link RemoveListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -80,6 +87,9 @@ export class RemoveListenerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class RemoveListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

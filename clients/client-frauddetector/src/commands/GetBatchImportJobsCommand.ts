@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBatchImportJobsCommand}.
  */
 export interface GetBatchImportJobsCommandInput extends GetBatchImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBatchImportJobsCommand}.
  */
 export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all batch import jobs or a specific job of the specified ID. This is a paginated API. If you provide a null <code>maxResults</code>,
  *          this action retrieves a maximum of 50 records per page. If you provide a <code>maxResults</code>, the value must be between 1 and 50.
  *          To get the next page results, provide the pagination token from the <code>GetBatchImportJobsResponse</code> as part of your request.
@@ -49,6 +54,8 @@ export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBatchImportJobsCommandInput - {@link GetBatchImportJobsCommandInput}
+ * @returns {@link GetBatchImportJobsCommandOutput}
  * @see {@link GetBatchImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetBatchImportJobsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetBatchImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBatchImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetBatchImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBatchImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBatchImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchImportJobsCommandOutput> {
     return deserializeAws_json1_1GetBatchImportJobsCommand(output, context);
   }

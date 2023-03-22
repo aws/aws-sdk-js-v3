@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlackWorkspaceConfigurationCommand}.
  */
 export interface DeleteSlackWorkspaceConfigurationCommandInput extends DeleteSlackWorkspaceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlackWorkspaceConfigurationCommand}.
  */
 export interface DeleteSlackWorkspaceConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't
  *       delete your Slack workspace.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlackWorkspaceConfigurationCommandInput - {@link DeleteSlackWorkspaceConfigurationCommandInput}
+ * @returns {@link DeleteSlackWorkspaceConfigurationCommandOutput}
  * @see {@link DeleteSlackWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSlackWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -114,6 +121,9 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlackWorkspaceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,6 +163,9 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSlackWorkspaceConfigurationCommandInput,
     context: __SerdeContext
@@ -160,6 +173,9 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command<
     return serializeAws_restJson1DeleteSlackWorkspaceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

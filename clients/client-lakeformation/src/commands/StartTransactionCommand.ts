@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTransactionCommand}.
  */
 export interface StartTransactionCommandInput extends StartTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTransactionCommand}.
  */
 export interface StartTransactionCommandOutput extends StartTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new transaction and returns its transaction ID. Transaction IDs are opaque objects that you can use to identify a transaction.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTransactionCommandInput - {@link StartTransactionCommandInput}
+ * @returns {@link StartTransactionCommandOutput}
  * @see {@link StartTransactionCommandInput} for command's `input` shape.
  * @see {@link StartTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -75,6 +82,9 @@ export class StartTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class StartTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTransactionCommandOutput> {
     return deserializeAws_restJson1StartTransactionCommand(output, context);
   }

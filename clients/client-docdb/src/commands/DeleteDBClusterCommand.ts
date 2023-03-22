@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterCommand}.
  */
 export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterCommand}.
  */
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>
  *         <p></p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterCommandInput - {@link DeleteDBClusterCommandInput}
+ * @returns {@link DeleteDBClusterCommandOutput}
  * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterCommandOutput> {
     return deserializeAws_queryDeleteDBClusterCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAWSServiceAccessCommand}.
  */
 export interface EnableAWSServiceAccessCommandInput extends EnableAWSServiceAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableAWSServiceAccessCommand}.
  */
 export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the integration of an Amazon Web Services service (the service that is specified by
  *                 <code>ServicePrincipal</code>) with Organizations. When you enable integration, you allow
  *             the specified service to create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
@@ -60,6 +65,8 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAWSServiceAccessCommandInput - {@link EnableAWSServiceAccessCommandInput}
+ * @returns {@link EnableAWSServiceAccessCommandOutput}
  * @see {@link EnableAWSServiceAccessCommandInput} for command's `input` shape.
  * @see {@link EnableAWSServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -413,6 +420,9 @@ export class EnableAWSServiceAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAWSServiceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -452,10 +462,16 @@ export class EnableAWSServiceAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAWSServiceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableAWSServiceAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAWSServiceAccessCommandOutput> {
     return deserializeAws_json1_1EnableAWSServiceAccessCommand(output, context);
   }

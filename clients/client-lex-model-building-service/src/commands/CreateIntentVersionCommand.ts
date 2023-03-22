@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIntentVersionCommand}.
  */
 export interface CreateIntentVersionCommandInput extends CreateIntentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIntentVersionCommand}.
  */
 export interface CreateIntentVersionCommandOutput extends CreateIntentVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of an intent based on the
  *         <code>$LATEST</code> version of the intent. If the <code>$LATEST</code>
  *       version of this intent hasn't changed since you last updated it, Amazon Lex
@@ -63,6 +68,8 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIntentVersionCommandInput - {@link CreateIntentVersionCommandInput}
+ * @returns {@link CreateIntentVersionCommandOutput}
  * @see {@link CreateIntentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateIntentVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -110,6 +117,9 @@ export class CreateIntentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIntentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateIntentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIntentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIntentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIntentVersionCommandOutput> {
     return deserializeAws_restJson1CreateIntentVersionCommand(output, context);
   }

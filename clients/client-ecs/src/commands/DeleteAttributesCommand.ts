@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAttributesCommand}.
  */
 export interface DeleteAttributesCommandInput extends DeleteAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAttributesCommand}.
  */
 export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more custom attributes from an Amazon ECS resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAttributesCommandInput - {@link DeleteAttributesCommandInput}
+ * @returns {@link DeleteAttributesCommandOutput}
  * @see {@link DeleteAttributesCommandInput} for command's `input` shape.
  * @see {@link DeleteAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttributesCommandOutput> {
     return deserializeAws_json1_1DeleteAttributesCommand(output, context);
   }

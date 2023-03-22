@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountPermissionsCommand}.
  */
 export interface ListAccountPermissionsCommandInput extends ListAccountPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountPermissionsCommand}.
  */
 export interface ListAccountPermissionsCommandOutput extends ListAccountPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the permissions an account has to configure Amazon Inspector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountPermissionsCommandInput - {@link ListAccountPermissionsCommandInput}
+ * @returns {@link ListAccountPermissionsCommandOutput}
  * @see {@link ListAccountPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListAccountPermissionsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +89,9 @@ export class ListAccountPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListAccountPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccountPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountPermissionsCommandOutput> {
     return deserializeAws_restJson1ListAccountPermissionsCommand(output, context);
   }

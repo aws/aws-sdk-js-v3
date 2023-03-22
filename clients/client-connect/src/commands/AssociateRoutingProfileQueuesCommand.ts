@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateRoutingProfileQueuesCommand}.
  */
 export interface AssociateRoutingProfileQueuesCommandInput extends AssociateRoutingProfileQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateRoutingProfileQueuesCommand}.
  */
 export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a set of queues with a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateRoutingProfileQueuesCommandInput - {@link AssociateRoutingProfileQueuesCommandInput}
+ * @returns {@link AssociateRoutingProfileQueuesCommandOutput}
  * @see {@link AssociateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link AssociateRoutingProfileQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateRoutingProfileQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateRoutingProfileQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AssociateRoutingProfileQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateRoutingProfileQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateRoutingProfileQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

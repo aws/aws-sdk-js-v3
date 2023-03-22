@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRoomCommand}.
  */
 export interface DeleteRoomCommandInput extends DeleteRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRoomCommand}.
  */
 export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a room by the room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoomCommandInput - {@link DeleteRoomCommandInput}
+ * @returns {@link DeleteRoomCommandOutput}
  * @see {@link DeleteRoomCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoomCommandOutput> {
     return deserializeAws_json1_1DeleteRoomCommand(output, context);
   }

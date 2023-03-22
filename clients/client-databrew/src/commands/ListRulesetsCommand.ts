@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRulesetsCommand}.
  */
 export interface ListRulesetsCommandInput extends ListRulesetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRulesetsCommand}.
  */
 export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all rulesets available in the current account or rulesets associated
  *             with a specific resource (dataset).</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesetsCommandInput - {@link ListRulesetsCommandInput}
+ * @returns {@link ListRulesetsCommandOutput}
  * @see {@link ListRulesetsCommandInput} for command's `input` shape.
  * @see {@link ListRulesetsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListRulesetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListRulesetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRulesetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesetsCommandOutput> {
     return deserializeAws_restJson1ListRulesetsCommand(output, context);
   }

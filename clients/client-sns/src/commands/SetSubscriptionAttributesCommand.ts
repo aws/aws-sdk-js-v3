@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetSubscriptionAttributesCommand}.
  */
 export interface SetSubscriptionAttributesCommandInput extends SetSubscriptionAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSubscriptionAttributesCommand}.
  */
 export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a subscription owner to set an attribute of the subscription to a new
  *             value.</p>
  * @example
@@ -42,6 +47,8 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSubscriptionAttributesCommandInput - {@link SetSubscriptionAttributesCommandInput}
+ * @returns {@link SetSubscriptionAttributesCommandOutput}
  * @see {@link SetSubscriptionAttributesCommandInput} for command's `input` shape.
  * @see {@link SetSubscriptionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -83,6 +90,9 @@ export class SetSubscriptionAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSubscriptionAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class SetSubscriptionAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSubscriptionAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetSubscriptionAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

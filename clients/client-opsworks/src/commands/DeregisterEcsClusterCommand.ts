@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterEcsClusterCommand}.
  */
 export interface DeregisterEcsClusterCommandInput extends DeregisterEcsClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterEcsClusterCommand}.
  */
 export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a specified Amazon ECS cluster from a stack.
  *       For more information, see
  *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete">
@@ -49,6 +54,8 @@ export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterEcsClusterCommandInput - {@link DeregisterEcsClusterCommandInput}
+ * @returns {@link DeregisterEcsClusterCommandOutput}
  * @see {@link DeregisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link DeregisterEcsClusterCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeregisterEcsClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterEcsClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeregisterEcsClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterEcsClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterEcsClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterEcsClusterCommandOutput> {
     return deserializeAws_json1_1DeregisterEcsClusterCommand(output, context);
   }

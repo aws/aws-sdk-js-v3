@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyLaunchTemplateCommand}.
  */
 export interface ModifyLaunchTemplateCommandInput extends ModifyLaunchTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyLaunchTemplateCommand}.
  */
 export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a launch template. You can specify which version of the launch template to
  *             set as the default version. When launching an instance, the default version applies when
  *             a launch template version is not specified.</p>
@@ -48,6 +53,8 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyLaunchTemplateCommandInput - {@link ModifyLaunchTemplateCommandInput}
+ * @returns {@link ModifyLaunchTemplateCommandOutput}
  * @see {@link ModifyLaunchTemplateCommandInput} for command's `input` shape.
  * @see {@link ModifyLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -95,6 +102,9 @@ export class ModifyLaunchTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyLaunchTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ModifyLaunchTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyLaunchTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyLaunchTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyLaunchTemplateCommandOutput> {
     return deserializeAws_ec2ModifyLaunchTemplateCommand(output, context);
   }

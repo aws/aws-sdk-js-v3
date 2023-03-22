@@ -20,15 +20,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOrganizationCommand}.
  */
 export interface DeleteOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOrganizationCommand}.
  */
 export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the organization. You can delete an organization only by using credentials
  *             from the management account. The organization must be empty of member accounts.</p>
  * @example
@@ -41,6 +46,8 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
+ * @returns {@link DeleteOrganizationCommandOutput}
  * @see {@link DeleteOrganizationCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -198,6 +205,9 @@ export class DeleteOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -237,10 +247,16 @@ export class DeleteOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOrganizationCommandOutput> {
     return deserializeAws_json1_1DeleteOrganizationCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCollectionCommand}.
  */
 export interface DeleteCollectionCommandInput extends DeleteCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCollectionCommand}.
  */
 export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified collection. Note that this operation removes all faces in the
  *       collection. For an example, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html">Deleting a
  *       collection</a>.</p>
@@ -50,6 +55,8 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
+ * @returns {@link DeleteCollectionCommandOutput}
  * @see {@link DeleteCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -109,6 +116,9 @@ export class DeleteCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DeleteCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCollectionCommandOutput> {
     return deserializeAws_json1_1DeleteCollectionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRepositoryCommand}.
  */
 export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRepositoryCommand}.
  */
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a repository. If the repository contains images, you must either delete all
  *             images in the repository or use the <code>force</code> option to delete the
  *             repository.</p>
@@ -48,6 +53,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
+ * @returns {@link DeleteRepositoryCommandOutput}
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -110,6 +117,9 @@ export class DeleteRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class DeleteRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryCommandOutput> {
     return deserializeAws_json1_1DeleteRepositoryCommand(output, context);
   }

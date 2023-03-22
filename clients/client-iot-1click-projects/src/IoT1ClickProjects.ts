@@ -80,10 +80,12 @@ import {
 import { IoT1ClickProjectsClient } from "./IoT1ClickProjectsClient";
 
 /**
+ * @public
  * <p>The AWS IoT 1-Click Projects API Reference</p>
  */
 export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   /**
+   * @public
    * <p>Associates a physical device with a placement.</p>
    */
   public associateDeviceWithPlacement(
@@ -116,6 +118,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty placement.</p>
    */
   public createPlacement(
@@ -148,6 +151,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty project with a placement template. A project contains zero or more
    *       placements that adhere to the placement template defined in the project.</p>
    */
@@ -181,6 +185,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a placement. To delete a placement, it must not have any devices associated with
    *       it.</p>
    *          <note>
@@ -217,6 +222,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a project. To delete a project, it must not have any placements associated with
    *       it.</p>
    *          <note>
@@ -253,6 +259,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Describes a placement in a project.</p>
    */
   public describePlacement(
@@ -285,6 +292,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Returns an object describing a project.</p>
    */
   public describeProject(
@@ -317,6 +325,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Removes a physical device from a placement.</p>
    */
   public disassociateDeviceFromPlacement(
@@ -349,6 +358,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Returns an object enumerating the devices in a placement.</p>
    */
   public getDevicesInPlacement(
@@ -381,6 +391,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Lists the placement(s) of a project.</p>
    */
   public listPlacements(
@@ -413,6 +424,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
    */
   public listProjects(
@@ -442,6 +454,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags (metadata key/value pairs) which you have assigned to the resource.</p>
    */
   public listTagsForResource(
@@ -474,6 +487,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Creates or modifies tags for a resource. Tags are key/value pairs (metadata) that can be
    *       used to manage a resource. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
    *         Strategies</a>.</p>
@@ -502,6 +516,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags (metadata key/value pairs) from a resource.</p>
    */
   public untagResource(
@@ -534,6 +549,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value
    *       (i.e., "").</p>
    */
@@ -567,6 +583,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
+   * @public
    * <p>Updates a project associated with your AWS account and region. With the exception of
    *       device template names, you can pass just the values that need to be updated because the update
    *       request will change only the values that are provided. To clear a value, pass the empty string

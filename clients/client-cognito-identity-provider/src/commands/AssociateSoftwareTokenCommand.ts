@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSoftwareTokenCommand}.
  */
 export interface AssociateSoftwareTokenCommandInput extends AssociateSoftwareTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSoftwareTokenCommand}.
  */
 export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA)
  *             for a user, with a unique private key that Amazon Cognito generates and returns in the API
  *             response. You can authorize an <code>AssociateSoftwareToken</code> request with either
@@ -67,6 +72,8 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSoftwareTokenCommandInput - {@link AssociateSoftwareTokenCommandInput}
+ * @returns {@link AssociateSoftwareTokenCommandOutput}
  * @see {@link AssociateSoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link AssociateSoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -115,6 +122,9 @@ export class AssociateSoftwareTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSoftwareTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class AssociateSoftwareTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSoftwareTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateSoftwareTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSoftwareTokenCommandOutput> {
     return deserializeAws_json1_1AssociateSoftwareTokenCommand(output, context);
   }

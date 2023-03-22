@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDashboardCommand}.
  */
 export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDashboardCommand}.
  */
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a dashboard in an Amazon Web Services account.</p>
  *          <note>
  *             <p>Updating a Dashboard creates a new dashboard version but does not immediately publish
@@ -53,6 +58,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDashboardCommandInput - {@link UpdateDashboardCommandInput}
+ * @returns {@link UpdateDashboardCommandOutput}
  * @see {@link UpdateDashboardCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class UpdateDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDashboardCommandOutput> {
     return deserializeAws_restJson1UpdateDashboardCommand(output, context);
   }

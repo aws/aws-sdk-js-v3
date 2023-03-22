@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists tags for up to 10 health checks or hosted zones.</p>
  *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
+ * @returns {@link ListTagsForResourcesCommandOutput}
  * @see {@link ListTagsForResourcesCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourcesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -90,6 +97,9 @@ export class ListTagsForResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListTagsForResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListTagsForResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourcesCommandOutput> {
     return deserializeAws_restXmlListTagsForResourcesCommand(output, context);
   }

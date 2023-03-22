@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ClaimDevicesByClaimCodeCommand}.
  */
 export interface ClaimDevicesByClaimCodeCommandInput extends ClaimDevicesByClaimCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ClaimDevicesByClaimCodeCommand}.
  */
 export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClaimCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you
  *  received a claim code with the device(s).</p>
  * @example
@@ -51,6 +56,8 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * const response = await client.send(command);
  * ```
  *
+ * @param ClaimDevicesByClaimCodeCommandInput - {@link ClaimDevicesByClaimCodeCommandInput}
+ * @returns {@link ClaimDevicesByClaimCodeCommandOutput}
  * @see {@link ClaimDevicesByClaimCodeCommandInput} for command's `input` shape.
  * @see {@link ClaimDevicesByClaimCodeCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -80,6 +87,9 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClaimDevicesByClaimCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClaimDevicesByClaimCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ClaimDevicesByClaimCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimDevicesByClaimCodeCommandOutput> {
     return deserializeAws_restJson1ClaimDevicesByClaimCodeCommand(output, context);
   }

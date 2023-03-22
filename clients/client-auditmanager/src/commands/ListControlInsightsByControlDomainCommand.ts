@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlInsightsByControlDomainCommand}.
  */
 export interface ListControlInsightsByControlDomainCommandInput extends ListControlInsightsByControlDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlInsightsByControlDomainCommand}.
  */
 export interface ListControlInsightsByControlDomainCommandOutput
@@ -37,6 +41,7 @@ export interface ListControlInsightsByControlDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the latest analytics data for controls within a specific control domain across all
  *          active assessments.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlInsightsByControlDomainCommandInput - {@link ListControlInsightsByControlDomainCommandInput}
+ * @returns {@link ListControlInsightsByControlDomainCommandOutput}
  * @see {@link ListControlInsightsByControlDomainCommandInput} for command's `input` shape.
  * @see {@link ListControlInsightsByControlDomainCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlInsightsByControlDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListControlInsightsByControlDomainCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
     return serializeAws_restJson1ListControlInsightsByControlDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

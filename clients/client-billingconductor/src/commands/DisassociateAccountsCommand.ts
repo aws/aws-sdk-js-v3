@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAccountsCommand}.
  */
 export interface DisassociateAccountsCommandInput extends DisassociateAccountsInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAccountsCommand}.
  */
 export interface DisassociateAccountsCommandOutput extends DisassociateAccountsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified list of account IDs from the given billing group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAccountsCommandInput - {@link DisassociateAccountsCommandInput}
+ * @returns {@link DisassociateAccountsCommandOutput}
  * @see {@link DisassociateAccountsCommandInput} for command's `input` shape.
  * @see {@link DisassociateAccountsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociateAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DisassociateAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAccountsCommandOutput> {
     return deserializeAws_restJson1DisassociateAccountsCommand(output, context);
   }

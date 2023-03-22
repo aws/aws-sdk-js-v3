@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyWorkspaceAccessPropertiesCommand}.
  */
 export interface ModifyWorkspaceAccessPropertiesCommandInput extends ModifyWorkspaceAccessPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyWorkspaceAccessPropertiesCommand}.
  */
 export interface ModifyWorkspaceAccessPropertiesCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies which devices and operating systems users can use to access their WorkSpaces.
  *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access">
  *             Control Device Access</a>.</p>
@@ -50,6 +55,8 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyWorkspaceAccessPropertiesCommandInput - {@link ModifyWorkspaceAccessPropertiesCommandInput}
+ * @returns {@link ModifyWorkspaceAccessPropertiesCommandOutput}
  * @see {@link ModifyWorkspaceAccessPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceAccessPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -79,6 +86,9 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyWorkspaceAccessPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyWorkspaceAccessPropertiesCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     return serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

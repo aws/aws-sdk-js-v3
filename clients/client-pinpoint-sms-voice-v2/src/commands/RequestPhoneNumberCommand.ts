@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RequestPhoneNumberCommand}.
  */
 export interface RequestPhoneNumberCommandInput extends RequestPhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestPhoneNumberCommand}.
  */
 export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Request an origination phone number for use in your account. For more information on
  *             phone number request see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-request-number.html"> Requesting a
  *                 number </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
@@ -52,6 +57,8 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestPhoneNumberCommandInput - {@link RequestPhoneNumberCommandInput}
+ * @returns {@link RequestPhoneNumberCommandOutput}
  * @see {@link RequestPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link RequestPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -102,6 +109,9 @@ export class RequestPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class RequestPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RequestPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestPhoneNumberCommandOutput> {
     return deserializeAws_json1_0RequestPhoneNumberCommand(output, context);
   }

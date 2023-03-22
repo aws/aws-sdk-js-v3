@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupConfigurationCommand}.
  */
 export interface GetGroupConfigurationCommandInput extends GetGroupConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupConfigurationCommand}.
  */
 export interface GetGroupConfigurationCommandOutput extends GetGroupConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the service configuration associated with the specified resource group. For
  *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
  *          <p>
@@ -58,6 +63,8 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupConfigurationCommandInput - {@link GetGroupConfigurationCommandInput}
+ * @returns {@link GetGroupConfigurationCommandOutput}
  * @see {@link GetGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGroupConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetGroupConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetGroupConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGroupConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupConfigurationCommandOutput> {
     return deserializeAws_restJson1GetGroupConfigurationCommand(output, context);
   }

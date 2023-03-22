@@ -155,6 +155,7 @@ import {
 import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
 
 /**
+ * @public
  * <p>Use the Amazon OpenSearch Serverless API to create, configure, and manage OpenSearch Serverless collections and
  *             security policies.</p>
  *         <p>OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration for
@@ -168,6 +169,7 @@ import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
  */
 export class OpenSearchServerless extends OpenSearchServerlessClient {
   /**
+   * @public
    * <p>Returns attributes for one or more collections, including the collection endpoint and
    *             the OpenSearch Dashboards endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
    *                 managing Amazon OpenSearch Serverless collections</a>.</p>
@@ -202,6 +204,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns attributes for one or more VPC endpoints associated with the current account.
    *             For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
@@ -236,6 +239,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections
    *             and the resources within them, and allow a user to access that data irrespective of the
    *             access mechanism or network source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access
@@ -271,6 +275,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates a new OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
    *                 managing Amazon OpenSearch Serverless collections</a>.</p>
    */
@@ -304,6 +309,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Specifies a security configuration for OpenSearch Serverless. For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
    *                 authentication for Amazon OpenSearch Serverless</a>. </p>
@@ -338,6 +344,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates a security policy to be used by one or more OpenSearch Serverless collections. Security
    *             policies provide access to a collection and its OpenSearch Dashboards endpoint from
    *             public networks or specific VPC endpoints. They also allow you to secure a collection
@@ -375,6 +382,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates an OpenSearch Serverless-managed interface VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access
    *                 Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
    */
@@ -408,6 +416,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
    *                 access control for Amazon OpenSearch Serverless</a>.</p>
    */
@@ -441,6 +450,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes an OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
    *                 managing Amazon OpenSearch Serverless collections</a>.</p>
    */
@@ -474,6 +484,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a security configuration for OpenSearch Serverless. For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
    *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -508,6 +519,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes an OpenSearch Serverless security policy.</p>
    */
   public deleteSecurityPolicy(
@@ -540,6 +552,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes an OpenSearch Serverless-managed interface endpoint. For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
    */
@@ -573,6 +586,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
    *             access control for Amazon OpenSearch Serverless</a>.</p>
    */
@@ -606,6 +620,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns account-level settings related to OpenSearch Serverless.</p>
    */
   public getAccountSettings(
@@ -638,6 +653,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns statistical information about your OpenSearch Serverless access policies, security
    *             configurations, and security policies.</p>
    */
@@ -671,6 +687,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an OpenSearch Serverless security configuration. For more information, see
    *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
    *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -705,6 +722,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a configured OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
    *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
    *                 rest for Amazon OpenSearch Serverless</a>.</p>
@@ -739,6 +757,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a list of OpenSearch Serverless access policies.</p>
    */
   public listAccessPolicies(
@@ -771,10 +790,11 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
    *                 managing Amazon OpenSearch Serverless collections</a>.</p>
    *         <note>
-   *             <p>Make sure to include an empty request body {} if you don't include any collection
+   *             <p>Make sure to include an empty request body \{\} if you don't include any collection
    *                 filters in the request.</p>
    *         </note>
    */
@@ -808,6 +828,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about configured OpenSearch Serverless security configurations. For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
    *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -842,6 +863,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about configured OpenSearch Serverless security policies.</p>
    */
   public listSecurityPolicies(
@@ -874,6 +896,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns the tags for an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
    */
   public listTagsForResource(
@@ -906,6 +929,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns the OpenSearch Serverless-managed interface VPC endpoints associated with the current
    *             account. For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
@@ -940,6 +964,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Associates tags with an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -966,6 +991,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag or set of tags from an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
    */
   public untagResource(
@@ -998,6 +1024,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
    *             access control for Amazon OpenSearch Serverless</a>.</p>
    */
@@ -1031,6 +1058,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Update the OpenSearch Serverless settings for the current Amazon Web Services account. For more
    *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
    */
@@ -1064,6 +1092,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates an OpenSearch Serverless collection.</p>
    */
   public updateCollection(
@@ -1096,6 +1125,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates a security configuration for OpenSearch Serverless. For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
    *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -1130,6 +1160,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates an OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
    *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
    *                 rest for Amazon OpenSearch Serverless</a>.</p>
@@ -1164,6 +1195,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates an OpenSearch Serverless-managed interface endpoint. For more information, see
    *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
    */

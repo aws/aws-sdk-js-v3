@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableLDAPSCommand}.
  */
 export interface EnableLDAPSCommandInput extends EnableLDAPSRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableLDAPSCommand}.
  */
 export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableLDAPSCommandInput - {@link EnableLDAPSCommandInput}
+ * @returns {@link EnableLDAPSCommandOutput}
  * @see {@link EnableLDAPSCommandInput} for command's `input` shape.
  * @see {@link EnableLDAPSCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class EnableLDAPSCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableLDAPSCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class EnableLDAPSCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableLDAPSCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableLDAPSCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableLDAPSCommandOutput> {
     return deserializeAws_json1_1EnableLDAPSCommand(output, context);
   }

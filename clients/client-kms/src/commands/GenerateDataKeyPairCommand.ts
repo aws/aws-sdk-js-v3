@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyPairCommand}.
  */
 export interface GenerateDataKeyPairCommandInput extends GenerateDataKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyPairCommand}.
  */
 export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key, a plaintext private key, and a copy of the private key that is
  *       encrypted under the symmetric encryption KMS key you specify. You can use the data key pair to
@@ -116,6 +121,8 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyPairCommandInput - {@link GenerateDataKeyPairCommandInput}
+ * @returns {@link GenerateDataKeyPairCommandOutput}
  * @see {@link GenerateDataKeyPairCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -225,6 +232,9 @@ export class GenerateDataKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -264,10 +274,16 @@ export class GenerateDataKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateDataKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateDataKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyPairCommandOutput> {
     return deserializeAws_json1_1GenerateDataKeyPairCommand(output, context);
   }

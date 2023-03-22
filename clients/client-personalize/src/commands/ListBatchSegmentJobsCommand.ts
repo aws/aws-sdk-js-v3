@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchSegmentJobsCommand}.
  */
 export interface ListBatchSegmentJobsCommandInput extends ListBatchSegmentJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchSegmentJobsCommand}.
  */
 export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the batch segment jobs that have been performed off of a solution
  *       version that you specify.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchSegmentJobsCommandInput - {@link ListBatchSegmentJobsCommandInput}
+ * @returns {@link ListBatchSegmentJobsCommandOutput}
  * @see {@link ListBatchSegmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListBatchSegmentJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListBatchSegmentJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchSegmentJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListBatchSegmentJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchSegmentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBatchSegmentJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchSegmentJobsCommandOutput> {
     return deserializeAws_json1_1ListBatchSegmentJobsCommand(output, context);
   }

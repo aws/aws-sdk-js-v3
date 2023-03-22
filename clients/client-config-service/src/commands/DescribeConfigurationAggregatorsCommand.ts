@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationAggregatorsCommand}.
  */
 export interface DescribeConfigurationAggregatorsCommandInput extends DescribeConfigurationAggregatorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationAggregatorsCommand}.
  */
 export interface DescribeConfigurationAggregatorsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeConfigurationAggregatorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of one or more configuration aggregators.
  * 			If the configuration aggregator is not specified, this action
  * 			returns the details for all the configuration aggregators associated
@@ -51,6 +56,8 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationAggregatorsCommandInput - {@link DescribeConfigurationAggregatorsCommandInput}
+ * @returns {@link DescribeConfigurationAggregatorsCommandOutput}
  * @see {@link DescribeConfigurationAggregatorsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationAggregatorsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationAggregatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConfigurationAggregatorsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     return serializeAws_json1_1DescribeConfigurationAggregatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

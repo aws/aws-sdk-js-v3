@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoadBalancerTlsPoliciesCommand}.
  */
 export interface GetLoadBalancerTlsPoliciesCommandInput extends GetLoadBalancerTlsPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoadBalancerTlsPoliciesCommand}.
  */
 export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancerTlsPoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of TLS security policies that you can apply to Lightsail load
  *       balancers.</p>
  *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
@@ -49,6 +54,8 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoadBalancerTlsPoliciesCommandInput - {@link GetLoadBalancerTlsPoliciesCommandInput}
+ * @returns {@link GetLoadBalancerTlsPoliciesCommandOutput}
  * @see {@link GetLoadBalancerTlsPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerTlsPoliciesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoadBalancerTlsPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoadBalancerTlsPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLoadBalancerTlsPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

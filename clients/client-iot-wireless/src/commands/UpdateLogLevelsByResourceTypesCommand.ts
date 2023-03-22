@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLogLevelsByResourceTypesCommand}.
  */
 export interface UpdateLogLevelsByResourceTypesCommandInput extends UpdateLogLevelsByResourceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLogLevelsByResourceTypesCommand}.
  */
 export interface UpdateLogLevelsByResourceTypesCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set default log level, or log levels by resource types. This can be for wireless device log options or
  *             wireless gateways log options and is used to control the log messages that'll be displayed in CloudWatch.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLogLevelsByResourceTypesCommandInput - {@link UpdateLogLevelsByResourceTypesCommandInput}
+ * @returns {@link UpdateLogLevelsByResourceTypesCommandOutput}
  * @see {@link UpdateLogLevelsByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link UpdateLogLevelsByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateLogLevelsByResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLogLevelsByResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class UpdateLogLevelsByResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateLogLevelsByResourceTypesCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class UpdateLogLevelsByResourceTypesCommand extends $Command<
     return serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

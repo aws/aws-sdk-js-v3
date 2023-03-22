@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsFromOnPremisesInstancesCommand}.
  */
 export interface RemoveTagsFromOnPremisesInstancesCommandInput extends RemoveTagsFromOnPremisesInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsFromOnPremisesInstancesCommand}.
  */
 export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more tags from one or more on-premises instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromOnPremisesInstancesCommandInput - {@link RemoveTagsFromOnPremisesInstancesCommandInput}
+ * @returns {@link RemoveTagsFromOnPremisesInstancesCommandOutput}
  * @see {@link RemoveTagsFromOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -89,6 +96,9 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveTagsFromOnPremisesInstancesCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     return serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

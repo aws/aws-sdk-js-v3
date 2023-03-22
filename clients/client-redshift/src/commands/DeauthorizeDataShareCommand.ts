@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeauthorizeDataShareCommand}.
  */
 export interface DeauthorizeDataShareCommandInput extends DeauthorizeDataShareMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeauthorizeDataShareCommand}.
  */
 export interface DeauthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
+ * @public
  * <p>From a datashare producer account, removes authorization from the specified datashare. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeauthorizeDataShareCommandInput - {@link DeauthorizeDataShareCommandInput}
+ * @returns {@link DeauthorizeDataShareCommandOutput}
  * @see {@link DeauthorizeDataShareCommandInput} for command's `input` shape.
  * @see {@link DeauthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeauthorizeDataShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeauthorizeDataShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeauthorizeDataShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeauthorizeDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeauthorizeDataShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeauthorizeDataShareCommandOutput> {
     return deserializeAws_queryDeauthorizeDataShareCommand(output, context);
   }

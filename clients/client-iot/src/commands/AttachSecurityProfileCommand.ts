@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachSecurityProfileCommand}.
  */
 export interface AttachSecurityProfileCommandInput extends AttachSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachSecurityProfileCommand}.
  */
 export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a Device Defender security profile with a thing group or this account. Each
  *         thing group or account can have up to five security profiles associated with it.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachSecurityProfile</a> action.</p>
@@ -48,6 +53,8 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachSecurityProfileCommandInput - {@link AttachSecurityProfileCommandInput}
+ * @returns {@link AttachSecurityProfileCommandOutput}
  * @see {@link AttachSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link AttachSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +98,9 @@ export class AttachSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AttachSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AttachSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachSecurityProfileCommandOutput> {
     return deserializeAws_restJson1AttachSecurityProfileCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMLModelCommand}.
  */
 export interface UpdateMLModelCommandInput extends UpdateMLModelInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMLModelCommand}.
  */
 export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
  *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMLModelCommandInput - {@link UpdateMLModelCommandInput}
+ * @returns {@link UpdateMLModelCommandOutput}
  * @see {@link UpdateMLModelCommandInput} for command's `input` shape.
  * @see {@link UpdateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLModelCommandOutput> {
     return deserializeAws_json1_1UpdateMLModelCommand(output, context);
   }

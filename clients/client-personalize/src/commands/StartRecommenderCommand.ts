@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRecommenderCommand}.
  */
 export interface StartRecommenderCommandInput extends StartRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRecommenderCommand}.
  */
 export interface StartRecommenderCommandOutput extends StartRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a recommender that is INACTIVE. Starting a recommender does not
  *       create any new models, but resumes billing and automatic retraining for the recommender.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRecommenderCommandInput - {@link StartRecommenderCommandInput}
+ * @returns {@link StartRecommenderCommandOutput}
  * @see {@link StartRecommenderCommandInput} for command's `input` shape.
  * @see {@link StartRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -79,6 +86,9 @@ export class StartRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class StartRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecommenderCommandOutput> {
     return deserializeAws_json1_1StartRecommenderCommand(output, context);
   }

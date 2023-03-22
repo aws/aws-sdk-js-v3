@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetV2LoggingOptionsCommand}.
  */
 export interface SetV2LoggingOptionsCommandInput extends SetV2LoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetV2LoggingOptionsCommand}.
  */
 export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the logging options for the V2 logging service.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingOptions</a> action.</p>
  * @example
@@ -42,6 +47,8 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetV2LoggingOptionsCommandInput - {@link SetV2LoggingOptionsCommandInput}
+ * @returns {@link SetV2LoggingOptionsCommandOutput}
  * @see {@link SetV2LoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link SetV2LoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -74,6 +81,9 @@ export class SetV2LoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetV2LoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class SetV2LoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetV2LoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetV2LoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetV2LoggingOptionsCommandOutput> {
     return deserializeAws_restJson1SetV2LoggingOptionsCommand(output, context);
   }

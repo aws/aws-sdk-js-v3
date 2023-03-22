@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSourceLocationCommand}.
  */
 export interface UpdateSourceLocationCommandInput extends UpdateSourceLocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSourceLocationCommand}.
  */
 export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSourceLocationCommandInput - {@link UpdateSourceLocationCommandInput}
+ * @returns {@link UpdateSourceLocationCommandOutput}
  * @see {@link UpdateSourceLocationCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class UpdateSourceLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSourceLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class UpdateSourceLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSourceLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSourceLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSourceLocationCommandOutput> {
     return deserializeAws_restJson1UpdateSourceLocationCommand(output, context);
   }

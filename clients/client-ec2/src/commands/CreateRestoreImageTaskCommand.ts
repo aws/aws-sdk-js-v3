@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRestoreImageTaskCommand}.
  */
 export interface CreateRestoreImageTaskCommandInput extends CreateRestoreImageTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRestoreImageTaskCommand}.
  */
 export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a task that restores an AMI from an Amazon S3 object that was previously created by using
  *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
  *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
@@ -51,6 +56,8 @@ export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageT
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRestoreImageTaskCommandInput - {@link CreateRestoreImageTaskCommandInput}
+ * @returns {@link CreateRestoreImageTaskCommandOutput}
  * @see {@link CreateRestoreImageTaskCommandInput} for command's `input` shape.
  * @see {@link CreateRestoreImageTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateRestoreImageTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRestoreImageTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateRestoreImageTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRestoreImageTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateRestoreImageTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRestoreImageTaskCommandOutput> {
     return deserializeAws_ec2CreateRestoreImageTaskCommand(output, context);
   }

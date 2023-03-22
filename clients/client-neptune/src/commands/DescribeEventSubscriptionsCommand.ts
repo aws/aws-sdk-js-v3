@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventSubscriptionsCommand}.
  */
 export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSubscriptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventSubscriptionsCommand}.
  */
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the subscription descriptions for a customer account. The description for a
  *       subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
  *       CreationTime, and Status.</p>
@@ -49,6 +54,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
+ * @returns {@link DescribeEventSubscriptionsCommandOutput}
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEventSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

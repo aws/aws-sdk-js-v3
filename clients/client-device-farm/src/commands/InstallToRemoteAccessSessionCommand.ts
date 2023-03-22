@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InstallToRemoteAccessSessionCommand}.
  */
 export interface InstallToRemoteAccessSessionCommandInput extends InstallToRemoteAccessSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link InstallToRemoteAccessSessionCommand}.
  */
 export interface InstallToRemoteAccessSessionCommandOutput
@@ -37,6 +41,7 @@ export interface InstallToRemoteAccessSessionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Installs an application to the device in a remote access session. For Android
  *             applications, the file must be in .apk format. For iOS applications, the file must be in
  *             .ipa format.</p>
@@ -50,6 +55,8 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param InstallToRemoteAccessSessionCommandInput - {@link InstallToRemoteAccessSessionCommandInput}
+ * @returns {@link InstallToRemoteAccessSessionCommandOutput}
  * @see {@link InstallToRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link InstallToRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -102,6 +109,9 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InstallToRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InstallToRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InstallToRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

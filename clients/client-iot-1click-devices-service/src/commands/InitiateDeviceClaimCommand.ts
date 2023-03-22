@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateDeviceClaimCommand}.
  */
 export interface InitiateDeviceClaimCommandInput extends InitiateDeviceClaimRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitiateDeviceClaimCommand}.
  */
 export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, initiates a claim request for the associated device.</p><note>
  *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
  *  and finalizing the claim. For a device of type button, a device event can
@@ -54,6 +59,8 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateDeviceClaimCommandInput - {@link InitiateDeviceClaimCommandInput}
+ * @returns {@link InitiateDeviceClaimCommandOutput}
  * @see {@link InitiateDeviceClaimCommandInput} for command's `input` shape.
  * @see {@link InitiateDeviceClaimCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -85,6 +92,9 @@ export class InitiateDeviceClaimCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateDeviceClaimCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class InitiateDeviceClaimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateDeviceClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InitiateDeviceClaimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateDeviceClaimCommandOutput> {
     return deserializeAws_restJson1InitiateDeviceClaimCommand(output, context);
   }

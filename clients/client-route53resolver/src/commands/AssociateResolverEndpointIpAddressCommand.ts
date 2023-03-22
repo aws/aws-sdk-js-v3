@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateResolverEndpointIpAddressCommand}.
  */
 export interface AssociateResolverEndpointIpAddressCommandInput extends AssociateResolverEndpointIpAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateResolverEndpointIpAddressCommand}.
  */
 export interface AssociateResolverEndpointIpAddressCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,
  * 			submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p>
  *          <p>To remove an IP address from an endpoint, see
@@ -52,6 +57,8 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResolverEndpointIpAddressCommandInput - {@link AssociateResolverEndpointIpAddressCommandInput}
+ * @returns {@link AssociateResolverEndpointIpAddressCommandOutput}
  * @see {@link AssociateResolverEndpointIpAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateResolverEndpointIpAddressCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -96,6 +103,9 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResolverEndpointIpAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateResolverEndpointIpAddressCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
     return serializeAws_json1_1AssociateResolverEndpointIpAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

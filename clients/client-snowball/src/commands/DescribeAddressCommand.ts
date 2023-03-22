@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddressCommand}.
  */
 export interface DescribeAddressCommandInput extends DescribeAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddressCommand}.
  */
 export interface DescribeAddressCommandOutput extends DescribeAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Takes an <code>AddressId</code> and returns specific details about that address in the
  *       form of an <code>Address</code> object.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressCommandInput - {@link DescribeAddressCommandInput}
+ * @returns {@link DescribeAddressCommandOutput}
  * @see {@link DescribeAddressCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DescribeAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressCommandOutput> {
     return deserializeAws_json1_1DescribeAddressCommand(output, context);
   }

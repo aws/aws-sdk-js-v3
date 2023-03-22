@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTestCommand}.
  */
 export interface StartTestCommandInput extends StartTestRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTestCommand}.
  */
 export interface StartTestCommandOutput extends StartTestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTestCommandInput - {@link StartTestCommandInput}
+ * @returns {@link StartTestCommandOutput}
  * @see {@link StartTestCommandInput} for command's `input` shape.
  * @see {@link StartTestCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -74,6 +81,9 @@ export class StartTestCommand extends $Command<StartTestCommandInput, StartTestC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class StartTestCommand extends $Command<StartTestCommandInput, StartTestC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTestCommandOutput> {
     return deserializeAws_restJson1StartTestCommand(output, context);
   }

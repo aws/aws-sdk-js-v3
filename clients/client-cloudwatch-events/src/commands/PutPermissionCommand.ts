@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPermissionCommand}.
  */
 export interface PutPermissionCommandInput extends PutPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPermissionCommand}.
  */
 export interface PutPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization
  *       to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch
  *       Events) rules in your account are triggered by these events arriving to an event bus in your
@@ -60,6 +65,8 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
+ * @returns {@link PutPermissionCommandOutput}
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -98,6 +105,9 @@ export class PutPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class PutPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionCommandOutput> {
     return deserializeAws_json1_1PutPermissionCommand(output, context);
   }

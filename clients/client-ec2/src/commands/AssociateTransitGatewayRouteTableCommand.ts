@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTransitGatewayRouteTableCommand}.
  */
 export interface AssociateTransitGatewayRouteTableCommandInput extends AssociateTransitGatewayRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTransitGatewayRouteTableCommand}.
  */
 export interface AssociateTransitGatewayRouteTableCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified attachment with the specified transit gateway route table. You can
  *         associate only one route table with an attachment.</p>
  * @example
@@ -49,6 +54,8 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTransitGatewayRouteTableCommandInput - {@link AssociateTransitGatewayRouteTableCommandInput}
+ * @returns {@link AssociateTransitGatewayRouteTableCommandOutput}
  * @see {@link AssociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTransitGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     return serializeAws_ec2AssociateTransitGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

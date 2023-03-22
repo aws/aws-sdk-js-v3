@@ -30,15 +30,20 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopHumanLoopCommand}.
  */
 export interface StopHumanLoopCommandInput extends StopHumanLoopRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopHumanLoopCommand}.
  */
 export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the specified human loop.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopHumanLoopCommandInput - {@link StopHumanLoopCommandInput}
+ * @returns {@link StopHumanLoopCommandOutput}
  * @see {@link StopHumanLoopCommandInput} for command's `input` shape.
  * @see {@link StopHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class StopHumanLoopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopHumanLoopCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StopHumanLoopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopHumanLoopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopHumanLoopCommandOutput> {
     return deserializeAws_restJson1StopHumanLoopCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInvitationsCommand}.
  */
 export interface CreateInvitationsCommandInput extends CreateInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInvitationsCommand}.
  */
 export interface CreateInvitationsCommandOutput extends CreateInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an Amazon Macie membership invitation to one or more accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInvitationsCommandInput - {@link CreateInvitationsCommandInput}
+ * @returns {@link CreateInvitationsCommandOutput}
  * @see {@link CreateInvitationsCommandInput} for command's `input` shape.
  * @see {@link CreateInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreateInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInvitationsCommandOutput> {
     return deserializeAws_restJson1CreateInvitationsCommand(output, context);
   }

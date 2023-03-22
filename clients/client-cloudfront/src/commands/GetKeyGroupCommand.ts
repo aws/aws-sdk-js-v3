@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyGroupCommand}.
  */
 export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyGroupCommand}.
  */
 export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a key group, including the date and time when the key group was last
  * 			modified.</p>
  *          <p>To get a key group, you must provide the key group's identifier. If the key group is
@@ -52,6 +57,8 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyGroupCommandInput - {@link GetKeyGroupCommandInput}
+ * @returns {@link GetKeyGroupCommandOutput}
  * @see {@link GetKeyGroupCommandInput} for command's `input` shape.
  * @see {@link GetKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetKeyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyGroupCommandOutput> {
     return deserializeAws_restXmlGetKeyGroupCommand(output, context);
   }

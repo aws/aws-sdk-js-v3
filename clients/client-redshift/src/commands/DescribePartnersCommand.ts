@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePartnersCommand}.
  */
 export interface DescribePartnersCommandInput extends DescribePartnersInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribePartnersCommand}.
  */
 export interface DescribePartnersCommandOutput extends DescribePartnersOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the partner integrations defined for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePartnersCommandInput - {@link DescribePartnersCommandInput}
+ * @returns {@link DescribePartnersCommandOutput}
  * @see {@link DescribePartnersCommandInput} for command's `input` shape.
  * @see {@link DescribePartnersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribePartnersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePartnersCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribePartnersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePartnersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribePartnersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePartnersCommandOutput> {
     return deserializeAws_queryDescribePartnersCommand(output, context);
   }

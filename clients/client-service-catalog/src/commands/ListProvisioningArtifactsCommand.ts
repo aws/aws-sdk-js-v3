@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisioningArtifactsCommand}.
  */
 export interface ListProvisioningArtifactsCommandInput extends ListProvisioningArtifactsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisioningArtifactsCommand}.
  */
 export interface ListProvisioningArtifactsCommandOutput extends ListProvisioningArtifactsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisioningArtifactsCommandInput - {@link ListProvisioningArtifactsCommandInput}
+ * @returns {@link ListProvisioningArtifactsCommandOutput}
  * @see {@link ListProvisioningArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningArtifactsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListProvisioningArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisioningArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListProvisioningArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisioningArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProvisioningArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

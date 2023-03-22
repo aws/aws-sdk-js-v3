@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRetentionConfigurationCommand}.
  */
 export interface DeleteRetentionConfigurationCommandInput extends DeleteRetentionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRetentionConfigurationCommand}.
  */
 export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the retention configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRetentionConfigurationCommandInput - {@link DeleteRetentionConfigurationCommandInput}
+ * @returns {@link DeleteRetentionConfigurationCommandOutput}
  * @see {@link DeleteRetentionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteRetentionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRetentionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteRetentionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRetentionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRetentionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

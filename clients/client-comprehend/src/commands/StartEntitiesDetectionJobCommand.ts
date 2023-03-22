@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartEntitiesDetectionJobCommand}.
  */
 export interface StartEntitiesDetectionJobCommandInput extends StartEntitiesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartEntitiesDetectionJobCommand}.
  */
 export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
  *          <p>This API can be used for either standard entity detection or custom entity recognition. In
  *       order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code>
@@ -50,6 +55,8 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEntitiesDetectionJobCommandInput - {@link StartEntitiesDetectionJobCommandInput}
+ * @returns {@link StartEntitiesDetectionJobCommandOutput}
  * @see {@link StartEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -98,6 +105,9 @@ export class StartEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class StartEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

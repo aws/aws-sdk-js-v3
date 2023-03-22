@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWebhookCommand}.
  */
 export interface DeleteWebhookCommandInput extends DeleteWebhookRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWebhookCommand}.
  */
 export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a webhook. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
+ * @returns {@link DeleteWebhookCommandOutput}
  * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
  * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebhookCommandOutput> {
     return deserializeAws_restJson1DeleteWebhookCommand(output, context);
   }

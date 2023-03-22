@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListClustersCommand}.
  */
 export interface ListClustersCommandInput extends ListClustersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListClustersCommand}.
  */
 export interface ListClustersCommandOutput extends ListClustersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each
  *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
  *       important status information.</p>
@@ -48,6 +53,8 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
     return deserializeAws_json1_1ListClustersCommand(output, context);
   }

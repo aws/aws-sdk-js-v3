@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticsearchDomainCommand}.
  */
 export interface DescribeElasticsearchDomainCommandInput extends DescribeElasticsearchDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticsearchDomainCommand}.
  */
 export interface DescribeElasticsearchDomainCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeElasticsearchDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeElasticsearchDomainCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticsearchDomainCommandInput - {@link DescribeElasticsearchDomainCommandInput}
+ * @returns {@link DescribeElasticsearchDomainCommandOutput}
  * @see {@link DescribeElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeElasticsearchDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticsearchDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeElasticsearchDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeElasticsearchDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

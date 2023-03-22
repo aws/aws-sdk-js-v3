@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateObjectCommand}.
  */
 export interface CreateObjectCommandInput extends CreateObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateObjectCommand}.
  */
 export interface CreateObjectCommandOutput extends CreateObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an object in a <a>Directory</a>. Additionally attaches the object to
  *       a parent, if a parent reference and <code>LinkName</code> is specified. An object is simply a
  *       collection of <a>Facet</a> attributes. You can also use this API call to create a
@@ -49,6 +54,8 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateObjectCommandInput - {@link CreateObjectCommandInput}
+ * @returns {@link CreateObjectCommandOutput}
  * @see {@link CreateObjectCommandInput} for command's `input` shape.
  * @see {@link CreateObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateObjectCommandOutput> {
     return deserializeAws_restJson1CreateObjectCommand(output, context);
   }

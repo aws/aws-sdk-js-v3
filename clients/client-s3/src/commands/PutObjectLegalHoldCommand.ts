@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectLegalHoldCommand}.
  */
 export interface PutObjectLegalHoldCommandInput extends PutObjectLegalHoldRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectLegalHoldCommand}.
  */
 export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a legal hold configuration to the specified object. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *             Objects</a>.</p>
@@ -50,6 +55,8 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectLegalHoldCommandInput - {@link PutObjectLegalHoldCommandInput}
+ * @returns {@link PutObjectLegalHoldCommandOutput}
  * @see {@link PutObjectLegalHoldCommandInput} for command's `input` shape.
  * @see {@link PutObjectLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -79,6 +86,9 @@ export class PutObjectLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class PutObjectLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectLegalHoldCommandOutput> {
     return deserializeAws_restXmlPutObjectLegalHoldCommand(output, context);
   }

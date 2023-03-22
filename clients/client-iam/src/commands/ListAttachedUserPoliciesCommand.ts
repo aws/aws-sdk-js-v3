@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedUserPoliciesCommand}.
  */
 export interface ListAttachedUserPoliciesCommandInput extends ListAttachedUserPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedUserPoliciesCommand}.
  */
 export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all managed policies that are attached to the specified IAM user.</p>
  *          <p>An IAM user can also have inline policies embedded with it. To list the inline
  *             policies for a user, use <a>ListUserPolicies</a>. For information about
@@ -55,6 +60,8 @@ export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserP
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedUserPoliciesCommandInput - {@link ListAttachedUserPoliciesCommandInput}
+ * @returns {@link ListAttachedUserPoliciesCommandOutput}
  * @see {@link ListAttachedUserPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedUserPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListAttachedUserPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedUserPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListAttachedUserPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedUserPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAttachedUserPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedUserPoliciesCommandOutput> {
     return deserializeAws_queryListAttachedUserPoliciesCommand(output, context);
   }

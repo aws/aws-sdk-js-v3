@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSlotTypeCommand}.
  */
 export interface CreateSlotTypeCommandInput extends CreateSlotTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSlotTypeCommand}.
  */
 export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom slot type</p>
  *          <p> To create a custom slot type, specify a name for the slot type and
  *          a set of enumeration values, the values that a slot of this type can
@@ -49,6 +54,8 @@ export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSlotTypeCommandInput - {@link CreateSlotTypeCommandInput}
+ * @returns {@link CreateSlotTypeCommandOutput}
  * @see {@link CreateSlotTypeCommandInput} for command's `input` shape.
  * @see {@link CreateSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -97,6 +104,9 @@ export class CreateSlotTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSlotTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateSlotTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSlotTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSlotTypeCommandOutput> {
     return deserializeAws_restJson1CreateSlotTypeCommand(output, context);
   }

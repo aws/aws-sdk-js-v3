@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSuppressedDestinationCommand}.
  */
 export interface DeleteSuppressedDestinationCommandInput extends DeleteSuppressedDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSuppressedDestinationCommand}.
  */
 export interface DeleteSuppressedDestinationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteSuppressedDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an email address from the suppression list for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteSuppressedDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSuppressedDestinationCommandInput - {@link DeleteSuppressedDestinationCommandInput}
+ * @returns {@link DeleteSuppressedDestinationCommandOutput}
  * @see {@link DeleteSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteSuppressedDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteSuppressedDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSuppressedDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteSuppressedDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSuppressedDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSuppressedDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

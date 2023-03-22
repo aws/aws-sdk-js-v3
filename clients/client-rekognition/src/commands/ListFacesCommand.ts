@@ -23,15 +23,20 @@ import { deserializeAws_json1_1ListFacesCommand, serializeAws_json1_1ListFacesCo
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFacesCommand}.
  */
 export interface ListFacesCommandInput extends ListFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFacesCommand}.
  */
 export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata for faces in the specified collection. This metadata
  *       includes information such as the bounding box coordinates, the confidence (that the bounding
  *       box contains a face), and face ID. For an example, see Listing Faces in a Collection in the
@@ -48,6 +53,8 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFacesCommandInput - {@link ListFacesCommandInput}
+ * @returns {@link ListFacesCommandOutput}
  * @see {@link ListFacesCommandInput} for command's `input` shape.
  * @see {@link ListFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -233,6 +240,9 @@ export class ListFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -270,10 +280,16 @@ export class ListFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacesCommandOutput> {
     return deserializeAws_json1_1ListFacesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateShardCountCommand}.
  */
 export interface UpdateShardCountCommandInput extends UpdateShardCountInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateShardCountCommand}.
  */
 export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the shard count of the specified stream to the specified number of shards.
  *             This API is only supported for the data streams with the provisioned capacity
  *             mode.</p>
@@ -93,6 +98,8 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateShardCountCommandInput - {@link UpdateShardCountCommandInput}
+ * @returns {@link UpdateShardCountCommandOutput}
  * @see {@link UpdateShardCountCommandInput} for command's `input` shape.
  * @see {@link UpdateShardCountCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -143,6 +150,9 @@ export class UpdateShardCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateShardCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class UpdateShardCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateShardCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateShardCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShardCountCommandOutput> {
     return deserializeAws_json1_1UpdateShardCountCommand(output, context);
   }

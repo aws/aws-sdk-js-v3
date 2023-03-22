@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionDefinitionCommand}.
  */
 export interface DeleteFunctionDefinitionCommandInput extends DeleteFunctionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionDefinitionCommand}.
  */
 export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a Lambda function definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionDefinitionCommandInput - {@link DeleteFunctionDefinitionCommandInput}
+ * @returns {@link DeleteFunctionDefinitionCommandOutput}
  * @see {@link DeleteFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteFunctionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteFunctionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFunctionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionDefinitionCommandOutput> {
     return deserializeAws_restJson1DeleteFunctionDefinitionCommand(output, context);
   }

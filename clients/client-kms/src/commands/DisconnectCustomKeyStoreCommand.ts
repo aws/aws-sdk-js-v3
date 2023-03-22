@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectCustomKeyStoreCommand}.
  */
 export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectCustomKeyStoreCommand}.
  */
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
  *       CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
  *       the external key store proxy that communicates with your external key manager.</p>
@@ -97,6 +102,8 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectCustomKeyStoreCommandInput - {@link DisconnectCustomKeyStoreCommandInput}
+ * @returns {@link DisconnectCustomKeyStoreCommandOutput}
  * @see {@link DisconnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link DisconnectCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -175,6 +182,9 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -214,10 +224,16 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisconnectCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectCustomKeyStoreCommandOutput> {
     return deserializeAws_json1_1DisconnectCustomKeyStoreCommand(output, context);
   }

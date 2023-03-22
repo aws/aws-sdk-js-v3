@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInferenceExperimentCommand}.
  */
 export interface DescribeInferenceExperimentCommandInput extends DescribeInferenceExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInferenceExperimentCommand}.
  */
 export interface DescribeInferenceExperimentCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInferenceExperimentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about an inference experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeInferenceExperimentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInferenceExperimentCommandInput - {@link DescribeInferenceExperimentCommandInput}
+ * @returns {@link DescribeInferenceExperimentCommandOutput}
  * @see {@link DescribeInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

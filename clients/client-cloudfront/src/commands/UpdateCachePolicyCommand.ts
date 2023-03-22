@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCachePolicyCommand}.
  */
 export interface UpdateCachePolicyCommandInput extends UpdateCachePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCachePolicyCommand}.
  */
 export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a cache policy configuration.</p>
  *          <p>When you update a cache policy configuration, all the fields are updated with the
  * 			values provided in the request. You cannot update some fields independent of others. To
@@ -63,6 +68,8 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCachePolicyCommandInput - {@link UpdateCachePolicyCommandInput}
+ * @returns {@link UpdateCachePolicyCommandOutput}
  * @see {@link UpdateCachePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -128,6 +135,9 @@ export class UpdateCachePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCachePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class UpdateCachePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCachePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateCachePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCachePolicyCommandOutput> {
     return deserializeAws_restXmlUpdateCachePolicyCommand(output, context);
   }

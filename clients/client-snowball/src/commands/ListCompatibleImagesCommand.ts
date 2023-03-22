@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCompatibleImagesCommand}.
  */
 export interface ListCompatibleImagesCommandInput extends ListCompatibleImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCompatibleImagesCommand}.
  */
 export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)
  *       that are owned by your Amazon Web Services accountthat would be supported for use on a Snow
  *       device. Currently, supported AMIs are based on the CentOS 7 (x86_64) - with Updates HVM,
@@ -50,6 +55,8 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCompatibleImagesCommandInput - {@link ListCompatibleImagesCommandInput}
+ * @returns {@link ListCompatibleImagesCommandOutput}
  * @see {@link ListCompatibleImagesCommandInput} for command's `input` shape.
  * @see {@link ListCompatibleImagesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListCompatibleImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCompatibleImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListCompatibleImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCompatibleImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCompatibleImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCompatibleImagesCommandOutput> {
     return deserializeAws_json1_1ListCompatibleImagesCommand(output, context);
   }

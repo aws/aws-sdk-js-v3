@@ -40,6 +40,7 @@ import {
 import { STSClient } from "./STSClient";
 
 /**
+ * @public
  * <fullname>Security Token Service</fullname>
  *          <p>Security Token Service (STS) enables you to request temporary, limited-privilege
  *       credentials for Identity and Access Management (IAM) users or for users that you
@@ -48,6 +49,7 @@ import { STSClient } from "./STSClient";
  */
 export class STS extends STSClient {
   /**
+   * @public
    * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
    *          resources. These temporary credentials consist of an access key ID, a secret access key,
    *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
@@ -127,7 +129,7 @@ export class STS extends STSClient {
    *          assume the role is denied. The condition in a trust policy that tests for MFA
    *          authentication might look like the following example.</p>
    *          <p>
-   *             <code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code>
+   *             <code>"Condition": \{"Bool": \{"aws:MultiFactorAuthPresent": true\}\}</code>
    *          </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring MFA-Protected API Access</a>
    *          in the <i>IAM User Guide</i> guide.</p>
@@ -161,6 +163,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary security credentials for users who have been authenticated
    *          via a SAML authentication response. This operation provides a mechanism for tying an
    *          enterprise identity store or directory to role-based Amazon Web Services access without user-specific
@@ -321,6 +324,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary security credentials for users who have been authenticated in
    *          a mobile or web application with a web identity provider. Example providers include the
    *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
@@ -485,6 +489,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Decodes additional information about the authorization status of a request from an
    *          encoded message returned in response to an Amazon Web Services request.</p>
    *          <p>For example, if a user is not authorized to perform an operation that he or she has
@@ -552,6 +557,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns the account identifier for the specified access key ID.</p>
    *          <p>Access keys consist of two parts: an access key ID (for example,
    *             <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
@@ -601,6 +607,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns details about the IAM user or role whose credentials are used to call the
    *          operation.</p>
    *          <note>
@@ -642,6 +649,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary security credentials (consisting of an access key ID, a
    *          secret access key, and a security token) for a federated user. A typical use is in a proxy
    *          application that gets temporary security credentials on behalf of distributed applications
@@ -760,6 +768,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user. The
    *          credentials consist of an access key ID, a secret access key, and a security token.
    *          Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMedicalVocabularyCommand}.
  */
 export interface GetMedicalVocabularyCommandInput extends GetMedicalVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMedicalVocabularyCommand}.
  */
 export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified custom medical vocabulary.</p>
  *          <p>To view the status of the specified custom medical vocabulary, check the
  *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -51,6 +56,8 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMedicalVocabularyCommandInput - {@link GetMedicalVocabularyCommandInput}
+ * @returns {@link GetMedicalVocabularyCommandOutput}
  * @see {@link GetMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link GetMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetMedicalVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetMedicalVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMedicalVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMedicalVocabularyCommandOutput> {
     return deserializeAws_json1_1GetMedicalVocabularyCommand(output, context);
   }

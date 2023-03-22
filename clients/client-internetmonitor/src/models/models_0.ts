@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { InternetMonitorServiceException as __BaseException } from "./InternetMonitorServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient permission to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Measurements about the availability for your application on the internet, calculated by Amazon CloudWatch Internet Monitor. Amazon Web Services has substantial historical data about internet
  * 			performance and availability between Amazon Web Services services and different network providers and geographies. By applying statistical analysis to the data, Internet Monitor
  * 			can detect when the performance and availability for your application has dropped, compared to an estimated baseline that's already calculated. To make it
@@ -59,6 +61,7 @@ export interface AvailabilityMeasurement {
 }
 
 /**
+ * @public
  * <p>A bad request was received.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -78,6 +81,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource is in use.</p>
  */
 export class ConflictException extends __BaseException {
@@ -96,6 +100,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitorInput {
   /**
    * <p>The name of the monitor. </p>
@@ -130,6 +137,9 @@ export interface CreateMonitorInput {
   MaxCityNetworksToMonitor: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MonitorConfigState {
   ACTIVE = "ACTIVE",
   ERROR = "ERROR",
@@ -137,6 +147,9 @@ export enum MonitorConfigState {
   PENDING = "PENDING",
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor.</p>
@@ -150,6 +163,7 @@ export interface CreateMonitorOutput {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -170,6 +184,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeded a service quota.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -189,6 +204,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -211,6 +227,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Invalid request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -229,6 +246,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitorInput {
   /**
    * <p>The name of the monitor to delete.</p>
@@ -236,8 +256,14 @@ export interface DeleteMonitorInput {
   MonitorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitorOutput {}
 
+/**
+ * @public
+ */
 export interface GetHealthEventInput {
   /**
    * <p>The name of the monitor.</p>
@@ -252,6 +278,7 @@ export interface GetHealthEventInput {
 }
 
 /**
+ * @public
  * <p>An internet service provider (ISP) or network in Amazon CloudWatch Internet Monitor.</p>
  */
 export interface Network {
@@ -266,12 +293,16 @@ export interface Network {
   ASNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TriangulationEventType {
   AWS = "AWS",
   INTERNET = "Internet",
 }
 
 /**
+ * @public
  * <p>Information about the network impairment for a specific network measured by Amazon CloudWatch Internet Monitor.</p>
  */
 export interface NetworkImpairment {
@@ -292,6 +323,7 @@ export interface NetworkImpairment {
 }
 
 /**
+ * @public
  * <p>Round-trip time (RTT) is how long it takes for a request from the user to return a response to the user. Amazon CloudWatch Internet Monitor calculates RTT at different
  * 			percentiles: p50, p90, and p95.</p>
  */
@@ -313,6 +345,7 @@ export interface RoundTripTime {
 }
 
 /**
+ * @public
  * <p>Measurements about the performance for your application on the internet calculated by Amazon CloudWatch Internet Monitor. Amazon Web Services has substantial historical data about internet
  * 			performance and availability between Amazon Web Services services and different network providers and geographies. By applying statistical analysis to the data, Internet Monitor
  * 			can detect when the performance and availability for your application has dropped, compared to an estimated baseline that's already calculated. To make it
@@ -358,6 +391,7 @@ export interface PerformanceMeasurement {
 }
 
 /**
+ * @public
  * <p>Internet health includes measurements calculated by Amazon CloudWatch Internet Monitor about the performance and availability for your application on the internet. Amazon Web Services has
  * 			substantial historical data about internet performance and availability between Amazon Web Services services and different network providers and geographies. By
  * 			applying statistical analysis to the data, Internet Monitor can detect when the performance and availability for your application has dropped, compared to an
@@ -382,12 +416,16 @@ export interface InternetHealth {
   Performance?: PerformanceMeasurement;
 }
 
+/**
+ * @public
+ */
 export enum HealthEventStatus {
   ACTIVE = "ACTIVE",
   RESOLVED = "RESOLVED",
 }
 
 /**
+ * @public
  * <p>Information about a location impacted by a health event in Amazon CloudWatch Internet Monitor.</p>
  *          <p>Geographic regions are hierarchically categorized into country, subdivision,
  *    		metro and city geographic granularities. The geographic region is identified based
@@ -473,11 +511,17 @@ export interface ImpactedLocation {
   InternetHealth?: InternetHealth;
 }
 
+/**
+ * @public
+ */
 export enum HealthEventImpactType {
   AVAILABILITY = "AVAILABILITY",
   PERFORMANCE = "PERFORMANCE",
 }
 
+/**
+ * @public
+ */
 export interface GetHealthEventOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the event.</p>
@@ -530,6 +574,9 @@ export interface GetHealthEventOutput {
   ImpactType: HealthEventImpactType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMonitorInput {
   /**
    * <p>The name of the monitor.</p>
@@ -537,6 +584,9 @@ export interface GetMonitorInput {
   MonitorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MonitorProcessingStatusCode {
   COLLECTING_DATA = "COLLECTING_DATA",
   FAULT_ACCESS_CLOUDWATCH = "FAULT_ACCESS_CLOUDWATCH",
@@ -546,6 +596,9 @@ export enum MonitorProcessingStatusCode {
   OK = "OK",
 }
 
+/**
+ * @public
+ */
 export interface GetMonitorOutput {
   /**
    * <p>The name of the monitor.</p>
@@ -600,6 +653,7 @@ export interface GetMonitorOutput {
 }
 
 /**
+ * @public
  * <p>Information about a health event created in a monitor in Amazon CloudWatch Internet Monitor.</p>
  */
 export interface HealthEvent {
@@ -654,6 +708,9 @@ export interface HealthEvent {
   ImpactType: HealthEventImpactType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListHealthEventsInput {
   /**
    * <p>The name of the monitor.</p>
@@ -686,6 +743,9 @@ export interface ListHealthEventsInput {
   EventStatus?: HealthEventStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListHealthEventsOutput {
   /**
    * <p>A list of health events.</p>
@@ -699,6 +759,7 @@ export interface ListHealthEventsOutput {
 }
 
 /**
+ * @public
  * <p>There was an internal server error.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -718,6 +779,9 @@ export class InternalServerErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for a resource.</p>
@@ -725,6 +789,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>Tags for a resource.</p>
@@ -733,6 +800,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>The request specifies something that doesn't exist.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -752,6 +820,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There were too many requests.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -773,6 +842,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsInput {
   /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
@@ -793,6 +865,7 @@ export interface ListMonitorsInput {
 }
 
 /**
+ * @public
  * <p>The description of and information about a monitor in Amazon CloudWatch Internet Monitor. </p>
  */
 export interface Monitor {
@@ -817,6 +890,9 @@ export interface Monitor {
   ProcessingStatus?: MonitorProcessingStatusCode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsOutput {
   /**
    * <p>A list of monitors.</p>
@@ -830,6 +906,7 @@ export interface ListMonitorsOutput {
 }
 
 /**
+ * @public
  * <p>The request specifies a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -848,6 +925,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitorInput {
   /**
    * <p>The name of the monitor. </p>
@@ -889,6 +969,9 @@ export interface UpdateMonitorInput {
   MaxCityNetworksToMonitor?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor.</p>
@@ -901,6 +984,9 @@ export interface UpdateMonitorOutput {
   Status: MonitorConfigState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for a tag that you add to a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.</p>
@@ -913,8 +999,14 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>
@@ -927,6 +1019,9 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**

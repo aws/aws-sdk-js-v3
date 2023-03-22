@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDetectorVersionCommand}.
  */
 export interface DeleteDetectorVersionCommandInput extends DeleteDetectorVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDetectorVersionCommand}.
  */
 export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
  *          <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDetectorVersionCommandInput - {@link DeleteDetectorVersionCommandInput}
+ * @returns {@link DeleteDetectorVersionCommandOutput}
  * @see {@link DeleteDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteDetectorVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteDetectorVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDetectorVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorVersionCommandOutput> {
     return deserializeAws_json1_1DeleteDetectorVersionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveLFTagsFromResourceCommand}.
  */
 export interface RemoveLFTagsFromResourceCommandInput extends RemoveLFTagsFromResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveLFTagsFromResourceCommand}.
  */
 export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an LF-tag from the resource. Only database, table, or tableWithColumns resource are allowed. To tag columns, use the column inclusion list in <code>tableWithColumns</code> to specify column input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveLFTagsFromResourceCommandInput - {@link RemoveLFTagsFromResourceCommandInput}
+ * @returns {@link RemoveLFTagsFromResourceCommandOutput}
  * @see {@link RemoveLFTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveLFTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -90,6 +97,9 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveLFTagsFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveLFTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveLFTagsFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveLFTagsFromResourceCommandOutput> {
     return deserializeAws_restJson1RemoveLFTagsFromResourceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcIngressConnectionCommand}.
  */
 export interface CreateVpcIngressConnectionCommandInput extends CreateVpcIngressConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcIngressConnectionCommand}.
  */
 export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner VPC Ingress Connection resource. App Runner requires this resource when you want to associate your App Runner service with an Amazon VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcIngressConnectionCommandInput - {@link CreateVpcIngressConnectionCommandInput}
+ * @returns {@link CreateVpcIngressConnectionCommandOutput}
  * @see {@link CreateVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateVpcIngressConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcIngressConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateVpcIngressConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateVpcIngressConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

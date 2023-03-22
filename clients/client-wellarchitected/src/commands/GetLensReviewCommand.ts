@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLensReviewCommand}.
  */
 export interface GetLensReviewCommandInput extends GetLensReviewInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLensReviewCommand}.
  */
 export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get lens review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
+ * @returns {@link GetLensReviewCommandOutput}
  * @see {@link GetLensReviewCommandInput} for command's `input` shape.
  * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetLensReviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLensReviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetLensReviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLensReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLensReviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewCommandOutput> {
     return deserializeAws_restJson1GetLensReviewCommand(output, context);
   }

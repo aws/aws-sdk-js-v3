@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDirectConnectGatewaysCommand}.
  */
 export interface DescribeDirectConnectGatewaysCommandInput extends DescribeDirectConnectGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDirectConnectGatewaysCommand}.
  */
 export interface DescribeDirectConnectGatewaysCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDirectConnectGatewaysCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectConnectGatewaysCommandInput - {@link DescribeDirectConnectGatewaysCommandInput}
+ * @returns {@link DescribeDirectConnectGatewaysCommandOutput}
  * @see {@link DescribeDirectConnectGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewaysCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDirectConnectGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDirectConnectGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

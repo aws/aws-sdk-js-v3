@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTopicRuleCommand}.
  */
 export interface CreateTopicRuleCommandInput extends CreateTopicRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTopicRuleCommand}.
  */
 export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
  *          permission to create rules will be able to access data processed by the rule.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRule</a> action.</p>
@@ -43,6 +48,8 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTopicRuleCommandInput - {@link CreateTopicRuleCommandInput}
+ * @returns {@link CreateTopicRuleCommandOutput}
  * @see {@link CreateTopicRuleCommandInput} for command's `input` shape.
  * @see {@link CreateTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateTopicRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTopicRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateTopicRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTopicRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTopicRuleCommandOutput> {
     return deserializeAws_restJson1CreateTopicRuleCommand(output, context);
   }

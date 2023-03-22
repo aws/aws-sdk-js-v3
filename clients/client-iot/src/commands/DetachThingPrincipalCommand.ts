@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachThingPrincipalCommand}.
  */
 export interface DetachThingPrincipalCommandInput extends DetachThingPrincipalRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachThingPrincipalCommand}.
  */
 export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the specified principal from the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
@@ -53,6 +58,8 @@ export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalR
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachThingPrincipalCommandInput - {@link DetachThingPrincipalCommandInput}
+ * @returns {@link DetachThingPrincipalCommandOutput}
  * @see {@link DetachThingPrincipalCommandInput} for command's `input` shape.
  * @see {@link DetachThingPrincipalCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +101,9 @@ export class DetachThingPrincipalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachThingPrincipalCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DetachThingPrincipalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachThingPrincipalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetachThingPrincipalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachThingPrincipalCommandOutput> {
     return deserializeAws_restJson1DetachThingPrincipalCommand(output, context);
   }

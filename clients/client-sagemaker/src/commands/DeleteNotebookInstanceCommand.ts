@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotebookInstanceCommand}.
  */
 export interface DeleteNotebookInstanceCommandInput extends DeleteNotebookInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotebookInstanceCommand}.
  */
 export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes an SageMaker notebook instance. Before you can delete a notebook instance, you
  *             must call the <code>StopNotebookInstance</code> API. </p>
  *          <important>
@@ -47,6 +52,8 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotebookInstanceCommandInput - {@link DeleteNotebookInstanceCommandInput}
+ * @returns {@link DeleteNotebookInstanceCommandOutput}
  * @see {@link DeleteNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteNotebookInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotebookInstanceCommandOutput> {
     return deserializeAws_json1_1DeleteNotebookInstanceCommand(output, context);
   }

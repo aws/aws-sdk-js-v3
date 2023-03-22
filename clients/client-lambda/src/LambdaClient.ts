@@ -245,6 +245,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddLayerVersionPermissionCommandInput
   | AddPermissionCommandInput
@@ -312,6 +315,9 @@ export type ServiceInputTypes =
   | UpdateFunctionEventInvokeConfigCommandInput
   | UpdateFunctionUrlConfigCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddLayerVersionPermissionCommandOutput
   | AddPermissionCommandOutput
@@ -379,6 +385,9 @@ export type ServiceOutputTypes =
   | UpdateFunctionEventInvokeConfigCommandOutput
   | UpdateFunctionUrlConfigCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -386,7 +395,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -495,11 +504,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type LambdaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -510,10 +522,15 @@ type LambdaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of LambdaClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of LambdaClient class constructor that set the region, credentials and other options.
  */
 export interface LambdaClientConfig extends LambdaClientConfigType {}
 
+/**
+ * @public
+ */
 type LambdaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -524,11 +541,14 @@ type LambdaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of LambdaClient class. This is resolved and normalized from the {@link LambdaClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of LambdaClient class. This is resolved and normalized from the {@link LambdaClientConfig | constructor configuration interface}.
  */
 export interface LambdaClientResolvedConfig extends LambdaClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Lambda</fullname>
  *          <p>
  *             <b>Overview</b>

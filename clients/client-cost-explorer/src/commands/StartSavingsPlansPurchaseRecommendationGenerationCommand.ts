@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput
   extends StartSavingsPlansPurchaseRecommendationGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
@@ -38,6 +42,7 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
  *       set of Savings Plans recommendations that takes your latest usage data and current Savings
  *       Plans inventory into account. You can refresh Savings Plans recommendations up to three times
@@ -57,6 +62,8 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link StartSavingsPlansPurchaseRecommendationGenerationCommandInput}
+ * @returns {@link StartSavingsPlansPurchaseRecommendationGenerationCommandOutput}
  * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommandInput} for command's `input` shape.
  * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -90,6 +97,9 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
     return serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

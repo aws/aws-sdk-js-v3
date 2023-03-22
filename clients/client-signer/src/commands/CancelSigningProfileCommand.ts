@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSigningProfileCommand}.
  */
 export interface CancelSigningProfileCommandInput extends CancelSigningProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelSigningProfileCommand}.
  */
 export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
  * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
  * 			operation, but it cannot perform new signing jobs, and is deleted two years after
@@ -44,6 +49,8 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSigningProfileCommandInput - {@link CancelSigningProfileCommandInput}
+ * @returns {@link CancelSigningProfileCommandOutput}
  * @see {@link CancelSigningProfileCommandInput} for command's `input` shape.
  * @see {@link CancelSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -80,6 +87,9 @@ export class CancelSigningProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSigningProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CancelSigningProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelSigningProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSigningProfileCommandOutput> {
     return deserializeAws_restJson1CancelSigningProfileCommand(output, context);
   }

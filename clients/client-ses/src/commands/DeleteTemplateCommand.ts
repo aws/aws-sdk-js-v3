@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTemplateCommand}.
  */
 export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTemplateCommand}.
  */
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an email template.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTemplateCommandInput - {@link DeleteTemplateCommandInput}
+ * @returns {@link DeleteTemplateCommandOutput}
  * @see {@link DeleteTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateCommandOutput> {
     return deserializeAws_queryDeleteTemplateCommand(output, context);
   }

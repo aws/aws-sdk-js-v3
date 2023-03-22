@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNFSFileSharesCommand}.
  */
 export interface DescribeNFSFileSharesCommandInput extends DescribeNFSFileSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNFSFileSharesCommand}.
  */
 export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a description for one or more Network File System (NFS) file shares from an S3 File
  *          Gateway. This operation is only supported for S3 File Gateways.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNFSFileSharesCommandInput - {@link DescribeNFSFileSharesCommandInput}
+ * @returns {@link DescribeNFSFileSharesCommandOutput}
  * @see {@link DescribeNFSFileSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeNFSFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeNFSFileSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNFSFileSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeNFSFileSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNFSFileSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeNFSFileSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNFSFileSharesCommandOutput> {
     return deserializeAws_json1_1DescribeNFSFileSharesCommand(output, context);
   }

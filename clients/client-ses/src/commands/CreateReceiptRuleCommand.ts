@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReceiptRuleCommand}.
  */
 export interface CreateReceiptRuleCommandInput extends CreateReceiptRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReceiptRuleCommand}.
  */
 export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a receipt rule.</p>
  *         <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReceiptRuleCommandInput - {@link CreateReceiptRuleCommandInput}
+ * @returns {@link CreateReceiptRuleCommandOutput}
  * @see {@link CreateReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link CreateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -130,6 +137,9 @@ export class CreateReceiptRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReceiptRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class CreateReceiptRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReceiptRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateReceiptRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReceiptRuleCommandOutput> {
     return deserializeAws_queryCreateReceiptRuleCommand(output, context);
   }

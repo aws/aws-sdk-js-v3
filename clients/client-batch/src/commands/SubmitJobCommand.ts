@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitJobCommand}.
  */
 export interface SubmitJobCommandInput extends SubmitJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitJobCommand}.
  */
 export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
  *    override parameters defined in the job definition. vCPU and memory requirements that are specified in the
  *     <code>resourceRequirements</code> objects in the job definition are the exception. They can't be overridden this way
@@ -58,6 +63,8 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitJobCommandInput - {@link SubmitJobCommandInput}
+ * @returns {@link SubmitJobCommandOutput}
  * @see {@link SubmitJobCommandInput} for command's `input` shape.
  * @see {@link SubmitJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -108,6 +115,9 @@ export class SubmitJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class SubmitJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SubmitJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitJobCommandOutput> {
     return deserializeAws_restJson1SubmitJobCommand(output, context);
   }

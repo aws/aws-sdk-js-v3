@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWirelessDeviceStatisticsCommand}.
  */
 export interface GetWirelessDeviceStatisticsCommandInput extends GetWirelessDeviceStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWirelessDeviceStatisticsCommand}.
  */
 export interface GetWirelessDeviceStatisticsCommandOutput
@@ -37,6 +41,7 @@ export interface GetWirelessDeviceStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets operating information about a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessDeviceStatisticsCommandInput - {@link GetWirelessDeviceStatisticsCommandInput}
+ * @returns {@link GetWirelessDeviceStatisticsCommandOutput}
  * @see {@link GetWirelessDeviceStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetWirelessDeviceStatisticsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetWirelessDeviceStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessDeviceStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetWirelessDeviceStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWirelessDeviceStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWirelessDeviceStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

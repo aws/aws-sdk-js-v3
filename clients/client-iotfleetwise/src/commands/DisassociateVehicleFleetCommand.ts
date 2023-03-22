@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateVehicleFleetCommand}.
  */
 export interface DisassociateVehicleFleetCommandInput extends DisassociateVehicleFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateVehicleFleetCommand}.
  */
 export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehicleFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from a
  *             fleet doesn't delete the vehicle.</p>
  *         <note>
@@ -51,6 +56,8 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateVehicleFleetCommandInput - {@link DisassociateVehicleFleetCommandInput}
+ * @returns {@link DisassociateVehicleFleetCommandOutput}
  * @see {@link DisassociateVehicleFleetCommandInput} for command's `input` shape.
  * @see {@link DisassociateVehicleFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisassociateVehicleFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateVehicleFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DisassociateVehicleFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateVehicleFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DisassociateVehicleFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateVehicleFleetCommandOutput> {
     return deserializeAws_json1_0DisassociateVehicleFleetCommand(output, context);
   }

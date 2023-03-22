@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotAttributeCommand}.
  */
 export interface DescribeSnapshotAttributeCommandInput extends DescribeSnapshotAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotAttributeCommand}.
  */
 export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshotAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified snapshot. You can specify only one
  *       attribute at a time.</p>
  *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotAttributeCommandInput - {@link DescribeSnapshotAttributeCommandInput}
+ * @returns {@link DescribeSnapshotAttributeCommandOutput}
  * @see {@link DescribeSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

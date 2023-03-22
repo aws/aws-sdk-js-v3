@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchLoadTasksCommand}.
  */
 export interface ListBatchLoadTasksCommandInput extends ListBatchLoadTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchLoadTasksCommand}.
  */
 export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of batch load tasks, along with the name, status, when the task is
  *          resumable until, and other details. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-batch-load-tasks.html">code
  *             sample</a> for details.</p>
@@ -49,6 +54,8 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchLoadTasksCommandInput - {@link ListBatchLoadTasksCommandInput}
+ * @returns {@link ListBatchLoadTasksCommandOutput}
  * @see {@link ListBatchLoadTasksCommandInput} for command's `input` shape.
  * @see {@link ListBatchLoadTasksCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListBatchLoadTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchLoadTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListBatchLoadTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchLoadTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListBatchLoadTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchLoadTasksCommandOutput> {
     return deserializeAws_json1_0ListBatchLoadTasksCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartOnDemandReplicationRunCommand}.
  */
 export interface StartOnDemandReplicationRunCommandInput extends StartOnDemandReplicationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartOnDemandReplicationRunCommand}.
  */
 export interface StartOnDemandReplicationRunCommandOutput
@@ -37,6 +41,7 @@ export interface StartOnDemandReplicationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand replication run for the specified replication job. This
  *             replication run starts immediately. This replication run is in addition to the ones
  *             already scheduled.</p>
@@ -52,6 +57,8 @@ export interface StartOnDemandReplicationRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOnDemandReplicationRunCommandInput - {@link StartOnDemandReplicationRunCommandInput}
+ * @returns {@link StartOnDemandReplicationRunCommandOutput}
  * @see {@link StartOnDemandReplicationRunCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandReplicationRunCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOnDemandReplicationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartOnDemandReplicationRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartOnDemandReplicationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

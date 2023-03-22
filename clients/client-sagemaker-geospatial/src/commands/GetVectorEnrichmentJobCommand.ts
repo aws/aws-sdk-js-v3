@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetVectorEnrichmentJobCommand}.
  */
 export interface GetVectorEnrichmentJobCommandInput extends GetVectorEnrichmentJobInput {}
 /**
+ * @public
+ *
  * The output of {@link GetVectorEnrichmentJobCommand}.
  */
 export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details of a Vector Enrichment Job for a given job Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichment
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVectorEnrichmentJobCommandInput - {@link GetVectorEnrichmentJobCommandInput}
+ * @returns {@link GetVectorEnrichmentJobCommandOutput}
  * @see {@link GetVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link GetVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetVectorEnrichmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVectorEnrichmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetVectorEnrichmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVectorEnrichmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVectorEnrichmentJobCommandOutput> {
     return deserializeAws_restJson1GetVectorEnrichmentJobCommand(output, context);
   }

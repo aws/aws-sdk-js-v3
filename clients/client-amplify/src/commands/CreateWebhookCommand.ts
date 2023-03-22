@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWebhookCommand}.
  */
 export interface CreateWebhookCommandInput extends CreateWebhookRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWebhookCommand}.
  */
 export interface CreateWebhookCommandOutput extends CreateWebhookResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new webhook on an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWebhookCommandInput - {@link CreateWebhookCommandInput}
+ * @returns {@link CreateWebhookCommandOutput}
  * @see {@link CreateWebhookCommandInput} for command's `input` shape.
  * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebhookCommandOutput> {
     return deserializeAws_restJson1CreateWebhookCommand(output, context);
   }

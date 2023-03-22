@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ClaimGameServerCommand}.
  */
 export interface ClaimGameServerCommandInput extends ClaimGameServerInput {}
 /**
+ * @public
+ *
  * The output of {@link ClaimGameServerCommand}.
  */
 export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -87,6 +92,8 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ClaimGameServerCommandInput - {@link ClaimGameServerCommandInput}
+ * @returns {@link ClaimGameServerCommandOutput}
  * @see {@link ClaimGameServerCommandInput} for command's `input` shape.
  * @see {@link ClaimGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -135,6 +142,9 @@ export class ClaimGameServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClaimGameServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class ClaimGameServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClaimGameServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ClaimGameServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimGameServerCommandOutput> {
     return deserializeAws_json1_1ClaimGameServerCommand(output, context);
   }

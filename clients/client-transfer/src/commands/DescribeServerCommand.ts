@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServerCommand}.
  */
 export interface DescribeServerCommandInput extends DescribeServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServerCommand}.
  */
 export interface DescribeServerCommandOutput extends DescribeServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a file transfer protocol-enabled server that you specify by passing the
  *         <code>ServerId</code> parameter.</p>
  *          <p>The response contains a description of a server's properties. When you set
@@ -50,6 +55,8 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServerCommandInput - {@link DescribeServerCommandInput}
+ * @returns {@link DescribeServerCommandOutput}
  * @see {@link DescribeServerCommandInput} for command's `input` shape.
  * @see {@link DescribeServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServerCommandOutput> {
     return deserializeAws_json1_1DescribeServerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetImportJobCommand}.
  */
 export interface CreateDatasetImportJobCommandInput extends CreateDatasetImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetImportJobCommand}.
  */
 export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job that imports training data from your data source (an
  *       Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the
  *       training data, you must specify an IAM service role that has permission to
@@ -93,6 +98,8 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetImportJobCommandInput - {@link CreateDatasetImportJobCommandInput}
+ * @returns {@link CreateDatasetImportJobCommandOutput}
  * @see {@link CreateDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -134,6 +141,9 @@ export class CreateDatasetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class CreateDatasetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDatasetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetImportJobCommandOutput> {
     return deserializeAws_json1_1CreateDatasetImportJobCommand(output, context);
   }

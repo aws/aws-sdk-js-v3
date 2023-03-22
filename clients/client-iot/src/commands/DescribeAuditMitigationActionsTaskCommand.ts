@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAuditMitigationActionsTaskCommand}.
  */
 export interface DescribeAuditMitigationActionsTaskCommandInput extends DescribeAuditMitigationActionsTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAuditMitigationActionsTaskCommand}.
  */
 export interface DescribeAuditMitigationActionsTaskCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditMitigationActionsTaskCommandInput - {@link DescribeAuditMitigationActionsTaskCommandInput}
+ * @returns {@link DescribeAuditMitigationActionsTaskCommandOutput}
  * @see {@link DescribeAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
     return serializeAws_restJson1DescribeAuditMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

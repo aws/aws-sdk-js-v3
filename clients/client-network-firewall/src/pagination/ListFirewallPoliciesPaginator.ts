@@ -10,7 +10,7 @@ import { NetworkFirewallClient } from "../NetworkFirewallClient";
 import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkFirewallClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFirewallPoliciesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFirewallPolicies(
   config: NetworkFirewallPaginationConfiguration,
   input: ListFirewallPoliciesCommandInput,

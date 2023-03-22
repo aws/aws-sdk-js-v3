@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutProjectPolicyCommand}.
  */
 export interface PutProjectPolicyCommandInput extends PutProjectPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProjectPolicyCommand}.
  */
 export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A
  *          project policy specifies that a trusted AWS account can copy a model version from a
  *          trusting AWS account to a project in the trusted AWS account. To copy a model version you use
@@ -58,6 +63,8 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProjectPolicyCommandInput - {@link PutProjectPolicyCommandInput}
+ * @returns {@link PutProjectPolicyCommandOutput}
  * @see {@link PutProjectPolicyCommandInput} for command's `input` shape.
  * @see {@link PutProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -140,6 +147,9 @@ export class PutProjectPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProjectPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,10 +189,16 @@ export class PutProjectPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutProjectPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutProjectPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProjectPolicyCommandOutput> {
     return deserializeAws_json1_1PutProjectPolicyCommand(output, context);
   }

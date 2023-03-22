@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTestGridProjectCommand}.
  */
 export interface GetTestGridProjectCommandInput extends GetTestGridProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTestGridProjectCommand}.
  */
 export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a Selenium testing project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTestGridProjectCommandInput - {@link GetTestGridProjectCommandInput}
+ * @returns {@link GetTestGridProjectCommandOutput}
  * @see {@link GetTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link GetTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetTestGridProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTestGridProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetTestGridProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTestGridProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestGridProjectCommandOutput> {
     return deserializeAws_json1_1GetTestGridProjectCommand(output, context);
   }

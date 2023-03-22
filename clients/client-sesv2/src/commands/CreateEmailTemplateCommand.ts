@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEmailTemplateCommand}.
  */
 export interface CreateEmailTemplateCommandInput extends CreateEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEmailTemplateCommand}.
  */
 export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an email template. Email templates enable you to send personalized email to
  *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEmailTemplateCommandInput - {@link CreateEmailTemplateCommandInput}
+ * @returns {@link CreateEmailTemplateCommandOutput}
  * @see {@link CreateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -84,6 +91,9 @@ export class CreateEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEmailTemplateCommandOutput> {
     return deserializeAws_restJson1CreateEmailTemplateCommand(output, context);
   }

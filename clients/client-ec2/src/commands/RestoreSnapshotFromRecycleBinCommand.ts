@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreSnapshotFromRecycleBinCommand}.
  */
 export interface RestoreSnapshotFromRecycleBinCommandInput extends RestoreSnapshotFromRecycleBinRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreSnapshotFromRecycleBinCommand}.
  */
 export interface RestoreSnapshotFromRecycleBinCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
  *       snapshots from the Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreSnapshotFromRecycleBinCommandInput - {@link RestoreSnapshotFromRecycleBinCommandInput}
+ * @returns {@link RestoreSnapshotFromRecycleBinCommandOutput}
  * @see {@link RestoreSnapshotFromRecycleBinCommandInput} for command's `input` shape.
  * @see {@link RestoreSnapshotFromRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreSnapshotFromRecycleBinCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreSnapshotFromRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RestoreSnapshotFromRecycleBinCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

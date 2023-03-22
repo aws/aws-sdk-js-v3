@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientPropertiesCommand}.
  */
 export interface DescribeClientPropertiesCommandInput extends DescribeClientPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientPropertiesCommand}.
  */
 export interface DescribeClientPropertiesCommandOutput extends DescribeClientPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientPropertiesCommandInput - {@link DescribeClientPropertiesCommandInput}
+ * @returns {@link DescribeClientPropertiesCommandOutput}
  * @see {@link DescribeClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeClientPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeClientPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeClientPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClientPropertiesCommandOutput> {
     return deserializeAws_json1_1DescribeClientPropertiesCommand(output, context);
   }

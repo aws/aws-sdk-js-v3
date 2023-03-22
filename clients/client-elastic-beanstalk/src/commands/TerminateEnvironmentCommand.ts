@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateEnvironmentCommand}.
  */
 export interface TerminateEnvironmentCommandInput extends TerminateEnvironmentMessage {}
 /**
+ * @public
+ *
  * The output of {@link TerminateEnvironmentCommand}.
  */
 export interface TerminateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateEnvironmentCommandInput - {@link TerminateEnvironmentCommandInput}
+ * @returns {@link TerminateEnvironmentCommandOutput}
  * @see {@link TerminateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link TerminateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -104,6 +111,9 @@ export class TerminateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class TerminateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTerminateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateEnvironmentCommandOutput> {
     return deserializeAws_queryTerminateEnvironmentCommand(output, context);
   }

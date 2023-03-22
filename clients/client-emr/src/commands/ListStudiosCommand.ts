@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudiosCommand}.
  */
 export interface ListStudiosCommandInput extends ListStudiosInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStudiosCommand}.
  */
 export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and
  *          creation time for each Studio.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudiosCommandInput - {@link ListStudiosCommandInput}
+ * @returns {@link ListStudiosCommandOutput}
  * @see {@link ListStudiosCommandInput} for command's `input` shape.
  * @see {@link ListStudiosCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListStudiosCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudiosCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListStudiosCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudiosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStudiosCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudiosCommandOutput> {
     return deserializeAws_json1_1ListStudiosCommand(output, context);
   }

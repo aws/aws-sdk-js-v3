@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnomalyGroupRelatedMetricsCommand}.
  */
 export interface ListAnomalyGroupRelatedMetricsCommandInput extends ListAnomalyGroupRelatedMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnomalyGroupRelatedMetricsCommand}.
  */
 export interface ListAnomalyGroupRelatedMetricsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of measures that are potential causes or effects of an
  *             anomaly group.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomalyGroupRelatedMetricsCommandInput - {@link ListAnomalyGroupRelatedMetricsCommandInput}
+ * @returns {@link ListAnomalyGroupRelatedMetricsCommandOutput}
  * @see {@link ListAnomalyGroupRelatedMetricsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyGroupRelatedMetricsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomalyGroupRelatedMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAnomalyGroupRelatedMetricsCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
     return serializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

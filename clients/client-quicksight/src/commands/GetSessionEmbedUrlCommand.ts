@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionEmbedUrlCommand}.
  */
 export interface GetSessionEmbedUrlCommandInput extends GetSessionEmbedUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionEmbedUrlCommand}.
  */
 export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a session URL and authorization code that you can use to embed the Amazon
  *             Amazon QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
  *             you want to provide an authoring portal that allows users to create data sources,
@@ -71,6 +76,8 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionEmbedUrlCommandInput - {@link GetSessionEmbedUrlCommandInput}
+ * @returns {@link GetSessionEmbedUrlCommandOutput}
  * @see {@link GetSessionEmbedUrlCommandInput} for command's `input` shape.
  * @see {@link GetSessionEmbedUrlCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -130,6 +137,9 @@ export class GetSessionEmbedUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionEmbedUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class GetSessionEmbedUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionEmbedUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSessionEmbedUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionEmbedUrlCommandOutput> {
     return deserializeAws_restJson1GetSessionEmbedUrlCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceSettingCommand}.
  */
 export interface UpdateServiceSettingCommandInput extends UpdateServiceSettingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceSettingCommand}.
  */
 export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -59,6 +64,8 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceSettingCommandInput - {@link UpdateServiceSettingCommandInput}
+ * @returns {@link UpdateServiceSettingCommandOutput}
  * @see {@link UpdateServiceSettingCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateServiceSettingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateServiceSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateServiceSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceSettingCommandOutput> {
     return deserializeAws_json1_1UpdateServiceSettingCommand(output, context);
   }

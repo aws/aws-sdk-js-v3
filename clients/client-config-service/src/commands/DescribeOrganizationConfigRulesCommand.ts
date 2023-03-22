@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigRulesCommand}.
  */
 export interface DescribeOrganizationConfigRulesCommandInput extends DescribeOrganizationConfigRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigRulesCommand}.
  */
 export interface DescribeOrganizationConfigRulesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOrganizationConfigRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of organization Config rules. </p>
  *          <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response.</p>
@@ -66,6 +71,8 @@ export interface DescribeOrganizationConfigRulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigRulesCommandInput - {@link DescribeOrganizationConfigRulesCommandInput}
+ * @returns {@link DescribeOrganizationConfigRulesCommandOutput}
  * @see {@link DescribeOrganizationConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -121,6 +128,9 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,6 +170,9 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigRulesCommandInput,
     context: __SerdeContext
@@ -167,6 +180,9 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     return serializeAws_json1_1DescribeOrganizationConfigRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

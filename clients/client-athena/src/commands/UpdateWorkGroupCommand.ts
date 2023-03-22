@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkGroupCommand}.
  */
 export interface UpdateWorkGroupCommandInput extends UpdateWorkGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkGroupCommand}.
  */
 export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
  *             Only one of <code>ConfigurationsUpdates</code> or <code>ConfigurationUpdates</code> can
  *             be specified; <code>ConfigurationsUpdates</code> for a workgroup with multi engine
@@ -50,6 +55,8 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkGroupCommandInput - {@link UpdateWorkGroupCommandInput}
+ * @returns {@link UpdateWorkGroupCommandOutput}
  * @see {@link UpdateWorkGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkGroupCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateWorkGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateWorkGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWorkGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkGroupCommandOutput> {
     return deserializeAws_json1_1UpdateWorkGroupCommand(output, context);
   }

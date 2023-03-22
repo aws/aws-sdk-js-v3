@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWebACLMigrationStackCommand}.
  */
 export interface CreateWebACLMigrationStackCommandInput extends CreateWebACLMigrationStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWebACLMigrationStackCommand}.
  */
 export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMigrationStackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the specified Amazon S3 bucket.
  *            Then, in CloudFormation, you create a stack from the template, to create the web ACL and its resources in AWS WAFV2.
  *            Use this to migrate your AWS WAF Classic web ACL to the latest version of AWS WAF.</p>
@@ -53,6 +58,8 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWebACLMigrationStackCommandInput - {@link CreateWebACLMigrationStackCommandInput}
+ * @returns {@link CreateWebACLMigrationStackCommandOutput}
  * @see {@link CreateWebACLMigrationStackCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLMigrationStackCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -178,6 +185,9 @@ export class CreateWebACLMigrationStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebACLMigrationStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -217,10 +227,16 @@ export class CreateWebACLMigrationStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebACLMigrationStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWebACLMigrationStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStudioSessionMappingCommand}.
  */
 export interface DeleteStudioSessionMappingCommandInput extends DeleteStudioSessionMappingInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStudioSessionMappingCommand}.
  */
 export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user or group from an Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStudioSessionMappingCommandInput - {@link DeleteStudioSessionMappingCommandInput}
+ * @returns {@link DeleteStudioSessionMappingCommandOutput}
  * @see {@link DeleteStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteStudioSessionMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStudioSessionMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteStudioSessionMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStudioSessionMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteStudioSessionMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

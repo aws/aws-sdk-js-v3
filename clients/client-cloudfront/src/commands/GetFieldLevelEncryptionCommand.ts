@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetFieldLevelEncryptionCommand}.
  */
 export interface GetFieldLevelEncryptionCommandInput extends GetFieldLevelEncryptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFieldLevelEncryptionCommand}.
  */
 export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncryptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the field-level encryption configuration information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncry
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFieldLevelEncryptionCommandInput - {@link GetFieldLevelEncryptionCommandInput}
+ * @returns {@link GetFieldLevelEncryptionCommandOutput}
  * @see {@link GetFieldLevelEncryptionCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetFieldLevelEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFieldLevelEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetFieldLevelEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFieldLevelEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetFieldLevelEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFieldLevelEncryptionCommandOutput> {
     return deserializeAws_restXmlGetFieldLevelEncryptionCommand(output, context);
   }

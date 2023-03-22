@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevEndpointsCommand}.
  */
 export interface GetDevEndpointsCommandInput extends GetDevEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevEndpointsCommand}.
  */
 export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all the development endpoints in this Amazon Web Services account.</p>
  *          <note>
  *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
@@ -51,6 +56,8 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevEndpointsCommandInput - {@link GetDevEndpointsCommandInput}
+ * @returns {@link GetDevEndpointsCommandOutput}
  * @see {@link GetDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetDevEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetDevEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetDevEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDevEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevEndpointsCommandOutput> {
     return deserializeAws_json1_1GetDevEndpointsCommand(output, context);
   }

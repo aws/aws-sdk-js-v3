@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByCachePolicyIdCommand}.
  */
 export interface ListDistributionsByCachePolicyIdCommandInput extends ListDistributionsByCachePolicyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByCachePolicyIdCommand}.
  */
 export interface ListDistributionsByCachePolicyIdCommandOutput
@@ -37,6 +41,7 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified cache policy.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -54,6 +59,8 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByCachePolicyIdCommandInput - {@link ListDistributionsByCachePolicyIdCommandInput}
+ * @returns {@link ListDistributionsByCachePolicyIdCommandOutput}
  * @see {@link ListDistributionsByCachePolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByCachePolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByCachePolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByCachePolicyIdCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
     return serializeAws_restXmlListDistributionsByCachePolicyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

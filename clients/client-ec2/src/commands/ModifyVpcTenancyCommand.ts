@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcTenancyCommand}.
  */
 export interface ModifyVpcTenancyCommandInput extends ModifyVpcTenancyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcTenancyCommand}.
  */
 export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
  *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
  *             instance tenancy attribute to <code>dedicated</code>.</p>
@@ -53,6 +58,8 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcTenancyCommandInput - {@link ModifyVpcTenancyCommandInput}
+ * @returns {@link ModifyVpcTenancyCommandOutput}
  * @see {@link ModifyVpcTenancyCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcTenancyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class ModifyVpcTenancyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcTenancyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ModifyVpcTenancyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpcTenancyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpcTenancyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpcTenancyCommandOutput> {
     return deserializeAws_ec2ModifyVpcTenancyCommand(output, context);
   }

@@ -10,7 +10,7 @@ import {
 import { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BatchClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSchedulingPoliciesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSchedulingPolicies(
   config: BatchPaginationConfiguration,
   input: ListSchedulingPoliciesCommandInput,

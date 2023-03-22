@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutOrganizationConformancePackCommand}.
  */
 export interface PutOrganizationConformancePackCommandInput extends PutOrganizationConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutOrganizationConformancePackCommand}.
  */
 export interface PutOrganizationConformancePackCommandOutput
@@ -37,6 +41,7 @@ export interface PutOrganizationConformancePackCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
@@ -67,6 +72,8 @@ export interface PutOrganizationConformancePackCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutOrganizationConformancePackCommandInput - {@link PutOrganizationConformancePackCommandInput}
+ * @returns {@link PutOrganizationConformancePackCommandOutput}
  * @see {@link PutOrganizationConformancePackCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -181,6 +188,9 @@ export class PutOrganizationConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutOrganizationConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -220,6 +230,9 @@ export class PutOrganizationConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutOrganizationConformancePackCommandInput,
     context: __SerdeContext
@@ -227,6 +240,9 @@ export class PutOrganizationConformancePackCommand extends $Command<
     return serializeAws_json1_1PutOrganizationConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

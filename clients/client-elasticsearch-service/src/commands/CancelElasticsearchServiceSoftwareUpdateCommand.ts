@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface CancelElasticsearchServiceSoftwareUpdateCommandInput
   extends CancelElasticsearchServiceSoftwareUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
@@ -42,6 +46,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelElasticsearchServiceSoftwareUpdateCommandInput - {@link CancelElasticsearchServiceSoftwareUpdateCommandInput}
+ * @returns {@link CancelElasticsearchServiceSoftwareUpdateCommandOutput}
  * @see {@link CancelElasticsearchServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link CancelElasticsearchServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelElasticsearchServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     return serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

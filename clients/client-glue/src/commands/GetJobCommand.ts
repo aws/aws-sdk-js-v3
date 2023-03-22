@@ -19,15 +19,20 @@ import { GetJobResponse, GetJobResponseFilterSensitiveLog } from "../models/mode
 import { deserializeAws_json1_1GetJobCommand, serializeAws_json1_1GetJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobCommand}.
  */
 export interface GetJobCommandInput extends GetJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobCommand}.
  */
 export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an existing job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,6 +44,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobCommandInput - {@link GetJobCommandInput}
+ * @returns {@link GetJobCommandOutput}
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -70,6 +77,9 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> {
     return deserializeAws_json1_1GetJobCommand(output, context);
   }

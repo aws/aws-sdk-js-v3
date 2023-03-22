@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListActiveViolationsCommand}.
  */
 export interface ListActiveViolationsCommandInput extends ListActiveViolationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListActiveViolationsCommand}.
  */
 export interface ListActiveViolationsCommandOutput extends ListActiveViolationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the active violations for a given Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActiveViolationsCommandInput - {@link ListActiveViolationsCommandInput}
+ * @returns {@link ListActiveViolationsCommandOutput}
  * @see {@link ListActiveViolationsCommandInput} for command's `input` shape.
  * @see {@link ListActiveViolationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListActiveViolationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActiveViolationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListActiveViolationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActiveViolationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListActiveViolationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActiveViolationsCommandOutput> {
     return deserializeAws_restJson1ListActiveViolationsCommand(output, context);
   }

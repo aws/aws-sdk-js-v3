@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataCatalogCommand}.
  */
 export interface DeleteDataCatalogCommandInput extends DeleteDataCatalogInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataCatalogCommand}.
  */
 export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataCatalogCommandInput - {@link DeleteDataCatalogCommandInput}
+ * @returns {@link DeleteDataCatalogCommandOutput}
  * @see {@link DeleteDataCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteDataCatalogCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteDataCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteDataCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDataCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataCatalogCommandOutput> {
     return deserializeAws_json1_1DeleteDataCatalogCommand(output, context);
   }

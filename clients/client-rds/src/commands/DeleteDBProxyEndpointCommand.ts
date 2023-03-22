@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBProxyEndpointCommand}.
  */
 export interface DeleteDBProxyEndpointCommandInput extends DeleteDBProxyEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBProxyEndpointCommand}.
  */
 export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the
  *         endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
  *         or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
@@ -48,6 +53,8 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBProxyEndpointCommandInput - {@link DeleteDBProxyEndpointCommandInput}
+ * @returns {@link DeleteDBProxyEndpointCommandOutput}
  * @see {@link DeleteDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteDBProxyEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBProxyEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteDBProxyEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBProxyEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBProxyEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBProxyEndpointCommandOutput> {
     return deserializeAws_queryDeleteDBProxyEndpointCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRelationalDatabaseCommand}.
  */
 export interface CreateRelationalDatabaseCommandInput extends CreateRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRelationalDatabaseCommand}.
  */
 export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new database in Amazon Lightsail.</p>
  *          <p>The <code>create relational database</code> operation supports tag-based access control
  *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelationalDatabaseCommandInput - {@link CreateRelationalDatabaseCommandInput}
+ * @returns {@link CreateRelationalDatabaseCommandOutput}
  * @see {@link CreateRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRelationalDatabaseCommandOutput> {
     return deserializeAws_json1_1CreateRelationalDatabaseCommand(output, context);
   }

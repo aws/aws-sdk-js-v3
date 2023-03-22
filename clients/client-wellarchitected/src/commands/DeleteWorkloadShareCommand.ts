@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkloadShareCommand}.
  */
 export interface DeleteWorkloadShareCommandInput extends DeleteWorkloadShareInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkloadShareCommand}.
  */
 export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a workload share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkloadShareCommandInput - {@link DeleteWorkloadShareCommandInput}
+ * @returns {@link DeleteWorkloadShareCommandOutput}
  * @see {@link DeleteWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkloadShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteWorkloadShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkloadShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteWorkloadShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkloadShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWorkloadShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkloadShareCommandOutput> {
     return deserializeAws_restJson1DeleteWorkloadShareCommand(output, context);
   }

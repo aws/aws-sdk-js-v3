@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddProfileKeyCommand}.
  */
 export interface AddProfileKeyCommandInput extends AddProfileKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddProfileKeyCommand}.
  */
 export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a new key value with a specific profile, such as a Contact Record
  *          ContactId.</p>
  *          <p>A profile object can have a single unique key and any number of additional keys that can
@@ -49,6 +54,8 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AddProfileKeyCommandInput - {@link AddProfileKeyCommandInput}
+ * @returns {@link AddProfileKeyCommandOutput}
  * @see {@link AddProfileKeyCommandInput} for command's `input` shape.
  * @see {@link AddProfileKeyCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -87,6 +94,9 @@ export class AddProfileKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddProfileKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class AddProfileKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddProfileKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddProfileKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddProfileKeyCommandOutput> {
     return deserializeAws_restJson1AddProfileKeyCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServerNeighborsCommand}.
  */
 export interface ListServerNeighborsCommandInput extends ListServerNeighborsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServerNeighborsCommand}.
  */
 export interface ListServerNeighborsCommandOutput extends ListServerNeighborsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of servers that are one network hop away from a specified
  *       server.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServerNeighborsCommandInput - {@link ListServerNeighborsCommandInput}
+ * @returns {@link ListServerNeighborsCommandOutput}
  * @see {@link ListServerNeighborsCommandInput} for command's `input` shape.
  * @see {@link ListServerNeighborsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListServerNeighborsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServerNeighborsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListServerNeighborsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServerNeighborsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServerNeighborsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServerNeighborsCommandOutput> {
     return deserializeAws_json1_1ListServerNeighborsCommand(output, context);
   }

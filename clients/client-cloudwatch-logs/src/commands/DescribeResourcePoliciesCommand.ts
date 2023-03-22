@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourcePoliciesCommand}.
  */
 export interface DescribeResourcePoliciesCommandInput extends DescribeResourcePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourcePoliciesCommand}.
  */
 export interface DescribeResourcePoliciesCommandOutput extends DescribeResourcePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource policies in this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePoliciesCommandInput - {@link DescribeResourcePoliciesCommandInput}
+ * @returns {@link DescribeResourcePoliciesCommandOutput}
  * @see {@link DescribeResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePoliciesCommandOutput> {
     return deserializeAws_json1_1DescribeResourcePoliciesCommand(output, context);
   }

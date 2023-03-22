@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUploadUrlCommand}.
  */
 export interface CreateUploadUrlCommandInput extends CreateUploadUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUploadUrlCommand}.
  */
 export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a pre-signed S3 write URL that you use to upload the zip
  *          archive when importing a bot or a bot locale. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUploadUrlCommandInput - {@link CreateUploadUrlCommandInput}
+ * @returns {@link CreateUploadUrlCommandOutput}
  * @see {@link CreateUploadUrlCommandInput} for command's `input` shape.
  * @see {@link CreateUploadUrlCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -91,6 +98,9 @@ export class CreateUploadUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUploadUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateUploadUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUploadUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateUploadUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUploadUrlCommandOutput> {
     return deserializeAws_restJson1CreateUploadUrlCommand(output, context);
   }

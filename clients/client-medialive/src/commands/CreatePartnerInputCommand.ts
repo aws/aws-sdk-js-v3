@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePartnerInputCommand}.
  */
 export interface CreatePartnerInputCommandInput extends CreatePartnerInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePartnerInputCommand}.
  */
 export interface CreatePartnerInputCommandOutput extends CreatePartnerInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create a partner input
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePartnerInputCommandInput - {@link CreatePartnerInputCommandInput}
+ * @returns {@link CreatePartnerInputCommandOutput}
  * @see {@link CreatePartnerInputCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreatePartnerInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePartnerInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreatePartnerInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePartnerInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePartnerInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartnerInputCommandOutput> {
     return deserializeAws_restJson1CreatePartnerInputCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIntentsCommand}.
  */
 export interface ListIntentsCommandInput extends ListIntentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIntentsCommand}.
  */
 export interface ListIntentsCommandOutput extends ListIntentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of intents that meet the specified criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIntentsCommandInput - {@link ListIntentsCommandInput}
+ * @returns {@link ListIntentsCommandOutput}
  * @see {@link ListIntentsCommandInput} for command's `input` shape.
  * @see {@link ListIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -84,6 +91,9 @@ export class ListIntentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIntentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListIntentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIntentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIntentsCommandOutput> {
     return deserializeAws_restJson1ListIntentsCommand(output, context);
   }

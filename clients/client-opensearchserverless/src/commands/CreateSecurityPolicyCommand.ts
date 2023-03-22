@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityPolicyCommand}.
  */
 export interface CreateSecurityPolicyCommandInput extends CreateSecurityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityPolicyCommand}.
  */
 export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a security policy to be used by one or more OpenSearch Serverless collections. Security
  *             policies provide access to a collection and its OpenSearch Dashboards endpoint from
  *             public networks or specific VPC endpoints. They also allow you to secure a collection
@@ -55,6 +60,8 @@ export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityPolicyCommandInput - {@link CreateSecurityPolicyCommandInput}
+ * @returns {@link CreateSecurityPolicyCommandOutput}
  * @see {@link CreateSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityPolicyCommandOutput> {
     return deserializeAws_json1_0CreateSecurityPolicyCommand(output, context);
   }

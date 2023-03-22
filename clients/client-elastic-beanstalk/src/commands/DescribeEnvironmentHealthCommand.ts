@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentHealthCommand}.
  */
 export interface DescribeEnvironmentHealthCommandInput extends DescribeEnvironmentHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentHealthCommand}.
  */
 export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironmentHealthResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the overall health of the specified environment. The
  *         <b>DescribeEnvironmentHealth</b> operation is only available with
  *       AWS Elastic Beanstalk Enhanced Health.</p>
@@ -48,6 +53,8 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentHealthCommandInput - {@link DescribeEnvironmentHealthCommandInput}
+ * @returns {@link DescribeEnvironmentHealthCommandOutput}
  * @see {@link DescribeEnvironmentHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -131,6 +138,9 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEnvironmentHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

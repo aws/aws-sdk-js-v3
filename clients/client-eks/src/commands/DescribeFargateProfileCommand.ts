@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFargateProfileCommand}.
  */
 export interface DescribeFargateProfileCommandInput extends DescribeFargateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFargateProfileCommand}.
  */
 export interface DescribeFargateProfileCommandOutput extends DescribeFargateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptive information about an Fargate profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFargateProfileCommandInput - {@link DescribeFargateProfileCommandInput}
+ * @returns {@link DescribeFargateProfileCommandOutput}
  * @see {@link DescribeFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeFargateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFargateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeFargateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFargateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFargateProfileCommandOutput> {
     return deserializeAws_restJson1DescribeFargateProfileCommand(output, context);
   }

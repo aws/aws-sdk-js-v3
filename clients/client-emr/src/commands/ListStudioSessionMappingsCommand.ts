@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudioSessionMappingsCommand}.
  */
 export interface ListStudioSessionMappingsCommandInput extends ListStudioSessionMappingsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStudioSessionMappingsCommand}.
  */
 export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessionMappingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio
  *          specified by <code>StudioId</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioSessionMappingsCommandInput - {@link ListStudioSessionMappingsCommandInput}
+ * @returns {@link ListStudioSessionMappingsCommandOutput}
  * @see {@link ListStudioSessionMappingsCommandInput} for command's `input` shape.
  * @see {@link ListStudioSessionMappingsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListStudioSessionMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioSessionMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListStudioSessionMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioSessionMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStudioSessionMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

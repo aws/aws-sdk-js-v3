@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayCommand}.
  */
 export interface UpdateGatewayCommandInput extends UpdateGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayCommand}.
  */
 export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of a gateway. If any optional field is not provided, the existing
  *          corresponding value is left unmodified.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayCommandInput - {@link UpdateGatewayCommandInput}
+ * @returns {@link UpdateGatewayCommandOutput}
  * @see {@link UpdateGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class UpdateGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayCommandOutput> {
     return deserializeAws_json1_1UpdateGatewayCommand(output, context);
   }

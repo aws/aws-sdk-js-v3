@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartPHIDetectionJobCommand}.
  */
 export interface StartPHIDetectionJobCommandInput extends StartPHIDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartPHIDetectionJobCommand}.
  */
 export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous job to detect protected health information (PHI). Use the
  *         <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
  * @example
@@ -51,6 +56,8 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPHIDetectionJobCommandInput - {@link StartPHIDetectionJobCommandInput}
+ * @returns {@link StartPHIDetectionJobCommandOutput}
  * @see {@link StartPHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartPHIDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -90,6 +97,9 @@ export class StartPHIDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPHIDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class StartPHIDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartPHIDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPHIDetectionJobCommandOutput> {
     return deserializeAws_json1_1StartPHIDetectionJobCommand(output, context);
   }

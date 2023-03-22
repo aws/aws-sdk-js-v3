@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutImageScanningConfigurationCommand}.
  */
 export interface PutImageScanningConfigurationCommandInput extends PutImageScanningConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutImageScanningConfigurationCommand}.
  */
 export interface PutImageScanningConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutImageScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <important>
  *             <p>The <code>PutImageScanningConfiguration</code> API is being deprecated, in favor
  *                 of specifying the image scanning configuration at the registry level. For more
@@ -53,6 +58,8 @@ export interface PutImageScanningConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutImageScanningConfigurationCommandInput - {@link PutImageScanningConfigurationCommandInput}
+ * @returns {@link PutImageScanningConfigurationCommandOutput}
  * @see {@link PutImageScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutImageScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutImageScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutImageScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutImageScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutImageScanningConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutImageScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

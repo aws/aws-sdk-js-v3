@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBlueprintsCommand}.
  */
 export interface GetBlueprintsCommandInput extends GetBlueprintsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBlueprintsCommand}.
  */
 export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of available instance images, or <i>blueprints</i>. You can
  *       use a blueprint to create a new instance already running a specific operating system, as well
  *       as a preinstalled app or development stack. The software each instance is running depends on
@@ -55,6 +60,8 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBlueprintsCommandInput - {@link GetBlueprintsCommandInput}
+ * @returns {@link GetBlueprintsCommandOutput}
  * @see {@link GetBlueprintsCommandInput} for command's `input` shape.
  * @see {@link GetBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -108,6 +115,9 @@ export class GetBlueprintsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBlueprintsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class GetBlueprintsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBlueprintsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlueprintsCommandOutput> {
     return deserializeAws_json1_1GetBlueprintsCommand(output, context);
   }

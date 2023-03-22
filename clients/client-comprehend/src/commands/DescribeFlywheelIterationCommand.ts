@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlywheelIterationCommand}.
  */
 export interface DescribeFlywheelIterationCommandInput extends DescribeFlywheelIterationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlywheelIterationCommand}.
  */
 export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheelIterationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the configuration properties of a flywheel iteration.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlywheelIterationCommandInput - {@link DescribeFlywheelIterationCommandInput}
+ * @returns {@link DescribeFlywheelIterationCommandOutput}
  * @see {@link DescribeFlywheelIterationCommandInput} for command's `input` shape.
  * @see {@link DescribeFlywheelIterationCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeFlywheelIterationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlywheelIterationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeFlywheelIterationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlywheelIterationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFlywheelIterationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

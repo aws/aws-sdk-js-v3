@@ -31,10 +31,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminUpdateAuthEventFeedbackCommand}.
  */
 export interface AdminUpdateAuthEventFeedbackCommandInput extends AdminUpdateAuthEventFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminUpdateAuthEventFeedbackCommand}.
  */
 export interface AdminUpdateAuthEventFeedbackCommandOutput
@@ -42,6 +46,7 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides feedback for an authentication event indicating if it was from a valid user.
  *             This feedback is used for improving the risk evaluation decision for the user pool as
  *             part of Amazon Cognito advanced security.</p>
@@ -55,6 +60,8 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUpdateAuthEventFeedbackCommandInput - {@link AdminUpdateAuthEventFeedbackCommandInput}
+ * @returns {@link AdminUpdateAuthEventFeedbackCommandOutput}
  * @see {@link AdminUpdateAuthEventFeedbackCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateAuthEventFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -102,6 +109,9 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUpdateAuthEventFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUpdateAuthEventFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

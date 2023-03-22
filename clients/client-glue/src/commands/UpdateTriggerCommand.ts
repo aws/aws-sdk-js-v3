@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTriggerCommand}.
  */
 export interface UpdateTriggerCommandInput extends UpdateTriggerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTriggerCommand}.
  */
 export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a trigger definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTriggerCommandInput - {@link UpdateTriggerCommandInput}
+ * @returns {@link UpdateTriggerCommandOutput}
  * @see {@link UpdateTriggerCommandInput} for command's `input` shape.
  * @see {@link UpdateTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTriggerCommandOutput> {
     return deserializeAws_json1_1UpdateTriggerCommand(output, context);
   }

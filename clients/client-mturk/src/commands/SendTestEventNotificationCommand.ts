@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendTestEventNotificationCommand}.
  */
 export interface SendTestEventNotificationCommandInput extends SendTestEventNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendTestEventNotificationCommand}.
  */
 export interface SendTestEventNotificationCommandOutput extends SendTestEventNotificationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>SendTestEventNotification</code> operation causes Amazon Mechanical Turk to send
  *             a notification message as if a HIT event occurred, according to the provided
@@ -52,6 +57,8 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTestEventNotificationCommandInput - {@link SendTestEventNotificationCommandInput}
+ * @returns {@link SendTestEventNotificationCommandOutput}
  * @see {@link SendTestEventNotificationCommandInput} for command's `input` shape.
  * @see {@link SendTestEventNotificationCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -81,6 +88,9 @@ export class SendTestEventNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTestEventNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class SendTestEventNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTestEventNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendTestEventNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

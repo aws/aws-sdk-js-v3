@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransformJobCommand}.
  */
 export interface CreateTransformJobCommandInput extends CreateTransformJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransformJobCommand}.
  */
 export interface CreateTransformJobCommandOutput extends CreateTransformJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a transform job. A transform job uses a trained model to get inferences on a
  *             dataset and saves these results to an Amazon S3 location that you specify.</p>
  *          <p>To perform batch transformations, you create a transform job and use the data that you
@@ -80,6 +85,8 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransformJobCommandInput - {@link CreateTransformJobCommandInput}
+ * @returns {@link CreateTransformJobCommandOutput}
  * @see {@link CreateTransformJobCommandInput} for command's `input` shape.
  * @see {@link CreateTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -113,6 +120,9 @@ export class CreateTransformJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransformJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class CreateTransformJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTransformJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTransformJobCommandOutput> {
     return deserializeAws_json1_1CreateTransformJobCommand(output, context);
   }

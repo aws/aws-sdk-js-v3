@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectFacesCommand}.
  */
 export interface DetectFacesCommandInput extends DetectFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectFacesCommand}.
  */
 export interface DetectFacesCommandOutput extends DetectFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects faces within an image that is provided as input.</p>
  *          <p>
  *             <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
@@ -64,6 +69,8 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectFacesCommandInput - {@link DetectFacesCommandInput}
+ * @returns {@link DetectFacesCommandOutput}
  * @see {@link DetectFacesCommandInput} for command's `input` shape.
  * @see {@link DetectFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -184,6 +191,9 @@ export class DetectFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -221,10 +231,16 @@ export class DetectFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectFacesCommandOutput> {
     return deserializeAws_json1_1DetectFacesCommand(output, context);
   }

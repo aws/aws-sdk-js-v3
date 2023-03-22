@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptAddressTransferCommand}.
  */
 export interface AcceptAddressTransferCommandInput extends AcceptAddressTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptAddressTransferCommand}.
  */
 export interface AcceptAddressTransferCommandOutput extends AcceptAddressTransferResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AcceptAddressTransferCommandOutput extends AcceptAddressTransfe
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptAddressTransferCommandInput - {@link AcceptAddressTransferCommandInput}
+ * @returns {@link AcceptAddressTransferCommandOutput}
  * @see {@link AcceptAddressTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class AcceptAddressTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptAddressTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class AcceptAddressTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptAddressTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AcceptAddressTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptAddressTransferCommandOutput> {
     return deserializeAws_ec2AcceptAddressTransferCommand(output, context);
   }

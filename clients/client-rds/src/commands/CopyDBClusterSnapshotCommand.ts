@@ -27,15 +27,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDBClusterSnapshotCommand}.
  */
 export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyDBClusterSnapshotCommand}.
  */
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a snapshot of a DB cluster.</p>
  *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
  *           must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
@@ -83,6 +88,8 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBClusterSnapshotCommandInput - {@link CopyDBClusterSnapshotCommandInput}
+ * @returns {@link CopyDBClusterSnapshotCommandOutput}
  * @see {@link CopyDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -143,6 +150,9 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
     return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
   }

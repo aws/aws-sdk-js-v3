@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountIntegrationsCommand}.
  */
 export interface ListAccountIntegrationsCommandInput extends ListAccountIntegrationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountIntegrationsCommand}.
  */
 export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the integrations associated to a specific URI in the AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountIntegrationsCommandInput - {@link ListAccountIntegrationsCommandInput}
+ * @returns {@link ListAccountIntegrationsCommandOutput}
  * @see {@link ListAccountIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListAccountIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAccountIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListAccountIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccountIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountIntegrationsCommandOutput> {
     return deserializeAws_restJson1ListAccountIntegrationsCommand(output, context);
   }

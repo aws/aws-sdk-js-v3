@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHyperParameterTuningJobCommand}.
  */
 export interface CreateHyperParameterTuningJobCommandInput extends CreateHyperParameterTuningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHyperParameterTuningJobCommand}.
  */
 export interface CreateHyperParameterTuningJobCommandOutput
@@ -37,6 +41,7 @@ export interface CreateHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version
  *             of a model by running many training jobs on your dataset using the algorithm you choose
  *             and values for hyperparameters within ranges that you specify. It then chooses the
@@ -62,6 +67,8 @@ export interface CreateHyperParameterTuningJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHyperParameterTuningJobCommandInput - {@link CreateHyperParameterTuningJobCommandInput}
+ * @returns {@link CreateHyperParameterTuningJobCommandOutput}
  * @see {@link CreateHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link CreateHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHyperParameterTuningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

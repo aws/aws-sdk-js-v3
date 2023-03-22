@@ -24,6 +24,7 @@ import {
 import { ControlTowerClient } from "./ControlTowerClient";
 
 /**
+ * @public
  * <p>These interfaces allow you to apply the AWS library of pre-defined <i>controls</i> to your
  * organizational units, programmatically. In this context, controls are the same as AWS Control Tower guardrails.</p>
  *          <p>To call these APIs, you'll need to know:</p>
@@ -43,7 +44,7 @@ import { ControlTowerClient } from "./ControlTowerClient";
  *          <note>
  *             <p>
  *                <b>ARN format:</b>
- *                <code>arn:aws:controltower:{REGION}::control/{CONTROL_NAME}</code>
+ *                <code>arn:aws:controltower:\{REGION\}::control/\{CONTROL_NAME\}</code>
  *             </p>
  *             <p>
  *                <b>Example:</b>
@@ -61,7 +62,7 @@ import { ControlTowerClient } from "./ControlTowerClient";
  *                <b>OU ARN format:</b>
  *             </p>
  *             <p>
- *                <code>arn:${Partition}:organizations::${MasterAccountId}:ou/o-${OrganizationId}/ou-${OrganizationalUnitId}</code>
+ *                <code>arn:$\{Partition\}:organizations::$\{MasterAccountId\}:ou/o-$\{OrganizationId\}/ou-$\{OrganizationalUnitId\}</code>
  *             </p>
  *          </note>
  *          <p class="title">
@@ -98,6 +99,7 @@ import { ControlTowerClient } from "./ControlTowerClient";
  */
 export class ControlTower extends ControlTowerClient {
   /**
+   * @public
    * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS resources on the specified
    *         organizational unit and the accounts it contains. The resources will vary according to the
    *         control that you specify.</p>
@@ -132,6 +134,7 @@ export class ControlTower extends ControlTowerClient {
   }
 
   /**
+   * @public
    * <p>This API call activates a control. It starts an asynchronous operation that creates AWS resources on the specified
    *       organizational unit and the accounts it contains. The resources created will vary according to
    *       the control that you specify.</p>
@@ -166,6 +169,7 @@ export class ControlTower extends ControlTowerClient {
   }
 
   /**
+   * @public
    * <p>Returns the status of a particular <code>EnableControl</code> or
    *         <code>DisableControl</code> operation. Displays a message in case of error.
    *       Details for an operation are available for 90 days.</p>
@@ -200,6 +204,7 @@ export class ControlTower extends ControlTowerClient {
   }
 
   /**
+   * @public
    * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
    *       the accounts it contains.</p>
    */

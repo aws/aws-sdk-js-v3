@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEvaluationsCommand}.
  */
 export interface PutEvaluationsCommandInput extends PutEvaluationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEvaluationsCommand}.
  */
 export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by an Lambda function to deliver evaluation results to
  * 			Config. This action is required in every Lambda function
  * 			that is invoked by an Config rule.</p>
@@ -48,6 +53,8 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEvaluationsCommandInput - {@link PutEvaluationsCommandInput}
+ * @returns {@link PutEvaluationsCommandOutput}
  * @see {@link PutEvaluationsCommandInput} for command's `input` shape.
  * @see {@link PutEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutEvaluationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEvaluationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutEvaluationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutEvaluationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEvaluationsCommandOutput> {
     return deserializeAws_json1_1PutEvaluationsCommand(output, context);
   }

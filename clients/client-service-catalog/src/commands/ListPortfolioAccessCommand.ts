@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPortfolioAccessCommand}.
  */
 export interface ListPortfolioAccessCommandInput extends ListPortfolioAccessInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPortfolioAccessCommand}.
  */
 export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the account IDs that have access to the specified portfolio.</p>
  *          <p>A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortfolioAccessCommandInput - {@link ListPortfolioAccessCommandInput}
+ * @returns {@link ListPortfolioAccessCommandOutput}
  * @see {@link ListPortfolioAccessCommandInput} for command's `input` shape.
  * @see {@link ListPortfolioAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListPortfolioAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortfolioAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListPortfolioAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortfolioAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPortfolioAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortfolioAccessCommandOutput> {
     return deserializeAws_json1_1ListPortfolioAccessCommand(output, context);
   }

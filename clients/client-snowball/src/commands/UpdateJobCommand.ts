@@ -23,15 +23,20 @@ import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCo
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobCommand}.
  */
 export interface UpdateJobCommandInput extends UpdateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobCommand}.
  */
 export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of
  *       the information associated with a job. Once the job changes to a different job state, usually
  *       within 60 minutes of the job being created, this action is no longer available.</p>
@@ -45,6 +50,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
+ * @returns {@link UpdateJobCommandOutput}
  * @see {@link UpdateJobCommandInput} for command's `input` shape.
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class UpdateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobCommandOutput> {
     return deserializeAws_json1_1UpdateJobCommand(output, context);
   }

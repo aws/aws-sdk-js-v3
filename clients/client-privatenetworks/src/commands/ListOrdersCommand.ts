@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrdersCommand}.
  */
 export interface ListOrdersCommandInput extends ListOrdersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrdersCommand}.
  */
 export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists orders.  Add filters to your request to return a more
  *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of the network site or
  *             the status of the order.</p>
@@ -50,6 +55,8 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
+ * @returns {@link ListOrdersCommandOutput}
  * @see {@link ListOrdersCommandInput} for command's `input` shape.
  * @see {@link ListOrdersCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListOrdersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrdersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListOrdersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrdersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOrdersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrdersCommandOutput> {
     return deserializeAws_restJson1ListOrdersCommand(output, context);
   }

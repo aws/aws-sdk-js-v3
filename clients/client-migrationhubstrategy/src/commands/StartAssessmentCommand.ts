@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAssessmentCommand}.
  */
 export interface StartAssessmentCommandInput extends StartAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAssessmentCommand}.
  */
 export interface StartAssessmentCommandOutput extends StartAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts the assessment of an on-premises environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAssessmentCommandInput - {@link StartAssessmentCommandInput}
+ * @returns {@link StartAssessmentCommandOutput}
  * @see {@link StartAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentCommandOutput> {
     return deserializeAws_restJson1StartAssessmentCommand(output, context);
   }

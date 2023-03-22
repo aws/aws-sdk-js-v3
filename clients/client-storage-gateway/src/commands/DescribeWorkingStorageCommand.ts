@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkingStorageCommand}.
  */
 export interface DescribeWorkingStorageCommandInput extends DescribeWorkingStorageInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkingStorageCommand}.
  */
 export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStorageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the working storage of a gateway. This operation is only
  *          supported in the stored volumes gateway type. This operation is deprecated in cached
  *          volumes API version (20120630). Use DescribeUploadBuffer instead.</p>
@@ -56,6 +61,8 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkingStorageCommandInput - {@link DescribeWorkingStorageCommandInput}
+ * @returns {@link DescribeWorkingStorageCommandOutput}
  * @see {@link DescribeWorkingStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -109,6 +116,9 @@ export class DescribeWorkingStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkingStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DescribeWorkingStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkingStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWorkingStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkingStorageCommandOutput> {
     return deserializeAws_json1_1DescribeWorkingStorageCommand(output, context);
   }

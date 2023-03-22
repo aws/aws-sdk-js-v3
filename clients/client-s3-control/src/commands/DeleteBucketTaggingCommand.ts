@@ -22,15 +22,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketTaggingCommand}.
  */
 export interface DeleteBucketTaggingCommandInput extends DeleteBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketTaggingCommand}.
  */
 export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket tags,
  *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -64,6 +69,8 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketTaggingCommandInput - {@link DeleteBucketTaggingCommandInput}
+ * @returns {@link DeleteBucketTaggingCommandOutput}
  * @see {@link DeleteBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketTaggingCommandOutput> {
     return deserializeAws_restXmlDeleteBucketTaggingCommand(output, context);
   }

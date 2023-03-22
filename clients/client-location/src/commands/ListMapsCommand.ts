@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMapsCommand}.
  */
 export interface ListMapsCommandInput extends ListMapsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMapsCommand}.
  */
 export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists map resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMapsCommandInput - {@link ListMapsCommandInput}
+ * @returns {@link ListMapsCommandOutput}
  * @see {@link ListMapsCommandInput} for command's `input` shape.
  * @see {@link ListMapsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListMapsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMapsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListMapsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMapsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMapsCommandOutput> {
     return deserializeAws_restJson1ListMapsCommand(output, context);
   }

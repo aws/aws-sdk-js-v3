@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEarthObservationJobsCommand}.
  */
 export interface ListEarthObservationJobsCommandInput extends ListEarthObservationJobInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEarthObservationJobsCommand}.
  */
 export interface ListEarthObservationJobsCommandOutput extends ListEarthObservationJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to get a list of the Earth Observation jobs associated with the calling Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEarthObservationJobsCommandInput - {@link ListEarthObservationJobsCommandInput}
+ * @returns {@link ListEarthObservationJobsCommandOutput}
  * @see {@link ListEarthObservationJobsCommandInput} for command's `input` shape.
  * @see {@link ListEarthObservationJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListEarthObservationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEarthObservationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListEarthObservationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEarthObservationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEarthObservationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEarthObservationJobsCommandOutput> {
     return deserializeAws_restJson1ListEarthObservationJobsCommand(output, context);
   }

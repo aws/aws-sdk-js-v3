@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcAttributeCommand}.
  */
 export interface DescribeVpcAttributeCommandInput extends DescribeVpcAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcAttributeCommand}.
  */
 export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcAttributeCommandInput - {@link DescribeVpcAttributeCommandInput}
+ * @returns {@link DescribeVpcAttributeCommandOutput}
  * @see {@link DescribeVpcAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -109,6 +116,9 @@ export class DescribeVpcAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DescribeVpcAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcAttributeCommandOutput> {
     return deserializeAws_ec2DescribeVpcAttributeCommand(output, context);
   }

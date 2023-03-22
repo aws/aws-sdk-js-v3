@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkerCommand}.
  */
 export interface UpdateWorkerCommandInput extends UpdateWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkerCommand}.
  */
 export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to update a worker
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkerCommandInput - {@link UpdateWorkerCommandInput}
+ * @returns {@link UpdateWorkerCommandOutput}
  * @see {@link UpdateWorkerCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkerCommandOutput> {
     return deserializeAws_restJson1UpdateWorkerCommand(output, context);
   }

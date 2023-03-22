@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlowTemplateCommand}.
  */
 export interface CreateFlowTemplateCommandInput extends CreateFlowTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlowTemplateCommand}.
  */
 export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
@@ -50,6 +55,8 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlowTemplateCommandInput - {@link CreateFlowTemplateCommandInput}
+ * @returns {@link CreateFlowTemplateCommandOutput}
  * @see {@link CreateFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowTemplateCommandOutput> {
     return deserializeAws_json1_1CreateFlowTemplateCommand(output, context);
   }

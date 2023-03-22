@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQueryLoggingConfigCommand}.
  */
 export interface CreateQueryLoggingConfigCommandInput extends CreateQueryLoggingConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQueryLoggingConfigCommand}.
  */
 export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configuration for DNS query logging. After you create a query logging
  * 			configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs
  * 			log group.</p>
@@ -214,6 +219,8 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQueryLoggingConfigCommandInput - {@link CreateQueryLoggingConfigCommandInput}
+ * @returns {@link CreateQueryLoggingConfigCommandOutput}
  * @see {@link CreateQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link CreateQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -281,6 +288,9 @@ export class CreateQueryLoggingConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQueryLoggingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -321,10 +331,16 @@ export class CreateQueryLoggingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateQueryLoggingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueryLoggingConfigCommandOutput> {
     return deserializeAws_restXmlCreateQueryLoggingConfigCommand(output, context);
   }

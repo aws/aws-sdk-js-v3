@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSigningJobCommand}.
  */
 export interface StartSigningJobCommandInput extends StartSigningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSigningJobCommand}.
  */
 export interface StartSigningJobCommandOutput extends StartSigningJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a signing job to be performed on the code provided. Signing jobs are
  * 			viewable by the <code>ListSigningJobs</code> operation for two years after they are
  * 			performed. Note the following requirements: </p>
@@ -73,6 +78,8 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSigningJobCommandInput - {@link StartSigningJobCommandInput}
+ * @returns {@link StartSigningJobCommandOutput}
  * @see {@link StartSigningJobCommandInput} for command's `input` shape.
  * @see {@link StartSigningJobCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -116,6 +123,9 @@ export class StartSigningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSigningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class StartSigningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartSigningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSigningJobCommandOutput> {
     return deserializeAws_restJson1StartSigningJobCommand(output, context);
   }

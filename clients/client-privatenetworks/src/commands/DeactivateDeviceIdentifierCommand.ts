@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateDeviceIdentifierCommand}.
  */
 export interface DeactivateDeviceIdentifierCommandInput extends DeactivateDeviceIdentifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateDeviceIdentifierCommand}.
  */
 export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDeviceIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates the specified device identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateDeviceIdentifierCommandInput - {@link DeactivateDeviceIdentifierCommandInput}
+ * @returns {@link DeactivateDeviceIdentifierCommandOutput}
  * @see {@link DeactivateDeviceIdentifierCommandInput} for command's `input` shape.
  * @see {@link DeactivateDeviceIdentifierCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateDeviceIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateDeviceIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeactivateDeviceIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

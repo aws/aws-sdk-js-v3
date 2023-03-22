@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CloseInstancePublicPortsCommand}.
  */
 export interface CloseInstancePublicPortsCommandInput extends CloseInstancePublicPortsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloseInstancePublicPortsCommand}.
  */
 export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePublicPortsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Closes ports for a specific Amazon Lightsail instance.</p>
  *          <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via
  *       resource tags applied to the resource identified by <code>instanceName</code>. For more
@@ -49,6 +54,8 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  * const response = await client.send(command);
  * ```
  *
+ * @param CloseInstancePublicPortsCommandInput - {@link CloseInstancePublicPortsCommandInput}
+ * @returns {@link CloseInstancePublicPortsCommandOutput}
  * @see {@link CloseInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link CloseInstancePublicPortsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class CloseInstancePublicPortsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloseInstancePublicPortsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CloseInstancePublicPortsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloseInstancePublicPortsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CloseInstancePublicPortsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseInstancePublicPortsCommandOutput> {
     return deserializeAws_json1_1CloseInstancePublicPortsCommand(output, context);
   }

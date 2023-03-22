@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetSSHPublicKeyCommand}.
  */
 export interface GetSSHPublicKeyCommandInput extends GetSSHPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSSHPublicKeyCommand}.
  */
 export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
  *          <p>The SSH public key retrieved by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -50,6 +55,8 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSSHPublicKeyCommandInput - {@link GetSSHPublicKeyCommandInput}
+ * @returns {@link GetSSHPublicKeyCommandOutput}
  * @see {@link GetSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSSHPublicKeyCommandOutput> {
     return deserializeAws_queryGetSSHPublicKeyCommand(output, context);
   }

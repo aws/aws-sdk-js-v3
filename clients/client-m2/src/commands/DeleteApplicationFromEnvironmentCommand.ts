@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationFromEnvironmentCommand}.
  */
 export interface DeleteApplicationFromEnvironmentCommandInput extends DeleteApplicationFromEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationFromEnvironmentCommand}.
  */
 export interface DeleteApplicationFromEnvironmentCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific application from the specific runtime environment where it was previously
  *          deployed. You cannot delete a runtime environment using DeleteEnvironment if any application has
  *          ever been deployed to it. This API removes the association of the application with the
@@ -51,6 +56,8 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationFromEnvironmentCommandInput - {@link DeleteApplicationFromEnvironmentCommandInput}
+ * @returns {@link DeleteApplicationFromEnvironmentCommandOutput}
  * @see {@link DeleteApplicationFromEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationFromEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationFromEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationFromEnvironmentCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
     return serializeAws_restJson1DeleteApplicationFromEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

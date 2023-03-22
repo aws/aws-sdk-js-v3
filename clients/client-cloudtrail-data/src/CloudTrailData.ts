@@ -9,6 +9,7 @@ import {
 } from "./commands/PutAuditEventsCommand";
 
 /**
+ * @public
  * <p>The CloudTrail Data Service lets you ingest events into CloudTrail from any source in your
  * hybrid environments, such as in-house or SaaS applications hosted on-premises or in the cloud,
  * virtual machines, or containers. You can store, access, analyze, troubleshoot and take action on
@@ -18,6 +19,7 @@ import {
  */
 export class CloudTrailData extends CloudTrailDataClient {
   /**
+   * @public
    * <p>Ingests your application events into CloudTrail Lake. A required parameter,
    *             <code>auditEvents</code>, accepts the JSON records (also called
    *             <i>payload</i>) of events that you want CloudTrail to ingest. You

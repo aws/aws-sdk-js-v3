@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactListCommand}.
  */
 export interface UpdateContactListCommandInput extends UpdateContactListRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactListCommand}.
  */
 export interface UpdateContactListCommandOutput extends UpdateContactListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates contact list metadata. This operation does a complete replacement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactListCommandInput - {@link UpdateContactListCommandInput}
+ * @returns {@link UpdateContactListCommandOutput}
  * @see {@link UpdateContactListCommandInput} for command's `input` shape.
  * @see {@link UpdateContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateContactListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactListCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateContactListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactListCommandOutput> {
     return deserializeAws_restJson1UpdateContactListCommand(output, context);
   }

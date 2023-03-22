@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetUserPasswordCommand}.
  */
 export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetUserPasswordCommand}.
  */
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
+ * @returns {@link ResetUserPasswordCommandOutput}
  * @see {@link ResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class ResetUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ResetUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResetUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetUserPasswordCommandOutput> {
     return deserializeAws_restJson1ResetUserPasswordCommand(output, context);
   }

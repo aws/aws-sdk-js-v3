@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDistributionConfigurationCommand}.
  */
 export interface DeleteDistributionConfigurationCommandInput extends DeleteDistributionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDistributionConfigurationCommand}.
  */
 export interface DeleteDistributionConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteDistributionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a distribution configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteDistributionConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDistributionConfigurationCommandInput - {@link DeleteDistributionConfigurationCommandInput}
+ * @returns {@link DeleteDistributionConfigurationCommandOutput}
  * @see {@link DeleteDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteDistributionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDistributionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DeleteDistributionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDistributionConfigurationCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DeleteDistributionConfigurationCommand extends $Command<
     return serializeAws_restJson1DeleteDistributionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

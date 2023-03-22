@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutContainerRecipePolicyCommand}.
  */
 export interface PutContainerRecipePolicyCommandInput extends PutContainerRecipePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutContainerRecipePolicyCommand}.
  */
 export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a policy to a container image. We recommend that you call the RAM API CreateResourceShare (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also call the RAM API PromoteResourceShareCreatedFromPolicy (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html) in order for the resource to be visible to all principals with whom the resource is shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContainerRecipePolicyCommandInput - {@link PutContainerRecipePolicyCommandInput}
+ * @returns {@link PutContainerRecipePolicyCommandOutput}
  * @see {@link PutContainerRecipePolicyCommandInput} for command's `input` shape.
  * @see {@link PutContainerRecipePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -95,6 +102,9 @@ export class PutContainerRecipePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContainerRecipePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class PutContainerRecipePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContainerRecipePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutContainerRecipePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContainerRecipePolicyCommandOutput> {
     return deserializeAws_restJson1PutContainerRecipePolicyCommand(output, context);
   }

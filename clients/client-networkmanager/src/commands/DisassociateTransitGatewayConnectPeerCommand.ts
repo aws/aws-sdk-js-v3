@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTransitGatewayConnectPeerCommand}.
  */
 export interface DisassociateTransitGatewayConnectPeerCommandInput
   extends DisassociateTransitGatewayConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTransitGatewayConnectPeerCommand}.
  */
 export interface DisassociateTransitGatewayConnectPeerCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a transit gateway Connect peer from a device and link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTransitGatewayConnectPeerCommandInput - {@link DisassociateTransitGatewayConnectPeerCommandInput}
+ * @returns {@link DisassociateTransitGatewayConnectPeerCommandOutput}
  * @see {@link DisassociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTransitGatewayConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTransitGatewayConnectPeerCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
     return serializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

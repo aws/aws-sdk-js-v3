@@ -10,7 +10,7 @@ import { DetectiveClient } from "../DetectiveClient";
 import { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DetectiveClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOrganizationAdminAccountsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListOrganizationAdminAccounts(
   config: DetectivePaginationConfiguration,
   input: ListOrganizationAdminAccountsCommandInput,

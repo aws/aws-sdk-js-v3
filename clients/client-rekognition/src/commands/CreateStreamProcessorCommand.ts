@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamProcessorCommand}.
  */
 export interface CreateStreamProcessorCommandInput extends CreateStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamProcessorCommand}.
  */
 export interface CreateStreamProcessorCommandOutput extends CreateStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p>
  *          <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p>
  *          <ul>
@@ -66,6 +71,8 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamProcessorCommandInput - {@link CreateStreamProcessorCommandInput}
+ * @returns {@link CreateStreamProcessorCommandOutput}
  * @see {@link CreateStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link CreateStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class CreateStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamProcessorCommandOutput> {
     return deserializeAws_json1_1CreateStreamProcessorCommand(output, context);
   }

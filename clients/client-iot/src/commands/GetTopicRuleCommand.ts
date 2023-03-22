@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTopicRuleCommand}.
  */
 export interface GetTopicRuleCommandInput extends GetTopicRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTopicRuleCommand}.
  */
 export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the rule.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRule</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTopicRuleCommandInput - {@link GetTopicRuleCommandInput}
+ * @returns {@link GetTopicRuleCommandOutput}
  * @see {@link GetTopicRuleCommandInput} for command's `input` shape.
  * @see {@link GetTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetTopicRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTopicRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetTopicRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTopicRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTopicRuleCommandOutput> {
     return deserializeAws_restJson1GetTopicRuleCommand(output, context);
   }

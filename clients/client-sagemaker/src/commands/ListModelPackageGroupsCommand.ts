@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelPackageGroupsCommand}.
  */
 export interface ListModelPackageGroupsCommandInput extends ListModelPackageGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListModelPackageGroupsCommand}.
  */
 export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the model groups in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelPackageGroupsCommandInput - {@link ListModelPackageGroupsCommandInput}
+ * @returns {@link ListModelPackageGroupsCommandOutput}
  * @see {@link ListModelPackageGroupsCommandInput} for command's `input` shape.
  * @see {@link ListModelPackageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListModelPackageGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelPackageGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListModelPackageGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelPackageGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListModelPackageGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelPackageGroupsCommandOutput> {
     return deserializeAws_json1_1ListModelPackageGroupsCommand(output, context);
   }

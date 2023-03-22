@@ -128,11 +128,13 @@ import {
 import { MachineLearningClient } from "./MachineLearningClient";
 
 /**
+ * @public
  * Definition of the public APIs
  * 		exposed by Amazon Machine Learning
  */
 export class MachineLearning extends MachineLearningClient {
   /**
+   * @public
    * <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
    * 		    and an optional value. If you add a tag using a key that is already associated with the ML object,
    * 			<code>AddTags</code> updates the tag's value.</p>
@@ -161,6 +163,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
    *             by a <code>DataSource</code>. This operation creates a new <code>BatchPrediction</code>, and uses an <code>MLModel</code> and the data
    *             files referenced by the <code>DataSource</code> as information sources.
@@ -204,6 +207,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>DataSource</code> object from an <a href="http://aws.amazon.com/rds/"> Amazon Relational Database Service</a> (Amazon RDS). A <code>DataSource</code> references data that can be used to perform <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p>
    *
    *         <p>
@@ -247,6 +251,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A
    * 		<code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code>
    * 		operations.</p>
@@ -311,6 +316,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>DataSource</code> object. A <code>DataSource</code> references data that
    *           can be used to perform  <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or
    *           <code>CreateBatchPrediction</code> operations.</p>
@@ -373,6 +379,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
    *           for an <code>MLModel</code>, the <code>DataSource</code> for an <code>Evaluation</code> contains values for the <code>Target Variable</code>. The <code>Evaluation</code> compares the predicted result for each observation to the actual outcome and provides a
    *             summary so that you know how effective the <code>MLModel</code> functions on the test
@@ -416,6 +423,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
    *             information sources. </p>
    *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
@@ -467,6 +475,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
    */
   public createRealtimeEndpoint(
@@ -499,6 +508,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
    *         <p>After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
    *             operation to verify that the status of the <code>BatchPrediction</code> changed to DELETED.</p>
@@ -536,6 +546,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
    *         <p>After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a> operation to verify that the status of the <code>DataSource</code> changed to DELETED.</p>
    *         <p>
@@ -571,6 +582,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it unusable.</p>
    *
    *         <p>After invoking the <code>DeleteEvaluation</code> operation, you can use the
@@ -608,6 +620,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>
    *         <p>After using the <code>DeleteMLModel</code> operation, you can use the
    *           <code>GetMLModel</code> operation to verify that the status of the <code>MLModel</code> changed to DELETED.</p>
@@ -645,6 +658,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>
    */
   public deleteRealtimeEndpoint(
@@ -677,6 +691,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
    * 		       <p>If you specify a tag that doesn't exist, Amazon ML ignores it.</p>
    */
@@ -704,6 +719,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
    */
   public describeBatchPredictions(
@@ -736,6 +752,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
    */
   public describeDataSources(
@@ -768,6 +785,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
    */
   public describeEvaluations(
@@ -800,6 +818,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>MLModel</code> that match the search criteria in the request.</p>
    */
   public describeMLModels(
@@ -832,6 +851,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of the tags for your Amazon ML object.</p>
    */
   public describeTags(
@@ -861,6 +881,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a
    *             <code>Batch Prediction</code> request.</p>
    */
@@ -894,6 +915,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>
    *         <p>
    *             <code>GetDataSource</code> provides results in normal or verbose format. The verbose format
@@ -929,6 +951,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>
    */
   public getEvaluation(
@@ -961,6 +984,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
    *         <p>
    *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
@@ -989,6 +1013,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>
    *         <p>
    *             <b>Note:</b> Not all response parameters will be populated. Whether a
@@ -1018,6 +1043,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
    *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
    */
@@ -1051,6 +1077,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
    *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
    */
@@ -1084,6 +1111,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
    *         <p>You can use the <code>GetEvaluation</code> operation to view the contents of the updated data element.</p>
    */
@@ -1117,6 +1145,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
+   * @public
    * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
    *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
    */

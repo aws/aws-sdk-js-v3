@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ResetCacheParameterGroupCommand}.
  */
 export interface ResetCacheParameterGroupCommandInput extends ResetCacheParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResetCacheParameterGroupCommand}.
  */
 export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a cache
  *             parameter group to the engine or system default value. You can reset specific parameters
  *             by submitting a list of parameter names. To reset the entire cache parameter group,
@@ -49,6 +54,8 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetCacheParameterGroupCommandInput - {@link ResetCacheParameterGroupCommandInput}
+ * @returns {@link ResetCacheParameterGroupCommandOutput}
  * @see {@link ResetCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -104,6 +111,9 @@ export class ResetCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ResetCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResetCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetCacheParameterGroupCommandOutput> {
     return deserializeAws_queryResetCacheParameterGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectionsCommand}.
  */
 export interface GetConnectionsCommandInput extends GetConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectionsCommand}.
  */
 export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of connection definitions from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
+ * @returns {@link GetConnectionsCommandOutput}
  * @see {@link GetConnectionsCommandInput} for command's `input` shape.
  * @see {@link GetConnectionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionsCommandOutput> {
     return deserializeAws_json1_1GetConnectionsCommand(output, context);
   }

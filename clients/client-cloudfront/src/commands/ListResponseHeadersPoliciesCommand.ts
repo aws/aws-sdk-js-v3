@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListResponseHeadersPoliciesCommand}.
  */
 export interface ListResponseHeadersPoliciesCommandInput extends ListResponseHeadersPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResponseHeadersPoliciesCommand}.
  */
 export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHeadersPoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of response headers policies.</p>
  *          <p>You can optionally apply a filter to get only the managed policies created by Amazon Web Services,
  * 			or only the custom policies created in your Amazon Web Services account.</p>
@@ -53,6 +58,8 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResponseHeadersPoliciesCommandInput - {@link ListResponseHeadersPoliciesCommandInput}
+ * @returns {@link ListResponseHeadersPoliciesCommandOutput}
  * @see {@link ListResponseHeadersPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResponseHeadersPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListResponseHeadersPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResponseHeadersPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListResponseHeadersPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResponseHeadersPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListResponseHeadersPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

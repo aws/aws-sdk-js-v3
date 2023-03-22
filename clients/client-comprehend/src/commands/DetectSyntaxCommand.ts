@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectSyntaxCommand}.
  */
 export interface DetectSyntaxCommandInput extends DetectSyntaxRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectSyntaxCommand}.
  */
 export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects text for syntax and the part of speech of words in the document. For more
  *       information, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
@@ -49,6 +54,8 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectSyntaxCommandInput - {@link DetectSyntaxCommandInput}
+ * @returns {@link DetectSyntaxCommandOutput}
  * @see {@link DetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link DetectSyntaxCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -88,6 +95,9 @@ export class DetectSyntaxCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectSyntaxCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DetectSyntaxCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectSyntaxCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectSyntaxCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectSyntaxCommandOutput> {
     return deserializeAws_json1_1DetectSyntaxCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCompatibleVersionsCommand}.
  */
 export interface GetCompatibleVersionsCommandInput extends GetCompatibleVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCompatibleVersionsCommand}.
  */
 export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
  *    to.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCompatibleVersionsCommandInput - {@link GetCompatibleVersionsCommandInput}
+ * @returns {@link GetCompatibleVersionsCommandOutput}
  * @see {@link GetCompatibleVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetCompatibleVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCompatibleVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetCompatibleVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCompatibleVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCompatibleVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCompatibleVersionsCommandOutput> {
     return deserializeAws_restJson1GetCompatibleVersionsCommand(output, context);
   }

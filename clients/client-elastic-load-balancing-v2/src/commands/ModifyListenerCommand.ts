@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyListenerCommand}.
  */
 export interface ModifyListenerCommandInput extends ModifyListenerInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyListenerCommand}.
  */
 export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the specified properties of the specified listener. Any properties that you do
  *       not specify remain unchanged.</p>
  *          <p>Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
@@ -57,6 +62,8 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyListenerCommandInput - {@link ModifyListenerCommandInput}
+ * @returns {@link ModifyListenerCommandOutput}
  * @see {@link ModifyListenerCommandInput} for command's `input` shape.
  * @see {@link ModifyListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -209,6 +216,9 @@ export class ModifyListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -248,10 +258,16 @@ export class ModifyListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyListenerCommandOutput> {
     return deserializeAws_queryModifyListenerCommand(output, context);
   }

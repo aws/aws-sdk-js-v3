@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWirelessGatewayTaskDefinitionCommand}.
  */
 export interface CreateWirelessGatewayTaskDefinitionCommandInput extends CreateWirelessGatewayTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWirelessGatewayTaskDefinitionCommand}.
  */
 export interface CreateWirelessGatewayTaskDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a gateway task definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWirelessGatewayTaskDefinitionCommandInput - {@link CreateWirelessGatewayTaskDefinitionCommandInput}
+ * @returns {@link CreateWirelessGatewayTaskDefinitionCommandOutput}
  * @see {@link CreateWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWirelessGatewayTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateWirelessGatewayTaskDefinitionCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
     return serializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelFlowCommand}.
  */
 export interface UpdateChannelFlowCommandInput extends UpdateChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelFlowCommand}.
  */
 export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates channel flow attributes. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelFlowCommandInput - {@link UpdateChannelFlowCommandInput}
+ * @returns {@link UpdateChannelFlowCommandOutput}
  * @see {@link UpdateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelFlowCommandOutput> {
     return deserializeAws_restJson1UpdateChannelFlowCommand(output, context);
   }

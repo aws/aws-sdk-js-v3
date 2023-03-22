@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentVpcsCommand}.
  */
 export interface ListEnvironmentVpcsCommandInput extends ListEnvironmentVpcsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentVpcsCommand}.
  */
 export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual private clouds (VPCs) that are part of the
  *       environment. </p>
  * @example
@@ -51,6 +56,8 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentVpcsCommandInput - {@link ListEnvironmentVpcsCommandInput}
+ * @returns {@link ListEnvironmentVpcsCommandOutput}
  * @see {@link ListEnvironmentVpcsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentVpcsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListEnvironmentVpcsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentVpcsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListEnvironmentVpcsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentVpcsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEnvironmentVpcsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentVpcsCommandOutput> {
     return deserializeAws_restJson1ListEnvironmentVpcsCommand(output, context);
   }

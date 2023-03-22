@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStreamProcessorCommand}.
  */
 export interface DescribeStreamProcessorCommandInput extends DescribeStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStreamProcessorCommand}.
  */
 export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,
  *             and the current status of the stream processor.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamProcessorCommandInput - {@link DescribeStreamProcessorCommandInput}
+ * @returns {@link DescribeStreamProcessorCommandOutput}
  * @see {@link DescribeStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamProcessorCommandOutput> {
     return deserializeAws_json1_1DescribeStreamProcessorCommand(output, context);
   }

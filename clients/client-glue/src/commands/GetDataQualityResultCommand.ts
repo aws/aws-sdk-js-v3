@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataQualityResultCommand}.
  */
 export interface GetDataQualityResultCommandInput extends GetDataQualityResultRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataQualityResultCommand}.
  */
 export interface GetDataQualityResultCommandOutput extends GetDataQualityResultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the result of a data quality rule evaluation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataQualityResultCommandInput - {@link GetDataQualityResultCommandInput}
+ * @returns {@link GetDataQualityResultCommandOutput}
  * @see {@link GetDataQualityResultCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityResultCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDataQualityResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataQualityResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetDataQualityResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataQualityResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataQualityResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataQualityResultCommandOutput> {
     return deserializeAws_json1_1GetDataQualityResultCommand(output, context);
   }

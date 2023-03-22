@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RespondActivityTaskCompletedCommand}.
  */
 export interface RespondActivityTaskCompletedCommandInput extends RespondActivityTaskCompletedInput {}
 /**
+ * @public
+ *
  * The output of {@link RespondActivityTaskCompletedCommand}.
  */
 export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> completed successfully with a <code>result</code> (if provided).
  *       The <code>result</code> appears in the <code>ActivityTaskCompleted</code> event in the
@@ -83,6 +88,8 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondActivityTaskCompletedCommandInput - {@link RespondActivityTaskCompletedCommandInput}
+ * @returns {@link RespondActivityTaskCompletedCommandOutput}
  * @see {@link RespondActivityTaskCompletedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCompletedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -112,6 +119,9 @@ export class RespondActivityTaskCompletedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondActivityTaskCompletedCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class RespondActivityTaskCompletedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondActivityTaskCompletedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RespondActivityTaskCompletedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

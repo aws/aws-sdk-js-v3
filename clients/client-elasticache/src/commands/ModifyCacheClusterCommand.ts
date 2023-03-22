@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCacheClusterCommand}.
  */
 export interface ModifyCacheClusterCommandInput extends ModifyCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCacheClusterCommand}.
  */
 export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a cluster. You
  *             can use this operation to change one or more cluster configuration parameters by
  *             specifying the parameters and the new values.</p>
@@ -48,6 +53,8 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCacheClusterCommandInput - {@link ModifyCacheClusterCommandInput}
+ * @returns {@link ModifyCacheClusterCommandOutput}
  * @see {@link ModifyCacheClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -145,6 +152,9 @@ export class ModifyCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,10 +194,16 @@ export class ModifyCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCacheClusterCommandOutput> {
     return deserializeAws_queryModifyCacheClusterCommand(output, context);
   }

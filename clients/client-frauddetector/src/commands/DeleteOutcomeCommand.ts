@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOutcomeCommand}.
  */
 export interface DeleteOutcomeCommandInput extends DeleteOutcomeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOutcomeCommand}.
  */
 export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an outcome.</p>
  *          <p>You cannot delete an outcome that is used in a rule version.</p>
  *          <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -48,6 +53,8 @@ export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOutcomeCommandInput - {@link DeleteOutcomeCommandInput}
+ * @returns {@link DeleteOutcomeCommandOutput}
  * @see {@link DeleteOutcomeCommandInput} for command's `input` shape.
  * @see {@link DeleteOutcomeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteOutcomeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOutcomeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteOutcomeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOutcomeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteOutcomeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOutcomeCommandOutput> {
     return deserializeAws_json1_1DeleteOutcomeCommand(output, context);
   }

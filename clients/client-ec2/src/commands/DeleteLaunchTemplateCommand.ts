@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchTemplateCommand}.
  */
 export interface DeleteLaunchTemplateCommandInput extends DeleteLaunchTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchTemplateCommand}.
  */
 export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a launch template. Deleting a launch template deletes all of its
  *             versions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchTemplateCommandInput - {@link DeleteLaunchTemplateCommandInput}
+ * @returns {@link DeleteLaunchTemplateCommandOutput}
  * @see {@link DeleteLaunchTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteLaunchTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteLaunchTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteLaunchTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLaunchTemplateCommandOutput> {
     return deserializeAws_ec2DeleteLaunchTemplateCommand(output, context);
   }

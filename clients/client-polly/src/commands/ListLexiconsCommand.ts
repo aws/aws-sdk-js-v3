@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLexiconsCommand}.
  */
 export interface ListLexiconsCommandInput extends ListLexiconsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLexiconsCommand}.
  */
 export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLexiconsCommandInput - {@link ListLexiconsCommandInput}
+ * @returns {@link ListLexiconsCommandOutput}
  * @see {@link ListLexiconsCommandInput} for command's `input` shape.
  * @see {@link ListLexiconsCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListLexiconsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLexiconsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListLexiconsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLexiconsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLexiconsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLexiconsCommandOutput> {
     return deserializeAws_restJson1ListLexiconsCommand(output, context);
   }

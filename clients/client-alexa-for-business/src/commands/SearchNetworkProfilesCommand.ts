@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchNetworkProfilesCommand}.
  */
 export interface SearchNetworkProfilesCommandInput extends SearchNetworkProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchNetworkProfilesCommand}.
  */
 export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches network profiles and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchNetworkProfilesCommandInput - {@link SearchNetworkProfilesCommandInput}
+ * @returns {@link SearchNetworkProfilesCommandOutput}
  * @see {@link SearchNetworkProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +77,9 @@ export class SearchNetworkProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchNetworkProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class SearchNetworkProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchNetworkProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchNetworkProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchNetworkProfilesCommandOutput> {
     return deserializeAws_json1_1SearchNetworkProfilesCommand(output, context);
   }

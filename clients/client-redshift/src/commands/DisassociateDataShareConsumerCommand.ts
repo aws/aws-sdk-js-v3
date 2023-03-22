@@ -25,15 +25,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDataShareConsumerCommand}.
  */
 export interface DisassociateDataShareConsumerCommandInput extends DisassociateDataShareConsumerMessage {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDataShareConsumerCommand}.
  */
 export interface DisassociateDataShareConsumerCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
+ * @public
  * <p>From a datashare consumer account, remove association for the specified datashare.
  *             </p>
  * @example
@@ -46,6 +51,8 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDataShareConsumerCommandInput - {@link DisassociateDataShareConsumerCommandInput}
+ * @returns {@link DisassociateDataShareConsumerCommandOutput}
  * @see {@link DisassociateDataShareConsumerCommandInput} for command's `input` shape.
  * @see {@link DisassociateDataShareConsumerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateDataShareConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDataShareConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DisassociateDataShareConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDataShareConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDisassociateDataShareConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

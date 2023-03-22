@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReadSetImportJobsCommand}.
  */
 export interface ListReadSetImportJobsCommandInput extends ListReadSetImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReadSetImportJobsCommand}.
  */
 export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of read set import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReadSetImportJobsCommandInput - {@link ListReadSetImportJobsCommandInput}
+ * @returns {@link ListReadSetImportJobsCommandOutput}
  * @see {@link ListReadSetImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListReadSetImportJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListReadSetImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReadSetImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListReadSetImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReadSetImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListReadSetImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReadSetImportJobsCommandOutput> {
     return deserializeAws_restJson1ListReadSetImportJobsCommand(output, context);
   }

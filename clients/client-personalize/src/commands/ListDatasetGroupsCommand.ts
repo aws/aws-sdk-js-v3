@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetGroupsCommand}.
  */
 export interface ListDatasetGroupsCommandInput extends ListDatasetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetGroupsCommand}.
  */
 export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of dataset groups. The response provides the properties
  *       for each dataset group, including the Amazon Resource Name (ARN). For more
  *       information on dataset groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
@@ -48,6 +53,8 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetGroupsCommandInput - {@link ListDatasetGroupsCommandInput}
+ * @returns {@link ListDatasetGroupsCommandOutput}
  * @see {@link ListDatasetGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetGroupsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListDatasetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListDatasetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetGroupsCommandOutput> {
     return deserializeAws_json1_1ListDatasetGroupsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceProfileCommand}.
  */
 export interface UpdateInstanceProfileCommandInput extends UpdateInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceProfileCommand}.
  */
 export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about an existing private device instance profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceProfileCommandInput - {@link UpdateInstanceProfileCommandInput}
+ * @returns {@link UpdateInstanceProfileCommandOutput}
  * @see {@link UpdateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInstanceProfileCommandOutput> {
     return deserializeAws_json1_1UpdateInstanceProfileCommand(output, context);
   }

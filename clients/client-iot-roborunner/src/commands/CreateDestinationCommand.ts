@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDestinationCommand}.
  */
 export interface CreateDestinationCommandInput extends CreateDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDestinationCommand}.
  */
 export interface CreateDestinationCommandOutput extends CreateDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to create a destination
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDestinationCommandInput - {@link CreateDestinationCommandInput}
+ * @returns {@link CreateDestinationCommandOutput}
  * @see {@link CreateDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDestinationCommandOutput> {
     return deserializeAws_restJson1CreateDestinationCommand(output, context);
   }

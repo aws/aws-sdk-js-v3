@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateVirtualInterfaceCommand}.
  */
 export interface AssociateVirtualInterfaceCommandInput extends AssociateVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateVirtualInterfaceCommand}.
  */
 export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
  *       connection. Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface is
  *       being migrated. If the target connection or LAG has an associated virtual interface with
@@ -55,6 +60,8 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateVirtualInterfaceCommandInput - {@link AssociateVirtualInterfaceCommandInput}
+ * @returns {@link AssociateVirtualInterfaceCommandOutput}
  * @see {@link AssociateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AssociateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

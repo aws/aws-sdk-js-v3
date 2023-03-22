@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoverageCommand}.
  */
 export interface ListCoverageCommandInput extends ListCoverageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoverageCommand}.
  */
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists coverage details for you environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
+ * @returns {@link ListCoverageCommandOutput}
  * @see {@link ListCoverageCommandInput} for command's `input` shape.
  * @see {@link ListCoverageCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -79,6 +86,9 @@ export class ListCoverageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoverageCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListCoverageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoverageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCoverageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoverageCommandOutput> {
     return deserializeAws_restJson1ListCoverageCommand(output, context);
   }

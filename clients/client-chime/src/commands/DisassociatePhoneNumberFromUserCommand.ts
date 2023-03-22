@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePhoneNumberFromUserCommand}.
  */
 export interface DisassociatePhoneNumberFromUserCommandInput extends DisassociatePhoneNumberFromUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePhoneNumberFromUserCommand}.
  */
 export interface DisassociatePhoneNumberFromUserCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePhoneNumberFromUserCommandInput - {@link DisassociatePhoneNumberFromUserCommandInput}
+ * @returns {@link DisassociatePhoneNumberFromUserCommandOutput}
  * @see {@link DisassociatePhoneNumberFromUserCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumberFromUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePhoneNumberFromUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePhoneNumberFromUserCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     return serializeAws_restJson1DisassociatePhoneNumberFromUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

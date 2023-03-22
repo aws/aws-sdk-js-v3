@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetECSServiceRecommendationProjectedMetricsCommand}.
  */
 export interface GetECSServiceRecommendationProjectedMetricsCommandInput
   extends GetECSServiceRecommendationProjectedMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetECSServiceRecommendationProjectedMetricsCommand}.
  */
 export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
@@ -38,6 +42,7 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns the projected metrics of Amazon ECS service recommendations.
  *         </p>
@@ -51,6 +56,8 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetECSServiceRecommendationProjectedMetricsCommandInput - {@link GetECSServiceRecommendationProjectedMetricsCommandInput}
+ * @returns {@link GetECSServiceRecommendationProjectedMetricsCommandOutput}
  * @see {@link GetECSServiceRecommendationProjectedMetricsCommandInput} for command's `input` shape.
  * @see {@link GetECSServiceRecommendationProjectedMetricsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetECSServiceRecommendationProjectedMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetECSServiceRecommendationProjectedMetricsCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
     return serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

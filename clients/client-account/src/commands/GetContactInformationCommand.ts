@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactInformationCommand}.
  */
 export interface GetContactInformationCommandInput extends GetContactInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactInformationCommand}.
  */
 export interface GetContactInformationCommandOutput extends GetContactInformationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the primary contact information of an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
  *                 the primary and alternate contact information</a>.</p>
@@ -48,6 +53,8 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactInformationCommandInput - {@link GetContactInformationCommandInput}
+ * @returns {@link GetContactInformationCommandOutput}
  * @see {@link GetContactInformationCommandInput} for command's `input` shape.
  * @see {@link GetContactInformationCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetContactInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetContactInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetContactInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactInformationCommandOutput> {
     return deserializeAws_restJson1GetContactInformationCommand(output, context);
   }

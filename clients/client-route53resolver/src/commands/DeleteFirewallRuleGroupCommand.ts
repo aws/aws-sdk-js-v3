@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallRuleGroupCommand}.
  */
 export interface DeleteFirewallRuleGroupCommandInput extends DeleteFirewallRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallRuleGroupCommand}.
  */
 export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified firewall rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRule
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallRuleGroupCommandInput - {@link DeleteFirewallRuleGroupCommandInput}
+ * @returns {@link DeleteFirewallRuleGroupCommandOutput}
  * @see {@link DeleteFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteFirewallRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteFirewallRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFirewallRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallRuleGroupCommandOutput> {
     return deserializeAws_json1_1DeleteFirewallRuleGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandInput extends CancelExportTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3.
  *             Any data that has already been written to the S3 bucket isn't removed.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
+ * @returns {@link CancelExportTaskCommandOutput}
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -76,6 +83,9 @@ export class CancelExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CancelExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCancelExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportTaskCommandOutput> {
     return deserializeAws_queryCancelExportTaskCommand(output, context);
   }

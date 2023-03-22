@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagProjectCommand}.
  */
 export interface UntagProjectCommandInput extends UntagProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagProjectCommand}.
  */
 export interface UntagProjectCommandOutput extends UntagProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagProjectCommandInput - {@link UntagProjectCommandInput}
+ * @returns {@link UntagProjectCommandOutput}
  * @see {@link UntagProjectCommandInput} for command's `input` shape.
  * @see {@link UntagProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -82,6 +89,9 @@ export class UntagProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UntagProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagProjectCommandOutput> {
     return deserializeAws_json1_1UntagProjectCommand(output, context);
   }

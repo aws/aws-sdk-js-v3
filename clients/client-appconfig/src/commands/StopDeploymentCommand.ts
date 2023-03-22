@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDeploymentCommand}.
  */
 export interface StopDeploymentCommandInput extends StopDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDeploymentCommand}.
  */
 export interface StopDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a deployment. This API action works only on deployments that have a status of
  *             <code>DEPLOYING</code>. This action moves the deployment to a status of
  *             <code>ROLLED_BACK</code>.</p>
@@ -48,6 +53,8 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDeploymentCommandInput - {@link StopDeploymentCommandInput}
+ * @returns {@link StopDeploymentCommandOutput}
  * @see {@link StopDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -102,6 +109,9 @@ export class StopDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class StopDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDeploymentCommandOutput> {
     return deserializeAws_restJson1StopDeploymentCommand(output, context);
   }

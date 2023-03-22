@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentTemplatesCommand}.
  */
 export interface ListEnvironmentTemplatesCommandInput extends ListEnvironmentTemplatesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentTemplatesCommand}.
  */
 export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List environment templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentTemplatesCommandInput - {@link ListEnvironmentTemplatesCommandInput}
+ * @returns {@link ListEnvironmentTemplatesCommandOutput}
  * @see {@link ListEnvironmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListEnvironmentTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListEnvironmentTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListEnvironmentTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentTemplatesCommandOutput> {
     return deserializeAws_json1_0ListEnvironmentTemplatesCommand(output, context);
   }

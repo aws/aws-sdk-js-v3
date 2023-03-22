@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetControlOperationCommand}.
  */
 export interface GetControlOperationCommandInput extends GetControlOperationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetControlOperationCommand}.
  */
 export interface GetControlOperationCommandOutput extends GetControlOperationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the status of a particular <code>EnableControl</code> or
  *         <code>DisableControl</code> operation. Displays a message in case of error.
  *       Details for an operation are available for 90 days.</p>
@@ -48,6 +53,8 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetControlOperationCommandInput - {@link GetControlOperationCommandInput}
+ * @returns {@link GetControlOperationCommandOutput}
  * @see {@link GetControlOperationCommandInput} for command's `input` shape.
  * @see {@link GetControlOperationCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetControlOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetControlOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetControlOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetControlOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetControlOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetControlOperationCommandOutput> {
     return deserializeAws_restJson1GetControlOperationCommand(output, context);
   }

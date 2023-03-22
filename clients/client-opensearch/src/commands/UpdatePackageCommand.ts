@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePackageCommand}.
  */
 export interface UpdatePackageCommandInput extends UpdatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePackageCommand}.
  */
 export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a package for use with Amazon OpenSearch Service domains. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePackageCommandInput - {@link UpdatePackageCommandInput}
+ * @returns {@link UpdatePackageCommandOutput}
  * @see {@link UpdatePackageCommandInput} for command's `input` shape.
  * @see {@link UpdatePackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePackageCommandOutput> {
     return deserializeAws_restJson1UpdatePackageCommand(output, context);
   }

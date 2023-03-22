@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutEmailIdentityMailFromAttributesCommand}.
  */
 export interface PutEmailIdentityMailFromAttributesCommandInput extends PutEmailIdentityMailFromAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEmailIdentityMailFromAttributesCommand}.
  */
 export interface PutEmailIdentityMailFromAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to enable or disable the custom Mail-From domain configuration for an email
  *             identity.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityMailFromAttributesCommandInput - {@link PutEmailIdentityMailFromAttributesCommandInput}
+ * @returns {@link PutEmailIdentityMailFromAttributesCommandOutput}
  * @see {@link PutEmailIdentityMailFromAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityMailFromAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityMailFromAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityMailFromAttributesCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
     return serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

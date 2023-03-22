@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDimensionCommand}.
  */
 export interface CreateDimensionCommandInput extends CreateDimensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDimensionCommand}.
  */
 export interface CreateDimensionCommandOutput extends CreateDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender.
  *       For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
@@ -48,6 +53,8 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDimensionCommandInput - {@link CreateDimensionCommandInput}
+ * @returns {@link CreateDimensionCommandOutput}
  * @see {@link CreateDimensionCommandInput} for command's `input` shape.
  * @see {@link CreateDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateDimensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDimensionCommandOutput> {
     return deserializeAws_restJson1CreateDimensionCommand(output, context);
   }

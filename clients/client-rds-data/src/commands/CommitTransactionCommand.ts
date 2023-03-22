@@ -26,15 +26,20 @@ import {
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link CommitTransactionCommand}.
  */
 export interface CommitTransactionCommandInput extends CommitTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CommitTransactionCommand}.
  */
 export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
  *             commits the changes.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CommitTransactionCommandInput - {@link CommitTransactionCommandInput}
+ * @returns {@link CommitTransactionCommandOutput}
  * @see {@link CommitTransactionCommandInput} for command's `input` shape.
  * @see {@link CommitTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -92,6 +99,9 @@ export class CommitTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CommitTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CommitTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CommitTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CommitTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CommitTransactionCommandOutput> {
     return deserializeAws_restJson1CommitTransactionCommand(output, context);
   }

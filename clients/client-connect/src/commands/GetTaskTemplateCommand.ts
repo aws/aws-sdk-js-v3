@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTaskTemplateCommand}.
  */
 export interface GetTaskTemplateCommandInput extends GetTaskTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTaskTemplateCommand}.
  */
 export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a specific task template in the specified Amazon Connect
  *    instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTaskTemplateCommandInput - {@link GetTaskTemplateCommandInput}
+ * @returns {@link GetTaskTemplateCommandOutput}
  * @see {@link GetTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetTaskTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetTaskTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTaskTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTaskTemplateCommandOutput> {
     return deserializeAws_restJson1GetTaskTemplateCommand(output, context);
   }

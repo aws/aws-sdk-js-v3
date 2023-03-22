@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UnarchiveFindingsCommand}.
  */
 export interface UnarchiveFindingsCommandInput extends UnarchiveFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnarchiveFindingsCommand}.
  */
 export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UnarchiveFindingsCommandInput - {@link UnarchiveFindingsCommandInput}
+ * @returns {@link UnarchiveFindingsCommandOutput}
  * @see {@link UnarchiveFindingsCommandInput} for command's `input` shape.
  * @see {@link UnarchiveFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class UnarchiveFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnarchiveFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UnarchiveFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnarchiveFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnarchiveFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveFindingsCommandOutput> {
     return deserializeAws_restJson1UnarchiveFindingsCommand(output, context);
   }

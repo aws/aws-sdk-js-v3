@@ -116,6 +116,9 @@ import {
   UserDefinedFunctionInput,
 } from "./models_1";
 
+/**
+ * @public
+ */
 export interface ListBlueprintsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -133,6 +136,9 @@ export interface ListBlueprintsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListBlueprintsResponse {
   /**
    * <p>List of names of blueprints in the account.</p>
@@ -145,6 +151,9 @@ export interface ListBlueprintsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlersRequest {
   /**
    * <p>The maximum size of a list to return.</p>
@@ -162,6 +171,9 @@ export interface ListCrawlersRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlersResponse {
   /**
    * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
@@ -175,6 +187,9 @@ export interface ListCrawlersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FieldName {
   CRAWL_ID = "CRAWL_ID",
   DPU_HOUR = "DPU_HOUR",
@@ -183,6 +198,9 @@ export enum FieldName {
   STATE = "STATE",
 }
 
+/**
+ * @public
+ */
 export enum FilterOperator {
   EQ = "EQ",
   GE = "GE",
@@ -193,6 +211,7 @@ export enum FilterOperator {
 }
 
 /**
+ * @public
  * <p>A list of fields, comparators and value that you can use to filter the crawler runs for a specified crawler.</p>
  */
 export interface CrawlsFilter {
@@ -256,6 +275,9 @@ export interface CrawlsFilter {
   FieldValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlsRequest {
   /**
    * <p>The name of the crawler whose runs you want to retrieve.</p>
@@ -278,6 +300,9 @@ export interface ListCrawlsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum CrawlerHistoryState {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -286,6 +311,7 @@ export enum CrawlerHistoryState {
 }
 
 /**
+ * @public
  * <p>Contains the information for a run of a crawler.</p>
  */
 export interface CrawlerHistory {
@@ -340,6 +366,9 @@ export interface CrawlerHistory {
   DPUHour?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCrawlsResponse {
   /**
    * <p>A list of <code>CrawlerHistory</code> objects representing the crawl runs that meet your criteria.</p>
@@ -352,6 +381,9 @@ export interface ListCrawlsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomEntityTypesRequest {
   /**
    * <p>A paginated token to offset the results.</p>
@@ -364,6 +396,9 @@ export interface ListCustomEntityTypesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomEntityTypesResponse {
   /**
    * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
@@ -377,6 +412,7 @@ export interface ListCustomEntityTypesResponse {
 }
 
 /**
+ * @public
  * <p>Criteria used to return data quality results.</p>
  */
 export interface DataQualityResultFilterCriteria {
@@ -406,6 +442,9 @@ export interface DataQualityResultFilterCriteria {
   StartedBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityResultsRequest {
   /**
    * <p>The filter criteria.</p>
@@ -424,6 +463,7 @@ export interface ListDataQualityResultsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a data quality result.</p>
  */
 export interface DataQualityResultDescription {
@@ -453,6 +493,9 @@ export interface DataQualityResultDescription {
   StartedOn?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityResultsResponse {
   /**
    * <p>A list of <code>DataQualityResultDescription</code> objects.</p>
@@ -466,6 +509,7 @@ export interface ListDataQualityResultsResponse {
 }
 
 /**
+ * @public
  * <p>A filter for listing data quality recommendation runs.</p>
  */
 export interface DataQualityRuleRecommendationRunFilter {
@@ -485,6 +529,9 @@ export interface DataQualityRuleRecommendationRunFilter {
   StartedAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRuleRecommendationRunsRequest {
   /**
    * <p>The filter criteria.</p>
@@ -503,6 +550,7 @@ export interface ListDataQualityRuleRecommendationRunsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the result of a data quality rule recommendation run.</p>
  */
 export interface DataQualityRuleRecommendationRunDescription {
@@ -527,6 +575,9 @@ export interface DataQualityRuleRecommendationRunDescription {
   DataSource?: DataSource;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRuleRecommendationRunsResponse {
   /**
    * <p>A list of <code>DataQualityRuleRecommendationRunDescription</code> objects.</p>
@@ -540,6 +591,7 @@ export interface ListDataQualityRuleRecommendationRunsResponse {
 }
 
 /**
+ * @public
  * <p>The filter criteria.</p>
  */
 export interface DataQualityRulesetEvaluationRunFilter {
@@ -559,6 +611,9 @@ export interface DataQualityRulesetEvaluationRunFilter {
   StartedAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetEvaluationRunsRequest {
   /**
    * <p>The filter criteria.</p>
@@ -577,6 +632,7 @@ export interface ListDataQualityRulesetEvaluationRunsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the result of a data quality ruleset evaluation run.</p>
  */
 export interface DataQualityRulesetEvaluationRunDescription {
@@ -601,6 +657,9 @@ export interface DataQualityRulesetEvaluationRunDescription {
   DataSource?: DataSource;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetEvaluationRunsResponse {
   /**
    * <p>A list of <code>DataQualityRulesetEvaluationRunDescription</code> objects representing data quality ruleset runs.</p>
@@ -614,6 +673,7 @@ export interface ListDataQualityRulesetEvaluationRunsResponse {
 }
 
 /**
+ * @public
  * <p>The criteria used to filter data quality rulesets.</p>
  */
 export interface DataQualityRulesetFilterCriteria {
@@ -653,6 +713,9 @@ export interface DataQualityRulesetFilterCriteria {
   TargetTable?: DataQualityTargetTable;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetsRequest {
   /**
    * <p>A paginated token to offset the results.</p>
@@ -676,6 +739,7 @@ export interface ListDataQualityRulesetsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a data quality ruleset returned by <code>GetDataQualityRuleset</code>.</p>
  */
 export interface DataQualityRulesetListDetails {
@@ -715,6 +779,9 @@ export interface DataQualityRulesetListDetails {
   RuleCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityRulesetsResponse {
   /**
    * <p>A paginated list of rulesets for the specified list of Glue tables.</p>
@@ -727,6 +794,9 @@ export interface ListDataQualityRulesetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevEndpointsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -744,6 +814,9 @@ export interface ListDevEndpointsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDevEndpointsResponse {
   /**
    * <p>The names of all the <code>DevEndpoint</code>s in the account, or the
@@ -758,6 +831,9 @@ export interface ListDevEndpointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -775,6 +851,9 @@ export interface ListJobsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResponse {
   /**
    * <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
@@ -788,6 +867,9 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMLTransformsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -815,6 +897,9 @@ export interface ListMLTransformsRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListMLTransformsResponse {
   /**
    * <p>The identifiers of all the machine learning transforms in the account, or the
@@ -829,6 +914,9 @@ export interface ListMLTransformsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegistriesInput {
   /**
    * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
@@ -842,6 +930,7 @@ export interface ListRegistriesInput {
 }
 
 /**
+ * @public
  * <p>A structure containing the details for a registry.</p>
  */
 export interface RegistryListItem {
@@ -876,6 +965,9 @@ export interface RegistryListItem {
   UpdatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegistriesResponse {
   /**
    * <p>An array of <code>RegistryDetailedListItem</code> objects containing minimal details of each registry.</p>
@@ -888,6 +980,9 @@ export interface ListRegistriesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasInput {
   /**
    * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
@@ -906,6 +1001,7 @@ export interface ListSchemasInput {
 }
 
 /**
+ * @public
  * <p>An object that contains minimal details for a schema.</p>
  */
 export interface SchemaListItem {
@@ -945,6 +1041,9 @@ export interface SchemaListItem {
   UpdatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasResponse {
   /**
    * <p>An array of <code>SchemaListItem</code> objects containing details of each schema.</p>
@@ -957,6 +1056,9 @@ export interface ListSchemasResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaVersionsInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -983,6 +1085,7 @@ export interface ListSchemaVersionsInput {
 }
 
 /**
+ * @public
  * <p>An object containing the details about a schema version.</p>
  */
 export interface SchemaVersionListItem {
@@ -1012,6 +1115,9 @@ export interface SchemaVersionListItem {
   CreatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaVersionsResponse {
   /**
    * <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
@@ -1024,6 +1130,9 @@ export interface ListSchemaVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSessionsRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more result. </p>
@@ -1046,6 +1155,9 @@ export interface ListSessionsRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSessionsResponse {
   /**
    * <p>Returns the ID of the session. </p>
@@ -1063,6 +1175,9 @@ export interface ListSessionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStatementsRequest {
   /**
    * <p>The Session ID of the statements.</p>
@@ -1080,6 +1195,9 @@ export interface ListStatementsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStatementsResponse {
   /**
    * <p>Returns the list of statements.</p>
@@ -1092,6 +1210,9 @@ export interface ListStatementsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTriggersRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -1115,6 +1236,9 @@ export interface ListTriggersRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTriggersResponse {
   /**
    * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
@@ -1128,6 +1252,9 @@ export interface ListTriggersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -1140,6 +1267,9 @@ export interface ListWorkflowsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsResponse {
   /**
    * <p>List of names of workflows in the account.</p>
@@ -1152,6 +1282,9 @@ export interface ListWorkflowsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutDataCatalogEncryptionSettingsRequest {
   /**
    * <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the
@@ -1165,19 +1298,31 @@ export interface PutDataCatalogEncryptionSettingsRequest {
   DataCatalogEncryptionSettings: DataCatalogEncryptionSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDataCatalogEncryptionSettingsResponse {}
 
+/**
+ * @public
+ */
 export enum EnableHybridValues {
   FALSE = "FALSE",
   TRUE = "TRUE",
 }
 
+/**
+ * @public
+ */
 export enum ExistCondition {
   MUST_EXIST = "MUST_EXIST",
   NONE = "NONE",
   NOT_EXIST = "NOT_EXIST",
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>Contains the policy document to set, in JSON format.</p>
@@ -1221,6 +1366,9 @@ export interface PutResourcePolicyRequest {
   EnableHybrid?: EnableHybridValues | string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>A hash of the policy that has just been set. This must
@@ -1231,6 +1379,7 @@ export interface PutResourcePolicyResponse {
 }
 
 /**
+ * @public
  * <p>A structure containing a key value pair for metadata.</p>
  */
 export interface MetadataKeyValuePair {
@@ -1245,6 +1394,9 @@ export interface MetadataKeyValuePair {
   MetadataValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutSchemaVersionMetadataInput {
   /**
    * <p>The unique ID for the schema.</p>
@@ -1267,6 +1419,9 @@ export interface PutSchemaVersionMetadataInput {
   MetadataKeyValue: MetadataKeyValuePair | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutSchemaVersionMetadataResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the schema.</p>
@@ -1309,6 +1464,9 @@ export interface PutSchemaVersionMetadataResponse {
   MetadataValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutWorkflowRunPropertiesRequest {
   /**
    * <p>Name of the workflow which was run.</p>
@@ -1326,8 +1484,14 @@ export interface PutWorkflowRunPropertiesRequest {
   RunProperties: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutWorkflowRunPropertiesResponse {}
 
+/**
+ * @public
+ */
 export interface QuerySchemaVersionMetadataInput {
   /**
    * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
@@ -1361,6 +1525,7 @@ export interface QuerySchemaVersionMetadataInput {
 }
 
 /**
+ * @public
  * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
  */
 export interface OtherMetadataValueListItem {
@@ -1376,6 +1541,7 @@ export interface OtherMetadataValueListItem {
 }
 
 /**
+ * @public
  * <p>A structure containing metadata information for a schema version.</p>
  */
 export interface MetadataInfo {
@@ -1395,6 +1561,9 @@ export interface MetadataInfo {
   OtherMetadataValueList?: OtherMetadataValueListItem[];
 }
 
+/**
+ * @public
+ */
 export interface QuerySchemaVersionMetadataResponse {
   /**
    * <p>A map of a metadata key and associated values.</p>
@@ -1412,6 +1581,9 @@ export interface QuerySchemaVersionMetadataResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterSchemaVersionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -1432,6 +1604,9 @@ export interface RegisterSchemaVersionInput {
   SchemaDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterSchemaVersionResponse {
   /**
    * <p>The unique ID that represents the version of this schema.</p>
@@ -1449,6 +1624,9 @@ export interface RegisterSchemaVersionResponse {
   Status?: SchemaVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSchemaVersionMetadataInput {
   /**
    * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
@@ -1471,6 +1649,9 @@ export interface RemoveSchemaVersionMetadataInput {
   MetadataKeyValue: MetadataKeyValuePair | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSchemaVersionMetadataResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
@@ -1513,6 +1694,9 @@ export interface RemoveSchemaVersionMetadataResponse {
   MetadataValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetJobBookmarkRequest {
   /**
    * <p>The name of the job in question.</p>
@@ -1525,6 +1709,9 @@ export interface ResetJobBookmarkRequest {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetJobBookmarkResponse {
   /**
    * <p>The reset bookmark entry.</p>
@@ -1533,6 +1720,7 @@ export interface ResetJobBookmarkResponse {
 }
 
 /**
+ * @public
  * <p>Too many jobs are being run concurrently.</p>
  */
 export class ConcurrentRunsExceededException extends __BaseException {
@@ -1557,6 +1745,7 @@ export class ConcurrentRunsExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The workflow is in an invalid state to perform a requested operation.</p>
  */
 export class IllegalWorkflowStateException extends __BaseException {
@@ -1580,6 +1769,9 @@ export class IllegalWorkflowStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResumeWorkflowRunRequest {
   /**
    * <p>The name of the workflow to resume.</p>
@@ -1597,6 +1789,9 @@ export interface ResumeWorkflowRunRequest {
   NodeIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeWorkflowRunResponse {
   /**
    * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
@@ -1609,6 +1804,9 @@ export interface ResumeWorkflowRunResponse {
   NodeIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface RunStatementRequest {
   /**
    * <p>The Session Id of the statement to be run.</p>
@@ -1626,6 +1824,9 @@ export interface RunStatementRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface RunStatementResponse {
   /**
    * <p>Returns the Id of the statement that was run.</p>
@@ -1633,6 +1834,9 @@ export interface RunStatementResponse {
   Id?: number;
 }
 
+/**
+ * @public
+ */
 export enum Comparator {
   EQUALS = "EQUALS",
   GREATER_THAN = "GREATER_THAN",
@@ -1642,6 +1846,7 @@ export enum Comparator {
 }
 
 /**
+ * @public
  * <p>Defines a property predicate.</p>
  */
 export interface PropertyPredicate {
@@ -1661,12 +1866,16 @@ export interface PropertyPredicate {
   Comparator?: Comparator | string;
 }
 
+/**
+ * @public
+ */
 export enum Sort {
   ASCENDING = "ASC",
   DESCENDING = "DESC",
 }
 
 /**
+ * @public
  * <p>Specifies a field to sort by and a sort order.</p>
  */
 export interface SortCriterion {
@@ -1681,6 +1890,9 @@ export interface SortCriterion {
   Sort?: Sort | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesRequest {
   /**
    * <p>A unique identifier, consisting of <code>
@@ -1730,6 +1942,9 @@ export interface SearchTablesRequest {
   ResourceShareType?: ResourceShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -1743,6 +1958,7 @@ export interface SearchTablesResponse {
 }
 
 /**
+ * @public
  * <p>The blueprint is in an invalid state to perform a requested operation.</p>
  */
 export class IllegalBlueprintStateException extends __BaseException {
@@ -1766,6 +1982,9 @@ export class IllegalBlueprintStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartBlueprintRunRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -1783,6 +2002,9 @@ export interface StartBlueprintRunRequest {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartBlueprintRunResponse {
   /**
    * <p>The run ID for this blueprint run.</p>
@@ -1790,6 +2012,9 @@ export interface StartBlueprintRunResponse {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerRequest {
   /**
    * <p>Name of the crawler to start.</p>
@@ -1797,9 +2022,13 @@ export interface StartCrawlerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerResponse {}
 
 /**
+ * @public
  * <p>There is no applicable schedule.</p>
  */
 export class NoScheduleException extends __BaseException {
@@ -1824,6 +2053,7 @@ export class NoScheduleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified scheduler is already running.</p>
  */
 export class SchedulerRunningException extends __BaseException {
@@ -1847,6 +2077,9 @@ export class SchedulerRunningException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerScheduleRequest {
   /**
    * <p>Name of the crawler to schedule.</p>
@@ -1854,8 +2087,14 @@ export interface StartCrawlerScheduleRequest {
   CrawlerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartCrawlerScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface StartDataQualityRuleRecommendationRunRequest {
   /**
    * <p>The data source (Glue table) associated with this run.</p>
@@ -1888,6 +2127,9 @@ export interface StartDataQualityRuleRecommendationRunRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDataQualityRuleRecommendationRunResponse {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -1895,6 +2137,9 @@ export interface StartDataQualityRuleRecommendationRunResponse {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDataQualityRulesetEvaluationRunRequest {
   /**
    * <p>The data source (Glue table) associated with this run.</p>
@@ -1932,6 +2177,9 @@ export interface StartDataQualityRulesetEvaluationRunRequest {
   RulesetNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDataQualityRulesetEvaluationRunResponse {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -1939,6 +2187,9 @@ export interface StartDataQualityRulesetEvaluationRunResponse {
   RunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExportLabelsTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -1951,6 +2202,9 @@ export interface StartExportLabelsTaskRunRequest {
   OutputS3Path: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartExportLabelsTaskRunResponse {
   /**
    * <p>The unique identifier for the task run.</p>
@@ -1958,6 +2212,9 @@ export interface StartExportLabelsTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImportLabelsTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -1976,6 +2233,9 @@ export interface StartImportLabelsTaskRunRequest {
   ReplaceAllLabels?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartImportLabelsTaskRunResponse {
   /**
    * <p>The unique identifier for the task run.</p>
@@ -1983,6 +2243,9 @@ export interface StartImportLabelsTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunRequest {
   /**
    * <p>The name of the job definition to use.</p>
@@ -2089,6 +2352,9 @@ export interface StartJobRunRequest {
   ExecutionClass?: ExecutionClass | string;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunResponse {
   /**
    * <p>The ID assigned to this job run.</p>
@@ -2097,6 +2363,7 @@ export interface StartJobRunResponse {
 }
 
 /**
+ * @public
  * <p>The machine learning transform is not ready to run.</p>
  */
 export class MLTransformNotReadyException extends __BaseException {
@@ -2120,6 +2387,9 @@ export class MLTransformNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartMLEvaluationTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -2127,6 +2397,9 @@ export interface StartMLEvaluationTaskRunRequest {
   TransformId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMLEvaluationTaskRunResponse {
   /**
    * <p>The unique identifier associated with this run.</p>
@@ -2134,6 +2407,9 @@ export interface StartMLEvaluationTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartMLLabelingSetGenerationTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -2147,6 +2423,9 @@ export interface StartMLLabelingSetGenerationTaskRunRequest {
   OutputS3Path: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMLLabelingSetGenerationTaskRunResponse {
   /**
    * <p>The unique run identifier that is associated with this task run.</p>
@@ -2154,6 +2433,9 @@ export interface StartMLLabelingSetGenerationTaskRunResponse {
   TaskRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartTriggerRequest {
   /**
    * <p>The name of the trigger to start.</p>
@@ -2161,6 +2443,9 @@ export interface StartTriggerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartTriggerResponse {
   /**
    * <p>The name of the trigger that was started.</p>
@@ -2168,6 +2453,9 @@ export interface StartTriggerResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartWorkflowRunRequest {
   /**
    * <p>The name of the workflow to start.</p>
@@ -2180,6 +2468,9 @@ export interface StartWorkflowRunRequest {
   RunProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartWorkflowRunResponse {
   /**
    * <p>An Id for the new run.</p>
@@ -2188,6 +2479,7 @@ export interface StartWorkflowRunResponse {
 }
 
 /**
+ * @public
  * <p>The specified crawler is not running.</p>
  */
 export class CrawlerNotRunningException extends __BaseException {
@@ -2212,6 +2504,7 @@ export class CrawlerNotRunningException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified crawler is stopping.</p>
  */
 export class CrawlerStoppingException extends __BaseException {
@@ -2235,6 +2528,9 @@ export class CrawlerStoppingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerRequest {
   /**
    * <p>Name of the crawler to stop.</p>
@@ -2242,9 +2538,13 @@ export interface StopCrawlerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerResponse {}
 
 /**
+ * @public
  * <p>The specified scheduler is not running.</p>
  */
 export class SchedulerNotRunningException extends __BaseException {
@@ -2268,6 +2568,9 @@ export class SchedulerNotRunningException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerScheduleRequest {
   /**
    * <p>Name of the crawler whose schedule state to set.</p>
@@ -2275,8 +2578,14 @@ export interface StopCrawlerScheduleRequest {
   CrawlerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopCrawlerScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface StopSessionRequest {
   /**
    * <p>The ID of the session to be stopped.</p>
@@ -2289,6 +2598,9 @@ export interface StopSessionRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopSessionResponse {
   /**
    * <p>Returns the Id of the stopped session.</p>
@@ -2296,6 +2608,9 @@ export interface StopSessionResponse {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopTriggerRequest {
   /**
    * <p>The name of the trigger to stop.</p>
@@ -2303,6 +2618,9 @@ export interface StopTriggerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTriggerResponse {
   /**
    * <p>The name of the trigger that was stopped.</p>
@@ -2310,6 +2628,9 @@ export interface StopTriggerResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopWorkflowRunRequest {
   /**
    * <p>The name of the workflow to stop.</p>
@@ -2322,8 +2643,14 @@ export interface StopWorkflowRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopWorkflowRunResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the Glue resource to which to add the tags. For more
@@ -2337,8 +2664,14 @@ export interface TagResourceRequest {
   TagsToAdd: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>
@@ -2351,8 +2684,14 @@ export interface UntagResourceRequest {
   TagsToRemove: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateBlueprintRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -2370,6 +2709,9 @@ export interface UpdateBlueprintRequest {
   BlueprintLocation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBlueprintResponse {
   /**
    * <p>Returns the name of the blueprint that was updated.</p>
@@ -2378,6 +2720,7 @@ export interface UpdateBlueprintResponse {
 }
 
 /**
+ * @public
  * <p>Specifies a custom CSV classifier to be updated.</p>
  */
 export interface UpdateCsvClassifierRequest {
@@ -2429,6 +2772,7 @@ export interface UpdateCsvClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a grok classifier to update when passed to
  *       <code>UpdateClassifier</code>.</p>
  */
@@ -2456,6 +2800,7 @@ export interface UpdateGrokClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a JSON classifier to be updated.</p>
  */
 export interface UpdateJsonClassifierRequest {
@@ -2472,6 +2817,7 @@ export interface UpdateJsonClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies an XML classifier to be updated.</p>
  */
 export interface UpdateXMLClassifierRequest {
@@ -2495,6 +2841,9 @@ export interface UpdateXMLClassifierRequest {
   RowTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClassifierRequest {
   /**
    * <p>A <code>GrokClassifier</code> object with updated fields.</p>
@@ -2517,9 +2866,13 @@ export interface UpdateClassifierRequest {
   CsvClassifier?: UpdateCsvClassifierRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClassifierResponse {}
 
 /**
+ * @public
  * <p>There was a version conflict.</p>
  */
 export class VersionMismatchException extends __BaseException {
@@ -2543,6 +2896,9 @@ export class VersionMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -2572,6 +2928,7 @@ export interface UpdateColumnStatisticsForPartitionRequest {
 }
 
 /**
+ * @public
  * <p>Encapsulates a <code>ColumnStatistics</code> object that failed and the reason for failure.</p>
  */
 export interface ColumnStatisticsError {
@@ -2586,6 +2943,9 @@ export interface ColumnStatisticsError {
   Error?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForPartitionResponse {
   /**
    * <p>Error occurred during updating column statistics data.</p>
@@ -2593,6 +2953,9 @@ export interface UpdateColumnStatisticsForPartitionResponse {
   Errors?: ColumnStatisticsError[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForTableRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -2616,6 +2979,9 @@ export interface UpdateColumnStatisticsForTableRequest {
   ColumnStatisticsList: ColumnStatistics[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateColumnStatisticsForTableResponse {
   /**
    * <p>List of ColumnStatisticsErrors.</p>
@@ -2623,6 +2989,9 @@ export interface UpdateColumnStatisticsForTableResponse {
   Errors?: ColumnStatisticsError[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
@@ -2642,8 +3011,14 @@ export interface UpdateConnectionRequest {
   ConnectionInput: ConnectionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerRequest {
   /**
    * <p>Name of the new crawler.</p>
@@ -2726,8 +3101,14 @@ export interface UpdateCrawlerRequest {
   CrawlerSecurityConfiguration?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerScheduleRequest {
   /**
    * <p>The name of the crawler whose schedule to update.</p>
@@ -2742,8 +3123,14 @@ export interface UpdateCrawlerScheduleRequest {
   Schedule?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCrawlerScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
@@ -2764,8 +3151,14 @@ export interface UpdateDatabaseRequest {
   DatabaseInput: DatabaseInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatabaseResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDataQualityRulesetRequest {
   /**
    * <p>The name of the data quality ruleset.</p>
@@ -2788,6 +3181,9 @@ export interface UpdateDataQualityRulesetRequest {
   Ruleset?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataQualityRulesetResponse {
   /**
    * <p>The name of the data quality ruleset.</p>
@@ -2806,6 +3202,7 @@ export interface UpdateDataQualityRulesetResponse {
 }
 
 /**
+ * @public
  * <p>Custom libraries to be loaded into a development endpoint.</p>
  */
 export interface DevEndpointCustomLibraries {
@@ -2831,6 +3228,9 @@ export interface DevEndpointCustomLibraries {
   ExtraJarsS3Path?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevEndpointRequest {
   /**
    * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
@@ -2886,8 +3286,14 @@ export interface UpdateDevEndpointRequest {
   AddArguments?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevEndpointResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateJobResponse {
   /**
    * <p>Returns the name of the updated job definition.</p>
@@ -2895,6 +3301,9 @@ export interface UpdateJobResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobFromSourceControlRequest {
   /**
    * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
@@ -2942,6 +3351,9 @@ export interface UpdateJobFromSourceControlRequest {
   AuthToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobFromSourceControlResponse {
   /**
    * <p>The name of the Glue job.</p>
@@ -2949,6 +3361,9 @@ export interface UpdateJobFromSourceControlResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMLTransformRequest {
   /**
    * <p>A unique identifier that was generated when the transform was created.</p>
@@ -3023,6 +3438,9 @@ export interface UpdateMLTransformRequest {
   MaxRetries?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMLTransformResponse {
   /**
    * <p>The unique identifier for the transform that was updated.</p>
@@ -3030,6 +3448,9 @@ export interface UpdateMLTransformResponse {
   TransformId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
@@ -3060,8 +3481,14 @@ export interface UpdatePartitionRequest {
   PartitionInput: PartitionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePartitionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRegistryInput {
   /**
    * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
@@ -3074,6 +3501,9 @@ export interface UpdateRegistryInput {
   Description: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegistryResponse {
   /**
    * <p>The name of the updated registry.</p>
@@ -3086,6 +3516,9 @@ export interface UpdateRegistryResponse {
   RegistryArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSchemaInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -3116,6 +3549,9 @@ export interface UpdateSchemaInput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSchemaResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
@@ -3133,6 +3569,9 @@ export interface UpdateSchemaResponse {
   RegistryName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceControlFromJobRequest {
   /**
    * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
@@ -3180,6 +3619,9 @@ export interface UpdateSourceControlFromJobRequest {
   AuthToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceControlFromJobResponse {
   /**
    * <p>The name of the Glue job.</p>
@@ -3187,6 +3629,9 @@ export interface UpdateSourceControlFromJobResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -3224,9 +3669,13 @@ export interface UpdateTableRequest {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableResponse {}
 
 /**
+ * @public
  * <p>A structure used to provide information used to update a trigger. This object updates the
  *       previous trigger definition by overwriting it completely.</p>
  */
@@ -3266,6 +3715,9 @@ export interface TriggerUpdate {
   EventBatchingCondition?: EventBatchingCondition;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTriggerRequest {
   /**
    * <p>The name of the trigger to update.</p>
@@ -3278,6 +3730,9 @@ export interface UpdateTriggerRequest {
   TriggerUpdate: TriggerUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTriggerResponse {
   /**
    * <p>The resulting trigger definition.</p>
@@ -3285,6 +3740,9 @@ export interface UpdateTriggerResponse {
   Trigger?: Trigger;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog where the function to be updated is located. If none is
@@ -3310,8 +3768,14 @@ export interface UpdateUserDefinedFunctionRequest {
   FunctionInput: UserDefinedFunctionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserDefinedFunctionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowRequest {
   /**
    * <p>Name of the workflow to be updated.</p>
@@ -3334,6 +3798,9 @@ export interface UpdateWorkflowRequest {
   MaxConcurrentRuns?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowResponse {
   /**
    * <p>The name of the workflow which was specified in input.</p>
@@ -3342,6 +3809,7 @@ export interface UpdateWorkflowResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the mapping of data property keys.</p>
  */
 export interface Mapping {
@@ -3374,39 +3842,40 @@ export interface Mapping {
    * <p>Only applicable to nested data structures. If you want to change the parent structure, but also one of its children, you can fill out this data strucutre. It is also <code>Mapping</code>, but its <code>FromPath</code> will be the parent's <code>FromPath</code> plus the <code>FromPath</code> from this structure.</p>
    *          <p>For the children part, suppose you have the structure:</p>
    *          <p>
-   *             <code>{
+   *             <code>\{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
    *   "ToType": "Struct",
    *   "Dropped": false,
-   *   "Chidlren": [{
+   *   "Chidlren": [\{
    *        "FromPath": "inner",
    *        "ToKey": "inner",
    *        "ToType": "Double",
    *       "Dropped": false,
-   *   }]
-   * }</code>
+   *   \}]
+   * \}</code>
    *          </p>
    *          <p>You can specify a <code>Mapping</code> that looks like:</p>
    *          <p>
-   *             <code>{
+   *             <code>\{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
    *   "ToType": "Struct",
    *   "Dropped": false,
-   *   "Chidlren": [{
+   *   "Chidlren": [\{
    *        "FromPath": "inner",
    *        "ToKey": "inner",
    *        "ToType": "Double",
    *       "Dropped": false,
-   *   }]
-   * }</code>
+   *   \}]
+   * \}</code>
    *          </p>
    */
   Children?: Mapping[];
 }
 
 /**
+ * @public
  * <p>Specifies a transform that maps data property keys in the data source to data property keys in the data target. You can rename keys, modify the data types for keys, and choose which keys to drop from the dataset.</p>
  */
 export interface ApplyMapping {
@@ -3427,6 +3896,7 @@ export interface ApplyMapping {
 }
 
 /**
+ * @public
  * <p>
  *             <code>CodeGenConfigurationNode</code> enumerates all valid Node types. One and only one of its member variables can be populated.</p>
  */
@@ -3748,6 +4218,9 @@ export interface CodeGenConfigurationNode {
   S3DeltaDirectTarget?: S3DeltaDirectTarget;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>The name you assign to this job definition. It must be unique in your account.</p>
@@ -3916,6 +4389,7 @@ export interface CreateJobRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a job definition.</p>
  */
 export interface Job {
@@ -4089,6 +4563,7 @@ export interface Job {
 }
 
 /**
+ * @public
  * <p>Specifies information used to update an existing job definition. The previous job
  *       definition is completely overwritten by this information.</p>
  */
@@ -4243,6 +4718,9 @@ export interface JobUpdate {
   SourceControlDetails?: SourceControlDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetJobResponse {
   /**
    * <p>The requested job definition.</p>
@@ -4250,6 +4728,9 @@ export interface GetJobResponse {
   Job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobRequest {
   /**
    * <p>The name of the job definition to update.</p>
@@ -4262,6 +4743,9 @@ export interface UpdateJobRequest {
   JobUpdate: JobUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetJobsResponse {
   /**
    * <p>A list of job definitions.</p>
@@ -4274,6 +4758,9 @@ export interface BatchGetJobsResponse {
   JobsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetJobsResponse {
   /**
    * <p>A list of job definitions.</p>

@@ -26,10 +26,14 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetRumMetricDefinitionsCommand}.
  */
 export interface BatchGetRumMetricDefinitionsCommandInput extends BatchGetRumMetricDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetRumMetricDefinitionsCommand}.
  */
 export interface BatchGetRumMetricDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetRumMetricDefinitionsCommandInput - {@link BatchGetRumMetricDefinitionsCommandInput}
+ * @returns {@link BatchGetRumMetricDefinitionsCommandOutput}
  * @see {@link BatchGetRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchGetRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -83,6 +90,9 @@ export class BatchGetRumMetricDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetRumMetricDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class BatchGetRumMetricDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetRumMetricDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetRumMetricDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateUserCommand}.
  */
 export interface BatchUpdateUserCommandInput extends BatchUpdateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateUserCommand}.
  */
 export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateUserCommandInput - {@link BatchUpdateUserCommandInput}
+ * @returns {@link BatchUpdateUserCommandOutput}
  * @see {@link BatchUpdateUserCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class BatchUpdateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class BatchUpdateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpdateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateUserCommandOutput> {
     return deserializeAws_restJson1BatchUpdateUserCommand(output, context);
   }

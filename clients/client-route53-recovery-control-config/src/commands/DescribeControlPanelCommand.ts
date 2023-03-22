@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeControlPanelCommand}.
  */
 export interface DescribeControlPanelCommandInput extends DescribeControlPanelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeControlPanelCommand}.
  */
 export interface DescribeControlPanelCommandOutput extends DescribeControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays details about a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeControlPanelCommandInput - {@link DescribeControlPanelCommandInput}
+ * @returns {@link DescribeControlPanelCommandOutput}
  * @see {@link DescribeControlPanelCommandInput} for command's `input` shape.
  * @see {@link DescribeControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeControlPanelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeControlPanelCommandOutput> {
     return deserializeAws_restJson1DescribeControlPanelCommand(output, context);
   }

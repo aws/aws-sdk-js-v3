@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackendAPICommand}.
  */
 export interface DeleteBackendAPICommandInput extends DeleteBackendAPIRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackendAPICommand}.
  */
 export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackendAPICommandInput - {@link DeleteBackendAPICommandInput}
+ * @returns {@link DeleteBackendAPICommandOutput}
  * @see {@link DeleteBackendAPICommandInput} for command's `input` shape.
  * @see {@link DeleteBackendAPICommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteBackendAPICommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackendAPICommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteBackendAPICommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackendAPICommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBackendAPICommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendAPICommandOutput> {
     return deserializeAws_restJson1DeleteBackendAPICommand(output, context);
   }

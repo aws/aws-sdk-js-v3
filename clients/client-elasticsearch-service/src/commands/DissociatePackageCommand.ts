@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DissociatePackageCommand}.
  */
 export interface DissociatePackageCommandInput extends DissociatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DissociatePackageCommand}.
  */
 export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Dissociates a package from the Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DissociatePackageCommandInput - {@link DissociatePackageCommandInput}
+ * @returns {@link DissociatePackageCommandOutput}
  * @see {@link DissociatePackageCommandInput} for command's `input` shape.
  * @see {@link DissociatePackageCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class DissociatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DissociatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DissociatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DissociatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DissociatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DissociatePackageCommandOutput> {
     return deserializeAws_restJson1DissociatePackageCommand(output, context);
   }

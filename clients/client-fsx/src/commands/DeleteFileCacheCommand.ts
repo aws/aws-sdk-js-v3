@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileCacheCommand}.
  */
 export interface DeleteFileCacheCommandInput extends DeleteFileCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileCacheCommand}.
  */
 export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data
  *             is gone.</p>
  *          <p>The <code>DeleteFileCache</code> operation returns while the cache has the
@@ -57,6 +62,8 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileCacheCommandInput - {@link DeleteFileCacheCommandInput}
+ * @returns {@link DeleteFileCacheCommandOutput}
  * @see {@link DeleteFileCacheCommandInput} for command's `input` shape.
  * @see {@link DeleteFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeleteFileCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeleteFileCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFileCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileCacheCommandOutput> {
     return deserializeAws_json1_1DeleteFileCacheCommand(output, context);
   }

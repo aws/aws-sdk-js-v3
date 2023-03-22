@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEndpointAccessCommand}.
  */
 export interface GetEndpointAccessCommandInput extends GetEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEndpointAccessCommand}.
  */
 export interface GetEndpointAccessCommandOutput extends GetEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information, such as the name, about a VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEndpointAccessCommandInput - {@link GetEndpointAccessCommandInput}
+ * @returns {@link GetEndpointAccessCommandOutput}
  * @see {@link GetEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link GetEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEndpointAccessCommandOutput> {
     return deserializeAws_json1_1GetEndpointAccessCommand(output, context);
   }

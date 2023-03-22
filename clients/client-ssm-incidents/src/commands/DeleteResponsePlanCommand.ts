@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResponsePlanCommand}.
  */
 export interface DeleteResponsePlanCommandInput extends DeleteResponsePlanInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResponsePlanCommand}.
  */
 export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this
  *             response plan.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResponsePlanCommandInput - {@link DeleteResponsePlanCommandInput}
+ * @returns {@link DeleteResponsePlanCommandOutput}
  * @see {@link DeleteResponsePlanCommandInput} for command's `input` shape.
  * @see {@link DeleteResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteResponsePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResponsePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteResponsePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteResponsePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResponsePlanCommandOutput> {
     return deserializeAws_restJson1DeleteResponsePlanCommand(output, context);
   }

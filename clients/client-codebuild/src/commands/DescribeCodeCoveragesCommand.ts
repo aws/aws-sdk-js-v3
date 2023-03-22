@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCodeCoveragesCommand}.
  */
 export interface DescribeCodeCoveragesCommandInput extends DescribeCodeCoveragesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCodeCoveragesCommand}.
  */
 export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoveragesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves one or more code coverage reports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCodeCoveragesCommandInput - {@link DescribeCodeCoveragesCommandInput}
+ * @returns {@link DescribeCodeCoveragesCommandOutput}
  * @see {@link DescribeCodeCoveragesCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeCoveragesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeCodeCoveragesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCodeCoveragesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeCodeCoveragesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCodeCoveragesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCodeCoveragesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeCoveragesCommandOutput> {
     return deserializeAws_json1_1DescribeCodeCoveragesCommand(output, context);
   }

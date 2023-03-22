@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSystemInstanceCommand}.
  */
 export interface CreateSystemInstanceCommandInput extends CreateSystemInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSystemInstanceCommand}.
  */
 export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Creates a system instance. </p>
@@ -56,6 +61,8 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSystemInstanceCommandInput - {@link CreateSystemInstanceCommandInput}
+ * @returns {@link CreateSystemInstanceCommandOutput}
  * @see {@link CreateSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateSystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateSystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSystemInstanceCommandOutput> {
     return deserializeAws_json1_1CreateSystemInstanceCommand(output, context);
   }

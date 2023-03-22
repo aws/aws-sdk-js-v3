@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectResourceShareInvitationCommand}.
  */
 export interface RejectResourceShareInvitationCommandInput extends RejectResourceShareInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectResourceShareInvitationCommand}.
  */
 export interface RejectResourceShareInvitationCommandOutput
@@ -37,6 +41,7 @@ export interface RejectResourceShareInvitationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RejectResourceShareInvitationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectResourceShareInvitationCommandInput - {@link RejectResourceShareInvitationCommandInput}
+ * @returns {@link RejectResourceShareInvitationCommandOutput}
  * @see {@link RejectResourceShareInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectResourceShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -103,6 +110,9 @@ export class RejectResourceShareInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectResourceShareInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class RejectResourceShareInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectResourceShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RejectResourceShareInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

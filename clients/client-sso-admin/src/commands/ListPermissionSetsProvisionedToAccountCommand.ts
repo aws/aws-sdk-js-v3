@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionSetsProvisionedToAccountCommand}.
  */
 export interface ListPermissionSetsProvisionedToAccountCommandInput
   extends ListPermissionSetsProvisionedToAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionSetsProvisionedToAccountCommand}.
  */
 export interface ListPermissionSetsProvisionedToAccountCommandOutput
@@ -38,6 +42,7 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the permission sets that are provisioned to a specified AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionSetsProvisionedToAccountCommandInput - {@link ListPermissionSetsProvisionedToAccountCommandInput}
+ * @returns {@link ListPermissionSetsProvisionedToAccountCommandOutput}
  * @see {@link ListPermissionSetsProvisionedToAccountCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetsProvisionedToAccountCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListPermissionSetsProvisionedToAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionSetsProvisionedToAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListPermissionSetsProvisionedToAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPermissionSetsProvisionedToAccountCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListPermissionSetsProvisionedToAccountCommand extends $Command<
     return serializeAws_json1_1ListPermissionSetsProvisionedToAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

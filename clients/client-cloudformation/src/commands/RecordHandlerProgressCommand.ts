@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RecordHandlerProgressCommand}.
  */
 export interface RecordHandlerProgressCommandInput extends RecordHandlerProgressInput {}
 /**
+ * @public
+ *
  * The output of {@link RecordHandlerProgressCommand}.
  */
 export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgressOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reports progress of a resource handler to CloudFormation.</p>
  *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Don't use this API in your code.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * const response = await client.send(command);
  * ```
  *
+ * @param RecordHandlerProgressCommandInput - {@link RecordHandlerProgressCommandInput}
+ * @returns {@link RecordHandlerProgressCommandOutput}
  * @see {@link RecordHandlerProgressCommandInput} for command's `input` shape.
  * @see {@link RecordHandlerProgressCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class RecordHandlerProgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecordHandlerProgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class RecordHandlerProgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecordHandlerProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRecordHandlerProgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecordHandlerProgressCommandOutput> {
     return deserializeAws_queryRecordHandlerProgressCommand(output, context);
   }

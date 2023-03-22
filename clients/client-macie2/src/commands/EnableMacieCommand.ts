@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableMacieCommand}.
  */
 export interface EnableMacieCommandInput extends EnableMacieRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableMacieCommand}.
  */
 export interface EnableMacieCommandOutput extends EnableMacieResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Amazon Macie and specifies the configuration settings for a Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableMacieCommandInput - {@link EnableMacieCommandInput}
+ * @returns {@link EnableMacieCommandOutput}
  * @see {@link EnableMacieCommandInput} for command's `input` shape.
  * @see {@link EnableMacieCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class EnableMacieCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableMacieCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class EnableMacieCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableMacieCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableMacieCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMacieCommandOutput> {
     return deserializeAws_restJson1EnableMacieCommand(output, context);
   }

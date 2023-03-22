@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJourneyStateCommand}.
  */
 export interface UpdateJourneyStateCommandInput extends UpdateJourneyStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJourneyStateCommand}.
  */
 export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels (stops) an active journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJourneyStateCommandInput - {@link UpdateJourneyStateCommandInput}
+ * @returns {@link UpdateJourneyStateCommandOutput}
  * @see {@link UpdateJourneyStateCommandInput} for command's `input` shape.
  * @see {@link UpdateJourneyStateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateJourneyStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJourneyStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateJourneyStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJourneyStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateJourneyStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJourneyStateCommandOutput> {
     return deserializeAws_restJson1UpdateJourneyStateCommand(output, context);
   }

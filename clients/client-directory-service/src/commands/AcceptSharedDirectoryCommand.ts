@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptSharedDirectoryCommand}.
  */
 export interface AcceptSharedDirectoryCommandInput extends AcceptSharedDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptSharedDirectoryCommand}.
  */
 export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a directory sharing request that was sent from the directory owner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptSharedDirectoryCommandInput - {@link AcceptSharedDirectoryCommandInput}
+ * @returns {@link AcceptSharedDirectoryCommandOutput}
  * @see {@link AcceptSharedDirectoryCommandInput} for command's `input` shape.
  * @see {@link AcceptSharedDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class AcceptSharedDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptSharedDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AcceptSharedDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptSharedDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptSharedDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptSharedDirectoryCommandOutput> {
     return deserializeAws_json1_1AcceptSharedDirectoryCommand(output, context);
   }

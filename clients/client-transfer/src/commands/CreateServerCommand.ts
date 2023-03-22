@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServerCommand}.
  */
 export interface CreateServerCommandInput extends CreateServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServerCommand}.
  */
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instantiates an auto-scaling virtual server based on the selected file transfer protocol
  *       in Amazon Web Services. When you make updates to your file transfer protocol-enabled server or when you work
  *       with users, use the service-generated <code>ServerId</code> property that is assigned to the
@@ -49,6 +54,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServerCommandInput - {@link CreateServerCommandInput}
+ * @returns {@link CreateServerCommandOutput}
  * @see {@link CreateServerCommandInput} for command's `input` shape.
  * @see {@link CreateServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServerCommandOutput> {
     return deserializeAws_json1_1CreateServerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterSettingsCommand}.
  */
 export interface UpdateClusterSettingsCommandInput extends UpdateClusterSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterSettingsCommand}.
  */
 export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings to use for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterSettingsCommandInput - {@link UpdateClusterSettingsCommandInput}
+ * @returns {@link UpdateClusterSettingsCommandOutput}
  * @see {@link UpdateClusterSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateClusterSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateClusterSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateClusterSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterSettingsCommandOutput> {
     return deserializeAws_json1_1UpdateClusterSettingsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectionAliasCommand}.
  */
 export interface CreateConnectionAliasCommandInput extends CreateConnectionAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectionAliasCommand}.
  */
 export interface CreateConnectionAliasCommandOutput extends CreateConnectionAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified connection alias for use with cross-Region redirection. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectionAliasCommandInput - {@link CreateConnectionAliasCommandInput}
+ * @returns {@link CreateConnectionAliasCommandOutput}
  * @see {@link CreateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateConnectionAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionAliasCommandOutput> {
     return deserializeAws_json1_1CreateConnectionAliasCommand(output, context);
   }

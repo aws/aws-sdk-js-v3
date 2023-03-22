@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTriggersCommand}.
  */
 export interface GetTriggersCommandInput extends GetTriggersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTriggersCommand}.
  */
 export interface GetTriggersCommandOutput extends GetTriggersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all the triggers associated with a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTriggersCommandOutput extends GetTriggersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTriggersCommandInput - {@link GetTriggersCommandInput}
+ * @returns {@link GetTriggersCommandOutput}
  * @see {@link GetTriggersCommandInput} for command's `input` shape.
  * @see {@link GetTriggersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTriggersCommandOutput> {
     return deserializeAws_json1_1GetTriggersCommand(output, context);
   }

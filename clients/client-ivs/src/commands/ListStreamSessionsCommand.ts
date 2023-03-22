@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamSessionsCommand}.
  */
 export interface ListStreamSessionsCommandInput extends ListStreamSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamSessionsCommand}.
  */
 export interface ListStreamSessionsCommandOutput extends ListStreamSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a summary of current and previous streams for a specified channel in your account, in
  *       the AWS region where the API request is processed.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamSessionsCommandInput - {@link ListStreamSessionsCommandInput}
+ * @returns {@link ListStreamSessionsCommandOutput}
  * @see {@link ListStreamSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamSessionsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListStreamSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListStreamSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStreamSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamSessionsCommandOutput> {
     return deserializeAws_restJson1ListStreamSessionsCommand(output, context);
   }

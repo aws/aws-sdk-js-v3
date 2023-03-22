@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDevicesCommand}.
  */
 export interface RegisterDevicesCommandInput extends RegisterDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDevicesCommand}.
  */
 export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Register devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDevicesCommandInput - {@link RegisterDevicesCommandInput}
+ * @returns {@link RegisterDevicesCommandOutput}
  * @see {@link RegisterDevicesCommandInput} for command's `input` shape.
  * @see {@link RegisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -68,6 +75,9 @@ export class RegisterDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class RegisterDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDevicesCommandOutput> {
     return deserializeAws_json1_1RegisterDevicesCommand(output, context);
   }

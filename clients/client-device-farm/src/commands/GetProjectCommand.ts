@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProjectCommand}.
  */
 export interface GetProjectCommandInput extends GetProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProjectCommand}.
  */
 export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProjectCommandInput - {@link GetProjectCommandInput}
+ * @returns {@link GetProjectCommandOutput}
  * @see {@link GetProjectCommandInput} for command's `input` shape.
  * @see {@link GetProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProjectCommandOutput> {
     return deserializeAws_json1_1GetProjectCommand(output, context);
   }

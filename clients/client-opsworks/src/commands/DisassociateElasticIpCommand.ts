@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateElasticIpCommand}.
  */
 export interface DisassociateElasticIpCommandInput extends DisassociateElasticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateElasticIpCommand}.
  */
 export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Elastic IP address from its instance. The address remains registered with
  *       the stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
@@ -47,6 +52,8 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateElasticIpCommandInput - {@link DisassociateElasticIpCommandInput}
+ * @returns {@link DisassociateElasticIpCommandOutput}
  * @see {@link DisassociateElasticIpCommandInput} for command's `input` shape.
  * @see {@link DisassociateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -76,6 +83,9 @@ export class DisassociateElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DisassociateElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateElasticIpCommandOutput> {
     return deserializeAws_json1_1DisassociateElasticIpCommand(output, context);
   }

@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetClusterCredentialsCommand}.
  */
 export interface GetClusterCredentialsCommandInput extends GetClusterCredentialsMessage {}
 /**
+ * @public
+ *
  * The output of {@link GetClusterCredentialsCommand}.
  */
 export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a database user name and temporary password with temporary authorization to
  *             log on to an Amazon Redshift database. The action returns the database user name
  *             prefixed with <code>IAM:</code> if <code>AutoCreate</code> is <code>False</code> or
@@ -62,6 +67,8 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterCredentialsCommandInput - {@link GetClusterCredentialsCommandInput}
+ * @returns {@link GetClusterCredentialsCommandOutput}
  * @see {@link GetClusterCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetClusterCredentialsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetClusterCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetClusterCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetClusterCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCredentialsCommandOutput> {
     return deserializeAws_queryGetClusterCredentialsCommand(output, context);
   }

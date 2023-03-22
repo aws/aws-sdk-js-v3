@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTokenCommand}.
  */
 export interface GetTokenCommandInput extends GetTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTokenCommand}.
  */
 export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the challenge token based on the given appId and sessionId.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTokenCommandInput - {@link GetTokenCommandInput}
+ * @returns {@link GetTokenCommandOutput}
  * @see {@link GetTokenCommandInput} for command's `input` shape.
  * @see {@link GetTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTokenCommandOutput> {
     return deserializeAws_restJson1GetTokenCommand(output, context);
   }

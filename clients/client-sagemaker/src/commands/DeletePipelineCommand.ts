@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a pipeline if there are no running instances of the pipeline. To delete a
  *         pipeline, you must stop all running instances of the pipeline using the
  *         <code>StopPipelineExecution</code> API. When you delete a pipeline, all instances of the
@@ -49,6 +54,8 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
+ * @returns {@link DeletePipelineCommandOutput}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeletePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeletePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
     return deserializeAws_json1_1DeletePipelineCommand(output, context);
   }

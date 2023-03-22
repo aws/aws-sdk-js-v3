@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMigrationCommand}.
  */
 export interface StartMigrationCommandInput extends StartMigrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMigrationCommand}.
  */
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when
  *       you want to take advantage of the new features of Amazon Lex V2.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex
@@ -53,6 +58,8 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMigrationCommandInput - {@link StartMigrationCommandInput}
+ * @returns {@link StartMigrationCommandOutput}
  * @see {@link StartMigrationCommandInput} for command's `input` shape.
  * @see {@link StartMigrationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class StartMigrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMigrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class StartMigrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartMigrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMigrationCommandOutput> {
     return deserializeAws_restJson1StartMigrationCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGameSessionQueueCommand}.
  */
 export interface DeleteGameSessionQueueCommandInput extends DeleteGameSessionQueueInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGameSessionQueueCommand}.
  */
 export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQueueOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> requests that reference the queue will fail. To
  *             delete a queue, specify the queue name.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGameSessionQueueCommandInput - {@link DeleteGameSessionQueueCommandInput}
+ * @returns {@link DeleteGameSessionQueueCommandOutput}
  * @see {@link DeleteGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteGameSessionQueueCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteGameSessionQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGameSessionQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteGameSessionQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGameSessionQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGameSessionQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameSessionQueueCommandOutput> {
     return deserializeAws_json1_1DeleteGameSessionQueueCommand(output, context);
   }

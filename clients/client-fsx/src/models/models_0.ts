@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { FSxServiceException as __BaseException } from "./FSxServiceException";
 
 /**
+ * @public
  * <p>The Microsoft Active Directory attributes of the Amazon FSx for Windows File
  *             Server file system.</p>
  */
@@ -27,6 +28,9 @@ export interface ActiveDirectoryBackupAttributes {
   ResourceARN?: string;
 }
 
+/**
+ * @public
+ */
 export enum ActiveDirectoryErrorType {
   DOMAIN_NOT_FOUND = "DOMAIN_NOT_FOUND",
   INCOMPATIBLE_DOMAIN_MODE = "INCOMPATIBLE_DOMAIN_MODE",
@@ -35,6 +39,7 @@ export enum ActiveDirectoryErrorType {
 }
 
 /**
+ * @public
  * <p>An Active Directory error.</p>
  */
 export class ActiveDirectoryError extends __BaseException {
@@ -70,6 +75,9 @@ export class ActiveDirectoryError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AdministrativeActionType {
   FILE_SYSTEM_ALIAS_ASSOCIATION = "FILE_SYSTEM_ALIAS_ASSOCIATION",
   FILE_SYSTEM_ALIAS_DISASSOCIATION = "FILE_SYSTEM_ALIAS_DISASSOCIATION",
@@ -82,6 +90,7 @@ export enum AdministrativeActionType {
 }
 
 /**
+ * @public
  * <p>Provides information about a failed administrative action.</p>
  */
 export interface AdministrativeActionFailureDetails {
@@ -91,6 +100,9 @@ export interface AdministrativeActionFailureDetails {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -100,6 +112,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * <p>A structure providing details of any failures that occurred.</p>
  */
 export interface FileSystemFailureDetails {
@@ -109,6 +122,9 @@ export interface FileSystemFailureDetails {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum FileSystemType {
   LUSTRE = "LUSTRE",
   ONTAP = "ONTAP",
@@ -116,6 +132,9 @@ export enum FileSystemType {
   WINDOWS = "WINDOWS",
 }
 
+/**
+ * @public
+ */
 export enum FileSystemLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -126,11 +145,17 @@ export enum FileSystemLifecycle {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum DataCompressionType {
   LZ4 = "LZ4",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum AutoImportPolicyType {
   NEW = "NEW",
   NEW_CHANGED = "NEW_CHANGED",
@@ -139,6 +164,7 @@ export enum AutoImportPolicyType {
 }
 
 /**
+ * @public
  * <p>Provides detailed information about the data repository if its <code>Lifecycle</code> is
  *             set to <code>MISCONFIGURED</code> or <code>FAILED</code>.</p>
  */
@@ -149,6 +175,9 @@ export interface DataRepositoryFailureDetails {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataRepositoryLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -159,6 +188,7 @@ export enum DataRepositoryLifecycle {
 }
 
 /**
+ * @public
  * <p>The data repository configuration object for Lustre file systems returned in the response of
  *             the <code>CreateFileSystem</code> operation.</p>
  *          <p>This data type is not supported for file systems with the <code>Persistent_2</code> deployment type.
@@ -267,6 +297,9 @@ export interface DataRepositoryConfiguration {
   FailureDetails?: DataRepositoryFailureDetails;
 }
 
+/**
+ * @public
+ */
 export enum LustreDeploymentType {
   PERSISTENT_1 = "PERSISTENT_1",
   PERSISTENT_2 = "PERSISTENT_2",
@@ -274,11 +307,17 @@ export enum LustreDeploymentType {
   SCRATCH_2 = "SCRATCH_2",
 }
 
+/**
+ * @public
+ */
 export enum DriveCacheType {
   NONE = "NONE",
   READ = "READ",
 }
 
+/**
+ * @public
+ */
 export enum LustreAccessAuditLogLevel {
   DISABLED = "DISABLED",
   ERROR_ONLY = "ERROR_ONLY",
@@ -287,6 +326,7 @@ export enum LustreAccessAuditLogLevel {
 }
 
 /**
+ * @public
  * <p>The configuration for Lustre logging used to write the enabled
  *             logging events for your Amazon FSx for Lustre file system or
  *             Amazon File Cache resource to Amazon CloudWatch Logs.</p>
@@ -329,6 +369,7 @@ export interface LustreLogConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for Lustre root squash used to restrict root-level access
  *             from clients that try to access your FSx for Lustre file system as root.
  *             Use the <code>RootSquash</code> parameter to enable root squash. To learn more
@@ -379,6 +420,7 @@ export interface LustreRootSquashConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for the Amazon FSx for Lustre file system.</p>
  */
 export interface LustreFileSystemConfiguration {
@@ -514,17 +556,24 @@ export interface LustreFileSystemConfiguration {
   RootSquashConfiguration?: LustreRootSquashConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum OntapDeploymentType {
   MULTI_AZ_1 = "MULTI_AZ_1",
   SINGLE_AZ_1 = "SINGLE_AZ_1",
 }
 
+/**
+ * @public
+ */
 export enum DiskIopsConfigurationMode {
   AUTOMATIC = "AUTOMATIC",
   USER_PROVISIONED = "USER_PROVISIONED",
 }
 
 /**
+ * @public
  * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system. The
  *             default is 3 IOPS per GB of storage capacity, but you can provision additional IOPS per
  *             GB of storage. The configuration consists of the total number of provisioned SSD IOPS
@@ -545,6 +594,7 @@ export interface DiskIopsConfiguration {
 }
 
 /**
+ * @public
  * <p>An Amazon FSx for NetApp ONTAP file system has two endpoints
  *             that are used to access data or to manage the file system
  *             using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. They
@@ -564,6 +614,7 @@ export interface FileSystemEndpoint {
 }
 
 /**
+ * @public
  * <p>An Amazon FSx for NetApp ONTAP file system has the following endpoints
  *             that are used to access data or to manage the file system using the
  *             NetApp ONTAP CLI, REST API, or NetApp SnapMirror.</p>
@@ -583,6 +634,7 @@ export interface FileSystemEndpoints {
 }
 
 /**
+ * @public
  * <p>Configuration for the FSx for NetApp ONTAP file system.</p>
  */
 export interface OntapFileSystemConfiguration {
@@ -679,12 +731,16 @@ export interface OntapFileSystemConfiguration {
   WeeklyMaintenanceStartTime?: string;
 }
 
+/**
+ * @public
+ */
 export enum OpenZFSDeploymentType {
   SINGLE_AZ_1 = "SINGLE_AZ_1",
   SINGLE_AZ_2 = "SINGLE_AZ_2",
 }
 
 /**
+ * @public
  * <p>The configuration for the Amazon FSx for OpenZFS file system. </p>
  */
 export interface OpenZFSFileSystemConfiguration {
@@ -760,12 +816,16 @@ export interface OpenZFSFileSystemConfiguration {
   RootVolumeId?: string;
 }
 
+/**
+ * @public
+ */
 export enum StorageType {
   HDD = "HDD",
   SSD = "SSD",
 }
 
 /**
+ * @public
  * <p>Specifies a key-value pair for a resource tag.</p>
  */
 export interface Tag {
@@ -784,6 +844,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AliasLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -793,6 +856,7 @@ export enum AliasLifecycle {
 }
 
 /**
+ * @public
  * <p>A DNS alias that is associated with the file system. You can use a DNS alias to access a file system using
  *             user-defined DNS names, in addition to the default DNS name
  *             that Amazon FSx assigns to the file system. For more information, see
@@ -844,6 +908,9 @@ export interface Alias {
   Lifecycle?: AliasLifecycle | string;
 }
 
+/**
+ * @public
+ */
 export enum WindowsAccessAuditLogLevel {
   DISABLED = "DISABLED",
   FAILURE_ONLY = "FAILURE_ONLY",
@@ -852,6 +919,7 @@ export enum WindowsAccessAuditLogLevel {
 }
 
 /**
+ * @public
  * <p>The configuration that Amazon FSx for Windows File Server uses to audit and log
  *             user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server
  *             file system. For more information,
@@ -925,18 +993,25 @@ export interface WindowsAuditLogConfiguration {
   AuditLogDestination?: string;
 }
 
+/**
+ * @public
+ */
 export enum WindowsDeploymentType {
   MULTI_AZ_1 = "MULTI_AZ_1",
   SINGLE_AZ_1 = "SINGLE_AZ_1",
   SINGLE_AZ_2 = "SINGLE_AZ_2",
 }
 
+/**
+ * @public
+ */
 export enum FileSystemMaintenanceOperation {
   BACKING_UP = "BACKING_UP",
   PATCHING = "PATCHING",
 }
 
 /**
+ * @public
  * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
  *             which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.</p>
  */
@@ -972,6 +1047,7 @@ export interface SelfManagedActiveDirectoryAttributes {
 }
 
 /**
+ * @public
  * <p>The configuration for this Microsoft Windows file system.</p>
  */
 export interface WindowsFileSystemConfiguration {
@@ -1099,6 +1175,9 @@ export interface WindowsFileSystemConfiguration {
   AuditLogConfiguration?: WindowsAuditLogConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum SnapshotLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -1107,6 +1186,7 @@ export enum SnapshotLifecycle {
 }
 
 /**
+ * @public
  * <p>Describes why a resource lifecycle state changed.</p>
  */
 export interface LifecycleTransitionReason {
@@ -1116,6 +1196,9 @@ export interface LifecycleTransitionReason {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum VolumeLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATED = "CREATED",
@@ -1126,24 +1209,36 @@ export enum VolumeLifecycle {
   PENDING = "PENDING",
 }
 
+/**
+ * @public
+ */
 export enum FlexCacheEndpointType {
   CACHE = "CACHE",
   NONE = "NONE",
   ORIGIN = "ORIGIN",
 }
 
+/**
+ * @public
+ */
 export enum OntapVolumeType {
   DP = "DP",
   LS = "LS",
   RW = "RW",
 }
 
+/**
+ * @public
+ */
 export enum SecurityStyle {
   MIXED = "MIXED",
   NTFS = "NTFS",
   UNIX = "UNIX",
 }
 
+/**
+ * @public
+ */
 export enum TieringPolicyName {
   ALL = "ALL",
   AUTO = "AUTO",
@@ -1152,6 +1247,7 @@ export enum TieringPolicyName {
 }
 
 /**
+ * @public
  * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
  *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
  *             pool storage based on your access patterns.</p>
@@ -1218,6 +1314,7 @@ export interface TieringPolicy {
 }
 
 /**
+ * @public
  * <p>The configuration of an Amazon FSx for NetApp ONTAP volume.</p>
  */
 export interface OntapVolumeConfiguration {
@@ -1354,6 +1451,9 @@ export interface OntapVolumeConfiguration {
   CopyTagsToBackups?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum OpenZFSDataCompressionType {
   LZ4 = "LZ4",
   NONE = "NONE",
@@ -1361,6 +1461,7 @@ export enum OpenZFSDataCompressionType {
 }
 
 /**
+ * @public
  * <p>Specifies who can mount an OpenZFS file system and the options available while
  *             mounting the file system.</p>
  */
@@ -1397,6 +1498,7 @@ export interface OpenZFSClientConfiguration {
 }
 
 /**
+ * @public
  * <p>The Network File System (NFS) configurations for mounting an Amazon FSx for
  *             OpenZFS file system. </p>
  */
@@ -1408,12 +1510,16 @@ export interface OpenZFSNfsExport {
   ClientConfigurations: OpenZFSClientConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OpenZFSCopyStrategy {
   CLONE = "CLONE",
   FULL_COPY = "FULL_COPY",
 }
 
 /**
+ * @public
  * <p>The snapshot configuration to use when creating an OpenZFS volume from a
  *             snapshot.</p>
  */
@@ -1446,12 +1552,16 @@ export interface OpenZFSOriginSnapshotConfiguration {
   CopyStrategy?: OpenZFSCopyStrategy | string;
 }
 
+/**
+ * @public
+ */
 export enum OpenZFSQuotaType {
   GROUP = "GROUP",
   USER = "USER",
 }
 
 /**
+ * @public
  * <p>The configuration for how much storage a user or group can use on the volume. </p>
  */
 export interface OpenZFSUserOrGroupQuota {
@@ -1472,6 +1582,7 @@ export interface OpenZFSUserOrGroupQuota {
 }
 
 /**
+ * @public
  * <p>The configuration of an Amazon FSx for OpenZFS volume.</p>
  */
 export interface OpenZFSVolumeConfiguration {
@@ -1584,12 +1695,16 @@ export interface OpenZFSVolumeConfiguration {
   DeleteClonedVolumes?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum VolumeType {
   ONTAP = "ONTAP",
   OPENZFS = "OPENZFS",
 }
 
 /**
+ * @public
  * <p>The request object specifying one or more DNS alias names to associate with an Amazon FSx for Windows File Server file system.</p>
  */
 export interface AssociateFileSystemAliasesRequest {
@@ -1632,6 +1747,7 @@ export interface AssociateFileSystemAliasesRequest {
 }
 
 /**
+ * @public
  * <p>The system generated response showing the DNS aliases that
  *             Amazon FSx is attempting to associate with the file system.
  *             Use the  API
@@ -1647,6 +1763,7 @@ export interface AssociateFileSystemAliasesResponse {
 }
 
 /**
+ * @public
  * <p>A generic error indicating a failure with a client request.</p>
  */
 export class BadRequest extends __BaseException {
@@ -1671,6 +1788,7 @@ export class BadRequest extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
  */
 export class FileSystemNotFound extends __BaseException {
@@ -1695,6 +1813,7 @@ export class FileSystemNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A generic error indicating a server-side failure.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -1718,6 +1837,9 @@ export class InternalServerError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum EventType {
   CHANGED = "CHANGED",
   DELETED = "DELETED",
@@ -1725,6 +1847,7 @@ export enum EventType {
 }
 
 /**
+ * @public
  * <p>Describes a data repository association's automatic export policy. The
  *             <code>AutoExportPolicy</code> defines the types of updated objects on the
  *             file system that will be automatically exported to the data repository.
@@ -1760,6 +1883,7 @@ export interface AutoExportPolicy {
 }
 
 /**
+ * @public
  * <p>Describes the data repository association's automatic import policy.
  *             The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory
  *             listings up to date by importing changes to your Amazon FSx for Lustre file system
@@ -1795,6 +1919,7 @@ export interface AutoImportPolicy {
 }
 
 /**
+ * @public
  * <p>Cancels a data repository task.</p>
  */
 export interface CancelDataRepositoryTaskRequest {
@@ -1804,6 +1929,9 @@ export interface CancelDataRepositoryTaskRequest {
   TaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DataRepositoryTaskLifecycle {
   CANCELED = "CANCELED",
   CANCELING = "CANCELING",
@@ -1813,6 +1941,9 @@ export enum DataRepositoryTaskLifecycle {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface CancelDataRepositoryTaskResponse {
   /**
    * <p>The lifecycle status of the data repository task, as follows:</p>
@@ -1853,6 +1984,7 @@ export interface CancelDataRepositoryTaskResponse {
 }
 
 /**
+ * @public
  * <p>The data repository task could not be canceled because the task has already ended.</p>
  */
 export class DataRepositoryTaskEnded extends __BaseException {
@@ -1877,6 +2009,7 @@ export class DataRepositoryTaskEnded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The data repository task or tasks you specified could not be found.</p>
  */
 export class DataRepositoryTaskNotFound extends __BaseException {
@@ -1901,6 +2034,7 @@ export class DataRepositoryTaskNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation is not supported for this resource or API.</p>
  */
 export class UnsupportedOperation extends __BaseException {
@@ -1925,6 +2059,7 @@ export class UnsupportedOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
  */
 export class BackupNotFound extends __BaseException {
@@ -1948,6 +2083,9 @@ export class BackupNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CopyBackupRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -2014,6 +2152,7 @@ export interface CopyBackupRequest {
 }
 
 /**
+ * @public
  * <p>If backup creation fails, this structure contains the details of that
  *             failure.</p>
  */
@@ -2024,6 +2163,9 @@ export interface BackupFailureDetails {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum BackupLifecycle {
   AVAILABLE = "AVAILABLE",
   COPYING = "COPYING",
@@ -2034,11 +2176,17 @@ export enum BackupLifecycle {
   TRANSFERRING = "TRANSFERRING",
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   FILE_SYSTEM = "FILE_SYSTEM",
   VOLUME = "VOLUME",
 }
 
+/**
+ * @public
+ */
 export enum BackupType {
   AUTOMATIC = "AUTOMATIC",
   AWS_BACKUP = "AWS_BACKUP",
@@ -2046,6 +2194,7 @@ export enum BackupType {
 }
 
 /**
+ * @public
  * <p>The error returned when a second request is received with the same client request
  *             token but different parameters settings. A client request token should always uniquely
  *             identify a single request.</p>
@@ -2078,6 +2227,7 @@ export class IncompatibleParameterError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
  *          destination Region, so the copied backup can't be restored.</p>
  */
@@ -2103,6 +2253,7 @@ export class IncompatibleRegionForMultiAZ extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Key Management Service (KMS) key of the destination backup is not
  *          valid.</p>
  */
@@ -2128,6 +2279,7 @@ export class InvalidDestinationKmsKey extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
  *             Amazon Web Services partition.</p>
  */
@@ -2153,6 +2305,7 @@ export class InvalidRegion extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Key Management Service (KMS) key of the source backup is not
  *          valid.</p>
  */
@@ -2177,6 +2330,9 @@ export class InvalidSourceKmsKey extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ServiceLimit {
   FILE_CACHE_COUNT = "FILE_CACHE_COUNT",
   FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
@@ -2191,6 +2347,7 @@ export enum ServiceLimit {
 }
 
 /**
+ * @public
  * <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  */
@@ -2222,6 +2379,7 @@ export class ServiceLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the lifecycle status of the source backup isn't
  *             <code>AVAILABLE</code>.</p>
  */
@@ -2253,6 +2411,7 @@ export class SourceBackupUnavailable extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another backup is already under way. Wait for completion before initiating
  *             additional backups of this file system.</p>
  */
@@ -2278,6 +2437,7 @@ export class BackupInProgress extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request object for the <code>CreateBackup</code> operation.</p>
  */
 export interface CreateBackupRequest {
@@ -2309,6 +2469,7 @@ export interface CreateBackupRequest {
 }
 
 /**
+ * @public
  * <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
  */
 export class VolumeNotFound extends __BaseException {
@@ -2333,6 +2494,7 @@ export class VolumeNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration for an Amazon S3 data repository linked to an
  *             Amazon FSx for Lustre file system with a data repository association.
  *             The configuration consists of an <code>AutoImportPolicy</code> that
@@ -2363,6 +2525,9 @@ export interface S3DataRepositoryConfiguration {
   AutoExportPolicy?: AutoExportPolicy;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataRepositoryAssociationRequest {
   /**
    * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
@@ -2437,11 +2602,15 @@ export interface CreateDataRepositoryAssociationRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum NfsVersion {
   NFS3 = "NFS3",
 }
 
 /**
+ * @public
  * <p>The configuration for a data repository association that
  *             links an Amazon File Cache resource to an NFS data repository.</p>
  */
@@ -2470,6 +2639,7 @@ export interface NFSDataRepositoryConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a data repository association that links
  *             an Amazon FSx for Lustre file system to an Amazon S3 bucket
  *             or an Amazon File Cache resource to an Amazon S3 bucket or an NFS file system.
@@ -2700,6 +2870,9 @@ export interface DataRepositoryAssociation {
   NFS?: NFSDataRepositoryConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataRepositoryAssociationResponse {
   /**
    * <p>The response object returned after the data repository association is created.</p>
@@ -2707,15 +2880,22 @@ export interface CreateDataRepositoryAssociationResponse {
   Association?: DataRepositoryAssociation;
 }
 
+/**
+ * @public
+ */
 export enum ReportFormat {
   REPORT_CSV_20191124 = "REPORT_CSV_20191124",
 }
 
+/**
+ * @public
+ */
 export enum ReportScope {
   FAILED_FILES_ONLY = "FAILED_FILES_ONLY",
 }
 
 /**
+ * @public
  * <p>Provides a report detailing the data repository task results of the files processed that match the criteria specified in the report <code>Scope</code> parameter.
  *             FSx delivers the report to the file system's linked data repository in Amazon S3,
  *             using the path specified in the report <code>Path</code> parameter.
@@ -2741,7 +2921,7 @@ export interface CompletionReport {
   /**
    * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the format of the <code>CompletionReport</code>. <code>REPORT_CSV_20191124</code> is the only format currently supported.
    *             When <code>Format</code> is set to <code>REPORT_CSV_20191124</code>, the <code>CompletionReport</code> is provided in CSV format, and is delivered to
-   *             <code>{path}/task-{id}/failures.csv</code>.
+   *             <code>\{path\}/task-\{id\}/failures.csv</code>.
    *         </p>
    */
   Format?: ReportFormat | string;
@@ -2753,6 +2933,9 @@ export interface CompletionReport {
   Scope?: ReportScope | string;
 }
 
+/**
+ * @public
+ */
 export enum DataRepositoryTaskType {
   AUTO_TRIGGERED_EVICTION = "AUTO_RELEASE_DATA",
   EVICTION = "RELEASE_DATA_FROM_FILESYSTEM",
@@ -2760,6 +2943,9 @@ export enum DataRepositoryTaskType {
   IMPORT = "IMPORT_METADATA_FROM_REPOSITORY",
 }
 
+/**
+ * @public
+ */
 export interface CreateDataRepositoryTaskRequest {
   /**
    * <p>Specifies the type of data repository task to create.</p>
@@ -2821,6 +3007,7 @@ export interface CreateDataRepositoryTaskRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about why a data repository task failed. Only populated when the task <code>Lifecycle</code> is set to <code>FAILED</code>.</p>
  */
 export interface DataRepositoryTaskFailureDetails {
@@ -2831,6 +3018,7 @@ export interface DataRepositoryTaskFailureDetails {
 }
 
 /**
+ * @public
  * <p>Provides the task status showing a running total of the total number of files to be processed,
  *             the number successfully processed, and the number of files the task failed to process.</p>
  */
@@ -2865,6 +3053,7 @@ export interface DataRepositoryTaskStatus {
 }
 
 /**
+ * @public
  * <p>A description of the data repository task. You use data repository tasks
  *             to perform bulk transfer operations between an Amazon FSx for Lustre file system
  *             and a linked data repository. An Amazon File Cache resource uses a task to
@@ -3008,6 +3197,9 @@ export interface DataRepositoryTask {
   FileCacheId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataRepositoryTaskResponse {
   /**
    * <p>The description of the data repository task that you just created.</p>
@@ -3016,6 +3208,7 @@ export interface CreateDataRepositoryTaskResponse {
 }
 
 /**
+ * @public
  * <p>An existing data repository task is currently executing on the file system.
  *         Wait until the existing task has completed, then create the new task.</p>
  */
@@ -3041,6 +3234,7 @@ export class DataRepositoryTaskExecuting extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration for an NFS data repository association (DRA)
  *             created during the creation of the Amazon File Cache resource.</p>
  */
@@ -3063,6 +3257,7 @@ export interface FileCacheNFSConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a data repository association (DRA) to
  *             be created during the Amazon File Cache resource creation. The DRA
  *             links the cache to either an Amazon S3 bucket or prefix, or a Network File
@@ -3141,15 +3336,22 @@ export interface FileCacheDataRepositoryAssociation {
   NFS?: FileCacheNFSConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum FileCacheType {
   LUSTRE = "LUSTRE",
 }
 
+/**
+ * @public
+ */
 export enum FileCacheLustreDeploymentType {
   CACHE_1 = "CACHE_1",
 }
 
 /**
+ * @public
  * <p>The configuration for a Lustre MDT (Metadata Target) storage volume.
  *             The metadata on Amazon File Cache is managed by a Lustre Metadata Server
  *             (MDS) while the actual metadata is persisted on an MDT.</p>
@@ -3163,6 +3365,7 @@ export interface FileCacheLustreMetadataConfiguration {
 }
 
 /**
+ * @public
  * <p>The Amazon File Cache configuration for the cache that you are creating.</p>
  */
 export interface CreateFileCacheLustreConfiguration {
@@ -3196,6 +3399,9 @@ export interface CreateFileCacheLustreConfiguration {
   MetadataConfiguration: FileCacheLustreMetadataConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFileCacheRequest {
   /**
    * <p>An idempotency token for resource creation, in a string of up to 64
@@ -3288,6 +3494,7 @@ export interface CreateFileCacheRequest {
 }
 
 /**
+ * @public
  * <p>A structure providing details of any failures that occurred.</p>
  */
 export interface FileCacheFailureDetails {
@@ -3297,6 +3504,9 @@ export interface FileCacheFailureDetails {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum FileCacheLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -3306,6 +3516,7 @@ export enum FileCacheLifecycle {
 }
 
 /**
+ * @public
  * <p>The configuration for the Amazon File Cache resource.</p>
  */
 export interface FileCacheLustreConfiguration {
@@ -3355,6 +3566,7 @@ export interface FileCacheLustreConfiguration {
 }
 
 /**
+ * @public
  * <p>The response object for the Amazon File Cache resource being created in the
  *             <code>CreateFileCache</code> operation.</p>
  */
@@ -3486,6 +3698,9 @@ export interface FileCacheCreating {
   DataRepositoryAssociationIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFileCacheResponse {
   /**
    * <p>A description of the cache that was created.</p>
@@ -3494,6 +3709,7 @@ export interface CreateFileCacheResponse {
 }
 
 /**
+ * @public
  * <p>One or more network settings specified in the request are invalid.</p>
  */
 export class InvalidNetworkSettings extends __BaseException {
@@ -3536,6 +3752,7 @@ export class InvalidNetworkSettings extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
  */
 export class InvalidPerUnitStorageThroughput extends __BaseException {
@@ -3560,6 +3777,7 @@ export class InvalidPerUnitStorageThroughput extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A cache configuration is required for this operation.</p>
  */
 export class MissingFileCacheConfiguration extends __BaseException {
@@ -3584,6 +3802,7 @@ export class MissingFileCacheConfiguration extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lustre logging configuration used when creating or updating an
  *             Amazon FSx for Lustre file system. An Amazon File Cache is created
  *             with Lustre logging enabled by default, with a setting of
@@ -3650,6 +3869,7 @@ export interface LustreLogCreateConfiguration {
 }
 
 /**
+ * @public
  * <p>The Lustre configuration for the file system being created.</p>
  *          <note>
  *             <p>The following parameters are not supported for file systems with the <code>Persistent_2</code>
@@ -3913,6 +4133,7 @@ export interface CreateFileSystemLustreConfiguration {
 }
 
 /**
+ * @public
  * <p>The ONTAP configuration properties of the FSx for ONTAP file system that you
  *             are creating.</p>
  */
@@ -4008,6 +4229,7 @@ export interface CreateFileSystemOntapConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of an Amazon FSx for OpenZFS root volume.</p>
  */
 export interface OpenZFSCreateRootVolumeConfiguration {
@@ -4076,6 +4298,7 @@ export interface OpenZFSCreateRootVolumeConfiguration {
 }
 
 /**
+ * @public
  * <p>The Amazon FSx for OpenZFS configuration properties for the file system that you are creating.</p>
  */
 export interface CreateFileSystemOpenZFSConfiguration {
@@ -4180,6 +4403,7 @@ export interface CreateFileSystemOpenZFSConfiguration {
 }
 
 /**
+ * @public
  * <p>The Windows file access auditing configuration used when creating
  *             or updating an Amazon FSx for Windows File Server file system.</p>
  */
@@ -4271,6 +4495,7 @@ export interface WindowsAuditLogCreateConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
  *             a self-managed (including on-premises) Microsoft Active Directory (AD)
  *             directory. For more information, see
@@ -4331,6 +4556,7 @@ export interface SelfManagedActiveDirectoryConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration object for the Microsoft Windows file system used in
  *                 <code>CreateFileSystem</code> and <code>CreateFileSystemFromBackup</code>
  *             operations.</p>
@@ -4460,6 +4686,7 @@ export interface CreateFileSystemWindowsConfiguration {
 }
 
 /**
+ * @public
  * <p>The request object used to create a new Amazon FSx file system.</p>
  */
 export interface CreateFileSystemRequest {
@@ -4673,6 +4900,7 @@ export interface CreateFileSystemRequest {
 }
 
 /**
+ * @public
  * <p>The path provided for data repository export isn't valid.</p>
  */
 export class InvalidExportPath extends __BaseException {
@@ -4697,6 +4925,7 @@ export class InvalidExportPath extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The path provided for data repository import isn't valid.</p>
  */
 export class InvalidImportPath extends __BaseException {
@@ -4721,6 +4950,7 @@ export class InvalidImportPath extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A file system configuration is required for this operation.</p>
  */
 export class MissingFileSystemConfiguration extends __BaseException {
@@ -4745,6 +4975,7 @@ export class MissingFileSystemConfiguration extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request object for the <code>CreateFileSystemFromBackup</code>
  *             operation.</p>
  */
@@ -4901,6 +5132,9 @@ export interface CreateFileSystemFromBackupRequest {
   StorageCapacity?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -4926,6 +5160,7 @@ export interface CreateSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>The configuration that Amazon FSx uses to join the ONTAP storage virtual machine
  *             (SVM) to your self-managed (including on-premises) Microsoft Active Directory (AD) directory.</p>
  */
@@ -4946,12 +5181,18 @@ export interface CreateSvmActiveDirectoryConfiguration {
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum StorageVirtualMachineRootVolumeSecurityStyle {
   MIXED = "MIXED",
   NTFS = "NTFS",
   UNIX = "UNIX",
 }
 
+/**
+ * @public
+ */
 export interface CreateStorageVirtualMachineRequest {
   /**
    * <p>Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
@@ -5015,6 +5256,7 @@ export interface CreateStorageVirtualMachineRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of the Microsoft Active Directory (AD)
  *             directory to which the Amazon FSx for ONTAP storage virtual machine (SVM) is joined.
  *             Pleae note, account credentials are not returned in the response payload.</p>
@@ -5033,6 +5275,7 @@ export interface SvmActiveDirectoryConfiguration {
 }
 
 /**
+ * @public
  * <p>An Amazon FSx for NetApp ONTAP storage virtual machine (SVM) has
  *             four endpoints  that are used to access data or to manage the SVM
  *             using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They
@@ -5053,6 +5296,7 @@ export interface SvmEndpoint {
 }
 
 /**
+ * @public
  * <p>An Amazon FSx for NetApp ONTAP storage virtual machine (SVM) has
  *             the following endpoints that are used to access data or to manage
  *             the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager.</p>
@@ -5079,6 +5323,9 @@ export interface SvmEndpoints {
   Smb?: SvmEndpoint;
 }
 
+/**
+ * @public
+ */
 export enum StorageVirtualMachineLifecycle {
   CREATED = "CREATED",
   CREATING = "CREATING",
@@ -5088,6 +5335,9 @@ export enum StorageVirtualMachineLifecycle {
   PENDING = "PENDING",
 }
 
+/**
+ * @public
+ */
 export enum StorageVirtualMachineSubtype {
   DEFAULT = "DEFAULT",
   DP_DESTINATION = "DP_DESTINATION",
@@ -5096,6 +5346,7 @@ export enum StorageVirtualMachineSubtype {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuration.</p>
  */
 export interface StorageVirtualMachine {
@@ -5198,6 +5449,9 @@ export interface StorageVirtualMachine {
   RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStorageVirtualMachineResponse {
   /**
    * <p>Returned after a successful <code>CreateStorageVirtualMachine</code> operation; describes the SVM just created.</p>
@@ -5205,12 +5459,16 @@ export interface CreateStorageVirtualMachineResponse {
   StorageVirtualMachine?: StorageVirtualMachine;
 }
 
+/**
+ * @public
+ */
 export enum InputOntapVolumeType {
   DP = "DP",
   RW = "RW",
 }
 
 /**
+ * @public
  * <p>Specifies the configuration of the ONTAP volume that you are creating.</p>
  */
 export interface CreateOntapVolumeConfiguration {
@@ -5353,6 +5611,7 @@ export interface CreateOntapVolumeConfiguration {
 }
 
 /**
+ * @public
  * <p>The snapshot configuration to use when creating an OpenZFS volume from a snapshot. </p>
  */
 export interface CreateOpenZFSOriginSnapshotConfiguration {
@@ -5385,6 +5644,7 @@ export interface CreateOpenZFSOriginSnapshotConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration of the Amazon FSx for OpenZFS volume that you are creating.</p>
  */
 export interface CreateOpenZFSVolumeConfiguration {
@@ -5491,6 +5751,9 @@ export interface CreateOpenZFSVolumeConfiguration {
   UserAndGroupQuotas?: OpenZFSUserOrGroupQuota[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVolumeRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -5527,6 +5790,7 @@ export interface CreateVolumeRequest {
 }
 
 /**
+ * @public
  * <p>A volume configuration is required for this operation.</p>
  */
 export class MissingVolumeConfiguration extends __BaseException {
@@ -5551,6 +5815,7 @@ export class MissingVolumeConfiguration extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
  */
 export class StorageVirtualMachineNotFound extends __BaseException {
@@ -5574,6 +5839,9 @@ export class StorageVirtualMachineNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateVolumeFromBackupRequest {
   /**
    * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
@@ -5604,6 +5872,7 @@ export interface CreateVolumeFromBackupRequest {
 }
 
 /**
+ * @public
  * <p>You can't delete a backup while it's being copied.</p>
  */
 export class BackupBeingCopied extends __BaseException {
@@ -5634,6 +5903,7 @@ export class BackupBeingCopied extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't delete a backup while it's being used to restore a file
  *             system.</p>
  */
@@ -5665,6 +5935,7 @@ export class BackupRestoring extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request object for the <code>DeleteBackup</code> operation.</p>
  */
 export interface DeleteBackupRequest {
@@ -5682,6 +5953,7 @@ export interface DeleteBackupRequest {
 }
 
 /**
+ * @public
  * <p>The response object for the <code>DeleteBackup</code> operation.</p>
  */
 export interface DeleteBackupResponse {
@@ -5698,6 +5970,7 @@ export interface DeleteBackupResponse {
 }
 
 /**
+ * @public
  * <p>No data repository associations were found based upon the supplied parameters.</p>
  */
 export class DataRepositoryAssociationNotFound extends __BaseException {
@@ -5721,6 +5994,9 @@ export class DataRepositoryAssociationNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataRepositoryAssociationRequest {
   /**
    * <p>The ID of the data repository association that you want to delete.</p>
@@ -5741,6 +6017,9 @@ export interface DeleteDataRepositoryAssociationRequest {
   DeleteDataInFileSystem?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataRepositoryAssociationResponse {
   /**
    * <p>The ID of the data repository association being deleted.</p>
@@ -5759,6 +6038,9 @@ export interface DeleteDataRepositoryAssociationResponse {
   DeleteDataInFileSystem?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFileCacheRequest {
   /**
    * <p>The ID of the cache that's being deleted.</p>
@@ -5773,6 +6055,9 @@ export interface DeleteFileCacheRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFileCacheResponse {
   /**
    * <p>The ID of the cache that's being deleted.</p>
@@ -5788,6 +6073,7 @@ export interface DeleteFileCacheResponse {
 }
 
 /**
+ * @public
  * <p>No caches were found based upon supplied parameters.</p>
  */
 export class FileCacheNotFound extends __BaseException {
@@ -5812,6 +6098,7 @@ export class FileCacheNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration object for the Amazon FSx for Lustre file system being deleted in the
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
@@ -5835,11 +6122,15 @@ export interface DeleteFileSystemLustreConfiguration {
   FinalBackupTags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum DeleteFileSystemOpenZFSOption {
   DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
 }
 
 /**
+ * @public
  * <p>The configuration object for the Amazon FSx for OpenZFS file system used in the
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
@@ -5866,6 +6157,7 @@ export interface DeleteFileSystemOpenZFSConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration object for the Microsoft Windows file system used in the
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
@@ -5885,6 +6177,7 @@ export interface DeleteFileSystemWindowsConfiguration {
 }
 
 /**
+ * @public
  * <p>The request object for <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemRequest {
@@ -5920,6 +6213,7 @@ export interface DeleteFileSystemRequest {
 }
 
 /**
+ * @public
  * <p>The response object for the Amazon FSx for Lustre file system being deleted in the
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
@@ -5936,6 +6230,7 @@ export interface DeleteFileSystemLustreResponse {
 }
 
 /**
+ * @public
  * <p>The response object for the Amazon FSx for OpenZFS file system that's being
  *             deleted in the <code>DeleteFileSystem</code> operation.</p>
  */
@@ -5952,6 +6247,7 @@ export interface DeleteFileSystemOpenZFSResponse {
 }
 
 /**
+ * @public
  * <p>The response object for the Microsoft Windows file system used in the
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
@@ -5968,6 +6264,7 @@ export interface DeleteFileSystemWindowsResponse {
 }
 
 /**
+ * @public
  * <p>The response object for the <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemResponse {
@@ -6002,6 +6299,9 @@ export interface DeleteFileSystemResponse {
   OpenZFSResponse?: DeleteFileSystemOpenZFSResponse;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -6016,6 +6316,9 @@ export interface DeleteSnapshotRequest {
   SnapshotId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotResponse {
   /**
    * <p>The ID of the deleted snapshot.</p>
@@ -6030,6 +6333,7 @@ export interface DeleteSnapshotResponse {
 }
 
 /**
+ * @public
  * <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
  */
 export class SnapshotNotFound extends __BaseException {
@@ -6053,6 +6357,9 @@ export class SnapshotNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteStorageVirtualMachineRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -6067,6 +6374,9 @@ export interface DeleteStorageVirtualMachineRequest {
   StorageVirtualMachineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStorageVirtualMachineResponse {
   /**
    * <p>The ID of the SVM Amazon FSx is deleting.</p>
@@ -6080,6 +6390,7 @@ export interface DeleteStorageVirtualMachineResponse {
 }
 
 /**
+ * @public
  * <p>Use to specify skipping a final backup, or to add tags to a final backup.</p>
  */
 export interface DeleteVolumeOntapConfiguration {
@@ -6095,11 +6406,15 @@ export interface DeleteVolumeOntapConfiguration {
   FinalBackupTags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum DeleteOpenZFSVolumeOption {
   DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
 }
 
 /**
+ * @public
  * <p>A value that specifies whether to delete all child volumes and snapshots. </p>
  */
 export interface DeleteVolumeOpenZFSConfiguration {
@@ -6110,6 +6425,9 @@ export interface DeleteVolumeOpenZFSConfiguration {
   Options?: (DeleteOpenZFSVolumeOption | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteVolumeRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -6138,6 +6456,7 @@ export interface DeleteVolumeRequest {
 }
 
 /**
+ * @public
  * <p>The response object for the Amazon FSx for NetApp ONTAP volume being deleted
  *             in the <code>DeleteVolume</code> operation.</p>
  */
@@ -6153,6 +6472,9 @@ export interface DeleteVolumeOntapResponse {
   FinalBackupTags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteVolumeResponse {
   /**
    * <p>The ID of the volume that's being deleted.</p>
@@ -6172,6 +6494,9 @@ export interface DeleteVolumeResponse {
   OntapResponse?: DeleteVolumeOntapResponse;
 }
 
+/**
+ * @public
+ */
 export enum FilterName {
   BACKUP_TYPE = "backup-type",
   DATA_REPOSITORY_TYPE = "data-repository-type",
@@ -6183,6 +6508,7 @@ export enum FilterName {
 }
 
 /**
+ * @public
  * <p>A filter used to restrict the results of describe calls. You can use multiple
  *             filters to return results that meet all applied filter requirements.</p>
  */
@@ -6200,6 +6526,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>The request object for the <code>DescribeBackups</code> operation.</p>
  */
 export interface DescribeBackupsRequest {
@@ -6232,6 +6559,9 @@ export interface DescribeBackupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataRepositoryAssociationsRequest {
   /**
    * <p>IDs of the data repository associations whose descriptions you want to retrieve
@@ -6258,6 +6588,9 @@ export interface DescribeDataRepositoryAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataRepositoryAssociationsResponse {
   /**
    * <p>An array of one or more data repository association descriptions.</p>
@@ -6273,6 +6606,7 @@ export interface DescribeDataRepositoryAssociationsResponse {
 }
 
 /**
+ * @public
  * <p>You have filtered the response to a data repository type that is not supported.</p>
  */
 export class InvalidDataRepositoryType extends __BaseException {
@@ -6296,6 +6630,9 @@ export class InvalidDataRepositoryType extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DataRepositoryTaskFilterName {
   DATA_REPO_ASSOCIATION_ID = "data-repository-association-id",
   FILE_CACHE_ID = "file-cache-id",
@@ -6304,6 +6641,7 @@ export enum DataRepositoryTaskFilterName {
 }
 
 /**
+ * @public
  * <p>(Optional) An array of filter objects you can use to filter the response of data repository tasks you will see in the the response.
  *             You can filter the tasks returned in the response by one or more file system IDs, task lifecycles, and by task type.
  *             A filter object consists of a filter <code>Name</code>, and one or more <code>Values</code> for the filter.</p>
@@ -6330,6 +6668,9 @@ export interface DataRepositoryTaskFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataRepositoryTasksRequest {
   /**
    * <p>(Optional) IDs of the tasks whose descriptions you want to retrieve
@@ -6357,6 +6698,9 @@ export interface DescribeDataRepositoryTasksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataRepositoryTasksResponse {
   /**
    * <p>The collection of data repository task descriptions returned.</p>
@@ -6371,6 +6715,9 @@ export interface DescribeDataRepositoryTasksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFileCachesRequest {
   /**
    * <p>IDs of the caches whose descriptions you want to retrieve (String).</p>
@@ -6392,6 +6739,7 @@ export interface DescribeFileCachesRequest {
 }
 
 /**
+ * @public
  * <p>A description of a specific Amazon File Cache resource, which is
  *             a response object from the <code>DescribeFileCaches</code> operation.</p>
  */
@@ -6512,6 +6860,9 @@ export interface FileCache {
   DataRepositoryAssociationIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFileCachesResponse {
   /**
    * <p>The response object for the <code>DescribeFileCaches</code> operation.</p>
@@ -6527,6 +6878,7 @@ export interface DescribeFileCachesResponse {
 }
 
 /**
+ * @public
  * <p>The request object for <code>DescribeFileSystemAliases</code> operation.</p>
  */
 export interface DescribeFileSystemAliasesRequest {
@@ -6560,6 +6912,7 @@ export interface DescribeFileSystemAliasesRequest {
 }
 
 /**
+ * @public
  * <p>The response object for <code>DescribeFileSystemAliases</code> operation.</p>
  */
 export interface DescribeFileSystemAliasesResponse {
@@ -6577,6 +6930,7 @@ export interface DescribeFileSystemAliasesResponse {
 }
 
 /**
+ * @public
  * <p>The request object for <code>DescribeFileSystems</code> operation.</p>
  */
 export interface DescribeFileSystemsRequest {
@@ -6602,12 +6956,16 @@ export interface DescribeFileSystemsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SnapshotFilterName {
   FILE_SYSTEM_ID = "file-system-id",
   VOLUME_ID = "volume-id",
 }
 
 /**
+ * @public
  * <p>A filter used to restrict the results of <code>DescribeSnapshots</code> calls. You can
  *             use multiple filters to return results that meet all applied filter requirements.</p>
  */
@@ -6625,6 +6983,9 @@ export interface SnapshotFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotsRequest {
   /**
    * <p>The IDs of the snapshots that you want to retrieve. This parameter value overrides any
@@ -6652,11 +7013,15 @@ export interface DescribeSnapshotsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum StorageVirtualMachineFilterName {
   FILE_SYSTEM_ID = "file-system-id",
 }
 
 /**
+ * @public
  * <p>A filter used to restrict the results of describe calls for
  *             Amazon FSx for NetApp ONTAP storage virtual machines (SVMs). You can use multiple
  *             filters to return results that meet all applied filter requirements.</p>
@@ -6674,6 +7039,9 @@ export interface StorageVirtualMachineFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStorageVirtualMachinesRequest {
   /**
    * <p>Enter the ID of one or more SVMs that you want to view.</p>
@@ -6699,6 +7067,9 @@ export interface DescribeStorageVirtualMachinesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStorageVirtualMachinesResponse {
   /**
    * <p>Returned after a successful <code>DescribeStorageVirtualMachines</code> operation, describing each SVM.</p>
@@ -6713,12 +7084,16 @@ export interface DescribeStorageVirtualMachinesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum VolumeFilterName {
   FILE_SYSTEM_ID = "file-system-id",
   STORAGE_VIRTUAL_MACHINE_ID = "storage-virtual-machine-id",
 }
 
 /**
+ * @public
  * <p>A filter used to restrict the results of describe calls for Amazon FSx for
  *             NetApp ONTAP or Amazon FSx for OpenZFS volumes. You can use multiple filters to
  *             return results that meet all applied filter requirements.</p>
@@ -6736,6 +7111,9 @@ export interface VolumeFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVolumesRequest {
   /**
    * <p>The IDs of the volumes whose descriptions you want to retrieve.</p>
@@ -6763,6 +7141,7 @@ export interface DescribeVolumesRequest {
 }
 
 /**
+ * @public
  * <p>The request object of DNS aliases to disassociate from an Amazon FSx for Windows File Server file system.</p>
  */
 export interface DisassociateFileSystemAliasesRequest {
@@ -6785,6 +7164,7 @@ export interface DisassociateFileSystemAliasesRequest {
 }
 
 /**
+ * @public
  * <p>The system generated response showing the DNS aliases that Amazon FSx is attempting to disassociate from the file system.
  *         Use the  API operation to monitor the status of the aliases Amazon FSx is removing from the file system.</p>
  */
@@ -6796,6 +7176,7 @@ export interface DisassociateFileSystemAliasesResponse {
 }
 
 /**
+ * @public
  * <p>The request object for <code>ListTagsForResource</code> operation.</p>
  */
 export interface ListTagsForResourceRequest {
@@ -6821,6 +7202,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>The response object for <code>ListTagsForResource</code> operation.</p>
  */
 export interface ListTagsForResourceResponse {
@@ -6838,6 +7220,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The resource specified for the tagging operation is not a resource type owned by
  *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
  */
@@ -6869,6 +7252,7 @@ export class NotServiceResourceError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified does not support tagging. </p>
  */
 export class ResourceDoesNotSupportTagging extends __BaseException {
@@ -6900,6 +7284,7 @@ export class ResourceDoesNotSupportTagging extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
  */
 export class ResourceNotFound extends __BaseException {
@@ -6929,6 +7314,9 @@ export class ResourceNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ReleaseFileSystemNfsV3LocksRequest {
   /**
    * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
@@ -6943,11 +7331,17 @@ export interface ReleaseFileSystemNfsV3LocksRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum RestoreOpenZFSVolumeOption {
   DELETE_CLONED_VOLUMES = "DELETE_CLONED_VOLUMES",
   DELETE_INTERMEDIATE_SNAPSHOTS = "DELETE_INTERMEDIATE_SNAPSHOTS",
 }
 
+/**
+ * @public
+ */
 export interface RestoreVolumeFromSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -6988,6 +7382,7 @@ export interface RestoreVolumeFromSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>The request object for the <code>TagResource</code> operation.</p>
  */
 export interface TagResourceRequest {
@@ -7005,11 +7400,13 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>The response object for the <code>TagResource</code> operation.</p>
  */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The request object for <code>UntagResource</code> action.</p>
  */
 export interface UntagResourceRequest {
@@ -7026,10 +7423,14 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p>The response object for <code>UntagResource</code> action.</p>
  */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDataRepositoryAssociationRequest {
   /**
    * <p>The ID of the data repository association that you are updating.</p>
@@ -7064,6 +7465,9 @@ export interface UpdateDataRepositoryAssociationRequest {
   S3?: S3DataRepositoryConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataRepositoryAssociationResponse {
   /**
    * <p>The response object returned after the data repository association is updated.</p>
@@ -7072,6 +7476,7 @@ export interface UpdateDataRepositoryAssociationResponse {
 }
 
 /**
+ * @public
  * <p>The configuration update for an Amazon File Cache resource.</p>
  */
 export interface UpdateFileCacheLustreConfiguration {
@@ -7088,6 +7493,9 @@ export interface UpdateFileCacheLustreConfiguration {
   WeeklyMaintenanceStartTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFileCacheRequest {
   /**
    * <p>The ID of the cache that you are updating.</p>
@@ -7107,6 +7515,9 @@ export interface UpdateFileCacheRequest {
   LustreConfiguration?: UpdateFileCacheLustreConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFileCacheResponse {
   /**
    * <p>A description of the cache that was updated.</p>
@@ -7115,6 +7526,7 @@ export interface UpdateFileCacheResponse {
 }
 
 /**
+ * @public
  * <p>The configuration object for Amazon FSx for Lustre file systems used in the
  *                 <code>UpdateFileSystem</code> operation.</p>
  */
@@ -7215,6 +7627,7 @@ export interface UpdateFileSystemLustreConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration updates for an Amazon FSx for NetApp ONTAP file system.</p>
  */
 export interface UpdateFileSystemOntapConfiguration {
@@ -7279,6 +7692,7 @@ export interface UpdateFileSystemOntapConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration updates for an Amazon FSx for OpenZFS file system.</p>
  */
 export interface UpdateFileSystemOpenZFSConfiguration {
@@ -7352,6 +7766,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to a
  *             self-managed Microsoft Active Directory (AD) directory.</p>
  */
@@ -7378,6 +7793,7 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
 }
 
 /**
+ * @public
  * <p>Updates the configuration for an existing Amazon FSx for Windows
  *             File Server file system. Amazon FSx only overwrites existing properties with non-null values
  *             provided in the request.</p>
@@ -7424,6 +7840,7 @@ export interface UpdateFileSystemWindowsConfiguration {
 }
 
 /**
+ * @public
  * <p>The request object for the <code>UpdateFileSystem</code> operation.</p>
  */
 export interface UpdateFileSystemRequest {
@@ -7500,6 +7917,9 @@ export interface UpdateFileSystemRequest {
   OpenZFSConfiguration?: UpdateFileSystemOpenZFSConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -7521,6 +7941,7 @@ export interface UpdateSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>Updates the Microsoft Active Directory (AD) configuration of an SVM joined to an AD.
  *             Please note, account credentials are not returned in the response payload.</p>
  */
@@ -7532,6 +7953,9 @@ export interface UpdateSvmActiveDirectoryConfiguration {
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfigurationUpdates;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStorageVirtualMachineRequest {
   /**
    * <p>Updates the Microsoft Active Directory (AD) configuration for an SVM that is joined to an AD.</p>
@@ -7556,6 +7980,9 @@ export interface UpdateStorageVirtualMachineRequest {
   SvmAdminPassword?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStorageVirtualMachineResponse {
   /**
    * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuration.</p>
@@ -7564,6 +7991,7 @@ export interface UpdateStorageVirtualMachineResponse {
 }
 
 /**
+ * @public
  * <p>Used to specify changes to the ONTAP configuration for the volume you are updating.</p>
  */
 export interface UpdateOntapVolumeConfiguration {
@@ -7632,6 +8060,7 @@ export interface UpdateOntapVolumeConfiguration {
 }
 
 /**
+ * @public
  * <p>Used to specify changes to the OpenZFS configuration for the volume
  *             that you are updating.</p>
  */
@@ -7702,6 +8131,9 @@ export interface UpdateOpenZFSVolumeConfiguration {
   ReadOnly?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVolumeRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -7735,6 +8167,7 @@ export interface UpdateVolumeRequest {
 }
 
 /**
+ * @public
  * <p>Describes a specific Amazon FSx administrative action for the current Windows,
  *             Lustre, or OpenZFS file system.</p>
  */
@@ -7885,6 +8318,7 @@ export interface AdministrativeAction {
 }
 
 /**
+ * @public
  * <p>A description of a specific Amazon FSx file system.</p>
  */
 export interface FileSystem {
@@ -8073,6 +8507,7 @@ export interface FileSystem {
 }
 
 /**
+ * @public
  * <p>A snapshot of an Amazon FSx for OpenZFS volume.</p>
  */
 export interface Snapshot {
@@ -8148,6 +8583,7 @@ export interface Snapshot {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
  *             volume.</p>
  */
@@ -8254,6 +8690,9 @@ export interface Volume {
   OpenZFSConfiguration?: OpenZFSVolumeConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface RestoreVolumeFromSnapshotResponse {
   /**
    * <p>The ID of the volume that you restored.</p>
@@ -8274,6 +8713,7 @@ export interface RestoreVolumeFromSnapshotResponse {
 }
 
 /**
+ * @public
  * <p>The response object for the <code>CreateFileSystemFromBackup</code>
  *             operation.</p>
  */
@@ -8285,6 +8725,7 @@ export interface CreateFileSystemFromBackupResponse {
 }
 
 /**
+ * @public
  * <p>The response object returned after the file system is created.</p>
  */
 export interface CreateFileSystemResponse {
@@ -8294,6 +8735,9 @@ export interface CreateFileSystemResponse {
   FileSystem?: FileSystem;
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotResponse {
   /**
    * <p>A description of the snapshot.</p>
@@ -8301,6 +8745,9 @@ export interface CreateSnapshotResponse {
   Snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export interface CreateVolumeFromBackupResponse {
   /**
    * <p>Returned after a successful <code>CreateVolumeFromBackup</code> API operation,
@@ -8309,6 +8756,9 @@ export interface CreateVolumeFromBackupResponse {
   Volume?: Volume;
 }
 
+/**
+ * @public
+ */
 export interface CreateVolumeResponse {
   /**
    * <p>Returned after a successful <code>CreateVolume</code> API operation, describing the volume just created.</p>
@@ -8316,6 +8766,9 @@ export interface CreateVolumeResponse {
   Volume?: Volume;
 }
 
+/**
+ * @public
+ */
 export interface ReleaseFileSystemNfsV3LocksResponse {
   /**
    * <p>A description of a specific Amazon FSx file system.</p>
@@ -8324,6 +8777,7 @@ export interface ReleaseFileSystemNfsV3LocksResponse {
 }
 
 /**
+ * @public
  * <p>The response object for the <code>UpdateFileSystem</code> operation.</p>
  */
 export interface UpdateFileSystemResponse {
@@ -8333,6 +8787,9 @@ export interface UpdateFileSystemResponse {
   FileSystem?: FileSystem;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSnapshotResponse {
   /**
    * <p>Returned after a successful <code>UpdateSnapshot</code> operation, describing the
@@ -8341,6 +8798,9 @@ export interface UpdateSnapshotResponse {
   Snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVolumeResponse {
   /**
    * <p>A description of the volume just updated. Returned after a successful
@@ -8350,6 +8810,7 @@ export interface UpdateVolumeResponse {
 }
 
 /**
+ * @public
  * <p>The response object for <code>DescribeFileSystems</code> operation.</p>
  */
 export interface DescribeFileSystemsResponse {
@@ -8366,6 +8827,9 @@ export interface DescribeFileSystemsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotsResponse {
   /**
    * <p>An array of snapshots.</p>
@@ -8380,6 +8844,9 @@ export interface DescribeSnapshotsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVolumesResponse {
   /**
    * <p>Returned after a successful <code>DescribeVolumes</code> operation, describing each volume.</p>
@@ -8395,6 +8862,7 @@ export interface DescribeVolumesResponse {
 }
 
 /**
+ * @public
  * <p>A backup of an Amazon FSx for Windows File Server, Amazon FSx for
  *             Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon FSx
  *             for OpenZFS file system.</p>
@@ -8518,6 +8986,9 @@ export interface Backup {
   Volume?: Volume;
 }
 
+/**
+ * @public
+ */
 export interface CopyBackupResponse {
   /**
    * <p>A backup of an Amazon FSx for Windows File Server, Amazon FSx for
@@ -8528,6 +8999,7 @@ export interface CopyBackupResponse {
 }
 
 /**
+ * @public
  * <p>The response object for the <code>CreateBackup</code> operation.</p>
  */
 export interface CreateBackupResponse {
@@ -8538,6 +9010,7 @@ export interface CreateBackupResponse {
 }
 
 /**
+ * @public
  * <p>Response object for the <code>DescribeBackups</code> operation.</p>
  */
 export interface DescribeBackupsResponse {

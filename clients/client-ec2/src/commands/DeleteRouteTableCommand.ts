@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRouteTableCommand}.
  */
 export interface DeleteRouteTableCommandInput extends DeleteRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRouteTableCommand}.
  */
 export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteTableCommandInput - {@link DeleteRouteTableCommandInput}
+ * @returns {@link DeleteRouteTableCommandOutput}
  * @see {@link DeleteRouteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteTableCommandOutput> {
     return deserializeAws_ec2DeleteRouteTableCommand(output, context);
   }

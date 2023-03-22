@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFromMasterAccountCommand}.
  */
 export interface DisassociateFromMasterAccountCommandInput extends DisassociateFromMasterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFromMasterAccountCommand}.
  */
 export interface DisassociateFromMasterAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateFromMasterAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link  linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateFromMasterAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromMasterAccountCommandInput - {@link DisassociateFromMasterAccountCommandInput}
+ * @returns {@link DisassociateFromMasterAccountCommandOutput}
  * @see {@link DisassociateFromMasterAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromMasterAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromMasterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFromMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateFromMasterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

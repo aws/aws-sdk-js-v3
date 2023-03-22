@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IoTEventsServiceException as __BaseException } from "./IoTEventsServiceException";
 
 /**
+ * @public
  * <p>Specifies whether to get notified for alarm state changes.</p>
  */
 export interface AcknowledgeFlow {
@@ -18,6 +19,7 @@ export interface AcknowledgeFlow {
 }
 
 /**
+ * @public
  * <p>Information needed to clear the timer.</p>
  */
 export interface ClearTimerAction {
@@ -27,12 +29,16 @@ export interface ClearTimerAction {
   timerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PayloadType {
   JSON = "JSON",
   STRING = "STRING",
 }
 
 /**
+ * @public
  * <p>Information needed to configure the payload.</p>
  *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
  *       contains all attribute-value pairs that have the information about the detector model instance
@@ -44,7 +50,7 @@ export interface Payload {
    * <p>The content of the payload. You can use a string expression that includes quoted strings
    *         (<code>'<string>'</code>), variables (<code>$variable.<variable-name></code>),
    *       input values (<code>$input.<input-name>.<path-to-datum></code>), string
-   *       concatenations, and quoted strings that contain <code>${}</code> as the content. The
+   *       concatenations, and quoted strings that contain <code>$\{\}</code> as the content. The
    *       recommended maximum size of a content expression is 1 KB.</p>
    */
   contentExpression: string | undefined;
@@ -57,6 +63,7 @@ export interface Payload {
 }
 
 /**
+ * @public
  * <p>Defines an action to write to the Amazon DynamoDB table that you created. The standard action
  *       payload contains all the information about the detector model instance and the event that
  *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. One column of the
@@ -77,13 +84,13 @@ export interface Payload {
  *             <code>$input.GreenhouseInput.name</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>hashKeyValue</code> parameter uses a
  *           substitution template. </p>
  *                <p>
- *                   <code>'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'</code>
+ *                   <code>'$\{$input.GreenhouseInput.temperature * 6 / 5 + 32\} in Fahrenheit'</code>
  *                </p>
  *             </li>
  *             <li>
@@ -215,6 +222,7 @@ export interface DynamoDBAction {
 }
 
 /**
+ * @public
  * <p>Defines an action to write to the Amazon DynamoDB table that you created. The default action
  *       payload contains all the information about the detector model instance and the event that
  *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
@@ -236,14 +244,14 @@ export interface DynamoDBAction {
  *           <code>$variable.ddbtableName</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>contentExpression</code> parameter
  *           in <code>Payload</code> uses a substitution template. </p>
  *                <p>
- *                   <code>'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\":
- *             \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'</code>
+ *                   <code>'\{\"sensorID\": \"$\{$input.GreenhouseInput.sensor_id\}\", \"temperature\":
+ *             \"$\{$input.GreenhouseInput.temperature * 9 / 5 + 32\}\"\}'</code>
  *                </p>
  *             </li>
  *             <li>
@@ -280,6 +288,7 @@ export interface DynamoDBv2Action {
 }
 
 /**
+ * @public
  * <p>Sends information about the detector model instance and the event that triggered the
  *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
  */
@@ -304,6 +313,7 @@ export interface FirehoseAction {
 }
 
 /**
+ * @public
  * <p>Sends an AWS IoT Events input, passing in information about the detector model instance and the
  *       event that triggered the action.</p>
  */
@@ -320,6 +330,7 @@ export interface IotEventsAction {
 }
 
 /**
+ * @public
  * <p>A structure that contains timestamp information. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html">TimeInNanos</a> in the <i>AWS IoT SiteWise API Reference</i>.</p>
  *          <p>You must use expressions for all parameters in <code>AssetPropertyTimestamp</code>. The
  *       expressions accept literals, operators, functions, references, and substitution
@@ -338,13 +349,13 @@ export interface IotEventsAction {
  *           <code>$variable.time</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>timeInSeconds</code> parameter uses
  *           a substitution template.</p>
  *                <p>
- *                   <code>'${$input.TemperatureInput.sensorData.timestamp / 1000}'</code>
+ *                   <code>'$\{$input.TemperatureInput.sensorData.timestamp / 1000\}'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -367,6 +378,7 @@ export interface AssetPropertyTimestamp {
 }
 
 /**
+ * @public
  * <p>A structure that contains an asset property value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html">Variant</a>
  *       in the <i>AWS IoT SiteWise API Reference</i>.</p>
  *          <p>You must use expressions for all parameters in <code>AssetPropertyVariant</code>. The
@@ -386,13 +398,13 @@ export interface AssetPropertyTimestamp {
  *           <code>$variable.offline</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates. </p>
  *                <p>In the following example, the value for the <code>doubleValue</code> parameter uses a
  *           substitution template. </p>
  *                <p>
- *                   <code>'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'</code>
+ *                   <code>'$\{$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32\}'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -431,6 +443,7 @@ export interface AssetPropertyVariant {
 }
 
 /**
+ * @public
  * <p>A structure that contains value information. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html">AssetPropertyValue</a> in the <i>AWS IoT SiteWise API Reference</i>.</p>
  *          <p>You must use expressions for all parameters in <code>AssetPropertyValue</code>. The
  *       expressions accept literals, operators, functions, references, and substitution
@@ -473,6 +486,7 @@ export interface AssetPropertyValue {
 }
 
 /**
+ * @public
  * <p>Sends information about the detector model instance and the event that triggered the
  *       action to a specified asset property in AWS IoT SiteWise.</p>
  *          <p>You must use expressions for all parameters in <code>IotSiteWiseAction</code>. The
@@ -493,14 +507,14 @@ export interface AssetPropertyValue {
  *             <code>$input.TurbineInput.assetId1</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>propertyAlias</code> parameter uses
  *           a substitution template. </p>
  *                <p>
- *                   <code>'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/
- *             ${$input.TemperatureInput.sensorData.turbineID}/temperature'</code>
+ *                   <code>'company/windfarm/$\{$input.TemperatureInput.sensorData.windfarmID\}/turbine/
+ *             $\{$input.TemperatureInput.sensorData.turbineID\}/temperature'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -540,6 +554,7 @@ export interface IotSiteWiseAction {
 }
 
 /**
+ * @public
  * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
  */
 export interface IotTopicPublishAction {
@@ -558,6 +573,7 @@ export interface IotTopicPublishAction {
 }
 
 /**
+ * @public
  * <p>Calls a Lambda function, passing in information about the detector model instance and the
  *       event that triggered the action.</p>
  */
@@ -574,6 +590,7 @@ export interface LambdaAction {
 }
 
 /**
+ * @public
  * <p>Information required to reset the timer. The timer is reset to the previously evaluated
  *       result of the duration. The duration expression isn't reevaluated when you reset the
  *       timer.</p>
@@ -586,6 +603,7 @@ export interface ResetTimerAction {
 }
 
 /**
+ * @public
  * <p>Information needed to set the timer.</p>
  */
 export interface SetTimerAction {
@@ -613,6 +631,7 @@ export interface SetTimerAction {
 }
 
 /**
+ * @public
  * <p>Information about the variable and its new value.</p>
  */
 export interface SetVariableAction {
@@ -628,6 +647,7 @@ export interface SetVariableAction {
 }
 
 /**
+ * @public
  * <p>Information required to publish the Amazon SNS message.</p>
  */
 export interface SNSTopicPublishAction {
@@ -644,6 +664,7 @@ export interface SNSTopicPublishAction {
 }
 
 /**
+ * @public
  * <p>Sends information about the detector model instance and the event that triggered the
  *       action to an Amazon SQS queue.</p>
  */
@@ -667,6 +688,7 @@ export interface SqsAction {
 }
 
 /**
+ * @public
  * <p>An action to be performed when the <code>condition</code> is TRUE.</p>
  */
 export interface Action {
@@ -752,6 +774,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>Specifies one of the following actions to receive notifications when the alarm state
  *       changes.</p>
  */
@@ -811,13 +834,13 @@ export interface AlarmAction {
    *             <code>$input.GreenhouseInput.name</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
    *           in single quotes. A substitution template can also contain a combination of literals,
    *           operators, functions, references, and substitution templates.</p>
    *                <p>In the following example, the value for the <code>hashKeyValue</code> parameter uses a
    *           substitution template. </p>
    *                <p>
-   *                   <code>'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'</code>
+   *                   <code>'$\{$input.GreenhouseInput.temperature * 6 / 5 + 32\} in Fahrenheit'</code>
    *                </p>
    *             </li>
    *             <li>
@@ -863,14 +886,14 @@ export interface AlarmAction {
    *           <code>$variable.ddbtableName</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
    *           in single quotes. A substitution template can also contain a combination of literals,
    *           operators, functions, references, and substitution templates.</p>
    *                <p>In the following example, the value for the <code>contentExpression</code> parameter
    *           in <code>Payload</code> uses a substitution template. </p>
    *                <p>
-   *                   <code>'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\":
-   *             \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'</code>
+   *                   <code>'\{\"sensorID\": \"$\{$input.GreenhouseInput.sensor_id\}\", \"temperature\":
+   *             \"$\{$input.GreenhouseInput.temperature * 9 / 5 + 32\}\"\}'</code>
    *                </p>
    *             </li>
    *             <li>
@@ -913,14 +936,14 @@ export interface AlarmAction {
    *             <code>$input.TurbineInput.assetId1</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
    *           in single quotes. A substitution template can also contain a combination of literals,
    *           operators, functions, references, and substitution templates.</p>
    *                <p>In the following example, the value for the <code>propertyAlias</code> parameter uses
    *           a substitution template. </p>
    *                <p>
-   *                   <code>'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/
-   *             ${$input.TemperatureInput.sensorData.turbineID}/temperature'</code>
+   *                   <code>'company/windfarm/$\{$input.TemperatureInput.sensorData.windfarmID\}/turbine/
+   *             $\{$input.TemperatureInput.sensorData.turbineID\}/temperature'</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -934,6 +957,7 @@ export interface AlarmAction {
 }
 
 /**
+ * @public
  * <p>Specifies the default alarm state.
  * The configuration applies to all alarms that were created based on this alarm model.</p>
  */
@@ -947,6 +971,7 @@ export interface InitializationConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the configuration information of alarm state changes.</p>
  */
 export interface AlarmCapabilities {
@@ -963,6 +988,7 @@ export interface AlarmCapabilities {
 }
 
 /**
+ * @public
  * <p>Contains information about one or more alarm actions.</p>
  */
 export interface AlarmEventActions {
@@ -974,6 +1000,7 @@ export interface AlarmEventActions {
 }
 
 /**
+ * @public
  * <p>Contains a summary of an alarm model.</p>
  */
 export interface AlarmModelSummary {
@@ -993,6 +1020,9 @@ export interface AlarmModelSummary {
   alarmModelName?: string;
 }
 
+/**
+ * @public
+ */
 export enum AlarmModelVersionStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -1001,6 +1031,7 @@ export enum AlarmModelVersionStatus {
 }
 
 /**
+ * @public
  * <p>Contains a summary of an alarm model version.</p>
  */
 export interface AlarmModelVersionSummary {
@@ -1069,6 +1100,7 @@ export interface AlarmModelVersionSummary {
 }
 
 /**
+ * @public
  * <p>Specifies an AWS Lambda function to manage alarm notifications.
  * You can create one or use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">AWS Lambda function provided by AWS IoT Events</a>.</p>
  */
@@ -1081,6 +1113,7 @@ export interface NotificationTargetActions {
 }
 
 /**
+ * @public
  * <p>Contains the subject and message of an email.</p>
  */
 export interface EmailContent {
@@ -1096,6 +1129,7 @@ export interface EmailContent {
 }
 
 /**
+ * @public
  * <p>Contains information about your identity source in AWS Single Sign-On. For more information, see
  *       the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Single Sign-On
  *         User Guide</a>.</p>
@@ -1113,6 +1147,7 @@ export interface SSOIdentity {
 }
 
 /**
+ * @public
  * <p>The information that identifies the recipient.</p>
  */
 export interface RecipientDetail {
@@ -1123,6 +1158,7 @@ export interface RecipientDetail {
 }
 
 /**
+ * @public
  * <p>Contains the information of one or more recipients who receive the emails.</p>
  *          <important>
  *             <p>You must <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html">add the users that receive emails to your AWS SSO store</a>.</p>
@@ -1136,6 +1172,7 @@ export interface EmailRecipients {
 }
 
 /**
+ * @public
  * <p>Contains the configuration information of email notifications.</p>
  */
 export interface EmailConfiguration {
@@ -1163,6 +1200,7 @@ export interface EmailConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the configuration information of SMS notifications.</p>
  */
 export interface SMSConfiguration {
@@ -1186,6 +1224,7 @@ export interface SMSConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the notification settings of an alarm model.
  * The settings apply to all alarms that were created based on this alarm model.</p>
  */
@@ -1208,6 +1247,7 @@ export interface NotificationAction {
 }
 
 /**
+ * @public
  * <p>Contains information about one or more notification actions.</p>
  */
 export interface AlarmNotification {
@@ -1218,6 +1258,9 @@ export interface AlarmNotification {
   notificationActions?: NotificationAction[];
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   EQUAL = "EQUAL",
   GREATER = "GREATER",
@@ -1228,6 +1271,7 @@ export enum ComparisonOperator {
 }
 
 /**
+ * @public
  * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
  */
 export interface SimpleRule {
@@ -1250,6 +1294,7 @@ export interface SimpleRule {
 }
 
 /**
+ * @public
  * <p>Defines when your alarm is invoked.</p>
  */
 export interface AlarmRule {
@@ -1259,6 +1304,9 @@ export interface AlarmRule {
   simpleRule?: SimpleRule;
 }
 
+/**
+ * @public
+ */
 export enum AnalysisResultLevel {
   ERROR = "ERROR",
   INFO = "INFO",
@@ -1266,6 +1314,7 @@ export enum AnalysisResultLevel {
 }
 
 /**
+ * @public
  * <p>Contains information that you can use to locate the field in your detector model that the
  *       analysis result references.</p>
  */
@@ -1278,6 +1327,7 @@ export interface AnalysisResultLocation {
 }
 
 /**
+ * @public
  * <p>Contains the result of the analysis.</p>
  */
 export interface AnalysisResult {
@@ -1364,6 +1414,9 @@ export interface AnalysisResult {
   locations?: AnalysisResultLocation[];
 }
 
+/**
+ * @public
+ */
 export enum AnalysisStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
@@ -1371,6 +1424,7 @@ export enum AnalysisStatus {
 }
 
 /**
+ * @public
  * <p>The attributes from the JSON payload that are made available by the input. Inputs are
  *       derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such
  *       message contains a JSON payload. Those attributes (and their paired values) specified here are
@@ -1390,6 +1444,7 @@ export interface Attribute {
 }
 
 /**
+ * @public
  * <p>Metadata that can be used to manage the resource.</p>
  */
 export interface Tag {
@@ -1404,6 +1459,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAlarmModelRequest {
   /**
    * <p>A unique name that helps you identify the alarm model. You can't change this name after
@@ -1462,6 +1520,9 @@ export interface CreateAlarmModelRequest {
   alarmCapabilities?: AlarmCapabilities;
 }
 
+/**
+ * @public
+ */
 export interface CreateAlarmModelResponse {
   /**
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
@@ -1511,6 +1572,7 @@ export interface CreateAlarmModelResponse {
 }
 
 /**
+ * @public
  * <p>An internal failure occurred.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -1530,6 +1592,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was invalid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -1549,6 +1612,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1568,6 +1632,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -1599,6 +1664,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1618,6 +1684,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1637,6 +1704,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be completed due to throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1656,6 +1724,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the <code>actions</code> to be performed when the <code>condition</code>
  *       evaluates to TRUE.</p>
  */
@@ -1679,6 +1748,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
  *       is TRUE.</p>
  */
@@ -1691,6 +1761,7 @@ export interface OnEnterLifecycle {
 }
 
 /**
+ * @public
  * <p>When exiting this state, perform these <code>actions</code> if the specified
  *         <code>condition</code> is <code>TRUE</code>.</p>
  */
@@ -1703,6 +1774,7 @@ export interface OnExitLifecycle {
 }
 
 /**
+ * @public
  * <p>Specifies the actions performed and the next state entered when a <code>condition</code>
  *       evaluates to TRUE.</p>
  */
@@ -1730,6 +1802,7 @@ export interface TransitionEvent {
 }
 
 /**
+ * @public
  * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
  */
 export interface OnInputLifecycle {
@@ -1746,6 +1819,7 @@ export interface OnInputLifecycle {
 }
 
 /**
+ * @public
  * <p>Information that defines a state of a detector.</p>
  */
 export interface State {
@@ -1774,6 +1848,7 @@ export interface State {
 }
 
 /**
+ * @public
  * <p>Information that defines how a detector operates.</p>
  */
 export interface DetectorModelDefinition {
@@ -1788,11 +1863,17 @@ export interface DetectorModelDefinition {
   initialStateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EvaluationMethod {
   BATCH = "BATCH",
   SERIAL = "SERIAL",
 }
 
+/**
+ * @public
+ */
 export interface CreateDetectorModelRequest {
   /**
    * <p>The name of the detector model.</p>
@@ -1835,6 +1916,9 @@ export interface CreateDetectorModelRequest {
   evaluationMethod?: EvaluationMethod | string;
 }
 
+/**
+ * @public
+ */
 export enum DetectorModelVersionStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -1846,6 +1930,7 @@ export enum DetectorModelVersionStatus {
 }
 
 /**
+ * @public
  * <p>Information about how the detector model is configured.</p>
  */
 export interface DetectorModelConfiguration {
@@ -1907,6 +1992,9 @@ export interface DetectorModelConfiguration {
   evaluationMethod?: EvaluationMethod | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDetectorModelResponse {
   /**
    * <p>Information about how the detector model is configured.</p>
@@ -1915,6 +2003,7 @@ export interface CreateDetectorModelResponse {
 }
 
 /**
+ * @public
  * <p>The definition of the input.</p>
  */
 export interface InputDefinition {
@@ -1928,6 +2017,9 @@ export interface InputDefinition {
   attributes: Attribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateInputRequest {
   /**
    * <p>The name you want to give to the input.</p>
@@ -1950,6 +2042,9 @@ export interface CreateInputRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum InputStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -1958,6 +2053,7 @@ export enum InputStatus {
 }
 
 /**
+ * @public
  * <p>Information about the configuration of an input.</p>
  */
 export interface InputConfiguration {
@@ -1992,6 +2088,9 @@ export interface InputConfiguration {
   status: InputStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateInputResponse {
   /**
    * <p>Information about the configuration of the input.</p>
@@ -1999,6 +2098,9 @@ export interface CreateInputResponse {
   inputConfiguration?: InputConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAlarmModelRequest {
   /**
    * <p>The name of the alarm model.</p>
@@ -2006,9 +2108,13 @@ export interface DeleteAlarmModelRequest {
   alarmModelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAlarmModelResponse {}
 
 /**
+ * @public
  * <p>The resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -2027,6 +2133,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteDetectorModelRequest {
   /**
    * <p>The name of the detector model to be deleted.</p>
@@ -2034,8 +2143,14 @@ export interface DeleteDetectorModelRequest {
   detectorModelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDetectorModelResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteInputRequest {
   /**
    * <p>The name of the input to delete.</p>
@@ -2043,8 +2158,14 @@ export interface DeleteInputRequest {
   inputName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInputResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeAlarmModelRequest {
   /**
    * <p>The name of the alarm model.</p>
@@ -2057,6 +2178,9 @@ export interface DescribeAlarmModelRequest {
   alarmModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlarmModelResponse {
   /**
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
@@ -2159,6 +2283,9 @@ export interface DescribeAlarmModelResponse {
   alarmCapabilities?: AlarmCapabilities;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDetectorModelRequest {
   /**
    * <p>The name of the detector model.</p>
@@ -2172,6 +2299,7 @@ export interface DescribeDetectorModelRequest {
 }
 
 /**
+ * @public
  * <p>Information about the detector model.</p>
  */
 export interface DetectorModel {
@@ -2186,6 +2314,9 @@ export interface DetectorModel {
   detectorModelConfiguration?: DetectorModelConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDetectorModelResponse {
   /**
    * <p>Information about the detector model.</p>
@@ -2193,6 +2324,9 @@ export interface DescribeDetectorModelResponse {
   detectorModel?: DetectorModel;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDetectorModelAnalysisRequest {
   /**
    * <p>The ID of the analysis result that you want to retrieve.</p>
@@ -2200,6 +2334,9 @@ export interface DescribeDetectorModelAnalysisRequest {
   analysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDetectorModelAnalysisResponse {
   /**
    * <p>The status of the analysis activity. The status can be one of the following values:</p>
@@ -2223,6 +2360,9 @@ export interface DescribeDetectorModelAnalysisResponse {
   status?: AnalysisStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInputRequest {
   /**
    * <p>The name of the input.</p>
@@ -2231,6 +2371,7 @@ export interface DescribeInputRequest {
 }
 
 /**
+ * @public
  * <p>Information about the input.</p>
  */
 export interface Input {
@@ -2245,6 +2386,9 @@ export interface Input {
   inputDefinition?: InputDefinition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInputResponse {
   /**
    * <p>Information about the input.</p>
@@ -2252,9 +2396,13 @@ export interface DescribeInputResponse {
   input?: Input;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoggingOptionsRequest {}
 
 /**
+ * @public
  * <p>The detector model and the specific detectors (instances) for which the logging level is
  *       given.</p>
  */
@@ -2271,6 +2419,9 @@ export interface DetectorDebugOption {
   keyValue?: string;
 }
 
+/**
+ * @public
+ */
 export enum LoggingLevel {
   DEBUG = "DEBUG",
   ERROR = "ERROR",
@@ -2278,6 +2429,7 @@ export enum LoggingLevel {
 }
 
 /**
+ * @public
  * <p>The values of the AWS IoT Events logging options.</p>
  */
 export interface LoggingOptions {
@@ -2303,6 +2455,9 @@ export interface LoggingOptions {
   detectorDebugOptions?: DetectorDebugOption[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoggingOptionsResponse {
   /**
    * <p>The current settings of the AWS IoT Events logging options.</p>
@@ -2311,6 +2466,7 @@ export interface DescribeLoggingOptionsResponse {
 }
 
 /**
+ * @public
  * <p>The requested operation is not supported.</p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -2330,6 +2486,7 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the detector model.</p>
  */
 export interface DetectorModelSummary {
@@ -2350,6 +2507,7 @@ export interface DetectorModelSummary {
 }
 
 /**
+ * @public
  * <p>Information about the detector model version.</p>
  */
 export interface DetectorModelVersionSummary {
@@ -2395,6 +2553,9 @@ export interface DetectorModelVersionSummary {
   evaluationMethod?: EvaluationMethod | string;
 }
 
+/**
+ * @public
+ */
 export interface GetDetectorModelAnalysisResultsRequest {
   /**
    * <p>The ID of the analysis result that you want to retrieve.</p>
@@ -2412,6 +2573,9 @@ export interface GetDetectorModelAnalysisResultsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDetectorModelAnalysisResultsResponse {
   /**
    * <p>Contains information about one or more analysis results.</p>
@@ -2426,6 +2590,7 @@ export interface GetDetectorModelAnalysisResultsResponse {
 }
 
 /**
+ * @public
  * <p>
  *       The identifier of the input routed to AWS IoT Events.
  *     </p>
@@ -2440,6 +2605,7 @@ export interface IotEventsInputIdentifier {
 }
 
 /**
+ * @public
  * <p>
  *       The asset model property identifer of the input routed from AWS IoT SiteWise.
  *     </p>
@@ -2461,6 +2627,7 @@ export interface IotSiteWiseAssetModelPropertyIdentifier {
 }
 
 /**
+ * @public
  * <p>
  *       The identifer of the input routed from AWS IoT SiteWise.
  *     </p>
@@ -2475,6 +2642,7 @@ export interface IotSiteWiseInputIdentifier {
 }
 
 /**
+ * @public
  * <p>
  *       The identifer of the input.
  *     </p>
@@ -2496,6 +2664,7 @@ export interface InputIdentifier {
 }
 
 /**
+ * @public
  * <p>Information about the input.</p>
  */
 export interface InputSummary {
@@ -2530,6 +2699,9 @@ export interface InputSummary {
   status?: InputStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAlarmModelsRequest {
   /**
    * <p>The token that you can use to return the next set of results.</p>
@@ -2542,6 +2714,9 @@ export interface ListAlarmModelsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAlarmModelsResponse {
   /**
    * <p>A list that summarizes each alarm model.</p>
@@ -2555,6 +2730,9 @@ export interface ListAlarmModelsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAlarmModelVersionsRequest {
   /**
    * <p>The name of the alarm model.</p>
@@ -2572,6 +2750,9 @@ export interface ListAlarmModelVersionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAlarmModelVersionsResponse {
   /**
    * <p>A list that summarizes each alarm model version.</p>
@@ -2585,6 +2766,9 @@ export interface ListAlarmModelVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDetectorModelsRequest {
   /**
    * <p>The token that you can use to return the next set of results.</p>
@@ -2597,6 +2781,9 @@ export interface ListDetectorModelsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDetectorModelsResponse {
   /**
    * <p>Summary information about the detector models.</p>
@@ -2610,6 +2797,9 @@ export interface ListDetectorModelsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDetectorModelVersionsRequest {
   /**
    * <p>The name of the detector model whose versions are returned.</p>
@@ -2627,6 +2817,9 @@ export interface ListDetectorModelVersionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDetectorModelVersionsResponse {
   /**
    * <p>Summary information about the detector model versions.</p>
@@ -2640,6 +2833,9 @@ export interface ListDetectorModelVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInputRoutingsRequest {
   /**
    * <p>
@@ -2664,6 +2860,7 @@ export interface ListInputRoutingsRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Contains information about the routed resource.
  *     </p>
@@ -2684,6 +2881,9 @@ export interface RoutedResource {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInputRoutingsResponse {
   /**
    * <p>
@@ -2701,6 +2901,9 @@ export interface ListInputRoutingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInputsRequest {
   /**
    * <p>The token that you can use to return the next set of results.</p>
@@ -2713,6 +2916,9 @@ export interface ListInputsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInputsResponse {
   /**
    * <p>Summary information about the inputs.</p>
@@ -2726,6 +2932,9 @@ export interface ListInputsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2733,6 +2942,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
@@ -2740,6 +2952,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingOptionsRequest {
   /**
    * <p>The new values of the AWS IoT Events logging options.</p>
@@ -2747,6 +2962,9 @@ export interface PutLoggingOptionsRequest {
   loggingOptions: LoggingOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDetectorModelAnalysisRequest {
   /**
    * <p>Information that defines how a detector operates.</p>
@@ -2754,6 +2972,9 @@ export interface StartDetectorModelAnalysisRequest {
   detectorModelDefinition: DetectorModelDefinition | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDetectorModelAnalysisResponse {
   /**
    * <p>The ID that you can use to retrieve the analysis result.</p>
@@ -2761,6 +2982,9 @@ export interface StartDetectorModelAnalysisResponse {
   analysisId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2773,8 +2997,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2787,8 +3017,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAlarmModelRequest {
   /**
    * <p>The name of the alarm model.</p>
@@ -2831,6 +3067,9 @@ export interface UpdateAlarmModelRequest {
   alarmCapabilities?: AlarmCapabilities;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAlarmModelResponse {
   /**
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
@@ -2879,6 +3118,9 @@ export interface UpdateAlarmModelResponse {
   status?: AlarmModelVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDetectorModelRequest {
   /**
    * <p>The name of the detector model that is updated.</p>
@@ -2907,6 +3149,9 @@ export interface UpdateDetectorModelRequest {
   evaluationMethod?: EvaluationMethod | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDetectorModelResponse {
   /**
    * <p>Information about how the detector model is configured.</p>
@@ -2914,6 +3159,9 @@ export interface UpdateDetectorModelResponse {
   detectorModelConfiguration?: DetectorModelConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInputRequest {
   /**
    * <p>The name of the input you want to update.</p>
@@ -2931,6 +3179,9 @@ export interface UpdateInputRequest {
   inputDefinition: InputDefinition | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInputResponse {
   /**
    * <p>Information about the configuration of the input.</p>

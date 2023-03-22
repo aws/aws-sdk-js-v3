@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightImpactGraphCommand}.
  */
 export interface GetInsightImpactGraphCommandInput extends GetInsightImpactGraphRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightImpactGraphCommand}.
  */
 export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGraphResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
  *          structural information. For a complete service graph, use this API with the GetServiceGraph API.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGrap
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightImpactGraphCommandInput - {@link GetInsightImpactGraphCommandInput}
+ * @returns {@link GetInsightImpactGraphCommandOutput}
  * @see {@link GetInsightImpactGraphCommandInput} for command's `input` shape.
  * @see {@link GetInsightImpactGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetInsightImpactGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightImpactGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetInsightImpactGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightImpactGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetInsightImpactGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightImpactGraphCommandOutput> {
     return deserializeAws_restJson1GetInsightImpactGraphCommand(output, context);
   }

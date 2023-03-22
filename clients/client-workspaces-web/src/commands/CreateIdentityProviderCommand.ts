@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIdentityProviderCommand}.
  */
 export interface CreateIdentityProviderCommandInput extends CreateIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIdentityProviderCommand}.
  */
 export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an identity provider resource that is then associated with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIdentityProviderCommandInput - {@link CreateIdentityProviderCommandInput}
+ * @returns {@link CreateIdentityProviderCommandOutput}
  * @see {@link CreateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityProviderCommandOutput> {
     return deserializeAws_restJson1CreateIdentityProviderCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListUnsupportedAppVersionResourcesCommand}.
  */
 export interface ListUnsupportedAppVersionResourcesCommandInput extends ListUnsupportedAppVersionResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUnsupportedAppVersionResourcesCommand}.
  */
 export interface ListUnsupportedAppVersionResourcesCommandOutput
@@ -37,6 +41,7 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resources that are not currently supported in AWS Resilience Hub. An unsupported
  *       resource is a resource that exists in the object that was used to create an app, but is not
  *       supported by AWS Resilience Hub.</p>
@@ -50,6 +55,8 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUnsupportedAppVersionResourcesCommandInput - {@link ListUnsupportedAppVersionResourcesCommandInput}
+ * @returns {@link ListUnsupportedAppVersionResourcesCommandOutput}
  * @see {@link ListUnsupportedAppVersionResourcesCommandInput} for command's `input` shape.
  * @see {@link ListUnsupportedAppVersionResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUnsupportedAppVersionResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListUnsupportedAppVersionResourcesCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
     return serializeAws_restJson1ListUnsupportedAppVersionResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

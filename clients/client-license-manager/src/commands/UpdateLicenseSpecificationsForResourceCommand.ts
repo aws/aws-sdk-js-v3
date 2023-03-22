@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
 export interface UpdateLicenseSpecificationsForResourceCommandInput
   extends UpdateLicenseSpecificationsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
 export interface UpdateLicenseSpecificationsForResourceCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>
  *          <p>You can update the license specifications of AMIs, instances, and hosts.
  *          You cannot update the license specifications for launch templates and CloudFormation templates,
@@ -52,6 +57,8 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLicenseSpecificationsForResourceCommandInput - {@link UpdateLicenseSpecificationsForResourceCommandInput}
+ * @returns {@link UpdateLicenseSpecificationsForResourceCommandOutput}
  * @see {@link UpdateLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLicenseSpecificationsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateLicenseSpecificationsForResourceCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     return serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

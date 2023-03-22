@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionUrlConfigCommand}.
  */
 export interface CreateFunctionUrlConfigCommandInput extends CreateFunctionUrlConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionUrlConfigCommand}.
  */
 export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is
  *       a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionUrlConfigCommandInput - {@link CreateFunctionUrlConfigCommandInput}
+ * @returns {@link CreateFunctionUrlConfigCommandOutput}
  * @see {@link CreateFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionUrlConfigCommandOutput> {
     return deserializeAws_restJson1CreateFunctionUrlConfigCommand(output, context);
   }

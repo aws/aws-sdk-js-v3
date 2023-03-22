@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetSuppressionOptionsCommand}.
  */
 export interface PutConfigurationSetSuppressionOptionsCommandInput
   extends PutConfigurationSetSuppressionOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetSuppressionOptionsCommand}.
  */
 export interface PutConfigurationSetSuppressionOptionsCommandOutput
@@ -38,6 +42,7 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the account suppression list preferences for a configuration set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetSuppressionOptionsCommandInput - {@link PutConfigurationSetSuppressionOptionsCommandInput}
+ * @returns {@link PutConfigurationSetSuppressionOptionsCommandOutput}
  * @see {@link PutConfigurationSetSuppressionOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetSuppressionOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetSuppressionOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetSuppressionOptionsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     return serializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

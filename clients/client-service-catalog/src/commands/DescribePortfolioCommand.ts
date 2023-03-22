@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortfolioCommand}.
  */
 export interface DescribePortfolioCommandInput extends DescribePortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortfolioCommand}.
  */
 export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortfolioCommandInput - {@link DescribePortfolioCommandInput}
+ * @returns {@link DescribePortfolioCommandOutput}
  * @see {@link DescribePortfolioCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribePortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribePortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioCommandOutput> {
     return deserializeAws_json1_1DescribePortfolioCommand(output, context);
   }

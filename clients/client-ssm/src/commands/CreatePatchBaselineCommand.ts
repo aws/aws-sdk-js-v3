@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePatchBaselineCommand}.
  */
 export interface CreatePatchBaselineCommandInput extends CreatePatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePatchBaselineCommand}.
  */
 export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a patch baseline.</p>
  *          <note>
  *             <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported
@@ -50,6 +55,8 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePatchBaselineCommandInput - {@link CreatePatchBaselineCommandInput}
+ * @returns {@link CreatePatchBaselineCommandOutput}
  * @see {@link CreatePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link CreatePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreatePatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreatePatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePatchBaselineCommandOutput> {
     return deserializeAws_json1_1CreatePatchBaselineCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProvisioningTemplateVersionCommand}.
  */
 export interface DescribeProvisioningTemplateVersionCommandInput extends DescribeProvisioningTemplateVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProvisioningTemplateVersionCommand}.
  */
 export interface DescribeProvisioningTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a provisioning template version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProvisioningTemplateVersionCommandInput - {@link DescribeProvisioningTemplateVersionCommandInput}
+ * @returns {@link DescribeProvisioningTemplateVersionCommandOutput}
  * @see {@link DescribeProvisioningTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisioningTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     return serializeAws_restJson1DescribeProvisioningTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

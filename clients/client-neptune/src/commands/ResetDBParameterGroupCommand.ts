@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ResetDBParameterGroupCommand}.
  */
 export interface ResetDBParameterGroupCommandInput extends ResetDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResetDBParameterGroupCommand}.
  */
 export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB parameter group to the engine/system default value. To
  *       reset specific parameters, provide a list of the following: <code>ParameterName</code> and
  *       <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
@@ -52,6 +57,8 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetDBParameterGroupCommandInput - {@link ResetDBParameterGroupCommandInput}
+ * @returns {@link ResetDBParameterGroupCommandOutput}
  * @see {@link ResetDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -84,6 +91,9 @@ export class ResetDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ResetDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResetDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDBParameterGroupCommandOutput> {
     return deserializeAws_queryResetDBParameterGroupCommand(output, context);
   }

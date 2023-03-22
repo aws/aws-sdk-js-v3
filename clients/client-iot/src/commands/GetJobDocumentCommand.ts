@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobDocumentCommand}.
  */
 export interface GetJobDocumentCommandInput extends GetJobDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobDocumentCommand}.
  */
 export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a job document.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetJobDocument</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobDocumentCommandInput - {@link GetJobDocumentCommandInput}
+ * @returns {@link GetJobDocumentCommandOutput}
  * @see {@link GetJobDocumentCommandInput} for command's `input` shape.
  * @see {@link GetJobDocumentCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetJobDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetJobDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetJobDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobDocumentCommandOutput> {
     return deserializeAws_restJson1GetJobDocumentCommand(output, context);
   }

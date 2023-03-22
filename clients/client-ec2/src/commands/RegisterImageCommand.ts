@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2RegisterImageCommand, serializeAws_ec2RegisterImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterImageCommand}.
  */
 export interface RegisterImageCommandInput extends RegisterImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterImageCommand}.
  */
 export interface RegisterImageCommandOutput extends RegisterImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete
  *       before you can launch an instance from the AMI. For more information about creating AMIs, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
@@ -91,6 +96,8 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterImageCommandInput - {@link RegisterImageCommandInput}
+ * @returns {@link RegisterImageCommandOutput}
  * @see {@link RegisterImageCommandInput} for command's `input` shape.
  * @see {@link RegisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -114,6 +121,9 @@ export class RegisterImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class RegisterImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RegisterImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterImageCommandOutput> {
     return deserializeAws_ec2RegisterImageCommand(output, context);
   }

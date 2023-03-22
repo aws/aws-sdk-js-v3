@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCoreNetworkPolicyVersionCommand}.
  */
 export interface DeleteCoreNetworkPolicyVersionCommandInput extends DeleteCoreNetworkPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCoreNetworkPolicyVersionCommand}.
  */
 export interface DeleteCoreNetworkPolicyVersionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a policy version from a core network. You can't delete the current LIVE policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCoreNetworkPolicyVersionCommandInput - {@link DeleteCoreNetworkPolicyVersionCommandInput}
+ * @returns {@link DeleteCoreNetworkPolicyVersionCommandOutput}
  * @see {@link DeleteCoreNetworkPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreNetworkPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCoreNetworkPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCoreNetworkPolicyVersionCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
     return serializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

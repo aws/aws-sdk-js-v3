@@ -91,6 +91,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AnalyzeDocumentCommandInput
   | AnalyzeExpenseCommandInput
@@ -106,6 +109,9 @@ export type ServiceInputTypes =
   | StartExpenseAnalysisCommandInput
   | StartLendingAnalysisCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AnalyzeDocumentCommandOutput
   | AnalyzeExpenseCommandOutput
@@ -121,6 +127,9 @@ export type ServiceOutputTypes =
   | StartExpenseAnalysisCommandOutput
   | StartLendingAnalysisCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -128,7 +137,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -237,11 +246,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type TextractClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -252,10 +264,15 @@ type TextractClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of TextractClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of TextractClient class constructor that set the region, credentials and other options.
  */
 export interface TextractClientConfig extends TextractClientConfigType {}
 
+/**
+ * @public
+ */
 type TextractClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -266,11 +283,14 @@ type TextractClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of TextractClient class. This is resolved and normalized from the {@link TextractClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of TextractClient class. This is resolved and normalized from the {@link TextractClientConfig | constructor configuration interface}.
  */
 export interface TextractClientResolvedConfig extends TextractClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Textract detects and analyzes text in documents and converts it
  *          into machine-readable text. This is the API reference documentation for
  *          Amazon Textract.</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSettingsCommand}.
  */
 export interface DescribeSettingsCommandInput extends DescribeSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSettingsCommand}.
  */
 export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the configurable settings for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSettingsCommandInput - {@link DescribeSettingsCommandInput}
+ * @returns {@link DescribeSettingsCommandOutput}
  * @see {@link DescribeSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSettingsCommandOutput> {
     return deserializeAws_json1_1DescribeSettingsCommand(output, context);
   }

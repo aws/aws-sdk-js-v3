@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately makes a channel and its memberships inaccessible and marks them for
  *          deletion. This is an irreversible process.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
+ * @returns {@link DeleteChannelCommandOutput}
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
     return deserializeAws_restJson1DeleteChannelCommand(output, context);
   }

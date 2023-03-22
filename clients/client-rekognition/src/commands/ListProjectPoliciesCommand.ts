@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProjectPoliciesCommand}.
  */
 export interface ListProjectPoliciesCommandInput extends ListProjectPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProjectPoliciesCommand}.
  */
 export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the project policies attached to a project.</p>
  *          <p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProjectPoliciesCommandInput - {@link ListProjectPoliciesCommandInput}
+ * @returns {@link ListProjectPoliciesCommandOutput}
  * @see {@link ListProjectPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListProjectPoliciesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -121,6 +128,9 @@ export class ListProjectPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProjectPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class ListProjectPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProjectPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProjectPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectPoliciesCommandOutput> {
     return deserializeAws_json1_1ListProjectPoliciesCommand(output, context);
   }

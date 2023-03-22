@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFaceSearchCommand}.
  */
 export interface GetFaceSearchCommandInput extends GetFaceSearchRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFaceSearchCommand}.
  */
 export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the face search results for Amazon Rekognition Video face search started by
  *       <a>StartFaceSearch</a>. The search returns faces in a collection that match the faces
  *     of persons detected in a video. It also includes the time(s) that faces are matched in the video.</p>
@@ -74,6 +79,8 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFaceSearchCommandInput - {@link GetFaceSearchCommandInput}
+ * @returns {@link GetFaceSearchCommandOutput}
  * @see {@link GetFaceSearchCommandInput} for command's `input` shape.
  * @see {@link GetFaceSearchCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -120,6 +127,9 @@ export class GetFaceSearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFaceSearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class GetFaceSearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFaceSearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFaceSearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFaceSearchCommandOutput> {
     return deserializeAws_json1_1GetFaceSearchCommand(output, context);
   }

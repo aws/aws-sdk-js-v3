@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetUserIdCommand, serializeAws_json1_1GetUserIdCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserIdCommand}.
  */
 export interface GetUserIdCommandInput extends GetUserIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserIdCommand}.
  */
 export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>UserId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserIdCommandInput - {@link GetUserIdCommandInput}
+ * @returns {@link GetUserIdCommandOutput}
  * @see {@link GetUserIdCommandInput} for command's `input` shape.
  * @see {@link GetUserIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetUserIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetUserIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUserIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserIdCommandOutput> {
     return deserializeAws_json1_1GetUserIdCommand(output, context);
   }

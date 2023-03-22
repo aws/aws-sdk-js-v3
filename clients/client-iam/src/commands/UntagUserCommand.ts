@@ -18,15 +18,20 @@ import { UntagUserRequest, UntagUserRequestFilterSensitiveLog } from "../models/
 import { deserializeAws_queryUntagUserCommand, serializeAws_queryUntagUserCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagUserCommand}.
  */
 export interface UntagUserCommandInput extends UntagUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagUserCommand}.
  */
 export interface UntagUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -39,6 +44,8 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagUserCommandInput - {@link UntagUserCommandInput}
+ * @returns {@link UntagUserCommandOutput}
  * @see {@link UntagUserCommandInput} for command's `input` shape.
  * @see {@link UntagUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagUserCommandOutput> {
     return deserializeAws_queryUntagUserCommand(output, context);
   }

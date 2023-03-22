@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBudgetPerformanceHistoryCommand}.
  */
 export interface DescribeBudgetPerformanceHistoryCommandInput extends DescribeBudgetPerformanceHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBudgetPerformanceHistoryCommand}.
  */
 export interface DescribeBudgetPerformanceHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the history for <code>DAILY</code>, <code>MONTHLY</code>, and <code>QUARTERLY</code> budgets. Budget history isn't available for <code>ANNUAL</code> budgets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetPerformanceHistoryCommandInput - {@link DescribeBudgetPerformanceHistoryCommandInput}
+ * @returns {@link DescribeBudgetPerformanceHistoryCommandOutput}
  * @see {@link DescribeBudgetPerformanceHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetPerformanceHistoryCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetPerformanceHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeBudgetPerformanceHistoryCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     return serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListExportsCommand}.
  */
 export interface ListExportsCommandInput extends ListExportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListExportsCommand}.
  */
 export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists completed exports within the past 90 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExportsCommandInput - {@link ListExportsCommandInput}
+ * @returns {@link ListExportsCommandOutput}
  * @see {@link ListExportsCommandInput} for command's `input` shape.
  * @see {@link ListExportsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportsCommandOutput> {
     return deserializeAws_json1_0ListExportsCommand(output, context);
   }

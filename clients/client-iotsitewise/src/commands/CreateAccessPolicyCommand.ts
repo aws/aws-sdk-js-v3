@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessPolicyCommand}.
  */
 export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessPolicyCommand}.
  */
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
  *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPolicyCommandInput - {@link CreateAccessPolicyCommandInput}
+ * @returns {@link CreateAccessPolicyCommandOutput}
  * @see {@link CreateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPolicyCommandOutput> {
     return deserializeAws_restJson1CreateAccessPolicyCommand(output, context);
   }

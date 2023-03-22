@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminDeleteUserAttributesCommand}.
  */
 export interface AdminDeleteUserAttributesCommandInput extends AdminDeleteUserAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminDeleteUserAttributesCommand}.
  */
 export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the user attributes in a user pool as an administrator. Works on any
  *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
@@ -53,6 +58,8 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminDeleteUserAttributesCommandInput - {@link AdminDeleteUserAttributesCommandInput}
+ * @returns {@link AdminDeleteUserAttributesCommandOutput}
  * @see {@link AdminDeleteUserAttributesCommandInput} for command's `input` shape.
  * @see {@link AdminDeleteUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -97,6 +104,9 @@ export class AdminDeleteUserAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminDeleteUserAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class AdminDeleteUserAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminDeleteUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminDeleteUserAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

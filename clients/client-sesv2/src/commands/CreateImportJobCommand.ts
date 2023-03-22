@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImportJobCommand}.
  */
 export interface CreateImportJobCommandInput extends CreateImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImportJobCommand}.
  */
 export interface CreateImportJobCommandOutput extends CreateImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an import job for a data destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImportJobCommandInput - {@link CreateImportJobCommandInput}
+ * @returns {@link CreateImportJobCommandOutput}
  * @see {@link CreateImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateImportJobCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +85,9 @@ export class CreateImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CreateImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImportJobCommandOutput> {
     return deserializeAws_restJson1CreateImportJobCommand(output, context);
   }

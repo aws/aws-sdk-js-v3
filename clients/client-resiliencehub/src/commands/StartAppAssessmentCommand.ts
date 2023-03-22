@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartAppAssessmentCommand}.
  */
 export interface StartAppAssessmentCommandInput extends StartAppAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAppAssessmentCommand}.
  */
 export interface StartAppAssessmentCommandOutput extends StartAppAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new application assessment for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAppAssessmentCommandInput - {@link StartAppAssessmentCommandInput}
+ * @returns {@link StartAppAssessmentCommandOutput}
  * @see {@link StartAppAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartAppAssessmentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -97,6 +104,9 @@ export class StartAppAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAppAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class StartAppAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAppAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartAppAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppAssessmentCommandOutput> {
     return deserializeAws_restJson1StartAppAssessmentCommand(output, context);
   }

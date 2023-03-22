@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceExportTaskCommand}.
  */
 export interface CreateInstanceExportTaskCommandInput extends CreateInstanceExportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceExportTaskCommand}.
  */
 export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExportTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
  *          <p>For information about the supported operating systems, image formats, and known limitations
  *    for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM Import/Export</a>
@@ -49,6 +54,8 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceExportTaskCommandInput - {@link CreateInstanceExportTaskCommandInput}
+ * @returns {@link CreateInstanceExportTaskCommandOutput}
  * @see {@link CreateInstanceExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceExportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateInstanceExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateInstanceExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateInstanceExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceExportTaskCommandOutput> {
     return deserializeAws_ec2CreateInstanceExportTaskCommand(output, context);
   }

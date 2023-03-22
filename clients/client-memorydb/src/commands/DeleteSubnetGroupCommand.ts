@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubnetGroupCommand}.
  */
 export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubnetGroupCommand}.
  */
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet group. You cannot delete a default subnet group or one that is associated with any clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubnetGroupCommandInput - {@link DeleteSubnetGroupCommandInput}
+ * @returns {@link DeleteSubnetGroupCommandOutput}
  * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetGroupCommandOutput> {
     return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
   }

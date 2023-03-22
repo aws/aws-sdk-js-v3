@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartAssociationsOnceCommand}.
  */
 export interface StartAssociationsOnceCommandInput extends StartAssociationsOnceRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAssociationsOnceCommand}.
  */
 export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an association immediately and only one time. This operation can be helpful when
  *    troubleshooting associations.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAssociationsOnceCommandInput - {@link StartAssociationsOnceCommandInput}
+ * @returns {@link StartAssociationsOnceCommandOutput}
  * @see {@link StartAssociationsOnceCommandInput} for command's `input` shape.
  * @see {@link StartAssociationsOnceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -76,6 +83,9 @@ export class StartAssociationsOnceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssociationsOnceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StartAssociationsOnceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssociationsOnceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAssociationsOnceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssociationsOnceCommandOutput> {
     return deserializeAws_json1_1StartAssociationsOnceCommand(output, context);
   }

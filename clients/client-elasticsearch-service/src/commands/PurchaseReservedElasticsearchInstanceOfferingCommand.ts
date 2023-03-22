@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedElasticsearchInstanceOfferingCommand}.
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingCommandInput
   extends PurchaseReservedElasticsearchInstanceOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedElasticsearchInstanceOfferingCommand}.
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
@@ -42,6 +46,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase reserved Elasticsearch instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedElasticsearchInstanceOfferingCommandInput - {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput}
+ * @returns {@link PurchaseReservedElasticsearchInstanceOfferingCommandOutput}
  * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -94,6 +101,9 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedElasticsearchInstanceOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     return serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

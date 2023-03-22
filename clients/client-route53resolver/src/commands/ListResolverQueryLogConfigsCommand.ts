@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverQueryLogConfigsCommand}.
  */
 export interface ListResolverQueryLogConfigsCommandInput extends ListResolverQueryLogConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverQueryLogConfigsCommand}.
  */
 export interface ListResolverQueryLogConfigsCommandOutput
@@ -37,6 +41,7 @@ export interface ListResolverQueryLogConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
  * 			DNS query logs and specifies the VPCs that you want to log queries for.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListResolverQueryLogConfigsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverQueryLogConfigsCommandInput - {@link ListResolverQueryLogConfigsCommandInput}
+ * @returns {@link ListResolverQueryLogConfigsCommandOutput}
  * @see {@link ListResolverQueryLogConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverQueryLogConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListResolverQueryLogConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverQueryLogConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListResolverQueryLogConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverQueryLogConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResolverQueryLogConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyDomainIdentityCommand}.
  */
 export interface VerifyDomainIdentityCommandInput extends VerifyDomainIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyDomainIdentityCommand}.
  */
 export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a domain to the list of identities for your Amazon SES account in the current AWS
  *             Region and attempts to verify it. For more information about verifying domains, see
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email
@@ -52,6 +57,8 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyDomainIdentityCommandInput - {@link VerifyDomainIdentityCommandInput}
+ * @returns {@link VerifyDomainIdentityCommandOutput}
  * @see {@link VerifyDomainIdentityCommandInput} for command's `input` shape.
  * @see {@link VerifyDomainIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -91,6 +98,9 @@ export class VerifyDomainIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyDomainIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class VerifyDomainIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyDomainIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryVerifyDomainIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyDomainIdentityCommandOutput> {
     return deserializeAws_queryVerifyDomainIdentityCommand(output, context);
   }

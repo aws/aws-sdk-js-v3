@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCertificateAuthorityCommand}.
  */
 export interface CreateCertificateAuthorityCommandInput extends CreateCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCertificateAuthorityCommand}.
  */
 export interface CreateCertificateAuthorityCommandOutput extends CreateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a root or subordinate private certificate authority (CA). You must specify the
  * 			CA configuration, an optional configuration for Online Certificate Status Protocol
  * 			(OCSP) and/or a certificate revocation list (CRL), the CA type, and an optional
@@ -66,6 +71,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCertificateAuthorityCommandInput - {@link CreateCertificateAuthorityCommandInput}
+ * @returns {@link CreateCertificateAuthorityCommandOutput}
  * @see {@link CreateCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSecurityKeyCommand}.
  */
 export interface AssociateSecurityKeyCommandInput extends AssociateSecurityKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSecurityKeyCommand}.
  */
 export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a security key to the instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyR
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSecurityKeyCommandInput - {@link AssociateSecurityKeyCommandInput}
+ * @returns {@link AssociateSecurityKeyCommandOutput}
  * @see {@link AssociateSecurityKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateSecurityKeyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -91,6 +98,9 @@ export class AssociateSecurityKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSecurityKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AssociateSecurityKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSecurityKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateSecurityKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSecurityKeyCommandOutput> {
     return deserializeAws_restJson1AssociateSecurityKeyCommand(output, context);
   }

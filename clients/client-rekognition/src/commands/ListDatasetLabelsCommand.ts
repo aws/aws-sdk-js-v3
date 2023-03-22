@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetLabelsCommand}.
  */
 export interface ListDatasetLabelsCommandInput extends ListDatasetLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetLabelsCommand}.
  */
 export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the labels in a dataset. Amazon Rekognition Custom Labels uses labels to describe images. For more information, see
  *    <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/md-labeling-images.html">Labeling images</a>.
  * </p>
@@ -51,6 +56,8 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetLabelsCommandInput - {@link ListDatasetLabelsCommandInput}
+ * @returns {@link ListDatasetLabelsCommandOutput}
  * @see {@link ListDatasetLabelsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -105,6 +112,9 @@ export class ListDatasetLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ListDatasetLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetLabelsCommandOutput> {
     return deserializeAws_json1_1ListDatasetLabelsCommand(output, context);
   }

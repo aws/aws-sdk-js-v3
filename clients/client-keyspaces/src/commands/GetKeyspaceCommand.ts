@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyspaceCommand}.
  */
 export interface GetKeyspaceCommandInput extends GetKeyspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyspaceCommand}.
  */
 export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the name and the Amazon Resource Name (ARN) of the specified table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyspaceCommandInput - {@link GetKeyspaceCommandInput}
+ * @returns {@link GetKeyspaceCommandOutput}
  * @see {@link GetKeyspaceCommandInput} for command's `input` shape.
  * @see {@link GetKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetKeyspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetKeyspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetKeyspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyspaceCommandOutput> {
     return deserializeAws_json1_0GetKeyspaceCommand(output, context);
   }

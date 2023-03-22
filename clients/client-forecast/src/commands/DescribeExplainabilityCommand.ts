@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExplainabilityCommand}.
  */
 export interface DescribeExplainabilityCommandInput extends DescribeExplainabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExplainabilityCommand}.
  */
 export interface DescribeExplainabilityCommandOutput extends DescribeExplainabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Explainability resource created using the <a>CreateExplainability</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeExplainabilityCommandOutput extends DescribeExplainabil
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExplainabilityCommandInput - {@link DescribeExplainabilityCommandInput}
+ * @returns {@link DescribeExplainabilityCommandOutput}
  * @see {@link DescribeExplainabilityCommandInput} for command's `input` shape.
  * @see {@link DescribeExplainabilityCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeExplainabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExplainabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeExplainabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExplainabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeExplainabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExplainabilityCommandOutput> {
     return deserializeAws_json1_1DescribeExplainabilityCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRepositoryPermissionsPolicyCommand}.
  */
 export interface DeleteRepositoryPermissionsPolicyCommandInput extends DeleteRepositoryPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRepositoryPermissionsPolicyCommand}.
  */
 export interface DeleteRepositoryPermissionsPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Deletes the resource policy that is set on a repository. After a resource policy is deleted, the
  *         permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.
@@ -57,6 +62,8 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRepositoryPermissionsPolicyCommandInput - {@link DeleteRepositoryPermissionsPolicyCommandInput}
+ * @returns {@link DeleteRepositoryPermissionsPolicyCommandOutput}
  * @see {@link DeleteRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -108,6 +115,9 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRepositoryPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
     return serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

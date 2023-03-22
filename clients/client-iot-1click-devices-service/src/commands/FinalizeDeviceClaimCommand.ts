@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link FinalizeDeviceClaimCommand}.
  */
 export interface FinalizeDeviceClaimCommandInput extends FinalizeDeviceClaimRequest {}
 /**
+ * @public
+ *
  * The output of {@link FinalizeDeviceClaimCommand}.
  */
 export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, finalizes the claim request for the associated device.</p><note>
  *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
  *  and finalizing the claim. For a device of type button, a device event can
@@ -54,6 +59,8 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  * const response = await client.send(command);
  * ```
  *
+ * @param FinalizeDeviceClaimCommandInput - {@link FinalizeDeviceClaimCommandInput}
+ * @returns {@link FinalizeDeviceClaimCommandOutput}
  * @see {@link FinalizeDeviceClaimCommandInput} for command's `input` shape.
  * @see {@link FinalizeDeviceClaimCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class FinalizeDeviceClaimCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FinalizeDeviceClaimCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class FinalizeDeviceClaimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FinalizeDeviceClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1FinalizeDeviceClaimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FinalizeDeviceClaimCommandOutput> {
     return deserializeAws_restJson1FinalizeDeviceClaimCommand(output, context);
   }

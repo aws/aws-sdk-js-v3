@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagLogGroupCommand}.
  */
 export interface UntagLogGroupCommandInput extends UntagLogGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagLogGroupCommand}.
  */
 export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -53,6 +58,8 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagLogGroupCommandInput - {@link UntagLogGroupCommandInput}
+ * @returns {@link UntagLogGroupCommandOutput}
  * @see {@link UntagLogGroupCommandInput} for command's `input` shape.
  * @see {@link UntagLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -79,6 +86,9 @@ export class UntagLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UntagLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagLogGroupCommandOutput> {
     return deserializeAws_json1_1UntagLogGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointAccessCommand}.
  */
 export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointAccessCommand}.
  */
 export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Redshift-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointAccessCommandInput - {@link DeleteEndpointAccessCommandInput}
+ * @returns {@link DeleteEndpointAccessCommandOutput}
  * @see {@link DeleteEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointAccessCommandOutput> {
     return deserializeAws_queryDeleteEndpointAccessCommand(output, context);
   }

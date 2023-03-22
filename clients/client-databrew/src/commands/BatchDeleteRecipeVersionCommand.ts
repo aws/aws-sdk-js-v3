@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteRecipeVersionCommand}.
  */
 export interface BatchDeleteRecipeVersionCommandInput extends BatchDeleteRecipeVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteRecipeVersionCommand}.
  */
 export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more versions of a recipe at a time.</p>
  *          <p>The entire request will be rejected if:</p>
  *          <ul>
@@ -84,6 +89,8 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteRecipeVersionCommandInput - {@link BatchDeleteRecipeVersionCommandInput}
+ * @returns {@link BatchDeleteRecipeVersionCommandOutput}
  * @see {@link BatchDeleteRecipeVersionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteRecipeVersionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -116,6 +123,9 @@ export class BatchDeleteRecipeVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteRecipeVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class BatchDeleteRecipeVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteRecipeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeleteRecipeVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteRecipeVersionCommandOutput> {
     return deserializeAws_restJson1BatchDeleteRecipeVersionCommand(output, context);
   }

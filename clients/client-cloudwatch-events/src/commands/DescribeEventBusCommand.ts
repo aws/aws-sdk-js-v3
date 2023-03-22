@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventBusCommand}.
  */
 export interface DescribeEventBusCommandInput extends DescribeEventBusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventBusCommand}.
  */
 export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays details about an event bus in your account. This can include the external Amazon Web Services
  *       accounts that are permitted to write events to your default event bus, and the associated
  *       policy. For custom event buses and partner event buses, it displays the name, ARN, policy,
@@ -52,6 +57,8 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventBusCommandInput - {@link DescribeEventBusCommandInput}
+ * @returns {@link DescribeEventBusCommandOutput}
  * @see {@link DescribeEventBusCommandInput} for command's `input` shape.
  * @see {@link DescribeEventBusCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeEventBusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventBusCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeEventBusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventBusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventBusCommandOutput> {
     return deserializeAws_json1_1DescribeEventBusCommand(output, context);
   }

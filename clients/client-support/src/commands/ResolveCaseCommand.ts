@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveCaseCommand}.
  */
 export interface ResolveCaseCommandInput extends ResolveCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveCaseCommand}.
  */
 export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
  *             initial and final state of the case.</p>
  *          <note>
@@ -61,6 +66,8 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveCaseCommandInput - {@link ResolveCaseCommandInput}
+ * @returns {@link ResolveCaseCommandOutput}
  * @see {@link ResolveCaseCommandInput} for command's `input` shape.
  * @see {@link ResolveCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -90,6 +97,9 @@ export class ResolveCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ResolveCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResolveCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveCaseCommandOutput> {
     return deserializeAws_json1_1ResolveCaseCommand(output, context);
   }

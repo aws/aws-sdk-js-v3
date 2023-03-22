@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationRevisionsCommand}.
  */
 export interface ListConfigurationRevisionsCommandInput extends ListConfigurationRevisionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationRevisionsCommand}.
  */
 export interface ListConfigurationRevisionsCommandOutput extends ListConfigurationRevisionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the MSK configurations in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationRevisionsCommandInput - {@link ListConfigurationRevisionsCommandInput}
+ * @returns {@link ListConfigurationRevisionsCommandOutput}
  * @see {@link ListConfigurationRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListConfigurationRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListConfigurationRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListConfigurationRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedJobTemplatesCommand}.
  */
 export interface ListManagedJobTemplatesCommandInput extends ListManagedJobTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedJobTemplatesCommand}.
  */
 export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of managed job templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedJobTemplatesCommandInput - {@link ListManagedJobTemplatesCommandInput}
+ * @returns {@link ListManagedJobTemplatesCommandOutput}
  * @see {@link ListManagedJobTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListManagedJobTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListManagedJobTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedJobTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListManagedJobTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedJobTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListManagedJobTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedJobTemplatesCommandOutput> {
     return deserializeAws_restJson1ListManagedJobTemplatesCommand(output, context);
   }

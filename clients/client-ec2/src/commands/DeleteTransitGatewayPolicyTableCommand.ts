@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayPolicyTableCommand}.
  */
 export interface DeleteTransitGatewayPolicyTableCommandInput extends DeleteTransitGatewayPolicyTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayPolicyTableCommand}.
  */
 export interface DeleteTransitGatewayPolicyTableCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteTransitGatewayPolicyTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified transit gateway policy table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteTransitGatewayPolicyTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayPolicyTableCommandInput - {@link DeleteTransitGatewayPolicyTableCommandInput}
+ * @returns {@link DeleteTransitGatewayPolicyTableCommandOutput}
  * @see {@link DeleteTransitGatewayPolicyTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayPolicyTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayPolicyTableCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command<
     return serializeAws_ec2DeleteTransitGatewayPolicyTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

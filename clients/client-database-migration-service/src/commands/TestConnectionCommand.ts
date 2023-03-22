@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestConnectionCommand}.
  */
 export interface TestConnectionCommandInput extends TestConnectionMessage {}
 /**
+ * @public
+ *
  * The output of {@link TestConnectionCommand}.
  */
 export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests the connection between the replication instance and the endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param TestConnectionCommandInput - {@link TestConnectionCommandInput}
+ * @returns {@link TestConnectionCommandOutput}
  * @see {@link TestConnectionCommandInput} for command's `input` shape.
  * @see {@link TestConnectionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -106,6 +113,9 @@ export class TestConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class TestConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TestConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestConnectionCommandOutput> {
     return deserializeAws_json1_1TestConnectionCommand(output, context);
   }

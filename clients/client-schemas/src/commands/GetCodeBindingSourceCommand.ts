@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCodeBindingSourceCommand}.
  */
 export interface GetCodeBindingSourceCommandInput extends GetCodeBindingSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCodeBindingSourceCommand}.
  */
 export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the code binding source URI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCodeBindingSourceCommandInput - {@link GetCodeBindingSourceCommandInput}
+ * @returns {@link GetCodeBindingSourceCommandOutput}
  * @see {@link GetCodeBindingSourceCommandInput} for command's `input` shape.
  * @see {@link GetCodeBindingSourceCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetCodeBindingSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCodeBindingSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetCodeBindingSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCodeBindingSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCodeBindingSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCodeBindingSourceCommandOutput> {
     return deserializeAws_restJson1GetCodeBindingSourceCommand(output, context);
   }

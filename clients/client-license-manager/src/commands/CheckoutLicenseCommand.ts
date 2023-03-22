@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CheckoutLicenseCommand}.
  */
 export interface CheckoutLicenseCommandInput extends CheckoutLicenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckoutLicenseCommand}.
  */
 export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks out the specified license.</p>
  *          <note>
  *             <p>If the account that created the license is the same that is performing the check out, you must
@@ -50,6 +55,8 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckoutLicenseCommandInput - {@link CheckoutLicenseCommandInput}
+ * @returns {@link CheckoutLicenseCommandOutput}
  * @see {@link CheckoutLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckoutLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -104,6 +111,9 @@ export class CheckoutLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckoutLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CheckoutLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckoutLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckoutLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckoutLicenseCommandOutput> {
     return deserializeAws_json1_1CheckoutLicenseCommand(output, context);
   }

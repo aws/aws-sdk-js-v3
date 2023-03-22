@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheServiceException";
 
 /**
+ * @public
  * <p>A tag that can be added to an ElastiCache cluster or replication group.
  *             Tags are composed of a Key/Value pair. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. A tag with a null Value is permitted.</p>
  */
@@ -20,6 +21,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Represents the input of an AddTagsToResource operation.</p>
  */
 export interface AddTagsToResourceMessage {
@@ -40,6 +42,7 @@ export interface AddTagsToResourceMessage {
 }
 
 /**
+ * @public
  * <p>The requested cluster ID does not refer to an existing cluster.</p>
  */
 export class CacheClusterNotFoundFault extends __BaseException {
@@ -59,6 +62,7 @@ export class CacheClusterNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
  */
 export class CacheParameterGroupNotFoundFault extends __BaseException {
@@ -78,6 +82,7 @@ export class CacheParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested cache security group name does not refer to an existing cache security group.</p>
  */
 export class CacheSecurityGroupNotFoundFault extends __BaseException {
@@ -97,6 +102,7 @@ export class CacheSecurityGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
  */
 export class CacheSubnetGroupNotFoundFault extends __BaseException {
@@ -116,6 +122,7 @@ export class CacheSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
 export class InvalidARNFault extends __BaseException {
@@ -135,6 +142,7 @@ export class InvalidARNFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested replication group is not in the <code>available</code> state.</p>
  */
 export class InvalidReplicationGroupStateFault extends __BaseException {
@@ -154,6 +162,7 @@ export class InvalidReplicationGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified replication group does not exist.</p>
  */
 export class ReplicationGroupNotFoundFault extends __BaseException {
@@ -173,6 +182,7 @@ export class ReplicationGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested reserved cache node was not found.</p>
  */
 export class ReservedCacheNodeNotFoundFault extends __BaseException {
@@ -192,6 +202,7 @@ export class ReservedCacheNodeNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested snapshot name does not refer to an existing snapshot.</p>
  */
 export class SnapshotNotFoundFault extends __BaseException {
@@ -211,6 +222,7 @@ export class SnapshotNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the output from the <code>AddTagsToResource</code>,
  *             <code>ListTagsForResource</code>, and <code>RemoveTagsFromResource</code> operations.</p>
  */
@@ -222,6 +234,7 @@ export interface TagListMessage {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
@@ -241,6 +254,7 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user group was not found or does not exist</p>
  */
 export class UserGroupNotFoundFault extends __BaseException {
@@ -260,6 +274,7 @@ export class UserGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user does not exist or could not be found.</p>
  */
 export class UserNotFoundFault extends __BaseException {
@@ -279,6 +294,7 @@ export class UserNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the allowed node types you can use to modify your cluster or replication group.</p>
  */
 export interface AllowedNodeTypeModificationsMessage {
@@ -300,6 +316,7 @@ export interface AllowedNodeTypeModificationsMessage {
 }
 
 /**
+ * @public
  * <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
  */
 export class AuthorizationAlreadyExistsFault extends __BaseException {
@@ -319,6 +336,7 @@ export class AuthorizationAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of an AuthorizeCacheSecurityGroupIngress operation.</p>
  */
 export interface AuthorizeCacheSecurityGroupIngressMessage {
@@ -341,6 +359,7 @@ export interface AuthorizeCacheSecurityGroupIngressMessage {
 }
 
 /**
+ * @public
  * <p>Provides ownership and status information for an Amazon EC2 security group.</p>
  */
 export interface EC2SecurityGroup {
@@ -361,6 +380,7 @@ export interface EC2SecurityGroup {
 }
 
 /**
+ * @public
  * <p>Represents the output of one of the following operations:</p>
  *          <ul>
  *             <li>
@@ -407,6 +427,9 @@ export interface CacheSecurityGroup {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeCacheSecurityGroupIngressResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -432,6 +455,7 @@ export interface AuthorizeCacheSecurityGroupIngressResult {
 }
 
 /**
+ * @public
  * <p>The current state of the cache security group does not allow deletion.</p>
  */
 export class InvalidCacheSecurityGroupStateFault extends __BaseException {
@@ -451,6 +475,7 @@ export class InvalidCacheSecurityGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Two or more incompatible parameters were specified.</p>
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -470,6 +495,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value for a parameter is invalid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -488,6 +514,9 @@ export class InvalidParameterValueException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchApplyUpdateActionMessage {
   /**
    * <p>The replication group IDs</p>
@@ -506,6 +535,7 @@ export interface BatchApplyUpdateActionMessage {
 }
 
 /**
+ * @public
  * <p>The service update doesn't exist</p>
  */
 export class ServiceUpdateNotFoundFault extends __BaseException {
@@ -524,6 +554,9 @@ export class ServiceUpdateNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum UpdateActionStatus {
   COMPLETE = "complete",
   IN_PROGRESS = "in-progress",
@@ -537,6 +570,7 @@ export enum UpdateActionStatus {
 }
 
 /**
+ * @public
  * <p>Update action that has been processed for the corresponding apply/stop request</p>
  */
 export interface ProcessedUpdateAction {
@@ -562,6 +596,7 @@ export interface ProcessedUpdateAction {
 }
 
 /**
+ * @public
  * <p>Update action that has failed to be processed for the corresponding apply/stop request</p>
  */
 export interface UnprocessedUpdateAction {
@@ -591,6 +626,9 @@ export interface UnprocessedUpdateAction {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionResultsMessage {
   /**
    * <p>Update actions that have been processed successfully</p>
@@ -603,6 +641,9 @@ export interface UpdateActionResultsMessage {
   UnprocessedUpdateActions?: UnprocessedUpdateAction[];
 }
 
+/**
+ * @public
+ */
 export interface BatchStopUpdateActionMessage {
   /**
    * <p>The replication group IDs</p>
@@ -620,6 +661,9 @@ export interface BatchStopUpdateActionMessage {
   ServiceUpdateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CompleteMigrationMessage {
   /**
    * <p>The ID of the replication group to which data is being migrated.</p>
@@ -632,6 +676,9 @@ export interface CompleteMigrationMessage {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AutomaticFailoverStatus {
   DISABLED = "disabled",
   DISABLING = "disabling",
@@ -640,6 +687,7 @@ export enum AutomaticFailoverStatus {
 }
 
 /**
+ * @public
  * <p>Represents the information required for client programs to connect to a cache node.</p>
  */
 export interface Endpoint {
@@ -654,12 +702,16 @@ export interface Endpoint {
   Port?: number;
 }
 
+/**
+ * @public
+ */
 export enum DataTieringStatus {
   DISABLED = "disabled",
   ENABLED = "enabled",
 }
 
 /**
+ * @public
  * <p>The name of the Global datastore and role of this replication group in the Global datastore.</p>
  */
 export interface GlobalReplicationGroupInfo {
@@ -674,12 +726,16 @@ export interface GlobalReplicationGroupInfo {
   GlobalReplicationGroupMemberRole?: string;
 }
 
+/**
+ * @public
+ */
 export enum IpDiscovery {
   IPV4 = "ipv4",
   IPV6 = "ipv6",
 }
 
 /**
+ * @public
  * <p>The configuration details of the CloudWatch Logs destination.</p>
  */
 export interface CloudWatchLogsDestinationDetails {
@@ -690,6 +746,7 @@ export interface CloudWatchLogsDestinationDetails {
 }
 
 /**
+ * @public
  * <p>The configuration details of the Kinesis Data Firehose destination.</p>
  */
 export interface KinesisFirehoseDestinationDetails {
@@ -700,6 +757,7 @@ export interface KinesisFirehoseDestinationDetails {
 }
 
 /**
+ * @public
  * <p>Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.</p>
  */
 export interface DestinationDetails {
@@ -714,21 +772,33 @@ export interface DestinationDetails {
   KinesisFirehoseDetails?: KinesisFirehoseDestinationDetails;
 }
 
+/**
+ * @public
+ */
 export enum DestinationType {
   CloudWatchLogs = "cloudwatch-logs",
   KinesisFirehose = "kinesis-firehose",
 }
 
+/**
+ * @public
+ */
 export enum LogFormat {
   JSON = "json",
   TEXT = "text",
 }
 
+/**
+ * @public
+ */
 export enum LogType {
   ENGINE_LOG = "engine-log",
   SLOW_LOG = "slow-log",
 }
 
+/**
+ * @public
+ */
 export enum LogDeliveryConfigurationStatus {
   ACTIVE = "active",
   DISABLING = "disabling",
@@ -738,6 +808,7 @@ export enum LogDeliveryConfigurationStatus {
 }
 
 /**
+ * @public
  * <p>Returns the destination, format and type of the logs. </p>
  */
 export interface LogDeliveryConfiguration {
@@ -773,11 +844,17 @@ export interface LogDeliveryConfiguration {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum MultiAZStatus {
   DISABLED = "disabled",
   ENABLED = "enabled",
 }
 
+/**
+ * @public
+ */
 export enum NetworkType {
   DUAL_STACK = "dual_stack",
   IPV4 = "ipv4",
@@ -785,6 +862,7 @@ export enum NetworkType {
 }
 
 /**
+ * @public
  * <p>Represents a single node within a node group (shard).</p>
  */
 export interface NodeGroupMember {
@@ -823,6 +901,7 @@ export interface NodeGroupMember {
 }
 
 /**
+ * @public
  * <p>Represents a collection of cache nodes in a replication group.
  *             One node in the node group is the read/write primary node.
  *             All the other nodes are read-only Replica nodes.</p>
@@ -862,17 +941,24 @@ export interface NodeGroup {
   NodeGroupMembers?: NodeGroupMember[];
 }
 
+/**
+ * @public
+ */
 export enum AuthTokenUpdateStatus {
   ROTATING = "ROTATING",
   SETTING = "SETTING",
 }
 
+/**
+ * @public
+ */
 export enum PendingAutomaticFailoverStatus {
   DISABLED = "disabled",
   ENABLED = "enabled",
 }
 
 /**
+ * @public
  * <p>The log delivery configurations being modified </p>
  */
 export interface PendingLogDeliveryConfiguration {
@@ -898,6 +984,7 @@ export interface PendingLogDeliveryConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents the progress of an online resharding operation.</p>
  */
 export interface SlotMigration {
@@ -908,6 +995,7 @@ export interface SlotMigration {
 }
 
 /**
+ * @public
  * <p>The status of an online resharding operation.</p>
  */
 export interface ReshardingStatus {
@@ -917,12 +1005,16 @@ export interface ReshardingStatus {
   SlotMigration?: SlotMigration;
 }
 
+/**
+ * @public
+ */
 export enum TransitEncryptionMode {
   PREFERRED = "preferred",
   REQUIRED = "required",
 }
 
 /**
+ * @public
  * <p>The status of the user group update.</p>
  */
 export interface UserGroupsUpdateStatus {
@@ -938,6 +1030,7 @@ export interface UserGroupsUpdateStatus {
 }
 
 /**
+ * @public
  * <p>The settings to be applied to the Redis replication group,
  *             either immediately or during the next maintenance window.</p>
  */
@@ -985,6 +1078,7 @@ export interface ReplicationGroupPendingModifiedValues {
 }
 
 /**
+ * @public
  * <p>Contains all of the attributes of a specific Redis replication group.</p>
  */
 export interface ReplicationGroup {
@@ -1187,6 +1281,9 @@ export interface ReplicationGroup {
   TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CompleteMigrationResponse {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -1195,6 +1292,7 @@ export interface CompleteMigrationResponse {
 }
 
 /**
+ * @public
  * <p>The designated replication group is not available for data migration.</p>
  */
 export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
@@ -1214,6 +1312,7 @@ export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CopySnapshotMessage</code> operation.</p>
  */
 export interface CopySnapshotMessage {
@@ -1251,6 +1350,7 @@ export interface CopySnapshotMessage {
 }
 
 /**
+ * @public
  * <p>Node group (shard) configuration options.
  *             Each node group (shard) configuration has the following: <code>Slots</code>, <code>PrimaryAvailabilityZone</code>, <code>ReplicaAvailabilityZones</code>, <code>ReplicaCount</code>.</p>
  */
@@ -1299,6 +1399,7 @@ export interface NodeGroupConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents an individual cache node in a snapshot of a cluster.</p>
  */
 export interface NodeSnapshot {
@@ -1339,6 +1440,7 @@ export interface NodeSnapshot {
 }
 
 /**
+ * @public
  * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
  */
 export interface Snapshot {
@@ -1716,6 +1818,9 @@ export interface Snapshot {
   DataTiering?: DataTieringStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotResult {
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
@@ -1724,6 +1829,7 @@ export interface CopySnapshotResult {
 }
 
 /**
+ * @public
  * <p>The current state of the snapshot does not allow the requested operation to occur.</p>
  */
 export class InvalidSnapshotStateFault extends __BaseException {
@@ -1743,6 +1849,7 @@ export class InvalidSnapshotStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You already have a snapshot with the given name.</p>
  */
 export class SnapshotAlreadyExistsFault extends __BaseException {
@@ -1762,6 +1869,7 @@ export class SnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -1781,6 +1889,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You already have a cluster with the given identifier.</p>
  */
 export class CacheClusterAlreadyExistsFault extends __BaseException {
@@ -1800,6 +1909,7 @@ export class CacheClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
@@ -1818,12 +1928,16 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AZMode {
   CROSS_AZ = "cross-az",
   SINGLE_AZ = "single-az",
 }
 
 /**
+ * @public
  * <p>Specifies the destination, format and type of the logs. </p>
  */
 export interface LogDeliveryConfigurationRequest {
@@ -1853,12 +1967,16 @@ export interface LogDeliveryConfigurationRequest {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum OutpostMode {
   CROSS_OUTPOST = "cross-outpost",
   SINGLE_OUTPOST = "single-outpost",
 }
 
 /**
+ * @public
  * <p>Represents the input of a CreateCacheCluster operation.</p>
  */
 export interface CreateCacheClusterMessage {
@@ -2292,6 +2410,7 @@ export interface CreateCacheClusterMessage {
 }
 
 /**
+ * @public
  * <p>Represents an individual cache node within a cluster. Each cache node runs its own
  *             instance of the cluster's protocol-compliant caching software - either Memcached or
  *             Redis.</p>
@@ -2512,6 +2631,7 @@ export interface CacheNode {
 }
 
 /**
+ * @public
  * <p>Status of the cache parameter group.</p>
  */
 export interface CacheParameterGroupStatus {
@@ -2533,6 +2653,7 @@ export interface CacheParameterGroupStatus {
 }
 
 /**
+ * @public
  * <p>Represents a cluster's status within a particular cache security group.</p>
  */
 export interface CacheSecurityGroupMembership {
@@ -2548,6 +2669,7 @@ export interface CacheSecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Describes a notification topic and its status.
  *             Notification topics are used for publishing ElastiCache events to subscribers
  *             using Amazon Simple Notification Service (SNS).</p>
@@ -2565,6 +2687,7 @@ export interface NotificationConfiguration {
 }
 
 /**
+ * @public
  * <p>A group of settings that are applied to the cluster in the future,
  *             or that are currently being applied.</p>
  */
@@ -2614,6 +2737,7 @@ export interface PendingModifiedValues {
 }
 
 /**
+ * @public
  * <p>Represents a single cache security group and its status.</p>
  */
 export interface SecurityGroupMembership {
@@ -2631,6 +2755,7 @@ export interface SecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Contains all of the attributes of a specific cluster.</p>
  */
 export interface CacheCluster {
@@ -3064,6 +3189,9 @@ export interface CacheCluster {
   TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -3072,6 +3200,7 @@ export interface CreateCacheClusterResult {
 }
 
 /**
+ * @public
  * <p>The requested cache node type is not available in the specified Availability Zone.
  *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  */
@@ -3092,6 +3221,7 @@ export class InsufficientCacheClusterCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The VPC network is in an invalid state.</p>
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -3111,6 +3241,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
@@ -3130,6 +3261,7 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
@@ -3149,6 +3281,7 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A cache parameter group with the requested name already exists.</p>
  */
 export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
@@ -3168,6 +3301,7 @@ export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
  */
 export class CacheParameterGroupQuotaExceededFault extends __BaseException {
@@ -3187,6 +3321,7 @@ export class CacheParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateCacheParameterGroup</code> operation.</p>
  */
 export interface CreateCacheParameterGroupMessage {
@@ -3223,6 +3358,7 @@ export interface CreateCacheParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateCacheParameterGroup</code> operation.</p>
  */
 export interface CacheParameterGroup {
@@ -3263,6 +3399,9 @@ export interface CacheParameterGroup {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCacheParameterGroupResult {
   /**
    * <p>Represents the output of a <code>CreateCacheParameterGroup</code> operation.</p>
@@ -3271,6 +3410,7 @@ export interface CreateCacheParameterGroupResult {
 }
 
 /**
+ * @public
  * <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
  */
 export class InvalidCacheParameterGroupStateFault extends __BaseException {
@@ -3290,6 +3430,7 @@ export class InvalidCacheParameterGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A cache security group with the specified name already exists.</p>
  */
 export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
@@ -3309,6 +3450,7 @@ export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
  */
 export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
@@ -3328,6 +3470,7 @@ export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateCacheSecurityGroup</code> operation.</p>
  */
 export interface CreateCacheSecurityGroupMessage {
@@ -3350,6 +3493,9 @@ export interface CreateCacheSecurityGroupMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCacheSecurityGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -3375,6 +3521,7 @@ export interface CreateCacheSecurityGroupResult {
 }
 
 /**
+ * @public
  * <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
  */
 export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
@@ -3394,6 +3541,7 @@ export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
  */
 export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
@@ -3413,6 +3561,7 @@ export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
  */
 export class CacheSubnetQuotaExceededFault extends __BaseException {
@@ -3432,6 +3581,7 @@ export class CacheSubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateCacheSubnetGroup</code> operation.</p>
  */
 export interface CreateCacheSubnetGroupMessage {
@@ -3460,6 +3610,7 @@ export interface CreateCacheSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p>Describes an Availability Zone in which the cluster is launched.</p>
  */
 export interface AvailabilityZone {
@@ -3470,6 +3621,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p>The ID of the outpost subnet.</p>
  */
 export interface SubnetOutpost {
@@ -3480,6 +3632,7 @@ export interface SubnetOutpost {
 }
 
 /**
+ * @public
  * <p>Represents the subnet associated with a cluster.
  *             This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with ElastiCache.</p>
  */
@@ -3507,6 +3660,7 @@ export interface Subnet {
 }
 
 /**
+ * @public
  * <p>Represents the output of one of the following operations:</p>
  *          <ul>
  *             <li>
@@ -3554,6 +3708,9 @@ export interface CacheSubnetGroup {
   SupportedNetworkTypes?: (NetworkType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCacheSubnetGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -3574,6 +3731,7 @@ export interface CreateCacheSubnetGroupResult {
 }
 
 /**
+ * @public
  * <p>An invalid subnet identifier was specified.</p>
  */
 export class InvalidSubnet extends __BaseException {
@@ -3593,6 +3751,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
+ * @public
  * <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a
  *             user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
  */
@@ -3612,6 +3771,9 @@ export class SubnetNotAllowedFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalReplicationGroupMessage {
   /**
    * <p>The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix
@@ -3632,6 +3794,7 @@ export interface CreateGlobalReplicationGroupMessage {
 }
 
 /**
+ * @public
  * <p>Indicates the slot configuration and global identifier for a slice group.</p>
  */
 export interface GlobalNodeGroup {
@@ -3647,6 +3810,7 @@ export interface GlobalNodeGroup {
 }
 
 /**
+ * @public
  * <p>A member of a Global datastore. It contains the Replication Group Id, the Amazon region and the role of the replication group. </p>
  */
 export interface GlobalReplicationGroupMember {
@@ -3677,6 +3841,7 @@ export interface GlobalReplicationGroupMember {
 }
 
 /**
+ * @public
  * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
  *         cluster automatically replicates updates to the secondary cluster.</p>
  *          <ul>
@@ -3766,6 +3931,9 @@ export interface GlobalReplicationGroup {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -3781,6 +3949,7 @@ export interface CreateGlobalReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>The Global datastore name already exists.</p>
  */
 export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
@@ -3800,6 +3969,7 @@ export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified service linked role (SLR) was not found.</p>
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
@@ -3819,6 +3989,7 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateReplicationGroup</code> operation.</p>
  */
 export interface CreateReplicationGroupMessage {
@@ -4376,6 +4547,9 @@ export interface CreateReplicationGroupMessage {
   TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationGroupResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -4384,6 +4558,7 @@ export interface CreateReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>The Global datastore does not exist</p>
  */
 export class GlobalReplicationGroupNotFoundFault extends __BaseException {
@@ -4403,6 +4578,7 @@ export class GlobalReplicationGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested cluster is not in the <code>available</code> state.</p>
  */
 export class InvalidCacheClusterStateFault extends __BaseException {
@@ -4422,6 +4598,7 @@ export class InvalidCacheClusterStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Global datastore is not available or in primary-only state.</p>
  */
 export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
@@ -4441,6 +4618,7 @@ export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user group is not in an active state.</p>
  */
 export class InvalidUserGroupStateFault extends __BaseException {
@@ -4460,6 +4638,7 @@ export class InvalidUserGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the maximum allowed number
  *             of node groups (shards) in a single replication group. The default maximum is 90</p>
  */
@@ -4480,6 +4659,7 @@ export class NodeGroupsPerReplicationGroupQuotaExceededFault extends __BaseExcep
 }
 
 /**
+ * @public
  * <p>The specified replication group already exists.</p>
  */
 export class ReplicationGroupAlreadyExistsFault extends __BaseException {
@@ -4499,6 +4679,7 @@ export class ReplicationGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateSnapshot</code> operation.</p>
  */
 export interface CreateSnapshotMessage {
@@ -4528,6 +4709,9 @@ export interface CreateSnapshotMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotResult {
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
@@ -4536,6 +4720,7 @@ export interface CreateSnapshotResult {
 }
 
 /**
+ * @public
  * <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
@@ -4564,6 +4749,9 @@ export class SnapshotFeatureNotSupportedFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum InputAuthenticationType {
   IAM = "iam",
   NO_PASSWORD = "no-password-required",
@@ -4571,6 +4759,7 @@ export enum InputAuthenticationType {
 }
 
 /**
+ * @public
  * <p>Specifies the authentication mode to use.</p>
  */
 export interface AuthenticationMode {
@@ -4585,6 +4774,9 @@ export interface AuthenticationMode {
   Passwords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUserMessage {
   /**
    * <p>The ID of the user.</p>
@@ -4628,6 +4820,7 @@ export interface CreateUserMessage {
 }
 
 /**
+ * @public
  * <p>A user with this username already exists.</p>
  */
 export class DuplicateUserNameFault extends __BaseException {
@@ -4646,6 +4839,9 @@ export class DuplicateUserNameFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationType {
   IAM = "iam",
   NO_PASSWORD = "no-password",
@@ -4653,6 +4849,7 @@ export enum AuthenticationType {
 }
 
 /**
+ * @public
  * <p>Indicates whether the user requires a password to authenticate.</p>
  */
 export interface Authentication {
@@ -4667,6 +4864,9 @@ export interface Authentication {
   PasswordCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface User {
   /**
    * <p>The ID of the user.</p>
@@ -4715,6 +4915,7 @@ export interface User {
 }
 
 /**
+ * @public
  * <p>A user with this ID already exists.</p>
  */
 export class UserAlreadyExistsFault extends __BaseException {
@@ -4734,6 +4935,7 @@ export class UserAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota of users has been exceeded.</p>
  */
 export class UserQuotaExceededFault extends __BaseException {
@@ -4752,6 +4954,9 @@ export class UserQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateUserGroupMessage {
   /**
    * <p>The ID of the user group.</p>
@@ -4775,6 +4980,7 @@ export interface CreateUserGroupMessage {
 }
 
 /**
+ * @public
  * <p>You must add default user to a user group.</p>
  */
 export class DefaultUserRequired extends __BaseException {
@@ -4794,6 +5000,7 @@ export class DefaultUserRequired extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns the updates being applied to the user group.</p>
  */
 export interface UserGroupPendingChanges {
@@ -4808,6 +5015,9 @@ export interface UserGroupPendingChanges {
   UserIdsToAdd?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UserGroup {
   /**
    * <p>The ID of the user group.</p>
@@ -4851,6 +5061,7 @@ export interface UserGroup {
 }
 
 /**
+ * @public
  * <p>The user group with this ID already exists.</p>
  */
 export class UserGroupAlreadyExistsFault extends __BaseException {
@@ -4870,6 +5081,7 @@ export class UserGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of users exceeds the user group limit.</p>
  */
 export class UserGroupQuotaExceededFault extends __BaseException {
@@ -4888,6 +5100,9 @@ export class UserGroupQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -4920,6 +5135,9 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   ApplyImmediately: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -4935,6 +5153,7 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>Node group (shard) configuration options when adding or removing replicas.
  *             Each node group (shard) configuration has the following members: NodeGroupId, NewReplicaCount, and PreferredAvailabilityZones. </p>
  */
@@ -4985,6 +5204,9 @@ export interface ConfigureShard {
   PreferredOutpostArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DecreaseReplicaCountMessage {
   /**
    * <p>The id of the replication group from which you want to remove replica nodes.</p>
@@ -5036,6 +5258,9 @@ export interface DecreaseReplicaCountMessage {
   ApplyImmediately: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DecreaseReplicaCountResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -5044,6 +5269,7 @@ export interface DecreaseReplicaCountResult {
 }
 
 /**
+ * @public
  * <p>The operation was not performed because no changes were required.</p>
  */
 export class NoOperationFault extends __BaseException {
@@ -5063,6 +5289,7 @@ export class NoOperationFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteCacheCluster</code> operation.</p>
  */
 export interface DeleteCacheClusterMessage {
@@ -5078,6 +5305,9 @@ export interface DeleteCacheClusterMessage {
   FinalSnapshotIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -5086,6 +5316,7 @@ export interface DeleteCacheClusterResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteCacheParameterGroup</code> operation.</p>
  */
 export interface DeleteCacheParameterGroupMessage {
@@ -5099,6 +5330,7 @@ export interface DeleteCacheParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteCacheSecurityGroup</code> operation.</p>
  */
 export interface DeleteCacheSecurityGroupMessage {
@@ -5112,6 +5344,7 @@ export interface DeleteCacheSecurityGroupMessage {
 }
 
 /**
+ * @public
  * <p>The requested cache subnet group is currently in use.</p>
  */
 export class CacheSubnetGroupInUse extends __BaseException {
@@ -5131,6 +5364,7 @@ export class CacheSubnetGroupInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteCacheSubnetGroup</code> operation.</p>
  */
 export interface DeleteCacheSubnetGroupMessage {
@@ -5141,6 +5375,9 @@ export interface DeleteCacheSubnetGroupMessage {
   CacheSubnetGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -5153,6 +5390,9 @@ export interface DeleteGlobalReplicationGroupMessage {
   RetainPrimaryReplicationGroup: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -5168,6 +5408,7 @@ export interface DeleteGlobalReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteReplicationGroup</code> operation.</p>
  */
 export interface DeleteReplicationGroupMessage {
@@ -5191,6 +5432,9 @@ export interface DeleteReplicationGroupMessage {
   FinalSnapshotIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationGroupResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -5199,6 +5443,7 @@ export interface DeleteReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteSnapshot</code> operation.</p>
  */
 export interface DeleteSnapshotMessage {
@@ -5208,6 +5453,9 @@ export interface DeleteSnapshotMessage {
   SnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotResult {
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
@@ -5216,6 +5464,7 @@ export interface DeleteSnapshotResult {
 }
 
 /**
+ * @public
  * <p>The default user assigned to the user group.</p>
  */
 export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
@@ -5234,6 +5483,9 @@ export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserMessage {
   /**
    * <p>The ID of the user.</p>
@@ -5242,6 +5494,7 @@ export interface DeleteUserMessage {
 }
 
 /**
+ * @public
  * <p>The user is not in active state.</p>
  */
 export class InvalidUserStateFault extends __BaseException {
@@ -5260,6 +5513,9 @@ export class InvalidUserStateFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserGroupMessage {
   /**
    * <p>The ID of the user group.</p>
@@ -5268,6 +5524,7 @@ export interface DeleteUserGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeCacheClusters</code> operation.</p>
  */
 export interface CacheClusterMessage {
@@ -5283,6 +5540,7 @@ export interface CacheClusterMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeCacheClusters</code> operation.</p>
  */
 export interface DescribeCacheClustersMessage {
@@ -5324,6 +5582,7 @@ export interface DescribeCacheClustersMessage {
 }
 
 /**
+ * @public
  * <p>Provides all of the details about a particular cache engine version.</p>
  */
 export interface CacheEngineVersion {
@@ -5365,6 +5624,7 @@ export interface CacheEngineVersion {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <a>DescribeCacheEngineVersions</a> operation.</p>
  */
 export interface CacheEngineVersionMessage {
@@ -5381,6 +5641,7 @@ export interface CacheEngineVersionMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeCacheEngineVersions</code> operation.</p>
  */
 export interface DescribeCacheEngineVersionsMessage {
@@ -5451,6 +5712,7 @@ export interface DescribeCacheEngineVersionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeCacheParameterGroups</code> operation.</p>
  */
 export interface CacheParameterGroupsMessage {
@@ -5467,6 +5729,7 @@ export interface CacheParameterGroupsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeCacheParameterGroups</code> operation.</p>
  */
 export interface DescribeCacheParameterGroupsMessage {
@@ -5493,6 +5756,7 @@ export interface DescribeCacheParameterGroupsMessage {
 }
 
 /**
+ * @public
  * <p>A value that applies only to a certain cache node type.</p>
  */
 export interface CacheNodeTypeSpecificValue {
@@ -5507,12 +5771,16 @@ export interface CacheNodeTypeSpecificValue {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export enum ChangeType {
   immediate = "immediate",
   requires_reboot = "requires-reboot",
 }
 
 /**
+ * @public
  * <p>A parameter that has a different value for each cache node type it is applied to. For
  *             example, in a Redis cluster, a <code>cache.m1.large</code> cache node type would have a
  *             larger <code>maxmemory</code> value than a <code>cache.m1.small</code> type.</p>
@@ -5570,6 +5838,7 @@ export interface CacheNodeTypeSpecificParameter {
 }
 
 /**
+ * @public
  * <p>Describes an individual setting that controls some aspect of ElastiCache behavior.</p>
  */
 export interface Parameter {
@@ -5624,6 +5893,7 @@ export interface Parameter {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeCacheParameters</code> operation.</p>
  */
 export interface CacheParameterGroupDetails {
@@ -5645,6 +5915,7 @@ export interface CacheParameterGroupDetails {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeCacheParameters</code> operation.</p>
  */
 export interface DescribeCacheParametersMessage {
@@ -5679,6 +5950,7 @@ export interface DescribeCacheParametersMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeCacheSecurityGroups</code> operation.</p>
  */
 export interface CacheSecurityGroupMessage {
@@ -5694,6 +5966,7 @@ export interface CacheSecurityGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeCacheSecurityGroups</code> operation.</p>
  */
 export interface DescribeCacheSecurityGroupsMessage {
@@ -5720,6 +5993,7 @@ export interface DescribeCacheSecurityGroupsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  */
 export interface CacheSubnetGroupMessage {
@@ -5735,6 +6009,7 @@ export interface CacheSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  */
 export interface DescribeCacheSubnetGroupsMessage {
@@ -5762,6 +6037,7 @@ export interface DescribeCacheSubnetGroupsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeEngineDefaultParameters</code> operation.</p>
  */
 export interface DescribeEngineDefaultParametersMessage {
@@ -5801,6 +6077,7 @@ export interface DescribeEngineDefaultParametersMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
  */
 export interface EngineDefaults {
@@ -5837,6 +6114,9 @@ export interface EngineDefaults {
   CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngineDefaultParametersResult {
   /**
    * <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
@@ -5844,6 +6124,9 @@ export interface DescribeEngineDefaultParametersResult {
   EngineDefaults?: EngineDefaults;
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   cache_cluster = "cache-cluster",
   cache_parameter_group = "cache-parameter-group",
@@ -5855,6 +6138,7 @@ export enum SourceType {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeEvents</code> operation.</p>
  */
 export interface DescribeEventsMessage {
@@ -5908,6 +6192,7 @@ export interface DescribeEventsMessage {
 }
 
 /**
+ * @public
  * <p>Represents a single occurrence of something interesting within the system.
  *             Some examples of events are creating a cluster, adding or removing a cache node, or rebooting a node.</p>
  */
@@ -5936,6 +6221,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeEvents</code> operation.</p>
  */
 export interface EventsMessage {
@@ -5950,6 +6236,9 @@ export interface EventsMessage {
   Events?: Event[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalReplicationGroupsMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -5972,6 +6261,9 @@ export interface DescribeGlobalReplicationGroupsMessage {
   ShowMemberInfo?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalReplicationGroupsResult {
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
@@ -5985,6 +6277,7 @@ export interface DescribeGlobalReplicationGroupsResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeReplicationGroups</code> operation.</p>
  */
 export interface DescribeReplicationGroupsMessage {
@@ -6012,6 +6305,7 @@ export interface DescribeReplicationGroupsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeReplicationGroups</code> operation.</p>
  */
 export interface ReplicationGroupMessage {
@@ -6027,6 +6321,7 @@ export interface ReplicationGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeReservedCacheNodes</code> operation.</p>
  */
 export interface DescribeReservedCacheNodesMessage {
@@ -6260,6 +6555,7 @@ export interface DescribeReservedCacheNodesMessage {
 }
 
 /**
+ * @public
  * <p>Contains the specific price and frequency of a recurring charges for a reserved cache node,
  *             or for a reserved cache node offering.</p>
  */
@@ -6276,6 +6572,7 @@ export interface RecurringCharge {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
  */
 export interface ReservedCacheNode {
@@ -6520,6 +6817,7 @@ export interface ReservedCacheNode {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeReservedCacheNodes</code> operation.</p>
  */
 export interface ReservedCacheNodeMessage {
@@ -6535,6 +6833,7 @@ export interface ReservedCacheNodeMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeReservedCacheNodesOfferings</code> operation.</p>
  */
 export interface DescribeReservedCacheNodesOfferingsMessage {
@@ -6765,6 +7064,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
 }
 
 /**
+ * @public
  * <p>Describes all of the attributes of a reserved cache node offering.</p>
  */
 export interface ReservedCacheNodesOffering {
@@ -6982,6 +7282,7 @@ export interface ReservedCacheNodesOffering {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeReservedCacheNodesOfferings</code> operation.</p>
  */
 export interface ReservedCacheNodesOfferingMessage {
@@ -6997,6 +7298,7 @@ export interface ReservedCacheNodesOfferingMessage {
 }
 
 /**
+ * @public
  * <p>The requested cache node offering does not exist.</p>
  */
 export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
@@ -7015,12 +7317,18 @@ export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ServiceUpdateStatus {
   AVAILABLE = "available",
   CANCELLED = "cancelled",
   EXPIRED = "expired",
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceUpdatesMessage {
   /**
    * <p>The unique ID of the service update</p>
@@ -7046,6 +7354,9 @@ export interface DescribeServiceUpdatesMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export enum ServiceUpdateSeverity {
   CRITICAL = "critical",
   IMPORTANT = "important",
@@ -7053,11 +7364,15 @@ export enum ServiceUpdateSeverity {
   MEDIUM = "medium",
 }
 
+/**
+ * @public
+ */
 export enum ServiceUpdateType {
   SECURITY_UPDATE = "security-update",
 }
 
 /**
+ * @public
  * <p>An update that you can apply to your Redis clusters.</p>
  */
 export interface ServiceUpdate {
@@ -7122,6 +7437,9 @@ export interface ServiceUpdate {
   EstimatedUpdateTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ServiceUpdatesMessage {
   /**
    * <p>An optional marker returned from a prior request.
@@ -7138,6 +7456,7 @@ export interface ServiceUpdatesMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeSnapshots</code> operation.</p>
  */
 export interface DescribeSnapshotsListMessage {
@@ -7156,6 +7475,7 @@ export interface DescribeSnapshotsListMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeSnapshotsMessage</code> operation.</p>
  */
 export interface DescribeSnapshotsMessage {
@@ -7208,6 +7528,7 @@ export interface DescribeSnapshotsMessage {
 }
 
 /**
+ * @public
  * <p>Filters update actions from the service updates that are in available status during the time range.</p>
  */
 export interface TimeRangeFilter {
@@ -7222,6 +7543,9 @@ export interface TimeRangeFilter {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUpdateActionsMessage {
   /**
    * <p>The unique ID of the service update</p>
@@ -7277,11 +7601,17 @@ export interface DescribeUpdateActionsMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export enum NodeUpdateInitiatedBy {
   CUSTOMER = "customer",
   SYSTEM = "system",
 }
 
+/**
+ * @public
+ */
 export enum NodeUpdateStatus {
   COMPLETE = "complete",
   IN_PROGRESS = "in-progress",
@@ -7292,6 +7622,7 @@ export enum NodeUpdateStatus {
 }
 
 /**
+ * @public
  * <p>The status of the service update on the cache node</p>
  */
 export interface CacheNodeUpdateStatus {
@@ -7337,6 +7668,7 @@ export interface CacheNodeUpdateStatus {
 }
 
 /**
+ * @public
  * <p>The status of the service update on the node group member  </p>
  */
 export interface NodeGroupMemberUpdateStatus {
@@ -7387,6 +7719,7 @@ export interface NodeGroupMemberUpdateStatus {
 }
 
 /**
+ * @public
  * <p>The status of the service update on the node group </p>
  */
 export interface NodeGroupUpdateStatus {
@@ -7401,6 +7734,9 @@ export interface NodeGroupUpdateStatus {
   NodeGroupMemberUpdateStatus?: NodeGroupMemberUpdateStatus[];
 }
 
+/**
+ * @public
+ */
 export enum SlaMet {
   NA = "n/a",
   NO = "no",
@@ -7408,6 +7744,7 @@ export enum SlaMet {
 }
 
 /**
+ * @public
  * <p>The status of the service update for a specific replication group</p>
  */
 export interface UpdateAction {
@@ -7498,6 +7835,9 @@ export interface UpdateAction {
   Engine?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionsMessage {
   /**
    * <p>An optional marker returned from a prior request.
@@ -7513,6 +7853,9 @@ export interface UpdateActionsMessage {
   UpdateActions?: UpdateAction[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserGroupsMessage {
   /**
    * <p>The ID of the user group.</p>
@@ -7530,6 +7873,9 @@ export interface DescribeUserGroupsMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserGroupsResult {
   /**
    * <p>Returns a list of user groups.</p>
@@ -7543,6 +7889,7 @@ export interface DescribeUserGroupsResult {
 }
 
 /**
+ * @public
  * <p>Used to streamline results of a search based on the property being filtered.</p>
  */
 export interface Filter {
@@ -7557,6 +7904,9 @@ export interface Filter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersMessage {
   /**
    * <p>The Redis engine. </p>
@@ -7584,6 +7934,9 @@ export interface DescribeUsersMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersResult {
   /**
    * <p>A list of users.</p>
@@ -7596,6 +7949,9 @@ export interface DescribeUsersResult {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -7613,6 +7969,9 @@ export interface DisassociateGlobalReplicationGroupMessage {
   ReplicationGroupRegion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -7627,6 +7986,9 @@ export interface DisassociateGlobalReplicationGroupResult {
   GlobalReplicationGroup?: GlobalReplicationGroup;
 }
 
+/**
+ * @public
+ */
 export interface FailoverGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -7644,6 +8006,9 @@ export interface FailoverGlobalReplicationGroupMessage {
   PrimaryReplicationGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface FailoverGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -7659,6 +8024,7 @@ export interface FailoverGlobalReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>A list of <code>PreferredAvailabilityZones</code> objects that specifies
  *             the configuration of a node group in the resharded cluster.</p>
  */
@@ -7676,6 +8042,7 @@ export interface ReshardingConfiguration {
 }
 
 /**
+ * @public
  * <p>A list of the replication groups </p>
  */
 export interface RegionalConfiguration {
@@ -7695,6 +8062,9 @@ export interface RegionalConfiguration {
   ReshardingConfiguration: ReshardingConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -7717,6 +8087,9 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   ApplyImmediately: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -7731,6 +8104,9 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
   GlobalReplicationGroup?: GlobalReplicationGroup;
 }
 
+/**
+ * @public
+ */
 export interface IncreaseReplicaCountMessage {
   /**
    * <p>The id of the replication group to which you want to add replica nodes.</p>
@@ -7760,6 +8136,9 @@ export interface IncreaseReplicaCountMessage {
   ApplyImmediately: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface IncreaseReplicaCountResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -7768,6 +8147,7 @@ export interface IncreaseReplicaCountResult {
 }
 
 /**
+ * @public
  * <p>The KMS key supplied is not valid.</p>
  */
 export class InvalidKMSKeyFault extends __BaseException {
@@ -7787,6 +8167,7 @@ export class InvalidKMSKeyFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input parameters for the <code>ListAllowedNodeTypeModifications</code> operation.</p>
  */
 export interface ListAllowedNodeTypeModificationsMessage {
@@ -7813,6 +8194,7 @@ export interface ListAllowedNodeTypeModificationsMessage {
 }
 
 /**
+ * @public
  * <p>The input parameters for the <code>ListTagsForResource</code> operation.</p>
  */
 export interface ListTagsForResourceMessage {
@@ -7825,6 +8207,9 @@ export interface ListTagsForResourceMessage {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AuthTokenUpdateStrategyType {
   DELETE = "DELETE",
   ROTATE = "ROTATE",
@@ -7832,6 +8217,7 @@ export enum AuthTokenUpdateStrategyType {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ModifyCacheCluster</code> operation.</p>
  */
 export interface ModifyCacheClusterMessage {
@@ -8190,6 +8576,9 @@ export interface ModifyCacheClusterMessage {
   IpDiscovery?: IpDiscovery | string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -8198,6 +8587,7 @@ export interface ModifyCacheClusterResult {
 }
 
 /**
+ * @public
  * <p>Represents the output of one of the following operations:</p>
  *          <ul>
  *             <li>
@@ -8220,6 +8610,7 @@ export interface CacheParameterGroupNameMessage {
 }
 
 /**
+ * @public
  * <p>Describes a name-value pair that is used to update the value of a parameter.</p>
  */
 export interface ParameterNameValue {
@@ -8235,6 +8626,7 @@ export interface ParameterNameValue {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ModifyCacheParameterGroup</code> operation.</p>
  */
 export interface ModifyCacheParameterGroupMessage {
@@ -8250,6 +8642,7 @@ export interface ModifyCacheParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ModifyCacheSubnetGroup</code> operation.</p>
  */
 export interface ModifyCacheSubnetGroupMessage {
@@ -8272,6 +8665,9 @@ export interface ModifyCacheSubnetGroupMessage {
   SubnetIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyCacheSubnetGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -8292,6 +8688,7 @@ export interface ModifyCacheSubnetGroupResult {
 }
 
 /**
+ * @public
  * <p>The requested subnet is being used by another cache subnet group.</p>
  */
 export class SubnetInUse extends __BaseException {
@@ -8310,6 +8707,9 @@ export class SubnetInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -8349,6 +8749,9 @@ export interface ModifyGlobalReplicationGroupMessage {
   AutomaticFailoverEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -8364,6 +8767,7 @@ export interface ModifyGlobalReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ModifyReplicationGroups</code> operation.</p>
  */
 export interface ModifyReplicationGroupMessage {
@@ -8625,6 +9029,9 @@ export interface ModifyReplicationGroupMessage {
   TransitEncryptionMode?: TransitEncryptionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyReplicationGroupResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -8633,6 +9040,7 @@ export interface ModifyReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>Represents the input for a <code>ModifyReplicationGroupShardConfiguration</code> operation.</p>
  */
 export interface ModifyReplicationGroupShardConfigurationMessage {
@@ -8689,6 +9097,9 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
   NodeGroupsToRetain?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyReplicationGroupShardConfigurationResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -8696,6 +9107,9 @@ export interface ModifyReplicationGroupShardConfigurationResult {
   ReplicationGroup?: ReplicationGroup;
 }
 
+/**
+ * @public
+ */
 export interface ModifyUserMessage {
   /**
    * <p>The ID of the user.</p>
@@ -8728,6 +9142,9 @@ export interface ModifyUserMessage {
   AuthenticationMode?: AuthenticationMode;
 }
 
+/**
+ * @public
+ */
 export interface ModifyUserGroupMessage {
   /**
    * <p>The ID of the user group.</p>
@@ -8746,6 +9163,7 @@ export interface ModifyUserGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
  */
 export interface PurchaseReservedCacheNodesOfferingMessage {
@@ -8780,6 +9198,9 @@ export interface PurchaseReservedCacheNodesOfferingMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PurchaseReservedCacheNodesOfferingResult {
   /**
    * <p>Represents the output of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
@@ -8788,6 +9209,7 @@ export interface PurchaseReservedCacheNodesOfferingResult {
 }
 
 /**
+ * @public
  * <p>You already have a reservation with the given identifier.</p>
  */
 export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
@@ -8807,6 +9229,7 @@ export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
  */
 export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
@@ -8825,6 +9248,9 @@ export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RebalanceSlotsInGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -8837,6 +9263,9 @@ export interface RebalanceSlotsInGlobalReplicationGroupMessage {
   ApplyImmediately: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebalanceSlotsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -8852,6 +9281,7 @@ export interface RebalanceSlotsInGlobalReplicationGroupResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>RebootCacheCluster</code> operation.</p>
  */
 export interface RebootCacheClusterMessage {
@@ -8866,6 +9296,9 @@ export interface RebootCacheClusterMessage {
   CacheNodeIdsToReboot: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
@@ -8874,6 +9307,7 @@ export interface RebootCacheClusterResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>RemoveTagsFromResource</code> operation.</p>
  */
 export interface RemoveTagsFromResourceMessage {
@@ -8892,6 +9326,7 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 /**
+ * @public
  * <p>The requested tag was not found on this resource.</p>
  */
 export class TagNotFoundFault extends __BaseException {
@@ -8911,6 +9346,7 @@ export class TagNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ResetCacheParameterGroup</code> operation.</p>
  */
 export interface ResetCacheParameterGroupMessage {
@@ -8940,6 +9376,7 @@ export interface ResetCacheParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
  */
 export class AuthorizationNotFoundFault extends __BaseException {
@@ -8959,6 +9396,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>RevokeCacheSecurityGroupIngress</code> operation.</p>
  */
 export interface RevokeCacheSecurityGroupIngressMessage {
@@ -8980,6 +9418,9 @@ export interface RevokeCacheSecurityGroupIngressMessage {
   EC2SecurityGroupOwnerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeCacheSecurityGroupIngressResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -9005,6 +9446,7 @@ export interface RevokeCacheSecurityGroupIngressResult {
 }
 
 /**
+ * @public
  * <p>The targeted replication group is not available. </p>
  */
 export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException {
@@ -9024,6 +9466,7 @@ export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException 
 }
 
 /**
+ * @public
  * <p>The endpoint from which data should be migrated.</p>
  */
 export interface CustomerNodeEndpoint {
@@ -9038,6 +9481,9 @@ export interface CustomerNodeEndpoint {
   Port?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationMessage {
   /**
    * <p>The ID of the replication group to which data should be migrated.</p>
@@ -9050,6 +9496,9 @@ export interface StartMigrationMessage {
   CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationResponse {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
@@ -9058,6 +9507,7 @@ export interface StartMigrationResponse {
 }
 
 /**
+ * @public
  * <p>The customer has exceeded the allowed rate of API calls.</p>
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
@@ -9077,6 +9527,7 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
  *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
  */
@@ -9096,6 +9547,9 @@ export class NodeGroupNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TestFailoverMessage {
   /**
    * <p>The name of the replication group (console: cluster) whose automatic failover is being
@@ -9112,6 +9566,7 @@ export interface TestFailoverMessage {
 }
 
 /**
+ * @public
  * <p>The <code>TestFailover</code> action is not available.</p>
  */
 export class TestFailoverNotAvailableFault extends __BaseException {
@@ -9130,6 +9585,9 @@ export class TestFailoverNotAvailableFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TestFailoverResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>

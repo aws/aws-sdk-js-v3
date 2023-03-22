@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectAttributesCommand}.
  */
 export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectAttributesCommand}.
  */
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attributes within a facet that are associated with an object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectAttributesCommandInput - {@link GetObjectAttributesCommandInput}
+ * @returns {@link GetObjectAttributesCommandOutput}
  * @see {@link GetObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link GetObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetObjectAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetObjectAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetObjectAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAttributesCommandOutput> {
     return deserializeAws_restJson1GetObjectAttributesCommand(output, context);
   }

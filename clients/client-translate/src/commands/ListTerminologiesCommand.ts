@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTerminologiesCommand}.
  */
 export interface ListTerminologiesCommandInput extends ListTerminologiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTerminologiesCommand}.
  */
 export interface ListTerminologiesCommandOutput extends ListTerminologiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom terminologies associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTerminologiesCommandInput - {@link ListTerminologiesCommandInput}
+ * @returns {@link ListTerminologiesCommandOutput}
  * @see {@link ListTerminologiesCommandInput} for command's `input` shape.
  * @see {@link ListTerminologiesCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListTerminologiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTerminologiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListTerminologiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTerminologiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTerminologiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTerminologiesCommandOutput> {
     return deserializeAws_json1_1ListTerminologiesCommand(output, context);
   }

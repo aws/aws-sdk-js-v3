@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRealtimeContactAnalysisSegmentsCommand}.
  */
 export interface ListRealtimeContactAnalysisSegmentsCommandInput extends ListRealtimeContactAnalysisSegmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRealtimeContactAnalysisSegmentsCommand}.
  */
 export interface ListRealtimeContactAnalysisSegmentsCommandOutput
@@ -41,6 +45,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of analysis segments for a real-time analysis session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRealtimeContactAnalysisSegmentsCommandInput - {@link ListRealtimeContactAnalysisSegmentsCommandInput}
+ * @returns {@link ListRealtimeContactAnalysisSegmentsCommandOutput}
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandInput} for command's `input` shape.
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandOutput} for command's `response` shape.
  * @see {@link ConnectContactLensClientResolvedConfig | config} for ConnectContactLensClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRealtimeContactAnalysisSegmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRealtimeContactAnalysisSegmentsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
     return serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterAgentCommand}.
  */
 export interface RegisterAgentCommandInput extends RegisterAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterAgentCommand}.
  */
 export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new agent with AWS Groundstation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAgentCommandInput - {@link RegisterAgentCommandInput}
+ * @returns {@link RegisterAgentCommandOutput}
  * @see {@link RegisterAgentCommandInput} for command's `input` shape.
  * @see {@link RegisterAgentCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class RegisterAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class RegisterAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAgentCommandOutput> {
     return deserializeAws_restJson1RegisterAgentCommand(output, context);
   }

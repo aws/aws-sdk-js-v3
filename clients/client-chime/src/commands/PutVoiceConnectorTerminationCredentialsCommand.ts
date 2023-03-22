@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface PutVoiceConnectorTerminationCredentialsCommandInput
   extends PutVoiceConnectorTerminationCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorTerminationCredentialsCommandInput - {@link PutVoiceConnectorTerminationCredentialsCommandInput}
+ * @returns {@link PutVoiceConnectorTerminationCredentialsCommandOutput}
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     return serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

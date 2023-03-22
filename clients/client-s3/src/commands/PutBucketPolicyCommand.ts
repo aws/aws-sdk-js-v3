@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketPolicyCommand}.
  */
 export interface PutBucketPolicyCommandInput extends PutBucketPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketPolicyCommand}.
  */
 export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than
  *          the root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
  *             <code>PutBucketPolicy</code> permissions on the specified bucket and belong to the
@@ -68,6 +73,8 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketPolicyCommandInput - {@link PutBucketPolicyCommandInput}
+ * @returns {@link PutBucketPolicyCommandOutput}
  * @see {@link PutBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -109,6 +116,9 @@ export class PutBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class PutBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketPolicyCommandOutput> {
     return deserializeAws_restXmlPutBucketPolicyCommand(output, context);
   }

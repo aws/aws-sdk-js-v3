@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCalculationExecutionCodeCommand}.
  */
 export interface GetCalculationExecutionCodeCommandInput extends GetCalculationExecutionCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCalculationExecutionCodeCommand}.
  */
 export interface GetCalculationExecutionCodeCommandOutput
@@ -37,6 +41,7 @@ export interface GetCalculationExecutionCodeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a pre-signed URL to a copy of the code that was executed for the
  *             calculation.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetCalculationExecutionCodeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCalculationExecutionCodeCommandInput - {@link GetCalculationExecutionCodeCommandInput}
+ * @returns {@link GetCalculationExecutionCodeCommandOutput}
  * @see {@link GetCalculationExecutionCodeCommandInput} for command's `input` shape.
  * @see {@link GetCalculationExecutionCodeCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetCalculationExecutionCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCalculationExecutionCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetCalculationExecutionCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCalculationExecutionCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCalculationExecutionCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

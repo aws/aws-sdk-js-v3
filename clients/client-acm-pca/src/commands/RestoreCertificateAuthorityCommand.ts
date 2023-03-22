@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreCertificateAuthorityCommand}.
  */
 export interface RestoreCertificateAuthorityCommandInput extends RestoreCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreCertificateAuthorityCommand}.
  */
 export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a certificate authority (CA) that is in the <code>DELETED</code> state. You
  * 			can restore a CA during the period that you defined in the <b>PermanentDeletionTimeInDays</b> parameter of the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a> action. Currently, you can specify 7 to 30 days.
  * 			If you did not specify a <b>PermanentDeletionTimeInDays</b>
@@ -54,6 +59,8 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreCertificateAuthorityCommandInput - {@link RestoreCertificateAuthorityCommandInput}
+ * @returns {@link RestoreCertificateAuthorityCommandOutput}
  * @see {@link RestoreCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link RestoreCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -88,6 +95,9 @@ export class RestoreCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class RestoreCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

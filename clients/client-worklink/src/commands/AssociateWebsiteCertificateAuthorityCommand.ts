@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWebsiteCertificateAuthorityCommand}.
  */
 export interface AssociateWebsiteCertificateAuthorityCommandInput extends AssociateWebsiteCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWebsiteCertificateAuthorityCommand}.
  */
 export interface AssociateWebsiteCertificateAuthorityCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
@@ -51,6 +56,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWebsiteCertificateAuthorityCommandInput - {@link AssociateWebsiteCertificateAuthorityCommandInput}
+ * @returns {@link AssociateWebsiteCertificateAuthorityCommandOutput}
  * @see {@link AssociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -92,6 +99,9 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     return serializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

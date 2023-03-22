@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemAliasesCommand}.
  */
 export interface DescribeFileSystemAliasesCommandInput extends DescribeFileSystemAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemAliasesCommand}.
  */
 export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of
  *             all DNS aliases that have been associated with and disassociated from the file system is available in the list of <a>AdministrativeAction</a>
  *         provided in the <a>DescribeFileSystems</a> operation response.</p>
@@ -48,6 +53,8 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemAliasesCommandInput - {@link DescribeFileSystemAliasesCommandInput}
+ * @returns {@link DescribeFileSystemAliasesCommandOutput}
  * @see {@link DescribeFileSystemAliasesCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemAliasesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeFileSystemAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeFileSystemAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFileSystemAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

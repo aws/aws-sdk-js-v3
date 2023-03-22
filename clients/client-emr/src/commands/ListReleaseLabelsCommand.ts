@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReleaseLabelsCommand}.
  */
 export interface ListReleaseLabelsCommandInput extends ListReleaseLabelsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReleaseLabelsCommand}.
  */
 export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves release labels of EMR services in the region where the API is called.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReleaseLabelsCommandInput - {@link ListReleaseLabelsCommandInput}
+ * @returns {@link ListReleaseLabelsCommandOutput}
  * @see {@link ListReleaseLabelsCommandInput} for command's `input` shape.
  * @see {@link ListReleaseLabelsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListReleaseLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReleaseLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListReleaseLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReleaseLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReleaseLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReleaseLabelsCommandOutput> {
     return deserializeAws_json1_1ListReleaseLabelsCommand(output, context);
   }

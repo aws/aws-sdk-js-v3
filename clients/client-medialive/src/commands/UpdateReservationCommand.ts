@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReservationCommand}.
  */
 export interface UpdateReservationCommandInput extends UpdateReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReservationCommand}.
  */
 export interface UpdateReservationCommandOutput extends UpdateReservationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Update reservation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateReservationCommandOutput extends UpdateReservationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReservationCommandInput - {@link UpdateReservationCommandInput}
+ * @returns {@link UpdateReservationCommandOutput}
  * @see {@link UpdateReservationCommandInput} for command's `input` shape.
  * @see {@link UpdateReservationCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReservationCommandOutput> {
     return deserializeAws_restJson1UpdateReservationCommand(output, context);
   }

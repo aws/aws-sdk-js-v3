@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomRoutingListenerCommand}.
  */
 export interface CreateCustomRoutingListenerCommandInput extends CreateCustomRoutingListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomRoutingListenerCommand}.
  */
 export interface CreateCustomRoutingListenerCommandOutput
@@ -41,6 +45,7 @@ export interface CreateCustomRoutingListenerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.
  * 			Connections arrive to assigned static IP addresses on the port range that you specify. </p>
  * @example
@@ -53,6 +58,8 @@ export interface CreateCustomRoutingListenerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomRoutingListenerCommandInput - {@link CreateCustomRoutingListenerCommandInput}
+ * @returns {@link CreateCustomRoutingListenerCommandOutput}
  * @see {@link CreateCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateCustomRoutingListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomRoutingListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateCustomRoutingListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomRoutingListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCustomRoutingListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

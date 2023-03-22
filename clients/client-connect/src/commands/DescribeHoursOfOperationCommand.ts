@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHoursOfOperationCommand}.
  */
 export interface DescribeHoursOfOperationCommandInput extends DescribeHoursOfOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHoursOfOperationCommand}.
  */
 export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOperationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the hours of operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHoursOfOperationCommandInput - {@link DescribeHoursOfOperationCommandInput}
+ * @returns {@link DescribeHoursOfOperationCommandOutput}
  * @see {@link DescribeHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeHoursOfOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHoursOfOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeHoursOfOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeHoursOfOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHoursOfOperationCommandOutput> {
     return deserializeAws_restJson1DescribeHoursOfOperationCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrafficPolicyInstanceCountCommand}.
  */
 export interface GetTrafficPolicyInstanceCountCommandInput extends GetTrafficPolicyInstanceCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrafficPolicyInstanceCountCommand}.
  */
 export interface GetTrafficPolicyInstanceCountCommandOutput
@@ -37,6 +41,7 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the number of traffic policy instances that are associated with the current
  * 				Amazon Web Services account.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrafficPolicyInstanceCountCommandInput - {@link GetTrafficPolicyInstanceCountCommandInput}
+ * @returns {@link GetTrafficPolicyInstanceCountCommandOutput}
  * @see {@link GetTrafficPolicyInstanceCountCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrafficPolicyInstanceCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrafficPolicyInstanceCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

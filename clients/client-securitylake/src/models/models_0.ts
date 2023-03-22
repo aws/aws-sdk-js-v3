@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SecurityLakeServiceException as __BaseException } from "./SecurityLakeServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
  *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
@@ -31,12 +32,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccessType {
   LAKEFORMATION = "LAKEFORMATION",
   S3 = "S3",
 }
 
 /**
+ * @public
  * <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
  *          specified, or the account whose credentials you used to make this request isn't a member of
  *          an organization.</p>
@@ -57,6 +62,9 @@ export class AccountNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum OcsfEventClass {
   ACCESS_ACTIVITY = "ACCESS_ACTIVITY",
   ACCOUNT_CHANGE = "ACCOUNT_CHANGE",
@@ -93,6 +101,9 @@ export enum OcsfEventClass {
   VIRTUAL_MACHINE_ACTIVITY = "VIRTUAL_MACHINE_ACTIVITY",
 }
 
+/**
+ * @public
+ */
 export enum SourceStatus {
   ACTIVE = "ACTIVE",
   DEACTIVATED = "DEACTIVATED",
@@ -100,6 +111,7 @@ export enum SourceStatus {
 }
 
 /**
+ * @public
  * <p>Retrieves the Logs status for the Amazon Security Lake account.</p>
  */
 export interface LogsStatus {
@@ -116,6 +128,7 @@ export interface LogsStatus {
 }
 
 /**
+ * @public
  * <p>Amazon Security Lake collects logs and events from supported Amazon Web Services and
  *          custom sources. For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  */
@@ -142,6 +155,9 @@ export interface AccountSources {
   eventClass?: OcsfEventClass | string;
 }
 
+/**
+ * @public
+ */
 export enum Region {
   AP_NORTHEAST_1 = "ap-northeast-1",
   AP_SOUTHEAST_2 = "ap-southeast-2",
@@ -152,6 +168,9 @@ export enum Region {
   US_WEST_2 = "us-west-2",
 }
 
+/**
+ * @public
+ */
 export enum AwsLogSourceType {
   CLOUD_TRAIL = "CLOUD_TRAIL",
   ROUTE53 = "ROUTE53",
@@ -160,6 +179,7 @@ export enum AwsLogSourceType {
 }
 
 /**
+ * @public
  * <p>Automatically enable new organization accounts as member accounts from an Amazon Security Lake
  *          administrator account.</p>
  */
@@ -176,6 +196,7 @@ export interface AutoEnableNewRegionConfiguration {
 }
 
 /**
+ * @public
  * <p>Amazon Security Lake  generally returns 404 errors if the requested object is missing from the
  *          bucket.</p>
  */
@@ -196,6 +217,7 @@ export class BucketNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>More than one process tried to modify a resource at the same time. </p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -216,6 +238,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Occurs when a conflict with a previous successful write is detected. This generally
  *          occurs when the previous write did not have time to propagate to the host serving the
  *          current request. A retry (with appropriate backoff logic) is the recommended response to
@@ -250,6 +273,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict when you attempted to modify a Security Lake source name. </p>
  */
 export class ConflictSourceNamesException extends __BaseException {
@@ -269,6 +293,7 @@ export class ConflictSourceNamesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A conflicting subscription exception operation is in progress. </p>
  */
 export class ConflictSubscriptionException extends __BaseException {
@@ -287,12 +312,18 @@ export class ConflictSubscriptionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Dimension {
   MEMBER = "MEMBER",
   REGION = "REGION",
   SOURCE_TYPE = "SOURCE_TYPE",
 }
 
+/**
+ * @public
+ */
 export interface CreateAwsLogSourceRequest {
   /**
    * <p>Specifies the input order to enable dimensions in Security Lake, namely Region, source type,
@@ -319,6 +350,9 @@ export interface CreateAwsLogSourceRequest {
   enableSingleDimension?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAwsLogSourceResponse {
   /**
    * <p>Lists the accounts that are in the process of enabling a natively supported Amazon Web Service as a Security Lake source.</p>
@@ -334,6 +368,7 @@ export interface CreateAwsLogSourceResponse {
 }
 
 /**
+ * @public
  * <p>Internal service exceptions are sometimes caused by transient issues. Before you start
  *          troubleshooting, perform the operation again. </p>
  */
@@ -361,6 +396,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -392,6 +428,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides an extension of the AmazonServiceException for errors reported by Amazon S3 while processing a request. In particular, this class provides access to the
  *             Amazon S3 extended request ID. If Amazon S3 is incorrectly handling a
  *          request and you need to contact Amazon, this extended request ID may provide useful
@@ -414,6 +451,7 @@ export class S3Exception extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to meet the constraints specified in Amazon Security Lake. </p>
  */
 export interface ValidationExceptionField {
@@ -428,6 +466,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -436,6 +477,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>Your signing certificate could not be validated. </p>
  */
 export class ValidationException extends __BaseException {
@@ -466,6 +508,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomLogSourceRequest {
   /**
    * <p>The name for a third-party custom source. This must be a Regionally unique value.</p>
@@ -501,6 +546,9 @@ export interface CreateCustomLogSourceRequest {
   logProviderAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomLogSourceResponse {
   /**
    * <p>The location of the partition in the Amazon S3 bucket for Security Lake.</p>
@@ -533,6 +581,9 @@ export interface CreateCustomLogSourceResponse {
   logProviderAccessRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   EXPIRE = "EXPIRE",
@@ -544,6 +595,7 @@ export enum StorageClass {
 }
 
 /**
+ * @public
  * <p>Retention settings for the destination Amazon S3 buckets in Amazon Security Lake. </p>
  */
 export interface RetentionSetting {
@@ -561,6 +613,7 @@ export interface RetentionSetting {
 }
 
 /**
+ * @public
  * <p>Provides details of Amazon Security Lake configuration object.</p>
  */
 export interface LakeConfigurationRequest {
@@ -600,6 +653,9 @@ export interface LakeConfigurationRequest {
   replicationRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeRequest {
   /**
    * <p>Enable Security Lake in the specified Regions. To enable Security Lake in specific Amazon Web Services Regions, such as us-east-1 or ap-northeast-3, provide the Region codes. For a
@@ -625,9 +681,13 @@ export interface CreateDatalakeRequest {
   metaStoreManagerRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeResponse {}
 
 /**
+ * @public
  * <p>You have exceeded your service quota. To perform the requested action, remove some of
  *          the relevant resources, or use Service Quotas to request a service quota increase. </p>
  */
@@ -672,6 +732,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second was exceeded. </p>
  */
 export class ThrottlingException extends __BaseException {
@@ -711,6 +772,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeAutoEnableRequest {
   /**
    * <p>Enable Security Lake with the specified configuration settings to begin collecting security
@@ -719,8 +783,14 @@ export interface CreateDatalakeAutoEnableRequest {
   configurationForNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeAutoEnableResponse {}
 
+/**
+ * @public
+ */
 export interface CreateDatalakeDelegatedAdminRequest {
   /**
    * <p>The Amazon Web Services account ID of the Security Lake delegated administrator.</p>
@@ -728,8 +798,14 @@ export interface CreateDatalakeDelegatedAdminRequest {
   account: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeDelegatedAdminResponse {}
 
+/**
+ * @public
+ */
 export enum SubscriptionProtocolType {
   APP = "APP",
   EMAIL = "EMAIL",
@@ -742,6 +818,9 @@ export enum SubscriptionProtocolType {
   SQS = "SQS",
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeExceptionsSubscriptionRequest {
   /**
    * <p>The subscription protocol to which exception notifications are posted. </p>
@@ -754,14 +833,21 @@ export interface CreateDatalakeExceptionsSubscriptionRequest {
   notificationEndpoint: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatalakeExceptionsSubscriptionResponse {}
 
 /**
+ * @public
  * <p>The supported source types from which logs and events are collected in Amazon Security Lake.
  *          For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  */
 export type SourceType = SourceType.AwsSourceTypeMember | SourceType.CustomSourceTypeMember | SourceType.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SourceType {
   /**
    * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. </p>
@@ -801,6 +887,9 @@ export namespace SourceType {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateSubscriberRequest {
   /**
    * <p>The supported Amazon Web Services from which logs and events are collected.
@@ -836,6 +925,9 @@ export interface CreateSubscriberRequest {
   subscriberDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSubscriberResponse {
   /**
    * <p>The <code>subscriptionId</code> created by the <code>CreateSubscriber</code> API
@@ -872,6 +964,7 @@ export interface CreateSubscriberResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a value that's not valid or is out of range was
  *          supplied for an input parameter. </p>
  */
@@ -891,11 +984,17 @@ export class InvalidInputException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum HttpsMethod {
   POST = "POST",
   PUT = "PUT",
 }
 
+/**
+ * @public
+ */
 export interface CreateSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The subscription ID for the notification subscription.</p>
@@ -936,6 +1035,9 @@ export interface CreateSubscriptionNotificationConfigurationRequest {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSubscriptionNotificationConfigurationResponse {
   /**
    * <p>Returns the Amazon Resource Name (ARN) of the queue.</p>
@@ -943,6 +1045,9 @@ export interface CreateSubscriptionNotificationConfigurationResponse {
   queueArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAwsLogSourceRequest {
   /**
    * <p>This is a mandatory input. Specify the input order to disable dimensions in Security Lake,
@@ -968,6 +1073,9 @@ export interface DeleteAwsLogSourceRequest {
   disableSingleDimension?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteAwsLogSourceResponse {
   /**
    * <p>Deletion of the Amazon Web Services sources is in progress.</p>
@@ -980,6 +1088,9 @@ export interface DeleteAwsLogSourceResponse {
   failed?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomLogSourceRequest {
   /**
    * <p>The custom source name for the custom log source.</p>
@@ -987,6 +1098,9 @@ export interface DeleteCustomLogSourceRequest {
   customSourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomLogSourceResponse {
   /**
    * <p>The location of the partition in the Amazon S3 bucket for Security Lake.</p>
@@ -994,10 +1108,19 @@ export interface DeleteCustomLogSourceResponse {
   customDataLocation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeAutoEnableRequest {
   /**
    * <p>Remove automatic enablement of configuration settings for new member accounts in
@@ -1006,8 +1129,14 @@ export interface DeleteDatalakeAutoEnableRequest {
   removeFromConfigurationForNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeAutoEnableResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeDelegatedAdminRequest {
   /**
    * <p>The account ID the Security Lake delegated administrator.</p>
@@ -1015,10 +1144,19 @@ export interface DeleteDatalakeDelegatedAdminRequest {
   account: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeDelegatedAdminResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeExceptionsSubscriptionRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteDatalakeExceptionsSubscriptionResponse {
   /**
    * <p>Retrieves the status of the delete Security Lake operation for an account. </p>
@@ -1026,6 +1164,9 @@ export interface DeleteDatalakeExceptionsSubscriptionResponse {
   status: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubscriberRequest {
   /**
    * <p>A value created by Security Lake that uniquely identifies your <code>DeleteSubscriber</code> API request. </p>
@@ -1033,8 +1174,14 @@ export interface DeleteSubscriberRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubscriberResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The ID of the Security Lake subscriber account.</p>
@@ -1042,14 +1189,21 @@ export interface DeleteSubscriptionNotificationConfigurationRequest {
   subscriptionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubscriptionNotificationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export enum EndpointProtocol {
   HTTPS = "HTTPS",
   SQS = "SQS",
 }
 
 /**
+ * @public
  * <p>Represents an error interacting with the Amazon EventBridge service.</p>
  */
 export class EventBridgeException extends __BaseException {
@@ -1069,6 +1223,7 @@ export class EventBridgeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>List of all failures.</p>
  */
 export interface Failures {
@@ -1089,6 +1244,7 @@ export interface Failures {
 }
 
 /**
+ * @public
  * <p>Response element for actions that make changes, namely create, update, or delete
  *          actions. </p>
  */
@@ -1104,8 +1260,14 @@ export interface FailuresResponse {
   failures?: Failures[];
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeRequest {}
 
+/**
+ * @public
+ */
 export enum SettingsStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -1114,6 +1276,7 @@ export enum SettingsStatus {
 }
 
 /**
+ * @public
  * <p>The details of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code>
  *          API request which failed.</p>
  */
@@ -1132,6 +1295,7 @@ export interface LastUpdateFailure {
 }
 
 /**
+ * @public
  * <p>The status of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code> API
  *          request. This is set to Completed after the configuration is updated, or removed if
  *          deletion of the data lake is successful.</p>
@@ -1157,6 +1321,7 @@ export interface UpdateStatus {
 }
 
 /**
+ * @public
  * <p>Provides details of Amazon Security Lake lake configuration object.</p>
  */
 export interface LakeConfigurationResponse {
@@ -1212,6 +1377,9 @@ export interface LakeConfigurationResponse {
   updateStatus?: UpdateStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeResponse {
   /**
    * <p>Retrieves the Security Lake configuration object. </p>
@@ -1219,8 +1387,14 @@ export interface GetDatalakeResponse {
   configurations: Record<string, LakeConfigurationResponse> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeAutoEnableRequest {}
 
+/**
+ * @public
+ */
 export interface GetDatalakeAutoEnableResponse {
   /**
    * <p>The configuration for new accounts.</p>
@@ -1228,8 +1402,14 @@ export interface GetDatalakeAutoEnableResponse {
   autoEnableNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsExpiryRequest {}
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsExpiryResponse {
   /**
    * <p>The expiration period and time-to-live (TTL).</p>
@@ -1237,9 +1417,13 @@ export interface GetDatalakeExceptionsExpiryResponse {
   exceptionMessageExpiry: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsSubscriptionRequest {}
 
 /**
+ * @public
  * <p>Protocol used in Amazon Security Lake that dictates how notifications are posted at the
  *          endpoint. </p>
  */
@@ -1255,6 +1439,9 @@ export interface ProtocolAndNotificationEndpoint {
   endpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeExceptionsSubscriptionResponse {
   /**
    * <p>Retrieves the exception notification subscription information.</p>
@@ -1262,6 +1449,9 @@ export interface GetDatalakeExceptionsSubscriptionResponse {
   protocolAndNotificationEndpoint: ProtocolAndNotificationEndpoint | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeStatusRequest {
   /**
    * <p>The Amazon Web Services account ID for which a static snapshot of the current Amazon Web Services Region, including enabled accounts and log sources, is retrieved.</p>
@@ -1284,6 +1474,9 @@ export interface GetDatalakeStatusRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatalakeStatusResponse {
   /**
    * <p>The list of enabled accounts and enabled sources.</p>
@@ -1300,6 +1493,9 @@ export interface GetDatalakeStatusResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSubscriberRequest {
   /**
    * <p>A value created by Amazon Security Lake that uniquely identifies your
@@ -1308,6 +1504,9 @@ export interface GetSubscriberRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SubscriptionStatus {
   ACTIVE = "ACTIVE",
   DEACTIVATED = "DEACTIVATED",
@@ -1316,6 +1515,7 @@ export enum SubscriptionStatus {
 }
 
 /**
+ * @public
  * <p>Provides details about the Amazon Security Lake account subscription. Subscribers are notified
  *          of new objects for a source as the data is written to your Amazon S3 bucket for
  *          Security Lake. </p>
@@ -1420,6 +1620,9 @@ export interface SubscriberResource {
   resourceShareName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSubscriberResponse {
   /**
    * <p>The subscription information for the specified subscription ID.</p>
@@ -1427,6 +1630,9 @@ export interface GetSubscriberResponse {
   subscriber?: SubscriberResource;
 }
 
+/**
+ * @public
+ */
 export interface ListDatalakeExceptionsRequest {
   /**
    * <p>List the Amazon Web Services Regions from which exceptions are retrieved.</p>
@@ -1448,6 +1654,9 @@ export interface ListDatalakeExceptionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatalakeExceptionsResponse {
   /**
    * <p>Lists the failures that cannot be retried in the current Region.</p>
@@ -1464,6 +1673,9 @@ export interface ListDatalakeExceptionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogSourcesRequest {
   /**
    * <p>Lists the log sources in input order, namely Region, source
@@ -1499,6 +1711,9 @@ export interface ListLogSourcesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogSourcesResponse {
   /**
    * <p>Lists the log sources by Regions for enabled Security Lake accounts.</p>
@@ -1512,6 +1727,9 @@ export interface ListLogSourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribersRequest {
   /**
    * <p>If nextToken is returned, there are more results available. You can repeat the call
@@ -1525,6 +1743,9 @@ export interface ListSubscribersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribersResponse {
   /**
    * <p>The subscribers available for the specified Security Lake account ID.</p>
@@ -1538,6 +1759,9 @@ export interface ListSubscribersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeRequest {
   /**
    * <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
@@ -1545,8 +1769,14 @@ export interface UpdateDatalakeRequest {
   configurations: Record<string, LakeConfigurationRequest> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsExpiryRequest {
   /**
    * <p>The time-to-live (TTL) for the exception message to remain.</p>
@@ -1554,8 +1784,14 @@ export interface UpdateDatalakeExceptionsExpiryRequest {
   exceptionMessageExpiry: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsExpiryResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsSubscriptionRequest {
   /**
    * <p>The subscription protocol to which exception messages are posted. </p>
@@ -1568,8 +1804,14 @@ export interface UpdateDatalakeExceptionsSubscriptionRequest {
   notificationEndpoint: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatalakeExceptionsSubscriptionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateSubscriberRequest {
   /**
    * <p>A value created by Security Lake that uniquely identifies your subscription. </p>
@@ -1598,6 +1840,9 @@ export interface UpdateSubscriberRequest {
   subscriberDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubscriberResponse {
   /**
    * <p>The account of the subscriber.</p>
@@ -1605,6 +1850,9 @@ export interface UpdateSubscriberResponse {
   subscriber?: SubscriberResource;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The subscription ID for which the subscription notification is specified. </p>
@@ -1644,6 +1892,9 @@ export interface UpdateSubscriptionNotificationConfigurationRequest {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubscriptionNotificationConfigurationResponse {
   /**
    * <p>Returns the ARN of the queue.</p>

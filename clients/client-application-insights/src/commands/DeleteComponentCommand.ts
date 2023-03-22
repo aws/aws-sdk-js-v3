@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteComponentCommand}.
  */
 export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteComponentCommand}.
  */
 export interface DeleteComponentCommandOutput extends DeleteComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ungroups a custom component. When you ungroup custom components, all applicable monitors
  *          that are set up for the component are removed and the instances revert to their standalone
  *          status.</p>
@@ -52,6 +57,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
+ * @returns {@link DeleteComponentCommandOutput}
  * @see {@link DeleteComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComponentCommandOutput> {
     return deserializeAws_json1_1DeleteComponentCommand(output, context);
   }

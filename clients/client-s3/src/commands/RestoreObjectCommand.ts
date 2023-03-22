@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreObjectCommand}.
  */
 export interface RestoreObjectCommandInput extends RestoreObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreObjectCommand}.
  */
 export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores an archived copy of an object back into Amazon S3</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  *          <p>This action performs the following types of requests: </p>
@@ -330,6 +335,8 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreObjectCommandInput - {@link RestoreObjectCommandInput}
+ * @returns {@link RestoreObjectCommandOutput}
  * @see {@link RestoreObjectCommandInput} for command's `input` shape.
  * @see {@link RestoreObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -380,6 +387,9 @@ export class RestoreObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -424,10 +434,16 @@ export class RestoreObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlRestoreObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreObjectCommandOutput> {
     return deserializeAws_restXmlRestoreObjectCommand(output, context);
   }

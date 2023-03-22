@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateIamInstanceProfileCommand}.
  */
 export interface AssociateIamInstanceProfileCommandInput extends AssociateIamInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateIamInstanceProfileCommand}.
  */
 export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an IAM instance profile with a running or stopped instance. You cannot
  *             associate more than one IAM instance profile with an instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateIamInstanceProfileCommandInput - {@link AssociateIamInstanceProfileCommandInput}
+ * @returns {@link AssociateIamInstanceProfileCommandOutput}
  * @see {@link AssociateIamInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link AssociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -97,6 +104,9 @@ export class AssociateIamInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateIamInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AssociateIamInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateIamInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateIamInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

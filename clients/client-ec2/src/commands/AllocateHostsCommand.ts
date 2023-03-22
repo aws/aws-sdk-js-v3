@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2AllocateHostsCommand, serializeAws_ec2AllocateHostsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateHostsCommand}.
  */
 export interface AllocateHostsCommandInput extends AllocateHostsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateHostsCommand}.
  */
 export interface AllocateHostsCommandOutput extends AllocateHostsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported
  *             instance type or instance family, the Availability Zone in which to allocate the host,
  *             and the number of hosts to allocate.</p>
@@ -45,6 +50,8 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateHostsCommandInput - {@link AllocateHostsCommandInput}
+ * @returns {@link AllocateHostsCommandOutput}
  * @see {@link AllocateHostsCommandInput} for command's `input` shape.
  * @see {@link AllocateHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class AllocateHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class AllocateHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllocateHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AllocateHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateHostsCommandOutput> {
     return deserializeAws_ec2AllocateHostsCommand(output, context);
   }

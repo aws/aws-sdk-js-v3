@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubscribeToEventCommand}.
  */
 export interface SubscribeToEventCommandInput extends SubscribeToEventRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubscribeToEventCommand}.
  */
 export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
  *          about a specified event to a specified SNS topic.</p>
  * @example
@@ -42,6 +47,8 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeToEventCommandInput - {@link SubscribeToEventCommandInput}
+ * @returns {@link SubscribeToEventCommandOutput}
  * @see {@link SubscribeToEventCommandInput} for command's `input` shape.
  * @see {@link SubscribeToEventCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -99,6 +106,9 @@ export class SubscribeToEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeToEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class SubscribeToEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeToEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SubscribeToEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeToEventCommandOutput> {
     return deserializeAws_json1_1SubscribeToEventCommand(output, context);
   }

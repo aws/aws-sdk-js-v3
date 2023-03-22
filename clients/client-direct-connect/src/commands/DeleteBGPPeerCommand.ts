@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBGPPeerCommand}.
  */
 export interface DeleteBGPPeerCommandInput extends DeleteBGPPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBGPPeerCommand}.
  */
 export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p>
  *          <p>You cannot delete the last BGP peer from a virtual interface.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBGPPeerCommandInput - {@link DeleteBGPPeerCommandInput}
+ * @returns {@link DeleteBGPPeerCommandOutput}
  * @see {@link DeleteBGPPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteBGPPeerCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteBGPPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBGPPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteBGPPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBGPPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBGPPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBGPPeerCommandOutput> {
     return deserializeAws_json1_1DeleteBGPPeerCommand(output, context);
   }

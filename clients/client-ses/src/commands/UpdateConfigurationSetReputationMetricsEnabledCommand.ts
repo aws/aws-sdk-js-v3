@@ -24,16 +24,21 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetReputationMetricsEnabledCommand}.
  */
 export interface UpdateConfigurationSetReputationMetricsEnabledCommandInput
   extends UpdateConfigurationSetReputationMetricsEnabledRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetReputationMetricsEnabledCommand}.
  */
 export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables the publishing of reputation metrics for emails sent using a
  *             specific configuration set in a given AWS Region. Reputation metrics include bounce
  *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
@@ -49,6 +54,8 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetReputationMetricsEnabledCommandInput - {@link UpdateConfigurationSetReputationMetricsEnabledCommandInput}
+ * @returns {@link UpdateConfigurationSetReputationMetricsEnabledCommandOutput}
  * @see {@link UpdateConfigurationSetReputationMetricsEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetReputationMetricsEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetReputationMetricsEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     return serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

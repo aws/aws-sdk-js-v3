@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMediaStorageConfigurationCommand}.
  */
 export interface DescribeMediaStorageConfigurationCommandInput extends DescribeMediaStorageConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMediaStorageConfigurationCommand}.
  */
 export interface DescribeMediaStorageConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMediaStorageConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
  *             or <code>ChannelARN</code> in the input.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMediaStorageConfigurationCommandInput - {@link DescribeMediaStorageConfigurationCommandInput}
+ * @returns {@link DescribeMediaStorageConfigurationCommandOutput}
  * @see {@link DescribeMediaStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeMediaStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMediaStorageConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMediaStorageConfigurationCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeMediaStorageConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

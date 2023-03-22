@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBInstanceCommand}.
  */
 export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBInstanceCommand}.
  */
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB instance.</p>
  *          <p>The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.
  *            For an Aurora DB cluster, you can call this operation multiple times to add more than one DB instance
@@ -54,6 +59,8 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBInstanceCommandInput - {@link CreateDBInstanceCommandInput}
+ * @returns {@link CreateDBInstanceCommandOutput}
  * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -176,6 +183,9 @@ export class CreateDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -215,10 +225,16 @@ export class CreateDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBInstanceCommandOutput> {
     return deserializeAws_queryCreateDBInstanceCommand(output, context);
   }

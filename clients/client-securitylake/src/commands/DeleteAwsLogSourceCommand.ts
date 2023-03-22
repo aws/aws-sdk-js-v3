@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAwsLogSourceCommand}.
  */
 export interface DeleteAwsLogSourceCommandInput extends DeleteAwsLogSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAwsLogSourceCommand}.
  */
 export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. When
  *          you remove the source, Security Lake stops collecting data from that source, and subscribers
  *          can no longer consume new data from the source. Subscribers can still consume data that
@@ -60,6 +65,8 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAwsLogSourceCommandInput - {@link DeleteAwsLogSourceCommandInput}
+ * @returns {@link DeleteAwsLogSourceCommandOutput}
  * @see {@link DeleteAwsLogSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAwsLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteAwsLogSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAwsLogSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteAwsLogSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAwsLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAwsLogSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAwsLogSourceCommandOutput> {
     return deserializeAws_restJson1DeleteAwsLogSourceCommand(output, context);
   }

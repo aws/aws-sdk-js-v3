@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIpGroupCommand}.
  */
 export interface CreateIpGroupCommandInput extends CreateIpGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIpGroupCommand}.
  */
 export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IP access control group.</p>
  *          <p>An IP access control group provides you with the ability to control the IP addresses
  *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
@@ -54,6 +59,8 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIpGroupCommandInput - {@link CreateIpGroupCommandInput}
+ * @returns {@link CreateIpGroupCommandOutput}
  * @see {@link CreateIpGroupCommandInput} for command's `input` shape.
  * @see {@link CreateIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateIpGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIpGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateIpGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateIpGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpGroupCommandOutput> {
     return deserializeAws_json1_1CreateIpGroupCommand(output, context);
   }

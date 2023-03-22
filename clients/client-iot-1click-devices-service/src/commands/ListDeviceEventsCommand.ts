@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceEventsCommand}.
  */
 export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceEventsCommand}.
  */
 export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Using a device ID, returns a DeviceEventsResponse object containing an
  *  array of events for the device.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
+ * @returns {@link ListDeviceEventsCommandOutput}
  * @see {@link ListDeviceEventsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceEventsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDeviceEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDeviceEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDeviceEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceEventsCommandOutput> {
     return deserializeAws_restJson1ListDeviceEventsCommand(output, context);
   }

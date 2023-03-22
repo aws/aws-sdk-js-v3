@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link StartDataIngestionJobCommand}.
  */
 export interface StartDataIngestionJobCommandInput extends StartDataIngestionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDataIngestionJobCommand}.
  */
 export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataIngestionJobCommandInput - {@link StartDataIngestionJobCommandInput}
+ * @returns {@link StartDataIngestionJobCommandOutput}
  * @see {@link StartDataIngestionJobCommandInput} for command's `input` shape.
  * @see {@link StartDataIngestionJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartDataIngestionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataIngestionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class StartDataIngestionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDataIngestionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StartDataIngestionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDataIngestionJobCommandOutput> {
     return deserializeAws_json1_0StartDataIngestionJobCommand(output, context);
   }

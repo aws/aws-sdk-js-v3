@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomVocabularyCommand}.
  */
 export interface DeleteCustomVocabularyCommandInput extends DeleteCustomVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomVocabularyCommand}.
  */
 export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a custom vocabulary from the specified locale
  *       in the specified bot.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomVocabularyCommandInput - {@link DeleteCustomVocabularyCommandInput}
+ * @returns {@link DeleteCustomVocabularyCommandOutput}
  * @see {@link DeleteCustomVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomVocabularyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteCustomVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteCustomVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCustomVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomVocabularyCommandOutput> {
     return deserializeAws_restJson1DeleteCustomVocabularyCommand(output, context);
   }

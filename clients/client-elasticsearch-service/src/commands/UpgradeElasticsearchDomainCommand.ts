@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpgradeElasticsearchDomainCommand}.
  */
 export interface UpgradeElasticsearchDomainCommandInput extends UpgradeElasticsearchDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpgradeElasticsearchDomainCommand}.
  */
 export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * const response = await client.send(command);
  * ```
  *
+ * @param UpgradeElasticsearchDomainCommandInput - {@link UpgradeElasticsearchDomainCommandInput}
+ * @returns {@link UpgradeElasticsearchDomainCommandOutput}
  * @see {@link UpgradeElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link UpgradeElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpgradeElasticsearchDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpgradeElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpgradeElasticsearchDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDominantLanguageDetectionJobCommand}.
  */
 export interface StartDominantLanguageDetectionJobCommandInput extends StartDominantLanguageDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDominantLanguageDetectionJobCommand}.
  */
 export interface StartDominantLanguageDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface StartDominantLanguageDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous dominant language detection job for a collection of documents. Use
  *       the  operation to track the status
  *       of a job.</p>
@@ -50,6 +55,8 @@ export interface StartDominantLanguageDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDominantLanguageDetectionJobCommandInput - {@link StartDominantLanguageDetectionJobCommandInput}
+ * @returns {@link StartDominantLanguageDetectionJobCommandOutput}
  * @see {@link StartDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartDominantLanguageDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDominantLanguageDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class StartDominantLanguageDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class StartDominantLanguageDetectionJobCommand extends $Command<
     return serializeAws_json1_1StartDominantLanguageDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ListSnapshotsInRecycleBinCommand}.
  */
 export interface ListSnapshotsInRecycleBinCommandInput extends ListSnapshotsInRecycleBinRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSnapshotsInRecycleBinCommand}.
  */
 export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInRecycleBinResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSnapshotsInRecycleBinCommandInput - {@link ListSnapshotsInRecycleBinCommandInput}
+ * @returns {@link ListSnapshotsInRecycleBinCommandOutput}
  * @see {@link ListSnapshotsInRecycleBinCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotsInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSnapshotsInRecycleBinCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSnapshotsInRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ListSnapshotsInRecycleBinCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

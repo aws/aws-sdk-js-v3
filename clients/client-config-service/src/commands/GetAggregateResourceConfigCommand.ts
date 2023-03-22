@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAggregateResourceConfigCommand}.
  */
 export interface GetAggregateResourceConfigCommandInput extends GetAggregateResourceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAggregateResourceConfigCommand}.
  */
 export interface GetAggregateResourceConfigCommandOutput extends GetAggregateResourceConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateResourceConfigCommandInput - {@link GetAggregateResourceConfigCommandInput}
+ * @returns {@link GetAggregateResourceConfigCommandOutput}
  * @see {@link GetAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link GetAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetAggregateResourceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateResourceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetAggregateResourceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAggregateResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAggregateResourceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

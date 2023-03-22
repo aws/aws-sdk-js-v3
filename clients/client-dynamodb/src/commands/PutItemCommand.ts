@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_0PutItemCommand, serializeAws_json1_0PutItemCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutItemCommand}.
  */
 export interface PutItemCommandInput extends PutItemInput {}
 /**
+ * @public
+ *
  * The output of {@link PutItemCommand}.
  */
 export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new item, or replaces an old item with a new item. If an item that has the
  *             same primary key as the new item already exists in the specified table, the new item
  *             completely replaces the existing item. You can perform a conditional put operation (add
@@ -64,6 +69,8 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutItemCommandInput - {@link PutItemCommandInput}
+ * @returns {@link PutItemCommandOutput}
  * @see {@link PutItemCommandInput} for command's `input` shape.
  * @see {@link PutItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -145,6 +152,9 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PutItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutItemCommandOutput> {
     return deserializeAws_json1_0PutItemCommand(output, context);
   }

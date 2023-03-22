@@ -18,15 +18,20 @@ import { DeleteFaqRequest, DeleteFaqRequestFilterSensitiveLog } from "../models/
 import { deserializeAws_json1_1DeleteFaqCommand, serializeAws_json1_1DeleteFaqCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFaqCommand}.
  */
 export interface DeleteFaqCommandInput extends DeleteFaqRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFaqCommand}.
  */
 export interface DeleteFaqCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an FAQ from an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,6 +43,8 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFaqCommandInput - {@link DeleteFaqCommandInput}
+ * @returns {@link DeleteFaqCommandOutput}
  * @see {@link DeleteFaqCommandInput} for command's `input` shape.
  * @see {@link DeleteFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteFaqCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFaqCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteFaqCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFaqCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFaqCommandOutput> {
     return deserializeAws_json1_1DeleteFaqCommand(output, context);
   }

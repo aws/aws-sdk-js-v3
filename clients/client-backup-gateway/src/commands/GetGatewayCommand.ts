@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetGatewayCommand}.
  */
 export interface GetGatewayCommandInput extends GetGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGatewayCommand}.
  */
 export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>By providing the ARN (Amazon Resource Name), this
  *       API returns the gateway.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
+ * @returns {@link GetGatewayCommandOutput}
  * @see {@link GetGatewayCommandInput} for command's `input` shape.
  * @see {@link GetGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayCommandOutput> {
     return deserializeAws_json1_0GetGatewayCommand(output, context);
   }

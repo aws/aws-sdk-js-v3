@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { LocationServiceException as __BaseException } from "./LocationServiceException";
 
 /**
+ * @public
  * <p>The request was denied because of insufficient access or permissions. Check with an
  *       administrator to verify your permissions.</p>
  */
@@ -25,9 +26,13 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type Status = "Active" | "Expired";
 
 /**
+ * @public
  * <p>Options for filtering API keys.</p>
  */
 export interface ApiKeyFilter {
@@ -38,6 +43,7 @@ export interface ApiKeyFilter {
 }
 
 /**
+ * @public
  * <p>The request was unsuccessful because of a conflict.</p>
  */
 export class ConflictException extends __BaseException {
@@ -59,6 +65,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>API Restrictions on the allowed actions, resources, and referers for an API key
  *             resource.</p>
  */
@@ -150,6 +157,9 @@ export interface ApiKeyRestrictions {
   AllowReferers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyRequest {
   /**
    * <p>A custom name for the API key resource.</p>
@@ -223,6 +233,9 @@ export interface CreateKeyRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyResponse {
   /**
    * <p>The key value/string of an API key. This value is used when making API calls to
@@ -256,6 +269,7 @@ export interface CreateKeyResponse {
 }
 
 /**
+ * @public
  * <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -278,6 +292,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  */
@@ -303,6 +318,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because of request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -325,6 +341,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input failed to meet the constraints specified by the AWS service in a specified
  *       field. </p>
  */
@@ -340,6 +357,9 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type ValidationExceptionReason =
   | "CannotParse"
   | "FieldValidationFailed"
@@ -348,6 +368,7 @@ export type ValidationExceptionReason =
   | "UnknownOperation";
 
 /**
+ * @public
  * <p>The input failed to meet the constraints specified by the AWS service. </p>
  */
 export class ValidationException extends __BaseException {
@@ -379,6 +400,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyRequest {
   /**
    * <p>The name of the API key to delete.</p>
@@ -386,9 +410,13 @@ export interface DeleteKeyRequest {
   KeyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyResponse {}
 
 /**
+ * @public
  * <p>The resource that you've entered was not found in your AWS account.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -409,6 +437,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyRequest {
   /**
    * <p>The name of the API key resource.</p>
@@ -416,6 +447,9 @@ export interface DescribeKeyRequest {
   KeyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyResponse {
   /**
    * <p>The key value/string of an API key.</p>
@@ -475,6 +509,9 @@ export interface DescribeKeyResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListKeysRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -499,6 +536,7 @@ export interface ListKeysRequest {
 }
 
 /**
+ * @public
  * <p>An API key resource listed in your Amazon Web Services account.</p>
  */
 export interface ListKeysResponseEntry {
@@ -537,6 +575,9 @@ export interface ListKeysResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListKeysResponse {
   /**
    * <p>Contains API key resources in your Amazon Web Services account. Details include API key
@@ -551,6 +592,9 @@ export interface ListKeysResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateKeyRequest {
   /**
    * <p>The name of the API key resource to update.</p>
@@ -592,6 +636,9 @@ export interface UpdateKeyRequest {
   Restrictions?: ApiKeyRestrictions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateKeyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
@@ -618,6 +665,9 @@ export interface UpdateKeyResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrackerConsumerRequest {
   /**
    * <p>The name of the tracker resource to be associated with a geofence collection.</p>
@@ -638,8 +688,14 @@ export interface AssociateTrackerConsumerRequest {
   ConsumerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrackerConsumerResponse {}
 
+/**
+ * @public
+ */
 export interface BatchDeleteDevicePositionHistoryRequest {
   /**
    * <p>The name of the tracker resource to delete the device position history from.</p>
@@ -659,6 +715,9 @@ export interface BatchDeleteDevicePositionHistoryRequest {
   DeviceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export type BatchItemErrorCode =
   | "AccessDeniedError"
   | "ConflictError"
@@ -668,6 +727,7 @@ export type BatchItemErrorCode =
   | "ValidationError";
 
 /**
+ * @public
  * <p>Contains the batch request error details associated with the request.</p>
  */
 export interface BatchItemError {
@@ -683,6 +743,7 @@ export interface BatchItemError {
 }
 
 /**
+ * @public
  * <p>Contains the tracker resource details.</p>
  */
 export interface BatchDeleteDevicePositionHistoryError {
@@ -697,6 +758,9 @@ export interface BatchDeleteDevicePositionHistoryError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteDevicePositionHistoryResponse {
   /**
    * <p>Contains error details for each device history that failed to delete.</p>
@@ -704,6 +768,9 @@ export interface BatchDeleteDevicePositionHistoryResponse {
   Errors: BatchDeleteDevicePositionHistoryError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteGeofenceRequest {
   /**
    * <p>The geofence collection storing the geofences to be deleted.</p>
@@ -717,6 +784,7 @@ export interface BatchDeleteGeofenceRequest {
 }
 
 /**
+ * @public
  * <p>Contains error details for each geofence that failed to delete from the geofence
  *             collection.</p>
  */
@@ -732,6 +800,9 @@ export interface BatchDeleteGeofenceError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteGeofenceResponse {
   /**
    * <p>Contains error details for each geofence that failed to delete.</p>
@@ -740,6 +811,7 @@ export interface BatchDeleteGeofenceResponse {
 }
 
 /**
+ * @public
  * <p>Defines the level of certainty of the position.</p>
  */
 export interface PositionalAccuracy {
@@ -751,6 +823,7 @@ export interface PositionalAccuracy {
 }
 
 /**
+ * @public
  * <p>Contains the position update details for a device.</p>
  */
 export interface DevicePositionUpdate {
@@ -787,6 +860,9 @@ export interface DevicePositionUpdate {
   PositionProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateGeofencesRequest {
   /**
    * <p>The geofence collection used in evaluating the position of devices against its
@@ -802,6 +878,7 @@ export interface BatchEvaluateGeofencesRequest {
 }
 
 /**
+ * @public
  * <p>Contains error details for each device that failed to evaluate its position against
  *             the geofences in a given geofence collection.</p>
  */
@@ -824,6 +901,9 @@ export interface BatchEvaluateGeofencesError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateGeofencesResponse {
   /**
    * <p>Contains error details for each device that failed to evaluate its position against
@@ -832,6 +912,9 @@ export interface BatchEvaluateGeofencesResponse {
   Errors: BatchEvaluateGeofencesError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevicePositionRequest {
   /**
    * <p>The tracker resource retrieving the device position.</p>
@@ -852,6 +935,7 @@ export interface BatchGetDevicePositionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the device position details.</p>
  */
 export interface DevicePosition {
@@ -889,6 +973,7 @@ export interface DevicePosition {
 }
 
 /**
+ * @public
  * <p>Contains error details for each device that didn't return a position.</p>
  */
 export interface BatchGetDevicePositionError {
@@ -903,6 +988,9 @@ export interface BatchGetDevicePositionError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevicePositionResponse {
   /**
    * <p>Contains  error details for each device that failed to send its position to the tracker
@@ -918,6 +1006,7 @@ export interface BatchGetDevicePositionResponse {
 }
 
 /**
+ * @public
  * <p>A circle on the earth, as defined by a center point and a radius.</p>
  */
 export interface Circle {
@@ -935,6 +1024,7 @@ export interface Circle {
 }
 
 /**
+ * @public
  * <p>Contains the geofence geometry details.</p>
  *          <p>A geofence geometry is made up of either a polygon or a circle. Can be either a
  *             polygon or a circle. Including both will return a validation error.</p>
@@ -968,6 +1058,7 @@ export interface GeofenceGeometry {
 }
 
 /**
+ * @public
  * <p>Contains geofence geometry details. </p>
  */
 export interface BatchPutGeofenceRequestEntry {
@@ -987,6 +1078,9 @@ export interface BatchPutGeofenceRequestEntry {
   Geometry: GeofenceGeometry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutGeofenceRequest {
   /**
    * <p>The geofence collection storing the geofences.</p>
@@ -1000,6 +1094,7 @@ export interface BatchPutGeofenceRequest {
 }
 
 /**
+ * @public
  * <p>Contains error details for each geofence that failed to be stored in a given geofence
  *             collection.</p>
  */
@@ -1016,6 +1111,7 @@ export interface BatchPutGeofenceError {
 }
 
 /**
+ * @public
  * <p>Contains a summary of each geofence that was successfully stored in a given geofence
  *             collection.</p>
  */
@@ -1040,6 +1136,9 @@ export interface BatchPutGeofenceSuccess {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutGeofenceResponse {
   /**
    * <p>Contains each geofence that was successfully stored in a geofence collection.</p>
@@ -1053,6 +1152,9 @@ export interface BatchPutGeofenceResponse {
   Errors: BatchPutGeofenceError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateDevicePositionRequest {
   /**
    * <p>The name of the tracker resource to update.</p>
@@ -1066,6 +1168,7 @@ export interface BatchUpdateDevicePositionRequest {
 }
 
 /**
+ * @public
  * <p>Contains  error details for each device that failed to update its position.</p>
  */
 export interface BatchUpdateDevicePositionError {
@@ -1087,6 +1190,9 @@ export interface BatchUpdateDevicePositionError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateDevicePositionResponse {
   /**
    * <p>Contains  error details for each device that failed to update its position.</p>
@@ -1095,6 +1201,7 @@ export interface BatchUpdateDevicePositionResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about additional route preferences for requests that specify
  *                 <code>TravelMode</code> as <code>Car</code>.</p>
  */
@@ -1118,13 +1225,23 @@ export interface CalculateRouteCarModeOptions {
   AvoidTolls?: boolean;
 }
 
+/**
+ * @public
+ */
 export type DistanceUnit = "Kilometers" | "Miles";
 
+/**
+ * @public
+ */
 export type TravelMode = "Bicycle" | "Car" | "Motorcycle" | "Truck" | "Walking";
 
+/**
+ * @public
+ */
 export type DimensionUnit = "Feet" | "Meters";
 
 /**
+ * @public
  * <p>Contains details about the truck dimensions in the unit of measurement that you
  *             specify. Used to filter out roads that can't support or allow the specified dimensions
  *             for requests that specify <code>TravelMode</code> as <code>Truck</code>.</p>
@@ -1183,9 +1300,13 @@ export interface TruckDimensions {
   Unit?: DimensionUnit | string;
 }
 
+/**
+ * @public
+ */
 export type VehicleWeightUnit = "Kilograms" | "Pounds";
 
 /**
+ * @public
  * <p>Contains details about the truck's weight specifications. Used to avoid roads that
  *             can't support or allow the total weight for requests that specify
  *                 <code>TravelMode</code> as <code>Truck</code>.</p>
@@ -1210,6 +1331,7 @@ export interface TruckWeight {
 }
 
 /**
+ * @public
  * <p>Contains details about additional route preferences for requests that specify
  *                 <code>TravelMode</code> as <code>Truck</code>.</p>
  */
@@ -1246,6 +1368,9 @@ export interface CalculateRouteTruckModeOptions {
   Weight?: TruckWeight;
 }
 
+/**
+ * @public
+ */
 export interface CalculateRouteRequest {
   /**
    * <p>The name of the route calculator resource that you want to use to calculate the route.
@@ -1413,6 +1538,7 @@ export interface CalculateRouteRequest {
 }
 
 /**
+ * @public
  * <p>Contains the geometry details for each path between a pair of positions. Used in
  *             plotting a route leg on a map.</p>
  */
@@ -1433,6 +1559,7 @@ export interface LegGeometry {
 }
 
 /**
+ * @public
  * <p> Represents an element of a leg within a route. A step contains instructions for how
  *             to move to the next step in the leg. </p>
  */
@@ -1473,6 +1600,7 @@ export interface Step {
 }
 
 /**
+ * @public
  * <p>Contains the calculated route's details for each path between a pair of positions. The
  *             number of legs returned corresponds to one fewer than the total number of positions in
  *             the request. </p>
@@ -1554,6 +1682,7 @@ export interface Leg {
 }
 
 /**
+ * @public
  * <p>A summary of the calculated route.</p>
  */
 export interface CalculateRouteSummary {
@@ -1634,6 +1763,7 @@ export interface CalculateRouteSummary {
 }
 
 /**
+ * @public
  * <p>Returns the result of the route calculation. Metadata includes legs and route
  *             summary.</p>
  */
@@ -1678,6 +1808,9 @@ export interface CalculateRouteResponse {
   Summary: CalculateRouteSummary | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CalculateRouteMatrixRequest {
   /**
    * <p>The name of the route calculator resource that you want to use to calculate the route
@@ -1811,6 +1944,9 @@ export interface CalculateRouteMatrixRequest {
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 }
 
+/**
+ * @public
+ */
 export type RouteMatrixErrorCode =
   | "DeparturePositionNotFound"
   | "DestinationPositionNotFound"
@@ -1820,6 +1956,7 @@ export type RouteMatrixErrorCode =
   | "RouteTooLong";
 
 /**
+ * @public
  * <p>An error corresponding to the calculation of a route between the
  *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
  *          <p>The error code can be one of the following:</p>
@@ -1881,6 +2018,7 @@ export interface RouteMatrixEntryError {
 }
 
 /**
+ * @public
  * <p>The result for the calculated route of one <code>DeparturePosition</code>
  *             <code>DestinationPosition</code> pair.</p>
  */
@@ -1903,6 +2041,7 @@ export interface RouteMatrixEntry {
 }
 
 /**
+ * @public
  * <p>A summary of the calculated route matrix.</p>
  */
 export interface CalculateRouteMatrixSummary {
@@ -1951,6 +2090,7 @@ export interface CalculateRouteMatrixSummary {
 }
 
 /**
+ * @public
  * <p>Returns the result of the route matrix calculation.</p>
  */
 export interface CalculateRouteMatrixResponse {
@@ -1985,8 +2125,14 @@ export interface CalculateRouteMatrixResponse {
   Summary: CalculateRouteMatrixSummary | undefined;
 }
 
+/**
+ * @public
+ */
 export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "RequestBasedUsage";
 
+/**
+ * @public
+ */
 export interface CreateGeofenceCollectionRequest {
   /**
    * <p>A custom name for the geofence collection.</p>
@@ -2065,6 +2211,9 @@ export interface CreateGeofenceCollectionRequest {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGeofenceCollectionResponse {
   /**
    * <p>The name for the geofence collection.</p>
@@ -2093,6 +2242,7 @@ export interface CreateGeofenceCollectionResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the map tile style selected from an available provider.</p>
  */
 export interface MapConfiguration {
@@ -2241,6 +2391,9 @@ export interface MapConfiguration {
   Style: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMapRequest {
   /**
    * <p>The name for the map resource.</p>
@@ -2310,6 +2463,9 @@ export interface CreateMapRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateMapResponse {
   /**
    * <p>The name of the map resource.</p>
@@ -2336,9 +2492,13 @@ export interface CreateMapResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export type IntendedUse = "SingleUse" | "Storage";
 
 /**
+ * @public
  * <p>Specifies the data storage option chosen for requesting Places.</p>
  *          <important>
  *             <p>When using Amazon Location Places:</p>
@@ -2379,6 +2539,9 @@ export interface DataSourceConfiguration {
   IntendedUse?: IntendedUse | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlaceIndexRequest {
   /**
    * <p>The name of the place index resource. </p>
@@ -2481,6 +2644,9 @@ export interface CreatePlaceIndexRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlaceIndexResponse {
   /**
    * <p>The name for the place index resource.</p>
@@ -2507,6 +2673,9 @@ export interface CreatePlaceIndexResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource. </p>
@@ -2576,8 +2745,8 @@ export interface CreateRouteCalculatorRequest {
    *             helps manage, identify, search, and filter your resources by labelling them.</p>
    *          <ul>
    *             <li>
-   *                <p>For example: { <code>"tag1" : "value1"</code>, <code>"tag2" :
-   *                     "value2"</code>}</p>
+   *                <p>For example: \{ <code>"tag1" : "value1"</code>, <code>"tag2" :
+   *                     "value2"</code>\}</p>
    *             </li>
    *          </ul>
    *          <p>Format: <code>"key" : "value"</code>
@@ -2608,6 +2777,9 @@ export interface CreateRouteCalculatorRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteCalculatorResponse {
   /**
    * <p>The name of the route calculator resource. </p>
@@ -2645,8 +2817,14 @@ export interface CreateRouteCalculatorResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export type PositionFiltering = "AccuracyBased" | "DistanceBased" | "TimeBased";
 
+/**
+ * @public
+ */
 export interface CreateTrackerRequest {
   /**
    * <p>The name for the tracker resource.</p>
@@ -2758,6 +2936,9 @@ export interface CreateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrackerResponse {
   /**
    * <p>The name of the tracker resource.</p>
@@ -2784,6 +2965,9 @@ export interface CreateTrackerResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection to be deleted.</p>
@@ -2791,8 +2975,14 @@ export interface DeleteGeofenceCollectionRequest {
   CollectionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGeofenceCollectionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteMapRequest {
   /**
    * <p>The name of the map resource to be deleted.</p>
@@ -2800,8 +2990,14 @@ export interface DeleteMapRequest {
   MapName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMapResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePlaceIndexRequest {
   /**
    * <p>The name of the place index resource to be deleted.</p>
@@ -2809,8 +3005,14 @@ export interface DeletePlaceIndexRequest {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlaceIndexResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource to be deleted.</p>
@@ -2818,8 +3020,14 @@ export interface DeleteRouteCalculatorRequest {
   CalculatorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteCalculatorResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTrackerRequest {
   /**
    * <p>The name of the tracker resource to be deleted.</p>
@@ -2827,8 +3035,14 @@ export interface DeleteTrackerRequest {
   TrackerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrackerResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection.</p>
@@ -2836,6 +3050,9 @@ export interface DescribeGeofenceCollectionRequest {
   CollectionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGeofenceCollectionResponse {
   /**
    * <p>The name of the geofence collection.</p>
@@ -2901,6 +3118,9 @@ export interface DescribeGeofenceCollectionResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMapRequest {
   /**
    * <p>The name of the map resource.</p>
@@ -2908,6 +3128,9 @@ export interface DescribeMapRequest {
   MapName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMapResponse {
   /**
    * <p>The map style selected from an available provider.</p>
@@ -2967,6 +3190,9 @@ export interface DescribeMapResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlaceIndexRequest {
   /**
    * <p>The name of the place index resource.</p>
@@ -2974,6 +3200,9 @@ export interface DescribePlaceIndexRequest {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlaceIndexResponse {
   /**
    * <p>The name of the place index resource being described.</p>
@@ -3051,6 +3280,9 @@ export interface DescribePlaceIndexResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource.</p>
@@ -3058,6 +3290,9 @@ export interface DescribeRouteCalculatorRequest {
   CalculatorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRouteCalculatorResponse {
   /**
    * <p>The name of the route calculator resource being described.</p>
@@ -3143,6 +3378,9 @@ export interface DescribeRouteCalculatorResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrackerRequest {
   /**
    * <p>The name of the tracker resource.</p>
@@ -3150,6 +3388,9 @@ export interface DescribeTrackerRequest {
   TrackerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrackerResponse {
   /**
    * <p>The name of the tracker resource.</p>
@@ -3217,6 +3458,9 @@ export interface DescribeTrackerResponse {
   PositionFiltering?: PositionFiltering | string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrackerConsumerRequest {
   /**
    * <p>The name of the tracker resource to be dissociated from the consumer.</p>
@@ -3237,8 +3481,14 @@ export interface DisassociateTrackerConsumerRequest {
   ConsumerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrackerConsumerResponse {}
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
@@ -3253,13 +3503,16 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag
    *             key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>{"tag1" : "value1", "tag2" : "value2"} </code>
+   *                <p>Format example: <code>\{"tag1" : "value1", "tag2" : "value2"\} </code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3267,6 +3520,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>
@@ -3311,8 +3567,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove
@@ -3333,8 +3595,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface GetGeofenceRequest {
   /**
    * <p>The geofence collection storing the target geofence.</p>
@@ -3347,6 +3615,9 @@ export interface GetGeofenceRequest {
   GeofenceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGeofenceResponse {
   /**
    * <p>The geofence identifier.</p>
@@ -3403,6 +3674,9 @@ export interface GetGeofenceResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofenceCollectionsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -3421,6 +3695,7 @@ export interface ListGeofenceCollectionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the geofence collection details.</p>
  */
 export interface ListGeofenceCollectionsResponseEntry {
@@ -3463,6 +3738,9 @@ export interface ListGeofenceCollectionsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofenceCollectionsResponse {
   /**
    * <p>Lists the geofence collections that exist in your Amazon Web Services account.</p>
@@ -3476,6 +3754,9 @@ export interface ListGeofenceCollectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofencesRequest {
   /**
    * <p>The name of the geofence collection storing the list of geofences.</p>
@@ -3499,6 +3780,7 @@ export interface ListGeofencesRequest {
 }
 
 /**
+ * @public
  * <p>Contains a list of geofences stored in a given geofence collection.</p>
  */
 export interface ListGeofenceResponseEntry {
@@ -3557,6 +3839,9 @@ export interface ListGeofenceResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofencesResponse {
   /**
    * <p>Contains a list of geofences stored in the geofence collection.</p>
@@ -3570,6 +3855,9 @@ export interface ListGeofencesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutGeofenceRequest {
   /**
    * <p>The geofence collection to store the geofence in.</p>
@@ -3592,6 +3880,9 @@ export interface PutGeofenceRequest {
   Geometry: GeofenceGeometry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutGeofenceResponse {
   /**
    * <p>The geofence identifier entered in the request.</p>
@@ -3613,6 +3904,9 @@ export interface PutGeofenceResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection to update.</p>
@@ -3640,6 +3934,9 @@ export interface UpdateGeofenceCollectionRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGeofenceCollectionResponse {
   /**
    * <p>The name of the updated geofence collection.</p>
@@ -3667,6 +3964,9 @@ export interface UpdateGeofenceCollectionResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionRequest {
   /**
    * <p>The tracker resource receiving the position update.</p>
@@ -3679,6 +3979,9 @@ export interface GetDevicePositionRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionResponse {
   /**
    * <p>The device whose position you retrieved.</p>
@@ -3713,6 +4016,9 @@ export interface GetDevicePositionResponse {
   PositionProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionHistoryRequest {
   /**
    * <p>The tracker resource receiving the request for the device position history.</p>
@@ -3768,6 +4074,9 @@ export interface GetDevicePositionHistoryRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionHistoryResponse {
   /**
    * <p>Contains the position history details for the requested device.</p>
@@ -3781,6 +4090,9 @@ export interface GetDevicePositionHistoryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapGlyphsRequest {
   /**
    * <p>The map resource associated with the glyph ﬁle.</p>
@@ -3882,6 +4194,9 @@ export interface GetMapGlyphsRequest {
   Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapGlyphsResponse {
   /**
    * <p>The glyph, as binary blob.</p>
@@ -3899,6 +4214,9 @@ export interface GetMapGlyphsResponse {
   CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapSpritesRequest {
   /**
    * <p>The map resource associated with the sprite ﬁle.</p>
@@ -3940,6 +4258,9 @@ export interface GetMapSpritesRequest {
   Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapSpritesResponse {
   /**
    * <p>Contains the body of the sprite sheet or JSON offset ﬁle.</p>
@@ -3959,6 +4280,9 @@ export interface GetMapSpritesResponse {
   CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapStyleDescriptorRequest {
   /**
    * <p>The map resource to retrieve the style descriptor from.</p>
@@ -3972,6 +4296,9 @@ export interface GetMapStyleDescriptorRequest {
   Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapStyleDescriptorResponse {
   /**
    * <p>Contains the body of the style descriptor.</p>
@@ -3990,6 +4317,9 @@ export interface GetMapStyleDescriptorResponse {
   CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapTileRequest {
   /**
    * <p>The map resource to retrieve the map tiles from.</p>
@@ -4018,6 +4348,9 @@ export interface GetMapTileRequest {
   Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapTileResponse {
   /**
    * <p>Contains Mapbox Vector Tile (MVT) data.</p>
@@ -4036,6 +4369,9 @@ export interface GetMapTileResponse {
   CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaceRequest {
   /**
    * <p>The name of the place index resource that you want to use for the search.</p>
@@ -4067,6 +4403,7 @@ export interface GetPlaceRequest {
 }
 
 /**
+ * @public
  * <p>Places uses a point geometry to specify a location or a Place.</p>
  */
 export interface PlaceGeometry {
@@ -4088,6 +4425,7 @@ export interface PlaceGeometry {
 }
 
 /**
+ * @public
  * <p>Information about a time zone. Includes the name of the time zone and the offset from
  *             UTC in seconds.</p>
  */
@@ -4106,6 +4444,7 @@ export interface TimeZone {
 }
 
 /**
+ * @public
  * <p>Contains details about addresses or points of interest that match the search
  *             criteria.</p>
  *          <p>Not all details are included with all responses. Some details may only be returned by
@@ -4205,6 +4544,9 @@ export interface Place {
   UnitNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaceResponse {
   /**
    * <p>Details about the result, such as its address and position.</p>
@@ -4212,6 +4554,9 @@ export interface GetPlaceResponse {
   Place: Place | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicePositionsRequest {
   /**
    * <p>The tracker resource containing the requested devices.</p>
@@ -4235,6 +4580,7 @@ export interface ListDevicePositionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the tracker resource details.</p>
  */
 export interface ListDevicePositionsResponseEntry {
@@ -4265,6 +4611,9 @@ export interface ListDevicePositionsResponseEntry {
   PositionProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicePositionsResponse {
   /**
    * <p>Contains details about each device's last known position. These details includes the device ID,
@@ -4279,6 +4628,9 @@ export interface ListDevicePositionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMapsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -4297,6 +4649,7 @@ export interface ListMapsRequest {
 }
 
 /**
+ * @public
  * <p>Contains details of an existing map resource in your Amazon Web Services account.</p>
  */
 export interface ListMapsResponseEntry {
@@ -4335,6 +4688,9 @@ export interface ListMapsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMapsResponse {
   /**
    * <p>Contains a list of maps in your Amazon Web Services account</p>
@@ -4347,6 +4703,9 @@ export interface ListMapsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaceIndexesRequest {
   /**
    * <p>An optional limit for the maximum number of results returned in a single call.</p>
@@ -4365,6 +4724,7 @@ export interface ListPlaceIndexesRequest {
 }
 
 /**
+ * @public
  * <p>A place index resource listed in your Amazon Web Services account.</p>
  */
 export interface ListPlaceIndexesResponseEntry {
@@ -4421,6 +4781,9 @@ export interface ListPlaceIndexesResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaceIndexesResponse {
   /**
    * <p>Lists the place index resources that exist in your Amazon Web Services account</p>
@@ -4434,6 +4797,9 @@ export interface ListPlaceIndexesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRouteCalculatorsRequest {
   /**
    * <p>An optional maximum number of results returned in a single call.</p>
@@ -4452,6 +4818,7 @@ export interface ListRouteCalculatorsRequest {
 }
 
 /**
+ * @public
  * <p>A route calculator resource listed in your Amazon Web Services account.</p>
  */
 export interface ListRouteCalculatorsResponseEntry {
@@ -4521,6 +4888,9 @@ export interface ListRouteCalculatorsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRouteCalculatorsResponse {
   /**
    * <p>Lists the route calculator resources that exist in your Amazon Web Services account</p>
@@ -4534,6 +4904,9 @@ export interface ListRouteCalculatorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackerConsumersRequest {
   /**
    * <p>The tracker resource whose associated geofence collections you want to list.</p>
@@ -4556,6 +4929,9 @@ export interface ListTrackerConsumersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackerConsumersResponse {
   /**
    * <p>Contains the list of geofence collection ARNs associated to the tracker resource.</p>
@@ -4569,6 +4945,9 @@ export interface ListTrackerConsumersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackersRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -4587,6 +4966,7 @@ export interface ListTrackersRequest {
 }
 
 /**
+ * @public
  * <p>Contains the tracker resource details.</p>
  */
 export interface ListTrackersResponseEntry {
@@ -4627,6 +5007,9 @@ export interface ListTrackersResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackersResponse {
   /**
    * <p>Contains tracker resources in your Amazon Web Services account. Details include tracker name,
@@ -4641,6 +5024,9 @@ export interface ListTrackersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMapRequest {
   /**
    * <p>The name of the map resource to update.</p>
@@ -4661,6 +5047,9 @@ export interface UpdateMapRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMapResponse {
   /**
    * <p>The name of the updated map resource.</p>
@@ -4686,6 +5075,9 @@ export interface UpdateMapResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForPositionRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -4729,6 +5121,7 @@ export interface SearchPlaceIndexForPositionRequest {
 }
 
 /**
+ * @public
  * <p>Contains a search result from a position search query that is run on a place index
  *             resource.</p>
  */
@@ -4760,6 +5153,7 @@ export interface SearchForPositionResult {
 }
 
 /**
+ * @public
  * <p>A summary of the request sent by using
  *             <code>SearchPlaceIndexForPosition</code>.</p>
  */
@@ -4802,6 +5196,9 @@ export interface SearchPlaceIndexForPositionSummary {
   Language?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForPositionResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for <code>Position</code>,
@@ -4817,6 +5214,9 @@ export interface SearchPlaceIndexForPositionResponse {
   Results: SearchForPositionResult[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForSuggestionsRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -4903,6 +5303,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a place suggestion resulting from a place suggestion query that is run on a
  *             place index resource.</p>
  */
@@ -4925,6 +5326,7 @@ export interface SearchForSuggestionsResult {
 }
 
 /**
+ * @public
  * <p>A summary of the request sent by using
  *             <code>SearchPlaceIndexForSuggestions</code>.</p>
  */
@@ -4987,6 +5389,9 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   Language?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForSuggestionsResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for
@@ -5002,6 +5407,9 @@ export interface SearchPlaceIndexForSuggestionsResponse {
   Results: SearchForSuggestionsResult[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForTextRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -5088,6 +5496,7 @@ export interface SearchPlaceIndexForTextRequest {
 }
 
 /**
+ * @public
  * <p>Contains a search result from a text search query that is run on a place index
  *             resource.</p>
  */
@@ -5128,6 +5537,7 @@ export interface SearchForTextResult {
 }
 
 /**
+ * @public
  * <p>A summary of the request sent by using <code>SearchPlaceIndexForText</code>.</p>
  */
 export interface SearchPlaceIndexForTextSummary {
@@ -5198,6 +5608,9 @@ export interface SearchPlaceIndexForTextSummary {
   Language?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForTextResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for
@@ -5217,6 +5630,9 @@ export interface SearchPlaceIndexForTextResponse {
   Results: SearchForTextResult[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePlaceIndexRequest {
   /**
    * <p>The name of the place index resource to update.</p>
@@ -5242,6 +5658,9 @@ export interface UpdatePlaceIndexRequest {
   DataSourceConfiguration?: DataSourceConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePlaceIndexResponse {
   /**
    * <p>The name of the updated place index resource.</p>
@@ -5268,6 +5687,9 @@ export interface UpdatePlaceIndexResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource to update.</p>
@@ -5288,6 +5710,9 @@ export interface UpdateRouteCalculatorRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRouteCalculatorResponse {
   /**
    * <p>The name of the updated route calculator resource.</p>
@@ -5314,6 +5739,9 @@ export interface UpdateRouteCalculatorResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrackerRequest {
   /**
    * <p>The name of the tracker resource to update.</p>
@@ -5375,6 +5803,9 @@ export interface UpdateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrackerResponse {
   /**
    * <p>The name of the updated tracker resource.</p>

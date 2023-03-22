@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateApprovalRuleTemplateFromRepositoryCommand}.
  */
 export interface DisassociateApprovalRuleTemplateFromRepositoryCommandInput
   extends DisassociateApprovalRuleTemplateFromRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateApprovalRuleTemplateFromRepositoryCommand}.
  */
 export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between a template and a repository so that approval rules
  *             based on the template are not automatically created when pull requests are created in
  *             the specified repository. This does not delete any approval rules previously created for
@@ -48,6 +53,8 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateApprovalRuleTemplateFromRepositoryCommandInput - {@link DisassociateApprovalRuleTemplateFromRepositoryCommandInput}
+ * @returns {@link DisassociateApprovalRuleTemplateFromRepositoryCommandOutput}
  * @see {@link DisassociateApprovalRuleTemplateFromRepositoryCommandInput} for command's `input` shape.
  * @see {@link DisassociateApprovalRuleTemplateFromRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -114,6 +121,9 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,6 +169,9 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
     context: __SerdeContext
@@ -166,6 +179,9 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     return serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

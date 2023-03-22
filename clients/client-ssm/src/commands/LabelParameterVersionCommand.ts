@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link LabelParameterVersionCommand}.
  */
 export interface LabelParameterVersionCommandInput extends LabelParameterVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link LabelParameterVersionCommand}.
  */
 export interface LabelParameterVersionCommandOutput extends LabelParameterVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A parameter label is a user-defined alias to help you manage different versions of a
  *    parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and
  *    increments the version number by one. A label can help you remember the purpose of a parameter
@@ -82,6 +87,8 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param LabelParameterVersionCommandInput - {@link LabelParameterVersionCommandInput}
+ * @returns {@link LabelParameterVersionCommandOutput}
  * @see {@link LabelParameterVersionCommandInput} for command's `input` shape.
  * @see {@link LabelParameterVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -121,6 +128,9 @@ export class LabelParameterVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LabelParameterVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class LabelParameterVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LabelParameterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1LabelParameterVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LabelParameterVersionCommandOutput> {
     return deserializeAws_json1_1LabelParameterVersionCommand(output, context);
   }

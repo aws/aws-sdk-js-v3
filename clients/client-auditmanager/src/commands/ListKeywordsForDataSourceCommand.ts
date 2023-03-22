@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeywordsForDataSourceCommand}.
  */
 export interface ListKeywordsForDataSourceCommandInput extends ListKeywordsForDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeywordsForDataSourceCommand}.
  */
 export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of keywords that are pre-mapped to the specified control data source.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeywordsForDataSourceCommandInput - {@link ListKeywordsForDataSourceCommandInput}
+ * @returns {@link ListKeywordsForDataSourceCommandOutput}
  * @see {@link ListKeywordsForDataSourceCommandInput} for command's `input` shape.
  * @see {@link ListKeywordsForDataSourceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListKeywordsForDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeywordsForDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListKeywordsForDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeywordsForDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListKeywordsForDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

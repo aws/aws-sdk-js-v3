@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnvironmentAccountConnectionCommand}.
  */
 export interface UpdateEnvironmentAccountConnectionCommandInput extends UpdateEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnvironmentAccountConnectionCommand}.
  */
 export interface UpdateEnvironmentAccountConnectionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
  *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -50,6 +55,8 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentAccountConnectionCommandInput - {@link UpdateEnvironmentAccountConnectionCommandInput}
+ * @returns {@link UpdateEnvironmentAccountConnectionCommandOutput}
  * @see {@link UpdateEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command<
     return serializeAws_json1_0UpdateEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

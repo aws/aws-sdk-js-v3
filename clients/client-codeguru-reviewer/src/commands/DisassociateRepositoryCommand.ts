@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRepositoryCommand}.
  */
 export interface DisassociateRepositoryCommandInput extends DisassociateRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRepositoryCommand}.
  */
 export interface DisassociateRepositoryCommandOutput extends DisassociateRepositoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRepositoryCommandInput - {@link DisassociateRepositoryCommandInput}
+ * @returns {@link DisassociateRepositoryCommandOutput}
  * @see {@link DisassociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link DisassociateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisassociateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DisassociateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateRepositoryCommandOutput> {
     return deserializeAws_restJson1DisassociateRepositoryCommand(output, context);
   }

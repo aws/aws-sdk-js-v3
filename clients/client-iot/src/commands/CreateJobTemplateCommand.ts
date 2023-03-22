@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobTemplateCommand}.
  */
 export interface CreateJobTemplateCommandInput extends CreateJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobTemplateCommand}.
  */
 export interface CreateJobTemplateCommandOutput extends CreateJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJobTemplate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobTemplateCommandInput - {@link CreateJobTemplateCommandInput}
+ * @returns {@link CreateJobTemplateCommandOutput}
  * @see {@link CreateJobTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobTemplateCommandOutput> {
     return deserializeAws_restJson1CreateJobTemplateCommand(output, context);
   }

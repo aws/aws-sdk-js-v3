@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutUserPermissionsBoundaryCommand}.
  */
 export interface PutUserPermissionsBoundaryCommandInput extends PutUserPermissionsBoundaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutUserPermissionsBoundaryCommand}.
  */
 export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates the policy that is specified as the IAM user's permissions
  *             boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
  *             boundary for a user. Use the boundary to control the maximum permissions that the user
@@ -54,6 +59,8 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param PutUserPermissionsBoundaryCommandInput - {@link PutUserPermissionsBoundaryCommandInput}
+ * @returns {@link PutUserPermissionsBoundaryCommandOutput}
  * @see {@link PutUserPermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link PutUserPermissionsBoundaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +100,9 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutUserPermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutUserPermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutUserPermissionsBoundaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

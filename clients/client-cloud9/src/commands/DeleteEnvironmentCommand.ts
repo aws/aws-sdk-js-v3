@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEnvironmentCommand}.
  */
 export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEnvironmentCommand}.
  */
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the
  *       environment, also terminates the instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
+ * @returns {@link DeleteEnvironmentCommandOutput}
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DeleteEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEnvironmentCommandOutput> {
     return deserializeAws_json1_1DeleteEnvironmentCommand(output, context);
   }

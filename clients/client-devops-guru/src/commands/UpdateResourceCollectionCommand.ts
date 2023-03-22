@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceCollectionCommand}.
  */
 export interface UpdateResourceCollectionCommandInput extends UpdateResourceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceCollectionCommand}.
  */
 export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the collection of resources that DevOps Guru analyzes.
  * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
  *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -50,6 +55,8 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceCollectionCommandInput - {@link UpdateResourceCollectionCommandInput}
+ * @returns {@link UpdateResourceCollectionCommandOutput}
  * @see {@link UpdateResourceCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCollectionCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateResourceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateResourceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResourceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCollectionCommandOutput> {
     return deserializeAws_restJson1UpdateResourceCollectionCommand(output, context);
   }

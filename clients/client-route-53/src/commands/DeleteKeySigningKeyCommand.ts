@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKeySigningKeyCommand}.
  */
 export interface DeleteKeySigningKeyCommandInput extends DeleteKeySigningKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKeySigningKeyCommand}.
  */
 export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it.
  * 			The KSK must be deactivated before you can delete it regardless of whether the hosted
  * 			zone is enabled for DNSSEC signing.</p>
@@ -52,6 +57,8 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeySigningKeyCommandInput - {@link DeleteKeySigningKeyCommandInput}
+ * @returns {@link DeleteKeySigningKeyCommandOutput}
  * @see {@link DeleteKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteKeySigningKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeySigningKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeleteKeySigningKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteKeySigningKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeySigningKeyCommandOutput> {
     return deserializeAws_restXmlDeleteKeySigningKeyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceRefreshesCommand}.
  */
 export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceRefreshesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceRefreshesCommand}.
  */
 export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
@@ -55,6 +60,8 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceRefreshesCommandInput - {@link DescribeInstanceRefreshesCommandInput}
+ * @returns {@link DescribeInstanceRefreshesCommandOutput}
  * @see {@link DescribeInstanceRefreshesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceRefreshesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -119,6 +126,9 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceRefreshesCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceRefreshesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeInstanceRefreshesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

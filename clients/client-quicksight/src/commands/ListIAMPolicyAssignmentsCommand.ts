@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIAMPolicyAssignmentsCommand}.
  */
 export interface ListIAMPolicyAssignmentsCommandInput extends ListIAMPolicyAssignmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIAMPolicyAssignmentsCommand}.
  */
 export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssignmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists IAM policy assignments in the current Amazon QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIAMPolicyAssignmentsCommandInput - {@link ListIAMPolicyAssignmentsCommandInput}
+ * @returns {@link ListIAMPolicyAssignmentsCommandOutput}
  * @see {@link ListIAMPolicyAssignmentsCommandInput} for command's `input` shape.
  * @see {@link ListIAMPolicyAssignmentsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIAMPolicyAssignmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIAMPolicyAssignmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIAMPolicyAssignmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIAMPolicyAssignmentsCommandOutput> {
     return deserializeAws_restJson1ListIAMPolicyAssignmentsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportNotebookCommand}.
  */
 export interface ImportNotebookCommandInput extends ImportNotebookInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportNotebookCommand}.
  */
 export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a single <code>ipynb</code> file to a Spark enabled workgroup. The maximum
  *             file size that can be imported is 10 megabytes. If an <code>ipynb</code> file with the
  *             same name already exists in the workgroup, throws an error.</p>
@@ -48,6 +53,8 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportNotebookCommandInput - {@link ImportNotebookCommandInput}
+ * @returns {@link ImportNotebookCommandOutput}
  * @see {@link ImportNotebookCommandInput} for command's `input` shape.
  * @see {@link ImportNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class ImportNotebookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportNotebookCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ImportNotebookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportNotebookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportNotebookCommandOutput> {
     return deserializeAws_json1_1ImportNotebookCommand(output, context);
   }

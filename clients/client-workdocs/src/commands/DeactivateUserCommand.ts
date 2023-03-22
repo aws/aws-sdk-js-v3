@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateUserCommand}.
  */
 export interface DeactivateUserCommandInput extends DeactivateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateUserCommand}.
  */
 export interface DeactivateUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates the specified user, which revokes the user's access to Amazon
  *             WorkDocs.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateUserCommandInput - {@link DeactivateUserCommandInput}
+ * @returns {@link DeactivateUserCommandOutput}
  * @see {@link DeactivateUserCommandInput} for command's `input` shape.
  * @see {@link DeactivateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeactivateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeactivateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeactivateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateUserCommandOutput> {
     return deserializeAws_restJson1DeactivateUserCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCallAnalyticsCategoryCommand}.
  */
 export interface CreateCallAnalyticsCategoryCommandInput extends CreateCallAnalyticsCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCallAnalyticsCategoryCommand}.
  */
 export interface CreateCallAnalyticsCategoryCommandOutput
@@ -37,6 +41,7 @@ export interface CreateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Call Analytics category.</p>
  *          <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
  *             order to apply categories to your transcriptions, you must create them before submitting your
@@ -63,6 +68,8 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCallAnalyticsCategoryCommandInput - {@link CreateCallAnalyticsCategoryCommandInput}
+ * @returns {@link CreateCallAnalyticsCategoryCommandOutput}
  * @see {@link CreateCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link CreateCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCallAnalyticsCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

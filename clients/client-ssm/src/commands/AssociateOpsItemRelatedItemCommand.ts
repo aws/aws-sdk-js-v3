@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateOpsItemRelatedItemCommand}.
  */
 export interface AssociateOpsItemRelatedItemCommandInput extends AssociateOpsItemRelatedItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateOpsItemRelatedItemCommand}.
  */
 export interface AssociateOpsItemRelatedItemCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
  *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are capabilities of
  *    Amazon Web Services Systems Manager.</p>
@@ -50,6 +55,8 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateOpsItemRelatedItemCommandInput - {@link AssociateOpsItemRelatedItemCommandInput}
+ * @returns {@link AssociateOpsItemRelatedItemCommandOutput}
  * @see {@link AssociateOpsItemRelatedItemCommandInput} for command's `input` shape.
  * @see {@link AssociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -90,6 +97,9 @@ export class AssociateOpsItemRelatedItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateOpsItemRelatedItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class AssociateOpsItemRelatedItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateOpsItemRelatedItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateOpsItemRelatedItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayRouteTablesCommand}.
  */
 export interface DescribeTransitGatewayRouteTablesCommandInput extends DescribeTransitGatewayRouteTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayRouteTablesCommand}.
  */
 export interface DescribeTransitGatewayRouteTablesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTransitGatewayRouteTablesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeTransitGatewayRouteTablesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayRouteTablesCommandInput - {@link DescribeTransitGatewayRouteTablesCommandInput}
+ * @returns {@link DescribeTransitGatewayRouteTablesCommandOutput}
  * @see {@link DescribeTransitGatewayRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTransitGatewayRouteTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayRouteTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeTransitGatewayRouteTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayRouteTablesCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeTransitGatewayRouteTablesCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayRouteTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

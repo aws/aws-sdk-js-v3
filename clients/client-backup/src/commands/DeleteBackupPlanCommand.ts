@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupPlanCommand}.
  */
 export interface DeleteBackupPlanCommandInput extends DeleteBackupPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupPlanCommand}.
  */
 export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a backup plan. A backup plan can only be deleted after all associated selections
  *          of resources have been deleted. Deleting a backup plan deletes the current version of a
  *          backup plan. Previous versions, if any, will still exist.</p>
@@ -48,6 +53,8 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupPlanCommandInput - {@link DeleteBackupPlanCommandInput}
+ * @returns {@link DeleteBackupPlanCommandOutput}
  * @see {@link DeleteBackupPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteBackupPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteBackupPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBackupPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupPlanCommandOutput> {
     return deserializeAws_restJson1DeleteBackupPlanCommand(output, context);
   }

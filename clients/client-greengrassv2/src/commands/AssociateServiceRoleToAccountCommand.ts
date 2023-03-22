@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateServiceRoleToAccountCommand}.
  */
 export interface AssociateServiceRoleToAccountCommandInput extends AssociateServiceRoleToAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateServiceRoleToAccountCommand}.
  */
 export interface AssociateServiceRoleToAccountCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateServiceRoleToAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a Greengrass service role with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. IoT Greengrass
  *       uses this role to verify the identity of client devices and manage core device connectivity
  *       information. The role must include the <a href="https://console.aws.amazon.com/iam/home#/policies/arn:awsiam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy">AWSGreengrassResourceAccessRolePolicy</a> managed policy or a custom policy that
@@ -52,6 +57,8 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateServiceRoleToAccountCommandInput - {@link AssociateServiceRoleToAccountCommandInput}
+ * @returns {@link AssociateServiceRoleToAccountCommandOutput}
  * @see {@link AssociateServiceRoleToAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceRoleToAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateServiceRoleToAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateServiceRoleToAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateServiceRoleToAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

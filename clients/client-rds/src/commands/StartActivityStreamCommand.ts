@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartActivityStreamCommand}.
  */
 export interface StartActivityStreamCommandInput extends StartActivityStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartActivityStreamCommand}.
  */
 export interface StartActivityStreamCommandOutput extends StartActivityStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a database activity stream to monitor activity on the database.
  *             For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
@@ -53,6 +58,8 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartActivityStreamCommandInput - {@link StartActivityStreamCommandInput}
+ * @returns {@link StartActivityStreamCommandOutput}
  * @see {@link StartActivityStreamCommandInput} for command's `input` shape.
  * @see {@link StartActivityStreamCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartActivityStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartActivityStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class StartActivityStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartActivityStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartActivityStreamCommandOutput> {
     return deserializeAws_queryStartActivityStreamCommand(output, context);
   }

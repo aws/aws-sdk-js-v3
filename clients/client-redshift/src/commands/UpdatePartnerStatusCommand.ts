@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePartnerStatusCommand}.
  */
 export interface UpdatePartnerStatusCommandInput extends UpdatePartnerStatusInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePartnerStatusCommand}.
  */
 export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a partner integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePartnerStatusCommandInput - {@link UpdatePartnerStatusCommandInput}
+ * @returns {@link UpdatePartnerStatusCommandOutput}
  * @see {@link UpdatePartnerStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePartnerStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdatePartnerStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePartnerStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdatePartnerStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePartnerStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdatePartnerStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartnerStatusCommandOutput> {
     return deserializeAws_queryUpdatePartnerStatusCommand(output, context);
   }

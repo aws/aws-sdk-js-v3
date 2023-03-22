@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTestGridProjectCommand}.
  */
 export interface UpdateTestGridProjectCommandInput extends UpdateTestGridProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTestGridProjectCommand}.
  */
 export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Change details of a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTestGridProjectCommandInput - {@link UpdateTestGridProjectCommandInput}
+ * @returns {@link UpdateTestGridProjectCommandOutput}
  * @see {@link UpdateTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateTestGridProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTestGridProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateTestGridProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTestGridProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTestGridProjectCommandOutput> {
     return deserializeAws_json1_1UpdateTestGridProjectCommand(output, context);
   }

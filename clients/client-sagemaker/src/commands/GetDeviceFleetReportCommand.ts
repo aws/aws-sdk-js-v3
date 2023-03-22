@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceFleetReportCommand}.
  */
 export interface GetDeviceFleetReportCommandInput extends GetDeviceFleetReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceFleetReportCommand}.
  */
 export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceFleetReportCommandInput - {@link GetDeviceFleetReportCommandInput}
+ * @returns {@link GetDeviceFleetReportCommandOutput}
  * @see {@link GetDeviceFleetReportCommandInput} for command's `input` shape.
  * @see {@link GetDeviceFleetReportCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class GetDeviceFleetReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceFleetReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetDeviceFleetReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceFleetReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeviceFleetReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceFleetReportCommandOutput> {
     return deserializeAws_json1_1GetDeviceFleetReportCommand(output, context);
   }

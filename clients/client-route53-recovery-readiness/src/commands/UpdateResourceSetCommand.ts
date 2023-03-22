@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceSetCommand}.
  */
 export interface UpdateResourceSetCommandInput extends UpdateResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceSetCommand}.
  */
 export interface UpdateResourceSetCommandOutput extends UpdateResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateResourceSetCommandOutput extends UpdateResourceSetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceSetCommandInput - {@link UpdateResourceSetCommandInput}
+ * @returns {@link UpdateResourceSetCommandOutput}
  * @see {@link UpdateResourceSetCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceSetCommandOutput> {
     return deserializeAws_restJson1UpdateResourceSetCommand(output, context);
   }

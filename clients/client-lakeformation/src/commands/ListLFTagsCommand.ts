@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLFTagsCommand}.
  */
 export interface ListLFTagsCommandInput extends ListLFTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLFTagsCommand}.
  */
 export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists LF-tags that the requester has permission to view. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLFTagsCommandInput - {@link ListLFTagsCommandInput}
+ * @returns {@link ListLFTagsCommandOutput}
  * @see {@link ListLFTagsCommandInput} for command's `input` shape.
  * @see {@link ListLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListLFTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLFTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListLFTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLFTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLFTagsCommandOutput> {
     return deserializeAws_restJson1ListLFTagsCommand(output, context);
   }

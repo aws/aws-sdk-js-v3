@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAttributeGroupCommand}.
  */
 export interface DisassociateAttributeGroupCommandInput extends DisassociateAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAttributeGroupCommand}.
  */
 export interface DisassociateAttributeGroupCommandOutput extends DisassociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAttributeGroupCommandInput - {@link DisassociateAttributeGroupCommandInput}
+ * @returns {@link DisassociateAttributeGroupCommandOutput}
  * @see {@link DisassociateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -82,6 +89,9 @@ export class DisassociateAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DisassociateAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

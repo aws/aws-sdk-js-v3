@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactCommand}.
  */
 export interface DeleteContactCommandInput extends DeleteContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactCommand}.
  */
 export interface DeleteContactCommandOutput extends DeleteContactResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>To remove a contact from Incident Manager, you can delete the contact. Deleting a contact
  *          removes them from all escalation plans and related response plans. Deleting an escalation
  *          plan removes it from all related response plans. You will have to recreate the contact and
@@ -49,6 +54,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactCommandInput - {@link DeleteContactCommandInput}
+ * @returns {@link DeleteContactCommandOutput}
  * @see {@link DeleteContactCommandInput} for command's `input` shape.
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeleteContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactCommandOutput> {
     return deserializeAws_json1_1DeleteContactCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubnetGroupCommand}.
  */
 export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubnetGroupCommand}.
  */
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet group.</p>
  *         <note>
  *             <p>You cannot delete a subnet group if it is associated with any DAX
@@ -50,6 +55,8 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubnetGroupCommandInput - {@link DeleteSubnetGroupCommandInput}
+ * @returns {@link DeleteSubnetGroupCommandOutput}
  * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetGroupCommandOutput> {
     return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
   }

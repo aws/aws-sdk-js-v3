@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetMetadataCommand}.
  */
 export interface UpdateFleetMetadataCommandInput extends UpdateFleetMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetMetadataCommand}.
  */
 export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates fleet metadata, such as DisplayName.</p>
@@ -48,6 +53,8 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetMetadataCommandInput - {@link UpdateFleetMetadataCommandInput}
+ * @returns {@link UpdateFleetMetadataCommandOutput}
  * @see {@link UpdateFleetMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateFleetMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateFleetMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFleetMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetMetadataCommandOutput> {
     return deserializeAws_restJson1UpdateFleetMetadataCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetIdentityPoolConfigurationCommand}.
  */
 export interface SetIdentityPoolConfigurationCommandInput extends SetIdentityPoolConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetIdentityPoolConfigurationCommand}.
  */
 export interface SetIdentityPoolConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface SetIdentityPoolConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the necessary configuration for push sync.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  *       <examples>
  *          <example>
@@ -51,19 +56,19 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * X-AMZ-DATE: 20141004T200006Z
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#SetIdentityPoolConfiguration",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "ID_POOL_ID",
  *         "PushSync":
- *         {
+ *         \{
  *             "ApplicationArns": ["PLATFORMARN1", "PLATFORMARN2"],
  *             "RoleArn": "ROLEARN"
- *         }
- *     }
- * }
+ *         \}
+ *     \}
+ * \}
  *             </request>
  *             <response>
  * 1.1 200 OK
@@ -72,19 +77,19 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * content-type: application/json
  * content-length: 332
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#SetIdentityPoolConfigurationResponse",
  *         "IdentityPoolId": "ID_POOL_ID",
  *         "PushSync":
- *         {
+ *         \{
  *             "ApplicationArns": ["PLATFORMARN1", "PLATFORMARN2"],
  *             "RoleArn": "ROLEARN"
- *         }
- *     },
+ *         \}
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *             </response>
  *          </example>
  *       </examples>
@@ -98,6 +103,8 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityPoolConfigurationCommandInput - {@link SetIdentityPoolConfigurationCommandInput}
+ * @returns {@link SetIdentityPoolConfigurationCommandOutput}
  * @see {@link SetIdentityPoolConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -144,6 +151,9 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityPoolConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIdentityPoolConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetIdentityPoolConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

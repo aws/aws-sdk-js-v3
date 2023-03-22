@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSpeakerEnrollmentJobsCommand}.
  */
 export interface ListSpeakerEnrollmentJobsCommandInput extends ListSpeakerEnrollmentJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSpeakerEnrollmentJobsCommand}.
  */
 export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrollmentJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the speaker enrollment jobs in the domain with the specified
  *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
  *             jobs with all possible speaker enrollment job statuses.</p>
@@ -48,6 +53,8 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSpeakerEnrollmentJobsCommandInput - {@link ListSpeakerEnrollmentJobsCommandInput}
+ * @returns {@link ListSpeakerEnrollmentJobsCommandOutput}
  * @see {@link ListSpeakerEnrollmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListSpeakerEnrollmentJobsCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSpeakerEnrollmentJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSpeakerEnrollmentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListSpeakerEnrollmentJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

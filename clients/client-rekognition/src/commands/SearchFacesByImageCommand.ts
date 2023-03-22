@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchFacesByImageCommand}.
  */
 export interface SearchFacesByImageCommandInput extends SearchFacesByImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchFacesByImageCommand}.
  */
 export interface SearchFacesByImageCommandOutput extends SearchFacesByImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a given input image, first detects the largest face in the image, and then searches
  *       the specified collection for matching faces. The operation compares the features of the input
  *       face with faces in the specified collection. </p>
@@ -82,6 +87,8 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFacesByImageCommandInput - {@link SearchFacesByImageCommandInput}
+ * @returns {@link SearchFacesByImageCommandOutput}
  * @see {@link SearchFacesByImageCommandInput} for command's `input` shape.
  * @see {@link SearchFacesByImageCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -183,6 +190,9 @@ export class SearchFacesByImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFacesByImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -222,10 +232,16 @@ export class SearchFacesByImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFacesByImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchFacesByImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFacesByImageCommandOutput> {
     return deserializeAws_json1_1SearchFacesByImageCommand(output, context);
   }

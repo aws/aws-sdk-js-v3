@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFirewallConfigCommand}.
  */
 export interface GetFirewallConfigCommandInput extends GetFirewallConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFirewallConfigCommand}.
  */
 export interface GetFirewallConfigCommandOutput extends GetFirewallConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a
  * 			single VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetFirewallConfigCommandOutput extends GetFirewallConfigRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFirewallConfigCommandInput - {@link GetFirewallConfigCommandInput}
+ * @returns {@link GetFirewallConfigCommandOutput}
  * @see {@link GetFirewallConfigCommandInput} for command's `input` shape.
  * @see {@link GetFirewallConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetFirewallConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFirewallConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetFirewallConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFirewallConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFirewallConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFirewallConfigCommandOutput> {
     return deserializeAws_json1_1GetFirewallConfigCommand(output, context);
   }

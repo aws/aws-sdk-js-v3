@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRevisionCommand}.
  */
 export interface GetRevisionCommandInput extends GetRevisionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRevisionCommand}.
  */
 export interface GetRevisionCommandOutput extends GetRevisionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRevisionCommandInput - {@link GetRevisionCommandInput}
+ * @returns {@link GetRevisionCommandOutput}
  * @see {@link GetRevisionCommandInput} for command's `input` shape.
  * @see {@link GetRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRevisionCommandOutput> {
     return deserializeAws_restJson1GetRevisionCommand(output, context);
   }

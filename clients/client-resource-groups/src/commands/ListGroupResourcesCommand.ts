@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupResourcesCommand}.
  */
 export interface ListGroupResourcesCommandInput extends ListGroupResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupResourcesCommand}.
  */
 export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of ARNs of the resources that are members of a specified resource
  *             group.</p>
  *          <p>
@@ -73,6 +78,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupResourcesCommandInput - {@link ListGroupResourcesCommandInput}
+ * @returns {@link ListGroupResourcesCommandOutput}
  * @see {@link ListGroupResourcesCommandInput} for command's `input` shape.
  * @see {@link ListGroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -119,6 +126,9 @@ export class ListGroupResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class ListGroupResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGroupResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupResourcesCommandOutput> {
     return deserializeAws_restJson1ListGroupResourcesCommand(output, context);
   }

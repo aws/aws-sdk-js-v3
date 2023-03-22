@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopConfigurationRecorderCommand}.
  */
 export interface StopConfigurationRecorderCommandInput extends StopConfigurationRecorderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopConfigurationRecorderCommand}.
  */
 export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops recording configurations of the Amazon Web Services resources you have selected to record in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param StopConfigurationRecorderCommandInput - {@link StopConfigurationRecorderCommandInput}
+ * @returns {@link StopConfigurationRecorderCommandOutput}
  * @see {@link StopConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link StopConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -71,6 +78,9 @@ export class StopConfigurationRecorderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopConfigurationRecorderCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class StopConfigurationRecorderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopConfigurationRecorderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

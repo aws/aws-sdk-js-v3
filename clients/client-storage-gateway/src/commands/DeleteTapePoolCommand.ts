@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTapePoolCommand}.
  */
 export interface DeleteTapePoolCommandInput extends DeleteTapePoolInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTapePoolCommand}.
  */
 export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
  *          in the pool and if there are no automatic tape creation policies that reference the custom
  *          tape pool.</p>
@@ -48,6 +53,8 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTapePoolCommandInput - {@link DeleteTapePoolCommandInput}
+ * @returns {@link DeleteTapePoolCommandOutput}
  * @see {@link DeleteTapePoolCommandInput} for command's `input` shape.
  * @see {@link DeleteTapePoolCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteTapePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTapePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteTapePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTapePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTapePoolCommandOutput> {
     return deserializeAws_json1_1DeleteTapePoolCommand(output, context);
   }

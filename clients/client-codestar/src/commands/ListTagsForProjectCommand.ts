@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForProjectCommand}.
  */
 export interface ListTagsForProjectCommandInput extends ListTagsForProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForProjectCommand}.
  */
 export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the tags for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForProjectCommandInput - {@link ListTagsForProjectCommandInput}
+ * @returns {@link ListTagsForProjectCommandOutput}
  * @see {@link ListTagsForProjectCommandInput} for command's `input` shape.
  * @see {@link ListTagsForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListTagsForProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListTagsForProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForProjectCommandOutput> {
     return deserializeAws_json1_1ListTagsForProjectCommand(output, context);
   }

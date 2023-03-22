@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWebhookCommand}.
  */
 export interface GetWebhookCommandInput extends GetWebhookRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWebhookCommand}.
  */
 export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the webhook information that corresponds to a specified webhook ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWebhookCommandInput - {@link GetWebhookCommandInput}
+ * @returns {@link GetWebhookCommandOutput}
  * @see {@link GetWebhookCommandInput} for command's `input` shape.
  * @see {@link GetWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebhookCommandOutput> {
     return deserializeAws_restJson1GetWebhookCommand(output, context);
   }

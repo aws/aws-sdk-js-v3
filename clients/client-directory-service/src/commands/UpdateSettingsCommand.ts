@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSettingsCommand}.
  */
 export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSettingsCommand}.
  */
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configurable settings for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
+ * @returns {@link UpdateSettingsCommandOutput}
  * @see {@link UpdateSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSettingsCommandOutput> {
     return deserializeAws_json1_1UpdateSettingsCommand(output, context);
   }

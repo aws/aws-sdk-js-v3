@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterComputeCommand}.
  */
 export interface DeregisterComputeCommandInput extends DeregisterComputeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterComputeCommand}.
  */
 export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a compute resource from the specified fleet. Deregister your compute resources
  *             before you delete the compute.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterComputeCommandInput - {@link DeregisterComputeCommandInput}
+ * @returns {@link DeregisterComputeCommandOutput}
  * @see {@link DeregisterComputeCommandInput} for command's `input` shape.
  * @see {@link DeregisterComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeregisterComputeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterComputeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeregisterComputeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterComputeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterComputeCommandOutput> {
     return deserializeAws_json1_1DeregisterComputeCommand(output, context);
   }

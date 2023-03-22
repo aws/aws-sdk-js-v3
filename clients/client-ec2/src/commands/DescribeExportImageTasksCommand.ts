@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExportImageTasksCommand}.
  */
 export interface DescribeExportImageTasksCommandInput extends DescribeExportImageTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExportImageTasksCommand}.
  */
 export interface DescribeExportImageTasksCommandOutput extends DescribeExportImageTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified export image tasks or all of your export image tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExportImageTasksCommandInput - {@link DescribeExportImageTasksCommandInput}
+ * @returns {@link DescribeExportImageTasksCommandOutput}
  * @see {@link DescribeExportImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeExportImageTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExportImageTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeExportImageTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExportImageTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeExportImageTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportImageTasksCommandOutput> {
     return deserializeAws_ec2DescribeExportImageTasksCommand(output, context);
   }

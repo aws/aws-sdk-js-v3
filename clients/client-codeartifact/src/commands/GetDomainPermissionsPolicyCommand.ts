@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainPermissionsPolicyCommand}.
  */
 export interface GetDomainPermissionsPolicyCommandInput extends GetDomainPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainPermissionsPolicyCommand}.
  */
 export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns the resource policy attached to the specified domain.
  *       </p>
@@ -55,6 +60,8 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainPermissionsPolicyCommandInput - {@link GetDomainPermissionsPolicyCommandInput}
+ * @returns {@link GetDomainPermissionsPolicyCommandOutput}
  * @see {@link GetDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDomainPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDomainPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

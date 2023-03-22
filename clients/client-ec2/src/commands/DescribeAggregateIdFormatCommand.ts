@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAggregateIdFormatCommand}.
  */
 export interface DescribeAggregateIdFormatCommandInput extends DescribeAggregateIdFormatRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAggregateIdFormatCommand}.
  */
 export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregateIdFormatResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the longer ID format settings for all resource types in a specific
  *          Region. This request is useful for performing a quick audit to determine whether a
  *          specific Region is fully opted in for longer IDs (17-character IDs).</p>
@@ -62,6 +67,8 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregateIdFormatCommandInput - {@link DescribeAggregateIdFormatCommandInput}
+ * @returns {@link DescribeAggregateIdFormatCommandOutput}
  * @see {@link DescribeAggregateIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeAggregateIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregateIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeAggregateIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAggregateIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeAggregateIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -23,15 +23,20 @@ import { deserializeAws_queryPublishCommand, serializeAws_queryPublishCommand } 
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PublishCommand}.
  */
 export interface PublishCommandInput extends PublishInput {}
 /**
+ * @public
+ *
  * The output of {@link PublishCommand}.
  */
 export interface PublishCommandOutput extends PublishResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone
  *             number, or a message to a mobile platform endpoint (when you specify the
  *                 <code>TargetArn</code>).</p>
@@ -60,6 +65,8 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishCommandInput - {@link PublishCommandInput}
+ * @returns {@link PublishCommandOutput}
  * @see {@link PublishCommandInput} for command's `input` shape.
  * @see {@link PublishCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -135,6 +142,9 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPublishCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
     return deserializeAws_queryPublishCommand(output, context);
   }

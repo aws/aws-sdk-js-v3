@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMaintenanceWindowTaskCommand}.
  */
 export interface UpdateMaintenanceWindowTaskCommandInput extends UpdateMaintenanceWindowTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMaintenanceWindowTaskCommand}.
  */
 export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
  *    can change the following values:</p>
  *          <ul>
@@ -101,6 +106,8 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMaintenanceWindowTaskCommandInput - {@link UpdateMaintenanceWindowTaskCommandInput}
+ * @returns {@link UpdateMaintenanceWindowTaskCommandOutput}
  * @see {@link UpdateMaintenanceWindowTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowTaskCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -133,6 +140,9 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMaintenanceWindowTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMaintenanceWindowTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMaintenanceWindowTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

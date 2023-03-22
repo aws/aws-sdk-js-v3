@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link LogoutUserCommand}.
  */
 export interface LogoutUserCommandInput extends LogoutUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link LogoutUserCommand}.
  */
 export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Logs out the specified user from all of the devices they are currently logged into.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param LogoutUserCommandInput - {@link LogoutUserCommandInput}
+ * @returns {@link LogoutUserCommandOutput}
  * @see {@link LogoutUserCommandInput} for command's `input` shape.
  * @see {@link LogoutUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class LogoutUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LogoutUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class LogoutUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LogoutUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1LogoutUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LogoutUserCommandOutput> {
     return deserializeAws_restJson1LogoutUserCommand(output, context);
   }

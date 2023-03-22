@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAlternateContactCommand}.
  */
 export interface GetAlternateContactCommandInput extends GetAlternateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAlternateContactCommand}.
  */
 export interface GetAlternateContactCommandOutput extends GetAlternateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
  *                 updating the alternate contacts</a>.</p>
@@ -54,6 +59,8 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAlternateContactCommandInput - {@link GetAlternateContactCommandInput}
+ * @returns {@link GetAlternateContactCommandOutput}
  * @see {@link GetAlternateContactCommandInput} for command's `input` shape.
  * @see {@link GetAlternateContactCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetAlternateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAlternateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetAlternateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAlternateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAlternateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAlternateContactCommandOutput> {
     return deserializeAws_restJson1GetAlternateContactCommand(output, context);
   }

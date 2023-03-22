@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link BuildSuggestersCommand}.
  */
 export interface BuildSuggestersCommandInput extends BuildSuggestersRequest {}
 /**
+ * @public
+ *
  * The output of {@link BuildSuggestersCommand}.
  */
 export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indexes the search suggestions. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BuildSuggestersCommandInput - {@link BuildSuggestersCommandInput}
+ * @returns {@link BuildSuggestersCommandOutput}
  * @see {@link BuildSuggestersCommandInput} for command's `input` shape.
  * @see {@link BuildSuggestersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -82,6 +89,9 @@ export class BuildSuggestersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BuildSuggestersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BuildSuggestersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BuildSuggestersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBuildSuggestersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BuildSuggestersCommandOutput> {
     return deserializeAws_queryBuildSuggestersCommand(output, context);
   }

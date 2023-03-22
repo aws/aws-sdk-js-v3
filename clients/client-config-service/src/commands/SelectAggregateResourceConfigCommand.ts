@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SelectAggregateResourceConfigCommand}.
  */
 export interface SelectAggregateResourceConfigCommandInput extends SelectAggregateResourceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link SelectAggregateResourceConfigCommand}.
  */
 export interface SelectAggregateResourceConfigCommandOutput
@@ -37,6 +41,7 @@ export interface SelectAggregateResourceConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
  * 			performs the corresponding search, and returns resource configurations matching the properties.</p>
  *          <p>For more information about query components, see the
@@ -59,6 +64,8 @@ export interface SelectAggregateResourceConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SelectAggregateResourceConfigCommandInput - {@link SelectAggregateResourceConfigCommandInput}
+ * @returns {@link SelectAggregateResourceConfigCommandOutput}
  * @see {@link SelectAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link SelectAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -96,6 +103,9 @@ export class SelectAggregateResourceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SelectAggregateResourceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class SelectAggregateResourceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SelectAggregateResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SelectAggregateResourceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

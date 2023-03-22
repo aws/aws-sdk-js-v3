@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachLoadBalancerTlsCertificateCommand}.
  */
 export interface AttachLoadBalancerTlsCertificateCommandInput extends AttachLoadBalancerTlsCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachLoadBalancerTlsCertificateCommand}.
  */
 export interface AttachLoadBalancerTlsCertificateCommandOutput
@@ -37,6 +41,7 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just
  *       an updated, more secure version of Secure Socket Layer (SSL).</p>
  *          <p>Once you create and validate your certificate, you can attach it to your load balancer.
@@ -56,6 +61,8 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachLoadBalancerTlsCertificateCommandInput - {@link AttachLoadBalancerTlsCertificateCommandInput}
+ * @returns {@link AttachLoadBalancerTlsCertificateCommandOutput}
  * @see {@link AttachLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -109,6 +116,9 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachLoadBalancerTlsCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,6 +158,9 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
@@ -155,6 +168,9 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
     return serializeAws_json1_1AttachLoadBalancerTlsCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

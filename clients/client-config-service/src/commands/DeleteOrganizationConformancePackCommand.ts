@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOrganizationConformancePackCommand}.
  */
 export interface DeleteOrganizationConformancePackCommandInput extends DeleteOrganizationConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOrganizationConformancePackCommand}.
  */
 export interface DeleteOrganizationConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
  * 			all member accounts in that organization. </p>
  *          <p> Only a management account or a delegated administrator account can delete an organization conformance pack.
@@ -50,6 +55,8 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOrganizationConformancePackCommandInput - {@link DeleteOrganizationConformancePackCommandInput}
+ * @returns {@link DeleteOrganizationConformancePackCommandOutput}
  * @see {@link DeleteOrganizationConformancePackCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -124,6 +131,9 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOrganizationConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,6 +173,9 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteOrganizationConformancePackCommandInput,
     context: __SerdeContext
@@ -170,6 +183,9 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     return serializeAws_json1_1DeleteOrganizationConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

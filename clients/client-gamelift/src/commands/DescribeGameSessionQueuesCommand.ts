@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameSessionQueuesCommand}.
  */
 export interface DescribeGameSessionQueuesCommandInput extends DescribeGameSessionQueuesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameSessionQueuesCommand}.
  */
 export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSessionQueuesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the properties for one or more game session queues. When requesting multiple
  *             queues, use the pagination parameters to retrieve results as a set of sequential pages.
  *             When specifying a list of queues, objects are returned only for queues that currently
@@ -56,6 +61,8 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionQueuesCommandInput - {@link DescribeGameSessionQueuesCommandInput}
+ * @returns {@link DescribeGameSessionQueuesCommandOutput}
  * @see {@link DescribeGameSessionQueuesCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionQueuesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGameSessionQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

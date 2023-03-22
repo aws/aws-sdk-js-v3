@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointAccessCommand}.
  */
 export interface UpdateEndpointAccessCommandInput extends UpdateEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointAccessCommand}.
  */
 export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon Redshift Serverless managed endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointAccessCommandInput - {@link UpdateEndpointAccessCommandInput}
+ * @returns {@link UpdateEndpointAccessCommandOutput}
  * @see {@link UpdateEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointAccessCommandOutput> {
     return deserializeAws_json1_1UpdateEndpointAccessCommand(output, context);
   }

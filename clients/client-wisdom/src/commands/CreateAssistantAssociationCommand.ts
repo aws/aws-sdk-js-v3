@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssistantAssociationCommand}.
  */
 export interface CreateAssistantAssociationCommandInput extends CreateAssistantAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssistantAssociationCommand}.
  */
 export interface CreateAssistantAssociationCommandOutput extends CreateAssistantAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between an Amazon Connect Wisdom assistant and another resource. Currently, the
  *       only supported association is with a knowledge base. An assistant can have only a single
  *       association.</p>
@@ -48,6 +53,8 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssistantAssociationCommandInput - {@link CreateAssistantAssociationCommandInput}
+ * @returns {@link CreateAssistantAssociationCommandOutput}
  * @see {@link CreateAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateAssistantAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssistantAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateAssistantAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAssistantAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

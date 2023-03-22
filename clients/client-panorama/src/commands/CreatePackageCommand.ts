@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePackageCommand}.
  */
 export interface CreatePackageCommandInput extends CreatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePackageCommand}.
  */
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a package and storage location in an Amazon S3 access point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
+ * @returns {@link CreatePackageCommandOutput}
  * @see {@link CreatePackageCommandInput} for command's `input` shape.
  * @see {@link CreatePackageCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePackageCommandOutput> {
     return deserializeAws_restJson1CreatePackageCommand(output, context);
   }

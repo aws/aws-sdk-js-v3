@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRemediationExceptionsCommand}.
  */
 export interface PutRemediationExceptionsCommandInput extends PutRemediationExceptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRemediationExceptionsCommand}.
  */
 export interface PutRemediationExceptionsCommandOutput extends PutRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A remediation exception is when a specified resource is no longer considered for auto-remediation.
  * 			This API adds a new exception or updates an existing exception for a specified resource with a specified Config rule. </p>
  *          <note>
@@ -63,6 +68,8 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRemediationExceptionsCommandInput - {@link PutRemediationExceptionsCommandInput}
+ * @returns {@link PutRemediationExceptionsCommandOutput}
  * @see {@link PutRemediationExceptionsCommandInput} for command's `input` shape.
  * @see {@link PutRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -115,6 +122,9 @@ export class PutRemediationExceptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRemediationExceptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class PutRemediationExceptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRemediationExceptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRemediationExceptionsCommandOutput> {
     return deserializeAws_json1_1PutRemediationExceptionsCommand(output, context);
   }

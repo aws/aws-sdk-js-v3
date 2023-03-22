@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetTypeDefaultVersionCommand}.
  */
 export interface SetTypeDefaultVersionCommandInput extends SetTypeDefaultVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link SetTypeDefaultVersionCommand}.
  */
 export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the default version of an extension. The default version of an extension will be
  *          used in CloudFormation operations.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTypeDefaultVersionCommandInput - {@link SetTypeDefaultVersionCommandInput}
+ * @returns {@link SetTypeDefaultVersionCommandOutput}
  * @see {@link SetTypeDefaultVersionCommandInput} for command's `input` shape.
  * @see {@link SetTypeDefaultVersionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -76,6 +83,9 @@ export class SetTypeDefaultVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTypeDefaultVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class SetTypeDefaultVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTypeDefaultVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetTypeDefaultVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTypeDefaultVersionCommandOutput> {
     return deserializeAws_querySetTypeDefaultVersionCommand(output, context);
   }

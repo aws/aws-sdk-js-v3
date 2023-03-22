@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RetrieveEnvironmentInfoCommand}.
  */
 export interface RetrieveEnvironmentInfoCommandInput extends RetrieveEnvironmentInfoMessage {}
 /**
+ * @public
+ *
  * The output of {@link RetrieveEnvironmentInfoCommand}.
  */
 export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmentInfoResultMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a>
  *       request.</p>
  *          <p>Related Topics</p>
@@ -55,6 +60,8 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * const response = await client.send(command);
  * ```
  *
+ * @param RetrieveEnvironmentInfoCommandInput - {@link RetrieveEnvironmentInfoCommandInput}
+ * @returns {@link RetrieveEnvironmentInfoCommandOutput}
  * @see {@link RetrieveEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -102,6 +109,9 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetrieveEnvironmentInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetrieveEnvironmentInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRetrieveEnvironmentInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveEnvironmentInfoCommandOutput> {
     return deserializeAws_queryRetrieveEnvironmentInfoCommand(output, context);
   }

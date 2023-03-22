@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoggingOptionsCommand}.
  */
 export interface DescribeLoggingOptionsCommandInput extends DescribeLoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoggingOptionsCommand}.
  */
 export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current IoT SiteWise logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoggingOptionsCommandInput - {@link DescribeLoggingOptionsCommandInput}
+ * @returns {@link DescribeLoggingOptionsCommandOutput}
  * @see {@link DescribeLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeLoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingOptionsCommandOutput> {
     return deserializeAws_restJson1DescribeLoggingOptionsCommand(output, context);
   }

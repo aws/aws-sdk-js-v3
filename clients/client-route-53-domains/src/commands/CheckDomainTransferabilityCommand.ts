@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CheckDomainTransferabilityCommand}.
  */
 export interface CheckDomainTransferabilityCommandInput extends CheckDomainTransferabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckDomainTransferabilityCommand}.
  */
 export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTransferabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckDomainTransferabilityCommandInput - {@link CheckDomainTransferabilityCommandInput}
+ * @returns {@link CheckDomainTransferabilityCommandOutput}
  * @see {@link CheckDomainTransferabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainTransferabilityCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -78,6 +85,9 @@ export class CheckDomainTransferabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckDomainTransferabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CheckDomainTransferabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckDomainTransferabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckDomainTransferabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

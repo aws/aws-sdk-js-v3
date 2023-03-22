@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ComprehendMedicalServiceException as __BaseException } from "./ComprehendMedicalServiceException";
 
+/**
+ * @public
+ */
 export enum EntityType {
   ANATOMY = "ANATOMY",
   BEHAVIORAL_ENVIRONMENTAL_SOCIAL = "BEHAVIORAL_ENVIRONMENTAL_SOCIAL",
@@ -13,6 +16,9 @@ export enum EntityType {
   TIME_EXPRESSION = "TIME_EXPRESSION",
 }
 
+/**
+ * @public
+ */
 export enum RelationshipType {
   ACUITY = "ACUITY",
   ADMINISTERED_VIA = "ADMINISTERED_VIA",
@@ -36,6 +42,9 @@ export enum RelationshipType {
   WITH_DOSAGE = "WITH_DOSAGE",
 }
 
+/**
+ * @public
+ */
 export enum AttributeName {
   DIAGNOSIS = "DIAGNOSIS",
   FUTURE = "FUTURE",
@@ -49,6 +58,7 @@ export enum AttributeName {
 }
 
 /**
+ * @public
  * <p> Provides contextual information about the extracted entity. </p>
  */
 export interface Trait {
@@ -63,6 +73,9 @@ export interface Trait {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export enum EntitySubType {
   ACUITY = "ACUITY",
   ADDRESS = "ADDRESS",
@@ -112,6 +125,7 @@ export enum EntitySubType {
 }
 
 /**
+ * @public
  * <p> An extracted segment of the text that is an attribute of an entity, or otherwise related
  *       to an entity, such as the dosage of a medication taken. It contains information about the
  *       attribute such as id, begin and end offset within the input text, and the segment of the input
@@ -177,6 +191,7 @@ export interface Attribute {
 }
 
 /**
+ * @public
  * <p>
  *       The number of characters in the input text to be analyzed.
  *     </p>
@@ -190,6 +205,9 @@ export interface Characters {
   OriginalTextCharacters?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitiesDetectionV2JobRequest {
   /**
    * <p>The identifier that Comprehend Medical; generated for the job. The
@@ -200,6 +218,7 @@ export interface DescribeEntitiesDetectionV2JobRequest {
 }
 
 /**
+ * @public
  * <p>The input properties for an entities detection job. This includes the name of the S3
  *       bucket and the path to the files to be analyzed. </p>
  */
@@ -218,6 +237,9 @@ export interface InputDataConfig {
   S3Key?: string;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -228,11 +250,15 @@ export enum JobStatus {
   SUBMITTED = "SUBMITTED",
 }
 
+/**
+ * @public
+ */
 export enum LanguageCode {
   EN = "en",
 }
 
 /**
+ * @public
  * <p>The output properties for a detection job.</p>
  */
 export interface OutputDataConfig {
@@ -253,6 +279,7 @@ export interface OutputDataConfig {
 }
 
 /**
+ * @public
  * <p>Provides information about a detection job.</p>
  */
 export interface ComprehendMedicalAsyncJobProperties {
@@ -333,6 +360,9 @@ export interface ComprehendMedicalAsyncJobProperties {
   ModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitiesDetectionV2JobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
@@ -341,6 +371,7 @@ export interface DescribeEntitiesDetectionV2JobResponse {
 }
 
 /**
+ * @public
  * <p> An internal server error occurred. Retry your request. </p>
  */
 export class InternalServerException extends __BaseException {
@@ -362,6 +393,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request that you made is invalid. Check your request to determine why it's invalid
  *       and then retry the request.</p>
  */
@@ -384,6 +416,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
  *       the ARN and try your request again.</p>
  */
@@ -406,6 +439,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
@@ -428,6 +462,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeICD10CMInferenceJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend Medical generated for the job. <code>The
@@ -436,6 +473,9 @@ export interface DescribeICD10CMInferenceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeICD10CMInferenceJobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
@@ -443,6 +483,9 @@ export interface DescribeICD10CMInferenceJobResponse {
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribePHIDetectionJobRequest {
   /**
    * <p>The identifier that Comprehend Medical; generated for the job. The <code>StartPHIDetectionJob</code>
@@ -451,6 +494,9 @@ export interface DescribePHIDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePHIDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
@@ -458,6 +504,9 @@ export interface DescribePHIDetectionJobResponse {
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRxNormInferenceJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend Medical generated for the job. The
@@ -466,6 +515,9 @@ export interface DescribeRxNormInferenceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRxNormInferenceJobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
@@ -473,6 +525,9 @@ export interface DescribeRxNormInferenceJobResponse {
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSNOMEDCTInferenceJobRequest {
   /**
    * <p>
@@ -482,6 +537,9 @@ export interface DescribeSNOMEDCTInferenceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSNOMEDCTInferenceJobResponse {
   /**
    * <p>Provides information about a detection job.</p>
@@ -489,6 +547,9 @@ export interface DescribeSNOMEDCTInferenceJobResponse {
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DetectEntitiesRequest {
   /**
    * <p> A UTF-8 text string containing the clinical content being examined for entities. Each
@@ -498,6 +559,7 @@ export interface DetectEntitiesRequest {
 }
 
 /**
+ * @public
  * <p> Provides information about an extracted medical entity.</p>
  */
 export interface Entity {
@@ -551,6 +613,7 @@ export interface Entity {
 }
 
 /**
+ * @public
  * <p> An attribute that was extracted, but Comprehend Medical; was unable to relate to an entity. </p>
  */
 export interface UnmappedAttribute {
@@ -567,6 +630,9 @@ export interface UnmappedAttribute {
   Attribute?: Attribute;
 }
 
+/**
+ * @public
+ */
 export interface DetectEntitiesResponse {
   /**
    * <p> The collection of medical entities extracted from the input text and their associated
@@ -597,6 +663,7 @@ export interface DetectEntitiesResponse {
 }
 
 /**
+ * @public
  * <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
  *       request.</p>
  */
@@ -619,6 +686,7 @@ export class InvalidEncodingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
  *     </p>
  */
@@ -641,6 +709,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
  */
@@ -662,6 +731,9 @@ export class TextSizeLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DetectEntitiesV2Request {
   /**
    * <p>A UTF-8 string containing the clinical content being examined for entities. Each string
@@ -670,6 +742,9 @@ export interface DetectEntitiesV2Request {
   Text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectEntitiesV2Response {
   /**
    * <p>The collection of medical entities extracted from the input text and their associated
@@ -698,6 +773,9 @@ export interface DetectEntitiesV2Response {
   ModelVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectPHIRequest {
   /**
    * <p> A UTF-8 text string containing the clinical content being examined for PHI entities. Each
@@ -706,6 +784,9 @@ export interface DetectPHIRequest {
   Text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectPHIResponse {
   /**
    * <p> The collection of PHI entities extracted from the input text and their associated
@@ -729,6 +810,9 @@ export interface DetectPHIResponse {
   ModelVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InferICD10CMRequest {
   /**
    * <p>The input text used for analysis. The input for InferICD10CM is a string from 1 to 10000
@@ -737,16 +821,25 @@ export interface InferICD10CMRequest {
   Text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ICD10CMEntityType {
   DX_NAME = "DX_NAME",
   TIME_EXPRESSION = "TIME_EXPRESSION",
 }
 
+/**
+ * @public
+ */
 export enum ICD10CMRelationshipType {
   OVERLAP = "OVERLAP",
   SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
 }
 
+/**
+ * @public
+ */
 export enum ICD10CMTraitName {
   DIAGNOSIS = "DIAGNOSIS",
   HYPOTHETICAL = "HYPOTHETICAL",
@@ -758,6 +851,7 @@ export enum ICD10CMTraitName {
 }
 
 /**
+ * @public
  * <p>Contextual information for the entity. The traits recognized by InferICD10CM are
  *         <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and
  *       <code>NEGATION</code>.</p>
@@ -775,6 +869,9 @@ export interface ICD10CMTrait {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export enum ICD10CMAttributeType {
   ACUITY = "ACUITY",
   DIRECTION = "DIRECTION",
@@ -786,6 +883,7 @@ export enum ICD10CMAttributeType {
 }
 
 /**
+ * @public
  * <p>The detected attributes that relate to an entity. This includes an extracted segment of
  *       the text that is an attribute of an entity, or otherwise related to an entity. InferICD10CM
  *       detects the following attributes: <code>Direction</code>, <code>System, Organ or Site</code>,
@@ -852,11 +950,15 @@ export interface ICD10CMAttribute {
   RelationshipType?: ICD10CMRelationshipType | string;
 }
 
+/**
+ * @public
+ */
 export enum ICD10CMEntityCategory {
   MEDICAL_CONDITION = "MEDICAL_CONDITION",
 }
 
 /**
+ * @public
  * <p> The ICD-10-CM concepts that the entity could refer to, along with a score indicating the
  *       likelihood of the match.</p>
  */
@@ -880,6 +982,7 @@ export interface ICD10CMConcept {
 }
 
 /**
+ * @public
  * <p>The collection of medical entities extracted from the input text and their associated
  *       information. For each entity, the response provides the entity text, the entity category,
  *       where the entity text begins and ends, and the level of confidence that Amazon Comprehend
@@ -950,6 +1053,9 @@ export interface ICD10CMEntity {
   ICD10CMConcepts?: ICD10CMConcept[];
 }
 
+/**
+ * @public
+ */
 export interface InferICD10CMResponse {
   /**
    * <p>The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is
@@ -972,6 +1078,9 @@ export interface InferICD10CMResponse {
   ModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface InferRxNormRequest {
   /**
    * <p>The input text used for analysis. The input for InferRxNorm is a string from 1 to 10000
@@ -980,11 +1089,15 @@ export interface InferRxNormRequest {
   Text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RxNormTraitName {
   NEGATION = "NEGATION",
 }
 
 /**
+ * @public
  * <p>The contextual information for the entity. InferRxNorm recognizes the trait
  *         <code>NEGATION</code>, which is any indication that the patient is not taking a medication.
  *     </p>
@@ -1002,6 +1115,9 @@ export interface RxNormTrait {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export enum RxNormAttributeType {
   DOSAGE = "DOSAGE",
   DURATION = "DURATION",
@@ -1013,6 +1129,7 @@ export enum RxNormAttributeType {
 }
 
 /**
+ * @public
  * <p>The extracted attributes that relate to this entity. The attributes recognized by
  *       InferRxNorm are <code>DOSAGE</code>, <code>DURATION</code>, <code>FORM</code>,
  *         <code>FREQUENCY</code>, <code>RATE</code>, <code>ROUTE_OR_MODE</code>.</p>
@@ -1067,11 +1184,15 @@ export interface RxNormAttribute {
   Traits?: RxNormTrait[];
 }
 
+/**
+ * @public
+ */
 export enum RxNormEntityCategory {
   MEDICATION = "MEDICATION",
 }
 
 /**
+ * @public
  * <p>The RxNorm concept that the entity could refer to, along with a score indicating the
  *       likelihood of the match.</p>
  */
@@ -1093,12 +1214,16 @@ export interface RxNormConcept {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export enum RxNormEntityType {
   BRAND_NAME = "BRAND_NAME",
   GENERIC_NAME = "GENERIC_NAME",
 }
 
 /**
+ * @public
  * <p>The collection of medical entities extracted from the input text and their associated
  *       information. For each entity, the response provides the entity text, the entity category,
  *       where the entity text begins and ends, and the level of confidence that Amazon Comprehend
@@ -1167,6 +1292,9 @@ export interface RxNormEntity {
   RxNormConcepts?: RxNormConcept[];
 }
 
+/**
+ * @public
+ */
 export interface InferRxNormResponse {
   /**
    * <p>The medication entities detected in the text linked to RxNorm concepts. If the action is
@@ -1189,6 +1317,9 @@ export interface InferRxNormResponse {
   ModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface InferSNOMEDCTRequest {
   /**
    * <p>
@@ -1198,12 +1329,18 @@ export interface InferSNOMEDCTRequest {
   Text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SNOMEDCTEntityCategory {
   ANATOMY = "ANATOMY",
   MEDICAL_CONDITION = "MEDICAL_CONDITION",
   TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE",
 }
 
+/**
+ * @public
+ */
 export enum SNOMEDCTRelationshipType {
   ACUITY = "ACUITY",
   DIRECTION = "DIRECTION",
@@ -1214,6 +1351,7 @@ export enum SNOMEDCTRelationshipType {
 }
 
 /**
+ * @public
  * <p>
  *       The SNOMED-CT concepts that the entity could refer to, along with a score indicating the likelihood of the match.
  *     </p>
@@ -1241,6 +1379,9 @@ export interface SNOMEDCTConcept {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export enum SNOMEDCTTraitName {
   DIAGNOSIS = "DIAGNOSIS",
   FUTURE = "FUTURE",
@@ -1254,6 +1395,7 @@ export enum SNOMEDCTTraitName {
 }
 
 /**
+ * @public
  * <p>
  *       Contextual information for an entity.
  *     </p>
@@ -1274,6 +1416,9 @@ export interface SNOMEDCTTrait {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export enum SNOMEDCTAttributeType {
   ACUITY = "ACUITY",
   DIRECTION = "DIRECTION",
@@ -1284,6 +1429,7 @@ export enum SNOMEDCTAttributeType {
 }
 
 /**
+ * @public
  * <p>
  *       The extracted attributes that relate to an entity. An extracted segment of the text that is an attribute of an entity, or otherwise related to an entity, such as the dosage of a medication taken.
  *     </p>
@@ -1367,6 +1513,9 @@ export interface SNOMEDCTAttribute {
   SNOMEDCTConcepts?: SNOMEDCTConcept[];
 }
 
+/**
+ * @public
+ */
 export enum SNOMEDCTEntityType {
   DX_NAME = "DX_NAME",
   PROCEDURE_NAME = "PROCEDURE_NAME",
@@ -1375,6 +1524,7 @@ export enum SNOMEDCTEntityType {
 }
 
 /**
+ * @public
  * <p>
  *       The collection of medical entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned.
  *     </p>
@@ -1452,6 +1602,7 @@ export interface SNOMEDCTEntity {
 }
 
 /**
+ * @public
  * <p>
  *       The information about the revision of the SNOMED-CT ontology in the response. Specifically, the details include the SNOMED-CT edition, language, and version date.
  *     </p>
@@ -1479,6 +1630,9 @@ export interface SNOMEDCTDetails {
   VersionDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface InferSNOMEDCTResponse {
   /**
    * <p>
@@ -1517,6 +1671,7 @@ export interface InferSNOMEDCTResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of detection jobs.</p>
  */
 export interface ComprehendMedicalAsyncJobFilter {
@@ -1546,6 +1701,9 @@ export interface ComprehendMedicalAsyncJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesDetectionV2JobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
@@ -1564,6 +1722,9 @@ export interface ListEntitiesDetectionV2JobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesDetectionV2JobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -1577,6 +1738,7 @@ export interface ListEntitiesDetectionV2JobsResponse {
 }
 
 /**
+ * @public
  * <p>The filter that you specified for the operation is invalid. Check the filter values that
  *       you entered and try your request again.</p>
  */
@@ -1598,6 +1760,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListICD10CMInferenceJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
@@ -1616,6 +1781,9 @@ export interface ListICD10CMInferenceJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListICD10CMInferenceJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -1628,6 +1796,9 @@ export interface ListICD10CMInferenceJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPHIDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
@@ -1646,6 +1817,9 @@ export interface ListPHIDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPHIDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -1658,6 +1832,9 @@ export interface ListPHIDetectionJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRxNormInferenceJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
@@ -1676,6 +1853,9 @@ export interface ListRxNormInferenceJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRxNormInferenceJobsResponse {
   /**
    * <p>The maximum number of results to return in each page. The default is 100.</p>
@@ -1688,6 +1868,9 @@ export interface ListRxNormInferenceJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSNOMEDCTInferenceJobsRequest {
   /**
    * <p>Provides information for filtering a list of detection jobs.</p>
@@ -1709,6 +1892,9 @@ export interface ListSNOMEDCTInferenceJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSNOMEDCTInferenceJobsResponse {
   /**
    * <p>
@@ -1725,6 +1911,9 @@ export interface ListSNOMEDCTInferenceJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartEntitiesDetectionV2JobRequest {
   /**
    * <p>The input configuration that specifies the format and location of the input data for the job.</p>
@@ -1765,6 +1954,9 @@ export interface StartEntitiesDetectionV2JobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartEntitiesDetectionV2JobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -1773,6 +1965,9 @@ export interface StartEntitiesDetectionV2JobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartICD10CMInferenceJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -1813,6 +2008,9 @@ export interface StartICD10CMInferenceJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartICD10CMInferenceJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -1821,6 +2019,9 @@ export interface StartICD10CMInferenceJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartPHIDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -1861,6 +2062,9 @@ export interface StartPHIDetectionJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartPHIDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -1869,6 +2073,9 @@ export interface StartPHIDetectionJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRxNormInferenceJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -1909,6 +2116,9 @@ export interface StartRxNormInferenceJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartRxNormInferenceJobResponse {
   /**
    * <p>The identifier of the job.</p>
@@ -1916,6 +2126,9 @@ export interface StartRxNormInferenceJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartSNOMEDCTInferenceJobRequest {
   /**
    * <p>The input properties for an entities detection job. This includes the name of the S3
@@ -1964,6 +2177,9 @@ export interface StartSNOMEDCTInferenceJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSNOMEDCTInferenceJobResponse {
   /**
    * <p>
@@ -1973,6 +2189,9 @@ export interface StartSNOMEDCTInferenceJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopEntitiesDetectionV2JobRequest {
   /**
    * <p>The identifier of the medical entities job to stop.</p>
@@ -1980,6 +2199,9 @@ export interface StopEntitiesDetectionV2JobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEntitiesDetectionV2JobResponse {
   /**
    * <p>The identifier of the medical entities detection job that was stopped.</p>
@@ -1987,6 +2209,9 @@ export interface StopEntitiesDetectionV2JobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopICD10CMInferenceJobRequest {
   /**
    * <p>The identifier of the job.</p>
@@ -1994,6 +2219,9 @@ export interface StopICD10CMInferenceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopICD10CMInferenceJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of job, use this identifier with
@@ -2002,6 +2230,9 @@ export interface StopICD10CMInferenceJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopPHIDetectionJobRequest {
   /**
    * <p>The identifier of the PHI detection job to stop.</p>
@@ -2009,6 +2240,9 @@ export interface StopPHIDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopPHIDetectionJobResponse {
   /**
    * <p>The identifier of the PHI detection job that was stopped.</p>
@@ -2016,6 +2250,9 @@ export interface StopPHIDetectionJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopRxNormInferenceJobRequest {
   /**
    * <p>The identifier of the job.</p>
@@ -2023,6 +2260,9 @@ export interface StopRxNormInferenceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopRxNormInferenceJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of job, use this identifier with
@@ -2031,6 +2271,9 @@ export interface StopRxNormInferenceJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopSNOMEDCTInferenceJobRequest {
   /**
    * <p>
@@ -2040,6 +2283,9 @@ export interface StopSNOMEDCTInferenceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopSNOMEDCTInferenceJobResponse {
   /**
    * <p>

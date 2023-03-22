@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationNfsCommand}.
  */
 export interface DescribeLocationNfsCommandInput extends DescribeLocationNfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationNfsCommand}.
  */
 export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata, such as the path information, about an NFS location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationNfsCommandInput - {@link DescribeLocationNfsCommandInput}
+ * @returns {@link DescribeLocationNfsCommandOutput}
  * @see {@link DescribeLocationNfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationNfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeLocationNfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationNfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeLocationNfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationNfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationNfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationNfsCommandOutput> {
     return deserializeAws_json1_1DescribeLocationNfsCommand(output, context);
   }

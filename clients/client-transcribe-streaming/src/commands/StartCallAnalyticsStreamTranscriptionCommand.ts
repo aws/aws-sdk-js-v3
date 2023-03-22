@@ -32,11 +32,15 @@ import {
 } from "../TranscribeStreamingClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartCallAnalyticsStreamTranscriptionCommand}.
  */
 export interface StartCallAnalyticsStreamTranscriptionCommandInput
   extends StartCallAnalyticsStreamTranscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCallAnalyticsStreamTranscriptionCommand}.
  */
 export interface StartCallAnalyticsStreamTranscriptionCommandOutput
@@ -44,6 +48,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  *       Amazon Transcribe and the transcription results are streamed to your application. Use this operation
  *       for <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Call Analytics</a> transcriptions.</p>
@@ -76,6 +81,8 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCallAnalyticsStreamTranscriptionCommandInput - {@link StartCallAnalyticsStreamTranscriptionCommandInput}
+ * @returns {@link StartCallAnalyticsStreamTranscriptionCommandOutput}
  * @see {@link StartCallAnalyticsStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartCallAnalyticsStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
@@ -119,6 +126,9 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCallAnalyticsStreamTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,6 +169,9 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartCallAnalyticsStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
@@ -166,6 +179,9 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<
     return serializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext

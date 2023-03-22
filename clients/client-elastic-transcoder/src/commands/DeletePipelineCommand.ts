@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The DeletePipeline operation removes a pipeline.</p>
  *         <p> You can only delete a pipeline that has never been used or that is not currently in use
  *             (doesn't contain any active jobs). If the pipeline is currently in use,
@@ -53,6 +58,8 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
+ * @returns {@link DeletePipelineCommandOutput}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeletePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeletePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
     return deserializeAws_restJson1DeletePipelineCommand(output, context);
   }

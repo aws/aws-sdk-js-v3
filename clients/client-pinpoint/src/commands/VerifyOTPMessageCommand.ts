@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyOTPMessageCommand}.
  */
 export interface VerifyOTPMessageCommandInput extends VerifyOTPMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyOTPMessageCommand}.
  */
 export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verify an OTP</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyOTPMessageCommandInput - {@link VerifyOTPMessageCommandInput}
+ * @returns {@link VerifyOTPMessageCommandOutput}
  * @see {@link VerifyOTPMessageCommandInput} for command's `input` shape.
  * @see {@link VerifyOTPMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class VerifyOTPMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyOTPMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class VerifyOTPMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyOTPMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1VerifyOTPMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyOTPMessageCommandOutput> {
     return deserializeAws_restJson1VerifyOTPMessageCommand(output, context);
   }

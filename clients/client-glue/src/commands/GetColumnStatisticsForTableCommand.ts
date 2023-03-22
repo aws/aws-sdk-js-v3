@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetColumnStatisticsForTableCommand}.
  */
 export interface GetColumnStatisticsForTableCommandInput extends GetColumnStatisticsForTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetColumnStatisticsForTableCommand}.
  */
 export interface GetColumnStatisticsForTableCommandOutput
@@ -37,6 +41,7 @@ export interface GetColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetColumnStatisticsForTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetColumnStatisticsForTableCommandInput - {@link GetColumnStatisticsForTableCommandInput}
+ * @returns {@link GetColumnStatisticsForTableCommandOutput}
  * @see {@link GetColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link GetColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetColumnStatisticsForTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetColumnStatisticsForTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetColumnStatisticsForTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetColumnStatisticsForTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetColumnStatisticsForTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

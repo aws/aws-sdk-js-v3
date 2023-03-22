@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPipelineStateCommand}.
  */
 export interface GetPipelineStateCommandInput extends GetPipelineStateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPipelineStateCommand}.
  */
 export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the state of a pipeline, including the stages and
  *             actions.</p>
  *         <note>
@@ -52,6 +57,8 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPipelineStateCommandInput - {@link GetPipelineStateCommandInput}
+ * @returns {@link GetPipelineStateCommandOutput}
  * @see {@link GetPipelineStateCommandInput} for command's `input` shape.
  * @see {@link GetPipelineStateCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetPipelineStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPipelineStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetPipelineStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPipelineStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPipelineStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPipelineStateCommandOutput> {
     return deserializeAws_json1_1GetPipelineStateCommand(output, context);
   }

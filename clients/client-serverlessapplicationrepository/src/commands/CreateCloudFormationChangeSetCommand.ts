@@ -30,10 +30,14 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCloudFormationChangeSetCommand}.
  */
 export interface CreateCloudFormationChangeSetCommandInput extends CreateCloudFormationChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCloudFormationChangeSetCommand}.
  */
 export interface CreateCloudFormationChangeSetCommandOutput
@@ -41,6 +45,7 @@ export interface CreateCloudFormationChangeSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AWS CloudFormation change set for the given application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCloudFormationChangeSetCommandInput - {@link CreateCloudFormationChangeSetCommandInput}
+ * @returns {@link CreateCloudFormationChangeSetCommandOutput}
  * @see {@link CreateCloudFormationChangeSetCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFormationChangeSetCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCloudFormationChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCloudFormationChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCloudFormationChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

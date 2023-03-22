@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostnameSuggestionCommand}.
  */
 export interface GetHostnameSuggestionCommandInput extends GetHostnameSuggestionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostnameSuggestionCommand}.
  */
 export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -51,6 +56,8 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostnameSuggestionCommandInput - {@link GetHostnameSuggestionCommandInput}
+ * @returns {@link GetHostnameSuggestionCommandOutput}
  * @see {@link GetHostnameSuggestionCommandInput} for command's `input` shape.
  * @see {@link GetHostnameSuggestionCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetHostnameSuggestionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostnameSuggestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetHostnameSuggestionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostnameSuggestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetHostnameSuggestionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostnameSuggestionCommandOutput> {
     return deserializeAws_json1_1GetHostnameSuggestionCommand(output, context);
   }

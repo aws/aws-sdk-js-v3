@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClassificationScopesCommand}.
  */
 export interface ListClassificationScopesCommandInput extends ListClassificationScopesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListClassificationScopesCommand}.
  */
 export interface ListClassificationScopesCommandOutput extends ListClassificationScopesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a subset of information about the classification scope for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClassificationScopesCommandInput - {@link ListClassificationScopesCommandInput}
+ * @returns {@link ListClassificationScopesCommandOutput}
  * @see {@link ListClassificationScopesCommandInput} for command's `input` shape.
  * @see {@link ListClassificationScopesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -81,6 +88,9 @@ export class ListClassificationScopesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClassificationScopesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListClassificationScopesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClassificationScopesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListClassificationScopesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClassificationScopesCommandOutput> {
     return deserializeAws_restJson1ListClassificationScopesCommand(output, context);
   }

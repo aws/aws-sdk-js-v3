@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecommenderCommand}.
  */
 export interface DeleteRecommenderCommandInput extends DeleteRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecommenderCommand}.
  */
 export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates and removes a recommender. A deleted recommender can no longer be specified in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
  *     request.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecommenderCommandInput - {@link DeleteRecommenderCommandInput}
+ * @returns {@link DeleteRecommenderCommandOutput}
  * @see {@link DeleteRecommenderCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecommenderCommandOutput> {
     return deserializeAws_json1_1DeleteRecommenderCommand(output, context);
   }

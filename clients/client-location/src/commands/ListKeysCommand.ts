@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeysCommand}.
  */
 export interface ListKeysCommandInput extends ListKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeysCommand}.
  */
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists API key resources in your Amazon Web Services account.</p>
  *          <important>
  *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -51,6 +56,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeysCommandInput - {@link ListKeysCommandInput}
+ * @returns {@link ListKeysCommandOutput}
  * @see {@link ListKeysCommandInput} for command's `input` shape.
  * @see {@link ListKeysCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeysCommandOutput> {
     return deserializeAws_restJson1ListKeysCommand(output, context);
   }

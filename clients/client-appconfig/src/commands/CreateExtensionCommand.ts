@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExtensionCommand}.
  */
 export interface CreateExtensionCommandInput extends CreateExtensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExtensionCommand}.
  */
 export interface CreateExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AppConfig extension. An extension augments your ability to inject
  *          logic or behavior at different points during the AppConfig workflow of creating
  *          or deploying a configuration.</p>
@@ -54,6 +59,8 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExtensionCommandInput - {@link CreateExtensionCommandInput}
+ * @returns {@link CreateExtensionCommandOutput}
  * @see {@link CreateExtensionCommandInput} for command's `input` shape.
  * @see {@link CreateExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExtensionCommandOutput> {
     return deserializeAws_restJson1CreateExtensionCommand(output, context);
   }

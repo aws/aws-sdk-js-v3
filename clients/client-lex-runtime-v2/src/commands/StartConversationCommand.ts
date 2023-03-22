@@ -28,15 +28,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConversationCommand}.
  */
 export interface StartConversationCommandInput extends StartConversationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConversationCommand}.
  */
 export interface StartConversationCommandOutput extends StartConversationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an HTTP/2 bidirectional event stream that enables you to send
  *          audio, text, or DTMF input in real time. After your application starts
  *          a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2
@@ -107,6 +112,8 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConversationCommandInput - {@link StartConversationCommandInput}
+ * @returns {@link StartConversationCommandOutput}
  * @see {@link StartConversationCommandInput} for command's `input` shape.
  * @see {@link StartConversationCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
@@ -142,6 +149,9 @@ export class StartConversationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConversationCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,6 +192,9 @@ export class StartConversationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartConversationCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
@@ -189,6 +202,9 @@ export class StartConversationCommand extends $Command<
     return serializeAws_restJson1StartConversationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext

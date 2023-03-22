@@ -6,7 +6,7 @@ import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } fr
 import { CodeCatalystPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeCatalystClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSpacesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSpaces(
   config: CodeCatalystPaginationConfiguration,
   input: ListSpacesCommandInput,

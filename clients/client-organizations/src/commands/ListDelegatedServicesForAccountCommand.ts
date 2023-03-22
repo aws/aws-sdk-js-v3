@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDelegatedServicesForAccountCommand}.
  */
 export interface ListDelegatedServicesForAccountCommandInput extends ListDelegatedServicesForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDelegatedServicesForAccountCommand}.
  */
 export interface ListDelegatedServicesForAccountCommandOutput
@@ -37,6 +41,7 @@ export interface ListDelegatedServicesForAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the Amazon Web Services services for which the specified account is a delegated
  *             administrator.</p>
  *          <p>This operation can be called only from the organization's
@@ -51,6 +56,8 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDelegatedServicesForAccountCommandInput - {@link ListDelegatedServicesForAccountCommandInput}
+ * @returns {@link ListDelegatedServicesForAccountCommandOutput}
  * @see {@link ListDelegatedServicesForAccountCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedServicesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -408,6 +415,9 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDelegatedServicesForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -447,6 +457,9 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDelegatedServicesForAccountCommandInput,
     context: __SerdeContext
@@ -454,6 +467,9 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     return serializeAws_json1_1ListDelegatedServicesForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

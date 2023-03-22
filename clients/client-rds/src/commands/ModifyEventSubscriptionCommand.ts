@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyEventSubscriptionCommand}.
  */
 export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyEventSubscriptionCommand}.
  */
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change
  *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
  *          <p>You can see a list of the event categories for a given source type (<code>SourceType</code>)
@@ -50,6 +55,8 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
+ * @returns {@link ModifyEventSubscriptionCommandOutput}
  * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -113,6 +120,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
     return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
   }

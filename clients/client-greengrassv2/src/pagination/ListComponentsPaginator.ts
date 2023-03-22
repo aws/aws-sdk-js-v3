@@ -10,7 +10,7 @@ import { GreengrassV2Client } from "../GreengrassV2Client";
 import { GreengrassV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GreengrassV2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListComponentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListComponents(
   config: GreengrassV2PaginationConfiguration,
   input: ListComponentsCommandInput,

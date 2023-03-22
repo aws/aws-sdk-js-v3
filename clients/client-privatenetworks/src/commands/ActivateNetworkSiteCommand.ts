@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateNetworkSiteCommand}.
  */
 export interface ActivateNetworkSiteCommandInput extends ActivateNetworkSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link ActivateNetworkSiteCommand}.
  */
 export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the specified network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateNetworkSiteCommandInput - {@link ActivateNetworkSiteCommandInput}
+ * @returns {@link ActivateNetworkSiteCommandOutput}
  * @see {@link ActivateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link ActivateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +85,9 @@ export class ActivateNetworkSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateNetworkSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ActivateNetworkSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ActivateNetworkSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateNetworkSiteCommandOutput> {
     return deserializeAws_restJson1ActivateNetworkSiteCommand(output, context);
   }

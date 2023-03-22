@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscribersCommand}.
  */
 export interface ListSubscribersCommandInput extends ListSubscribersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscribersCommand}.
  */
 export interface ListSubscribersCommandOutput extends ListSubscribersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list
  *          of subscriptions associated with a specific organization or Amazon Web Services account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscribersCommandInput - {@link ListSubscribersCommandInput}
+ * @returns {@link ListSubscribersCommandOutput}
  * @see {@link ListSubscribersCommandInput} for command's `input` shape.
  * @see {@link ListSubscribersCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListSubscribersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscribersCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListSubscribersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscribersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSubscribersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribersCommandOutput> {
     return deserializeAws_restJson1ListSubscribersCommand(output, context);
   }

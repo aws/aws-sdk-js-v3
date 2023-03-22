@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchSegmentJobCommand}.
  */
 export interface CreateBatchSegmentJobCommandInput extends CreateBatchSegmentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchSegmentJobCommand}.
  */
 export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a batch segment job. The operation can handle up to 50 million records and the
  *       input file must be in JSON format. For more information, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html">Getting batch recommendations and user segments</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchSegmentJobCommandInput - {@link CreateBatchSegmentJobCommandInput}
+ * @returns {@link CreateBatchSegmentJobCommandOutput}
  * @see {@link CreateBatchSegmentJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchSegmentJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateBatchSegmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchSegmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateBatchSegmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchSegmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBatchSegmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchSegmentJobCommandOutput> {
     return deserializeAws_json1_1CreateBatchSegmentJobCommand(output, context);
   }

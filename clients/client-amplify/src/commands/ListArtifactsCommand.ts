@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListArtifactsCommand}.
  */
 export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListArtifactsCommand}.
  */
 export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of artifacts for a specified app, branch, and job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
+ * @returns {@link ListArtifactsCommandOutput}
  * @see {@link ListArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArtifactsCommandOutput> {
     return deserializeAws_restJson1ListArtifactsCommand(output, context);
   }

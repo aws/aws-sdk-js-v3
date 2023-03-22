@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectParentsCommand}.
  */
 export interface ListObjectParentsCommandInput extends ListObjectParentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectParentsCommand}.
  */
 export interface ListObjectParentsCommandOutput extends ListObjectParentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists parent objects that are associated with a given object in pagination
  *       fashion.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectParentsCommandInput - {@link ListObjectParentsCommandInput}
+ * @returns {@link ListObjectParentsCommandOutput}
  * @see {@link ListObjectParentsCommandInput} for command's `input` shape.
  * @see {@link ListObjectParentsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListObjectParentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectParentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ListObjectParentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectParentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListObjectParentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectParentsCommandOutput> {
     return deserializeAws_restJson1ListObjectParentsCommand(output, context);
   }

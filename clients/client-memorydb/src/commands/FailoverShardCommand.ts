@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link FailoverShardCommand}.
  */
 export interface FailoverShardCommandInput extends FailoverShardRequest {}
 /**
+ * @public
+ *
  * The output of {@link FailoverShardCommand}.
  */
 export interface FailoverShardCommandOutput extends FailoverShardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating
  *          a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API. </p>
  * @example
@@ -47,6 +52,8 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param FailoverShardCommandInput - {@link FailoverShardCommandInput}
+ * @returns {@link FailoverShardCommandOutput}
  * @see {@link FailoverShardCommandInput} for command's `input` shape.
  * @see {@link FailoverShardCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -94,6 +101,9 @@ export class FailoverShardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FailoverShardCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class FailoverShardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FailoverShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1FailoverShardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverShardCommandOutput> {
     return deserializeAws_json1_1FailoverShardCommand(output, context);
   }

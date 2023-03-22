@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetScreenDataCommand}.
  */
 export interface GetScreenDataCommandInput extends GetScreenDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetScreenDataCommand}.
  */
 export interface GetScreenDataCommandOutput extends GetScreenDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The GetScreenData API allows retrieval of data from a screen in a Honeycode app.
  *             The API allows setting local variables in the screen to filter, sort or otherwise affect what will be
@@ -50,6 +55,8 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetScreenDataCommandInput - {@link GetScreenDataCommandInput}
+ * @returns {@link GetScreenDataCommandOutput}
  * @see {@link GetScreenDataCommandInput} for command's `input` shape.
  * @see {@link GetScreenDataCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetScreenDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetScreenDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetScreenDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetScreenDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetScreenDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetScreenDataCommandOutput> {
     return deserializeAws_restJson1GetScreenDataCommand(output, context);
   }

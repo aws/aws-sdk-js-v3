@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRiskConfigurationCommand}.
  */
 export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRiskConfigurationCommand}.
  */
 export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the risk configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRiskConfigurationCommandInput - {@link DescribeRiskConfigurationCommandInput}
+ * @returns {@link DescribeRiskConfigurationCommandOutput}
  * @see {@link DescribeRiskConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRiskConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeRiskConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRiskConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeRiskConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRiskConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRiskConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

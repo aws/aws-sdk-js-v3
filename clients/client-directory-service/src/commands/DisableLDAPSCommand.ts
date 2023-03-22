@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableLDAPSCommand}.
  */
 export interface DisableLDAPSCommandInput extends DisableLDAPSRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableLDAPSCommand}.
  */
 export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates LDAP secure calls for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableLDAPSCommandInput - {@link DisableLDAPSCommandInput}
+ * @returns {@link DisableLDAPSCommandOutput}
  * @see {@link DisableLDAPSCommandInput} for command's `input` shape.
  * @see {@link DisableLDAPSCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class DisableLDAPSCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableLDAPSCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DisableLDAPSCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableLDAPSCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableLDAPSCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableLDAPSCommandOutput> {
     return deserializeAws_json1_1DisableLDAPSCommand(output, context);
   }

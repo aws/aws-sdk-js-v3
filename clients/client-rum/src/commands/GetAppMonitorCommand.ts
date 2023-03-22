@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppMonitorCommand}.
  */
 export interface GetAppMonitorCommandInput extends GetAppMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppMonitorCommand}.
  */
 export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the complete configuration information for one app monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppMonitorCommandInput - {@link GetAppMonitorCommandInput}
+ * @returns {@link GetAppMonitorCommandOutput}
  * @see {@link GetAppMonitorCommandInput} for command's `input` shape.
  * @see {@link GetAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetAppMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetAppMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAppMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppMonitorCommandOutput> {
     return deserializeAws_restJson1GetAppMonitorCommand(output, context);
   }

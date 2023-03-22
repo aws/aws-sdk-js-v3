@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopEventsDetectionJobCommand}.
  */
 export interface StopEventsDetectionJobCommandInput extends StopEventsDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopEventsDetectionJobCommand}.
  */
 export interface StopEventsDetectionJobCommandOutput extends StopEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an events detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEventsDetectionJobCommandInput - {@link StopEventsDetectionJobCommandInput}
+ * @returns {@link StopEventsDetectionJobCommandOutput}
  * @see {@link StopEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopEventsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -78,6 +85,9 @@ export class StopEventsDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEventsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StopEventsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEventsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopEventsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEventsDetectionJobCommandOutput> {
     return deserializeAws_json1_1StopEventsDetectionJobCommand(output, context);
   }

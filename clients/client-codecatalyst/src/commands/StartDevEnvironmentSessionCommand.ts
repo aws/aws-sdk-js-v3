@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDevEnvironmentSessionCommand}.
  */
 export interface StartDevEnvironmentSessionCommandInput extends StartDevEnvironmentSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDevEnvironmentSessionCommand}.
  */
 export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnvironmentSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a session for a specified Dev Environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDevEnvironmentSessionCommandInput - {@link StartDevEnvironmentSessionCommandInput}
+ * @returns {@link StartDevEnvironmentSessionCommandOutput}
  * @see {@link StartDevEnvironmentSessionCommandInput} for command's `input` shape.
  * @see {@link StartDevEnvironmentSessionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class StartDevEnvironmentSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDevEnvironmentSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StartDevEnvironmentSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDevEnvironmentSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartDevEnvironmentSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

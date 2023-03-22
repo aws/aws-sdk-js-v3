@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFeaturesCommand}.
  */
 export interface ListFeaturesCommandInput extends ListFeaturesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFeaturesCommand}.
  */
 export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration details about all the features in the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFeaturesCommandInput - {@link ListFeaturesCommandInput}
+ * @returns {@link ListFeaturesCommandOutput}
  * @see {@link ListFeaturesCommandInput} for command's `input` shape.
  * @see {@link ListFeaturesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListFeaturesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFeaturesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListFeaturesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFeaturesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFeaturesCommandOutput> {
     return deserializeAws_restJson1ListFeaturesCommand(output, context);
   }

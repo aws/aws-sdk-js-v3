@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCostEstimationCommand}.
  */
 export interface StartCostEstimationCommandInput extends StartCostEstimationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCostEstimationCommand}.
  */
 export interface StartCostEstimationCommandOutput extends StartCostEstimationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the creation of an estimate of the monthly cost to analyze your Amazon Web Services
  * 			resources.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCostEstimationCommandInput - {@link StartCostEstimationCommandInput}
+ * @returns {@link StartCostEstimationCommandOutput}
  * @see {@link StartCostEstimationCommandInput} for command's `input` shape.
  * @see {@link StartCostEstimationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -92,6 +99,9 @@ export class StartCostEstimationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCostEstimationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StartCostEstimationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCostEstimationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartCostEstimationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCostEstimationCommandOutput> {
     return deserializeAws_restJson1StartCostEstimationCommand(output, context);
   }

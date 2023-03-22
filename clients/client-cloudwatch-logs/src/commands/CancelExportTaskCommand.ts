@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified export task.</p>
  *          <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
  * @example
@@ -42,6 +47,8 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
+ * @returns {@link CancelExportTaskCommandOutput}
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -77,6 +84,9 @@ export class CancelExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CancelExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportTaskCommandOutput> {
     return deserializeAws_json1_1CancelExportTaskCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScalingPlanCommand}.
  */
 export interface UpdateScalingPlanCommandInput extends UpdateScalingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScalingPlanCommand}.
  */
 export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified scaling plan.</p>
  *          <p>You cannot update a scaling plan if it is in the process of being created, updated, or
  *          deleted.</p>
@@ -48,6 +53,8 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScalingPlanCommandInput - {@link UpdateScalingPlanCommandInput}
+ * @returns {@link UpdateScalingPlanCommandOutput}
  * @see {@link UpdateScalingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateScalingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScalingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateScalingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateScalingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScalingPlanCommandOutput> {
     return deserializeAws_json1_1UpdateScalingPlanCommand(output, context);
   }

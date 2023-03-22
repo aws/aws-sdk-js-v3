@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobShipmentStateCommand}.
  */
 export interface UpdateJobShipmentStateCommandInput extends UpdateJobShipmentStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobShipmentStateCommand}.
  */
 export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the state when a shipment state changes to a different state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobShipmentStateCommandInput - {@link UpdateJobShipmentStateCommandInput}
+ * @returns {@link UpdateJobShipmentStateCommandOutput}
  * @see {@link UpdateJobShipmentStateCommandInput} for command's `input` shape.
  * @see {@link UpdateJobShipmentStateCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateJobShipmentStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobShipmentStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateJobShipmentStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobShipmentStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateJobShipmentStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobShipmentStateCommandOutput> {
     return deserializeAws_json1_1UpdateJobShipmentStateCommand(output, context);
   }

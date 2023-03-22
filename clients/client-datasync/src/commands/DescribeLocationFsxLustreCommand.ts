@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationFsxLustreCommand}.
  */
 export interface DescribeLocationFsxLustreCommandInput extends DescribeLocationFsxLustreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationFsxLustreCommand}.
  */
 export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about how an DataSync location for an Amazon FSx for Lustre file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationFsxLustreCommandInput - {@link DescribeLocationFsxLustreCommandInput}
+ * @returns {@link DescribeLocationFsxLustreCommandOutput}
  * @see {@link DescribeLocationFsxLustreCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxLustreCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeLocationFsxLustreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationFsxLustreCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeLocationFsxLustreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationFsxLustreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationFsxLustreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

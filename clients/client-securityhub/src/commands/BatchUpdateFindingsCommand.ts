@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateFindingsCommand}.
  */
 export interface BatchUpdateFindingsCommandInput extends BatchUpdateFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateFindingsCommand}.
  */
 export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by Security Hub customers to update information about their investigation into a finding.
  *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
  *          their account and their member accounts. Member accounts can update findings for their
@@ -104,6 +109,8 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateFindingsCommandInput - {@link BatchUpdateFindingsCommandInput}
+ * @returns {@link BatchUpdateFindingsCommandOutput}
  * @see {@link BatchUpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateFindingsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -141,6 +148,9 @@ export class BatchUpdateFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class BatchUpdateFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpdateFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateFindingsCommandOutput> {
     return deserializeAws_restJson1BatchUpdateFindingsCommand(output, context);
   }

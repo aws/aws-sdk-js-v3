@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWebACLCommand}.
  */
 export interface DisassociateWebACLCommandInput extends DisassociateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWebACLCommand}.
  */
 export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified regional application resource from any existing web ACL
  *          association. A resource can have at most one web ACL association. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
@@ -50,6 +55,8 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWebACLCommandInput - {@link DisassociateWebACLCommandInput}
+ * @returns {@link DisassociateWebACLCommandOutput}
  * @see {@link DisassociateWebACLCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -107,6 +114,9 @@ export class DisassociateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DisassociateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateWebACLCommandOutput> {
     return deserializeAws_json1_1DisassociateWebACLCommand(output, context);
   }

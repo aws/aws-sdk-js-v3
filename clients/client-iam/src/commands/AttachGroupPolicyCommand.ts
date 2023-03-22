@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachGroupPolicyCommand}.
  */
 export interface AttachGroupPolicyCommandInput extends AttachGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachGroupPolicyCommand}.
  */
 export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified managed policy to the specified IAM group.</p>
  *          <p>You use this operation to attach a managed policy to a group. To embed an inline
  *             policy in a group, use <a>PutGroupPolicy</a>.</p>
@@ -48,6 +53,8 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachGroupPolicyCommandInput - {@link AttachGroupPolicyCommandInput}
+ * @returns {@link AttachGroupPolicyCommandOutput}
  * @see {@link AttachGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -103,6 +110,9 @@ export class AttachGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class AttachGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachGroupPolicyCommandOutput> {
     return deserializeAws_queryAttachGroupPolicyCommand(output, context);
   }

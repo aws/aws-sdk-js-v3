@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAgentVersionsCommand}.
  */
 export interface DescribeAgentVersionsCommandInput extends DescribeAgentVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAgentVersionsCommand}.
  */
 export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a
  *     configuration manager. <code>DescribeAgentVersions</code> returns a list of available
  *     agent versions for the specified stack or configuration manager.</p>
@@ -48,6 +53,8 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgentVersionsCommandInput - {@link DescribeAgentVersionsCommandInput}
+ * @returns {@link DescribeAgentVersionsCommandOutput}
  * @see {@link DescribeAgentVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeAgentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeAgentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAgentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentVersionsCommandOutput> {
     return deserializeAws_json1_1DescribeAgentVersionsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFunctionCodeSigningConfigCommand}.
  */
 export interface PutFunctionCodeSigningConfigCommandInput extends PutFunctionCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFunctionCodeSigningConfigCommand}.
  */
 export interface PutFunctionCodeSigningConfigCommandOutput
@@ -37,6 +41,7 @@ export interface PutFunctionCodeSigningConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the
  *       next time a user tries to deploy a code package to the function. </p>
  * @example
@@ -49,6 +54,8 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFunctionCodeSigningConfigCommandInput - {@link PutFunctionCodeSigningConfigCommandInput}
+ * @returns {@link PutFunctionCodeSigningConfigCommandOutput}
  * @see {@link PutFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link PutFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFunctionCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFunctionCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutFunctionCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

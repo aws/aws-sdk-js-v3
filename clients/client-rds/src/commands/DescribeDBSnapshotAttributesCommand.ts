@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBSnapshotAttributesCommand}.
  */
 export interface DescribeDBSnapshotAttributesCommandInput extends DescribeDBSnapshotAttributesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBSnapshotAttributesCommand}.
  */
 export interface DescribeDBSnapshotAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDBSnapshotAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
  *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code>
  *       returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
@@ -55,6 +60,8 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBSnapshotAttributesCommandInput - {@link DescribeDBSnapshotAttributesCommandInput}
+ * @returns {@link DescribeDBSnapshotAttributesCommandOutput}
  * @see {@link DescribeDBSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBSnapshotAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBSnapshotAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBSnapshotAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

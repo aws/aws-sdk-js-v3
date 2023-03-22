@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUniqueProblemsCommand}.
  */
 export interface ListUniqueProblemsCommandInput extends ListUniqueProblemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUniqueProblemsCommand}.
  */
 export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about unique problems, such as exceptions or crashes.</p>
  *         <p>Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
  *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
@@ -50,6 +55,8 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUniqueProblemsCommandInput - {@link ListUniqueProblemsCommandInput}
+ * @returns {@link ListUniqueProblemsCommandOutput}
  * @see {@link ListUniqueProblemsCommandInput} for command's `input` shape.
  * @see {@link ListUniqueProblemsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListUniqueProblemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUniqueProblemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListUniqueProblemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUniqueProblemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUniqueProblemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUniqueProblemsCommandOutput> {
     return deserializeAws_json1_1ListUniqueProblemsCommand(output, context);
   }

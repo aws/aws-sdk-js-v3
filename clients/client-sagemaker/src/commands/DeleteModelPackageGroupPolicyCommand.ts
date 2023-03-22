@@ -24,15 +24,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelPackageGroupPolicyCommand}.
  */
 export interface DeleteModelPackageGroupPolicyCommandInput extends DeleteModelPackageGroupPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelPackageGroupPolicyCommand}.
  */
 export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model group resource policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelPackageGroupPolicyCommandInput - {@link DeleteModelPackageGroupPolicyCommandInput}
+ * @returns {@link DeleteModelPackageGroupPolicyCommandOutput}
  * @see {@link DeleteModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelPackageGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteModelPackageGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

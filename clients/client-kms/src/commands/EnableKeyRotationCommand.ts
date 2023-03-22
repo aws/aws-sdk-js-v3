@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableKeyRotationCommand}.
  */
 export interface EnableKeyRotationCommandInput extends EnableKeyRotationRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableKeyRotationCommand}.
  */
 export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
  *         of the key material</a> of the specified symmetric encryption KMS key. </p>
  *          <p>When you enable automatic rotation of a<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
@@ -81,6 +86,8 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableKeyRotationCommandInput - {@link EnableKeyRotationCommandInput}
+ * @returns {@link EnableKeyRotationCommandOutput}
  * @see {@link EnableKeyRotationCommandInput} for command's `input` shape.
  * @see {@link EnableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -156,6 +163,9 @@ export class EnableKeyRotationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableKeyRotationCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,10 +205,16 @@ export class EnableKeyRotationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableKeyRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableKeyRotationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableKeyRotationCommandOutput> {
     return deserializeAws_json1_1EnableKeyRotationCommand(output, context);
   }

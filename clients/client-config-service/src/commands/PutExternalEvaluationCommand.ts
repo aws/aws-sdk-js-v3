@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutExternalEvaluationCommand}.
  */
 export interface PutExternalEvaluationCommandInput extends PutExternalEvaluationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutExternalEvaluationCommand}.
  */
 export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add or updates the evaluations for process checks.
  * 			This API checks if the rule is a process check when the name of the Config rule is provided.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  * const response = await client.send(command);
  * ```
  *
+ * @param PutExternalEvaluationCommandInput - {@link PutExternalEvaluationCommandInput}
+ * @returns {@link PutExternalEvaluationCommandOutput}
  * @see {@link PutExternalEvaluationCommandInput} for command's `input` shape.
  * @see {@link PutExternalEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -77,6 +84,9 @@ export class PutExternalEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutExternalEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class PutExternalEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutExternalEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutExternalEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutExternalEvaluationCommandOutput> {
     return deserializeAws_json1_1PutExternalEvaluationCommand(output, context);
   }

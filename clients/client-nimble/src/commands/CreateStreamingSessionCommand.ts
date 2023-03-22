@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamingSessionCommand}.
  */
 export interface CreateStreamingSessionCommandInput extends CreateStreamingSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamingSessionCommand}.
  */
 export interface CreateStreamingSessionCommandOutput extends CreateStreamingSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a streaming session in a studio.</p>
  *         <p>After invoking this operation, you must poll GetStreamingSession until the streaming
  *             session is in the <code>READY</code> state.</p>
@@ -48,6 +53,8 @@ export interface CreateStreamingSessionCommandOutput extends CreateStreamingSess
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingSessionCommandInput - {@link CreateStreamingSessionCommandInput}
+ * @returns {@link CreateStreamingSessionCommandOutput}
  * @see {@link CreateStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateStreamingSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateStreamingSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateStreamingSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamingSessionCommandOutput> {
     return deserializeAws_restJson1CreateStreamingSessionCommand(output, context);
   }

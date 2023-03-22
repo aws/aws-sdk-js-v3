@@ -9,6 +9,7 @@ import {
 import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient";
 
 /**
+ * @public
  * <fullname>AWS Marketplace Entitlement Service</fullname>
  *          <p>This reference provides descriptions of the AWS Marketplace Entitlement Service
  *    API.</p>
@@ -29,6 +30,7 @@ import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementSer
  */
 export class MarketplaceEntitlementService extends MarketplaceEntitlementServiceClient {
   /**
+   * @public
    * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
    *       filtered based on customer identifier or product dimensions.</p>
    */

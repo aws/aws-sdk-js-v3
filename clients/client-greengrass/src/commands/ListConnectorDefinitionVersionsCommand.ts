@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectorDefinitionVersionsCommand}.
  */
 export interface ListConnectorDefinitionVersionsCommandInput extends ListConnectorDefinitionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectorDefinitionVersionsCommand}.
  */
 export interface ListConnectorDefinitionVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListConnectorDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListConnectorDefinitionVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorDefinitionVersionsCommandInput - {@link ListConnectorDefinitionVersionsCommandInput}
+ * @returns {@link ListConnectorDefinitionVersionsCommandOutput}
  * @see {@link ListConnectorDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListConnectorDefinitionVersionsCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
     return serializeAws_restJson1ListConnectorDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

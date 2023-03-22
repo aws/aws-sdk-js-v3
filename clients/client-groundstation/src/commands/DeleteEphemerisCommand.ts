@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEphemerisCommand}.
  */
 export interface DeleteEphemerisCommandInput extends DeleteEphemerisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEphemerisCommand}.
  */
 export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an ephemeris</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEphemerisCommandInput - {@link DeleteEphemerisCommandInput}
+ * @returns {@link DeleteEphemerisCommandOutput}
  * @see {@link DeleteEphemerisCommandInput} for command's `input` shape.
  * @see {@link DeleteEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteEphemerisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEphemerisCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteEphemerisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEphemerisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEphemerisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEphemerisCommandOutput> {
     return deserializeAws_restJson1DeleteEphemerisCommand(output, context);
   }

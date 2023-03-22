@@ -93,6 +93,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateMediaCapturePipelineCommandInput
   | CreateMediaConcatenationPipelineCommandInput
@@ -107,6 +110,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateMediaCapturePipelineCommandOutput
   | CreateMediaConcatenationPipelineCommandOutput
@@ -121,6 +127,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -128,7 +137,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -237,11 +246,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeSDKMediaPipelinesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -252,10 +264,15 @@ type ChimeSDKMediaPipelinesClientConfigType = Partial<__SmithyConfiguration<__Ht
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeSDKMediaPipelinesClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeSDKMediaPipelinesClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeSDKMediaPipelinesClientConfig extends ChimeSDKMediaPipelinesClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeSDKMediaPipelinesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -266,11 +283,14 @@ type ChimeSDKMediaPipelinesClientResolvedConfigType = __SmithyResolvedConfigurat
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeSDKMediaPipelinesClient class. This is resolved and normalized from the {@link ChimeSDKMediaPipelinesClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeSDKMediaPipelinesClient class. This is resolved and normalized from the {@link ChimeSDKMediaPipelinesClientConfig | constructor configuration interface}.
  */
 export interface ChimeSDKMediaPipelinesClientResolvedConfig extends ChimeSDKMediaPipelinesClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon Chime SDK media pipeline APIs in this section allow software developers to
  *          create Amazon Chime SDK media pipelines that capture, concatenate, or stream your Amazon Chime SDK meetings. For more information about media pipleines, see <a href="http://amazonaws.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html">Amazon Chime SDK media pipelines</a>. </p>
  */

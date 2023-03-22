@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataIntegrationCommand}.
  */
 export interface UpdateDataIntegrationCommandInput extends UpdateDataIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataIntegrationCommand}.
  */
 export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of a DataIntegration.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -51,6 +56,8 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataIntegrationCommandInput - {@link UpdateDataIntegrationCommandInput}
+ * @returns {@link UpdateDataIntegrationCommandOutput}
  * @see {@link UpdateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataIntegrationCommandOutput> {
     return deserializeAws_restJson1UpdateDataIntegrationCommand(output, context);
   }

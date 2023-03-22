@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
 export interface DescribeChannelModeratedByAppInstanceUserCommandInput
   extends DescribeChannelModeratedByAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
 export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a channel moderated by the specified
  *             <code>AppInstanceUser</code>.</p>
  *          <note>
@@ -59,6 +64,8 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelModeratedByAppInstanceUserCommandInput - {@link DescribeChannelModeratedByAppInstanceUserCommandInput}
+ * @returns {@link DescribeChannelModeratedByAppInstanceUserCommandOutput}
  * @see {@link DescribeChannelModeratedByAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratedByAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelModeratedByAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeChannelModeratedByAppInstanceUserCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     return serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

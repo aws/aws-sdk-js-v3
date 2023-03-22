@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPositionConfigurationsCommand}.
  */
 export interface ListPositionConfigurationsCommandInput extends ListPositionConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPositionConfigurationsCommand}.
  */
 export interface ListPositionConfigurationsCommandOutput extends ListPositionConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>List position configurations for a given resource, such as positioning solvers.</p>
@@ -53,6 +58,8 @@ export interface ListPositionConfigurationsCommandOutput extends ListPositionCon
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPositionConfigurationsCommandInput - {@link ListPositionConfigurationsCommandInput}
+ * @returns {@link ListPositionConfigurationsCommandOutput}
  * @see {@link ListPositionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListPositionConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListPositionConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPositionConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListPositionConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPositionConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPositionConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

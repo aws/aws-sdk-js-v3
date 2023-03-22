@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceCommand}.
  */
 export interface GetInstanceCommandInput extends GetInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceCommand}.
  */
 export interface GetInstanceCommandOutput extends GetInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceCommandInput - {@link GetInstanceCommandInput}
+ * @returns {@link GetInstanceCommandOutput}
  * @see {@link GetInstanceCommandInput} for command's `input` shape.
  * @see {@link GetInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -112,6 +119,9 @@ export class GetInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class GetInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceCommandOutput> {
     return deserializeAws_json1_1GetInstanceCommand(output, context);
   }

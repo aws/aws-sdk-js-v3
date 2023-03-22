@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactFlowsCommand}.
  */
 export interface ListContactFlowsCommandInput extends ListContactFlowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactFlowsCommand}.
  */
 export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -50,6 +55,8 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactFlowsCommandInput - {@link ListContactFlowsCommandInput}
+ * @returns {@link ListContactFlowsCommandOutput}
  * @see {@link ListContactFlowsCommandInput} for command's `input` shape.
  * @see {@link ListContactFlowsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListContactFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListContactFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListContactFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactFlowsCommandOutput> {
     return deserializeAws_restJson1ListContactFlowsCommand(output, context);
   }

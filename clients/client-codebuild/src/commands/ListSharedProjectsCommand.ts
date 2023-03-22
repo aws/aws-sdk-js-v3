@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSharedProjectsCommand}.
  */
 export interface ListSharedProjectsCommandInput extends ListSharedProjectsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSharedProjectsCommand}.
  */
 export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets a list of projects that are shared with other Amazon Web Services accounts or users. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSharedProjectsCommandInput - {@link ListSharedProjectsCommandInput}
+ * @returns {@link ListSharedProjectsCommandOutput}
  * @see {@link ListSharedProjectsCommandInput} for command's `input` shape.
  * @see {@link ListSharedProjectsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListSharedProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSharedProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListSharedProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSharedProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSharedProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedProjectsCommandOutput> {
     return deserializeAws_json1_1ListSharedProjectsCommand(output, context);
   }

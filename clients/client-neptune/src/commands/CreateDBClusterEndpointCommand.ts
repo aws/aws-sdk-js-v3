@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBClusterEndpointCommand}.
  */
 export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBClusterEndpointCommand}.
  */
 export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterEndpointCommandInput - {@link CreateDBClusterEndpointCommandInput}
+ * @returns {@link CreateDBClusterEndpointCommandOutput}
  * @see {@link CreateDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateDBClusterEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterEndpointCommandOutput> {
     return deserializeAws_queryCreateDBClusterEndpointCommand(output, context);
   }

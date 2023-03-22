@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RetrieveDomainAuthCodeCommand}.
  */
 export interface RetrieveDomainAuthCodeCommandInput extends RetrieveDomainAuthCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link RetrieveDomainAuthCodeCommand}.
  */
 export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns the authorization code for the domain. To transfer a domain to
  * 			another registrar, you provide this value to the new registrar.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * const response = await client.send(command);
  * ```
  *
+ * @param RetrieveDomainAuthCodeCommandInput - {@link RetrieveDomainAuthCodeCommandInput}
+ * @returns {@link RetrieveDomainAuthCodeCommandOutput}
  * @see {@link RetrieveDomainAuthCodeCommandInput} for command's `input` shape.
  * @see {@link RetrieveDomainAuthCodeCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -79,6 +86,9 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetrieveDomainAuthCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetrieveDomainAuthCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetrieveDomainAuthCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveDomainAuthCodeCommandOutput> {
     return deserializeAws_json1_1RetrieveDomainAuthCodeCommand(output, context);
   }

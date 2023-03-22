@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectorRegistrationCommand}.
  */
 export interface UpdateConnectorRegistrationCommandInput extends UpdateConnectorRegistrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectorRegistrationCommand}.
  */
 export interface UpdateConnectorRegistrationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateConnectorRegistrationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a custom connector that you've previously registered. This operation updates the
  *       connector with one of the following:</p>
  *          <ul>
@@ -57,6 +62,8 @@ export interface UpdateConnectorRegistrationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectorRegistrationCommandInput - {@link UpdateConnectorRegistrationCommandInput}
+ * @returns {@link UpdateConnectorRegistrationCommandOutput}
  * @see {@link UpdateConnectorRegistrationCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorRegistrationCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -112,6 +119,9 @@ export class UpdateConnectorRegistrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectorRegistrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class UpdateConnectorRegistrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectorRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConnectorRegistrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

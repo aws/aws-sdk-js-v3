@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRouteAnalysisCommand}.
  */
 export interface StartRouteAnalysisCommandInput extends StartRouteAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRouteAnalysisCommand}.
  */
 export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts analyzing the routing path between the specified source and destination. For more information,
  *             see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html">Route Analyzer</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRouteAnalysisCommandInput - {@link StartRouteAnalysisCommandInput}
+ * @returns {@link StartRouteAnalysisCommandOutput}
  * @see {@link StartRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartRouteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class StartRouteAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRouteAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StartRouteAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRouteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartRouteAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRouteAnalysisCommandOutput> {
     return deserializeAws_restJson1StartRouteAnalysisCommand(output, context);
   }

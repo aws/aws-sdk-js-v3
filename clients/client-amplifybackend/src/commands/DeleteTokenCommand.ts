@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTokenCommand}.
  */
 export interface DeleteTokenCommandInput extends DeleteTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTokenCommand}.
  */
 export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the challenge token based on the given appId and sessionId.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
+ * @returns {@link DeleteTokenCommandOutput}
  * @see {@link DeleteTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTokenCommandOutput> {
     return deserializeAws_restJson1DeleteTokenCommand(output, context);
   }

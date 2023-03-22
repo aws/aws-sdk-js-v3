@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInvitationsCommand}.
  */
 export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInvitationsCommand}.
  */
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the Amazon Macie membership invitations that were received by an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
+ * @returns {@link ListInvitationsCommandOutput}
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class ListInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvitationsCommandOutput> {
     return deserializeAws_restJson1ListInvitationsCommand(output, context);
   }

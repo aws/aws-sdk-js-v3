@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDevicePolicyConfigurationCommand}.
  */
 export interface UpdateDevicePolicyConfigurationCommandInput extends UpdateDevicePolicyConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDevicePolicyConfigurationCommand}.
  */
 export interface UpdateDevicePolicyConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the device policy configuration for the fleet.</p>
@@ -50,6 +55,8 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDevicePolicyConfigurationCommandInput - {@link UpdateDevicePolicyConfigurationCommandInput}
+ * @returns {@link UpdateDevicePolicyConfigurationCommandOutput}
  * @see {@link UpdateDevicePolicyConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDevicePolicyConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDevicePolicyConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDevicePolicyConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateDevicePolicyConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

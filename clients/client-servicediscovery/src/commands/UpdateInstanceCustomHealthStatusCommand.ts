@@ -24,15 +24,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceCustomHealthStatusCommand}.
  */
 export interface UpdateInstanceCustomHealthStatusCommandInput extends UpdateInstanceCustomHealthStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceCustomHealthStatusCommand}.
  */
 export interface UpdateInstanceCustomHealthStatusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a request to change the health status of a custom health check to healthy or
  *    unhealthy.</p>
  *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for
@@ -50,6 +55,8 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceCustomHealthStatusCommandInput - {@link UpdateInstanceCustomHealthStatusCommandInput}
+ * @returns {@link UpdateInstanceCustomHealthStatusCommandOutput}
  * @see {@link UpdateInstanceCustomHealthStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceCustomHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceCustomHealthStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateInstanceCustomHealthStatusCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command<
     return serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

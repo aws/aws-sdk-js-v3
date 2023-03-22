@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigRuleCommand}.
  */
 export interface PutConfigRuleCommandInput extends PutConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigRuleCommand}.
  */
 export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an Config rule to evaluate if your
  * 			Amazon Web Services resources comply with your desired configurations. For information on how many Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -83,6 +88,8 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigRuleCommandInput - {@link PutConfigRuleCommandInput}
+ * @returns {@link PutConfigRuleCommandOutput}
  * @see {@link PutConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -171,6 +178,9 @@ export class PutConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -208,10 +218,16 @@ export class PutConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigRuleCommandOutput> {
     return deserializeAws_json1_1PutConfigRuleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchCommand}.
  */
 export interface CreateLaunchCommandInput extends CreateLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchCommand}.
  */
 export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <i>launch</i> of a given feature. Before you create a launch, you
  *       must create the feature to use for the launch.</p>
  *          <p>You can use a launch to safely validate new features by serving them to a specified
@@ -53,6 +58,8 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchCommandInput - {@link CreateLaunchCommandInput}
+ * @returns {@link CreateLaunchCommandOutput}
  * @see {@link CreateLaunchCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLaunchCommandOutput> {
     return deserializeAws_restJson1CreateLaunchCommand(output, context);
   }

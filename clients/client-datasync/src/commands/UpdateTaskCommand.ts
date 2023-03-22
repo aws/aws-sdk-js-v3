@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTaskCommand}.
  */
 export interface UpdateTaskCommandInput extends UpdateTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTaskCommand}.
  */
 export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the metadata associated with a task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskCommandInput - {@link UpdateTaskCommandInput}
+ * @returns {@link UpdateTaskCommandOutput}
  * @see {@link UpdateTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskCommandOutput> {
     return deserializeAws_json1_1UpdateTaskCommand(output, context);
   }

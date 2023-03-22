@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlarmsForMetricCommand}.
  */
 export interface DescribeAlarmsForMetricCommandInput extends DescribeAlarmsForMetricInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlarmsForMetricCommand}.
  */
 export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForMetricOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the alarms for the specified metric. To
  * 			filter the results, specify a statistic, period, or unit.</p>
  *          <p>This operation retrieves only standard alarms that are based on
@@ -50,6 +55,8 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmsForMetricCommandInput - {@link DescribeAlarmsForMetricCommandInput}
+ * @returns {@link DescribeAlarmsForMetricCommandOutput}
  * @see {@link DescribeAlarmsForMetricCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmsForMetricCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmsForMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmsForMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAlarmsForMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmsForMetricCommandOutput> {
     return deserializeAws_queryDescribeAlarmsForMetricCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssignIpv6AddressesCommand}.
  */
 export interface AssignIpv6AddressesCommandInput extends AssignIpv6AddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignIpv6AddressesCommand}.
  */
 export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one or more IPv6 addresses to the specified network interface. You can
  *             specify one or more specific IPv6 addresses, or you can specify the number of IPv6
  *             addresses to be automatically assigned from within the subnet's IPv6 CIDR block range.
@@ -56,6 +61,8 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignIpv6AddressesCommandInput - {@link AssignIpv6AddressesCommandInput}
+ * @returns {@link AssignIpv6AddressesCommandOutput}
  * @see {@link AssignIpv6AddressesCommandInput} for command's `input` shape.
  * @see {@link AssignIpv6AddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +86,9 @@ export class AssignIpv6AddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignIpv6AddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class AssignIpv6AddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignIpv6AddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssignIpv6AddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignIpv6AddressesCommandOutput> {
     return deserializeAws_ec2AssignIpv6AddressesCommand(output, context);
   }

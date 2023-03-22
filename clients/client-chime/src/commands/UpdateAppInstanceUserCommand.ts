@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppInstanceUserCommand}.
  */
 export interface UpdateAppInstanceUserCommandInput extends UpdateAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppInstanceUserCommand}.
  */
 export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppInstanceUserCommandInput - {@link UpdateAppInstanceUserCommandInput}
+ * @returns {@link UpdateAppInstanceUserCommandOutput}
  * @see {@link UpdateAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppInstanceUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppInstanceUserCommandOutput> {
     return deserializeAws_restJson1UpdateAppInstanceUserCommand(output, context);
   }

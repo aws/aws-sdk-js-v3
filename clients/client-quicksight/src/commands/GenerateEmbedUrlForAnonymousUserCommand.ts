@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateEmbedUrlForAnonymousUserCommand}.
  */
 export interface GenerateEmbedUrlForAnonymousUserCommandInput extends GenerateEmbedUrlForAnonymousUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateEmbedUrlForAnonymousUserCommand}.
  */
 export interface GenerateEmbedUrlForAnonymousUserCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or visual in your website, without having to register any reader users. Before you use this action, make sure that you have configured the dashboards and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
  *          <ul>
@@ -65,6 +70,8 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateEmbedUrlForAnonymousUserCommandInput - {@link GenerateEmbedUrlForAnonymousUserCommandInput}
+ * @returns {@link GenerateEmbedUrlForAnonymousUserCommandOutput}
  * @see {@link GenerateEmbedUrlForAnonymousUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForAnonymousUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -127,6 +134,9 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateEmbedUrlForAnonymousUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,6 +176,9 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateEmbedUrlForAnonymousUserCommandInput,
     context: __SerdeContext
@@ -173,6 +186,9 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
     return serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetQueryExecutionCommand}.
  */
 export interface BatchGetQueryExecutionCommandInput extends BatchGetQueryExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetQueryExecutionCommand}.
  */
 export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a single query execution or a list of up to 50 query
  *             executions, which you provide as an array of query execution ID strings. Requires you to
  *             have access to the workgroup in which the queries ran. To get a list of query execution
@@ -51,6 +56,8 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetQueryExecutionCommandInput - {@link BatchGetQueryExecutionCommandInput}
+ * @returns {@link BatchGetQueryExecutionCommandOutput}
  * @see {@link BatchGetQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link BatchGetQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchGetQueryExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetQueryExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchGetQueryExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetQueryExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetQueryExecutionCommandOutput> {
     return deserializeAws_json1_1BatchGetQueryExecutionCommand(output, context);
   }

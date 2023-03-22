@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInputRoutingsCommand}.
  */
 export interface ListInputRoutingsCommandInput extends ListInputRoutingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInputRoutingsCommand}.
  */
 export interface ListInputRoutingsCommandOutput extends ListInputRoutingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Lists one or more input routings.
  *     </p>
@@ -48,6 +53,8 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputRoutingsCommandInput - {@link ListInputRoutingsCommandInput}
+ * @returns {@link ListInputRoutingsCommandOutput}
  * @see {@link ListInputRoutingsCommandInput} for command's `input` shape.
  * @see {@link ListInputRoutingsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListInputRoutingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputRoutingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListInputRoutingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputRoutingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInputRoutingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputRoutingsCommandOutput> {
     return deserializeAws_restJson1ListInputRoutingsCommand(output, context);
   }

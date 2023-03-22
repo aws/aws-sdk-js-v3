@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApiDestinationCommand}.
  */
 export interface UpdateApiDestinationCommandInput extends UpdateApiDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApiDestinationCommand}.
  */
 export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an API destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApiDestinationCommandInput - {@link UpdateApiDestinationCommandInput}
+ * @returns {@link UpdateApiDestinationCommandOutput}
  * @see {@link UpdateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateApiDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApiDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateApiDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateApiDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiDestinationCommandOutput> {
     return deserializeAws_json1_1UpdateApiDestinationCommand(output, context);
   }

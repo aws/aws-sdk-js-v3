@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceRequestStatusCommand}.
  */
 export interface GetResourceRequestStatusCommandInput extends GetResourceRequestStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceRequestStatusCommand}.
  */
 export interface GetResourceRequestStatusCommandOutput extends GetResourceRequestStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of a resource operation request. For more information, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track">Tracking the progress of resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceRequestStatusCommandInput - {@link GetResourceRequestStatusCommandInput}
+ * @returns {@link GetResourceRequestStatusCommandOutput}
  * @see {@link GetResourceRequestStatusCommandInput} for command's `input` shape.
  * @see {@link GetResourceRequestStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetResourceRequestStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceRequestStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetResourceRequestStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceRequestStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetResourceRequestStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceRequestStatusCommandOutput> {
     return deserializeAws_json1_0GetResourceRequestStatusCommand(output, context);
   }

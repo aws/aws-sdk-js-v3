@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateAssessmentReportEvidenceCommand}.
  */
 export interface BatchAssociateAssessmentReportEvidenceCommandInput
   extends BatchAssociateAssessmentReportEvidenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateAssessmentReportEvidenceCommand}.
  */
 export interface BatchAssociateAssessmentReportEvidenceCommandOutput
@@ -38,6 +42,7 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Associates a list of evidence to an assessment report in an Audit Manager
  *          assessment. </p>
  * @example
@@ -50,6 +55,8 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateAssessmentReportEvidenceCommandInput - {@link BatchAssociateAssessmentReportEvidenceCommandInput}
+ * @returns {@link BatchAssociateAssessmentReportEvidenceCommandOutput}
  * @see {@link BatchAssociateAssessmentReportEvidenceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateAssessmentReportEvidenceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateAssessmentReportEvidenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateAssessmentReportEvidenceCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
     return serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

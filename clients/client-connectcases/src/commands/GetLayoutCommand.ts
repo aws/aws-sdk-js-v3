@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLayoutCommand}.
  */
 export interface GetLayoutCommandInput extends GetLayoutRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLayoutCommand}.
  */
 export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details for the requested layout.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLayoutCommandInput - {@link GetLayoutCommandInput}
+ * @returns {@link GetLayoutCommandOutput}
  * @see {@link GetLayoutCommandInput} for command's `input` shape.
  * @see {@link GetLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetLayoutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLayoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetLayoutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLayoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayoutCommandOutput> {
     return deserializeAws_restJson1GetLayoutCommand(output, context);
   }

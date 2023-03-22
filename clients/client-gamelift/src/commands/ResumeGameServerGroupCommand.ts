@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeGameServerGroupCommand}.
  */
 export interface ResumeGameServerGroupCommandInput extends ResumeGameServerGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link ResumeGameServerGroupCommand}.
  */
 export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -65,6 +70,8 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeGameServerGroupCommandInput - {@link ResumeGameServerGroupCommandInput}
+ * @returns {@link ResumeGameServerGroupCommandOutput}
  * @see {@link ResumeGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link ResumeGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -102,6 +109,9 @@ export class ResumeGameServerGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ResumeGameServerGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResumeGameServerGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeGameServerGroupCommandOutput> {
     return deserializeAws_json1_1ResumeGameServerGroupCommand(output, context);
   }

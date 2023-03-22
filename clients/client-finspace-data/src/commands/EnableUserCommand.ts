@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableUserCommand}.
  */
 export interface EnableUserCommandInput extends EnableUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableUserCommand}.
  */
 export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Allows the specified user to access the FinSpace web application and API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableUserCommandInput - {@link EnableUserCommandInput}
+ * @returns {@link EnableUserCommandOutput}
  * @see {@link EnableUserCommandInput} for command's `input` shape.
  * @see {@link EnableUserCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -91,6 +98,9 @@ export class EnableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class EnableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableUserCommandOutput> {
     return deserializeAws_restJson1EnableUserCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes.
  *       After creating a workflow, you can associate the workflow created with any transfer servers by specifying the <code>workflow-details</code> field in <code>CreateServer</code> and <code>UpdateServer</code> operations.
@@ -49,6 +54,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
+ * @returns {@link CreateWorkflowCommandOutput}
  * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowCommandOutput> {
     return deserializeAws_json1_1CreateWorkflowCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHealthCheckCommand}.
  */
 export interface UpdateHealthCheckCommandInput extends UpdateHealthCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHealthCheckCommand}.
  */
 export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing health check. Note that some values can't be updated. </p>
  *          <p>For more information about updating health checks, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating,
  * 				Updating, and Deleting Health Checks</a> in the <i>Amazon Route 53
@@ -49,6 +54,8 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHealthCheckCommandInput - {@link UpdateHealthCheckCommandInput}
+ * @returns {@link UpdateHealthCheckCommandOutput}
  * @see {@link UpdateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link UpdateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHealthCheckCommandOutput> {
     return deserializeAws_restXmlUpdateHealthCheckCommand(output, context);
   }

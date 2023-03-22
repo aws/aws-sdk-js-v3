@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UnarchiveWaveCommand}.
  */
 export interface UnarchiveWaveCommandInput extends UnarchiveWaveRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnarchiveWaveCommand}.
  */
 export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unarchive wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UnarchiveWaveCommandInput - {@link UnarchiveWaveCommandInput}
+ * @returns {@link UnarchiveWaveCommandOutput}
  * @see {@link UnarchiveWaveCommandInput} for command's `input` shape.
  * @see {@link UnarchiveWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class UnarchiveWaveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnarchiveWaveCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UnarchiveWaveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnarchiveWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnarchiveWaveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveWaveCommandOutput> {
     return deserializeAws_restJson1UnarchiveWaveCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlaceIndexesCommand}.
  */
 export interface ListPlaceIndexesCommandInput extends ListPlaceIndexesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlaceIndexesCommand}.
  */
 export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists place index resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlaceIndexesCommandInput - {@link ListPlaceIndexesCommandInput}
+ * @returns {@link ListPlaceIndexesCommandOutput}
  * @see {@link ListPlaceIndexesCommandInput} for command's `input` shape.
  * @see {@link ListPlaceIndexesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListPlaceIndexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlaceIndexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListPlaceIndexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlaceIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPlaceIndexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlaceIndexesCommandOutput> {
     return deserializeAws_restJson1ListPlaceIndexesCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStreamEncryptionCommand}.
  */
 export interface StartStreamEncryptionCommandInput extends StartStreamEncryptionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartStreamEncryptionCommand}.
  */
 export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a
  *             specified stream. </p>
  *          <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis
@@ -60,6 +65,8 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStreamEncryptionCommandInput - {@link StartStreamEncryptionCommandInput}
+ * @returns {@link StartStreamEncryptionCommandOutput}
  * @see {@link StartStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StartStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -132,6 +139,9 @@ export class StartStreamEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class StartStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamEncryptionCommandOutput> {
     return deserializeAws_json1_1StartStreamEncryptionCommand(output, context);
   }

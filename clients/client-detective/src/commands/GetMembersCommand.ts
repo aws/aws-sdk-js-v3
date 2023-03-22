@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMembersCommand}.
  */
 export interface GetMembersCommandInput extends GetMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMembersCommand}.
  */
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the membership details for specified member accounts for a behavior
  *          graph.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMembersCommandInput - {@link GetMembersCommandInput}
+ * @returns {@link GetMembersCommandOutput}
  * @see {@link GetMembersCommandInput} for command's `input` shape.
  * @see {@link GetMembersCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMembersCommandOutput> {
     return deserializeAws_restJson1GetMembersCommand(output, context);
   }

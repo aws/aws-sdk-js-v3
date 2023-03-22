@@ -24,15 +24,20 @@ import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } 
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link QueryCommand}.
  */
 export interface QueryCommandInput extends QueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryCommand}.
  */
 export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>Query</code> is a synchronous operation that enables you to run a query against
  *             your Amazon Timestream data. <code>Query</code> will time out after 60 seconds.
@@ -74,6 +79,8 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryCommandInput - {@link QueryCommandInput}
+ * @returns {@link QueryCommandOutput}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -117,6 +124,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0QueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
     return deserializeAws_json1_0QueryCommand(output, context);
   }

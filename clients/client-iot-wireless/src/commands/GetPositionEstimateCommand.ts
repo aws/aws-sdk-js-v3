@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPositionEstimateCommand}.
  */
 export interface GetPositionEstimateCommandInput extends GetPositionEstimateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPositionEstimateCommand}.
  */
 export interface GetPositionEstimateCommandOutput extends GetPositionEstimateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get estimated position information as a payload in GeoJSON format. The payload measurement data is
  *           resolved using solvers that are provided by third-party vendors.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPositionEstimateCommandInput - {@link GetPositionEstimateCommandInput}
+ * @returns {@link GetPositionEstimateCommandOutput}
  * @see {@link GetPositionEstimateCommandInput} for command's `input` shape.
  * @see {@link GetPositionEstimateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetPositionEstimateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPositionEstimateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetPositionEstimateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPositionEstimateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPositionEstimateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPositionEstimateCommandOutput> {
     return deserializeAws_restJson1GetPositionEstimateCommand(output, context);
   }

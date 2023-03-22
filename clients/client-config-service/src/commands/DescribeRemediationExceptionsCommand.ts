@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRemediationExceptionsCommand}.
  */
 export interface DescribeRemediationExceptionsCommandInput extends DescribeRemediationExceptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRemediationExceptionsCommand}.
  */
 export interface DescribeRemediationExceptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRemediationExceptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
  * 			When you specify the limit and the next token, you receive a paginated response. </p>
  *          <note>
@@ -55,6 +60,8 @@ export interface DescribeRemediationExceptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRemediationExceptionsCommandInput - {@link DescribeRemediationExceptionsCommandInput}
+ * @returns {@link DescribeRemediationExceptionsCommandOutput}
  * @see {@link DescribeRemediationExceptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeRemediationExceptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRemediationExceptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeRemediationExceptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRemediationExceptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDevicePoolCommand}.
  */
 export interface UpdateDevicePoolCommandInput extends UpdateDevicePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDevicePoolCommand}.
  */
 export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the name, description, and rules in a device pool given the attributes and
  *             the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a
  *             whole (or not at all).</p>
@@ -48,6 +53,8 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDevicePoolCommandInput - {@link UpdateDevicePoolCommandInput}
+ * @returns {@link UpdateDevicePoolCommandOutput}
  * @see {@link UpdateDevicePoolCommandInput} for command's `input` shape.
  * @see {@link UpdateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -108,6 +115,9 @@ export class UpdateDevicePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDevicePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class UpdateDevicePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDevicePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDevicePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDevicePoolCommandOutput> {
     return deserializeAws_json1_1UpdateDevicePoolCommand(output, context);
   }

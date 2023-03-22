@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePoolCommand}.
  */
 export interface CreatePoolCommandInput extends CreatePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePoolCommand}.
  */
 export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new pool and associates the specified origination identity to the pool. A
  *             pool can include one or more phone numbers and SenderIds that are associated with your
  *                 Amazon Web Services account.</p>
@@ -58,6 +63,8 @@ export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePoolCommandInput - {@link CreatePoolCommandInput}
+ * @returns {@link CreatePoolCommandOutput}
  * @see {@link CreatePoolCommandInput} for command's `input` shape.
  * @see {@link CreatePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -108,6 +115,9 @@ export class CreatePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreatePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreatePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePoolCommandOutput> {
     return deserializeAws_json1_0CreatePoolCommand(output, context);
   }

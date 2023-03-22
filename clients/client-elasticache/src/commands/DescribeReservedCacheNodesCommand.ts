@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedCacheNodesCommand}.
  */
 export interface DescribeReservedCacheNodesCommandInput extends DescribeReservedCacheNodesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedCacheNodesCommand}.
  */
 export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNodeMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about reserved cache
  *             nodes for this account, or about a specified reserved cache node.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedCacheNodesCommandInput - {@link DescribeReservedCacheNodesCommandInput}
+ * @returns {@link DescribeReservedCacheNodesCommandOutput}
  * @see {@link DescribeReservedCacheNodesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedCacheNodesCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeReservedCacheNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedCacheNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeReservedCacheNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedCacheNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReservedCacheNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

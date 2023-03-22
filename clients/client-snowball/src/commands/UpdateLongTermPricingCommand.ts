@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLongTermPricingCommand}.
  */
 export interface UpdateLongTermPricingCommandInput extends UpdateLongTermPricingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLongTermPricingCommand}.
  */
 export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the long-term pricing type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLongTermPricingCommandInput - {@link UpdateLongTermPricingCommandInput}
+ * @returns {@link UpdateLongTermPricingCommandOutput}
  * @see {@link UpdateLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link UpdateLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -73,6 +80,9 @@ export class UpdateLongTermPricingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLongTermPricingCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateLongTermPricingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLongTermPricingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLongTermPricingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLongTermPricingCommandOutput> {
     return deserializeAws_json1_1UpdateLongTermPricingCommand(output, context);
   }

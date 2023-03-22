@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMonitorCommand}.
  */
 export interface DescribeMonitorCommandInput extends DescribeMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMonitorCommand}.
  */
 export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a monitor resource. In addition to listing the properties provided in the <a>CreateMonitor</a> request, this operation lists the following properties:</p>
  *          <ul>
  *             <li>
@@ -83,6 +88,8 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMonitorCommandInput - {@link DescribeMonitorCommandInput}
+ * @returns {@link DescribeMonitorCommandOutput}
  * @see {@link DescribeMonitorCommandInput} for command's `input` shape.
  * @see {@link DescribeMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -114,6 +121,9 @@ export class DescribeMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class DescribeMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMonitorCommandOutput> {
     return deserializeAws_json1_1DescribeMonitorCommand(output, context);
   }

@@ -87,16 +87,25 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | StartCallAnalyticsStreamTranscriptionCommandInput
   | StartMedicalStreamTranscriptionCommandInput
   | StartStreamTranscriptionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | StartCallAnalyticsStreamTranscriptionCommandOutput
   | StartMedicalStreamTranscriptionCommandOutput
   | StartStreamTranscriptionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -104,7 +113,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -224,11 +233,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type TranscribeStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -242,10 +254,15 @@ type TranscribeStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpH
   EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of TranscribeStreamingClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of TranscribeStreamingClient class constructor that set the region, credentials and other options.
  */
 export interface TranscribeStreamingClientConfig extends TranscribeStreamingClientConfigType {}
 
+/**
+ * @public
+ */
 type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -259,11 +276,14 @@ type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration
   EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of TranscribeStreamingClient class. This is resolved and normalized from the {@link TranscribeStreamingClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of TranscribeStreamingClient class. This is resolved and normalized from the {@link TranscribeStreamingClientConfig | constructor configuration interface}.
  */
 export interface TranscribeStreamingClientResolvedConfig extends TranscribeStreamingClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
  *       <b>Standard</b>, <b>Medical</b>, and
  *       <b>Call Analytics</b>.</p>

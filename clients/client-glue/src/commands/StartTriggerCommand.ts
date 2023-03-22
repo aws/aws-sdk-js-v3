@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTriggerCommand}.
  */
 export interface StartTriggerCommandInput extends StartTriggerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTriggerCommand}.
  */
 export interface StartTriggerCommandOutput extends StartTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
  *       Jobs</a> for information about how different types of trigger are
  *       started.</p>
@@ -48,6 +53,8 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTriggerCommandInput - {@link StartTriggerCommandInput}
+ * @returns {@link StartTriggerCommandOutput}
  * @see {@link StartTriggerCommandInput} for command's `input` shape.
  * @see {@link StartTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -89,6 +96,9 @@ export class StartTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTriggerCommandOutput> {
     return deserializeAws_json1_1StartTriggerCommand(output, context);
   }

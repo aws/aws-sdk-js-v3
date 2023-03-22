@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamingDistributionWithTagsCommand}.
  */
 export interface CreateStreamingDistributionWithTagsCommandInput extends CreateStreamingDistributionWithTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamingDistributionWithTagsCommand}.
  */
 export interface CreateStreamingDistributionWithTagsCommandOutput
@@ -37,6 +41,7 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
  * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
  * 			forum.</p>
@@ -50,6 +55,8 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingDistributionWithTagsCommandInput - {@link CreateStreamingDistributionWithTagsCommandInput}
+ * @returns {@link CreateStreamingDistributionWithTagsCommandOutput}
  * @see {@link CreateStreamingDistributionWithTagsCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingDistributionWithTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingDistributionWithTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,6 +168,9 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateStreamingDistributionWithTagsCommandInput,
     context: __SerdeContext
@@ -165,6 +178,9 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     return serializeAws_restXmlCreateStreamingDistributionWithTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

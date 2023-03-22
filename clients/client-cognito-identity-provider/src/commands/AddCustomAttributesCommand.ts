@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddCustomAttributesCommand}.
  */
 export interface AddCustomAttributesCommandInput extends AddCustomAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddCustomAttributesCommand}.
  */
 export interface AddCustomAttributesCommandOutput extends AddCustomAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds additional user attributes to the user pool schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCustomAttributesCommandInput - {@link AddCustomAttributesCommandInput}
+ * @returns {@link AddCustomAttributesCommandOutput}
  * @see {@link AddCustomAttributesCommandInput} for command's `input` shape.
  * @see {@link AddCustomAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +103,9 @@ export class AddCustomAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCustomAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AddCustomAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCustomAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddCustomAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCustomAttributesCommandOutput> {
     return deserializeAws_json1_1AddCustomAttributesCommand(output, context);
   }

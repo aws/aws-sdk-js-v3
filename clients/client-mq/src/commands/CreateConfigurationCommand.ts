@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationCommand}.
  */
 export interface CreateConfigurationCommandInput extends CreateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationCommand}.
  */
 export interface CreateConfigurationCommandOutput extends CreateConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationCommandInput - {@link CreateConfigurationCommandInput}
+ * @returns {@link CreateConfigurationCommandOutput}
  * @see {@link CreateConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationCommandOutput> {
     return deserializeAws_restJson1CreateConfigurationCommand(output, context);
   }

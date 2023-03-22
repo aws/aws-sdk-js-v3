@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetServerCertificateCommand}.
  */
 export interface GetServerCertificateCommandInput extends GetServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServerCertificateCommand}.
  */
 export interface GetServerCertificateCommandOutput extends GetServerCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified server certificate stored in IAM.</p>
  *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
@@ -50,6 +55,8 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServerCertificateCommandInput - {@link GetServerCertificateCommandInput}
+ * @returns {@link GetServerCertificateCommandOutput}
  * @see {@link GetServerCertificateCommandInput} for command's `input` shape.
  * @see {@link GetServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerCertificateCommandOutput> {
     return deserializeAws_queryGetServerCertificateCommand(output, context);
   }

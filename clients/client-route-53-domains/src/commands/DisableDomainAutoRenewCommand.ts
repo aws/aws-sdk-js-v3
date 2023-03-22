@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableDomainAutoRenewCommand}.
  */
 export interface DisableDomainAutoRenewCommandInput extends DisableDomainAutoRenewRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableDomainAutoRenewCommand}.
  */
 export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation disables automatic renewal of domain registration for the specified
  * 			domain.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableDomainAutoRenewCommandInput - {@link DisableDomainAutoRenewCommandInput}
+ * @returns {@link DisableDomainAutoRenewCommandOutput}
  * @see {@link DisableDomainAutoRenewCommandInput} for command's `input` shape.
  * @see {@link DisableDomainAutoRenewCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DisableDomainAutoRenewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableDomainAutoRenewCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DisableDomainAutoRenewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableDomainAutoRenewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableDomainAutoRenewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableDomainAutoRenewCommandOutput> {
     return deserializeAws_json1_1DisableDomainAutoRenewCommand(output, context);
   }

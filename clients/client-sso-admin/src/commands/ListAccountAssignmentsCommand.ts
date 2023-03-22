@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountAssignmentsCommand}.
  */
 export interface ListAccountAssignmentsCommandInput extends ListAccountAssignmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountAssignmentsCommand}.
  */
 export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the assignee of the specified AWS account with the specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountAssignmentsCommandInput - {@link ListAccountAssignmentsCommandInput}
+ * @returns {@link ListAccountAssignmentsCommandOutput}
  * @see {@link ListAccountAssignmentsCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssignmentsCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListAccountAssignmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountAssignmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListAccountAssignmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountAssignmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAccountAssignmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAssignmentsCommandOutput> {
     return deserializeAws_json1_1ListAccountAssignmentsCommand(output, context);
   }

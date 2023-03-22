@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessKeyLastUsedCommand}.
  */
 export interface GetAccessKeyLastUsedCommandInput extends GetAccessKeyLastUsedRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessKeyLastUsedCommand}.
  */
 export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about when the specified access key was last used. The
  *             information includes the date and time of last use, along with the Amazon Web Services service and
  *             Region that were specified in the last request made with that key.</p>
@@ -48,6 +53,8 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessKeyLastUsedCommandInput - {@link GetAccessKeyLastUsedCommandInput}
+ * @returns {@link GetAccessKeyLastUsedCommandOutput}
  * @see {@link GetAccessKeyLastUsedCommandInput} for command's `input` shape.
  * @see {@link GetAccessKeyLastUsedCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessKeyLastUsedCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessKeyLastUsedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccessKeyLastUsedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyLastUsedCommandOutput> {
     return deserializeAws_queryGetAccessKeyLastUsedCommand(output, context);
   }

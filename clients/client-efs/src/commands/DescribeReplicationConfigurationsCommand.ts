@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationConfigurationsCommand}.
  */
 export interface DescribeReplicationConfigurationsCommandInput extends DescribeReplicationConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationConfigurationsCommand}.
  */
 export interface DescribeReplicationConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeReplicationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the replication configuration for a specific file system. If a file system is
  *       not specified, all of the replication configurations for the Amazon Web Services account in an
  *         Amazon Web Services Region are retrieved.</p>
@@ -50,6 +55,8 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationConfigurationsCommandInput - {@link DescribeReplicationConfigurationsCommandInput}
+ * @returns {@link DescribeReplicationConfigurationsCommandOutput}
  * @see {@link DescribeReplicationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationConfigurationsCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
     return serializeAws_restJson1DescribeReplicationConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

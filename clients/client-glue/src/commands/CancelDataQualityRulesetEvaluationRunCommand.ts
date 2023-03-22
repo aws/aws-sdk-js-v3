@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDataQualityRulesetEvaluationRunCommand}.
  */
 export interface CancelDataQualityRulesetEvaluationRunCommandInput
   extends CancelDataQualityRulesetEvaluationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDataQualityRulesetEvaluationRunCommand}.
  */
 export interface CancelDataQualityRulesetEvaluationRunCommandOutput
@@ -38,6 +42,7 @@ export interface CancelDataQualityRulesetEvaluationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a run where a ruleset is being evaluated against a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CancelDataQualityRulesetEvaluationRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDataQualityRulesetEvaluationRunCommandInput - {@link CancelDataQualityRulesetEvaluationRunCommandInput}
+ * @returns {@link CancelDataQualityRulesetEvaluationRunCommandOutput}
  * @see {@link CancelDataQualityRulesetEvaluationRunCommandInput} for command's `input` shape.
  * @see {@link CancelDataQualityRulesetEvaluationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelDataQualityRulesetEvaluationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDataQualityRulesetEvaluationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class CancelDataQualityRulesetEvaluationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelDataQualityRulesetEvaluationRunCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class CancelDataQualityRulesetEvaluationRunCommand extends $Command<
     return serializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

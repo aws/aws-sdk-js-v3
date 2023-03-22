@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectsCommand}.
  */
 export interface ListObjectsCommandInput extends ListObjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectsCommand}.
  */
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
  *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK
  *          response can contain valid or invalid XML. Be sure to design your application to parse the
@@ -81,6 +86,8 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
+ * @returns {@link ListObjectsCommandOutput}
  * @see {@link ListObjectsCommandInput} for command's `input` shape.
  * @see {@link ListObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -154,6 +161,9 @@ export class ListObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,10 +201,16 @@ export class ListObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsCommandOutput> {
     return deserializeAws_restXmlListObjectsCommand(output, context);
   }

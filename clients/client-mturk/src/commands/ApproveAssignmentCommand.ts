@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ApproveAssignmentCommand}.
  */
 export interface ApproveAssignmentCommandInput extends ApproveAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ApproveAssignmentCommand}.
  */
 export interface ApproveAssignmentCommandOutput extends ApproveAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ApproveAssignment</code> operation approves the results of a completed assignment.
  *         </p>
@@ -75,6 +80,8 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ApproveAssignmentCommandInput - {@link ApproveAssignmentCommandInput}
+ * @returns {@link ApproveAssignmentCommandOutput}
  * @see {@link ApproveAssignmentCommandInput} for command's `input` shape.
  * @see {@link ApproveAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -104,6 +111,9 @@ export class ApproveAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApproveAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ApproveAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApproveAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ApproveAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveAssignmentCommandOutput> {
     return deserializeAws_json1_1ApproveAssignmentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachTrafficSourcesCommand}.
  */
 export interface DetachTrafficSourcesCommandInput extends DetachTrafficSourcesType {}
 /**
+ * @public
+ *
  * The output of {@link DetachTrafficSourcesCommand}.
  */
 export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
  *             Do not use this API for production workloads. This API is also subject to change.</b>
@@ -50,6 +55,8 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachTrafficSourcesCommandInput - {@link DetachTrafficSourcesCommandInput}
+ * @returns {@link DetachTrafficSourcesCommandOutput}
  * @see {@link DetachTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link DetachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -77,6 +84,9 @@ export class DetachTrafficSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachTrafficSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DetachTrafficSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachTrafficSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachTrafficSourcesCommandOutput> {
     return deserializeAws_queryDetachTrafficSourcesCommand(output, context);
   }

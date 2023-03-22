@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProtectionGroupCommand}.
  */
 export interface CreateProtectionGroupCommandInput extends CreateProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProtectionGroupCommand}.
  */
 export interface CreateProtectionGroupCommandOutput extends CreateProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProtectionGroupCommandInput - {@link CreateProtectionGroupCommandInput}
+ * @returns {@link CreateProtectionGroupCommandOutput}
  * @see {@link CreateProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProtectionGroupCommandOutput> {
     return deserializeAws_json1_1CreateProtectionGroupCommand(output, context);
   }

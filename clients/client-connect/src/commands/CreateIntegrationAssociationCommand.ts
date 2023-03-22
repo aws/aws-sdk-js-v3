@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIntegrationAssociationCommand}.
  */
 export interface CreateIntegrationAssociationCommandInput extends CreateIntegrationAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIntegrationAssociationCommand}.
  */
 export interface CreateIntegrationAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateIntegrationAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services resource association with an Amazon Connect
  *    instance.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateIntegrationAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIntegrationAssociationCommandInput - {@link CreateIntegrationAssociationCommandInput}
+ * @returns {@link CreateIntegrationAssociationCommandOutput}
  * @see {@link CreateIntegrationAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationAssociationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateIntegrationAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIntegrationAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateIntegrationAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIntegrationAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIntegrationAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

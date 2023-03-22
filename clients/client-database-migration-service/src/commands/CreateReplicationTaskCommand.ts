@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationTaskCommand}.
  */
 export interface CreateReplicationTaskCommandInput extends CreateReplicationTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationTaskCommand}.
  */
 export interface CreateReplicationTaskCommandOutput extends CreateReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication task using the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationTaskCommandInput - {@link CreateReplicationTaskCommandInput}
+ * @returns {@link CreateReplicationTaskCommandOutput}
  * @see {@link CreateReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -132,6 +139,9 @@ export class CreateReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class CreateReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationTaskCommandOutput> {
     return deserializeAws_json1_1CreateReplicationTaskCommand(output, context);
   }

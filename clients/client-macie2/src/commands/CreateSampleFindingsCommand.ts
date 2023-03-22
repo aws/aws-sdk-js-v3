@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSampleFindingsCommand}.
  */
 export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSampleFindingsCommand}.
  */
 export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates sample findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSampleFindingsCommandInput - {@link CreateSampleFindingsCommandInput}
+ * @returns {@link CreateSampleFindingsCommandOutput}
  * @see {@link CreateSampleFindingsCommandInput} for command's `input` shape.
  * @see {@link CreateSampleFindingsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreateSampleFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSampleFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateSampleFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSampleFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSampleFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSampleFindingsCommandOutput> {
     return deserializeAws_restJson1CreateSampleFindingsCommand(output, context);
   }

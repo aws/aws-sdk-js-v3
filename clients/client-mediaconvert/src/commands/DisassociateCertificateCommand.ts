@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateCertificateCommand}.
  */
 export interface DisassociateCertificateCommandInput extends DisassociateCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateCertificateCommand}.
  */
 export interface DisassociateCertificateCommandOutput extends DisassociateCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateCertificateCommandOutput extends DisassociateCertif
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateCertificateCommandInput - {@link DisassociateCertificateCommandInput}
+ * @returns {@link DisassociateCertificateCommandOutput}
  * @see {@link DisassociateCertificateCommandInput} for command's `input` shape.
  * @see {@link DisassociateCertificateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DisassociateCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateCertificateCommandOutput> {
     return deserializeAws_restJson1DisassociateCertificateCommand(output, context);
   }

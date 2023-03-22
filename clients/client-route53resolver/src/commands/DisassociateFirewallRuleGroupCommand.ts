@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFirewallRuleGroupCommand}.
  */
 export interface DisassociateFirewallRuleGroupCommandInput extends DisassociateFirewallRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFirewallRuleGroupCommand}.
  */
 export interface DisassociateFirewallRuleGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateFirewallRuleGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering from the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateFirewallRuleGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFirewallRuleGroupCommandInput - {@link DisassociateFirewallRuleGroupCommandInput}
+ * @returns {@link DisassociateFirewallRuleGroupCommandOutput}
  * @see {@link DisassociateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociateFirewallRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFirewallRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DisassociateFirewallRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateFirewallRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

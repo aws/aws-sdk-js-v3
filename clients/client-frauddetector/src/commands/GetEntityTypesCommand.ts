@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEntityTypesCommand}.
  */
 export interface GetEntityTypesCommandInput extends GetEntityTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEntityTypesCommand}.
  */
 export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all entity types or a specific entity type if a name is specified. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
@@ -51,6 +56,8 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEntityTypesCommandInput - {@link GetEntityTypesCommandInput}
+ * @returns {@link GetEntityTypesCommandOutput}
  * @see {@link GetEntityTypesCommandInput} for command's `input` shape.
  * @see {@link GetEntityTypesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetEntityTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEntityTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetEntityTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEntityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEntityTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntityTypesCommandOutput> {
     return deserializeAws_json1_1GetEntityTypesCommand(output, context);
   }

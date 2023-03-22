@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListPublicKeysCommand}.
  */
 export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPublicKeysCommand}.
  */
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all public keys that have been added to CloudFront for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
+ * @returns {@link ListPublicKeysCommandOutput}
  * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListPublicKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPublicKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListPublicKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListPublicKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPublicKeysCommandOutput> {
     return deserializeAws_restXmlListPublicKeysCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkTelemetryCommand}.
  */
 export interface GetNetworkTelemetryCommandInput extends GetNetworkTelemetryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkTelemetryCommand}.
  */
 export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the network telemetry of the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkTelemetryCommandInput - {@link GetNetworkTelemetryCommandInput}
+ * @returns {@link GetNetworkTelemetryCommandOutput}
  * @see {@link GetNetworkTelemetryCommandInput} for command's `input` shape.
  * @see {@link GetNetworkTelemetryCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetNetworkTelemetryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkTelemetryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetNetworkTelemetryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkTelemetryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetNetworkTelemetryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkTelemetryCommandOutput> {
     return deserializeAws_restJson1GetNetworkTelemetryCommand(output, context);
   }

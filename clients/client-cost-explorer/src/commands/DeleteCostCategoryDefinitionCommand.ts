@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCostCategoryDefinitionCommand}.
  */
 export interface DeleteCostCategoryDefinitionCommandInput extends DeleteCostCategoryDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCostCategoryDefinitionCommand}.
  */
 export interface DeleteCostCategoryDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
  *       categorized with this Cost Category.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCostCategoryDefinitionCommandInput - {@link DeleteCostCategoryDefinitionCommandInput}
+ * @returns {@link DeleteCostCategoryDefinitionCommandOutput}
  * @see {@link DeleteCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCostCategoryDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCostCategoryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCostCategoryDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

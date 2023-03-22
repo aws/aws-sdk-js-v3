@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWhatIfForecastExportCommand}.
  */
 export interface DescribeWhatIfForecastExportCommandInput extends DescribeWhatIfForecastExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWhatIfForecastExportCommand}.
  */
 export interface DescribeWhatIfForecastExportCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeWhatIfForecastExportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the what-if forecast export created using the <a>CreateWhatIfForecastExport</a> operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreateWhatIfForecastExport</code> request, this operation lists the following properties:</p>
  *          <ul>
@@ -70,6 +75,8 @@ export interface DescribeWhatIfForecastExportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWhatIfForecastExportCommandInput - {@link DescribeWhatIfForecastExportCommandInput}
+ * @returns {@link DescribeWhatIfForecastExportCommandOutput}
  * @see {@link DescribeWhatIfForecastExportCommandInput} for command's `input` shape.
  * @see {@link DescribeWhatIfForecastExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -101,6 +108,9 @@ export class DescribeWhatIfForecastExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWhatIfForecastExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DescribeWhatIfForecastExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWhatIfForecastExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

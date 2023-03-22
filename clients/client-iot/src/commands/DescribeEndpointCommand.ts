@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointCommand}.
  */
 export interface DescribeEndpointCommandInput extends DescribeEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointCommand}.
  */
 export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
+ * @returns {@link DescribeEndpointCommandOutput}
  * @see {@link DescribeEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointCommandOutput> {
     return deserializeAws_restJson1DescribeEndpointCommand(output, context);
   }

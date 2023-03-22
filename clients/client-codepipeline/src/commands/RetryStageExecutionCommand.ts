@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RetryStageExecutionCommand}.
  */
 export interface RetryStageExecutionCommandInput extends RetryStageExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link RetryStageExecutionCommand}.
  */
 export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes the pipeline execution by retrying the last failed actions in a stage. You
  *             can retry a stage immediately if any of the actions in the stage fail. When you retry,
  *             all actions that are still in progress continue working, and failed actions are
@@ -49,6 +54,8 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryStageExecutionCommandInput - {@link RetryStageExecutionCommandInput}
+ * @returns {@link RetryStageExecutionCommandOutput}
  * @see {@link RetryStageExecutionCommandInput} for command's `input` shape.
  * @see {@link RetryStageExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -94,6 +101,9 @@ export class RetryStageExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryStageExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class RetryStageExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryStageExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetryStageExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryStageExecutionCommandOutput> {
     return deserializeAws_json1_1RetryStageExecutionCommand(output, context);
   }

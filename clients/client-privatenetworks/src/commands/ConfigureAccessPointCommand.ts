@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureAccessPointCommand}.
  */
 export interface ConfigureAccessPointCommandInput extends ConfigureAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureAccessPointCommand}.
  */
 export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures the specified network resource.
  *         </p>
  *          <p>
@@ -53,6 +58,8 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureAccessPointCommandInput - {@link ConfigureAccessPointCommandInput}
+ * @returns {@link ConfigureAccessPointCommandOutput}
  * @see {@link ConfigureAccessPointCommandInput} for command's `input` shape.
  * @see {@link ConfigureAccessPointCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -85,6 +92,9 @@ export class ConfigureAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ConfigureAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ConfigureAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureAccessPointCommandOutput> {
     return deserializeAws_restJson1ConfigureAccessPointCommand(output, context);
   }

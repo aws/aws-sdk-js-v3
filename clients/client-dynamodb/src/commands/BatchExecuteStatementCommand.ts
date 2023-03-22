@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
  *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
  *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
@@ -58,6 +63,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
+ * @returns {@link BatchExecuteStatementCommandOutput}
  * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -89,6 +96,9 @@ export class BatchExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class BatchExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0BatchExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
     return deserializeAws_json1_0BatchExecuteStatementCommand(output, context);
   }

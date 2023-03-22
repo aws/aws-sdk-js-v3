@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCACertificateCommand}.
  */
 export interface DeleteCACertificateCommandInput extends DeleteCACertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCACertificateCommand}.
  */
 export interface DeleteCACertificateCommandOutput extends DeleteCACertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a registered CA certificate.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCACertificate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCACertificateCommandInput - {@link DeleteCACertificateCommandInput}
+ * @returns {@link DeleteCACertificateCommandOutput}
  * @see {@link DeleteCACertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCACertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteCACertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCACertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteCACertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCACertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCACertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCACertificateCommandOutput> {
     return deserializeAws_restJson1DeleteCACertificateCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataCellsFilterCommand}.
  */
 export interface CreateDataCellsFilterCommandInput extends CreateDataCellsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataCellsFilterCommand}.
  */
 export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data cell filter to allow one to grant access to certain columns on certain rows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataCellsFilterCommandInput - {@link CreateDataCellsFilterCommandInput}
+ * @returns {@link CreateDataCellsFilterCommandOutput}
  * @see {@link CreateDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link CreateDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataCellsFilterCommandOutput> {
     return deserializeAws_restJson1CreateDataCellsFilterCommand(output, context);
   }

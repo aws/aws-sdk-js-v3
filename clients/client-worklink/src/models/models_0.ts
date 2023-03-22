@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { WorkLinkServiceException as __BaseException } from "./WorkLinkServiceException";
 
+/**
+ * @public
+ */
 export interface AssociateDomainRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -25,9 +28,13 @@ export interface AssociateDomainRequest {
   AcmCertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDomainResponse {}
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -49,6 +56,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -70,6 +78,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -91,6 +100,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -112,6 +122,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of requests exceeds the limit.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -133,6 +144,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform this action.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -153,10 +165,16 @@ export class UnauthorizedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AuthorizationProviderType {
   SAML = "SAML",
 }
 
+/**
+ * @public
+ */
 export interface AssociateWebsiteAuthorizationProviderRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -175,6 +193,9 @@ export interface AssociateWebsiteAuthorizationProviderRequest {
   DomainName?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateWebsiteAuthorizationProviderResponse {
   /**
    * <p>A unique identifier for the authorization provider.</p>
@@ -182,6 +203,9 @@ export interface AssociateWebsiteAuthorizationProviderResponse {
   AuthorizationProviderId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateWebsiteCertificateAuthorityRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -199,6 +223,9 @@ export interface AssociateWebsiteCertificateAuthorityRequest {
   DisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateWebsiteCertificateAuthorityResponse {
   /**
    * <p>A unique identifier for the CA.</p>
@@ -206,6 +233,9 @@ export interface AssociateWebsiteCertificateAuthorityResponse {
   WebsiteCaId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p>A unique name for the fleet.</p>
@@ -229,6 +259,9 @@ export interface CreateFleetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -236,6 +269,9 @@ export interface CreateFleetResponse {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -243,8 +279,14 @@ export interface DeleteFleetRequest {
   FleetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeAuditStreamConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -252,6 +294,9 @@ export interface DescribeAuditStreamConfigurationRequest {
   FleetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAuditStreamConfigurationResponse {
   /**
    * <p>The ARN of the Amazon Kinesis data stream that will receive the audit events.</p>
@@ -259,6 +304,9 @@ export interface DescribeAuditStreamConfigurationResponse {
   AuditStreamArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCompanyNetworkConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -266,6 +314,9 @@ export interface DescribeCompanyNetworkConfigurationRequest {
   FleetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCompanyNetworkConfigurationResponse {
   /**
    * <p>The VPC with connectivity to associated websites.</p>
@@ -283,6 +334,9 @@ export interface DescribeCompanyNetworkConfigurationResponse {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -295,11 +349,17 @@ export interface DescribeDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeviceStatus {
   ACTIVE = "ACTIVE",
   SIGNED_OUT = "SIGNED_OUT",
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
    * <p>The current state of the device.</p>
@@ -347,6 +407,9 @@ export interface DescribeDeviceResponse {
   Username?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDevicePolicyConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -354,6 +417,9 @@ export interface DescribeDevicePolicyConfigurationRequest {
   FleetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDevicePolicyConfigurationResponse {
   /**
    * <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>
@@ -361,6 +427,9 @@ export interface DescribeDevicePolicyConfigurationResponse {
   DeviceCaCertificate?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -373,6 +442,9 @@ export interface DescribeDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DomainStatus {
   ACTIVE = "ACTIVE",
   ASSOCIATING = "ASSOCIATING",
@@ -384,6 +456,9 @@ export enum DomainStatus {
   PENDING_VALIDATION = "PENDING_VALIDATION",
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainResponse {
   /**
    * <p>The name of the domain.</p>
@@ -411,6 +486,9 @@ export interface DescribeDomainResponse {
   AcmCertificateArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetMetadataRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -418,6 +496,9 @@ export interface DescribeFleetMetadataRequest {
   FleetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FleetStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -427,6 +508,9 @@ export enum FleetStatus {
   FAILED_TO_DELETE = "FAILED_TO_DELETE",
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetMetadataResponse {
   /**
    * <p>The time that the fleet was created.</p>
@@ -470,6 +554,9 @@ export interface DescribeFleetMetadataResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -477,10 +564,16 @@ export interface DescribeIdentityProviderConfigurationRequest {
   FleetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IdentityProviderType {
   SAML = "SAML",
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderConfigurationResponse {
   /**
    * <p>The type of identity provider.</p>
@@ -498,6 +591,9 @@ export interface DescribeIdentityProviderConfigurationResponse {
   IdentityProviderSamlMetadata?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWebsiteCertificateAuthorityRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -510,6 +606,9 @@ export interface DescribeWebsiteCertificateAuthorityRequest {
   WebsiteCaId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWebsiteCertificateAuthorityResponse {
   /**
    * <p>The root certificate of the certificate authority.</p>
@@ -528,6 +627,7 @@ export interface DescribeWebsiteCertificateAuthorityResponse {
 }
 
 /**
+ * @public
  * <p>The summary of devices.</p>
  */
 export interface DeviceSummary {
@@ -542,6 +642,9 @@ export interface DeviceSummary {
   DeviceStatus?: DeviceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDomainRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -554,8 +657,14 @@ export interface DisassociateDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDomainResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateWebsiteAuthorizationProviderRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -568,8 +677,14 @@ export interface DisassociateWebsiteAuthorizationProviderRequest {
   AuthorizationProviderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateWebsiteAuthorizationProviderResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateWebsiteCertificateAuthorityRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -582,9 +697,13 @@ export interface DisassociateWebsiteCertificateAuthorityRequest {
   WebsiteCaId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateWebsiteCertificateAuthorityResponse {}
 
 /**
+ * @public
  * <p>The summary of the domain.</p>
  */
 export interface DomainSummary {
@@ -610,6 +729,7 @@ export interface DomainSummary {
 }
 
 /**
+ * @public
  * <p>The summary of the fleet.</p>
  */
 export interface FleetSummary {
@@ -654,6 +774,9 @@ export interface FleetSummary {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -672,6 +795,9 @@ export interface ListDevicesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
    * <p>Information about the devices.</p>
@@ -685,6 +811,9 @@ export interface ListDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -703,6 +832,9 @@ export interface ListDomainsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>Information about the domains.</p>
@@ -716,6 +848,9 @@ export interface ListDomainsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
@@ -729,6 +864,9 @@ export interface ListFleetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsResponse {
   /**
    * <p>The summary list of the fleets.</p>
@@ -742,6 +880,9 @@ export interface ListFleetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -749,6 +890,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
@@ -756,6 +900,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListWebsiteAuthorizationProvidersRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -774,6 +921,7 @@ export interface ListWebsiteAuthorizationProvidersRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the website authorization provider.</p>
  */
 export interface WebsiteAuthorizationProviderSummary {
@@ -799,6 +947,9 @@ export interface WebsiteAuthorizationProviderSummary {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWebsiteAuthorizationProvidersResponse {
   /**
    * <p>The website authorization providers.</p>
@@ -811,6 +962,9 @@ export interface ListWebsiteAuthorizationProvidersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWebsiteCertificateAuthoritiesRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -830,6 +984,7 @@ export interface ListWebsiteCertificateAuthoritiesRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the certificate authority (CA).</p>
  */
 export interface WebsiteCaSummary {
@@ -849,6 +1004,9 @@ export interface WebsiteCaSummary {
   DisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWebsiteCertificateAuthoritiesResponse {
   /**
    * <p>Information about the certificates.</p>
@@ -862,6 +1020,9 @@ export interface ListWebsiteCertificateAuthoritiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDomainAccessRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -874,8 +1035,14 @@ export interface RestoreDomainAccessRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDomainAccessResponse {}
 
+/**
+ * @public
+ */
 export interface RevokeDomainAccessRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -888,8 +1055,14 @@ export interface RevokeDomainAccessRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeDomainAccessResponse {}
 
+/**
+ * @public
+ */
 export interface SignOutUserRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -902,8 +1075,14 @@ export interface SignOutUserRequest {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SignOutUserResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -916,8 +1095,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -930,8 +1115,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAuditStreamConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -944,8 +1135,14 @@ export interface UpdateAuditStreamConfigurationRequest {
   AuditStreamArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAuditStreamConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateCompanyNetworkConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -968,8 +1165,14 @@ export interface UpdateCompanyNetworkConfigurationRequest {
   SecurityGroupIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCompanyNetworkConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDevicePolicyConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -982,8 +1185,14 @@ export interface UpdateDevicePolicyConfigurationRequest {
   DeviceCaCertificate?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevicePolicyConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDomainMetadataRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -1001,8 +1210,14 @@ export interface UpdateDomainMetadataRequest {
   DisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainMetadataResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFleetMetadataRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -1021,8 +1236,14 @@ export interface UpdateFleetMetadataRequest {
   OptimizeForEndUserLocation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetMetadataResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -1041,6 +1262,9 @@ export interface UpdateIdentityProviderConfigurationRequest {
   IdentityProviderSamlMetadata?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderConfigurationResponse {}
 
 /**

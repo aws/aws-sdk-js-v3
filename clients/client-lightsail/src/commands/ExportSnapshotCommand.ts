@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportSnapshotCommand}.
  */
 export interface ExportSnapshotCommandInput extends ExportSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportSnapshotCommand}.
  */
 export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).
  *       This operation results in an export snapshot record that can be used with the <code>create
  *         cloud formation stack</code> operation to create new Amazon EC2 instances.</p>
@@ -60,6 +65,8 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportSnapshotCommandInput - {@link ExportSnapshotCommandInput}
+ * @returns {@link ExportSnapshotCommandOutput}
  * @see {@link ExportSnapshotCommandInput} for command's `input` shape.
  * @see {@link ExportSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -113,6 +120,9 @@ export class ExportSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class ExportSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExportSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportSnapshotCommandOutput> {
     return deserializeAws_json1_1ExportSnapshotCommand(output, context);
   }

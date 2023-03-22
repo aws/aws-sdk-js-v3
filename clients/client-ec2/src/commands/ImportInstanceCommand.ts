@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ImportInstanceCommand, serializeAws_ec2ImportInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ImportInstanceCommand}.
  */
 export interface ImportInstanceCommandInput extends ImportInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportInstanceCommand}.
  */
 export interface ImportInstanceCommandOutput extends ImportInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an import instance task using metadata from the specified disk image.</p>
  *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
  *    instead.</p>
@@ -49,6 +54,8 @@ export interface ImportInstanceCommandOutput extends ImportInstanceResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportInstanceCommandInput - {@link ImportInstanceCommandInput}
+ * @returns {@link ImportInstanceCommandOutput}
  * @see {@link ImportInstanceCommandInput} for command's `input` shape.
  * @see {@link ImportInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ImportInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ImportInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ImportInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportInstanceCommandOutput> {
     return deserializeAws_ec2ImportInstanceCommand(output, context);
   }

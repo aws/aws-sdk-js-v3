@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkerCommand}.
  */
 export interface GetWorkerCommandInput extends GetWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkerCommand}.
  */
 export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to get a worker
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkerCommandInput - {@link GetWorkerCommandInput}
+ * @returns {@link GetWorkerCommandOutput}
  * @see {@link GetWorkerCommandInput} for command's `input` shape.
  * @see {@link GetWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkerCommandOutput> {
     return deserializeAws_restJson1GetWorkerCommand(output, context);
   }

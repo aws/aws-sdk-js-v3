@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpamResourceDiscoveryAssociationsCommand}.
  */
 export interface DescribeIpamResourceDiscoveryAssociationsCommandInput
   extends DescribeIpamResourceDiscoveryAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpamResourceDiscoveryAssociationsCommand}.
  */
 export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpamResourceDiscoveryAssociationsCommandInput - {@link DescribeIpamResourceDiscoveryAssociationsCommandInput}
+ * @returns {@link DescribeIpamResourceDiscoveryAssociationsCommandOutput}
  * @see {@link DescribeIpamResourceDiscoveryAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamResourceDiscoveryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpamResourceDiscoveryAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIpamResourceDiscoveryAssociationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<
     return serializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

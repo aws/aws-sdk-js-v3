@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectDominantLanguageCommand}.
  */
 export interface DetectDominantLanguageCommandInput extends DetectDominantLanguageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectDominantLanguageCommand}.
  */
 export interface DetectDominantLanguageCommandOutput extends DetectDominantLanguageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines the dominant language of the input text. For a list of languages that Amazon
  *       Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectDominantLanguageCommandInput - {@link DetectDominantLanguageCommandInput}
+ * @returns {@link DetectDominantLanguageCommandOutput}
  * @see {@link DetectDominantLanguageCommandInput} for command's `input` shape.
  * @see {@link DetectDominantLanguageCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -79,6 +86,9 @@ export class DetectDominantLanguageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectDominantLanguageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DetectDominantLanguageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectDominantLanguageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectDominantLanguageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectDominantLanguageCommandOutput> {
     return deserializeAws_json1_1DetectDominantLanguageCommand(output, context);
   }

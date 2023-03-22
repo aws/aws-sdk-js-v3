@@ -40,6 +40,7 @@ import {
 import { IoTFleetHubClient } from "./IoTFleetHubClient";
 
 /**
+ * @public
  * <p>With Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -47,6 +48,7 @@ import { IoTFleetHubClient } from "./IoTFleetHubClient";
  */
 export class IoTFleetHub extends IoTFleetHubClient {
   /**
+   * @public
    * <p>Creates a Fleet Hub for AWS IoT Device Management web application.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -82,6 +84,7 @@ export class IoTFleetHub extends IoTFleetHubClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Fleet Hub for AWS IoT Device Management web application.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -117,6 +120,7 @@ export class IoTFleetHub extends IoTFleetHubClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a Fleet Hub for AWS IoT Device Management web application.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -152,6 +156,7 @@ export class IoTFleetHub extends IoTFleetHubClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of Fleet Hub for AWS IoT Device Management web applications for the current account.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -187,6 +192,7 @@ export class IoTFleetHub extends IoTFleetHubClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -222,6 +228,7 @@ export class IoTFleetHub extends IoTFleetHubClient {
   }
 
   /**
+   * @public
    * <p>Adds to or modifies the tags of the specified resource. Tags are metadata which can be used to manage a resource.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -251,6 +258,7 @@ export class IoTFleetHub extends IoTFleetHubClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags (metadata) from the resource.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -286,6 +294,7 @@ export class IoTFleetHub extends IoTFleetHubClient {
   }
 
   /**
+   * @public
    * <p>Updates information about a Fleet Hub for a AWS IoT Device Management web application.</p>
    *          <note>
    *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationsCommand}.
  */
 export interface ListOrganizationsCommandInput extends ListOrganizationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationsCommand}.
  */
 export interface ListOrganizationsCommandOutput extends ListOrganizationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summaries of the customer's organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationsCommandInput - {@link ListOrganizationsCommandInput}
+ * @returns {@link ListOrganizationsCommandOutput}
  * @see {@link ListOrganizationsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListOrganizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListOrganizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrganizationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOrganizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrganizationsCommandOutput> {
     return deserializeAws_json1_1ListOrganizationsCommand(output, context);
   }

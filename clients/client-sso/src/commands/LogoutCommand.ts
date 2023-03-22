@@ -18,15 +18,20 @@ import { deserializeAws_restJson1LogoutCommand, serializeAws_restJson1LogoutComm
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
+ * @public
+ *
  * The input for {@link LogoutCommand}.
  */
 export interface LogoutCommandInput extends LogoutRequest {}
 /**
+ * @public
+ *
  * The output of {@link LogoutCommand}.
  */
 export interface LogoutCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the locally stored SSO tokens from the client-side cache and sends an API call to
  *       the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in
  *       session.</p>
@@ -53,6 +58,8 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param LogoutCommandInput - {@link LogoutCommandInput}
+ * @returns {@link LogoutCommandOutput}
  * @see {@link LogoutCommandInput} for command's `input` shape.
  * @see {@link LogoutCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
@@ -84,6 +91,9 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LogoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LogoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1LogoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LogoutCommandOutput> {
     return deserializeAws_restJson1LogoutCommand(output, context);
   }

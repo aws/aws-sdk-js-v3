@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelArchivalCommand}.
  */
 export interface CancelArchivalCommandInput extends CancelArchivalInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelArchivalCommand}.
  */
 export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
  *          process is initiated. This operation is only supported in the tape gateway type.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelArchivalCommandInput - {@link CancelArchivalCommandInput}
+ * @returns {@link CancelArchivalCommandOutput}
  * @see {@link CancelArchivalCommandInput} for command's `input` shape.
  * @see {@link CancelArchivalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -95,6 +102,9 @@ export class CancelArchivalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelArchivalCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CancelArchivalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelArchivalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelArchivalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelArchivalCommandOutput> {
     return deserializeAws_json1_1CancelArchivalCommand(output, context);
   }

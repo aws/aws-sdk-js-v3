@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAttributeGroupCommand}.
  */
 export interface CreateAttributeGroupCommandInput extends CreateAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAttributeGroupCommand}.
  */
 export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new attribute group as a container for user-defined attributes. This feature
  *       enables users to have full control over their cloud application's metadata in a rich
  *       machine-readable format to facilitate integration with automated workflows and third-party
@@ -53,6 +58,8 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAttributeGroupCommandInput - {@link CreateAttributeGroupCommandInput}
+ * @returns {@link CreateAttributeGroupCommandOutput}
  * @see {@link CreateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link CreateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAttributeGroupCommandOutput> {
     return deserializeAws_restJson1CreateAttributeGroupCommand(output, context);
   }

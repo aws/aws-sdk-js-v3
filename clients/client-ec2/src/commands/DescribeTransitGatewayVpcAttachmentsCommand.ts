@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayVpcAttachmentsCommand}.
  */
 export interface DescribeTransitGatewayVpcAttachmentsCommandInput extends DescribeTransitGatewayVpcAttachmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayVpcAttachmentsCommand}.
  */
 export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayVpcAttachmentsCommandInput - {@link DescribeTransitGatewayVpcAttachmentsCommandInput}
+ * @returns {@link DescribeTransitGatewayVpcAttachmentsCommandOutput}
  * @see {@link DescribeTransitGatewayVpcAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayVpcAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayVpcAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayVpcAttachmentsCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSystemTemplateCommand}.
  */
 export interface UpdateSystemTemplateCommandInput extends UpdateSystemTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSystemTemplateCommand}.
  */
 export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
@@ -48,6 +53,8 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSystemTemplateCommandInput - {@link UpdateSystemTemplateCommandInput}
+ * @returns {@link UpdateSystemTemplateCommandOutput}
  * @see {@link UpdateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateSystemTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSystemTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateSystemTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSystemTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSystemTemplateCommandOutput> {
     return deserializeAws_json1_1UpdateSystemTemplateCommand(output, context);
   }

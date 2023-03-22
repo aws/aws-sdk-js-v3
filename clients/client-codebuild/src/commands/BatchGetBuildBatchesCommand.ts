@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetBuildBatchesCommand}.
  */
 export interface BatchGetBuildBatchesCommandInput extends BatchGetBuildBatchesInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetBuildBatchesCommand}.
  */
 export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about one or more batch builds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetBuildBatchesCommandInput - {@link BatchGetBuildBatchesCommandInput}
+ * @returns {@link BatchGetBuildBatchesCommandOutput}
  * @see {@link BatchGetBuildBatchesCommandInput} for command's `input` shape.
  * @see {@link BatchGetBuildBatchesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +79,9 @@ export class BatchGetBuildBatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetBuildBatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class BatchGetBuildBatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetBuildBatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetBuildBatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetBuildBatchesCommandOutput> {
     return deserializeAws_json1_1BatchGetBuildBatchesCommand(output, context);
   }

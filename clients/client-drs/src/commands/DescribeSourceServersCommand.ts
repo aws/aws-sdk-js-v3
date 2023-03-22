@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSourceServersCommand}.
  */
 export interface DescribeSourceServersCommandInput extends DescribeSourceServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSourceServersCommand}.
  */
 export interface DescribeSourceServersCommandOutput extends DescribeSourceServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Source Servers or multiple Source Servers filtered by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSourceServersCommandInput - {@link DescribeSourceServersCommandInput}
+ * @returns {@link DescribeSourceServersCommandOutput}
  * @see {@link DescribeSourceServersCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceServersCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeSourceServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSourceServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeSourceServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSourceServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceServersCommandOutput> {
     return deserializeAws_restJson1DescribeSourceServersCommand(output, context);
   }

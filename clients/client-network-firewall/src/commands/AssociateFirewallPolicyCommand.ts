@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateFirewallPolicyCommand}.
  */
 export interface AssociateFirewallPolicyCommandInput extends AssociateFirewallPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateFirewallPolicyCommand}.
  */
 export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a <a>FirewallPolicy</a> to a <a>Firewall</a>. </p>
  *          <p>A firewall policy defines how to monitor and manage your VPC network traffic, using a
  *          collection of inspection rule groups and other settings. Each firewall requires one
@@ -50,6 +55,8 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateFirewallPolicyCommandInput - {@link AssociateFirewallPolicyCommandInput}
+ * @returns {@link AssociateFirewallPolicyCommandOutput}
  * @see {@link AssociateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link AssociateFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -106,6 +113,9 @@ export class AssociateFirewallPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateFirewallPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class AssociateFirewallPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0AssociateFirewallPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateFirewallPolicyCommandOutput> {
     return deserializeAws_json1_0AssociateFirewallPolicyCommand(output, context);
   }

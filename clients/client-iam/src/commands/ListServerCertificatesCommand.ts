@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListServerCertificatesCommand}.
  */
 export interface ListServerCertificatesCommandInput extends ListServerCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServerCertificatesCommand}.
  */
 export interface ListServerCertificatesCommandOutput extends ListServerCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
  *             none exist, the operation returns an empty list.</p>
  *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
@@ -57,6 +62,8 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServerCertificatesCommandInput - {@link ListServerCertificatesCommandInput}
+ * @returns {@link ListServerCertificatesCommandOutput}
  * @see {@link ListServerCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListServerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListServerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListServerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListServerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServerCertificatesCommandOutput> {
     return deserializeAws_queryListServerCertificatesCommand(output, context);
   }

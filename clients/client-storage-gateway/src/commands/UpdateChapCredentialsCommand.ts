@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChapCredentialsCommand}.
  */
 export interface UpdateChapCredentialsCommandInput extends UpdateChapCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChapCredentialsCommand}.
  */
 export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
  *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
  *          added security, you might use it. This operation is supported in the volume and tape
@@ -54,6 +59,8 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChapCredentialsCommandInput - {@link UpdateChapCredentialsCommandInput}
+ * @returns {@link UpdateChapCredentialsCommandOutput}
  * @see {@link UpdateChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link UpdateChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -105,6 +112,9 @@ export class UpdateChapCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChapCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class UpdateChapCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChapCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateChapCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChapCredentialsCommandOutput> {
     return deserializeAws_json1_1UpdateChapCredentialsCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PutEventsCommand, serializeAws_json1_1PutEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventsCommand}.
  */
 export interface PutEventsCommandInput extends PutEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventsCommand}.
  */
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventsCommandInput - {@link PutEventsCommandInput}
+ * @returns {@link PutEventsCommandOutput}
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -69,6 +76,9 @@ export class PutEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class PutEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
     return deserializeAws_json1_1PutEventsCommand(output, context);
   }

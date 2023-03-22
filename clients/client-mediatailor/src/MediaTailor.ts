@@ -212,11 +212,13 @@ import {
 import { MediaTailorClient } from "./MediaTailorClient";
 
 /**
+ * @public
  * <p>Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad insertion and linear channels. With MediaTailor, you can assemble existing content into a linear stream and serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/">AWS Elemental MediaTailor User Guide</a>.</p>
  *          <p>Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations and channels the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
  */
 export class MediaTailor extends MediaTailorClient {
   /**
+   * @public
    * <p>Configures Amazon CloudWatch log settings for a channel.</p>
    */
   public configureLogsForChannel(
@@ -249,6 +251,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Amazon CloudWatch log settings for a playback configuration.</p>
    */
   public configureLogsForPlaybackConfiguration(
@@ -283,6 +286,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Creates a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public createChannel(
@@ -315,6 +319,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The live source configuration.</p>
    */
   public createLiveSource(
@@ -347,6 +352,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Creates a prefetch schedule for a playback configuration. A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public createPrefetchSchedule(
@@ -379,6 +385,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Creates a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public createProgram(
@@ -411,6 +418,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Creates a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public createSourceLocation(
@@ -443,6 +451,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The VOD source configuration parameters.</p>
    */
   public createVodSource(
@@ -475,6 +484,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public deleteChannel(
@@ -507,6 +517,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The channel policy to delete.</p>
    */
   public deleteChannelPolicy(
@@ -539,6 +550,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The live source to delete.</p>
    */
   public deleteLiveSource(
@@ -571,6 +583,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
    */
   public deletePlaybackConfiguration(
@@ -603,6 +616,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a prefetch schedule for a specific playback configuration. If you call <code>DeletePrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public deletePrefetchSchedule(
@@ -635,6 +649,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public deleteProgram(
@@ -667,6 +682,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public deleteSourceLocation(
@@ -699,6 +715,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The video on demand (VOD) source to delete.</p>
    */
   public deleteVodSource(
@@ -731,6 +748,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Describes a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public describeChannel(
@@ -763,6 +781,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The live source to describe.</p>
    */
   public describeLiveSource(
@@ -795,6 +814,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Describes a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public describeProgram(
@@ -827,6 +847,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Describes a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public describeSourceLocation(
@@ -859,6 +880,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Provides details about a specific video on demand (VOD) source in a specific source location.</p>
    */
   public describeVodSource(
@@ -891,6 +913,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Returns the channel's IAM policy. IAM policies are used to control access to your channel.</p>
    */
   public getChannelPolicy(
@@ -923,6 +946,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about your channel's schedule.</p>
    */
   public getChannelSchedule(
@@ -955,6 +979,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
    */
   public getPlaybackConfiguration(
@@ -987,6 +1012,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a prefetch schedule for a playback configuration. A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public getPrefetchSchedule(
@@ -1019,6 +1045,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Lists the alerts that are associated with a MediaTailor channel assembly resource.</p>
    */
   public listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
@@ -1045,6 +1072,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the channels that are associated with the current AWS account.</p>
    */
   public listChannels(
@@ -1074,6 +1102,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Lists the live sources contained in a source location. A source represents a piece of content.</p>
    */
   public listLiveSources(
@@ -1106,6 +1135,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Retrieves existing playback configurations. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with Configurations in AWS Elemental MediaTailor</a>.</p>
    */
   public listPlaybackConfigurations(
@@ -1138,6 +1168,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Lists the prefetch schedules for a playback configuration.</p>
    */
   public listPrefetchSchedules(
@@ -1170,6 +1201,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Lists the source locations for a channel. A source location defines the host server URL, and contains a list of sources.</p>
    */
   public listSourceLocations(
@@ -1202,6 +1234,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>A list of tags that are associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
    */
   public listTagsForResource(
@@ -1234,6 +1267,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Lists the VOD sources contained in a source location. A source represents a piece of content.</p>
    */
   public listVodSources(
@@ -1266,6 +1300,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Creates an IAM policy for the channel. IAM policies are used to control access to your channel.</p>
    */
   public putChannelPolicy(
@@ -1298,6 +1333,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Creates a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
    */
   public putPlaybackConfiguration(
@@ -1330,6 +1366,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Starts a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public startChannel(
@@ -1359,6 +1396,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Stops a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public stopChannel(args: StopChannelCommandInput, options?: __HttpHandlerOptions): Promise<StopChannelCommandOutput>;
@@ -1385,6 +1423,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The resource to tag. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1411,6 +1450,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>The resource to untag.</p>
    */
   public untagResource(
@@ -1443,6 +1483,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Updates a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public updateChannel(
@@ -1475,6 +1516,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Updates a live source's configuration.</p>
    */
   public updateLiveSource(
@@ -1507,6 +1549,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Updates a program within a channel.</p>
    */
   public updateProgram(
@@ -1539,6 +1582,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Updates a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
    */
   public updateSourceLocation(
@@ -1571,6 +1615,7 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * @public
    * <p>Updates a VOD source's configuration.</p>
    */
   public updateVodSource(

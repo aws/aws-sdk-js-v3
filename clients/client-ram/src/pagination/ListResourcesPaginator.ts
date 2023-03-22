@@ -10,7 +10,7 @@ import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RAMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourcesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListResources(
   config: RAMPaginationConfiguration,
   input: ListResourcesCommandInput,

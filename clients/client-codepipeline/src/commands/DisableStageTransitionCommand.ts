@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableStageTransitionCommand}.
  */
 export interface DisableStageTransitionCommandInput extends DisableStageTransitionInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableStageTransitionCommand}.
  */
 export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
  *             pipeline.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableStageTransitionCommandInput - {@link DisableStageTransitionCommandInput}
+ * @returns {@link DisableStageTransitionCommandOutput}
  * @see {@link DisableStageTransitionCommandInput} for command's `input` shape.
  * @see {@link DisableStageTransitionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -74,6 +81,9 @@ export class DisableStageTransitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableStageTransitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DisableStageTransitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableStageTransitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableStageTransitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableStageTransitionCommandOutput> {
     return deserializeAws_json1_1DisableStageTransitionCommand(output, context);
   }

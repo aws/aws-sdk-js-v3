@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelModeratorsCommand}.
  */
 export interface ListChannelModeratorsCommandInput extends ListChannelModeratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelModeratorsCommand}.
  */
 export interface ListChannelModeratorsCommandOutput extends ListChannelModeratorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the moderators for a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -55,6 +60,8 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelModeratorsCommandInput - {@link ListChannelModeratorsCommandInput}
+ * @returns {@link ListChannelModeratorsCommandOutput}
  * @see {@link ListChannelModeratorsCommandInput} for command's `input` shape.
  * @see {@link ListChannelModeratorsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListChannelModeratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelModeratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListChannelModeratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelModeratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChannelModeratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelModeratorsCommandOutput> {
     return deserializeAws_restJson1ListChannelModeratorsCommand(output, context);
   }

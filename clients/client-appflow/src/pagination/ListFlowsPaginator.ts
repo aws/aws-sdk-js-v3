@@ -6,7 +6,7 @@ import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from 
 import { AppflowPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppflowClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFlowsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFlows(
   config: AppflowPaginationConfiguration,
   input: ListFlowsCommandInput,

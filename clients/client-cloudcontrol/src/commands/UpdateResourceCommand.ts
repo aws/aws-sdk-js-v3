@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceCommand}.
  */
 export interface UpdateResourceCommandInput extends UpdateResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceCommand}.
  */
 export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified property values in the resource.</p>
  *          <p>You specify your resource property updates as a list of patch operations contained in a
  *       JSON patch document that adheres to the <a href="https://datatracker.ietf.org/doc/html/rfc6902">
@@ -57,6 +62,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
+ * @returns {@link UpdateResourceCommandOutput}
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -153,6 +160,9 @@ export class UpdateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,10 +202,16 @@ export class UpdateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
     return deserializeAws_json1_0UpdateResourceCommand(output, context);
   }

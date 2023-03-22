@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainEntryCommand}.
  */
 export interface CreateDomainEntryCommandInput extends CreateDomainEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainEntryCommand}.
  */
 export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:
  *       Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
  *       (SOA), service locator (SRV), or text (TXT).</p>
@@ -51,6 +56,8 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainEntryCommandInput - {@link CreateDomainEntryCommandInput}
+ * @returns {@link CreateDomainEntryCommandOutput}
  * @see {@link CreateDomainEntryCommandInput} for command's `input` shape.
  * @see {@link CreateDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateDomainEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateDomainEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDomainEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainEntryCommandOutput> {
     return deserializeAws_json1_1CreateDomainEntryCommand(output, context);
   }

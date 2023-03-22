@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendEmailCommand}.
  */
 export interface SendEmailCommandInput extends SendEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendEmailCommand}.
  */
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an email message. You can use the Amazon Pinpoint Email API to send two types of
  *             messages:</p>
  *         <ul>
@@ -63,6 +68,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEmailCommandInput - {@link SendEmailCommandInput}
+ * @returns {@link SendEmailCommandOutput}
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -112,6 +119,9 @@ export class SendEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class SendEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
     return deserializeAws_restJson1SendEmailCommand(output, context);
   }

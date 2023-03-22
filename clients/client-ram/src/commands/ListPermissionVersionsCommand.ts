@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionVersionsCommand}.
  */
 export interface ListPermissionVersionsCommandInput extends ListPermissionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionVersionsCommand}.
  */
 export interface ListPermissionVersionsCommandOutput extends ListPermissionVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the available versions of the specified RAM permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPermissionVersionsCommandOutput extends ListPermissionVersi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionVersionsCommandInput - {@link ListPermissionVersionsCommandInput}
+ * @returns {@link ListPermissionVersionsCommandOutput}
  * @see {@link ListPermissionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionVersionsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListPermissionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListPermissionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPermissionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionVersionsCommandOutput> {
     return deserializeAws_restJson1ListPermissionVersionsCommand(output, context);
   }

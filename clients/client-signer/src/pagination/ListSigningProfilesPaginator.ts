@@ -10,7 +10,7 @@ import { SignerClient } from "../SignerClient";
 import { SignerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SignerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSigningProfilesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSigningProfiles(
   config: SignerPaginationConfiguration,
   input: ListSigningProfilesCommandInput,

@@ -85,6 +85,7 @@ import {
 import { SignerClient } from "./SignerClient";
 
 /**
+ * @public
  * <p>AWS Signer is a fully managed code signing service to help you ensure the trust and
  * 			integrity of your code. </p>
  * 		       <p>AWS Signer supports the following applications:</p>
@@ -105,6 +106,7 @@ import { SignerClient } from "./SignerClient";
  */
 export class Signer extends SignerClient {
   /**
+   * @public
    * <p>Adds cross-account permissions to a signing profile.</p>
    */
   public addProfilePermission(
@@ -137,6 +139,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
    * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
    * 			operation, but it cannot perform new signing jobs, and is deleted two years after
@@ -172,6 +175,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific code signing job. You specify the job by using
    * 			the <code>jobId</code> value that is returned by the <a>StartSigningJob</a>
    * 			operation. </p>
@@ -206,6 +210,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Returns information on a specific signing platform.</p>
    */
   public getSigningPlatform(
@@ -238,6 +243,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Returns information on a specific signing profile.</p>
    */
   public getSigningProfile(
@@ -270,6 +276,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Lists the cross-account permissions associated with a signing profile.</p>
    */
   public listProfilePermissions(
@@ -302,6 +309,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to
    * 			limit the number of signing jobs that are returned in the response. If additional jobs
    * 			remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in
@@ -340,6 +348,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Lists all signing platforms available in code signing that match the request parameters. If
    * 			additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use
    * 			this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining
@@ -378,6 +387,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Lists all available signing profiles in your AWS account. Returns only profiles with
    * 			an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is
    * 			set to <code>true</code>. If additional jobs remain to be listed, code signing returns a
@@ -417,6 +427,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags associated with a signing profile resource.</p>
    */
   public listTagsForResource(
@@ -449,6 +460,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Creates a signing profile. A signing profile is a code signing template that can be used to
    * 			carry out a pre-defined signing job. For more information, see <a href="http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>
    *          </p>
@@ -483,6 +495,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Removes cross-account permissions from a signing profile.</p>
    */
   public removeProfilePermission(
@@ -515,6 +528,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no
    * 			longer valid.</p>
    */
@@ -548,6 +562,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures
    * 			generated using the signing profile after an effective start date are no longer
    * 			valid.</p>
@@ -582,6 +597,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Initiates a signing job to be performed on the code provided. Signing jobs are
    * 			viewable by the <code>ListSigningJobs</code> operation for two years after they are
    * 			performed. Note the following requirements: </p>
@@ -641,6 +657,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to a signing profile. Tags are labels that you can use to
    * 			identify and organize your AWS resources. Each tag consists of a key and an optional
    * 			value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
@@ -670,6 +687,7 @@ export class Signer extends SignerClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a signing profile. To remove the tags, specify a list of
    * 			tag keys.</p>
    */

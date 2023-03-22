@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigRuleCommand}.
  */
 export interface DeleteConfigRuleCommandInput extends DeleteConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigRuleCommand}.
  */
 export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Config rule and all of its evaluation
  * 			results.</p>
  *          <p>Config sets the state of a rule to <code>DELETING</code>
@@ -49,6 +54,8 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigRuleCommandInput - {@link DeleteConfigRuleCommandInput}
+ * @returns {@link DeleteConfigRuleCommandOutput}
  * @see {@link DeleteConfigRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigRuleCommandOutput> {
     return deserializeAws_json1_1DeleteConfigRuleCommand(output, context);
   }

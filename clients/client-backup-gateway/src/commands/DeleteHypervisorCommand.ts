@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHypervisorCommand}.
  */
 export interface DeleteHypervisorCommandInput extends DeleteHypervisorInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHypervisorCommand}.
  */
 export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a hypervisor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHypervisorCommandInput - {@link DeleteHypervisorCommandInput}
+ * @returns {@link DeleteHypervisorCommandOutput}
  * @see {@link DeleteHypervisorCommandInput} for command's `input` shape.
  * @see {@link DeleteHypervisorCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteHypervisorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHypervisorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteHypervisorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHypervisorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteHypervisorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHypervisorCommandOutput> {
     return deserializeAws_json1_0DeleteHypervisorCommand(output, context);
   }

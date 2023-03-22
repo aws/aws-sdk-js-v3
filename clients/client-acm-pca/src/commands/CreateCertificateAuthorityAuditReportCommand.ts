@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCertificateAuthorityAuditReportCommand}.
  */
 export interface CreateCertificateAuthorityAuditReportCommandInput
   extends CreateCertificateAuthorityAuditReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCertificateAuthorityAuditReportCommand}.
  */
 export interface CreateCertificateAuthorityAuditReportCommandOutput
@@ -38,6 +42,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an audit report that lists every time that your CA private key is used. The
  * 			report is saved in the Amazon S3 bucket that you specify on input. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
  * 			the private key. </p>
@@ -64,6 +69,8 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCertificateAuthorityAuditReportCommandInput - {@link CreateCertificateAuthorityAuditReportCommandInput}
+ * @returns {@link CreateCertificateAuthorityAuditReportCommandOutput}
  * @see {@link CreateCertificateAuthorityAuditReportCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateAuthorityAuditReportCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCertificateAuthorityAuditReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCertificateAuthorityAuditReportCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
     return serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

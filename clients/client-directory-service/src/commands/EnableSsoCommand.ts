@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1EnableSsoCommand, serializeAws_json1_1EnableSsoCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSsoCommand}.
  */
 export interface EnableSsoCommandInput extends EnableSsoRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableSsoCommand}.
  */
 export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to
  *       access certain Amazon Web Services services from a computer joined to the directory without having to enter
  *       their credentials separately.</p>
@@ -45,6 +50,8 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSsoCommandInput - {@link EnableSsoCommandInput}
+ * @returns {@link EnableSsoCommandOutput}
  * @see {@link EnableSsoCommandInput} for command's `input` shape.
  * @see {@link EnableSsoCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -83,6 +90,9 @@ export class EnableSsoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSsoCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class EnableSsoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableSsoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableSsoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSsoCommandOutput> {
     return deserializeAws_json1_1EnableSsoCommand(output, context);
   }

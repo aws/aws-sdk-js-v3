@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { PrivateNetworksServiceException as __BaseException } from "./PrivateNetworksServiceException";
 
 /**
+ * @public
  * <p>You do not have permission to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AcknowledgeOrderReceiptRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the order.</p>
@@ -29,6 +33,9 @@ export interface AcknowledgeOrderReceiptRequest {
   orderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AcknowledgmentStatus {
   ACKNOWLEDGED = "ACKNOWLEDGED",
   ACKNOWLEDGING = "ACKNOWLEDGING",
@@ -36,6 +43,7 @@ export enum AcknowledgmentStatus {
 }
 
 /**
+ * @public
  * <p>Information about an address.</p>
  */
 export interface Address {
@@ -91,6 +99,7 @@ export interface Address {
 }
 
 /**
+ * @public
  * <p>Information about tracking a shipment.</p>
  */
 export interface TrackingInformation {
@@ -101,6 +110,7 @@ export interface TrackingInformation {
 }
 
 /**
+ * @public
  * <p>Information about an order.</p>
  */
 export interface Order {
@@ -140,6 +150,9 @@ export interface Order {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AcknowledgeOrderReceiptResponse {
   /**
    * <p>Information about the order.</p>
@@ -148,6 +161,7 @@ export interface AcknowledgeOrderReceiptResponse {
 }
 
 /**
+ * @public
  * <p>Information about an internal error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -174,6 +188,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -205,6 +220,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a field that failed validation.</p>
  */
 export interface ValidationExceptionField {
@@ -219,6 +235,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_ASSUME_ROLE = "CANNOT_ASSUME_ROLE",
   CANNOT_PARSE = "CANNOT_PARSE",
@@ -228,6 +247,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The request failed validation.</p>
  */
 export class ValidationException extends __BaseException {
@@ -258,6 +278,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ActivateDeviceIdentifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
@@ -272,12 +295,16 @@ export interface ActivateDeviceIdentifierRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DeviceIdentifierStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p>Information about a subscriber of a device that can use a network.</p>
  */
 export interface DeviceIdentifier {
@@ -327,6 +354,9 @@ export interface DeviceIdentifier {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ActivateDeviceIdentifierResponse {
   /**
    * <p>Information about the device identifier.</p>
@@ -341,6 +371,9 @@ export interface ActivateDeviceIdentifierResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ActivateNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -361,6 +394,7 @@ export interface ActivateNetworkSiteRequest {
 }
 
 /**
+ * @public
  * <p>Information about a name/value pair.</p>
  */
 export interface NameValuePair {
@@ -375,12 +409,16 @@ export interface NameValuePair {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum NetworkResourceDefinitionType {
   DEVICE_IDENTIFIER = "DEVICE_IDENTIFIER",
   RADIO_UNIT = "RADIO_UNIT",
 }
 
 /**
+ * @public
  * <p>Information about a network resource definition.</p>
  */
 export interface NetworkResourceDefinition {
@@ -401,6 +439,7 @@ export interface NetworkResourceDefinition {
 }
 
 /**
+ * @public
  * <p>Information about a site plan.</p>
  */
 export interface SitePlan {
@@ -415,6 +454,9 @@ export interface SitePlan {
   options?: NameValuePair[];
 }
 
+/**
+ * @public
+ */
 export enum NetworkSiteStatus {
   AVAILABLE = "AVAILABLE",
   CREATED = "CREATED",
@@ -424,6 +466,7 @@ export enum NetworkSiteStatus {
 }
 
 /**
+ * @public
  * <p>Information about a network site.</p>
  */
 export interface NetworkSite {
@@ -487,6 +530,9 @@ export interface NetworkSite {
   availabilityZoneId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ActivateNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -494,11 +540,17 @@ export interface ActivateNetworkSiteResponse {
   networkSite?: NetworkSite;
 }
 
+/**
+ * @public
+ */
 export enum ElevationReference {
   AGL = "AGL",
   AMSL = "AMSL",
 }
 
+/**
+ * @public
+ */
 export enum ElevationUnit {
   /**
    * Feet.
@@ -507,6 +559,7 @@ export enum ElevationUnit {
 }
 
 /**
+ * @public
  * <p>Information about a position.</p>
  */
 export interface Position {
@@ -536,6 +589,9 @@ export interface Position {
   elevationReference?: ElevationReference | string;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureAccessPointRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
@@ -571,6 +627,9 @@ export interface ConfigureAccessPointRequest {
   cpiSecretKey?: string;
 }
 
+/**
+ * @public
+ */
 export enum HealthStatus {
   HEALTHY = "HEALTHY",
   INITIAL = "INITIAL",
@@ -578,6 +637,7 @@ export enum HealthStatus {
 }
 
 /**
+ * @public
  * <p>Information about a request to return a network resource.</p>
  */
 export interface ReturnInformation {
@@ -605,6 +665,9 @@ export interface ReturnInformation {
   shippingLabel?: string;
 }
 
+/**
+ * @public
+ */
 export enum NetworkResourceStatus {
   AVAILABLE = "AVAILABLE",
   CREATING_SHIPPING_LABEL = "CREATING_SHIPPING_LABEL",
@@ -617,11 +680,15 @@ export enum NetworkResourceStatus {
   SHIPPED = "SHIPPED",
 }
 
+/**
+ * @public
+ */
 export enum NetworkResourceType {
   RADIO_UNIT = "RADIO_UNIT",
 }
 
 /**
+ * @public
  * <p>Information about a network resource.</p>
  */
 export interface NetworkResource {
@@ -707,6 +774,9 @@ export interface NetworkResource {
   returnInformation?: ReturnInformation;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureAccessPointResponse {
   /**
    * <p>Information about the network resource.</p>
@@ -714,6 +784,9 @@ export interface ConfigureAccessPointResponse {
   accessPoint: NetworkResource | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkRequest {
   /**
    * <p>The name of the network. You can't change the name after you create the network.</p>
@@ -740,6 +813,9 @@ export interface CreateNetworkRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum NetworkStatus {
   AVAILABLE = "AVAILABLE",
   CREATED = "CREATED",
@@ -749,6 +825,7 @@ export enum NetworkStatus {
 }
 
 /**
+ * @public
  * <p>Information about a network.</p>
  */
 export interface Network {
@@ -783,6 +860,9 @@ export interface Network {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkResponse {
   /**
    * <p>Information about the network.</p>
@@ -798,6 +878,7 @@ export interface CreateNetworkResponse {
 }
 
 /**
+ * @public
  * <p>The limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -816,6 +897,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkSiteRequest {
   /**
    * <p>The name of the site. You can't change the name after you create the site.</p>
@@ -864,6 +948,9 @@ export interface CreateNetworkSiteRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -878,6 +965,9 @@ export interface CreateNetworkSiteResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateDeviceIdentifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
@@ -892,6 +982,9 @@ export interface DeactivateDeviceIdentifierRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateDeviceIdentifierResponse {
   /**
    * <p>Information about the device identifier.</p>
@@ -899,6 +992,9 @@ export interface DeactivateDeviceIdentifierResponse {
   deviceIdentifier: DeviceIdentifier | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -913,6 +1009,9 @@ export interface DeleteNetworkRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkResponse {
   /**
    * <p>Information about the network.</p>
@@ -920,6 +1019,9 @@ export interface DeleteNetworkResponse {
   network: Network | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -934,6 +1036,9 @@ export interface DeleteNetworkSiteRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -941,12 +1046,18 @@ export interface DeleteNetworkSiteResponse {
   networkSite?: NetworkSite;
 }
 
+/**
+ * @public
+ */
 export enum DeviceIdentifierFilterKeys {
   ORDER = "ORDER",
   STATUS = "STATUS",
   TRAFFIC_GROUP = "TRAFFIC_GROUP",
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceIdentifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
@@ -954,6 +1065,9 @@ export interface GetDeviceIdentifierRequest {
   deviceIdentifierArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceIdentifierResponse {
   /**
    * <p>Information about the device identifier.</p>
@@ -968,6 +1082,9 @@ export interface GetDeviceIdentifierResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -975,6 +1092,9 @@ export interface GetNetworkRequest {
   networkArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResponse {
   /**
    * <p>Information about the network.</p>
@@ -989,6 +1109,9 @@ export interface GetNetworkResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
@@ -996,6 +1119,9 @@ export interface GetNetworkResourceRequest {
   networkResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceResponse {
   /**
    * <p>Information about the network resource.</p>
@@ -1010,6 +1136,9 @@ export interface GetNetworkResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -1017,6 +1146,9 @@ export interface GetNetworkSiteRequest {
   networkSiteArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -1031,6 +1163,9 @@ export interface GetNetworkSiteResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetOrderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the order.</p>
@@ -1038,6 +1173,9 @@ export interface GetOrderRequest {
   orderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOrderResponse {
   /**
    * <p>Information about the order.</p>
@@ -1052,6 +1190,9 @@ export interface GetOrderResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceIdentifiersRequest {
   /**
    * <p>The filters.</p>
@@ -1091,6 +1232,9 @@ export interface ListDeviceIdentifiersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceIdentifiersResponse {
   /**
    * <p>Information about the device identifiers.</p>
@@ -1103,11 +1247,17 @@ export interface ListDeviceIdentifiersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum NetworkResourceFilterKeys {
   ORDER = "ORDER",
   STATUS = "STATUS",
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkResourcesRequest {
   /**
    * <p>The filters.</p>
@@ -1145,6 +1295,9 @@ export interface ListNetworkResourcesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkResourcesResponse {
   /**
    * <p>Information about network resources.</p>
@@ -1157,10 +1310,16 @@ export interface ListNetworkResourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum NetworkFilterKeys {
   STATUS = "STATUS",
 }
 
+/**
+ * @public
+ */
 export interface ListNetworksRequest {
   /**
    * <p>The filters.</p>
@@ -1188,6 +1347,9 @@ export interface ListNetworksRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworksResponse {
   /**
    * <p>The networks.</p>
@@ -1200,10 +1362,16 @@ export interface ListNetworksResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum NetworkSiteFilterKeys {
   STATUS = "STATUS",
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkSitesRequest {
   /**
    * <p>The filters. Add filters to your request to return a more
@@ -1237,6 +1405,9 @@ export interface ListNetworkSitesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkSitesResponse {
   /**
    * <p>Information about the network sites.</p>
@@ -1249,11 +1420,17 @@ export interface ListNetworkSitesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OrderFilterKeys {
   NETWORK_SITE = "NETWORK_SITE",
   STATUS = "STATUS",
 }
 
+/**
+ * @public
+ */
 export interface ListOrdersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -1290,6 +1467,9 @@ export interface ListOrdersRequest {
   filters?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface ListOrdersResponse {
   /**
    * <p>Information about the orders.</p>
@@ -1302,6 +1482,9 @@ export interface ListOrdersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1309,6 +1492,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The resource tags.</p>
@@ -1317,6 +1503,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>
  *             The request was denied due to request throttling.
  *         </p>
@@ -1340,6 +1527,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PingResponse {
   /**
    * <p>Information about the health of the service.</p>
@@ -1347,11 +1537,17 @@ export interface PingResponse {
   status?: string;
 }
 
+/**
+ * @public
+ */
 export enum UpdateType {
   REPLACE = "REPLACE",
   RETURN = "RETURN",
 }
 
+/**
+ * @public
+ */
 export interface StartNetworkResourceUpdateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
@@ -1390,6 +1586,9 @@ export interface StartNetworkResourceUpdateRequest {
   returnReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartNetworkResourceUpdateResponse {
   /**
    * <p>The network resource.</p>
@@ -1397,6 +1596,9 @@ export interface StartNetworkResourceUpdateResponse {
   networkResource?: NetworkResource;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>
@@ -1411,8 +1613,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1425,8 +1633,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -1446,6 +1660,9 @@ export interface UpdateNetworkSiteRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -1460,6 +1677,9 @@ export interface UpdateNetworkSiteResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSitePlanRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>

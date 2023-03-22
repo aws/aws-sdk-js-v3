@@ -30,15 +30,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourcesCommand}.
  */
 export interface UntagResourcesCommandInput extends UntagResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourcesCommand}.
  */
 export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the specified resources. When you specify a tag key,
  *             the action removes both that key and its associated value. The operation succeeds even
  *             if you attempt to remove tags from a resource that were already removed. Note the
@@ -86,6 +91,8 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourcesCommandInput - {@link UntagResourcesCommandInput}
+ * @returns {@link UntagResourcesCommandOutput}
  * @see {@link UntagResourcesCommandInput} for command's `input` shape.
  * @see {@link UntagResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -139,6 +146,9 @@ export class UntagResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class UntagResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourcesCommandOutput> {
     return deserializeAws_json1_1UntagResourcesCommand(output, context);
   }

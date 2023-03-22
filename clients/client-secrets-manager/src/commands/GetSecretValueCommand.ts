@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSecretValueCommand}.
  */
 export interface GetSecretValueCommandInput extends GetSecretValueRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSecretValueCommand}.
  */
 export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
  *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
  *       content.</p>
@@ -62,6 +67,8 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSecretValueCommandInput - {@link GetSecretValueCommandInput}
+ * @returns {@link GetSecretValueCommandOutput}
  * @see {@link GetSecretValueCommandInput} for command's `input` shape.
  * @see {@link GetSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -138,6 +145,9 @@ export class GetSecretValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSecretValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,10 +187,16 @@ export class GetSecretValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSecretValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecretValueCommandOutput> {
     return deserializeAws_json1_1GetSecretValueCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandInput extends DeleteStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any
  *             applications that are operating on the stream before you delete the stream. If an
  *             application attempts to operate on a deleted stream, it receives the exception
@@ -63,6 +68,8 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
+ * @returns {@link DeleteStreamCommandOutput}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -108,6 +115,9 @@ export class DeleteStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DeleteStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
     return deserializeAws_json1_1DeleteStreamCommand(output, context);
   }

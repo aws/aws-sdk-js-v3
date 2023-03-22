@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEnvironmentOperationsRoleCommand}.
  */
 export interface AssociateEnvironmentOperationsRoleCommandInput extends AssociateEnvironmentOperationsRoleMessage {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEnvironmentOperationsRoleCommand}.
  */
 export interface AssociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
  *       uses the associated operations role for permissions to downstream services during subsequent
  *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -47,6 +52,8 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEnvironmentOperationsRoleCommandInput - {@link AssociateEnvironmentOperationsRoleCommandInput}
+ * @returns {@link AssociateEnvironmentOperationsRoleCommandOutput}
  * @see {@link AssociateEnvironmentOperationsRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateEnvironmentOperationsRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -74,6 +81,9 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEnvironmentOperationsRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateEnvironmentOperationsRoleCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     return serializeAws_queryAssociateEnvironmentOperationsRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

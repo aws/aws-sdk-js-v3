@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeICD10CMInferenceJobCommand}.
  */
 export interface DescribeICD10CMInferenceJobCommandInput extends DescribeICD10CMInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeICD10CMInferenceJobCommand}.
  */
 export interface DescribeICD10CMInferenceJobCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeICD10CMInferenceJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
  *       status of an inference job.</p>
  * @example
@@ -53,6 +58,8 @@ export interface DescribeICD10CMInferenceJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeICD10CMInferenceJobCommandInput - {@link DescribeICD10CMInferenceJobCommandInput}
+ * @returns {@link DescribeICD10CMInferenceJobCommandOutput}
  * @see {@link DescribeICD10CMInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeICD10CMInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeICD10CMInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeICD10CMInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeICD10CMInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

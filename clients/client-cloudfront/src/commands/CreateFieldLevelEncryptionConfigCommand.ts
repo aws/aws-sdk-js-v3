@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFieldLevelEncryptionConfigCommand}.
  */
 export interface CreateFieldLevelEncryptionConfigCommandInput extends CreateFieldLevelEncryptionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFieldLevelEncryptionConfigCommand}.
  */
 export interface CreateFieldLevelEncryptionConfigCommandOutput
@@ -37,6 +41,7 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new field-level encryption configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFieldLevelEncryptionConfigCommandInput - {@link CreateFieldLevelEncryptionConfigCommandInput}
+ * @returns {@link CreateFieldLevelEncryptionConfigCommandOutput}
  * @see {@link CreateFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link CreateFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateFieldLevelEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFieldLevelEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class CreateFieldLevelEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateFieldLevelEncryptionConfigCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class CreateFieldLevelEncryptionConfigCommand extends $Command<
     return serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

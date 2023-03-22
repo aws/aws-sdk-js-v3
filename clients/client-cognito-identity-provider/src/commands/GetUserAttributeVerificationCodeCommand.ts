@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserAttributeVerificationCodeCommand}.
  */
 export interface GetUserAttributeVerificationCodeCommandInput extends GetUserAttributeVerificationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserAttributeVerificationCodeCommand}.
  */
 export interface GetUserAttributeVerificationCodeCommandOutput
@@ -41,6 +45,7 @@ export interface GetUserAttributeVerificationCodeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a user attribute verification code for the specified attribute name. Sends a
  *             message to a user with a code that they must return in a VerifyUserAttribute
  *             request.</p>
@@ -72,6 +77,8 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserAttributeVerificationCodeCommandInput - {@link GetUserAttributeVerificationCodeCommandInput}
+ * @returns {@link GetUserAttributeVerificationCodeCommandOutput}
  * @see {@link GetUserAttributeVerificationCodeCommandInput} for command's `input` shape.
  * @see {@link GetUserAttributeVerificationCodeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -158,6 +165,9 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserAttributeVerificationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -197,6 +207,9 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetUserAttributeVerificationCodeCommandInput,
     context: __SerdeContext
@@ -204,6 +217,9 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     return serializeAws_json1_1GetUserAttributeVerificationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

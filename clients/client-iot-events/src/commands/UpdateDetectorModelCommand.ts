@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDetectorModelCommand}.
  */
 export interface UpdateDetectorModelCommandInput extends UpdateDetectorModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDetectorModelCommand}.
  */
 export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a detector model. Detectors (instances) spawned by the previous version are
  *       deleted and then re-created as new inputs arrive.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorModelCommandInput - {@link UpdateDetectorModelCommandInput}
+ * @returns {@link UpdateDetectorModelCommandOutput}
  * @see {@link UpdateDetectorModelCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateDetectorModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateDetectorModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDetectorModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDetectorModelCommandOutput> {
     return deserializeAws_restJson1UpdateDetectorModelCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateContactWithAddressBookCommand}.
  */
 export interface AssociateContactWithAddressBookCommandInput extends AssociateContactWithAddressBookRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateContactWithAddressBookCommand}.
  */
 export interface AssociateContactWithAddressBookCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateContactWithAddressBookCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a contact with a given address book.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateContactWithAddressBookCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateContactWithAddressBookCommandInput - {@link AssociateContactWithAddressBookCommandInput}
+ * @returns {@link AssociateContactWithAddressBookCommandOutput}
  * @see {@link AssociateContactWithAddressBookCommandInput} for command's `input` shape.
  * @see {@link AssociateContactWithAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -74,6 +81,9 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateContactWithAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateContactWithAddressBookCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     return serializeAws_json1_1AssociateContactWithAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

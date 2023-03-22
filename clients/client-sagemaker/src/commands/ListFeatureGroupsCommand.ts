@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFeatureGroupsCommand}.
  */
 export interface ListFeatureGroupsCommandInput extends ListFeatureGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFeatureGroupsCommand}.
  */
 export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List <code>FeatureGroup</code>s based on given filter and order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFeatureGroupsCommandInput - {@link ListFeatureGroupsCommandInput}
+ * @returns {@link ListFeatureGroupsCommandOutput}
  * @see {@link ListFeatureGroupsCommandInput} for command's `input` shape.
  * @see {@link ListFeatureGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListFeatureGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFeatureGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListFeatureGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFeatureGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFeatureGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFeatureGroupsCommandOutput> {
     return deserializeAws_json1_1ListFeatureGroupsCommand(output, context);
   }

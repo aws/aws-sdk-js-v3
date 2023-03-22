@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIdentityResolutionJobsCommand}.
  */
 export interface ListIdentityResolutionJobsCommandInput extends ListIdentityResolutionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIdentityResolutionJobsCommand}.
  */
 export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityResolutionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the Identity Resolution Jobs in your domain. The response sorts the list by
  *             <code>JobStartTime</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityResolutionJobsCommandInput - {@link ListIdentityResolutionJobsCommandInput}
+ * @returns {@link ListIdentityResolutionJobsCommandOutput}
  * @see {@link ListIdentityResolutionJobsCommandInput} for command's `input` shape.
  * @see {@link ListIdentityResolutionJobsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListIdentityResolutionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityResolutionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListIdentityResolutionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityResolutionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIdentityResolutionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

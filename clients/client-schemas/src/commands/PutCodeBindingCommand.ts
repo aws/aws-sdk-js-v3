@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutCodeBindingCommand}.
  */
 export interface PutCodeBindingCommandInput extends PutCodeBindingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutCodeBindingCommand}.
  */
 export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Put code binding URI</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCodeBindingCommandInput - {@link PutCodeBindingCommandInput}
+ * @returns {@link PutCodeBindingCommandOutput}
  * @see {@link PutCodeBindingCommandInput} for command's `input` shape.
  * @see {@link PutCodeBindingCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -83,6 +90,9 @@ export class PutCodeBindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCodeBindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class PutCodeBindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCodeBindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutCodeBindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCodeBindingCommandOutput> {
     return deserializeAws_restJson1PutCodeBindingCommand(output, context);
   }

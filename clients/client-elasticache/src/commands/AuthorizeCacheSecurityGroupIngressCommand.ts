@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeCacheSecurityGroupIngressCommand}.
  */
 export interface AuthorizeCacheSecurityGroupIngressCommandInput extends AuthorizeCacheSecurityGroupIngressMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeCacheSecurityGroupIngressCommand}.
  */
 export interface AuthorizeCacheSecurityGroupIngressCommandOutput
@@ -37,6 +41,7 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows network ingress to a cache
  *             security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2
  *             security groups are used as the authorization mechanism.</p>
@@ -54,6 +59,8 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeCacheSecurityGroupIngressCommandInput - {@link AuthorizeCacheSecurityGroupIngressCommandInput}
+ * @returns {@link AuthorizeCacheSecurityGroupIngressCommandOutput}
  * @see {@link AuthorizeCacheSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -105,6 +112,9 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeCacheSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AuthorizeCacheSecurityGroupIngressCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     return serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

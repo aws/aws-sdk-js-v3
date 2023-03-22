@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified by the account IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMembersCommandInput - {@link DisassociateMembersCommandInput}
+ * @returns {@link DisassociateMembersCommandOutput}
  * @see {@link DisassociateMembersCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DisassociateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembersCommandOutput> {
     return deserializeAws_restJson1DisassociateMembersCommand(output, context);
   }

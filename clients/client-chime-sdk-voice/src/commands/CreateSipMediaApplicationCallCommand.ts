@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSipMediaApplicationCallCommand}.
  */
 export interface CreateSipMediaApplicationCallCommandInput extends CreateSipMediaApplicationCallRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSipMediaApplicationCallCommand}.
  */
 export interface CreateSipMediaApplicationCallCommandOutput
@@ -53,6 +57,9 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipMediaApplicationCallCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,10 +99,16 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipMediaApplicationCallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSipMediaApplicationCallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

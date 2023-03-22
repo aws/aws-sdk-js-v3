@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLicenseVersionCommand}.
  */
 export interface CreateLicenseVersionCommandInput extends CreateLicenseVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLicenseVersionCommand}.
  */
 export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLicenseVersionCommandInput - {@link CreateLicenseVersionCommandInput}
+ * @returns {@link CreateLicenseVersionCommandOutput}
  * @see {@link CreateLicenseVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseVersionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateLicenseVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateLicenseVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLicenseVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLicenseVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLicenseVersionCommandOutput> {
     return deserializeAws_json1_1CreateLicenseVersionCommand(output, context);
   }

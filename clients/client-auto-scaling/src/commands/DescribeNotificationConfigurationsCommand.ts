@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationConfigurationsCommand}.
  */
 export interface DescribeNotificationConfigurationsCommandInput extends DescribeNotificationConfigurationsType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationConfigurationsCommand}.
  */
 export interface DescribeNotificationConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeNotificationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Amazon SNS notifications that are configured for one or more
  *             Auto Scaling groups.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeNotificationConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationConfigurationsCommandInput - {@link DescribeNotificationConfigurationsCommandInput}
+ * @returns {@link DescribeNotificationConfigurationsCommandOutput}
  * @see {@link DescribeNotificationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -108,6 +115,9 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationConfigurationsCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     return serializeAws_queryDescribeNotificationConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

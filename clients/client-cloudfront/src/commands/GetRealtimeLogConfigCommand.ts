@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetRealtimeLogConfigCommand}.
  */
 export interface GetRealtimeLogConfigCommandInput extends GetRealtimeLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRealtimeLogConfigCommand}.
  */
 export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a real-time log configuration.</p>
  *          <p>To get a real-time log configuration, you can provide the configuration's name or its
  * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
@@ -49,6 +54,8 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRealtimeLogConfigCommandInput - {@link GetRealtimeLogConfigCommandInput}
+ * @returns {@link GetRealtimeLogConfigCommandOutput}
  * @see {@link GetRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link GetRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRealtimeLogConfigCommandOutput> {
     return deserializeAws_restXmlGetRealtimeLogConfigCommand(output, context);
   }

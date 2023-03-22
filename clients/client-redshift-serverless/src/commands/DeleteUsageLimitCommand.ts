@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUsageLimitCommand}.
  */
 export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUsageLimitCommand}.
  */
 export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a usage limit from Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
+ * @returns {@link DeleteUsageLimitCommandOutput}
  * @see {@link DeleteUsageLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsageLimitCommandOutput> {
     return deserializeAws_json1_1DeleteUsageLimitCommand(output, context);
   }

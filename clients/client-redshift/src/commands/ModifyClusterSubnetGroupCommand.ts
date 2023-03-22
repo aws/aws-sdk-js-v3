@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterSubnetGroupCommand}.
  */
 export interface ModifyClusterSubnetGroupCommandInput extends ModifyClusterSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterSubnetGroupCommand}.
  */
 export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
  *             operation replaces the existing list of subnets with the new list of subnets.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterSubnetGroupCommandInput - {@link ModifyClusterSubnetGroupCommandInput}
+ * @returns {@link ModifyClusterSubnetGroupCommandOutput}
  * @see {@link ModifyClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterSubnetGroupCommandOutput> {
     return deserializeAws_queryModifyClusterSubnetGroupCommand(output, context);
   }

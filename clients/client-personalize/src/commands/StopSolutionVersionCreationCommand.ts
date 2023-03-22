@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSolutionVersionCreationCommand}.
  */
 export interface StopSolutionVersionCreationCommandInput extends StopSolutionVersionCreationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSolutionVersionCreationCommand}.
  */
 export interface StopSolutionVersionCreationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
  *       </p>
  *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
@@ -57,6 +62,8 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSolutionVersionCreationCommandInput - {@link StopSolutionVersionCreationCommandInput}
+ * @returns {@link StopSolutionVersionCreationCommandOutput}
  * @see {@link StopSolutionVersionCreationCommandInput} for command's `input` shape.
  * @see {@link StopSolutionVersionCreationCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -89,6 +96,9 @@ export class StopSolutionVersionCreationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSolutionVersionCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StopSolutionVersionCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSolutionVersionCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopSolutionVersionCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

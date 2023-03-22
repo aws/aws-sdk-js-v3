@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketEncryptionCommand}.
  */
 export interface PutBucketEncryptionCommandInput extends PutBucketEncryptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketEncryptionCommand}.
  */
 export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action uses the <code>encryption</code> subresource to configure default
  *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
  *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
@@ -75,6 +80,8 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketEncryptionCommandInput - {@link PutBucketEncryptionCommandInput}
+ * @returns {@link PutBucketEncryptionCommandOutput}
  * @see {@link PutBucketEncryptionCommandInput} for command's `input` shape.
  * @see {@link PutBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -104,6 +111,9 @@ export class PutBucketEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class PutBucketEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketEncryptionCommandOutput> {
     return deserializeAws_restXmlPutBucketEncryptionCommand(output, context);
   }

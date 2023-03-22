@@ -25,15 +25,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetIndexCommand}.
  */
 export interface GetIndexCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetIndexCommand}.
  */
 export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about the Amazon Web Services Resource Explorer index in the Amazon Web Services Region in which you invoked
  *             the operation.</p>
  * @example
@@ -46,6 +51,8 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIndexCommandInput - {@link GetIndexCommandInput}
+ * @returns {@link GetIndexCommandOutput}
  * @see {@link GetIndexCommandInput} for command's `input` shape.
  * @see {@link GetIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -89,6 +96,9 @@ export class GetIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexCommandOutput> {
     return deserializeAws_restJson1GetIndexCommand(output, context);
   }

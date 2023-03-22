@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHITReviewStatusCommand}.
  */
 export interface UpdateHITReviewStatusCommandInput extends UpdateHITReviewStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHITReviewStatusCommand}.
  */
 export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>UpdateHITReviewStatus</code> operation updates the status of a HIT.
  *             If the status is Reviewable, this operation can update the status to Reviewing,
@@ -50,6 +55,8 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHITReviewStatusCommandInput - {@link UpdateHITReviewStatusCommandInput}
+ * @returns {@link UpdateHITReviewStatusCommandOutput}
  * @see {@link UpdateHITReviewStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateHITReviewStatusCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateHITReviewStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHITReviewStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateHITReviewStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHITReviewStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateHITReviewStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHITReviewStatusCommandOutput> {
     return deserializeAws_json1_1UpdateHITReviewStatusCommand(output, context);
   }

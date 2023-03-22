@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteElasticsearchDomainCommand}.
  */
 export interface DeleteElasticsearchDomainCommandInput extends DeleteElasticsearchDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteElasticsearchDomainCommand}.
  */
 export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteElasticsearchDomainCommandInput - {@link DeleteElasticsearchDomainCommandInput}
+ * @returns {@link DeleteElasticsearchDomainCommandOutput}
  * @see {@link DeleteElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteElasticsearchDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteElasticsearchDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

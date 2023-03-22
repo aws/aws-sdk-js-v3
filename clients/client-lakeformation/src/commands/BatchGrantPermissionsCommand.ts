@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGrantPermissionsCommand}.
  */
 export interface BatchGrantPermissionsCommandInput extends BatchGrantPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGrantPermissionsCommand}.
  */
 export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Batch operation to grant permissions to the principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGrantPermissionsCommandInput - {@link BatchGrantPermissionsCommandInput}
+ * @returns {@link BatchGrantPermissionsCommandOutput}
  * @see {@link BatchGrantPermissionsCommandInput} for command's `input` shape.
  * @see {@link BatchGrantPermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchGrantPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGrantPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class BatchGrantPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGrantPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGrantPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGrantPermissionsCommandOutput> {
     return deserializeAws_restJson1BatchGrantPermissionsCommand(output, context);
   }

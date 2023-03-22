@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPersonTrackingCommand}.
  */
 export interface GetPersonTrackingCommandInput extends GetPersonTrackingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPersonTrackingCommand}.
  */
 export interface GetPersonTrackingCommandOutput extends GetPersonTrackingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
  *          <p>The person path tracking operation is started by a call to <code>StartPersonTracking</code>
  *      which returns a job identifier (<code>JobId</code>). When the operation finishes, Amazon Rekognition Video publishes a completion status to
@@ -70,6 +75,8 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPersonTrackingCommandInput - {@link GetPersonTrackingCommandInput}
+ * @returns {@link GetPersonTrackingCommandOutput}
  * @see {@link GetPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link GetPersonTrackingCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -116,6 +123,9 @@ export class GetPersonTrackingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPersonTrackingCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class GetPersonTrackingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPersonTrackingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPersonTrackingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPersonTrackingCommandOutput> {
     return deserializeAws_json1_1GetPersonTrackingCommand(output, context);
   }

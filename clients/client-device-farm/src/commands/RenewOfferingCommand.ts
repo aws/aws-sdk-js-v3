@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RenewOfferingCommand}.
  */
 export interface RenewOfferingCommandInput extends RenewOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link RenewOfferingCommand}.
  */
 export interface RenewOfferingCommandOutput extends RenewOfferingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
  *                 <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the
  *             user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
@@ -48,6 +53,8 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RenewOfferingCommandInput - {@link RenewOfferingCommandInput}
+ * @returns {@link RenewOfferingCommandOutput}
  * @see {@link RenewOfferingCommandInput} for command's `input` shape.
  * @see {@link RenewOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -122,6 +129,9 @@ export class RenewOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RenewOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class RenewOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RenewOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RenewOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewOfferingCommandOutput> {
     return deserializeAws_json1_1RenewOfferingCommand(output, context);
   }

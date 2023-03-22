@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopDiscovererCommand}.
  */
 export interface StopDiscovererCommandInput extends StopDiscovererRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDiscovererCommand}.
  */
 export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the discoverer</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDiscovererCommandInput - {@link StopDiscovererCommandInput}
+ * @returns {@link StopDiscovererCommandOutput}
  * @see {@link StopDiscovererCommandInput} for command's `input` shape.
  * @see {@link StopDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class StopDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class StopDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDiscovererCommandOutput> {
     return deserializeAws_restJson1StopDiscovererCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStackInstancesForProvisionedProductCommand}.
  */
 export interface ListStackInstancesForProvisionedProductCommandInput
   extends ListStackInstancesForProvisionedProductInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStackInstancesForProvisionedProductCommand}.
  */
 export interface ListStackInstancesForProvisionedProductCommandOutput
@@ -38,6 +42,7 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackInstancesForProvisionedProductCommandInput - {@link ListStackInstancesForProvisionedProductCommandInput}
+ * @returns {@link ListStackInstancesForProvisionedProductCommandOutput}
  * @see {@link ListStackInstancesForProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link ListStackInstancesForProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackInstancesForProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListStackInstancesForProvisionedProductCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
     return serializeAws_json1_1ListStackInstancesForProvisionedProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

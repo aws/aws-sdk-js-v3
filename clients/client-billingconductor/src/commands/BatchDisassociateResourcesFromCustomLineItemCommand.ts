@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateResourcesFromCustomLineItemCommand}.
  */
 export interface BatchDisassociateResourcesFromCustomLineItemCommandInput
   extends BatchDisassociateResourcesFromCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateResourcesFromCustomLineItemCommand}.
  */
 export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
@@ -38,6 +42,7 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Disassociates a batch of resources from a percentage custom line item.
  *     </p>
@@ -51,6 +56,8 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateResourcesFromCustomLineItemCommandInput - {@link BatchDisassociateResourcesFromCustomLineItemCommandInput}
+ * @returns {@link BatchDisassociateResourcesFromCustomLineItemCommandOutput}
  * @see {@link BatchDisassociateResourcesFromCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateResourcesFromCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -97,6 +104,9 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateResourcesFromCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateResourcesFromCustomLineItemCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
     return serializeAws_restJson1BatchDisassociateResourcesFromCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

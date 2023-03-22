@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainMetadataCommand}.
  */
 export interface UpdateDomainMetadataCommandInput extends UpdateDomainMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainMetadataCommand}.
  */
 export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates domain metadata, such as DisplayName.</p>
@@ -48,6 +53,8 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainMetadataCommandInput - {@link UpdateDomainMetadataCommandInput}
+ * @returns {@link UpdateDomainMetadataCommandOutput}
  * @see {@link UpdateDomainMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateDomainMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateDomainMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDomainMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainMetadataCommandOutput> {
     return deserializeAws_restJson1UpdateDomainMetadataCommand(output, context);
   }

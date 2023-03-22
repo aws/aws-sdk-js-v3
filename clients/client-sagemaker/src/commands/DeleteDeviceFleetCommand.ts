@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceFleetCommand}.
  */
 export interface DeleteDeviceFleetCommandInput extends DeleteDeviceFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceFleetCommand}.
  */
 export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceFleetCommandInput - {@link DeleteDeviceFleetCommandInput}
+ * @returns {@link DeleteDeviceFleetCommandOutput}
  * @see {@link DeleteDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteDeviceFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DeleteDeviceFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeviceFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceFleetCommandOutput> {
     return deserializeAws_json1_1DeleteDeviceFleetCommand(output, context);
   }

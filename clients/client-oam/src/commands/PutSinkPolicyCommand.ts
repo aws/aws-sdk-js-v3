@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSinkPolicyCommand}.
  */
 export interface PutSinkPolicyCommandInput extends PutSinkPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutSinkPolicyCommand}.
  */
 export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the resource policy that grants permissions to source
  *             accounts to link to the monitoring account sink. When you create a sink policy, you can grant
  *             permissions to all accounts in an organization or to individual accounts.</p>
@@ -69,6 +74,8 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSinkPolicyCommandInput - {@link PutSinkPolicyCommandInput}
+ * @returns {@link PutSinkPolicyCommandOutput}
  * @see {@link PutSinkPolicyCommandInput} for command's `input` shape.
  * @see {@link PutSinkPolicyCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -104,6 +111,9 @@ export class PutSinkPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSinkPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class PutSinkPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSinkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSinkPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSinkPolicyCommandOutput> {
     return deserializeAws_restJson1PutSinkPolicyCommand(output, context);
   }

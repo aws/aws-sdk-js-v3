@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServiceActionExecutionParametersCommand}.
  */
 export interface DescribeServiceActionExecutionParametersCommandInput
   extends DescribeServiceActionExecutionParametersInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServiceActionExecutionParametersCommand}.
  */
 export interface DescribeServiceActionExecutionParametersCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServiceActionExecutionParametersCommandInput - {@link DescribeServiceActionExecutionParametersCommandInput}
+ * @returns {@link DescribeServiceActionExecutionParametersCommandOutput}
  * @see {@link DescribeServiceActionExecutionParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceActionExecutionParametersCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceActionExecutionParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeServiceActionExecutionParametersCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     return serializeAws_json1_1DescribeServiceActionExecutionParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

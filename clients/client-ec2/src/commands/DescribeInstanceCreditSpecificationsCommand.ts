@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceCreditSpecificationsCommand}.
  */
 export interface DescribeInstanceCreditSpecificationsCommandInput extends DescribeInstanceCreditSpecificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceCreditSpecificationsCommand}.
  */
 export interface DescribeInstanceCreditSpecificationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the credit option for CPU usage of the specified burstable performance
  *             instances. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
@@ -67,6 +72,8 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceCreditSpecificationsCommandInput - {@link DescribeInstanceCreditSpecificationsCommandInput}
+ * @returns {@link DescribeInstanceCreditSpecificationsCommandOutput}
  * @see {@link DescribeInstanceCreditSpecificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceCreditSpecificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceCreditSpecificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstanceCreditSpecificationsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     return serializeAws_ec2DescribeInstanceCreditSpecificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

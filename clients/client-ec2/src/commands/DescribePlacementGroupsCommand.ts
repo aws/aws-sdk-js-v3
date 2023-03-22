@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlacementGroupsCommand}.
  */
 export interface DescribePlacementGroupsCommandInput extends DescribePlacementGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlacementGroupsCommand}.
  */
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified placement groups or all of your placement groups. For more
  *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlacementGroupsCommandInput - {@link DescribePlacementGroupsCommandInput}
+ * @returns {@link DescribePlacementGroupsCommandOutput}
  * @see {@link DescribePlacementGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribePlacementGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribePlacementGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlacementGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribePlacementGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlacementGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribePlacementGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlacementGroupsCommandOutput> {
     return deserializeAws_ec2DescribePlacementGroupsCommand(output, context);
   }

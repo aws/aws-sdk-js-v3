@@ -72,11 +72,13 @@ import {
 import { FisClient } from "./FisClient";
 
 /**
+ * @public
  * <p>Fault Injection Simulator is a managed service that enables you to perform fault injection
  *            experiments on your Amazon Web Services workloads. For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">Fault Injection Simulator User Guide</a>.</p>
  */
 export class Fis extends FisClient {
   /**
+   * @public
    * <p>Creates an experiment template. </p>
    *          <p>An experiment template includes the following components:</p>
    *          <ul>
@@ -131,6 +133,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified experiment template.</p>
    */
   public deleteExperimentTemplate(
@@ -163,6 +166,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified FIS action.</p>
    */
   public getAction(args: GetActionCommandInput, options?: __HttpHandlerOptions): Promise<GetActionCommandOutput>;
@@ -189,6 +193,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified experiment.</p>
    */
   public getExperiment(
@@ -221,6 +226,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified experiment template.</p>
    */
   public getExperimentTemplate(
@@ -253,6 +259,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified resource type.</p>
    */
   public getTargetResourceType(
@@ -285,6 +292,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Lists the available FIS actions.</p>
    */
   public listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
@@ -311,6 +319,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Lists your experiments.</p>
    */
   public listExperiments(
@@ -343,6 +352,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Lists your experiment templates.</p>
    */
   public listExperimentTemplates(
@@ -375,6 +385,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -407,6 +418,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Lists the target resource types.</p>
    */
   public listTargetResourceTypes(
@@ -439,6 +451,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Starts running an experiment from the specified experiment template.</p>
    */
   public startExperiment(
@@ -471,6 +484,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Stops the specified experiment.</p>
    */
   public stopExperiment(
@@ -503,6 +517,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Applies the specified tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -529,6 +544,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
@@ -561,6 +577,7 @@ export class Fis extends FisClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified experiment template.</p>
    */
   public updateExperimentTemplate(

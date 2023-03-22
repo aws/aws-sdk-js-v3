@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
  *          (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
  *          not delete the gateway virtual machine (VM) from your host computer.</p>
@@ -63,6 +68,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
+ * @returns {@link DeleteGatewayCommandOutput}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -110,6 +117,9 @@ export class DeleteGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DeleteGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayCommandOutput> {
     return deserializeAws_json1_1DeleteGatewayCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWebsiteAuthorizationProvidersCommand}.
  */
 export interface ListWebsiteAuthorizationProvidersCommandInput extends ListWebsiteAuthorizationProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWebsiteAuthorizationProvidersCommand}.
  */
 export interface ListWebsiteAuthorizationProvidersCommandOutput
@@ -37,6 +41,7 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
@@ -50,6 +55,8 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebsiteAuthorizationProvidersCommandInput - {@link ListWebsiteAuthorizationProvidersCommandInput}
+ * @returns {@link ListWebsiteAuthorizationProvidersCommandOutput}
  * @see {@link ListWebsiteAuthorizationProvidersCommandInput} for command's `input` shape.
  * @see {@link ListWebsiteAuthorizationProvidersCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebsiteAuthorizationProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListWebsiteAuthorizationProvidersCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     return serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

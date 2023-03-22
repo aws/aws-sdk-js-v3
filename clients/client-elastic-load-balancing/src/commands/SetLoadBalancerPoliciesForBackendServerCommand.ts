@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
 export interface SetLoadBalancerPoliciesForBackendServerCommandInput
   extends SetLoadBalancerPoliciesForBackendServerInput {}
 /**
+ * @public
+ *
  * The output of {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
 export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
@@ -42,6 +46,7 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.
  *             At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.</p>
  *         <p>Each time you use <code>SetLoadBalancerPoliciesForBackendServer</code> to enable the policies,
@@ -63,6 +68,8 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLoadBalancerPoliciesForBackendServerCommandInput - {@link SetLoadBalancerPoliciesForBackendServerCommandInput}
+ * @returns {@link SetLoadBalancerPoliciesForBackendServerCommandOutput}
  * @see {@link SetLoadBalancerPoliciesForBackendServerCommandInput} for command's `input` shape.
  * @see {@link SetLoadBalancerPoliciesForBackendServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -110,6 +117,9 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLoadBalancerPoliciesForBackendServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,6 +165,9 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetLoadBalancerPoliciesForBackendServerCommandInput,
     context: __SerdeContext
@@ -162,6 +175,9 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     return serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

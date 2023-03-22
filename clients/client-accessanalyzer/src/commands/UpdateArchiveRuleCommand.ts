@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateArchiveRuleCommand}.
  */
 export interface UpdateArchiveRuleCommandInput extends UpdateArchiveRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateArchiveRuleCommand}.
  */
 export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the criteria and values for the specified archive rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateArchiveRuleCommandInput - {@link UpdateArchiveRuleCommandInput}
+ * @returns {@link UpdateArchiveRuleCommandOutput}
  * @see {@link UpdateArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateArchiveRuleCommandOutput> {
     return deserializeAws_restJson1UpdateArchiveRuleCommand(output, context);
   }

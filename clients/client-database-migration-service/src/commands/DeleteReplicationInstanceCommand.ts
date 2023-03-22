@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationInstanceCommand}.
  */
 export interface DeleteReplicationInstanceCommandInput extends DeleteReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationInstanceCommand}.
  */
 export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified replication instance.</p>
  *          <note>
  *             <p>You must delete any migration tasks that are associated with the replication instance
@@ -55,6 +60,8 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationInstanceCommandInput - {@link DeleteReplicationInstanceCommandInput}
+ * @returns {@link DeleteReplicationInstanceCommandOutput}
  * @see {@link DeleteReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -150,6 +157,9 @@ export class DeleteReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class DeleteReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

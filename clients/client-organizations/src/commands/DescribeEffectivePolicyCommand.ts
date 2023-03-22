@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEffectivePolicyCommand}.
  */
 export interface DescribeEffectivePolicyCommandInput extends DescribeEffectivePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEffectivePolicyCommand}.
  */
 export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectivePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the contents of the effective policy for specified policy type and account.
  *             The effective policy is the aggregation of any policies of the specified type that the
  *             account inherits, plus any policy of that type that is directly attached to the
@@ -55,6 +60,8 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEffectivePolicyCommandInput - {@link DescribeEffectivePolicyCommandInput}
+ * @returns {@link DescribeEffectivePolicyCommandOutput}
  * @see {@link DescribeEffectivePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectivePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -414,6 +421,9 @@ export class DescribeEffectivePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEffectivePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -453,10 +463,16 @@ export class DescribeEffectivePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEffectivePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEffectivePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEffectivePolicyCommandOutput> {
     return deserializeAws_json1_1DescribeEffectivePolicyCommand(output, context);
   }

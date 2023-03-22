@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectInstanceConfigCommand}.
  */
 export interface GetConnectInstanceConfigCommandInput extends GetConnectInstanceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectInstanceConfigCommand}.
  */
 export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanceConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get the specific Connect instance config.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectInstanceConfigCommandInput - {@link GetConnectInstanceConfigCommandInput}
+ * @returns {@link GetConnectInstanceConfigCommandOutput}
  * @see {@link GetConnectInstanceConfigCommandInput} for command's `input` shape.
  * @see {@link GetConnectInstanceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetConnectInstanceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectInstanceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetConnectInstanceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectInstanceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConnectInstanceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectInstanceConfigCommandOutput> {
     return deserializeAws_restJson1GetConnectInstanceConfigCommand(output, context);
   }

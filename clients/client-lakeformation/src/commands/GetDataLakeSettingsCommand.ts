@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataLakeSettingsCommand}.
  */
 export interface GetDataLakeSettingsCommandInput extends GetDataLakeSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataLakeSettingsCommand}.
  */
 export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataLakeSettingsCommandInput - {@link GetDataLakeSettingsCommandInput}
+ * @returns {@link GetDataLakeSettingsCommandOutput}
  * @see {@link GetDataLakeSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataLakeSettingsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDataLakeSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataLakeSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetDataLakeSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataLakeSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataLakeSettingsCommandOutput> {
     return deserializeAws_restJson1GetDataLakeSettingsCommand(output, context);
   }

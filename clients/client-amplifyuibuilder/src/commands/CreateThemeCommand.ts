@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThemeCommand}.
  */
 export interface CreateThemeCommandInput extends CreateThemeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThemeCommand}.
  */
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a theme to apply to the components in an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThemeCommandInput - {@link CreateThemeCommandInput}
+ * @returns {@link CreateThemeCommandOutput}
  * @see {@link CreateThemeCommandInput} for command's `input` shape.
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateThemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateThemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateThemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThemeCommandOutput> {
     return deserializeAws_restJson1CreateThemeCommand(output, context);
   }

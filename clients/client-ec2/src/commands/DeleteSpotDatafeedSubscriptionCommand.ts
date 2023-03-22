@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSpotDatafeedSubscriptionCommand}.
  */
 export interface DeleteSpotDatafeedSubscriptionCommandInput extends DeleteSpotDatafeedSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSpotDatafeedSubscriptionCommand}.
  */
 export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the data feed for Spot Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSpotDatafeedSubscriptionCommandInput - {@link DeleteSpotDatafeedSubscriptionCommandInput}
+ * @returns {@link DeleteSpotDatafeedSubscriptionCommandOutput}
  * @see {@link DeleteSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSpotDatafeedSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +125,9 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
@@ -122,6 +135,9 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
     return serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

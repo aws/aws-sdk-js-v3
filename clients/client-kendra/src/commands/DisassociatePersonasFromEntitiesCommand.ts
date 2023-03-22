@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePersonasFromEntitiesCommand}.
  */
 export interface DisassociatePersonasFromEntitiesCommandInput extends DisassociatePersonasFromEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePersonasFromEntitiesCommand}.
  */
 export interface DisassociatePersonasFromEntitiesCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specific permissions of users or groups in your IAM Identity Center
  *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
  *             experience such as a search application. For more information on creating a
@@ -52,6 +57,8 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePersonasFromEntitiesCommandInput - {@link DisassociatePersonasFromEntitiesCommandInput}
+ * @returns {@link DisassociatePersonasFromEntitiesCommandOutput}
  * @see {@link DisassociatePersonasFromEntitiesCommandInput} for command's `input` shape.
  * @see {@link DisassociatePersonasFromEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -95,6 +102,9 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePersonasFromEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePersonasFromEntitiesCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
     return serializeAws_json1_1DisassociatePersonasFromEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

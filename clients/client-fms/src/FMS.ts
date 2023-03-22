@@ -174,6 +174,7 @@ import {
 import { FMSClient } from "./FMSClient";
 
 /**
+ * @public
  * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the Firewall Manager API actions, data
  *       types, and errors. For detailed information about Firewall Manager features, see the
@@ -184,6 +185,7 @@ import { FMSClient } from "./FMSClient";
  */
 export class FMS extends FMSClient {
   /**
+   * @public
    * <p>Sets the Firewall Manager administrator account. The account must be
    *       a member of the organization in Organizations whose resources you want to protect.
    *           Firewall Manager sets the permissions that allow the account to administer your Firewall Manager policies.</p>
@@ -219,6 +221,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Sets the Firewall Manager policy administrator as a tenant administrator of a third-party firewall service. A tenant is an instance of the third-party firewall service that's associated with your Amazon Web Services customer account.</p>
    */
   public associateThirdPartyFirewall(
@@ -251,6 +254,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Associate resources to a Firewall Manager resource set.</p>
    */
   public batchAssociateResource(
@@ -283,6 +287,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Disassociates resources from a Firewall Manager resource set.</p>
    */
   public batchDisassociateResource(
@@ -315,6 +320,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes an Firewall Manager applications list.</p>
    */
   public deleteAppsList(
@@ -347,6 +353,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple
    *       Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
    */
@@ -380,6 +387,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes an Firewall Manager policy. </p>
    */
   public deletePolicy(
@@ -409,6 +417,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes an Firewall Manager protocols list.</p>
    */
   public deleteProtocolsList(
@@ -441,6 +450,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified <a>ResourceSet</a>.</p>
    */
   public deleteResourceSet(
@@ -473,6 +483,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the account that has been set as the Firewall Manager administrator
    *       account. To set a different account as the administrator account, you must submit an
    *         <code>AssociateAdminAccount</code> request.</p>
@@ -507,6 +518,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a Firewall Manager policy administrator from a third-party firewall tenant. When you call <code>DisassociateThirdPartyFirewall</code>, the third-party firewall vendor deletes all of the firewalls that are associated with the account.</p>
    */
   public disassociateThirdPartyFirewall(
@@ -539,6 +551,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns the Organizations account that is associated with Firewall Manager
    *       as the Firewall Manager administrator.</p>
    */
@@ -572,6 +585,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified Firewall Manager applications list.</p>
    */
   public getAppsList(args: GetAppsListCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsListCommandOutput>;
@@ -598,6 +612,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed compliance information about the specified member account. Details
    *       include resources that are in and out of compliance with the specified policy. </p>
    *          <ul>
@@ -653,6 +668,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Information
    *       about the Amazon Simple Notification Service (SNS) topic that is used to
    *       record Firewall Manager SNS logs.</p>
@@ -687,6 +703,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified Firewall Manager policy.</p>
    */
   public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
@@ -713,6 +730,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
    *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
    */
@@ -746,6 +764,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified Firewall Manager protocols list.</p>
    */
   public getProtocolsList(
@@ -778,6 +797,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a specific resource set.</p>
    */
   public getResourceSet(
@@ -810,6 +830,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>
    */
   public getThirdPartyFirewallAssociationStatus(
@@ -844,6 +865,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
    */
   public getViolationDetails(
@@ -876,6 +898,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>AppsListDataSummary</code> objects.</p>
    */
   public listAppsLists(
@@ -908,6 +931,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
    *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
    *       by the specified policy. </p>
@@ -942,6 +966,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of resources in the organization's accounts that are available to be associated with a resource set.</p>
    */
   public listDiscoveredResources(
@@ -974,6 +999,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
    *       administrator's Amazon Web Services organization.</p>
    *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
@@ -1009,6 +1035,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>PolicySummary</code> objects.</p>
    */
   public listPolicies(
@@ -1038,6 +1065,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
    */
   public listProtocolsLists(
@@ -1070,6 +1098,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of resources that are currently associated to a resource set.</p>
    */
   public listResourceSetResources(
@@ -1102,6 +1131,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>ResourceSetSummary</code> objects.</p>
    */
   public listResourceSets(
@@ -1134,6 +1164,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of tags for the specified Amazon Web Services resource.   </p>
    */
   public listTagsForResource(
@@ -1166,6 +1197,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account.</p>
    */
   public listThirdPartyFirewallFirewallPolicies(
@@ -1200,6 +1232,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Firewall Manager applications list.</p>
    */
   public putAppsList(args: PutAppsListCommandInput, options?: __HttpHandlerOptions): Promise<PutAppsListCommandOutput>;
@@ -1226,6 +1259,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
    *       Firewall Manager uses to record SNS logs.</p>
    *          <p>To perform this action outside of the console, you must configure the SNS topic to allow the Firewall Manager
@@ -1262,6 +1296,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Firewall Manager policy.</p>
    *          <p>Firewall Manager provides the following types of policies: </p>
    *          <ul>
@@ -1320,6 +1355,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Firewall Manager protocols list.</p>
    */
   public putProtocolsList(
@@ -1352,6 +1388,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Creates the resource set.</p>
    *          <p>An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.</p>
    */
@@ -1385,6 +1422,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an Amazon Web Services resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1411,6 +1449,7 @@ export class FMS extends FMSClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from an Amazon Web Services resource.</p>
    */
   public untagResource(

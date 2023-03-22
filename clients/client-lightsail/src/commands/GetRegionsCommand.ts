@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegionsCommand}.
  */
 export interface GetRegionsCommandInput extends GetRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegionsCommand}.
  */
 export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include
  *         availability zones</code> parameter to also return the Availability Zones in a
  *       region.</p>
@@ -48,6 +53,8 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegionsCommandInput - {@link GetRegionsCommandInput}
+ * @returns {@link GetRegionsCommandOutput}
  * @see {@link GetRegionsCommandInput} for command's `input` shape.
  * @see {@link GetRegionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegionsCommandOutput> {
     return deserializeAws_json1_1GetRegionsCommand(output, context);
   }

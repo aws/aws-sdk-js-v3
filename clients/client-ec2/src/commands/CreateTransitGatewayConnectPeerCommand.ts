@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayConnectPeerCommand}.
  */
 export interface CreateTransitGatewayConnectPeerCommandInput extends CreateTransitGatewayConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayConnectPeerCommand}.
  */
 export interface CreateTransitGatewayConnectPeerCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
  *             transit gateway and an appliance.</p>
  *          <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
@@ -51,6 +56,8 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayConnectPeerCommandInput - {@link CreateTransitGatewayConnectPeerCommandInput}
+ * @returns {@link CreateTransitGatewayConnectPeerCommandOutput}
  * @see {@link CreateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTransitGatewayConnectPeerCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateTransitGatewayConnectPeerCommand extends $Command<
     return serializeAws_ec2CreateTransitGatewayConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

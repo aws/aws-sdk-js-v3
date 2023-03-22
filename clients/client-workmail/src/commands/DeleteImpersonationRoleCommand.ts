@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImpersonationRoleCommand}.
  */
 export interface DeleteImpersonationRoleCommandInput extends DeleteImpersonationRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImpersonationRoleCommand}.
  */
 export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonationRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an impersonation role for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImpersonationRoleCommandInput - {@link DeleteImpersonationRoleCommandInput}
+ * @returns {@link DeleteImpersonationRoleCommandOutput}
  * @see {@link DeleteImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteImpersonationRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteImpersonationRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteImpersonationRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImpersonationRoleCommandOutput> {
     return deserializeAws_json1_1DeleteImpersonationRoleCommand(output, context);
   }

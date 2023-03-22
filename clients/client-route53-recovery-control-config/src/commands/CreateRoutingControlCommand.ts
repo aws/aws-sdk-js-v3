@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoutingControlCommand}.
  */
 export interface CreateRoutingControlCommandInput extends CreateRoutingControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoutingControlCommand}.
  */
 export interface CreateRoutingControlCommandOutput extends CreateRoutingControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new routing control.</p> <p>A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control traffic routing.</p> <p>To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateRoutingControlCommandOutput extends CreateRoutingControlR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoutingControlCommandInput - {@link CreateRoutingControlCommandInput}
+ * @returns {@link CreateRoutingControlCommandOutput}
  * @see {@link CreateRoutingControlCommandInput} for command's `input` shape.
  * @see {@link CreateRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateRoutingControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoutingControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateRoutingControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoutingControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRoutingControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoutingControlCommandOutput> {
     return deserializeAws_restJson1CreateRoutingControlCommand(output, context);
   }

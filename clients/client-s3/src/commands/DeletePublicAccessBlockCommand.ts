@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePublicAccessBlockCommand}.
  */
 export interface DeletePublicAccessBlockCommandInput extends DeletePublicAccessBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePublicAccessBlockCommand}.
  */
 export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use this
  *          operation, you must have the <code>s3:PutBucketPublicAccessBlock</code> permission. For
  *          more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
@@ -68,6 +73,8 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePublicAccessBlockCommandInput - {@link DeletePublicAccessBlockCommandInput}
+ * @returns {@link DeletePublicAccessBlockCommandOutput}
  * @see {@link DeletePublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link DeletePublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -97,6 +104,9 @@ export class DeletePublicAccessBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeletePublicAccessBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeletePublicAccessBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicAccessBlockCommandOutput> {
     return deserializeAws_restXmlDeletePublicAccessBlockCommand(output, context);
   }

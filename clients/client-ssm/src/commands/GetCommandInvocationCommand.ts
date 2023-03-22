@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCommandInvocationCommand}.
  */
 export interface GetCommandInvocationCommandInput extends GetCommandInvocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCommandInvocationCommand}.
  */
 export interface GetCommandInvocationCommandOutput extends GetCommandInvocationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about command execution for an invocation or plugin.</p>
  *          <p>
  *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
@@ -50,6 +55,8 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCommandInvocationCommandInput - {@link GetCommandInvocationCommandInput}
+ * @returns {@link GetCommandInvocationCommandOutput}
  * @see {@link GetCommandInvocationCommandInput} for command's `input` shape.
  * @see {@link GetCommandInvocationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -106,6 +113,9 @@ export class GetCommandInvocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCommandInvocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class GetCommandInvocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCommandInvocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCommandInvocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommandInvocationCommandOutput> {
     return deserializeAws_json1_1GetCommandInvocationCommand(output, context);
   }

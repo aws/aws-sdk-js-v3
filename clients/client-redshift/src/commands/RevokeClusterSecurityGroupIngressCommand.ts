@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeClusterSecurityGroupIngressCommand}.
  */
 export interface RevokeClusterSecurityGroupIngressCommandInput extends RevokeClusterSecurityGroupIngressMessage {}
 /**
+ * @public
+ *
  * The output of {@link RevokeClusterSecurityGroupIngressCommand}.
  */
 export interface RevokeClusterSecurityGroupIngressCommandOutput
@@ -37,6 +41,7 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized
  *             IP range or Amazon EC2 security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>.
  * For information about managing security groups, go to
@@ -52,6 +57,8 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeClusterSecurityGroupIngressCommandInput - {@link RevokeClusterSecurityGroupIngressCommandInput}
+ * @returns {@link RevokeClusterSecurityGroupIngressCommandOutput}
  * @see {@link RevokeClusterSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -86,6 +93,9 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeClusterSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RevokeClusterSecurityGroupIngressCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     return serializeAws_queryRevokeClusterSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

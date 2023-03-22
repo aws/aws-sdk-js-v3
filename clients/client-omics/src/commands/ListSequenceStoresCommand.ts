@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSequenceStoresCommand}.
  */
 export interface ListSequenceStoresCommandInput extends ListSequenceStoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSequenceStoresCommand}.
  */
 export interface ListSequenceStoresCommandOutput extends ListSequenceStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of sequence stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSequenceStoresCommandInput - {@link ListSequenceStoresCommandInput}
+ * @returns {@link ListSequenceStoresCommandOutput}
  * @see {@link ListSequenceStoresCommandInput} for command's `input` shape.
  * @see {@link ListSequenceStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListSequenceStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSequenceStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListSequenceStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSequenceStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSequenceStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSequenceStoresCommandOutput> {
     return deserializeAws_restJson1ListSequenceStoresCommand(output, context);
   }

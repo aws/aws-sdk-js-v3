@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachLoadBalancerTargetGroupsCommand}.
  */
 export interface AttachLoadBalancerTargetGroupsCommandInput extends AttachLoadBalancerTargetGroupsType {}
 /**
+ * @public
+ *
  * The output of {@link AttachLoadBalancerTargetGroupsCommand}.
  */
 export interface AttachLoadBalancerTargetGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
  *          <p>This operation is used with the following load balancer types: </p>
  *          <ul>
@@ -69,6 +74,8 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachLoadBalancerTargetGroupsCommandInput - {@link AttachLoadBalancerTargetGroupsCommandInput}
+ * @returns {@link AttachLoadBalancerTargetGroupsCommandOutput}
  * @see {@link AttachLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -113,6 +120,9 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachLoadBalancerTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,6 +162,9 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachLoadBalancerTargetGroupsCommandInput,
     context: __SerdeContext
@@ -159,6 +172,9 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     return serializeAws_queryAttachLoadBalancerTargetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

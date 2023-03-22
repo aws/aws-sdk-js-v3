@@ -23,15 +23,20 @@ import {
 import { deserializeAws_restJson1EnableCommand, serializeAws_restJson1EnableCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableCommand}.
  */
 export interface EnableCommandInput extends EnableRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableCommand}.
  */
 export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Amazon Inspector scans for one or more Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableCommandInput - {@link EnableCommandInput}
+ * @returns {@link EnableCommandOutput}
  * @see {@link EnableCommandInput} for command's `input` shape.
  * @see {@link EnableCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -78,6 +85,9 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableCommandOutput> {
     return deserializeAws_restJson1EnableCommand(output, context);
   }

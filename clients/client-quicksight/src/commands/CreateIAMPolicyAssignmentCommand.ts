@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIAMPolicyAssignmentCommand}.
  */
 export interface CreateIAMPolicyAssignmentCommandInput extends CreateIAMPolicyAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIAMPolicyAssignmentCommand}.
  */
 export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name
  * 			(ARN). This policy assignment is attached to the specified groups or users of Amazon QuickSight.
  * 			Assignment names are unique per Amazon Web Services account. To avoid overwriting rules in other namespaces,
@@ -49,6 +54,8 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIAMPolicyAssignmentCommandInput - {@link CreateIAMPolicyAssignmentCommandInput}
+ * @returns {@link CreateIAMPolicyAssignmentCommandOutput}
  * @see {@link CreateIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link CreateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIAMPolicyAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIAMPolicyAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartContentUploadCommand}.
  */
 export interface StartContentUploadCommandInput extends StartContentUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartContentUploadCommand}.
  */
 export interface StartContentUploadCommandOutput extends StartContentUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a URL to upload content to a knowledge base. To upload content, first make a PUT
  *       request to the returned URL with your file, making sure to include the required headers. Then
  *       use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html">CreateContent</a> to finalize the content creation process or <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html">UpdateContent</a> to modify an existing resource. You can only upload content to a
@@ -49,6 +54,8 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
+ * @returns {@link StartContentUploadCommandOutput}
  * @see {@link StartContentUploadCommandInput} for command's `input` shape.
  * @see {@link StartContentUploadCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -81,6 +88,9 @@ export class StartContentUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContentUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class StartContentUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartContentUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
     return deserializeAws_restJson1StartContentUploadCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLifecycleHookTypesCommand}.
  */
 export interface DescribeLifecycleHookTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLifecycleHookTypesCommand}.
  */
 export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecycleHookTypesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available types of lifecycle hooks.</p>
  *          <p>The following hook types are supported:</p>
  *          <ul>
@@ -57,6 +62,8 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLifecycleHookTypesCommandInput - {@link DescribeLifecycleHookTypesCommandInput}
+ * @returns {@link DescribeLifecycleHookTypesCommandOutput}
  * @see {@link DescribeLifecycleHookTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeLifecycleHookTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -101,6 +108,9 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLifecycleHookTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLifecycleHookTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLifecycleHookTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

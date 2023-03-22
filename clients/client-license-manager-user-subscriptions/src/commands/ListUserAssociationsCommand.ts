@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserAssociationsCommand}.
  */
 export interface ListUserAssociationsCommandInput extends ListUserAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserAssociationsCommand}.
  */
 export interface ListUserAssociationsCommandOutput extends ListUserAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists user associations for an identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserAssociationsCommandInput - {@link ListUserAssociationsCommandInput}
+ * @returns {@link ListUserAssociationsCommandOutput}
  * @see {@link ListUserAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListUserAssociationsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListUserAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListUserAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListUserAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserAssociationsCommandOutput> {
     return deserializeAws_restJson1ListUserAssociationsCommand(output, context);
   }

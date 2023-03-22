@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDefaultVocabularyCommand}.
  */
 export interface AssociateDefaultVocabularyCommandInput extends AssociateDefaultVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDefaultVocabularyCommand}.
  */
 export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaultVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call
  *    and real-time analysis sessions for the given language.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDefaultVocabularyCommandInput - {@link AssociateDefaultVocabularyCommandInput}
+ * @returns {@link AssociateDefaultVocabularyCommandOutput}
  * @see {@link AssociateDefaultVocabularyCommandInput} for command's `input` shape.
  * @see {@link AssociateDefaultVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class AssociateDefaultVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDefaultVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class AssociateDefaultVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDefaultVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateDefaultVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

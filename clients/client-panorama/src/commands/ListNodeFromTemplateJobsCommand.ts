@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNodeFromTemplateJobsCommand}.
  */
 export interface ListNodeFromTemplateJobsCommandInput extends ListNodeFromTemplateJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNodeFromTemplateJobsCommand}.
  */
 export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTemplateJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of camera stream node jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTempl
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNodeFromTemplateJobsCommandInput - {@link ListNodeFromTemplateJobsCommandInput}
+ * @returns {@link ListNodeFromTemplateJobsCommandOutput}
  * @see {@link ListNodeFromTemplateJobsCommandInput} for command's `input` shape.
  * @see {@link ListNodeFromTemplateJobsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListNodeFromTemplateJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNodeFromTemplateJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListNodeFromTemplateJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNodeFromTemplateJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNodeFromTemplateJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNodeFromTemplateJobsCommandOutput> {
     return deserializeAws_restJson1ListNodeFromTemplateJobsCommand(output, context);
   }

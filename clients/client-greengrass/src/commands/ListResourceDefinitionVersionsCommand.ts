@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceDefinitionVersionsCommand}.
  */
 export interface ListResourceDefinitionVersionsCommandInput extends ListResourceDefinitionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceDefinitionVersionsCommand}.
  */
 export interface ListResourceDefinitionVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListResourceDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a resource definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListResourceDefinitionVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceDefinitionVersionsCommandInput - {@link ListResourceDefinitionVersionsCommandInput}
+ * @returns {@link ListResourceDefinitionVersionsCommandOutput}
  * @see {@link ListResourceDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListResourceDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class ListResourceDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResourceDefinitionVersionsCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class ListResourceDefinitionVersionsCommand extends $Command<
     return serializeAws_restJson1ListResourceDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

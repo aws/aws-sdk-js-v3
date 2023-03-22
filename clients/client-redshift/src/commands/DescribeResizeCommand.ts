@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResizeCommand}.
  */
 export interface DescribeResizeCommandInput extends DescribeResizeMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResizeCommand}.
  */
 export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the last resize operation for the specified cluster. If
  *             no resize operation has ever been initiated for the specified cluster, a <code>HTTP
  *                 404</code> error is returned. If a resize operation was initiated and completed, the
@@ -47,6 +52,8 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResizeCommandInput - {@link DescribeResizeCommandInput}
+ * @returns {@link DescribeResizeCommandOutput}
  * @see {@link DescribeResizeCommandInput} for command's `input` shape.
  * @see {@link DescribeResizeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeResizeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResizeCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeResizeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResizeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeResizeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResizeCommandOutput> {
     return deserializeAws_queryDescribeResizeCommand(output, context);
   }

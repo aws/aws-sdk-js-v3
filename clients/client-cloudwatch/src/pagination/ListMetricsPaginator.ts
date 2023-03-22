@@ -6,7 +6,7 @@ import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput }
 import { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudWatchClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMetricsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMetrics(
   config: CloudWatchPaginationConfiguration,
   input: ListMetricsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetGroupCommand}.
  */
 export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetGroupCommand}.
  */
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dataset group, which holds a collection of related datasets. You can add
  *       datasets to the dataset group when you create the dataset group, or later by using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation.</p>
  *          <p>After creating a dataset group and adding datasets, you use the dataset group when you
@@ -55,6 +60,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
+ * @returns {@link CreateDatasetGroupCommandOutput}
  * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetGroupCommandOutput> {
     return deserializeAws_json1_1CreateDatasetGroupCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceProfileDetectionsCommand}.
  */
 export interface ListResourceProfileDetectionsCommandInput extends ListResourceProfileDetectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceProfileDetectionsCommand}.
  */
 export interface ListResourceProfileDetectionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListResourceProfileDetectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListResourceProfileDetectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceProfileDetectionsCommandInput - {@link ListResourceProfileDetectionsCommandInput}
+ * @returns {@link ListResourceProfileDetectionsCommandOutput}
  * @see {@link ListResourceProfileDetectionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceProfileDetectionsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -89,6 +96,9 @@ export class ListResourceProfileDetectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceProfileDetectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListResourceProfileDetectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceProfileDetectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResourceProfileDetectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ForgotPasswordCommand}.
  */
 export interface ForgotPasswordCommandInput extends ForgotPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ForgotPasswordCommand}.
  */
 export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Calling this API causes a message to be sent to the end user with a confirmation code
  *             that is required to change the user's password. For the <code>Username</code> parameter,
  *             you can use the username or user alias. The method used to send the confirmation code is
@@ -75,6 +80,8 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ForgotPasswordCommandInput - {@link ForgotPasswordCommandInput}
+ * @returns {@link ForgotPasswordCommandOutput}
  * @see {@link ForgotPasswordCommandInput} for command's `input` shape.
  * @see {@link ForgotPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -155,6 +162,9 @@ export class ForgotPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ForgotPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -194,10 +204,16 @@ export class ForgotPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ForgotPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ForgotPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ForgotPasswordCommandOutput> {
     return deserializeAws_json1_1ForgotPasswordCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobCommand}.
  */
 export interface UpdateJobCommandInput extends UpdateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobCommand}.
  */
 export interface UpdateJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates supported fields of the specified job.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateJob</a> action.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
+ * @returns {@link UpdateJobCommandOutput}
  * @see {@link UpdateJobCommandInput} for command's `input` shape.
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -73,6 +80,9 @@ export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobCommandOutput> {
     return deserializeAws_restJson1UpdateJobCommand(output, context);
   }

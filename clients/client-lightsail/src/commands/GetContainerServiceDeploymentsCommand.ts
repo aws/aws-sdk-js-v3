@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerServiceDeploymentsCommand}.
  */
 export interface GetContainerServiceDeploymentsCommandInput extends GetContainerServiceDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerServiceDeploymentsCommand}.
  */
 export interface GetContainerServiceDeploymentsCommandOutput
@@ -37,6 +41,7 @@ export interface GetContainerServiceDeploymentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the deployments for your Amazon Lightsail container service</p>
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
  *       that are deployed to your container service.</p>
@@ -58,6 +63,8 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerServiceDeploymentsCommandInput - {@link GetContainerServiceDeploymentsCommandInput}
+ * @returns {@link GetContainerServiceDeploymentsCommandOutput}
  * @see {@link GetContainerServiceDeploymentsCommandInput} for command's `input` shape.
  * @see {@link GetContainerServiceDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerServiceDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetContainerServiceDeploymentsCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
     return serializeAws_json1_1GetContainerServiceDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

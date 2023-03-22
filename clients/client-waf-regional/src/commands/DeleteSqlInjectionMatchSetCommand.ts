@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSqlInjectionMatchSetCommand}.
  */
 export interface DeleteSqlInjectionMatchSetCommandInput extends DeleteSqlInjectionMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSqlInjectionMatchSetCommand}.
  */
 export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -70,6 +75,8 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSqlInjectionMatchSetCommandInput - {@link DeleteSqlInjectionMatchSetCommandInput}
+ * @returns {@link DeleteSqlInjectionMatchSetCommandOutput}
  * @see {@link DeleteSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -151,6 +158,9 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSqlInjectionMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,10 +200,16 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSqlInjectionMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSqlInjectionMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

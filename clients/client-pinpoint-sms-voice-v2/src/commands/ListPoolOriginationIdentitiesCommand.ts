@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoolOriginationIdentitiesCommand}.
  */
 export interface ListPoolOriginationIdentitiesCommandInput extends ListPoolOriginationIdentitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoolOriginationIdentitiesCommand}.
  */
 export interface ListPoolOriginationIdentitiesCommandOutput
@@ -41,6 +45,7 @@ export interface ListPoolOriginationIdentitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all associated origination identities in your pool.</p>
  *         <p>If you specify filters, the output includes information for only those origination
  *             identities that meet the filter criteria.</p>
@@ -54,6 +59,8 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoolOriginationIdentitiesCommandInput - {@link ListPoolOriginationIdentitiesCommandInput}
+ * @returns {@link ListPoolOriginationIdentitiesCommandOutput}
  * @see {@link ListPoolOriginationIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListPoolOriginationIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class ListPoolOriginationIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoolOriginationIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListPoolOriginationIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPoolOriginationIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListPoolOriginationIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

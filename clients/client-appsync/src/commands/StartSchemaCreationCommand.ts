@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSchemaCreationCommand}.
  */
 export interface StartSchemaCreationCommandInput extends StartSchemaCreationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSchemaCreationCommand}.
  */
 export interface StartSchemaCreationCommandOutput extends StartSchemaCreationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new schema to your GraphQL API.</p>
  *          <p>This operation is asynchronous. Use  to determine when it has
  *          completed.</p>
@@ -48,6 +53,8 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSchemaCreationCommandInput - {@link StartSchemaCreationCommandInput}
+ * @returns {@link StartSchemaCreationCommandOutput}
  * @see {@link StartSchemaCreationCommandInput} for command's `input` shape.
  * @see {@link StartSchemaCreationCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -88,6 +95,9 @@ export class StartSchemaCreationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSchemaCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StartSchemaCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSchemaCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartSchemaCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSchemaCreationCommandOutput> {
     return deserializeAws_restJson1StartSchemaCreationCommand(output, context);
   }

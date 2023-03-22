@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSizeConstraintSetsCommand}.
  */
 export interface ListSizeConstraintSetsCommandInput extends ListSizeConstraintSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSizeConstraintSetsCommand}.
  */
 export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSizeConstraintSetsCommandInput - {@link ListSizeConstraintSetsCommandInput}
+ * @returns {@link ListSizeConstraintSetsCommandOutput}
  * @see {@link ListSizeConstraintSetsCommandInput} for command's `input` shape.
  * @see {@link ListSizeConstraintSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -104,6 +111,9 @@ export class ListSizeConstraintSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSizeConstraintSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ListSizeConstraintSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSizeConstraintSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSizeConstraintSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSizeConstraintSetsCommandOutput> {
     return deserializeAws_json1_1ListSizeConstraintSetsCommand(output, context);
   }

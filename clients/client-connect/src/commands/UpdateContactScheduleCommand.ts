@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactScheduleCommand}.
  */
 export interface UpdateContactScheduleCommandInput extends UpdateContactScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactScheduleCommand}.
  */
 export interface UpdateContactScheduleCommandOutput extends UpdateContactScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the scheduled time of a task contact that is already scheduled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactScheduleCommandInput - {@link UpdateContactScheduleCommandInput}
+ * @returns {@link UpdateContactScheduleCommandOutput}
  * @see {@link UpdateContactScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateContactScheduleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateContactScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateContactScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactScheduleCommandOutput> {
     return deserializeAws_restJson1UpdateContactScheduleCommand(output, context);
   }

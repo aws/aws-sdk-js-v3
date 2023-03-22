@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetVariableCommand}.
  */
 export interface BatchGetVariableCommandInput extends BatchGetVariableRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetVariableCommand}.
  */
 export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a batch of variables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetVariableCommandInput - {@link BatchGetVariableCommandInput}
+ * @returns {@link BatchGetVariableCommandOutput}
  * @see {@link BatchGetVariableCommandInput} for command's `input` shape.
  * @see {@link BatchGetVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +88,9 @@ export class BatchGetVariableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetVariableCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class BatchGetVariableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetVariableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetVariableCommandOutput> {
     return deserializeAws_json1_1BatchGetVariableCommand(output, context);
   }

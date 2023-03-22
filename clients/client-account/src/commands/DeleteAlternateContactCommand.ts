@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAlternateContactCommand}.
  */
 export interface DeleteAlternateContactCommandInput extends DeleteAlternateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAlternateContactCommand}.
  */
 export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified alternate contact from an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
  *                 updating the alternate contacts</a>.</p>
@@ -49,6 +54,8 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlternateContactCommandInput - {@link DeleteAlternateContactCommandInput}
+ * @returns {@link DeleteAlternateContactCommandOutput}
  * @see {@link DeleteAlternateContactCommandInput} for command's `input` shape.
  * @see {@link DeleteAlternateContactCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteAlternateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlternateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteAlternateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlternateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAlternateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlternateContactCommandOutput> {
     return deserializeAws_restJson1DeleteAlternateContactCommand(output, context);
   }

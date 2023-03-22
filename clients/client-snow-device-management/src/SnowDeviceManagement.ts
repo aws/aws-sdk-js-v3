@@ -49,10 +49,12 @@ import {
 import { SnowDeviceManagementClient } from "./SnowDeviceManagementClient";
 
 /**
+ * @public
  * <p>Amazon Web Services Snow Device Management documentation.</p>
  */
 export class SnowDeviceManagement extends SnowDeviceManagementClient {
   /**
+   * @public
    * <p>Sends a cancel request for a specified task. You can cancel a task only if it's still in a
    *         <code>QUEUED</code> state. Tasks that are already running can't be cancelled.</p>
    *          <note>
@@ -84,6 +86,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Instructs one or more devices to start a task, such as unlocking or rebooting.</p>
    */
   public createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
@@ -110,6 +113,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Checks device-specific information, such as the device type, software version, IP
    *       addresses, and lock status.</p>
    */
@@ -143,6 +147,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Checks the current state of the Amazon EC2 instances. The output is similar to
    *         <code>describeDevice</code>, but the results are sourced from the device cache in the
    *       Amazon Web Services Cloud and include a subset of the available fields. </p>
@@ -177,6 +182,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Checks the status of a remote task running on one or more target devices.</p>
    */
   public describeExecution(
@@ -209,6 +215,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Checks the metadata for a given task on a device. </p>
    */
   public describeTask(
@@ -238,6 +245,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the Amazon Web Services resources available for a device. Currently, Amazon EC2 instances are the only supported resource type.</p>
    */
   public listDeviceResources(
@@ -270,6 +278,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all devices on your Amazon Web Services account that have Amazon Web Services Snow Device Management
    *       enabled in the Amazon Web Services Region where the command is run.</p>
    */
@@ -297,6 +306,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Returns the status of tasks for one or more target devices.</p>
    */
   public listExecutions(
@@ -329,6 +339,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags for a managed device or task.</p>
    */
   public listTagsForResource(
@@ -361,6 +372,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tasks that can be filtered by state.</p>
    */
   public listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
@@ -387,6 +399,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Adds or replaces tags on a device or task.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -413,6 +426,7 @@ export class SnowDeviceManagement extends SnowDeviceManagementClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from a device or task.</p>
    */
   public untagResource(

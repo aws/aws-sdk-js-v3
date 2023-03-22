@@ -31,10 +31,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityProviderByIdentifierCommand}.
  */
 export interface GetIdentityProviderByIdentifierCommandInput extends GetIdentityProviderByIdentifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityProviderByIdentifierCommand}.
  */
 export interface GetIdentityProviderByIdentifierCommandOutput
@@ -42,6 +46,7 @@ export interface GetIdentityProviderByIdentifierCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface GetIdentityProviderByIdentifierCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityProviderByIdentifierCommandInput - {@link GetIdentityProviderByIdentifierCommandInput}
+ * @returns {@link GetIdentityProviderByIdentifierCommandOutput}
  * @see {@link GetIdentityProviderByIdentifierCommandInput} for command's `input` shape.
  * @see {@link GetIdentityProviderByIdentifierCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityProviderByIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityProviderByIdentifierCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     return serializeAws_json1_1GetIdentityProviderByIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UploadSSHPublicKeyCommand}.
  */
 export interface UploadSSHPublicKeyCommandInput extends UploadSSHPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadSSHPublicKeyCommand}.
  */
 export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
  *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -50,6 +55,8 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadSSHPublicKeyCommandInput - {@link UploadSSHPublicKeyCommandInput}
+ * @returns {@link UploadSSHPublicKeyCommandOutput}
  * @see {@link UploadSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link UploadSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -92,6 +99,9 @@ export class UploadSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UploadSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUploadSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadSSHPublicKeyCommandOutput> {
     return deserializeAws_queryUploadSSHPublicKeyCommand(output, context);
   }

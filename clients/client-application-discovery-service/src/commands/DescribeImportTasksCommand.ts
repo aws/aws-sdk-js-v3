@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImportTasksCommand}.
  */
 export interface DescribeImportTasksCommandInput extends DescribeImportTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImportTasksCommand}.
  */
 export interface DescribeImportTasksCommandOutput extends DescribeImportTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of import tasks for your account, including status information, times,
  *       IDs, the Amazon S3 Object URL for the import file, and more.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImportTasksCommandInput - {@link DescribeImportTasksCommandInput}
+ * @returns {@link DescribeImportTasksCommandOutput}
  * @see {@link DescribeImportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportTasksCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeImportTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImportTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeImportTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImportTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImportTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImportTasksCommandOutput> {
     return deserializeAws_json1_1DescribeImportTasksCommand(output, context);
   }

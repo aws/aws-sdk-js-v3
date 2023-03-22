@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTaskDefinitionCommand}.
  */
 export interface RegisterTaskDefinitionCommandInput extends RegisterTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTaskDefinitionCommand}.
  */
 export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new task definition from the supplied <code>family</code> and
  * 				<code>containerDefinitions</code>. Optionally, you can add data volumes to your
  * 			containers with the <code>volumes</code> parameter. For more information about task
@@ -63,6 +68,8 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTaskDefinitionCommandInput - {@link RegisterTaskDefinitionCommandInput}
+ * @returns {@link RegisterTaskDefinitionCommandOutput}
  * @see {@link RegisterTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link RegisterTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -151,6 +158,9 @@ export class RegisterTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,10 +200,16 @@ export class RegisterTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterTaskDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTaskDefinitionCommandOutput> {
     return deserializeAws_json1_1RegisterTaskDefinitionCommand(output, context);
   }

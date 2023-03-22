@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateListenerCommand}.
  */
 export interface CreateListenerCommandInput extends CreateListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateListenerCommand}.
  */
 export interface CreateListenerCommandOutput extends CreateListenerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
  * 			IP addresses on a port, port range, or list of port ranges that you specify. </p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
+ * @returns {@link CreateListenerCommandOutput}
  * @see {@link CreateListenerCommandInput} for command's `input` shape.
  * @see {@link CreateListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
     return deserializeAws_json1_1CreateListenerCommand(output, context);
   }

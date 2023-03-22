@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitFeedbackCommand}.
  */
 export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitFeedbackCommand}.
  */
 export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends feedback to CodeGuru Profiler about whether the anomaly detected by the analysis is
  *             useful or not.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
+ * @returns {@link SubmitFeedbackCommandOutput}
  * @see {@link SubmitFeedbackCommandInput} for command's `input` shape.
  * @see {@link SubmitFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -82,6 +89,9 @@ export class SubmitFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SubmitFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SubmitFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitFeedbackCommandOutput> {
     return deserializeAws_restJson1SubmitFeedbackCommand(output, context);
   }

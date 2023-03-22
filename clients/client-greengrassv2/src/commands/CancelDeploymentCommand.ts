@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDeploymentCommand}.
  */
 export interface CancelDeploymentCommandInput extends CancelDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDeploymentCommand}.
  */
 export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a deployment. This operation cancels the deployment for devices that haven't yet
  *       received it. If a device already received the deployment, this operation doesn't change
  *       anything for that device.</p>
@@ -48,6 +53,8 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDeploymentCommandInput - {@link CancelDeploymentCommandInput}
+ * @returns {@link CancelDeploymentCommandOutput}
  * @see {@link CancelDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -92,6 +99,9 @@ export class CancelDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CancelDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelDeploymentCommandOutput> {
     return deserializeAws_restJson1CancelDeploymentCommand(output, context);
   }

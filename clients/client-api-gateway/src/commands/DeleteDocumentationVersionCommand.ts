@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDocumentationVersionCommand}.
  */
 export interface DeleteDocumentationVersionCommandInput extends DeleteDocumentationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDocumentationVersionCommand}.
  */
 export interface DeleteDocumentationVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a documentation version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteDocumentationVersionCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentationVersionCommandInput - {@link DeleteDocumentationVersionCommandInput}
+ * @returns {@link DeleteDocumentationVersionCommandOutput}
  * @see {@link DeleteDocumentationVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentationVersionCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteDocumentationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteDocumentationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDocumentationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

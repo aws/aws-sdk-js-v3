@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReferenceStoreCommand}.
  */
 export interface CreateReferenceStoreCommandInput extends CreateReferenceStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReferenceStoreCommand}.
  */
 export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a reference store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReferenceStoreCommandInput - {@link CreateReferenceStoreCommandInput}
+ * @returns {@link CreateReferenceStoreCommandOutput}
  * @see {@link CreateReferenceStoreCommandInput} for command's `input` shape.
  * @see {@link CreateReferenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateReferenceStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReferenceStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateReferenceStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReferenceStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateReferenceStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReferenceStoreCommandOutput> {
     return deserializeAws_restJson1CreateReferenceStoreCommand(output, context);
   }

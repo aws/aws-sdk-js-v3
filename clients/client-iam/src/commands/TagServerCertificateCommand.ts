@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagServerCertificateCommand}.
  */
 export interface TagServerCertificateCommandInput extends TagServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagServerCertificateCommand}.
  */
 export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM server certificate. If a tag with the same key name
  *       already exists, then that tag is overwritten with the new value.</p>
  *          <note>
@@ -88,6 +93,8 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagServerCertificateCommandInput - {@link TagServerCertificateCommandInput}
+ * @returns {@link TagServerCertificateCommandOutput}
  * @see {@link TagServerCertificateCommandInput} for command's `input` shape.
  * @see {@link TagServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -131,6 +138,9 @@ export class TagServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class TagServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagServerCertificateCommandOutput> {
     return deserializeAws_queryTagServerCertificateCommand(output, context);
   }

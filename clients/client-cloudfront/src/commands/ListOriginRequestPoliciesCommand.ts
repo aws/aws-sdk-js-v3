@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListOriginRequestPoliciesCommand}.
  */
 export interface ListOriginRequestPoliciesCommandInput extends ListOriginRequestPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOriginRequestPoliciesCommand}.
  */
 export interface ListOriginRequestPoliciesCommandOutput extends ListOriginRequestPoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of origin request policies.</p>
  *          <p>You can optionally apply a filter to return only the managed policies created by
  * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
@@ -53,6 +58,8 @@ export interface ListOriginRequestPoliciesCommandOutput extends ListOriginReques
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginRequestPoliciesCommandInput - {@link ListOriginRequestPoliciesCommandInput}
+ * @returns {@link ListOriginRequestPoliciesCommandOutput}
  * @see {@link ListOriginRequestPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListOriginRequestPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginRequestPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginRequestPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListOriginRequestPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

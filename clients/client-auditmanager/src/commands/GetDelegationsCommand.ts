@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDelegationsCommand}.
  */
 export interface GetDelegationsCommandInput extends GetDelegationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDelegationsCommand}.
  */
 export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of delegations from an audit owner to a delegate. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDelegationsCommandInput - {@link GetDelegationsCommandInput}
+ * @returns {@link GetDelegationsCommandOutput}
  * @see {@link GetDelegationsCommandInput} for command's `input` shape.
  * @see {@link GetDelegationsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetDelegationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDelegationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetDelegationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDelegationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDelegationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDelegationsCommandOutput> {
     return deserializeAws_restJson1GetDelegationsCommand(output, context);
   }

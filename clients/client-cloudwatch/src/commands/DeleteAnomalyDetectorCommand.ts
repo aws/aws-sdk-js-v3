@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAnomalyDetectorCommand}.
  */
 export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetectorInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAnomalyDetectorCommand}.
  */
 export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Deletes the specified anomaly detection model
  * 			from your account.
@@ -54,6 +59,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnomalyDetectorCommandInput - {@link DeleteAnomalyDetectorCommandInput}
+ * @returns {@link DeleteAnomalyDetectorCommandOutput}
  * @see {@link DeleteAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnomalyDetectorCommandOutput> {
     return deserializeAws_queryDeleteAnomalyDetectorCommand(output, context);
   }

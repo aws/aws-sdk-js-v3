@@ -10,7 +10,7 @@ import {
 import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AmplifyUIBuilderClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ExportComponentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateExportComponents(
   config: AmplifyUIBuilderPaginationConfiguration,
   input: ExportComponentsCommandInput,

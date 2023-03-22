@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCacheParameterGroupCommand}.
  */
 export interface ModifyCacheParameterGroupCommandInput extends ModifyCacheParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCacheParameterGroupCommand}.
  */
 export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a cache
  *             parameter group. You can modify up to 20 parameters in a single request by submitting a
  *             list parameter name and value pairs.</p>
@@ -48,6 +53,8 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCacheParameterGroupCommandInput - {@link ModifyCacheParameterGroupCommandInput}
+ * @returns {@link ModifyCacheParameterGroupCommandOutput}
  * @see {@link ModifyCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -112,6 +119,9 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterInstanceEventNotificationAttributesCommand}.
  */
 export interface DeregisterInstanceEventNotificationAttributesCommandInput
   extends DeregisterInstanceEventNotificationAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterInstanceEventNotificationAttributesCommand}.
  */
 export interface DeregisterInstanceEventNotificationAttributesCommandOutput
@@ -38,6 +42,7 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
  * 			in scheduled event notifications for resources in the Region.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterInstanceEventNotificationAttributesCommandInput - {@link DeregisterInstanceEventNotificationAttributesCommandInput}
+ * @returns {@link DeregisterInstanceEventNotificationAttributesCommandOutput}
  * @see {@link DeregisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterInstanceEventNotificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterInstanceEventNotificationAttributesCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     return serializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVirtualServiceCommand}.
  */
 export interface CreateVirtualServiceCommandInput extends CreateVirtualServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVirtualServiceCommand}.
  */
 export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual service within a service mesh.</p>
  *          <p>A virtual service is an abstraction of a real service that is provided by a virtual node
  *          directly or indirectly by means of a virtual router. Dependent services call your virtual
@@ -52,6 +57,8 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualServiceCommandInput - {@link CreateVirtualServiceCommandInput}
+ * @returns {@link CreateVirtualServiceCommandOutput}
  * @see {@link CreateVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateVirtualServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateVirtualServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVirtualServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualServiceCommandOutput> {
     return deserializeAws_restJson1CreateVirtualServiceCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLicenseManagerReportGeneratorCommand}.
  */
 export interface UpdateLicenseManagerReportGeneratorCommandInput extends UpdateLicenseManagerReportGeneratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLicenseManagerReportGeneratorCommand}.
  */
 export interface UpdateLicenseManagerReportGeneratorCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a report generator.</p>
  *          <p>After you make changes to a report generator, it starts generating new reports within 60 minutes of being updated.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLicenseManagerReportGeneratorCommandInput - {@link UpdateLicenseManagerReportGeneratorCommandInput}
+ * @returns {@link UpdateLicenseManagerReportGeneratorCommandOutput}
  * @see {@link UpdateLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLicenseManagerReportGeneratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command<
     return serializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

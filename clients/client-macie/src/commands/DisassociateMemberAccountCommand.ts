@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMemberAccountCommand}.
  */
 export interface DisassociateMemberAccountCommandInput extends DisassociateMemberAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMemberAccountCommand}.
  */
 export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Removes the specified member account from Amazon Macie
  *       Classic.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMemberAccountCommandInput - {@link DisassociateMemberAccountCommandInput}
+ * @returns {@link DisassociateMemberAccountCommandOutput}
  * @see {@link DisassociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberAccountCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateMemberAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMemberAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DisassociateMemberAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMemberAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateMemberAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableEnhancedMonitoringCommand}.
  */
 export interface DisableEnhancedMonitoringCommandInput extends DisableEnhancedMonitoringInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableEnhancedMonitoringCommand}.
  */
 export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables enhanced monitoring.</p>
  *          <note>
  *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
@@ -50,6 +55,8 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableEnhancedMonitoringCommandInput - {@link DisableEnhancedMonitoringCommandInput}
+ * @returns {@link DisableEnhancedMonitoringCommandOutput}
  * @see {@link DisableEnhancedMonitoringCommandInput} for command's `input` shape.
  * @see {@link DisableEnhancedMonitoringCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -95,6 +102,9 @@ export class DisableEnhancedMonitoringCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableEnhancedMonitoringCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DisableEnhancedMonitoringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableEnhancedMonitoringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableEnhancedMonitoringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

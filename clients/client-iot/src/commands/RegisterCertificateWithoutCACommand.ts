@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterCertificateWithoutCACommand}.
  */
 export interface RegisterCertificateWithoutCACommandInput extends RegisterCertificateWithoutCARequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterCertificateWithoutCACommand}.
  */
 export interface RegisterCertificateWithoutCACommandOutput
@@ -37,6 +41,7 @@ export interface RegisterCertificateWithoutCACommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Register a certificate that does not have a certificate authority (CA).
  *          For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
  *          Certificate signing algorithms supported by IoT</a>.
@@ -51,6 +56,8 @@ export interface RegisterCertificateWithoutCACommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCertificateWithoutCACommandInput - {@link RegisterCertificateWithoutCACommandInput}
+ * @returns {@link RegisterCertificateWithoutCACommandOutput}
  * @see {@link RegisterCertificateWithoutCACommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateWithoutCACommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -98,6 +105,9 @@ export class RegisterCertificateWithoutCACommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCertificateWithoutCACommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class RegisterCertificateWithoutCACommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterCertificateWithoutCACommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterCertificateWithoutCACommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

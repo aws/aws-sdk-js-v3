@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminGetUserCommand}.
  */
 export interface AdminGetUserCommandInput extends AdminGetUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminGetUserCommand}.
  */
 export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified user by user name in a user pool as an administrator. Works on any
  *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
@@ -53,6 +58,8 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminGetUserCommandInput - {@link AdminGetUserCommandInput}
+ * @returns {@link AdminGetUserCommandOutput}
  * @see {@link AdminGetUserCommandInput} for command's `input` shape.
  * @see {@link AdminGetUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -97,6 +104,9 @@ export class AdminGetUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminGetUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AdminGetUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminGetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminGetUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminGetUserCommandOutput> {
     return deserializeAws_json1_1AdminGetUserCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProjectPolicyCommand}.
  */
 export interface DeleteProjectPolicyCommandInput extends DeleteProjectPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProjectPolicyCommand}.
  */
 export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing project policy.</p>
  *          <p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectPolicyCommandInput - {@link DeleteProjectPolicyCommandInput}
+ * @returns {@link DeleteProjectPolicyCommandOutput}
  * @see {@link DeleteProjectPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteProjectPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DeleteProjectPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProjectPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteProjectPolicyCommand(output, context);
   }

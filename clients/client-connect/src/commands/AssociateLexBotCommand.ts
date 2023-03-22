@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateLexBotCommand}.
  */
 export interface AssociateLexBotCommandInput extends AssociateLexBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateLexBotCommand}.
  */
 export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
  *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
@@ -43,6 +48,8 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLexBotCommandInput - {@link AssociateLexBotCommandInput}
+ * @returns {@link AssociateLexBotCommandOutput}
  * @see {@link AssociateLexBotCommandInput} for command's `input` shape.
  * @see {@link AssociateLexBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateLexBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLexBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateLexBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLexBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateLexBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLexBotCommandOutput> {
     return deserializeAws_restJson1AssociateLexBotCommand(output, context);
   }

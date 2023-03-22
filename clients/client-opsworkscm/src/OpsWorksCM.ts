@@ -95,6 +95,7 @@ import {
 import { OpsWorksCMClient } from "./OpsWorksCMClient";
 
 /**
+ * @public
  * <fullname>AWS OpsWorks CM</fullname>
  *          <p>AWS OpsWorks for configuration management (CM) is a service that runs and manages
  *       configuration management servers. You can use AWS OpsWorks CM to create and manage AWS
@@ -186,6 +187,7 @@ import { OpsWorksCMClient } from "./OpsWorksCMClient";
  */
 export class OpsWorksCM extends OpsWorksCMClient {
   /**
+   * @public
    * <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>
    *          <p>
    *       On a Chef server: This command is an alternative to  <code>knife bootstrap</code>.</p>
@@ -234,6 +236,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Creates an application-level backup of a server. While the
    *       server is in the <code>BACKING_UP</code> state, the server cannot be
@@ -280,6 +283,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Creates and immedately starts a new server. The server is ready to use when it is in the <code>HEALTHY</code> state. By default, you can create a maximum of 10 servers.
    *     </p>
@@ -336,6 +340,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes a backup. You can delete both manual and automated backups. This operation is asynchronous.
    *     </p>
@@ -372,6 +377,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes the server and the underlying AWS CloudFormation stacks
    *       (including the server's EC2 instance). When you run this command, the server state is updated
@@ -416,6 +422,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Describes your OpsWorks-CM account attributes.
    *     </p>
@@ -453,6 +460,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Describes backups. The results are ordered by time, with newest backups first.
    *       If you do not specify a BackupId or ServerName, the command returns all backups.
@@ -495,6 +503,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Describes events for a specified server. Results are ordered by time, with newest events first.
    *     </p>
@@ -536,6 +545,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns the current status of an existing association or disassociation request.
    *     </p>
@@ -574,6 +584,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Lists all configuration management servers that are identified with your account.
    *       Only the stored results from Amazon DynamoDB
@@ -617,6 +628,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Disassociates a node from an AWS OpsWorks CM server, and removes the node from the server's managed nodes. After a node is disassociated,
    *       the node key pair is no longer valid for accessing the configuration manager's API. For more information about how to associate a node, see <a>AssociateNode</a>.
@@ -656,6 +668,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Exports a specified server engine attribute as a base64-encoded string. For example, you can export user data that you can use in EC2 to associate nodes with a server.
    *     </p>
@@ -699,6 +712,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags that are applied to the specified AWS OpsWorks for Chef Automate or
    *       AWS OpsWorks for Puppet Enterprise servers or backups.</p>
    */
@@ -732,6 +746,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Restores a backup to a server that is in a <code>CONNECTION_LOST</code>, <code>HEALTHY</code>, <code>RUNNING</code>, <code>UNHEALTHY</code>, or <code>TERMINATED</code> state.
    *       When you run RestoreServer, the server's EC2 instance is deleted, and a new EC2 instance is configured. RestoreServer maintains
@@ -778,6 +793,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Manually starts server maintenance. This command can be useful if an earlier maintenance attempt failed, and the underlying
    *       cause of maintenance failure has been resolved. The server is in an <code>UNDER_MAINTENANCE</code> state while maintenance is in progress.
@@ -817,6 +833,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server, or to server backups.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -843,6 +860,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>Removes specified tags from an AWS OpsWorks-CM server or backup.</p>
    */
   public untagResource(
@@ -875,6 +893,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Updates settings for a server.
    *     </p>
@@ -909,6 +928,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
+   * @public
    * <p>
    *       Updates engine-specific attributes on a specified server. The server
    *       enters the <code>MODIFYING</code> state when this operation

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventLabelCommand}.
  */
 export interface UpdateEventLabelCommandInput extends UpdateEventLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventLabelCommand}.
  */
 export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified event with a new label.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventLabelCommandInput - {@link UpdateEventLabelCommandInput}
+ * @returns {@link UpdateEventLabelCommandOutput}
  * @see {@link UpdateEventLabelCommandInput} for command's `input` shape.
  * @see {@link UpdateEventLabelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateEventLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateEventLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEventLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventLabelCommandOutput> {
     return deserializeAws_json1_1UpdateEventLabelCommand(output, context);
   }

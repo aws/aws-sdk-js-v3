@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddEndpointsCommand}.
  */
 export interface AddEndpointsCommandInput extends AddEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddEndpointsCommand}.
  */
 export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The
  * 			alternative options are to add endpoints when you create an endpoint group (with the
  * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a> API)
@@ -65,6 +70,8 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AddEndpointsCommandInput - {@link AddEndpointsCommandInput}
+ * @returns {@link AddEndpointsCommandOutput}
  * @see {@link AddEndpointsCommandInput} for command's `input` shape.
  * @see {@link AddEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -106,6 +113,9 @@ export class AddEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class AddEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddEndpointsCommandOutput> {
     return deserializeAws_json1_1AddEndpointsCommand(output, context);
   }

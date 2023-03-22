@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePrivateDnsNamespaceCommand}.
  */
 export interface CreatePrivateDnsNamespaceCommandInput extends CreatePrivateDnsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePrivateDnsNamespaceCommand}.
  */
 export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon
  *    VPC. The namespace defines your service naming scheme. For example, if you name your namespace
  *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -53,6 +58,8 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePrivateDnsNamespaceCommandInput - {@link CreatePrivateDnsNamespaceCommandInput}
+ * @returns {@link CreatePrivateDnsNamespaceCommandOutput}
  * @see {@link CreatePrivateDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -118,6 +125,9 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePrivateDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePrivateDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePrivateDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

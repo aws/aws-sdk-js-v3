@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSequenceStoreCommand}.
  */
 export interface DeleteSequenceStoreCommandInput extends DeleteSequenceStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSequenceStoreCommand}.
  */
 export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a sequence store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSequenceStoreCommandInput - {@link DeleteSequenceStoreCommandInput}
+ * @returns {@link DeleteSequenceStoreCommandOutput}
  * @see {@link DeleteSequenceStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteSequenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteSequenceStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSequenceStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteSequenceStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSequenceStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSequenceStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSequenceStoreCommandOutput> {
     return deserializeAws_restJson1DeleteSequenceStoreCommand(output, context);
   }

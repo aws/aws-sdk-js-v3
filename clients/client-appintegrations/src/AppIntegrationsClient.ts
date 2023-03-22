@@ -108,6 +108,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateDataIntegrationCommandInput
   | CreateEventIntegrationCommandInput
@@ -125,6 +128,9 @@ export type ServiceInputTypes =
   | UpdateDataIntegrationCommandInput
   | UpdateEventIntegrationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateDataIntegrationCommandOutput
   | CreateEventIntegrationCommandOutput
@@ -142,6 +148,9 @@ export type ServiceOutputTypes =
   | UpdateDataIntegrationCommandOutput
   | UpdateEventIntegrationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -149,7 +158,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -258,11 +267,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AppIntegrationsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -273,10 +285,15 @@ type AppIntegrationsClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AppIntegrationsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AppIntegrationsClient class constructor that set the region, credentials and other options.
  */
 export interface AppIntegrationsClientConfig extends AppIntegrationsClientConfigType {}
 
+/**
+ * @public
+ */
 type AppIntegrationsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -287,11 +304,14 @@ type AppIntegrationsClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AppIntegrationsClient class. This is resolved and normalized from the {@link AppIntegrationsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AppIntegrationsClient class. This is resolved and normalized from the {@link AppIntegrationsClientConfig | constructor configuration interface}.
  */
 export interface AppIntegrationsClientResolvedConfig extends AppIntegrationsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
  *       applications.</p>
  *          <p>For information about how you can use external applications with Amazon Connect, see

@@ -154,6 +154,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddNotificationChannelCommandInput
   | DeleteInsightCommandInput
@@ -187,6 +190,9 @@ export type ServiceInputTypes =
   | UpdateResourceCollectionCommandInput
   | UpdateServiceIntegrationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddNotificationChannelCommandOutput
   | DeleteInsightCommandOutput
@@ -220,6 +226,9 @@ export type ServiceOutputTypes =
   | UpdateResourceCollectionCommandOutput
   | UpdateServiceIntegrationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -227,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -336,11 +345,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type DevOpsGuruClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -351,10 +363,15 @@ type DevOpsGuruClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of DevOpsGuruClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DevOpsGuruClient class constructor that set the region, credentials and other options.
  */
 export interface DevOpsGuruClientConfig extends DevOpsGuruClientConfigType {}
 
+/**
+ * @public
+ */
 type DevOpsGuruClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -365,11 +382,14 @@ type DevOpsGuruClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DevOpsGuruClient class. This is resolved and normalized from the {@link DevOpsGuruClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DevOpsGuruClient class. This is resolved and normalized from the {@link DevOpsGuruClientConfig | constructor configuration interface}.
  */
 export interface DevOpsGuruClientResolvedConfig extends DevOpsGuruClientResolvedConfigType {}
 
 /**
+ * @public
  * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in
  * 			business critical operational applications. You specify the Amazon Web Services resources that you
  * 			want DevOps Guru to cover, then the Amazon CloudWatch metrics and Amazon Web Services CloudTrail events related to those

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAutoTerminationPolicyCommand}.
  */
 export interface GetAutoTerminationPolicyCommandInput extends GetAutoTerminationPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAutoTerminationPolicyCommand}.
  */
 export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the auto-termination policy for an Amazon EMR cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutoTerminationPolicyCommandInput - {@link GetAutoTerminationPolicyCommandInput}
+ * @returns {@link GetAutoTerminationPolicyCommandOutput}
  * @see {@link GetAutoTerminationPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -69,6 +76,9 @@ export class GetAutoTerminationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutoTerminationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetAutoTerminationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAutoTerminationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAutoTerminationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoTerminationPolicyCommandOutput> {
     return deserializeAws_json1_1GetAutoTerminationPolicyCommand(output, context);
   }

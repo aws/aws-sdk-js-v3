@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SendTextMessageCommand}.
  */
 export interface SendTextMessageCommandInput extends SendTextMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendTextMessageCommand}.
  */
 export interface SendTextMessageCommandOutput extends SendTextMessageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new text message and sends it to a recipient's phone number.</p>
  *         <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
  *             depends on the destination country of your messages, as well as the type of phone number
@@ -55,6 +60,8 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTextMessageCommandInput - {@link SendTextMessageCommandInput}
+ * @returns {@link SendTextMessageCommandOutput}
  * @see {@link SendTextMessageCommandInput} for command's `input` shape.
  * @see {@link SendTextMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -105,6 +112,9 @@ export class SendTextMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTextMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class SendTextMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTextMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendTextMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTextMessageCommandOutput> {
     return deserializeAws_json1_0SendTextMessageCommand(output, context);
   }

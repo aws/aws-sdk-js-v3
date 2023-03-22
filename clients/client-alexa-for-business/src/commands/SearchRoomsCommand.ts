@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchRoomsCommand}.
  */
 export interface SearchRoomsCommandInput extends SearchRoomsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchRoomsCommand}.
  */
 export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches rooms and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchRoomsCommandInput - {@link SearchRoomsCommandInput}
+ * @returns {@link SearchRoomsCommandOutput}
  * @see {@link SearchRoomsCommandInput} for command's `input` shape.
  * @see {@link SearchRoomsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +77,9 @@ export class SearchRoomsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchRoomsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class SearchRoomsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchRoomsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchRoomsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRoomsCommandOutput> {
     return deserializeAws_json1_1SearchRoomsCommand(output, context);
   }

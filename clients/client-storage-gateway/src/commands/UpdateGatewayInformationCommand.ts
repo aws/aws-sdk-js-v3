@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayInformationCommand}.
  */
 export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInformationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayInformationCommand}.
  */
 export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway's metadata, which includes the gateway's name and time zone.
  *          To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
  *          your request.</p>
@@ -54,6 +59,8 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayInformationCommandInput - {@link UpdateGatewayInformationCommandInput}
+ * @returns {@link UpdateGatewayInformationCommandOutput}
  * @see {@link UpdateGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateGatewayInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class UpdateGatewayInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGatewayInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayInformationCommandOutput> {
     return deserializeAws_json1_1UpdateGatewayInformationCommand(output, context);
   }

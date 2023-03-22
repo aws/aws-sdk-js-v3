@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserEndpointsCommand}.
  */
 export interface DeleteUserEndpointsCommandInput extends DeleteUserEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserEndpointsCommand}.
  */
 export interface DeleteUserEndpointsCommandOutput extends DeleteUserEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all the endpoints that are associated with a specific user ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteUserEndpointsCommandOutput extends DeleteUserEndpointsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserEndpointsCommandInput - {@link DeleteUserEndpointsCommandInput}
+ * @returns {@link DeleteUserEndpointsCommandOutput}
  * @see {@link DeleteUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link DeleteUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteUserEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteUserEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUserEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserEndpointsCommandOutput> {
     return deserializeAws_restJson1DeleteUserEndpointsCommand(output, context);
   }

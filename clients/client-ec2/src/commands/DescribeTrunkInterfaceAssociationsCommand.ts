@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrunkInterfaceAssociationsCommand}.
  */
 export interface DescribeTrunkInterfaceAssociationsCommandInput extends DescribeTrunkInterfaceAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrunkInterfaceAssociationsCommand}.
  */
 export interface DescribeTrunkInterfaceAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
@@ -52,6 +57,8 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrunkInterfaceAssociationsCommandInput - {@link DescribeTrunkInterfaceAssociationsCommandInput}
+ * @returns {@link DescribeTrunkInterfaceAssociationsCommandOutput}
  * @see {@link DescribeTrunkInterfaceAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrunkInterfaceAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrunkInterfaceAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrunkInterfaceAssociationsCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
     return serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

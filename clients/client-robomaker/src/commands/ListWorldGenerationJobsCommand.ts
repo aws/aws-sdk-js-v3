@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorldGenerationJobsCommand}.
  */
 export interface ListWorldGenerationJobsCommandInput extends ListWorldGenerationJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorldGenerationJobsCommand}.
  */
 export interface ListWorldGenerationJobsCommandOutput extends ListWorldGenerationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists world generator jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorldGenerationJobsCommandInput - {@link ListWorldGenerationJobsCommandInput}
+ * @returns {@link ListWorldGenerationJobsCommandOutput}
  * @see {@link ListWorldGenerationJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldGenerationJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListWorldGenerationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldGenerationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListWorldGenerationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldGenerationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorldGenerationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldGenerationJobsCommandOutput> {
     return deserializeAws_restJson1ListWorldGenerationJobsCommand(output, context);
   }

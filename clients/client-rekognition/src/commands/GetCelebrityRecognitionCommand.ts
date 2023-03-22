@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCelebrityRecognitionCommand}.
  */
 export interface GetCelebrityRecognitionCommandInput extends GetCelebrityRecognitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCelebrityRecognitionCommand}.
  */
 export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by
  *      <a>StartCelebrityRecognition</a>.</p>
  *          <p>Celebrity recognition in a video is an asynchronous operation. Analysis is started by a
@@ -84,6 +89,8 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCelebrityRecognitionCommandInput - {@link GetCelebrityRecognitionCommandInput}
+ * @returns {@link GetCelebrityRecognitionCommandOutput}
  * @see {@link GetCelebrityRecognitionCommandInput} for command's `input` shape.
  * @see {@link GetCelebrityRecognitionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -130,6 +137,9 @@ export class GetCelebrityRecognitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCelebrityRecognitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class GetCelebrityRecognitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCelebrityRecognitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCelebrityRecognitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCelebrityRecognitionCommandOutput> {
     return deserializeAws_json1_1GetCelebrityRecognitionCommand(output, context);
   }

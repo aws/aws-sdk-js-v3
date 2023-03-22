@@ -6,7 +6,7 @@ import { SMSClient } from "../SMSClient";
 import { SMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SMSClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetServersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetServers(
   config: SMSPaginationConfiguration,
   input: GetServersCommandInput,

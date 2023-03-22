@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProgramCommand}.
  */
 export interface DescribeProgramCommandInput extends DescribeProgramRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProgramCommand}.
  */
 export interface DescribeProgramCommandOutput extends DescribeProgramResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProgramCommandInput - {@link DescribeProgramCommandInput}
+ * @returns {@link DescribeProgramCommandOutput}
  * @see {@link DescribeProgramCommandInput} for command's `input` shape.
  * @see {@link DescribeProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeProgramCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProgramCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeProgramCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeProgramCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProgramCommandOutput> {
     return deserializeAws_restJson1DescribeProgramCommand(output, context);
   }

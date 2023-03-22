@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandInput extends DeleteGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's files remain
  *       in your gateway's file system.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
+ * @returns {@link DeleteGatewayCommandOutput}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayCommandOutput> {
     return deserializeAws_restJson1DeleteGatewayCommand(output, context);
   }

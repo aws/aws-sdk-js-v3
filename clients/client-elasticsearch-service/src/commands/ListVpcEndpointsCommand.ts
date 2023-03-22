@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcEndpointsCommand}.
  */
 export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcEndpointsCommand}.
  */
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
+ * @returns {@link ListVpcEndpointsCommandOutput}
  * @see {@link ListVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointsCommandOutput> {
     return deserializeAws_restJson1ListVpcEndpointsCommand(output, context);
   }

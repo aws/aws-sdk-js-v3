@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDryRunProgressCommand}.
  */
 export interface DescribeDryRunProgressCommandInput extends DescribeDryRunProgressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDryRunProgressCommand}.
  */
 export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgressResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
  *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDryRunProgressCommandInput - {@link DescribeDryRunProgressCommandInput}
+ * @returns {@link DescribeDryRunProgressCommandOutput}
  * @see {@link DescribeDryRunProgressCommandInput} for command's `input` shape.
  * @see {@link DescribeDryRunProgressCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeDryRunProgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDryRunProgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeDryRunProgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDryRunProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDryRunProgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDryRunProgressCommandOutput> {
     return deserializeAws_restJson1DescribeDryRunProgressCommand(output, context);
   }

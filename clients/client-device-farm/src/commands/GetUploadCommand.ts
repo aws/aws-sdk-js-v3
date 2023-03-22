@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetUploadCommand, serializeAws_json1_1GetUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUploadCommand}.
  */
 export interface GetUploadCommandInput extends GetUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUploadCommand}.
  */
 export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an upload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUploadCommandInput - {@link GetUploadCommandInput}
+ * @returns {@link GetUploadCommandOutput}
  * @see {@link GetUploadCommandInput} for command's `input` shape.
  * @see {@link GetUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUploadCommandOutput> {
     return deserializeAws_json1_1GetUploadCommand(output, context);
   }

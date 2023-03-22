@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SubscribeCommand}.
  */
 export interface SubscribeCommandInput extends SubscribeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubscribeCommand}.
  */
 export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the
  *             associated target can receive notifications when the events described in the rule are
  *             triggered.</p>
@@ -52,6 +57,8 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeCommandInput - {@link SubscribeCommandInput}
+ * @returns {@link SubscribeCommandOutput}
  * @see {@link SubscribeCommandInput} for command's `input` shape.
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -84,6 +91,9 @@ export class SubscribeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SubscribeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SubscribeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeCommandOutput> {
     return deserializeAws_restJson1SubscribeCommand(output, context);
   }

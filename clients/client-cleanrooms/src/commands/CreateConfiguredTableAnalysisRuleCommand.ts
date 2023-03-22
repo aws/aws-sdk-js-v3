@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfiguredTableAnalysisRuleCommand}.
  */
 export interface CreateConfiguredTableAnalysisRuleCommandInput extends CreateConfiguredTableAnalysisRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfiguredTableAnalysisRuleCommand}.
  */
 export interface CreateConfiguredTableAnalysisRuleCommandOutput
@@ -37,6 +41,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule
  *          can be created for a given configured table.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfiguredTableAnalysisRuleCommandInput - {@link CreateConfiguredTableAnalysisRuleCommandInput}
+ * @returns {@link CreateConfiguredTableAnalysisRuleCommandOutput}
  * @see {@link CreateConfiguredTableAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link CreateConfiguredTableAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfiguredTableAnalysisRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfiguredTableAnalysisRuleCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
     return serializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

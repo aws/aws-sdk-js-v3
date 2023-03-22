@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMobileDeviceAccessOverrideCommand}.
  */
 export interface DeleteMobileDeviceAccessOverrideCommandInput extends DeleteMobileDeviceAccessOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMobileDeviceAccessOverrideCommand}.
  */
 export interface DeleteMobileDeviceAccessOverrideCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteMobileDeviceAccessOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>
  *          <note>
  *             <p>Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -51,6 +56,8 @@ export interface DeleteMobileDeviceAccessOverrideCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMobileDeviceAccessOverrideCommandInput - {@link DeleteMobileDeviceAccessOverrideCommandInput}
+ * @returns {@link DeleteMobileDeviceAccessOverrideCommandOutput}
  * @see {@link DeleteMobileDeviceAccessOverrideCommandInput} for command's `input` shape.
  * @see {@link DeleteMobileDeviceAccessOverrideCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteMobileDeviceAccessOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMobileDeviceAccessOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DeleteMobileDeviceAccessOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteMobileDeviceAccessOverrideCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DeleteMobileDeviceAccessOverrideCommand extends $Command<
     return serializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

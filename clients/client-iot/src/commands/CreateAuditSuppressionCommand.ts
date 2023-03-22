@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAuditSuppressionCommand}.
  */
 export interface CreateAuditSuppressionCommandInput extends CreateAuditSuppressionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAuditSuppressionCommand}.
  */
 export interface CreateAuditSuppressionCommandOutput extends CreateAuditSuppressionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a Device Defender audit suppression.
  *     </p>
@@ -49,6 +54,8 @@ export interface CreateAuditSuppressionCommandOutput extends CreateAuditSuppress
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAuditSuppressionCommandInput - {@link CreateAuditSuppressionCommandInput}
+ * @returns {@link CreateAuditSuppressionCommandOutput}
  * @see {@link CreateAuditSuppressionCommandInput} for command's `input` shape.
  * @see {@link CreateAuditSuppressionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateAuditSuppressionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAuditSuppressionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateAuditSuppressionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAuditSuppressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAuditSuppressionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAuditSuppressionCommandOutput> {
     return deserializeAws_restJson1CreateAuditSuppressionCommand(output, context);
   }

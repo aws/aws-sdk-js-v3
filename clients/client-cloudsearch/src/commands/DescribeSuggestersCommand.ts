@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSuggestersCommand}.
  */
 export interface DescribeSuggestersCommandInput extends DescribeSuggestersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSuggestersCommand}.
  */
 export interface DescribeSuggestersCommandOutput extends DescribeSuggestersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries.  Can be limited to specific suggesters by name.  By default, shows all suggesters and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes.  For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSuggestersCommandInput - {@link DescribeSuggestersCommandInput}
+ * @returns {@link DescribeSuggestersCommandOutput}
  * @see {@link DescribeSuggestersCommandInput} for command's `input` shape.
  * @see {@link DescribeSuggestersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeSuggestersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSuggestersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeSuggestersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSuggestersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeSuggestersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSuggestersCommandOutput> {
     return deserializeAws_queryDescribeSuggestersCommand(output, context);
   }

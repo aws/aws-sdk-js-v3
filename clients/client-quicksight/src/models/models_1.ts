@@ -69,6 +69,7 @@ import {
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
+ * @public
  * <p>A combo chart.</p>
  *          <p>The <code>ComboChartVisual</code> includes stacked bar combo charts and clustered bar combo charts</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
@@ -105,11 +106,17 @@ export interface ComboChartVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
+/**
+ * @public
+ */
 export enum CustomContentType {
   IMAGE = "IMAGE",
   OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT",
 }
 
+/**
+ * @public
+ */
 export enum CustomContentImageScalingConfiguration {
   DO_NOT_SCALE = "DO_NOT_SCALE",
   FIT_TO_HEIGHT = "FIT_TO_HEIGHT",
@@ -118,6 +125,7 @@ export enum CustomContentImageScalingConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>CustomContentVisual</code>.</p>
  */
 export interface CustomContentConfiguration {
@@ -138,6 +146,7 @@ export interface CustomContentConfiguration {
 }
 
 /**
+ * @public
  * <p>A visual that contains custom content.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -174,6 +183,7 @@ export interface CustomContentVisual {
 }
 
 /**
+ * @public
  * <p>An empty visual.</p>
  *          <p>Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an <code>EmptyVisual</code> until a visual type is selected.</p>
  */
@@ -195,6 +205,7 @@ export interface EmptyVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field well of the filled map.</p>
  */
 export interface FilledMapAggregatedFieldWells {
@@ -210,6 +221,7 @@ export interface FilledMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>FilledMapVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -220,6 +232,9 @@ export interface FilledMapFieldWells {
   FilledMapAggregatedFieldWells?: FilledMapAggregatedFieldWells;
 }
 
+/**
+ * @public
+ */
 export enum BaseMapStyleType {
   DARK_GRAY = "DARK_GRAY",
   IMAGERY = "IMAGERY",
@@ -228,6 +243,7 @@ export enum BaseMapStyleType {
 }
 
 /**
+ * @public
  * <p>The map style options of the geospatial map.</p>
  */
 export interface GeospatialMapStyleOptions {
@@ -238,6 +254,7 @@ export interface GeospatialMapStyleOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapSortConfiguration {
@@ -248,6 +265,7 @@ export interface FilledMapSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The bound
  *             options (north, south, west, east) of the geospatial window options.</p>
  */
@@ -273,12 +291,16 @@ export interface GeospatialCoordinateBounds {
   East: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MapZoomMode {
   AUTO = "AUTO",
   MANUAL = "MANUAL",
 }
 
 /**
+ * @public
  * <p>The window options of the geospatial map visual.</p>
  */
 export interface GeospatialWindowOptions {
@@ -294,6 +316,7 @@ export interface GeospatialWindowOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapConfiguration {
@@ -329,6 +352,7 @@ export interface FilledMapConfiguration {
 }
 
 /**
+ * @public
  * <p>Determines the gradient stop configuration.</p>
  */
 export interface GradientStop {
@@ -349,6 +373,7 @@ export interface GradientStop {
 }
 
 /**
+ * @public
  * <p>Determines the gradient color settings.</p>
  */
 export interface GradientColor {
@@ -359,6 +384,7 @@ export interface GradientColor {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for gradient color.</p>
  */
 export interface ConditionalFormattingGradientColor {
@@ -374,6 +400,7 @@ export interface ConditionalFormattingGradientColor {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for solid color.</p>
  */
 export interface ConditionalFormattingSolidColor {
@@ -389,6 +416,7 @@ export interface ConditionalFormattingSolidColor {
 }
 
 /**
+ * @public
  * <p>The formatting configuration for the color.</p>
  */
 export interface ConditionalFormattingColor {
@@ -404,6 +432,7 @@ export interface ConditionalFormattingColor {
 }
 
 /**
+ * @public
  * <p>The shape conditional formatting of a filled map visual.</p>
  */
 export interface ShapeConditionalFormat {
@@ -414,6 +443,7 @@ export interface ShapeConditionalFormat {
 }
 
 /**
+ * @public
  * <p>The conditional formatting that determines the shape of the filled map.</p>
  */
 export interface FilledMapShapeConditionalFormatting {
@@ -429,6 +459,7 @@ export interface FilledMapShapeConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options of a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapConditionalFormattingOption {
@@ -439,6 +470,7 @@ export interface FilledMapConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a <code>FilledMapVisual</code>.</p>
  */
 export interface FilledMapConditionalFormatting {
@@ -449,6 +481,7 @@ export interface FilledMapConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A filled map.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -489,6 +522,9 @@ export interface FilledMapVisual {
   Actions?: VisualCustomAction[];
 }
 
+/**
+ * @public
+ */
 export enum FunnelChartMeasureDataLabelStyle {
   PERCENTAGE_BY_FIRST_STAGE = "PERCENTAGE_BY_FIRST_STAGE",
   PERCENTAGE_BY_PREVIOUS_STAGE = "PERCENTAGE_BY_PREVIOUS_STAGE",
@@ -498,6 +534,7 @@ export enum FunnelChartMeasureDataLabelStyle {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the data labels.</p>
  */
 export interface FunnelChartDataLabelOptions {
@@ -539,6 +576,7 @@ export interface FunnelChartDataLabelOptions {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a <code>FunnelChartVisual</code>.</p>
  */
 export interface FunnelChartAggregatedFieldWells {
@@ -554,6 +592,7 @@ export interface FunnelChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a <code>FunnelChartVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -565,6 +604,7 @@ export interface FunnelChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>FunnelChartVisual</code>.</p>
  */
 export interface FunnelChartSortConfiguration {
@@ -580,6 +620,7 @@ export interface FunnelChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>FunnelChartVisual</code>.</p>
  */
 export interface FunnelChartConfiguration {
@@ -620,6 +661,7 @@ export interface FunnelChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A funnel chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -656,6 +698,7 @@ export interface FunnelChartVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartFieldWells {
@@ -670,6 +713,9 @@ export interface GaugeChartFieldWells {
   TargetValues?: MeasureField[];
 }
 
+/**
+ * @public
+ */
 export enum ArcThicknessOptions {
   LARGE = "LARGE",
   MEDIUM = "MEDIUM",
@@ -677,6 +723,7 @@ export enum ArcThicknessOptions {
 }
 
 /**
+ * @public
  * <p>The arc configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcConfiguration {
@@ -692,6 +739,7 @@ export interface ArcConfiguration {
 }
 
 /**
+ * @public
  * <p>The arc axis range of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcAxisDisplayRange {
@@ -707,6 +755,7 @@ export interface ArcAxisDisplayRange {
 }
 
 /**
+ * @public
  * <p>The arc axis configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcAxisConfiguration {
@@ -722,6 +771,7 @@ export interface ArcAxisConfiguration {
 }
 
 /**
+ * @public
  * <p>The format of the comparison.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -737,6 +787,9 @@ export interface ComparisonFormatConfiguration {
   PercentageDisplayFormatConfiguration?: PercentageDisplayFormatConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonMethod {
   DIFFERENCE = "DIFFERENCE",
   PERCENT = "PERCENT",
@@ -744,6 +797,7 @@ export enum ComparisonMethod {
 }
 
 /**
+ * @public
  * <p>The comparison display configuration of a KPI or gauge chart.</p>
  */
 export interface ComparisonConfiguration {
@@ -775,6 +829,9 @@ export interface ComparisonConfiguration {
   ComparisonFormat?: ComparisonFormatConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum PrimaryValueDisplayType {
   ACTUAL = "ACTUAL",
   COMPARISON = "COMPARISON",
@@ -782,6 +839,7 @@ export enum PrimaryValueDisplayType {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartOptions {
@@ -812,6 +870,7 @@ export interface GaugeChartOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartConfiguration {
@@ -842,6 +901,7 @@ export interface GaugeChartConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the arc of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartArcConditionalFormatting {
@@ -851,11 +911,15 @@ export interface GaugeChartArcConditionalFormatting {
   ForegroundColor?: ConditionalFormattingColor;
 }
 
+/**
+ * @public
+ */
 export enum ConditionalFormattingIconDisplayOption {
   ICON_ONLY = "ICON_ONLY",
 }
 
 /**
+ * @public
  * <p>Determines the icon display configuration.</p>
  */
 export interface ConditionalFormattingIconDisplayConfiguration {
@@ -865,6 +929,9 @@ export interface ConditionalFormattingIconDisplayConfiguration {
   IconDisplayOption?: ConditionalFormattingIconDisplayOption | string;
 }
 
+/**
+ * @public
+ */
 export enum Icon {
   ARROW_DOWN = "ARROW_DOWN",
   ARROW_DOWN_LEFT = "ARROW_DOWN_LEFT",
@@ -895,6 +962,7 @@ export enum Icon {
 }
 
 /**
+ * @public
  * <p>Custom icon options for an icon set.</p>
  */
 export interface ConditionalFormattingCustomIconOptions {
@@ -910,6 +978,7 @@ export interface ConditionalFormattingCustomIconOptions {
 }
 
 /**
+ * @public
  * <p>Determines the custom condition for an icon set.</p>
  */
 export interface ConditionalFormattingCustomIconCondition {
@@ -934,6 +1003,9 @@ export interface ConditionalFormattingCustomIconCondition {
   DisplayConfiguration?: ConditionalFormattingIconDisplayConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ConditionalFormattingIconSetType {
   BARS = "BARS",
   CARET_UP_MINUS_DOWN = "CARET_UP_MINUS_DOWN",
@@ -949,6 +1021,7 @@ export enum ConditionalFormattingIconSetType {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for icon set.</p>
  */
 export interface ConditionalFormattingIconSet {
@@ -964,6 +1037,7 @@ export interface ConditionalFormattingIconSet {
 }
 
 /**
+ * @public
  * <p>The formatting configuration for the icon.</p>
  */
 export interface ConditionalFormattingIcon {
@@ -979,6 +1053,7 @@ export interface ConditionalFormattingIcon {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the primary value of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartPrimaryValueConditionalFormatting {
@@ -994,6 +1069,7 @@ export interface GaugeChartPrimaryValueConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartConditionalFormattingOption {
@@ -1009,6 +1085,7 @@ export interface GaugeChartConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a <code>GaugeChartVisual</code>.</p>
  */
 export interface GaugeChartConditionalFormatting {
@@ -1019,6 +1096,7 @@ export interface GaugeChartConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A gauge chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1055,6 +1133,7 @@ export interface GaugeChartVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells for a geospatial map.</p>
  */
 export interface GeospatialMapAggregatedFieldWells {
@@ -1075,6 +1154,7 @@ export interface GeospatialMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>GeospatialMapVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1086,6 +1166,7 @@ export interface GeospatialMapFieldWells {
 }
 
 /**
+ * @public
  * <p>The simple cluster marker of the cluster marker.</p>
  */
 export interface SimpleClusterMarker {
@@ -1096,6 +1177,7 @@ export interface SimpleClusterMarker {
 }
 
 /**
+ * @public
  * <p>The cluster marker that is a part of the cluster marker
  *             configuration.</p>
  */
@@ -1107,6 +1189,7 @@ export interface ClusterMarker {
 }
 
 /**
+ * @public
  * <p>The cluster marker configuration of the geospatial map selected point style.</p>
  */
 export interface ClusterMarkerConfiguration {
@@ -1116,12 +1199,16 @@ export interface ClusterMarkerConfiguration {
   ClusterMarker?: ClusterMarker;
 }
 
+/**
+ * @public
+ */
 export enum GeospatialSelectedPointStyle {
   CLUSTER = "CLUSTER",
   POINT = "POINT",
 }
 
 /**
+ * @public
  * <p>The point style of the geospatial map.</p>
  */
 export interface GeospatialPointStyleOptions {
@@ -1137,6 +1224,7 @@ export interface GeospatialPointStyleOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>GeospatialMapVisual</code>.</p>
  */
 export interface GeospatialMapConfiguration {
@@ -1177,6 +1265,7 @@ export interface GeospatialMapConfiguration {
 }
 
 /**
+ * @public
  * <p>A geospatial map or a points on map visual.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1212,12 +1301,16 @@ export interface GeospatialMapVisual {
   Actions?: VisualCustomAction[];
 }
 
+/**
+ * @public
+ */
 export enum ColorFillType {
   DISCRETE = "DISCRETE",
   GRADIENT = "GRADIENT",
 }
 
 /**
+ * @public
  * <p>Determines the color that is applied to a particular data value.</p>
  */
 export interface DataColor {
@@ -1233,6 +1326,7 @@ export interface DataColor {
 }
 
 /**
+ * @public
  * <p>Determines the color scale that is applied to the visual.</p>
  */
 export interface ColorScale {
@@ -1253,6 +1347,7 @@ export interface ColorScale {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a heat map.</p>
  */
 export interface HeatMapAggregatedFieldWells {
@@ -1273,6 +1368,7 @@ export interface HeatMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a heat map.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1284,6 +1380,7 @@ export interface HeatMapFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a heat map.</p>
  */
 export interface HeatMapSortConfiguration {
@@ -1309,6 +1406,7 @@ export interface HeatMapSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a heat map.</p>
  */
 export interface HeatMapConfiguration {
@@ -1354,6 +1452,7 @@ export interface HeatMapConfiguration {
 }
 
 /**
+ * @public
  * <p>A heat map.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1390,6 +1489,7 @@ export interface HeatMapVisual {
 }
 
 /**
+ * @public
  * <p>The options that determine the bin count of a histogram.</p>
  */
 export interface BinCountOptions {
@@ -1400,6 +1500,7 @@ export interface BinCountOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the bin width of a histogram.</p>
  */
 export interface BinWidthOptions {
@@ -1414,12 +1515,16 @@ export interface BinWidthOptions {
   BinCountLimit?: number;
 }
 
+/**
+ * @public
+ */
 export enum HistogramBinType {
   BIN_COUNT = "BIN_COUNT",
   BIN_WIDTH = "BIN_WIDTH",
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of histogram bins.</p>
  */
 export interface HistogramBinOptions {
@@ -1445,6 +1550,7 @@ export interface HistogramBinOptions {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a histogram.</p>
  */
 export interface HistogramAggregatedFieldWells {
@@ -1455,6 +1561,7 @@ export interface HistogramAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a histogram.</p>
  */
 export interface HistogramFieldWells {
@@ -1465,6 +1572,7 @@ export interface HistogramFieldWells {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>HistogramVisual</code>.</p>
  */
 export interface HistogramConfiguration {
@@ -1510,6 +1618,7 @@ export interface HistogramConfiguration {
 }
 
 /**
+ * @public
  * <p>A histogram.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1540,12 +1649,16 @@ export interface HistogramVisual {
   Actions?: VisualCustomAction[];
 }
 
+/**
+ * @public
+ */
 export enum ForecastComputationSeasonality {
   AUTOMATIC = "AUTOMATIC",
   CUSTOM = "CUSTOM",
 }
 
 /**
+ * @public
  * <p>The forecast computation configuration.</p>
  */
 export interface ForecastComputation {
@@ -1617,6 +1730,7 @@ export interface ForecastComputation {
 }
 
 /**
+ * @public
  * <p>The growth rate computation configuration.</p>
  */
 export interface GrowthRateComputation {
@@ -1646,12 +1760,16 @@ export interface GrowthRateComputation {
   PeriodSize?: number;
 }
 
+/**
+ * @public
+ */
 export enum MaximumMinimumComputationType {
   MAXIMUM = "MAXIMUM",
   MINIMUM = "MINIMUM",
 }
 
 /**
+ * @public
  * <p>The maximum and minimum computation configuration.</p>
  */
 export interface MaximumMinimumComputation {
@@ -1690,6 +1808,7 @@ export interface MaximumMinimumComputation {
 }
 
 /**
+ * @public
  * <p>The metric comparison computation configuration.</p>
  */
 export interface MetricComparisonComputation {
@@ -1720,6 +1839,7 @@ export interface MetricComparisonComputation {
 }
 
 /**
+ * @public
  * <p>The period over period computation configuration.</p>
  */
 export interface PeriodOverPeriodComputation {
@@ -1745,6 +1865,7 @@ export interface PeriodOverPeriodComputation {
 }
 
 /**
+ * @public
  * <p>The period to date computation configuration.</p>
  */
 export interface PeriodToDateComputation {
@@ -1782,17 +1903,24 @@ export interface PeriodToDateComputation {
   PeriodTimeGranularity?: TimeGranularity | string;
 }
 
+/**
+ * @public
+ */
 export enum TopBottomSortOrder {
   ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE",
   PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE",
 }
 
+/**
+ * @public
+ */
 export enum TopBottomComputationType {
   BOTTOM = "BOTTOM",
   TOP = "TOP",
 }
 
 /**
+ * @public
  * <p>The top movers and bottom movers computation setup.</p>
  */
 export interface TopBottomMoversComputation {
@@ -1846,6 +1974,7 @@ export interface TopBottomMoversComputation {
 }
 
 /**
+ * @public
  * <p>The top ranked and bottom ranked computation configuration.</p>
  */
 export interface TopBottomRankedComputation {
@@ -1889,6 +2018,7 @@ export interface TopBottomRankedComputation {
 }
 
 /**
+ * @public
  * <p>The total aggregation computation configuration.</p>
  */
 export interface TotalAggregationComputation {
@@ -1909,6 +2039,7 @@ export interface TotalAggregationComputation {
 }
 
 /**
+ * @public
  * <p>The unique values computation configuration.</p>
  */
 export interface UniqueValuesComputation {
@@ -1929,6 +2060,7 @@ export interface UniqueValuesComputation {
 }
 
 /**
+ * @public
  * <p>The computation union that is used in an insight visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1985,6 +2117,7 @@ export interface Computation {
 }
 
 /**
+ * @public
  * <p>The custom narrative options.</p>
  */
 export interface CustomNarrativeOptions {
@@ -1995,6 +2128,7 @@ export interface CustomNarrativeOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of an insight visual.</p>
  */
 export interface InsightConfiguration {
@@ -2010,6 +2144,7 @@ export interface InsightConfiguration {
 }
 
 /**
+ * @public
  * <p>An insight visual.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -2046,6 +2181,7 @@ export interface InsightVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a KPI visual.</p>
  */
 export interface KPIFieldWells {
@@ -2066,6 +2202,7 @@ export interface KPIFieldWells {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the progress bar of a KPI visual.</p>
  */
 export interface ProgressBarOptions {
@@ -2076,6 +2213,7 @@ export interface ProgressBarOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the secondary value of a KPI visual.</p>
  */
 export interface SecondaryValueOptions {
@@ -2086,6 +2224,7 @@ export interface SecondaryValueOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of trend arrows in a KPI visual.</p>
  */
 export interface TrendArrowOptions {
@@ -2096,6 +2235,7 @@ export interface TrendArrowOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of a KPI visual.</p>
  */
 export interface KPIOptions {
@@ -2136,6 +2276,7 @@ export interface KPIOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a KPI visual.</p>
  */
 export interface KPISortConfiguration {
@@ -2146,6 +2287,7 @@ export interface KPISortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a KPI visual.</p>
  */
 export interface KPIConfiguration {
@@ -2166,6 +2308,7 @@ export interface KPIConfiguration {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the primary value of a KPI visual.</p>
  */
 export interface KPIPrimaryValueConditionalFormatting {
@@ -2181,6 +2324,7 @@ export interface KPIPrimaryValueConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the progress bar of a KPI visual.</p>
  */
 export interface KPIProgressBarConditionalFormatting {
@@ -2191,6 +2335,7 @@ export interface KPIProgressBarConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>The conditional formatting options of a KPI visual.</p>
  */
 export interface KPIConditionalFormattingOption {
@@ -2206,6 +2351,7 @@ export interface KPIConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a KPI visual.</p>
  */
 export interface KPIConditionalFormatting {
@@ -2216,6 +2362,7 @@ export interface KPIConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A key performance indicator (KPI).</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -2256,12 +2403,18 @@ export interface KPIVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
+/**
+ * @public
+ */
 export enum LineInterpolation {
   LINEAR = "LINEAR",
   SMOOTH = "SMOOTH",
   STEPPED = "STEPPED",
 }
 
+/**
+ * @public
+ */
 export enum LineChartLineStyle {
   DASHED = "DASHED",
   DOTTED = "DOTTED",
@@ -2269,6 +2422,7 @@ export enum LineChartLineStyle {
 }
 
 /**
+ * @public
  * <p>Line styles options for a line series in <code>LineChartVisual</code>.</p>
  */
 export interface LineChartLineStyleSettings {
@@ -2321,6 +2475,9 @@ export interface LineChartLineStyleSettings {
   LineWidth?: string;
 }
 
+/**
+ * @public
+ */
 export enum LineChartMarkerShape {
   CIRCLE = "CIRCLE",
   DIAMOND = "DIAMOND",
@@ -2330,6 +2487,7 @@ export enum LineChartMarkerShape {
 }
 
 /**
+ * @public
  * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
  */
 export interface LineChartMarkerStyleSettings {
@@ -2377,6 +2535,7 @@ export interface LineChartMarkerStyleSettings {
 }
 
 /**
+ * @public
  * <p>The options that determine the default presentation of all line series in <code>LineChartVisual</code>.</p>
  */
 export interface LineChartDefaultSeriesSettings {
@@ -2397,6 +2556,7 @@ export interface LineChartDefaultSeriesSettings {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a line chart.</p>
  */
 export interface LineChartAggregatedFieldWells {
@@ -2422,6 +2582,7 @@ export interface LineChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a line chart.</p>
  */
 export interface LineChartFieldWells {
@@ -2432,6 +2593,7 @@ export interface LineChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The forecast properties setup of a forecast in the line chart.</p>
  */
 export interface TimeBasedForecastProperties {
@@ -2477,6 +2639,7 @@ export interface TimeBasedForecastProperties {
 }
 
 /**
+ * @public
  * <p>Provides the forecast to meet the target for a particular date.</p>
  */
 export interface WhatIfPointScenario {
@@ -2492,6 +2655,7 @@ export interface WhatIfPointScenario {
 }
 
 /**
+ * @public
  * <p>Provides the forecast to meet the target for a particular date range.</p>
  */
 export interface WhatIfRangeScenario {
@@ -2512,6 +2676,7 @@ export interface WhatIfRangeScenario {
 }
 
 /**
+ * @public
  * <p>The forecast scenario of a forecast in the line chart.</p>
  */
 export interface ForecastScenario {
@@ -2527,6 +2692,7 @@ export interface ForecastScenario {
 }
 
 /**
+ * @public
  * <p>The forecast configuration that is used in a line chart's display properties.</p>
  */
 export interface ForecastConfiguration {
@@ -2542,6 +2708,9 @@ export interface ForecastConfiguration {
   Scenario?: ForecastScenario;
 }
 
+/**
+ * @public
+ */
 export enum MissingDataTreatmentOption {
   INTERPOLATE = "INTERPOLATE",
   SHOW_AS_BLANK = "SHOW_AS_BLANK",
@@ -2549,6 +2718,7 @@ export enum MissingDataTreatmentOption {
 }
 
 /**
+ * @public
  * <p>The configuration options that determine how missing data is treated during the rendering of a line chart.</p>
  */
 export interface MissingDataConfiguration {
@@ -2574,6 +2744,7 @@ export interface MissingDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The series axis configuration of a line chart.</p>
  */
 export interface LineSeriesAxisDisplayOptions {
@@ -2589,6 +2760,7 @@ export interface LineSeriesAxisDisplayOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of a line series in the visual</p>
  */
 export interface LineChartSeriesSettings {
@@ -2604,6 +2776,7 @@ export interface LineChartSeriesSettings {
 }
 
 /**
+ * @public
  * <p>The data field series item configuration of a line chart.</p>
  */
 export interface DataFieldSeriesItem {
@@ -2629,6 +2802,7 @@ export interface DataFieldSeriesItem {
 }
 
 /**
+ * @public
  * <p>The field series item configuration of a line chart.</p>
  */
 export interface FieldSeriesItem {
@@ -2649,6 +2823,7 @@ export interface FieldSeriesItem {
 }
 
 /**
+ * @public
  * <p>The series item configuration of a line chart.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2665,6 +2840,7 @@ export interface SeriesItem {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a line chart.</p>
  */
 export interface LineChartSortConfiguration {
@@ -2694,6 +2870,9 @@ export interface LineChartSortConfiguration {
   SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum LineChartType {
   AREA = "AREA",
   LINE = "LINE",
@@ -2701,6 +2880,7 @@ export enum LineChartType {
 }
 
 /**
+ * @public
  * <p>The configuration of a line chart.</p>
  */
 export interface LineChartConfiguration {
@@ -2801,6 +2981,7 @@ export interface LineChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A line chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -2836,6 +3017,9 @@ export interface LineChartVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
+/**
+ * @public
+ */
 export enum ArcThickness {
   LARGE = "LARGE",
   MEDIUM = "MEDIUM",
@@ -2844,6 +3028,7 @@ export enum ArcThickness {
 }
 
 /**
+ * @public
  * <p>The options that determine the arc thickness of a <code>GaugeChartVisual</code>.</p>
  */
 export interface ArcOptions {
@@ -2854,6 +3039,7 @@ export interface ArcOptions {
 }
 
 /**
+ * @public
  * <p>The label options of the label that is displayed in the center of a donut chart. This option isn't available for pie charts.</p>
  */
 export interface DonutCenterOptions {
@@ -2864,6 +3050,7 @@ export interface DonutCenterOptions {
 }
 
 /**
+ * @public
  * <p>The options for configuring a donut chart or pie chart.</p>
  */
 export interface DonutOptions {
@@ -2897,6 +3084,7 @@ export interface DonutOptions {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a pie chart.</p>
  */
 export interface PieChartAggregatedFieldWells {
@@ -2917,6 +3105,7 @@ export interface PieChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a pie chart.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2928,6 +3117,7 @@ export interface PieChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a pie chart.</p>
  */
 export interface PieChartSortConfiguration {
@@ -2953,6 +3143,7 @@ export interface PieChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a pie chart.</p>
  */
 export interface PieChartConfiguration {
@@ -3013,6 +3204,7 @@ export interface PieChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A pie or donut chart.</p>
  *          <p>The <code>PieChartVisual</code> structure describes a visual that is a member of the pie chart family.</p>
  *          <p>The following charts can be described by using this structure:</p>
@@ -3060,6 +3252,7 @@ export interface PieChartVisual {
 }
 
 /**
+ * @public
  * <p>The data path options for the pivot table field options.</p>
  */
 export interface PivotTableDataPathOption {
@@ -3075,6 +3268,7 @@ export interface PivotTableDataPathOption {
 }
 
 /**
+ * @public
  * <p>The selected field options for the pivot table field options.</p>
  */
 export interface PivotTableFieldOption {
@@ -3095,6 +3289,7 @@ export interface PivotTableFieldOption {
 }
 
 /**
+ * @public
  * <p>The field options for a pivot table visual.</p>
  */
 export interface PivotTableFieldOptions {
@@ -3110,6 +3305,7 @@ export interface PivotTableFieldOptions {
 }
 
 /**
+ * @public
  * <p>The aggregated field well for the pivot table.</p>
  */
 export interface PivotTableAggregatedFieldWells {
@@ -3130,6 +3326,7 @@ export interface PivotTableAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells for a pivot table visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3141,6 +3338,7 @@ export interface PivotTableFieldWells {
 }
 
 /**
+ * @public
  * <p>The paginated report options for a pivot table visual.</p>
  */
 export interface PivotTablePaginatedReportOptions {
@@ -3156,6 +3354,7 @@ export interface PivotTablePaginatedReportOptions {
 }
 
 /**
+ * @public
  * <p>Allows data paths to be sorted by a specific data value.</p>
  */
 export interface DataPathSort {
@@ -3171,6 +3370,7 @@ export interface DataPathSort {
 }
 
 /**
+ * @public
  * <p>The sort by field for the field sort options.</p>
  */
 export interface PivotTableSortBy {
@@ -3191,6 +3391,7 @@ export interface PivotTableSortBy {
 }
 
 /**
+ * @public
  * <p>The field sort options for a pivot table sort configuration.</p>
  */
 export interface PivotFieldSortOptions {
@@ -3206,6 +3407,7 @@ export interface PivotFieldSortOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableSortConfiguration {
@@ -3215,12 +3417,16 @@ export interface PivotTableSortConfiguration {
   FieldSortOptions?: PivotFieldSortOptions[];
 }
 
+/**
+ * @public
+ */
 export enum TableBorderStyle {
   NONE = "NONE",
   SOLID = "SOLID",
 }
 
 /**
+ * @public
  * <p>The border options for a table border.</p>
  */
 export interface TableBorderOptions {
@@ -3241,6 +3447,7 @@ export interface TableBorderOptions {
 }
 
 /**
+ * @public
  * <p>The side border options for a table.</p>
  */
 export interface TableSideBorderOptions {
@@ -3276,6 +3483,7 @@ export interface TableSideBorderOptions {
 }
 
 /**
+ * @public
  * <p>Determines the border options for a table visual.</p>
  */
 export interface GlobalTableBorderOptions {
@@ -3290,11 +3498,17 @@ export interface GlobalTableBorderOptions {
   SideSpecificBorder?: TableSideBorderOptions;
 }
 
+/**
+ * @public
+ */
 export enum TextWrap {
   NONE = "NONE",
   WRAP = "WRAP",
 }
 
+/**
+ * @public
+ */
 export enum VerticalTextAlignment {
   BOTTOM = "BOTTOM",
   MIDDLE = "MIDDLE",
@@ -3302,6 +3516,7 @@ export enum VerticalTextAlignment {
 }
 
 /**
+ * @public
  * <p>The table cell style for a cell in pivot table or table visual.</p>
  */
 export interface TableCellStyle {
@@ -3346,12 +3561,16 @@ export interface TableCellStyle {
   Border?: GlobalTableBorderOptions;
 }
 
+/**
+ * @public
+ */
 export enum PivotTableMetricPlacement {
   COLUMN = "COLUMN",
   ROW = "ROW",
 }
 
 /**
+ * @public
  * <p>Determines the row alternate color options.</p>
  */
 export interface RowAlternateColorOptions {
@@ -3367,6 +3586,7 @@ export interface RowAlternateColorOptions {
 }
 
 /**
+ * @public
  * <p>The table options for a pivot table visual.</p>
  */
 export interface PivotTableOptions {
@@ -3421,6 +3641,9 @@ export interface PivotTableOptions {
   CollapsedRowDimensionsVisibility?: Visibility | string;
 }
 
+/**
+ * @public
+ */
 export enum PivotTableSubtotalLevel {
   ALL = "ALL",
   CUSTOM = "CUSTOM",
@@ -3428,6 +3651,7 @@ export enum PivotTableSubtotalLevel {
 }
 
 /**
+ * @public
  * <p>The optional configuration of subtotals cells.</p>
  */
 export interface PivotTableFieldSubtotalOptions {
@@ -3438,6 +3662,7 @@ export interface PivotTableFieldSubtotalOptions {
 }
 
 /**
+ * @public
  * <p>The subtotal options.</p>
  */
 export interface SubtotalOptions {
@@ -3477,17 +3702,24 @@ export interface SubtotalOptions {
   MetricHeaderCellStyle?: TableCellStyle;
 }
 
+/**
+ * @public
+ */
 export enum TableTotalsPlacement {
   END = "END",
   START = "START",
 }
 
+/**
+ * @public
+ */
 export enum TableTotalsScrollStatus {
   PINNED = "PINNED",
   SCROLLED = "SCROLLED",
 }
 
 /**
+ * @public
  * <p>The optional configuration of totals cells in a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTotalOptions {
@@ -3528,6 +3760,7 @@ export interface PivotTotalOptions {
 }
 
 /**
+ * @public
  * <p>The total options for a pivot table visual.</p>
  */
 export interface PivotTableTotalOptions {
@@ -3553,6 +3786,7 @@ export interface PivotTableTotalOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableConfiguration {
@@ -3587,6 +3821,9 @@ export interface PivotTableConfiguration {
   PaginatedReportOptions?: PivotTablePaginatedReportOptions;
 }
 
+/**
+ * @public
+ */
 export enum PivotTableConditionalFormattingScopeRole {
   FIELD = "FIELD",
   FIELD_TOTAL = "FIELD_TOTAL",
@@ -3594,6 +3831,7 @@ export enum PivotTableConditionalFormattingScopeRole {
 }
 
 /**
+ * @public
  * <p>The scope of the cell for conditional formatting.</p>
  */
 export interface PivotTableConditionalFormattingScope {
@@ -3604,6 +3842,7 @@ export interface PivotTableConditionalFormattingScope {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for the text.</p>
  */
 export interface TextConditionalFormat {
@@ -3624,6 +3863,7 @@ export interface TextConditionalFormat {
 }
 
 /**
+ * @public
  * <p>The cell conditional formatting option for a pivot table.</p>
  */
 export interface PivotTableCellConditionalFormatting {
@@ -3644,6 +3884,7 @@ export interface PivotTableCellConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableConditionalFormattingOption {
@@ -3654,6 +3895,7 @@ export interface PivotTableConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTableConditionalFormatting {
@@ -3664,6 +3906,7 @@ export interface PivotTableConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A pivot table.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -3700,6 +3943,7 @@ export interface PivotTableVisual {
 }
 
 /**
+ * @public
  * <p>The configured style settings of a radar chart.</p>
  */
 export interface RadarChartAreaStyleSettings {
@@ -3710,6 +3954,7 @@ export interface RadarChartAreaStyleSettings {
 }
 
 /**
+ * @public
  * <p>The series settings of a radar chart.</p>
  */
 export interface RadarChartSeriesSettings {
@@ -3720,6 +3965,7 @@ export interface RadarChartSeriesSettings {
 }
 
 /**
+ * @public
  * <p>The aggregated field well configuration of a <code>RadarChartVisual</code>.</p>
  */
 export interface RadarChartAggregatedFieldWells {
@@ -3740,6 +3986,7 @@ export interface RadarChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a radar chart visual.</p>
  */
 export interface RadarChartFieldWells {
@@ -3749,12 +3996,16 @@ export interface RadarChartFieldWells {
   RadarChartAggregatedFieldWells?: RadarChartAggregatedFieldWells;
 }
 
+/**
+ * @public
+ */
 export enum RadarChartShape {
   CIRCLE = "CIRCLE",
   POLYGON = "POLYGON",
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>RadarChartVisual</code>.</p>
  */
 export interface RadarChartSortConfiguration {
@@ -3780,6 +4031,7 @@ export interface RadarChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>RadarChartVisual</code>.</p>
  */
 export interface RadarChartConfiguration {
@@ -3855,6 +4107,7 @@ export interface RadarChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A radar chart visual.</p>
  */
 export interface RadarChartVisual {
@@ -3890,6 +4143,7 @@ export interface RadarChartVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramAggregatedFieldWells {
@@ -3910,6 +4164,7 @@ export interface SankeyDiagramAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramFieldWells {
@@ -3920,6 +4175,7 @@ export interface SankeyDiagramFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramSortConfiguration {
@@ -3940,6 +4196,7 @@ export interface SankeyDiagramSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a sankey diagram.</p>
  */
 export interface SankeyDiagramChartConfiguration {
@@ -3960,6 +4217,7 @@ export interface SankeyDiagramChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A sankey diagram.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -3991,6 +4249,7 @@ export interface SankeyDiagramVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field well of a scatter plot.</p>
  */
 export interface ScatterPlotCategoricallyAggregatedFieldWells {
@@ -4018,6 +4277,7 @@ export interface ScatterPlotCategoricallyAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The unaggregated field wells of a scatter plot.</p>
  */
 export interface ScatterPlotUnaggregatedFieldWells {
@@ -4040,6 +4300,7 @@ export interface ScatterPlotUnaggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a scatter plot.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4058,6 +4319,7 @@ export interface ScatterPlotFieldWells {
 }
 
 /**
+ * @public
  * <p>The configuration of a scatter plot.</p>
  */
 export interface ScatterPlotConfiguration {
@@ -4108,6 +4370,7 @@ export interface ScatterPlotConfiguration {
 }
 
 /**
+ * @public
  * <p>A scatter plot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4143,6 +4406,9 @@ export interface ScatterPlotVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
+/**
+ * @public
+ */
 export enum TableCellImageScalingConfiguration {
   DO_NOT_SCALE = "DO_NOT_SCALE",
   FIT_TO_CELL_HEIGHT = "FIT_TO_CELL_HEIGHT",
@@ -4150,6 +4416,7 @@ export enum TableCellImageScalingConfiguration {
 }
 
 /**
+ * @public
  * <p>The sizing options for the table image configuration.</p>
  */
 export interface TableCellImageSizingConfiguration {
@@ -4160,6 +4427,7 @@ export interface TableCellImageSizingConfiguration {
 }
 
 /**
+ * @public
  * <p>The image configuration of a table field URL.</p>
  */
 export interface TableFieldImageConfiguration {
@@ -4169,11 +4437,15 @@ export interface TableFieldImageConfiguration {
   SizingOptions?: TableCellImageSizingConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum TableFieldIconSetType {
   LINK = "LINK",
 }
 
 /**
+ * @public
  * <p>The custom icon content for the table link content configuration.</p>
  */
 export interface TableFieldCustomIconContent {
@@ -4184,6 +4456,7 @@ export interface TableFieldCustomIconContent {
 }
 
 /**
+ * @public
  * <p>The custom text content (value, font configuration) for the table link content configuration.</p>
  */
 export interface TableFieldCustomTextContent {
@@ -4199,6 +4472,7 @@ export interface TableFieldCustomTextContent {
 }
 
 /**
+ * @public
  * <p>The URL content (text, icon) for the table link configuration.</p>
  */
 export interface TableFieldLinkContentConfiguration {
@@ -4214,6 +4488,7 @@ export interface TableFieldLinkContentConfiguration {
 }
 
 /**
+ * @public
  * <p>The link configuration of a table field URL.</p>
  */
 export interface TableFieldLinkConfiguration {
@@ -4229,6 +4504,7 @@ export interface TableFieldLinkConfiguration {
 }
 
 /**
+ * @public
  * <p>The URL configuration for a table field.</p>
  */
 export interface TableFieldURLConfiguration {
@@ -4244,6 +4520,7 @@ export interface TableFieldURLConfiguration {
 }
 
 /**
+ * @public
  * <p>The options for a table field.</p>
  */
 export interface TableFieldOption {
@@ -4274,6 +4551,7 @@ export interface TableFieldOption {
 }
 
 /**
+ * @public
  * <p>The field options for a table visual.</p>
  */
 export interface TableFieldOptions {
@@ -4289,6 +4567,7 @@ export interface TableFieldOptions {
 }
 
 /**
+ * @public
  * <p>The aggregated field well for the table.</p>
  */
 export interface TableAggregatedFieldWells {
@@ -4304,6 +4583,7 @@ export interface TableAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The unaggregated field for a table.</p>
  */
 export interface UnaggregatedField {
@@ -4324,6 +4604,7 @@ export interface UnaggregatedField {
 }
 
 /**
+ * @public
  * <p>The unaggregated field well for the table.</p>
  */
 export interface TableUnaggregatedFieldWells {
@@ -4334,6 +4615,7 @@ export interface TableUnaggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells for a table visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4350,6 +4632,7 @@ export interface TableFieldWells {
 }
 
 /**
+ * @public
  * <p>The paginated report options for a table visual.</p>
  */
 export interface TablePaginatedReportOptions {
@@ -4365,6 +4648,7 @@ export interface TablePaginatedReportOptions {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a <code>TableVisual</code>.</p>
  */
 export interface TableSortConfiguration {
@@ -4380,6 +4664,7 @@ export interface TableSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The options for data bars.</p>
  */
 export interface DataBarsOptions {
@@ -4400,6 +4685,7 @@ export interface DataBarsOptions {
 }
 
 /**
+ * @public
  * <p>The inline visualization of a specific type to display within a chart.</p>
  */
 export interface TableInlineVisualization {
@@ -4409,12 +4695,16 @@ export interface TableInlineVisualization {
   DataBars?: DataBarsOptions;
 }
 
+/**
+ * @public
+ */
 export enum TableOrientation {
   HORIZONTAL = "HORIZONTAL",
   VERTICAL = "VERTICAL",
 }
 
 /**
+ * @public
  * <p>The table options for a table visual.</p>
  */
 export interface TableOptions {
@@ -4440,6 +4730,7 @@ export interface TableOptions {
 }
 
 /**
+ * @public
  * <p>The total options for a table visual.</p>
  */
 export interface TotalOptions {
@@ -4470,6 +4761,7 @@ export interface TotalOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>TableVisual</code>.</p>
  */
 export interface TableConfiguration {
@@ -4510,6 +4802,7 @@ export interface TableConfiguration {
 }
 
 /**
+ * @public
  * <p>The cell conditional formatting option for a table.</p>
  */
 export interface TableCellConditionalFormatting {
@@ -4525,6 +4818,7 @@ export interface TableCellConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>The conditional formatting of a table row.</p>
  */
 export interface TableRowConditionalFormatting {
@@ -4540,6 +4834,7 @@ export interface TableRowConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
  */
 export interface TableConditionalFormattingOption {
@@ -4555,6 +4850,7 @@ export interface TableConditionalFormattingOption {
 }
 
 /**
+ * @public
  * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
  */
 export interface TableConditionalFormatting {
@@ -4565,6 +4861,7 @@ export interface TableConditionalFormatting {
 }
 
 /**
+ * @public
  * <p>A table visual.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4601,6 +4898,7 @@ export interface TableVisual {
 }
 
 /**
+ * @public
  * <p>Aggregated field wells of a tree map.</p>
  */
 export interface TreeMapAggregatedFieldWells {
@@ -4621,6 +4919,7 @@ export interface TreeMapAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a tree map.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4632,6 +4931,7 @@ export interface TreeMapFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a tree map.</p>
  */
 export interface TreeMapSortConfiguration {
@@ -4647,6 +4947,7 @@ export interface TreeMapSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a tree map.</p>
  */
 export interface TreeMapConfiguration {
@@ -4697,6 +4998,7 @@ export interface TreeMapConfiguration {
 }
 
 /**
+ * @public
  * <p>A tree map.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4733,6 +5035,7 @@ export interface TreeMapVisual {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a waterfall visual.</p>
  */
 export interface WaterfallChartAggregatedFieldWells {
@@ -4753,6 +5056,7 @@ export interface WaterfallChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field well configuration of a waterfall visual.</p>
  */
 export interface WaterfallChartFieldWells {
@@ -4763,6 +5067,7 @@ export interface WaterfallChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a waterfall visual.</p>
  */
 export interface WaterfallChartSortConfiguration {
@@ -4778,6 +5083,7 @@ export interface WaterfallChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of a waterfall visual.</p>
  */
 export interface WaterfallChartOptions {
@@ -4788,6 +5094,7 @@ export interface WaterfallChartOptions {
 }
 
 /**
+ * @public
  * <p>The configuration for a waterfall visual.</p>
  */
 export interface WaterfallChartConfiguration {
@@ -4843,6 +5150,7 @@ export interface WaterfallChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A waterfall chart.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -4879,6 +5187,7 @@ export interface WaterfallVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a word cloud.</p>
  */
 export interface WordCloudAggregatedFieldWells {
@@ -4894,6 +5203,7 @@ export interface WordCloudAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a word cloud visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4905,6 +5215,7 @@ export interface WordCloudFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a word cloud visual.</p>
  */
 export interface WordCloudSortConfiguration {
@@ -4919,21 +5230,33 @@ export interface WordCloudSortConfiguration {
   CategorySort?: FieldSortOptions[];
 }
 
+/**
+ * @public
+ */
 export enum WordCloudCloudLayout {
   FLUID = "FLUID",
   NORMAL = "NORMAL",
 }
 
+/**
+ * @public
+ */
 export enum WordCloudWordCasing {
   EXISTING_CASE = "EXISTING_CASE",
   LOWER_CASE = "LOWER_CASE",
 }
 
+/**
+ * @public
+ */
 export enum WordCloudWordOrientation {
   HORIZONTAL = "HORIZONTAL",
   HORIZONTAL_AND_VERTICAL = "HORIZONTAL_AND_VERTICAL",
 }
 
+/**
+ * @public
+ */
 export enum WordCloudWordPadding {
   LARGE = "LARGE",
   MEDIUM = "MEDIUM",
@@ -4941,12 +5264,16 @@ export enum WordCloudWordPadding {
   SMALL = "SMALL",
 }
 
+/**
+ * @public
+ */
 export enum WordCloudWordScaling {
   EMPHASIZE = "EMPHASIZE",
   NORMAL = "NORMAL",
 }
 
 /**
+ * @public
  * <p>The word cloud options for a word cloud visual.</p>
  */
 export interface WordCloudOptions {
@@ -4982,6 +5309,7 @@ export interface WordCloudOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of a word cloud visual.</p>
  */
 export interface WordCloudChartConfiguration {
@@ -5007,6 +5335,7 @@ export interface WordCloudChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A word cloud.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -5043,6 +5372,7 @@ export interface WordCloudVisual {
 }
 
 /**
+ * @public
  * <p>A visual displayed on a sheet in an analysis, dashboard, or template.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5186,6 +5516,7 @@ export interface Visual {
 }
 
 /**
+ * @public
  * <p>A sheet is an object that contains a set of visuals that
  *             are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.</p>
  */
@@ -5261,6 +5592,7 @@ export interface SheetDefinition {
 }
 
 /**
+ * @public
  * <p>The definition of an analysis.</p>
  */
 export interface AnalysisDefinition {
@@ -5308,6 +5640,9 @@ export interface AnalysisDefinition {
   AnalysisDefaults?: AnalysisDefaults;
 }
 
+/**
+ * @public
+ */
 export enum AnalysisFilterAttribute {
   ANALYSIS_NAME = "ANALYSIS_NAME",
   DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
@@ -5318,12 +5653,16 @@ export enum AnalysisFilterAttribute {
   QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
 }
 
+/**
+ * @public
+ */
 export enum FilterOperator {
   StringEquals = "StringEquals",
   StringLike = "StringLike",
 }
 
 /**
+ * @public
  * <p>A filter that you apply when searching for one or more analyses.</p>
  */
 export interface AnalysisSearchFilter {
@@ -5376,6 +5715,7 @@ export interface AnalysisSearchFilter {
 }
 
 /**
+ * @public
  * <p>Dataset reference.</p>
  */
 export interface DataSetReference {
@@ -5391,6 +5731,7 @@ export interface DataSetReference {
 }
 
 /**
+ * @public
  * <p>The source template of an analysis.</p>
  */
 export interface AnalysisSourceTemplate {
@@ -5406,6 +5747,7 @@ export interface AnalysisSourceTemplate {
 }
 
 /**
+ * @public
  * <p>The source entity of an analysis.</p>
  */
 export interface AnalysisSourceEntity {
@@ -5416,6 +5758,7 @@ export interface AnalysisSourceEntity {
 }
 
 /**
+ * @public
  * <p>The summary metadata that describes an analysis.</p>
  */
 export interface AnalysisSummary {
@@ -5452,6 +5795,7 @@ export interface AnalysisSummary {
 }
 
 /**
+ * @public
  * <p>Information about the dashboard that you want to embed.</p>
  */
 export interface AnonymousUserDashboardEmbeddingConfiguration {
@@ -5463,6 +5807,7 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>A structure that contains the following elements:</p>
  *          <ul>
  *             <li>
@@ -5495,6 +5840,7 @@ export interface DashboardVisualId {
 }
 
 /**
+ * @public
  * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
  */
 export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
@@ -5506,6 +5852,7 @@ export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>The settings that you want to use with the Q search bar.</p>
  */
 export interface AnonymousUserQSearchBarEmbeddingConfiguration {
@@ -5517,6 +5864,7 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
@@ -5536,6 +5884,9 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
   QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum AssignmentStatus {
   DISABLED = "DISABLED",
   DRAFT = "DRAFT",
@@ -5543,6 +5894,7 @@ export enum AssignmentStatus {
 }
 
 /**
+ * @public
  * <p>Parameters for Amazon Athena.</p>
  */
 export interface AthenaParameters {
@@ -5558,6 +5910,7 @@ export interface AthenaParameters {
 }
 
 /**
+ * @public
  * <p>Parameters for Amazon Aurora.</p>
  */
 export interface AuroraParameters {
@@ -5578,6 +5931,7 @@ export interface AuroraParameters {
 }
 
 /**
+ * @public
  * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
  */
 export interface AuroraPostgreSqlParameters {
@@ -5597,6 +5951,9 @@ export interface AuroraPostgreSqlParameters {
   Database: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationMethodOption {
   ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
   IAM_AND_QUICKSIGHT = "IAM_AND_QUICKSIGHT",
@@ -5604,6 +5961,7 @@ export enum AuthenticationMethodOption {
 }
 
 /**
+ * @public
  * <p>The parameters for IoT Analytics.</p>
  */
 export interface AwsIotAnalyticsParameters {
@@ -5614,6 +5972,7 @@ export interface AwsIotAnalyticsParameters {
 }
 
 /**
+ * @public
  * <p>The display options for tile borders for visuals.</p>
  */
 export interface BorderStyle {
@@ -5624,6 +5983,7 @@ export interface BorderStyle {
 }
 
 /**
+ * @public
  * <p>A calculated column for a dataset.</p>
  */
 export interface CalculatedColumn {
@@ -5645,6 +6005,9 @@ export interface CalculatedColumn {
   Expression: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelIngestionRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5662,6 +6025,9 @@ export interface CancelIngestionRequest {
   IngestionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelIngestionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
@@ -5685,6 +6051,7 @@ export interface CancelIngestionResponse {
 }
 
 /**
+ * @public
  * <p>An internal failure occurred.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -5711,6 +6078,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters has a value that isn't valid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -5736,6 +6104,9 @@ export class InvalidParameterValueException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ExceptionResourceType {
   ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
   DATA_SET = "DATA_SET",
@@ -5749,6 +6120,7 @@ export enum ExceptionResourceType {
 }
 
 /**
+ * @public
  * <p>The resource specified already exists. </p>
  */
 export class ResourceExistsException extends __BaseException {
@@ -5781,6 +6153,7 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more resources can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -5813,6 +6186,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Access is throttled.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -5838,6 +6212,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ColumnDataType {
   DATETIME = "DATETIME",
   DECIMAL = "DECIMAL",
@@ -5846,6 +6223,7 @@ export enum ColumnDataType {
 }
 
 /**
+ * @public
  * <p>A transform operation that casts a column to a different type.</p>
  */
 export interface CastColumnTypeOperation {
@@ -5867,6 +6245,7 @@ export interface CastColumnTypeOperation {
 }
 
 /**
+ * @public
  * <p>Metadata that contains a description for a column.</p>
  */
 export interface ColumnDescription {
@@ -5876,11 +6255,15 @@ export interface ColumnDescription {
   Text?: string;
 }
 
+/**
+ * @public
+ */
 export enum GeoSpatialCountryCode {
   US = "US",
 }
 
 /**
+ * @public
  * <p>Geospatial column group that denotes a hierarchy.</p>
  */
 export interface GeoSpatialColumnGroup {
@@ -5901,6 +6284,7 @@ export interface GeoSpatialColumnGroup {
 }
 
 /**
+ * @public
  * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
  *             a variant type structure. For this structure to be valid, only one of the attributes can
  *             be non-null.</p>
@@ -5913,6 +6297,7 @@ export interface ColumnGroup {
 }
 
 /**
+ * @public
  * <p>A structure describing the name, data type, and geographic role of the columns.</p>
  */
 export interface ColumnGroupColumnSchema {
@@ -5923,6 +6308,7 @@ export interface ColumnGroupColumnSchema {
 }
 
 /**
+ * @public
  * <p>The column group schema.</p>
  */
 export interface ColumnGroupSchema {
@@ -5938,6 +6324,7 @@ export interface ColumnGroupSchema {
 }
 
 /**
+ * @public
  * <p>A rule defined to grant access on one or more restricted columns.
  *             Each dataset can have multiple rules.
  *             To create a restricted column, you add it to one or more rules.
@@ -5958,6 +6345,7 @@ export interface ColumnLevelPermissionRule {
 }
 
 /**
+ * @public
  * <p>The column schema.</p>
  */
 export interface ColumnSchema {
@@ -5977,6 +6365,9 @@ export interface ColumnSchema {
   GeographicRole?: string;
 }
 
+/**
+ * @public
+ */
 export enum GeoSpatialDataRole {
   CITY = "CITY",
   COUNTRY = "COUNTRY",
@@ -5988,6 +6379,7 @@ export enum GeoSpatialDataRole {
 }
 
 /**
+ * @public
  * <p>A tag for a column in a
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
@@ -6008,12 +6400,16 @@ export interface ColumnTag {
   ColumnDescription?: ColumnDescription;
 }
 
+/**
+ * @public
+ */
 export enum ColumnTagName {
   COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION",
   COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE",
 }
 
 /**
+ * @public
  * <p>A resource is already in a state that indicates an operation is happening that must complete
  * 			before a new update can be applied.</p>
  */
@@ -6038,6 +6434,7 @@ export class ConcurrentUpdatingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -6064,6 +6461,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
  *             resource.</p>
  */
@@ -6079,6 +6477,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
@@ -6094,11 +6495,11 @@ export interface CreateAccountCustomizationRequest {
    * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region. You can add
    *             these to an Amazon Web Services account and a QuickSight namespace. </p>
    *          <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
-   *             to the midnight theme: <code>"AccountCustomization": { "DefaultTheme":
-   *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" }</code>. Or, you can add a custom theme by
-   *             specifying <code>"AccountCustomization": { "DefaultTheme":
+   *             to the midnight theme: <code>"AccountCustomization": \{ "DefaultTheme":
+   *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" \}</code>. Or, you can add a custom theme by
+   *             specifying <code>"AccountCustomization": \{ "DefaultTheme":
    *                 "arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639"
-   *                 }</code>. </p>
+   *                 \}</code>. </p>
    */
   AccountCustomization: AccountCustomization | undefined;
 
@@ -6108,6 +6509,9 @@ export interface CreateAccountCustomizationRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountCustomizationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the customization that you created for this Amazon Web Services account.</p>
@@ -6141,6 +6545,7 @@ export interface CreateAccountCustomizationResponse {
 }
 
 /**
+ * @public
  * <p>This resource is currently unavailable.</p>
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -6172,6 +6577,9 @@ export class ResourceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountSubscriptionRequest {
   /**
    * <p>The edition of Amazon QuickSight that you want your account to have. Currently, you can
@@ -6297,6 +6705,7 @@ export interface CreateAccountSubscriptionRequest {
 }
 
 /**
+ * @public
  * <p>A <code>SignupResponse</code> object that contains a summary of a newly created account.</p>
  */
 export interface SignupResponse {
@@ -6324,6 +6733,9 @@ export interface SignupResponse {
   directoryType?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountSubscriptionResponse {
   /**
    * <p>A <code>SignupResponse</code> object that returns information about a newly created Amazon QuickSight account.</p>

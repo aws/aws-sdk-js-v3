@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { PinpointSMSVoiceServiceException as __BaseException } from "./PinpointSMSVoiceServiceException";
 
 /**
+ * @public
  * The resource specified in your request already exists.
  */
 export class AlreadyExistsException extends __BaseException {
@@ -25,6 +26,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * The input you provided is invalid.
  */
 export class BadRequestException extends __BaseException {
@@ -46,6 +48,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.
  */
 export interface CallInstructionsMessageType {
@@ -56,6 +59,7 @@ export interface CallInstructionsMessageType {
 }
 
 /**
+ * @public
  * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
  */
 export interface CloudWatchLogsDestination {
@@ -71,6 +75,7 @@ export interface CloudWatchLogsDestination {
 }
 
 /**
+ * @public
  * A request to create a new configuration set.
  */
 export interface CreateConfigurationSetRequest {
@@ -81,11 +86,13 @@ export interface CreateConfigurationSetRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the configuration set was successfully created.
  */
 export interface CreateConfigurationSetResponse {}
 
 /**
+ * @public
  * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -107,6 +114,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * There are too many instances of the specified resource type.
  */
 export class LimitExceededException extends __BaseException {
@@ -128,6 +136,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * You've issued too many requests to the resource. Wait a few minutes, and then try again.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -149,6 +158,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
  */
 export interface KinesisFirehoseDestination {
@@ -163,6 +173,9 @@ export interface KinesisFirehoseDestination {
   IamRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum EventType {
   ANSWERED = "ANSWERED",
   BUSY = "BUSY",
@@ -174,6 +187,7 @@ export enum EventType {
 }
 
 /**
+ * @public
  * An object that contains information about an event destination that sends data to Amazon SNS.
  */
 export interface SnsDestination {
@@ -184,6 +198,7 @@ export interface SnsDestination {
 }
 
 /**
+ * @public
  * An object that defines a single event destination.
  */
 export interface EventDestinationDefinition {
@@ -214,6 +229,7 @@ export interface EventDestinationDefinition {
 }
 
 /**
+ * @public
  * Create a new event destination in a configuration set.
  */
 export interface CreateConfigurationSetEventDestinationRequest {
@@ -234,11 +250,13 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the event destination was created successfully.
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
 
 /**
+ * @public
  * The resource you attempted to access doesn't exist.
  */
 export class NotFoundException extends __BaseException {
@@ -259,6 +277,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationSetRequest {
   /**
    * ConfigurationSetName
@@ -267,10 +288,14 @@ export interface DeleteConfigurationSetRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the configuration set was deleted successfully.
  */
 export interface DeleteConfigurationSetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
    * ConfigurationSetName
@@ -284,11 +309,13 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the event destination was deleted successfully.
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
 /**
+ * @public
  * An object that defines an event destination.
  */
 export interface EventDestination {
@@ -323,6 +350,9 @@ export interface EventDestination {
   SnsDestination?: SnsDestination;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigurationSetEventDestinationsRequest {
   /**
    * ConfigurationSetName
@@ -331,6 +361,7 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 /**
+ * @public
  * An object that contains information about an event destination.
  */
 export interface GetConfigurationSetEventDestinationsResponse {
@@ -340,6 +371,9 @@ export interface GetConfigurationSetEventDestinationsResponse {
   EventDestinations?: EventDestination[];
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationSetsRequest {
   /**
    * A token returned from a previous call to the API that indicates the position in the list of results.
@@ -353,6 +387,7 @@ export interface ListConfigurationSetsRequest {
 }
 
 /**
+ * @public
  * An object that contains information about the configuration sets for your account in the current region.
  */
 export interface ListConfigurationSetsResponse {
@@ -368,6 +403,7 @@ export interface ListConfigurationSetsResponse {
 }
 
 /**
+ * @public
  * An object that defines a message that contains unformatted text.
  */
 export interface PlainTextMessageType {
@@ -388,6 +424,7 @@ export interface PlainTextMessageType {
 }
 
 /**
+ * @public
  * An object that defines a message that contains SSML-formatted text.
  */
 export interface SSMLMessageType {
@@ -408,6 +445,7 @@ export interface SSMLMessageType {
 }
 
 /**
+ * @public
  * An object that contains a voice message and information about the recipient that you want to send it to.
  */
 export interface VoiceMessageContent {
@@ -428,6 +466,7 @@ export interface VoiceMessageContent {
 }
 
 /**
+ * @public
  * SendVoiceMessageRequest
  */
 export interface SendVoiceMessageRequest {
@@ -458,6 +497,7 @@ export interface SendVoiceMessageRequest {
 }
 
 /**
+ * @public
  * An object that that contains the Message ID of a Voice message that was sent successfully.
  */
 export interface SendVoiceMessageResponse {
@@ -468,6 +508,7 @@ export interface SendVoiceMessageResponse {
 }
 
 /**
+ * @public
  * UpdateConfigurationSetEventDestinationRequest
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
@@ -488,6 +529,7 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the event destination was updated successfully.
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}

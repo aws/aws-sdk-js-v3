@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolNetworkInstancesCommand}.
  */
 export interface ListSolNetworkInstancesCommandInput extends ListSolNetworkInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolNetworkInstancesCommand}.
  */
 export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your network instances.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolNetworkInstancesCommandInput - {@link ListSolNetworkInstancesCommandInput}
+ * @returns {@link ListSolNetworkInstancesCommandOutput}
  * @see {@link ListSolNetworkInstancesCommandInput} for command's `input` shape.
  * @see {@link ListSolNetworkInstancesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSolNetworkInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolNetworkInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSolNetworkInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolNetworkInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSolNetworkInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolNetworkInstancesCommandOutput> {
     return deserializeAws_restJson1ListSolNetworkInstancesCommand(output, context);
   }

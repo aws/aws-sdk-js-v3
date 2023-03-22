@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified member accounts from the associated administrator account.</p>
  *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
@@ -48,6 +53,8 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMembersCommandInput - {@link DisassociateMembersCommandInput}
+ * @returns {@link DisassociateMembersCommandOutput}
  * @see {@link DisassociateMembersCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisassociateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembersCommandOutput> {
     return deserializeAws_restJson1DisassociateMembersCommand(output, context);
   }

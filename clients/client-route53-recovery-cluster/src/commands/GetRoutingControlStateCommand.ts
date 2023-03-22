@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryClusterClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoutingControlStateCommand}.
  */
 export interface GetRoutingControlStateCommandInput extends GetRoutingControlStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoutingControlStateCommand}.
  */
 export interface GetRoutingControlStateCommandOutput extends GetRoutingControlStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the state for a routing control. A routing control is a simple on/off switch that you
  * 				can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
  * 				the state is Off, traffic does not flow. </p>
@@ -80,6 +85,8 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoutingControlStateCommandInput - {@link GetRoutingControlStateCommandInput}
+ * @returns {@link GetRoutingControlStateCommandOutput}
  * @see {@link GetRoutingControlStateCommandInput} for command's `input` shape.
  * @see {@link GetRoutingControlStateCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
@@ -121,6 +128,9 @@ export class GetRoutingControlStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoutingControlStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class GetRoutingControlStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoutingControlStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRoutingControlStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoutingControlStateCommandOutput> {
     return deserializeAws_json1_0GetRoutingControlStateCommand(output, context);
   }

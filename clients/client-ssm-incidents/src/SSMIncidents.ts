@@ -145,6 +145,7 @@ import {
 import { SSMIncidentsClient } from "./SSMIncidentsClient";
 
 /**
+ * @public
  * <p>Systems Manager Incident Manager is an incident management console designed to help users
  *       mitigate and recover from incidents affecting their Amazon Web Services-hosted applications. An
  *       incident is any unplanned interruption or reduction in quality of services. </p>
@@ -156,6 +157,7 @@ import { SSMIncidentsClient } from "./SSMIncidentsClient";
  */
 export class SSMIncidents extends SSMIncidentsClient {
   /**
+   * @public
    * <p>A replication set replicates and encrypts your data to the provided Regions with the
    *             provided KMS key. </p>
    */
@@ -189,6 +191,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Creates a response plan that automates the initial response to incidents. A response
    *             plan engages contacts, starts chat channel collaboration, and initiates runbooks at the
    *             beginning of an incident.</p>
@@ -223,6 +226,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom timeline event on the incident details page of an incident record.
    *             Timeline events are automatically created by Incident Manager, marking key moment during an
    *             incident. You can create custom timeline events to mark important events that are
@@ -258,6 +262,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Delete an incident record from Incident Manager. </p>
    */
   public deleteIncidentRecord(
@@ -290,6 +295,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Deletes all Regions in your replication set. Deleting the replication set deletes all
    *             Incident Manager data.</p>
    */
@@ -323,6 +329,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the resource policy that Resource Access Manager uses to share your Incident Manager
    *             resource.</p>
    */
@@ -356,6 +363,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this
    *             response plan.</p>
    */
@@ -389,6 +397,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a timeline event from an incident.</p>
    */
   public deleteTimelineEvent(
@@ -421,6 +430,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Returns the details for the specified incident record.</p>
    */
   public getIncidentRecord(
@@ -453,6 +463,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Retrieve your Incident Manager replication set.</p>
    */
   public getReplicationSet(
@@ -485,6 +496,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource policies attached to the specified response plan.</p>
    */
   public getResourcePolicies(
@@ -517,6 +529,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of the specified response plan.</p>
    */
   public getResponsePlan(
@@ -549,6 +562,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a timeline event based on its ID and incident record.</p>
    */
   public getTimelineEvent(
@@ -581,6 +595,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Lists all incident records in your account. Use this command to retrieve the Amazon
    *             Resource Name (ARN) of the incident record you want to update. </p>
    */
@@ -614,6 +629,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>List all related items for an incident record.</p>
    */
   public listRelatedItems(
@@ -646,6 +662,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Lists details about the replication set configured in your account. </p>
    */
   public listReplicationSets(
@@ -678,6 +695,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Lists all response plans in your account.</p>
    */
   public listResponsePlans(
@@ -710,6 +728,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified response plan.</p>
    */
   public listTagsForResource(
@@ -742,6 +761,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Lists timeline events for the specified incident record.</p>
    */
   public listTimelineEvents(
@@ -774,6 +794,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Adds a resource policy to the specified response plan. The resource policy is used to
    *             share the response plan using Resource Access Manager (RAM). For more
    *             information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region and cross-account incident
@@ -809,6 +830,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or
    *             manually. </p>
    */
@@ -842,6 +864,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Adds a tag to a response plan.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -868,6 +891,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from a resource.</p>
    */
   public untagResource(
@@ -900,6 +924,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Update deletion protection to either allow or deny deletion of the final Region in a
    *             replication set.</p>
    */
@@ -933,6 +958,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Update the details of an incident record. You can use this operation to update an
    *             incident record from the defined chat channel. For more information about using actions
    *             in chat channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting through chat</a>.</p>
@@ -967,6 +993,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Add or remove related items from the related items tab of an incident record.</p>
    */
   public updateRelatedItems(
@@ -999,6 +1026,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Add or delete Regions from your replication set.</p>
    */
   public updateReplicationSet(
@@ -1031,6 +1059,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified response plan.</p>
    */
   public updateResponsePlan(
@@ -1063,6 +1092,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
+   * @public
    * <p>Updates a timeline event. You can update events of type <code>Custom
    *             Event</code>.</p>
    */

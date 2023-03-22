@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGUISessionAccessDetailsCommand}.
  */
 export interface CreateGUISessionAccessDetailsCommandInput extends CreateGUISessionAccessDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGUISessionAccessDetailsCommand}.
  */
 export interface CreateGUISessionAccessDetailsCommandOutput
@@ -37,6 +41,7 @@ export interface CreateGUISessionAccessDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface (GUI)
  *       session. The primary URL initiates a web-based NICE DCV session to the virtual computer's application. The secondary URL initiates a web-based NICE DCV session to the virtual computer's operating session. </p>
  *          <p>Use <code>StartGUISession</code> to open the session.</p>
@@ -50,6 +55,8 @@ export interface CreateGUISessionAccessDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGUISessionAccessDetailsCommandInput - {@link CreateGUISessionAccessDetailsCommandInput}
+ * @returns {@link CreateGUISessionAccessDetailsCommandOutput}
  * @see {@link CreateGUISessionAccessDetailsCommandInput} for command's `input` shape.
  * @see {@link CreateGUISessionAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateGUISessionAccessDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGUISessionAccessDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateGUISessionAccessDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGUISessionAccessDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGUISessionAccessDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

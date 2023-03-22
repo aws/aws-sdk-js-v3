@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandInput extends ListRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
+ * @returns {@link ListRecommendationsCommandOutput}
  * @see {@link ListRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +86,9 @@ export class ListRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendationsCommandOutput> {
     return deserializeAws_restJson1ListRecommendationsCommand(output, context);
   }

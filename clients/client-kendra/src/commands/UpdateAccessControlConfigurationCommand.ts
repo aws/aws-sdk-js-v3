@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccessControlConfigurationCommand}.
  */
 export interface UpdateAccessControlConfigurationCommandInput extends UpdateAccessControlConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccessControlConfigurationCommand}.
  */
 export interface UpdateAccessControlConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an access control configuration for your documents in an index. This
  *             includes user and group access information for your documents. This is useful
  *             for user context filtering, where search results are filtered based on the user
@@ -67,6 +72,8 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccessControlConfigurationCommandInput - {@link UpdateAccessControlConfigurationCommandInput}
+ * @returns {@link UpdateAccessControlConfigurationCommandOutput}
  * @see {@link UpdateAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -119,6 +126,9 @@ export class UpdateAccessControlConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,6 +168,9 @@ export class UpdateAccessControlConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAccessControlConfigurationCommandInput,
     context: __SerdeContext
@@ -165,6 +178,9 @@ export class UpdateAccessControlConfigurationCommand extends $Command<
     return serializeAws_json1_1UpdateAccessControlConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

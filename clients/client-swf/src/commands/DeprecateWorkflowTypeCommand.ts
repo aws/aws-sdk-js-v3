@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateWorkflowTypeCommand}.
  */
 export interface DeprecateWorkflowTypeCommandInput extends DeprecateWorkflowTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateWorkflowTypeCommand}.
  */
 export interface DeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates the specified <i>workflow type</i>. After a workflow type has
  *       been deprecated, you cannot create new executions of that type. Executions that were started
  *       before the type was deprecated continues to run. A deprecated workflow type may still be used
@@ -84,6 +89,8 @@ export interface DeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateWorkflowTypeCommandInput - {@link DeprecateWorkflowTypeCommandInput}
+ * @returns {@link DeprecateWorkflowTypeCommandOutput}
  * @see {@link DeprecateWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -116,6 +123,9 @@ export class DeprecateWorkflowTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateWorkflowTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class DeprecateWorkflowTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeprecateWorkflowTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateWorkflowTypeCommandOutput> {
     return deserializeAws_json1_0DeprecateWorkflowTypeCommand(output, context);
   }

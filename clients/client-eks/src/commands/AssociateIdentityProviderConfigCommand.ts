@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateIdentityProviderConfigCommand}.
  */
 export interface AssociateIdentityProviderConfigCommandInput extends AssociateIdentityProviderConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateIdentityProviderConfigCommand}.
  */
 export interface AssociateIdentityProviderConfigCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateIdentityProviderConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate an identity provider configuration to a cluster.</p>
  *          <p>If you want to authenticate identities using an identity provider, you can create an
  *             identity provider configuration and associate it to your cluster. After configuring
@@ -55,6 +60,8 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateIdentityProviderConfigCommandInput - {@link AssociateIdentityProviderConfigCommandInput}
+ * @returns {@link AssociateIdentityProviderConfigCommandOutput}
  * @see {@link AssociateIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -103,6 +110,9 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateIdentityProviderConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateIdentityProviderConfigCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
     return serializeAws_restJson1AssociateIdentityProviderConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

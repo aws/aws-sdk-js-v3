@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user profile.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -45,6 +50,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
+ * @returns {@link DeleteUserProfileCommandOutput}
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserProfileCommandOutput> {
     return deserializeAws_json1_1DeleteUserProfileCommand(output, context);
   }

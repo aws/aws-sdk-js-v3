@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomMetricCommand}.
  */
 export interface DeleteCustomMetricCommandInput extends DeleteCustomMetricRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomMetricCommand}.
  */
 export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a Device Defender detect custom metric.
  *     </p>
@@ -57,6 +62,8 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomMetricCommandInput - {@link DeleteCustomMetricCommandInput}
+ * @returns {@link DeleteCustomMetricCommandOutput}
  * @see {@link DeleteCustomMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteCustomMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteCustomMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCustomMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomMetricCommandOutput> {
     return deserializeAws_restJson1DeleteCustomMetricCommand(output, context);
   }

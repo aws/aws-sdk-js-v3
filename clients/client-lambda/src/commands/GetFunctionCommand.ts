@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFunctionCommand}.
  */
 export interface GetFunctionCommandInput extends GetFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFunctionCommand}.
  */
 export interface GetFunctionCommandOutput extends GetFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the function or function version, with a link to download the deployment package
  *       that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are
  *       returned.</p>
@@ -48,6 +53,8 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionCommandInput - {@link GetFunctionCommandInput}
+ * @returns {@link GetFunctionCommandOutput}
  * @see {@link GetFunctionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionCommandOutput> {
     return deserializeAws_restJson1GetFunctionCommand(output, context);
   }

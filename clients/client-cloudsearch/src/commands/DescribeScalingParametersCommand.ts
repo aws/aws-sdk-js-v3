@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingParametersCommand}.
  */
 export interface DescribeScalingParametersCommandInput extends DescribeScalingParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingParametersCommand}.
  */
 export interface DescribeScalingParametersCommandOutput extends DescribeScalingParametersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see   <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html" target="_blank">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeScalingParametersCommandOutput extends DescribeScalingP
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingParametersCommandInput - {@link DescribeScalingParametersCommandInput}
+ * @returns {@link DescribeScalingParametersCommandOutput}
  * @see {@link DescribeScalingParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingParametersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeScalingParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeScalingParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScalingParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

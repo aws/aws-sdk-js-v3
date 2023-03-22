@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCommentCommand}.
  */
 export interface GetCommentCommandInput extends GetCommentInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCommentCommand}.
  */
 export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>
  *             <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -50,6 +55,8 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCommentCommandInput - {@link GetCommentCommandInput}
+ * @returns {@link GetCommentCommandOutput}
  * @see {@link GetCommentCommandInput} for command's `input` shape.
  * @see {@link GetCommentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommentCommandOutput> {
     return deserializeAws_json1_1GetCommentCommand(output, context);
   }

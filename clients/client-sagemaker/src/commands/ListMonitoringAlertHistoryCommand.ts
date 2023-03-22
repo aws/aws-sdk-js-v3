@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMonitoringAlertHistoryCommand}.
  */
 export interface ListMonitoringAlertHistoryCommandInput extends ListMonitoringAlertHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMonitoringAlertHistoryCommand}.
  */
 export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringAlertHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of past alerts in a model monitoring schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitoringAlertHistoryCommandInput - {@link ListMonitoringAlertHistoryCommandInput}
+ * @returns {@link ListMonitoringAlertHistoryCommandOutput}
  * @see {@link ListMonitoringAlertHistoryCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringAlertHistoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListMonitoringAlertHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitoringAlertHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListMonitoringAlertHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitoringAlertHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMonitoringAlertHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

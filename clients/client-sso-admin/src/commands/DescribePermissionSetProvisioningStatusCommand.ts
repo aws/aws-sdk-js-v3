@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePermissionSetProvisioningStatusCommand}.
  */
 export interface DescribePermissionSetProvisioningStatusCommandInput
   extends DescribePermissionSetProvisioningStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePermissionSetProvisioningStatusCommand}.
  */
 export interface DescribePermissionSetProvisioningStatusCommandOutput
@@ -38,6 +42,7 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status for the given permission set provisioning request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePermissionSetProvisioningStatusCommandInput - {@link DescribePermissionSetProvisioningStatusCommandInput}
+ * @returns {@link DescribePermissionSetProvisioningStatusCommandOutput}
  * @see {@link DescribePermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePermissionSetProvisioningStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePermissionSetProvisioningStatusCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
     return serializeAws_json1_1DescribePermissionSetProvisioningStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

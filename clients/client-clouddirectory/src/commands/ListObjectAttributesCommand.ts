@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectAttributesCommand}.
  */
 export interface ListObjectAttributesCommandInput extends ListObjectAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectAttributesCommand}.
  */
 export interface ListObjectAttributesCommandOutput extends ListObjectAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all attributes that are associated with an object.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectAttributesCommandInput - {@link ListObjectAttributesCommandInput}
+ * @returns {@link ListObjectAttributesCommandOutput}
  * @see {@link ListObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link ListObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListObjectAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListObjectAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListObjectAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectAttributesCommandOutput> {
     return deserializeAws_restJson1ListObjectAttributesCommand(output, context);
   }

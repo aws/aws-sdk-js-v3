@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentsCommand}.
  */
 export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentsCommand}.
  */
 export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about Cloud9 development environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentsCommandInput - {@link DescribeEnvironmentsCommandInput}
+ * @returns {@link DescribeEnvironmentsCommandOutput}
  * @see {@link DescribeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -132,6 +139,9 @@ export class DescribeEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class DescribeEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEnvironmentsCommandOutput> {
     return deserializeAws_json1_1DescribeEnvironmentsCommand(output, context);
   }

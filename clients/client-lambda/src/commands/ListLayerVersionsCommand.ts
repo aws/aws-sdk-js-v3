@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLayerVersionsCommand}.
  */
 export interface ListLayerVersionsCommandInput extends ListLayerVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLayerVersionsCommand}.
  */
 export interface ListLayerVersionsCommandOutput extends ListLayerVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
  *       versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only
@@ -49,6 +54,8 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLayerVersionsCommandInput - {@link ListLayerVersionsCommandInput}
+ * @returns {@link ListLayerVersionsCommandOutput}
  * @see {@link ListLayerVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLayerVersionsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListLayerVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLayerVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListLayerVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLayerVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLayerVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLayerVersionsCommandOutput> {
     return deserializeAws_restJson1ListLayerVersionsCommand(output, context);
   }

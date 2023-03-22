@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMitigationActionCommand}.
  */
 export interface DeleteMitigationActionCommandInput extends DeleteMitigationActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMitigationActionCommand}.
  */
 export interface DeleteMitigationActionCommandOutput extends DeleteMitigationActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a defined mitigation action from your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteMitigationAction</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMitigationActionCommandInput - {@link DeleteMitigationActionCommandInput}
+ * @returns {@link DeleteMitigationActionCommandOutput}
  * @see {@link DeleteMitigationActionCommandInput} for command's `input` shape.
  * @see {@link DeleteMitigationActionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteMitigationActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMitigationActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteMitigationActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMitigationActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMitigationActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMitigationActionCommandOutput> {
     return deserializeAws_restJson1DeleteMitigationActionCommand(output, context);
   }

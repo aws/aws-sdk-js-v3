@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlarmHistoryCommand}.
  */
 export interface DescribeAlarmHistoryCommandInput extends DescribeAlarmHistoryInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlarmHistoryCommand}.
  */
 export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
  * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
  *          <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
@@ -51,6 +56,8 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmHistoryCommandInput - {@link DescribeAlarmHistoryCommandInput}
+ * @returns {@link DescribeAlarmHistoryCommandOutput}
  * @see {@link DescribeAlarmHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmHistoryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeAlarmHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeAlarmHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAlarmHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmHistoryCommandOutput> {
     return deserializeAws_queryDescribeAlarmHistoryCommand(output, context);
   }

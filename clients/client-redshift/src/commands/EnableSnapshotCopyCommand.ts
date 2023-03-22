@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSnapshotCopyCommand}.
  */
 export interface EnableSnapshotCopyCommandInput extends EnableSnapshotCopyMessage {}
 /**
+ * @public
+ *
  * The output of {@link EnableSnapshotCopyCommand}.
  */
 export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the automatic copy of snapshots from one region to another region for a
  *             specified cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSnapshotCopyCommandInput - {@link EnableSnapshotCopyCommandInput}
+ * @returns {@link EnableSnapshotCopyCommandOutput}
  * @see {@link EnableSnapshotCopyCommandInput} for command's `input` shape.
  * @see {@link EnableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -108,6 +115,9 @@ export class EnableSnapshotCopyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSnapshotCopyCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class EnableSnapshotCopyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableSnapshotCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEnableSnapshotCopyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSnapshotCopyCommandOutput> {
     return deserializeAws_queryEnableSnapshotCopyCommand(output, context);
   }

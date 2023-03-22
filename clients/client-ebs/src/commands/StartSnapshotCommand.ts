@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSnapshotCommand}.
  */
 export interface StartSnapshotCommandInput extends StartSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSnapshotCommand}.
  */
 export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
  *             after the request completes. </p>
  *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
@@ -49,6 +54,8 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSnapshotCommandInput - {@link StartSnapshotCommandInput}
+ * @returns {@link StartSnapshotCommandOutput}
  * @see {@link StartSnapshotCommandInput} for command's `input` shape.
  * @see {@link StartSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -100,6 +107,9 @@ export class StartSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class StartSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSnapshotCommandOutput> {
     return deserializeAws_restJson1StartSnapshotCommand(output, context);
   }

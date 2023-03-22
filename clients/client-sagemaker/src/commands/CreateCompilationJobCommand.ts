@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCompilationJobCommand}.
  */
 export interface CreateCompilationJobCommandInput extends CreateCompilationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCompilationJobCommand}.
  */
 export interface CreateCompilationJobCommandOutput extends CreateCompilationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
  *             resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p>
  *          <p>If
@@ -77,6 +82,8 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCompilationJobCommandInput - {@link CreateCompilationJobCommandInput}
+ * @returns {@link CreateCompilationJobCommandOutput}
  * @see {@link CreateCompilationJobCommandInput} for command's `input` shape.
  * @see {@link CreateCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateCompilationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCompilationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class CreateCompilationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCompilationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCompilationJobCommandOutput> {
     return deserializeAws_json1_1CreateCompilationJobCommand(output, context);
   }

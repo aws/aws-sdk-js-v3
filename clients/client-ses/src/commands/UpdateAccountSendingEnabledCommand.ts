@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountSendingEnabledCommand}.
  */
 export interface UpdateAccountSendingEnabledCommandInput extends UpdateAccountSendingEnabledRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountSendingEnabledCommand}.
  */
 export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables email sending across your entire Amazon SES account in the current
  *             AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
  *             temporarily pause email sending across your Amazon SES account in a given AWS Region when
@@ -49,6 +54,8 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountSendingEnabledCommandInput - {@link UpdateAccountSendingEnabledCommandInput}
+ * @returns {@link UpdateAccountSendingEnabledCommandOutput}
  * @see {@link UpdateAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSendingEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAccountSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

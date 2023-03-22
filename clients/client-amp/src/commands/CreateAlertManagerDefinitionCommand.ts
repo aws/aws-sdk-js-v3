@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAlertManagerDefinitionCommand}.
  */
 export interface CreateAlertManagerDefinitionCommandInput extends CreateAlertManagerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAlertManagerDefinitionCommand}.
  */
 export interface CreateAlertManagerDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateAlertManagerDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Create an alert manager definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateAlertManagerDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAlertManagerDefinitionCommandInput - {@link CreateAlertManagerDefinitionCommandInput}
+ * @returns {@link CreateAlertManagerDefinitionCommandOutput}
  * @see {@link CreateAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateAlertManagerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAlertManagerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateAlertManagerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAlertManagerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAlertManagerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

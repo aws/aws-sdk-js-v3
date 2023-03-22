@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetAwsNetworkPerformanceDataCommand}.
  */
 export interface GetAwsNetworkPerformanceDataCommandInput extends GetAwsNetworkPerformanceDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAwsNetworkPerformanceDataCommand}.
  */
 export interface GetAwsNetworkPerformanceDataCommandOutput
@@ -37,6 +41,7 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets network performance data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAwsNetworkPerformanceDataCommandInput - {@link GetAwsNetworkPerformanceDataCommandInput}
+ * @returns {@link GetAwsNetworkPerformanceDataCommandOutput}
  * @see {@link GetAwsNetworkPerformanceDataCommandInput} for command's `input` shape.
  * @see {@link GetAwsNetworkPerformanceDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetAwsNetworkPerformanceDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAwsNetworkPerformanceDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class GetAwsNetworkPerformanceDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAwsNetworkPerformanceDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetAwsNetworkPerformanceDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

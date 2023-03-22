@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectorCommand}.
  */
 export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectorCommand}.
  */
 export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the agreement that's specified in the provided <code>ConnectorId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
+ * @returns {@link DeleteConnectorCommandOutput}
  * @see {@link DeleteConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectorCommandOutput> {
     return deserializeAws_json1_1DeleteConnectorCommand(output, context);
   }

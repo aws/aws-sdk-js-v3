@@ -13,6 +13,7 @@ import { PutSessionCommand, PutSessionCommandInput, PutSessionCommandOutput } fr
 import { LexRuntimeServiceClient } from "./LexRuntimeServiceClient";
 
 /**
+ * @public
  * <p>Amazon Lex provides both build and runtime endpoints. Each endpoint
  *       provides a set of operations (API). Your conversational bot uses the
  *       runtime API to understand user utterances (user input text or voice). For
@@ -28,6 +29,7 @@ import { LexRuntimeServiceClient } from "./LexRuntimeServiceClient";
  */
 export class LexRuntimeService extends LexRuntimeServiceClient {
   /**
+   * @public
    * <p>Removes session information for a specified bot, alias, and user ID.
    *     </p>
    */
@@ -61,6 +63,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns session information for a specified bot, alias, and user
    *       ID.</p>
    */
@@ -88,6 +91,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
+   * @public
    * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to
    *       send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the
    *       user input using the machine learning model that it built for the bot. </p>
@@ -190,6 +194,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
+   * @public
    * <p>Sends user input to Amazon Lex. Client applications can use this API to
    *       send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
    *       using the machine learning model it built for the bot. </p>
@@ -291,6 +296,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a new session or modifies an existing session with an Amazon Lex
    *       bot. Use this operation to enable your application to set the state of the
    *       bot.</p>

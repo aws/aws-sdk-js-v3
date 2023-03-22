@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomActionTypeCommand}.
  */
 export interface DeleteCustomActionTypeCommandInput extends DeleteCustomActionTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomActionTypeCommand}.
  */
 export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Marks a custom action as deleted. <code>PollForJobs</code> for the custom action
  *             fails after the action is marked for deletion. Used for custom actions only.</p>
  *         <important>
@@ -49,6 +54,8 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomActionTypeCommandInput - {@link DeleteCustomActionTypeCommandInput}
+ * @returns {@link DeleteCustomActionTypeCommandOutput}
  * @see {@link DeleteCustomActionTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteCustomActionTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomActionTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteCustomActionTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCustomActionTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomActionTypeCommandOutput> {
     return deserializeAws_json1_1DeleteCustomActionTypeCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateImageCommand, serializeAws_ec2CreateImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageCommand}.
  */
 export interface CreateImageCommandInput extends CreateImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageCommand}.
  */
 export interface CreateImageCommandOutput extends CreateImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
  *      	that is either running or stopped.</p>
  *          <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
@@ -59,6 +64,8 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageCommandInput - {@link CreateImageCommandInput}
+ * @returns {@link CreateImageCommandOutput}
  * @see {@link CreateImageCommandInput} for command's `input` shape.
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -113,6 +120,9 @@ export class CreateImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class CreateImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageCommandOutput> {
     return deserializeAws_ec2CreateImageCommand(output, context);
   }

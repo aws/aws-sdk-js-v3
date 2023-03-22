@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishPackageVersionCommand}.
  */
-type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, "assetContent"> & {
+export type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, "assetContent"> & {
   /**
    * For *`PublishPackageVersionRequest["assetContent"]`*, see {@link PublishPackageVersionRequest.assetContent}.
    */
@@ -39,11 +41,14 @@ type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, 
  */
 export interface PublishPackageVersionCommandInput extends PublishPackageVersionCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PublishPackageVersionCommand}.
  */
 export interface PublishPackageVersionCommandOutput extends PublishPackageVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new package version containing one or more assets (or files).</p>
  *          <p>The <code>unfinished</code> flag can be used to keep the package version in the <code>Unfinished</code> state until all of it’s assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
  *          <note>
@@ -59,6 +64,8 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishPackageVersionCommandInput - {@link PublishPackageVersionCommandInput}
+ * @returns {@link PublishPackageVersionCommandOutput}
  * @see {@link PublishPackageVersionCommandInput} for command's `input` shape.
  * @see {@link PublishPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -115,6 +122,9 @@ export class PublishPackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishPackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class PublishPackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishPackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishPackageVersionCommandOutput> {
     return deserializeAws_restJson1PublishPackageVersionCommand(output, context);
   }

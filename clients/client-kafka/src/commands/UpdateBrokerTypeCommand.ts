@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBrokerTypeCommand}.
  */
 export interface UpdateBrokerTypeCommandInput extends UpdateBrokerTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBrokerTypeCommand}.
  */
 export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates EC2 instance type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBrokerTypeCommandInput - {@link UpdateBrokerTypeCommandInput}
+ * @returns {@link UpdateBrokerTypeCommandOutput}
  * @see {@link UpdateBrokerTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerTypeCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateBrokerTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBrokerTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateBrokerTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBrokerTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBrokerTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerTypeCommandOutput> {
     return deserializeAws_restJson1UpdateBrokerTypeCommand(output, context);
   }

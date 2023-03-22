@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHostedZoneCommand}.
  */
 export interface CreateHostedZoneCommandInput extends CreateHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHostedZoneCommand}.
  */
 export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new public or private hosted zone. You create records in a public hosted
  * 			zone to define how you want to route traffic on the internet for a domain, such as
  * 			example.com, and its subdomains (apex.example.com, acme.example.com). You create records
@@ -109,6 +114,8 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHostedZoneCommandInput - {@link CreateHostedZoneCommandInput}
+ * @returns {@link CreateHostedZoneCommandOutput}
  * @see {@link CreateHostedZoneCommandInput} for command's `input` shape.
  * @see {@link CreateHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -198,6 +205,9 @@ export class CreateHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -238,10 +248,16 @@ export class CreateHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHostedZoneCommandOutput> {
     return deserializeAws_restXmlCreateHostedZoneCommand(output, context);
   }

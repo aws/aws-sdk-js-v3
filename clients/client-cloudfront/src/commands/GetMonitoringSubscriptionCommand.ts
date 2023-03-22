@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetMonitoringSubscriptionCommand}.
  */
 export interface GetMonitoringSubscriptionCommandInput extends GetMonitoringSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMonitoringSubscriptionCommand}.
  */
 export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about whether additional CloudWatch metrics are enabled for the
  * 			specified CloudFront distribution.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMonitoringSubscriptionCommandInput - {@link GetMonitoringSubscriptionCommandInput}
+ * @returns {@link GetMonitoringSubscriptionCommandOutput}
  * @see {@link GetMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetMonitoringSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMonitoringSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetMonitoringSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMonitoringSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetMonitoringSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

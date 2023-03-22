@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancePatchesCommand}.
  */
 export interface DescribeInstancePatchesCommandInput extends DescribeInstancePatchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancePatchesCommand}.
  */
 export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePatchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the patches on the specified managed node and their state
  *    relative to the patch baseline being used for the node.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancePatchesCommandInput - {@link DescribeInstancePatchesCommandInput}
+ * @returns {@link DescribeInstancePatchesCommandOutput}
  * @see {@link DescribeInstancePatchesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -99,6 +106,9 @@ export class DescribeInstancePatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancePatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DescribeInstancePatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancePatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInstancePatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancePatchesCommandOutput> {
     return deserializeAws_json1_1DescribeInstancePatchesCommand(output, context);
   }

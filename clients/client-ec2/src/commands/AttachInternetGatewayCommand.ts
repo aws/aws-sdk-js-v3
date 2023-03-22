@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachInternetGatewayCommand}.
  */
 export interface AttachInternetGatewayCommandInput extends AttachInternetGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachInternetGatewayCommand}.
  */
 export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and
  * 			the VPC. For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
  * @example
@@ -42,6 +47,8 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachInternetGatewayCommandInput - {@link AttachInternetGatewayCommandInput}
+ * @returns {@link AttachInternetGatewayCommandOutput}
  * @see {@link AttachInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link AttachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class AttachInternetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class AttachInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AttachInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachInternetGatewayCommandOutput> {
     return deserializeAws_ec2AttachInternetGatewayCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThingGroupsForThingCommand}.
  */
 export interface UpdateThingGroupsForThingCommandInput extends UpdateThingGroupsForThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThingGroupsForThingCommand}.
  */
 export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroupsForThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the groups to which the thing belongs.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroupsForThing</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThingGroupsForThingCommandInput - {@link UpdateThingGroupsForThingCommandInput}
+ * @returns {@link UpdateThingGroupsForThingCommandOutput}
  * @see {@link UpdateThingGroupsForThingCommandInput} for command's `input` shape.
  * @see {@link UpdateThingGroupsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThingGroupsForThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateThingGroupsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateThingGroupsForThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRegistryScanningConfigurationCommand}.
  */
 export interface PutRegistryScanningConfigurationCommandInput extends PutRegistryScanningConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRegistryScanningConfigurationCommand}.
  */
 export interface PutRegistryScanningConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutRegistryScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the scanning configuration for your private registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRegistryScanningConfigurationCommandInput - {@link PutRegistryScanningConfigurationCommandInput}
+ * @returns {@link PutRegistryScanningConfigurationCommandOutput}
  * @see {@link PutRegistryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutRegistryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRegistryScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutRegistryScanningConfigurationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
     return serializeAws_json1_1PutRegistryScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

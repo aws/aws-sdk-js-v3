@@ -6,7 +6,7 @@ import { DynamoDBClient } from "../DynamoDBClient";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DynamoDBClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExportsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExports(
   config: DynamoDBPaginationConfiguration,
   input: ListExportsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecipeVersionsCommand}.
  */
 export interface ListRecipeVersionsCommandInput extends ListRecipeVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecipeVersionsCommand}.
  */
 export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of a particular DataBrew recipe, except for
  *                 <code>LATEST_WORKING</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecipeVersionsCommandInput - {@link ListRecipeVersionsCommandInput}
+ * @returns {@link ListRecipeVersionsCommandOutput}
  * @see {@link ListRecipeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListRecipeVersionsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListRecipeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecipeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListRecipeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecipeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecipeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecipeVersionsCommandOutput> {
     return deserializeAws_restJson1ListRecipeVersionsCommand(output, context);
   }

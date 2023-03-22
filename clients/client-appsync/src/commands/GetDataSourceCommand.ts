@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataSourceCommand}.
  */
 export interface GetDataSourceCommandInput extends GetDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataSourceCommand}.
  */
 export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a <code>DataSource</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataSourceCommandInput - {@link GetDataSourceCommandInput}
+ * @returns {@link GetDataSourceCommandOutput}
  * @see {@link GetDataSourceCommandInput} for command's `input` shape.
  * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSourceCommandOutput> {
     return deserializeAws_restJson1GetDataSourceCommand(output, context);
   }

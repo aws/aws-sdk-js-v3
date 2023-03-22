@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApnsVoipChannelCommand}.
  */
 export interface DeleteApnsVoipChannelCommandInput extends DeleteApnsVoipChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApnsVoipChannelCommand}.
  */
 export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChanne
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApnsVoipChannelCommandInput - {@link DeleteApnsVoipChannelCommandInput}
+ * @returns {@link DeleteApnsVoipChannelCommandOutput}
  * @see {@link DeleteApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteApnsVoipChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApnsVoipChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteApnsVoipChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteApnsVoipChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApnsVoipChannelCommandOutput> {
     return deserializeAws_restJson1DeleteApnsVoipChannelCommand(output, context);
   }

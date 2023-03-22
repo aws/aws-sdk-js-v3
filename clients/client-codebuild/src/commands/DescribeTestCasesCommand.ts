@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTestCasesCommand}.
  */
 export interface DescribeTestCasesCommandInput extends DescribeTestCasesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTestCasesCommand}.
  */
 export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a list of details about test cases for a report.
  *     </p>
@@ -48,6 +53,8 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTestCasesCommandInput - {@link DescribeTestCasesCommandInput}
+ * @returns {@link DescribeTestCasesCommandOutput}
  * @see {@link DescribeTestCasesCommandInput} for command's `input` shape.
  * @see {@link DescribeTestCasesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeTestCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTestCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeTestCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTestCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTestCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTestCasesCommandOutput> {
     return deserializeAws_json1_1DescribeTestCasesCommand(output, context);
   }

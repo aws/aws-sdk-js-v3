@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateKeyCommand}.
  */
 export interface UpdateKeyCommandInput extends UpdateKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateKeyCommand}.
  */
 export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given API key resource.</p>
  *          <important>
  *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -51,6 +56,8 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateKeyCommandInput - {@link UpdateKeyCommandInput}
+ * @returns {@link UpdateKeyCommandOutput}
  * @see {@link UpdateKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyCommandOutput> {
     return deserializeAws_restJson1UpdateKeyCommand(output, context);
   }

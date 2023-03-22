@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePortalCommand}.
  */
 export interface DeletePortalCommandInput extends DeletePortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePortalCommand}.
  */
 export interface DeletePortalCommandOutput extends DeletePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a portal from IoT SiteWise Monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePortalCommandInput - {@link DeletePortalCommandInput}
+ * @returns {@link DeletePortalCommandOutput}
  * @see {@link DeletePortalCommandInput} for command's `input` shape.
  * @see {@link DeletePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeletePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeletePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortalCommandOutput> {
     return deserializeAws_restJson1DeletePortalCommand(output, context);
   }

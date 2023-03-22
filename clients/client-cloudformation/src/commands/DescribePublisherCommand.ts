@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePublisherCommand}.
  */
 export interface DescribePublisherCommandInput extends DescribePublisherInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePublisherCommand}.
  */
 export interface DescribePublisherCommandOutput extends DescribePublisherOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a CloudFormation extension publisher.</p>
  *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
  *          publisher, <code>DescribePublisher</code> returns information about your own publisher
@@ -63,6 +68,8 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePublisherCommandInput - {@link DescribePublisherCommandInput}
+ * @returns {@link DescribePublisherCommandOutput}
  * @see {@link DescribePublisherCommandInput} for command's `input` shape.
  * @see {@link DescribePublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribePublisherCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePublisherCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribePublisherCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePublisherCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribePublisherCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePublisherCommandOutput> {
     return deserializeAws_queryDescribePublisherCommand(output, context);
   }

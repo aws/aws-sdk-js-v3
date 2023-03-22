@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFeatureCommand}.
  */
 export interface UpdateFeatureCommandInput extends UpdateFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFeatureCommand}.
  */
 export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing feature.</p>
  *          <p>You can't use this operation to update the tags of an existing feature. Instead, use
  *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -48,6 +53,8 @@ export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFeatureCommandInput - {@link UpdateFeatureCommandInput}
+ * @returns {@link UpdateFeatureCommandOutput}
  * @see {@link UpdateFeatureCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeatureCommandOutput> {
     return deserializeAws_restJson1UpdateFeatureCommand(output, context);
   }

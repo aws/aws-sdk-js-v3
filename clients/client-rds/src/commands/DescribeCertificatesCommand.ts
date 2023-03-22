@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificatesCommand}.
  */
 export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificatesCommand}.
  */
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
  *             instance</a> in the <i>Amazon RDS User Guide</i> and
@@ -51,6 +56,8 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificatesCommandInput - {@link DescribeCertificatesCommandInput}
+ * @returns {@link DescribeCertificatesCommandOutput}
  * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificatesCommandOutput> {
     return deserializeAws_queryDescribeCertificatesCommand(output, context);
   }

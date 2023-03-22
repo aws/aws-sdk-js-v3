@@ -23,15 +23,20 @@ import {
 import { deserializeAws_restJson1InvokeCommand, serializeAws_restJson1InvokeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InvokeCommand}.
  */
 export interface InvokeCommandInput extends InvocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link InvokeCommand}.
  */
 export interface InvokeCommandOutput extends InvocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or
  *       asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p>
  *          <p>For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html">synchronous invocation</a>,
@@ -67,6 +72,8 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeCommandInput - {@link InvokeCommandInput}
+ * @returns {@link InvokeCommandOutput}
  * @see {@link InvokeCommandInput} for command's `input` shape.
  * @see {@link InvokeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -186,6 +193,9 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeCommandInput) {
     // Start section: command_constructor
     super();
@@ -223,10 +233,16 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InvokeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeCommandOutput> {
     return deserializeAws_restJson1InvokeCommand(output, context);
   }

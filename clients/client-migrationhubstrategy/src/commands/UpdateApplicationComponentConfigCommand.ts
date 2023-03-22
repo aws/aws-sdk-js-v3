@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationComponentConfigCommand}.
  */
 export interface UpdateApplicationComponentConfigCommandInput extends UpdateApplicationComponentConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationComponentConfigCommand}.
  */
 export interface UpdateApplicationComponentConfigCommandOutput
@@ -41,6 +45,7 @@ export interface UpdateApplicationComponentConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the configuration of an application component. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationComponentConfigCommandInput - {@link UpdateApplicationComponentConfigCommandInput}
+ * @returns {@link UpdateApplicationComponentConfigCommandOutput}
  * @see {@link UpdateApplicationComponentConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationComponentConfigCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationComponentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApplicationComponentConfigCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
     return serializeAws_restJson1UpdateApplicationComponentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

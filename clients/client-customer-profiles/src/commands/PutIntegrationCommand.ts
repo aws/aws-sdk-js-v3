@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutIntegrationCommand}.
  */
 export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIntegrationCommand}.
  */
 export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an integration between the service and a third-party service, which includes
  *          Amazon AppFlow and Amazon Connect.</p>
  *          <p>An integration can belong to only one domain.</p>
@@ -51,6 +56,8 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIntegrationCommandInput - {@link PutIntegrationCommandInput}
+ * @returns {@link PutIntegrationCommandOutput}
  * @see {@link PutIntegrationCommandInput} for command's `input` shape.
  * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class PutIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntegrationCommandOutput> {
     return deserializeAws_restJson1PutIntegrationCommand(output, context);
   }

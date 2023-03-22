@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkloadSharesCommand}.
  */
 export interface ListWorkloadSharesCommandInput extends ListWorkloadSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkloadSharesCommand}.
  */
 export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the workload shares associated with the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkloadSharesCommandInput - {@link ListWorkloadSharesCommandInput}
+ * @returns {@link ListWorkloadSharesCommandOutput}
  * @see {@link ListWorkloadSharesCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListWorkloadSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkloadSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListWorkloadSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkloadSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorkloadSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkloadSharesCommandOutput> {
     return deserializeAws_restJson1ListWorkloadSharesCommand(output, context);
   }

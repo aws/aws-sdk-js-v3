@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTemplateVersionsCommand}.
  */
 export interface ListTemplateVersionsCommandInput extends ListTemplateVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTemplateVersionsCommand}.
  */
 export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the versions of a specific message template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplateVersionsCommandInput - {@link ListTemplateVersionsCommandInput}
+ * @returns {@link ListTemplateVersionsCommandOutput}
  * @see {@link ListTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateVersionsCommandOutput> {
     return deserializeAws_restJson1ListTemplateVersionsCommand(output, context);
   }

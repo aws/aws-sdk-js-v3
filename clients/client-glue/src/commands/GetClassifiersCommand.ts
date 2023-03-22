@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClassifiersCommand}.
  */
 export interface GetClassifiersCommandInput extends GetClassifiersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetClassifiersCommand}.
  */
 export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all classifier objects in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClassifiersCommandInput - {@link GetClassifiersCommandInput}
+ * @returns {@link GetClassifiersCommandOutput}
  * @see {@link GetClassifiersCommandInput} for command's `input` shape.
  * @see {@link GetClassifiersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetClassifiersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClassifiersCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetClassifiersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClassifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetClassifiersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClassifiersCommandOutput> {
     return deserializeAws_json1_1GetClassifiersCommand(output, context);
   }

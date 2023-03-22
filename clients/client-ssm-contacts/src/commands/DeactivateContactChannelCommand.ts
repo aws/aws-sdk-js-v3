@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateContactChannelCommand}.
  */
 export interface DeactivateContactChannelCommandInput extends DeactivateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateContactChannelCommand}.
  */
 export interface DeactivateContactChannelCommandOutput extends DeactivateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>To no longer receive Incident Manager engagements to a contact channel, you can deactivate
  *          the channel.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateContactChannelCommandInput - {@link DeactivateContactChannelCommandInput}
+ * @returns {@link DeactivateContactChannelCommandOutput}
  * @see {@link DeactivateContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeactivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeactivateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeactivateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeactivateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateContactChannelCommandOutput> {
     return deserializeAws_json1_1DeactivateContactChannelCommand(output, context);
   }

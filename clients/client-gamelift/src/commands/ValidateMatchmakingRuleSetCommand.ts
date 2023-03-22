@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateMatchmakingRuleSetCommand}.
  */
 export interface ValidateMatchmakingRuleSetCommandInput extends ValidateMatchmakingRuleSetInput {}
 /**
+ * @public
+ *
  * The output of {@link ValidateMatchmakingRuleSetCommand}.
  */
 export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
  *             rule set is using syntactically correct JSON and that it conforms to allowed property
  *             expressions. To validate syntax, provide a rule set JSON string.</p>
@@ -59,6 +64,8 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateMatchmakingRuleSetCommandInput - {@link ValidateMatchmakingRuleSetCommandInput}
+ * @returns {@link ValidateMatchmakingRuleSetCommandOutput}
  * @see {@link ValidateMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link ValidateMatchmakingRuleSetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +100,9 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateMatchmakingRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateMatchmakingRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ValidateMatchmakingRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

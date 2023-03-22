@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteMultipartUploadCommand}.
  */
 export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadInput {}
 /**
+ * @public
+ *
  * The output of {@link CompleteMultipartUploadCommand}.
  */
 export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You call this operation to inform Amazon S3 Glacier (Glacier) that all the archive parts have been
  *          uploaded and that Glacier can now assemble the archive from the uploaded parts.
  *          After assembling and saving the archive to the vault, Glacier returns the URI path
@@ -83,6 +88,8 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
+ * @returns {@link CompleteMultipartUploadCommandOutput}
  * @see {@link CompleteMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -141,6 +148,9 @@ export class CompleteMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class CompleteMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CompleteMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMultipartUploadCommandOutput> {
     return deserializeAws_restJson1CompleteMultipartUploadCommand(output, context);
   }

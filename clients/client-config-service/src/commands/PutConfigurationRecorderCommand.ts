@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationRecorderCommand}.
  */
 export interface PutConfigurationRecorderCommandInput extends PutConfigurationRecorderRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationRecorderCommand}.
  */
 export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new configuration recorder to record the selected
  * 			resource configurations.</p>
  *          <p>You can use this action to change the role <code>roleARN</code>
@@ -54,6 +59,8 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationRecorderCommandInput - {@link PutConfigurationRecorderCommandInput}
+ * @returns {@link PutConfigurationRecorderCommandOutput}
  * @see {@link PutConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class PutConfigurationRecorderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationRecorderCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class PutConfigurationRecorderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConfigurationRecorderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigurationRecorderCommandOutput> {
     return deserializeAws_json1_1PutConfigurationRecorderCommand(output, context);
   }

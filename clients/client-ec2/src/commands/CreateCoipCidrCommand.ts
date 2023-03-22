@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateCoipCidrCommand, serializeAws_ec2CreateCoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCoipCidrCommand}.
  */
 export interface CreateCoipCidrCommandInput extends CreateCoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCoipCidrCommand}.
  */
 export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *      Creates a range of customer-owned IP addresses.
  *       </p>
@@ -45,6 +50,8 @@ export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCoipCidrCommandInput - {@link CreateCoipCidrCommandInput}
+ * @returns {@link CreateCoipCidrCommandOutput}
  * @see {@link CreateCoipCidrCommandInput} for command's `input` shape.
  * @see {@link CreateCoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class CreateCoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class CreateCoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateCoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCoipCidrCommandOutput> {
     return deserializeAws_ec2CreateCoipCidrCommand(output, context);
   }

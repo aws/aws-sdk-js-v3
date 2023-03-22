@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReportGroupTrendCommand}.
  */
 export interface GetReportGroupTrendCommandInput extends GetReportGroupTrendInput {}
 /**
+ * @public
+ *
  * The output of {@link GetReportGroupTrendCommand}.
  */
 export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes and accumulates test report values for the specified test reports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReportGroupTrendCommandInput - {@link GetReportGroupTrendCommandInput}
+ * @returns {@link GetReportGroupTrendCommandOutput}
  * @see {@link GetReportGroupTrendCommandInput} for command's `input` shape.
  * @see {@link GetReportGroupTrendCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetReportGroupTrendCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReportGroupTrendCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetReportGroupTrendCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReportGroupTrendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReportGroupTrendCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReportGroupTrendCommandOutput> {
     return deserializeAws_json1_1GetReportGroupTrendCommand(output, context);
   }

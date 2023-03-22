@@ -26,15 +26,20 @@ import {
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSavingsPlanCommand}.
  */
 export interface CreateSavingsPlanCommandInput extends CreateSavingsPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSavingsPlanCommand}.
  */
 export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Savings Plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSavingsPlanCommandInput - {@link CreateSavingsPlanCommandInput}
+ * @returns {@link CreateSavingsPlanCommandOutput}
  * @see {@link CreateSavingsPlanCommandInput} for command's `input` shape.
  * @see {@link CreateSavingsPlanCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateSavingsPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSavingsPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateSavingsPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSavingsPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSavingsPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSavingsPlanCommandOutput> {
     return deserializeAws_restJson1CreateSavingsPlanCommand(output, context);
   }

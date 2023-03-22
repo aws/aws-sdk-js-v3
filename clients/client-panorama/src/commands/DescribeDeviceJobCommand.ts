@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeviceJobCommand}.
  */
 export interface DescribeDeviceJobCommandInput extends DescribeDeviceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeviceJobCommand}.
  */
 export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a device job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeviceJobCommandInput - {@link DescribeDeviceJobCommandInput}
+ * @returns {@link DescribeDeviceJobCommandOutput}
  * @see {@link DescribeDeviceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeDeviceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeviceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeDeviceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeviceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDeviceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeviceJobCommandOutput> {
     return deserializeAws_restJson1DescribeDeviceJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFederationTokenCommand}.
  */
 export interface GetFederationTokenCommandInput extends GetFederationTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFederationTokenCommand}.
  */
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a token for federation.</p>
  *          <note>
  *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root
@@ -54,6 +59,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
+ * @returns {@link GetFederationTokenCommandOutput}
  * @see {@link GetFederationTokenCommandInput} for command's `input` shape.
  * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetFederationTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFederationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetFederationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFederationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
     return deserializeAws_restJson1GetFederationTokenCommand(output, context);
   }

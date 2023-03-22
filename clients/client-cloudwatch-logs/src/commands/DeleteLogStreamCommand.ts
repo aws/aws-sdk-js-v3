@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLogStreamCommand}.
  */
 export interface DeleteLogStreamCommandInput extends DeleteLogStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLogStreamCommand}.
  */
 export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified log stream and permanently deletes all the archived log events associated
  *       with the log stream.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLogStreamCommandInput - {@link DeleteLogStreamCommandInput}
+ * @returns {@link DeleteLogStreamCommandOutput}
  * @see {@link DeleteLogStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteLogStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteLogStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLogStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteLogStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLogStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLogStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogStreamCommandOutput> {
     return deserializeAws_json1_1DeleteLogStreamCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMatchmakingRuleSetCommand}.
  */
 export interface DeleteMatchmakingRuleSetCommandInput extends DeleteMatchmakingRuleSetInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMatchmakingRuleSetCommand}.
  */
 export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set
  *             name. Rule sets cannot be deleted if they are currently being used by a matchmaking
  *             configuration. </p>
@@ -59,6 +64,8 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMatchmakingRuleSetCommandInput - {@link DeleteMatchmakingRuleSetCommandInput}
+ * @returns {@link DeleteMatchmakingRuleSetCommandOutput}
  * @see {@link DeleteMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link DeleteMatchmakingRuleSetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMatchmakingRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMatchmakingRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMatchmakingRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMatchmakingRuleSetCommandOutput> {
     return deserializeAws_json1_1DeleteMatchmakingRuleSetCommand(output, context);
   }

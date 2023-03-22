@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProfileObjectTypeTemplateCommand}.
  */
 export interface GetProfileObjectTypeTemplateCommandInput extends GetProfileObjectTypeTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProfileObjectTypeTemplateCommand}.
  */
 export interface GetProfileObjectTypeTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface GetProfileObjectTypeTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the template information for a specific object type.</p>
  *          <p>A template is a predefined ProfileObjectType, such as “Salesforce-Account” or
  *          “Salesforce-Contact.” When a user sends a ProfileObject, using the PutProfileObject API,
@@ -52,6 +57,8 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileObjectTypeTemplateCommandInput - {@link GetProfileObjectTypeTemplateCommandInput}
+ * @returns {@link GetProfileObjectTypeTemplateCommandOutput}
  * @see {@link GetProfileObjectTypeTemplateCommandInput} for command's `input` shape.
  * @see {@link GetProfileObjectTypeTemplateCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileObjectTypeTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileObjectTypeTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetProfileObjectTypeTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceShareCommand}.
  */
 export interface UpdateResourceShareCommandInput extends UpdateResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceShareCommand}.
  */
 export interface UpdateResourceShareCommandOutput extends UpdateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies some of the properties of the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceShareCommandInput - {@link UpdateResourceShareCommandInput}
+ * @returns {@link UpdateResourceShareCommandOutput}
  * @see {@link UpdateResourceShareCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceShareCommandOutput> {
     return deserializeAws_restJson1UpdateResourceShareCommand(output, context);
   }

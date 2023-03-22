@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFromAdministratorAccountCommand}.
  */
 export interface DisassociateFromAdministratorAccountCommandInput extends DisassociateFromAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFromAdministratorAccountCommand}.
  */
 export interface DisassociateFromAdministratorAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a member account from its Amazon Macie administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromAdministratorAccountCommandInput - {@link DisassociateFromAdministratorAccountCommandInput}
+ * @returns {@link DisassociateFromAdministratorAccountCommandOutput}
  * @see {@link DisassociateFromAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateFromAdministratorAccountCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     return serializeAws_restJson1DisassociateFromAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

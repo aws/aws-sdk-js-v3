@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableImportFindingsForProductCommand}.
  */
 export interface DisableImportFindingsForProductCommandInput extends DisableImportFindingsForProductRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableImportFindingsForProductCommand}.
  */
 export interface DisableImportFindingsForProductCommandOutput
@@ -37,6 +41,7 @@ export interface DisableImportFindingsForProductCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the integration of the specified product with Security Hub. After the integration is
  *          disabled, findings from that product are no longer sent to Security Hub.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DisableImportFindingsForProductCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableImportFindingsForProductCommandInput - {@link DisableImportFindingsForProductCommandInput}
+ * @returns {@link DisableImportFindingsForProductCommandOutput}
  * @see {@link DisableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link DisableImportFindingsForProductCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisableImportFindingsForProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableImportFindingsForProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DisableImportFindingsForProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableImportFindingsForProductCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DisableImportFindingsForProductCommand extends $Command<
     return serializeAws_restJson1DisableImportFindingsForProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

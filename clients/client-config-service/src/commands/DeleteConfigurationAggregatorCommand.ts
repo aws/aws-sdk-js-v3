@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationAggregatorCommand}.
  */
 export interface DeleteConfigurationAggregatorCommandInput extends DeleteConfigurationAggregatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationAggregatorCommand}.
  */
 export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified configuration aggregator and the
  * 			aggregated data associated with the aggregator.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationAggregatorCommandInput - {@link DeleteConfigurationAggregatorCommandInput}
+ * @returns {@link DeleteConfigurationAggregatorCommandOutput}
  * @see {@link DeleteConfigurationAggregatorCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConfigurationAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

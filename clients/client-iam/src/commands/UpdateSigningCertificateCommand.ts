@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSigningCertificateCommand}.
  */
 export interface UpdateSigningCertificateCommandInput extends UpdateSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSigningCertificateCommand}.
  */
 export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the status of the specified user signing certificate from active to disabled,
  *             or vice versa. This operation can be used to disable an IAM user's signing
  *             certificate as part of a certificate rotation work flow.</p>
@@ -48,6 +53,8 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSigningCertificateCommandInput - {@link UpdateSigningCertificateCommandInput}
+ * @returns {@link UpdateSigningCertificateCommandOutput}
  * @see {@link UpdateSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSigningCertificateCommandOutput> {
     return deserializeAws_queryUpdateSigningCertificateCommand(output, context);
   }

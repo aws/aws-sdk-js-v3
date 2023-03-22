@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionDefinitionCommand}.
  */
 export interface DeleteSubscriptionDefinitionCommandInput extends DeleteSubscriptionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionDefinitionCommand}.
  */
 export interface DeleteSubscriptionDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteSubscriptionDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a subscription definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionDefinitionCommandInput - {@link DeleteSubscriptionDefinitionCommandInput}
+ * @returns {@link DeleteSubscriptionDefinitionCommandOutput}
  * @see {@link DeleteSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSubscriptionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

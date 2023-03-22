@@ -15,6 +15,9 @@ import {
   Warning,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface UpdateQuerySuggestionsConfigRequest {
   /**
    * <p> The identifier of the index with query suggestions you want to update.</p>
@@ -75,6 +78,9 @@ export interface UpdateQuerySuggestionsConfigRequest {
   MinimumQueryCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThesaurusRequest {
   /**
    * <p>The identifier of the thesaurus you want to update.</p>
@@ -109,6 +115,7 @@ export interface UpdateThesaurusRequest {
 }
 
 /**
+ * @public
  * <p>Information about a document attribute. You can use document
  *          attributes as facets.</p>
  *          <p>For example, the document attribute or facet "Department" includes
@@ -146,6 +153,7 @@ export interface Facet {
 }
 
 /**
+ * @public
  * <p>Provides the count of documents that match a particular attribute when doing a faceted
  *             search.</p>
  */
@@ -177,6 +185,7 @@ export interface DocumentAttributeValueCountPair {
 }
 
 /**
+ * @public
  * <p>The facet values for the documents in the response.</p>
  */
 export interface FacetResult {
@@ -201,6 +210,7 @@ export interface FacetResult {
 }
 
 /**
+ * @public
  * <p>Provides filtering the query results based on document
  *          attributes or metadata fields.</p>
  *          <p>When you use the <code>AndAllFilters</code> or
@@ -297,6 +307,9 @@ export interface AttributeFilter {
   LessThanOrEquals?: DocumentAttribute;
 }
 
+/**
+ * @public
+ */
 export interface QueryResult {
   /**
    * <p>The identifier for the search. You use <code>QueryId</code> to identify the
@@ -336,6 +349,9 @@ export interface QueryResult {
   SpellCorrectedQueries?: SpellCorrectedQuery[];
 }
 
+/**
+ * @public
+ */
 export interface QueryRequest {
   /**
    * <p>The identifier of the index to search. The identifier is returned in the response

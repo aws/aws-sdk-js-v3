@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackendAPIModelsCommand}.
  */
 export interface GetBackendAPIModelsCommandInput extends GetBackendAPIModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBackendAPIModelsCommand}.
  */
 export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a model introspection schema for an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackendAPIModelsCommandInput - {@link GetBackendAPIModelsCommandInput}
+ * @returns {@link GetBackendAPIModelsCommandOutput}
  * @see {@link GetBackendAPIModelsCommandInput} for command's `input` shape.
  * @see {@link GetBackendAPIModelsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetBackendAPIModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackendAPIModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetBackendAPIModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackendAPIModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackendAPIModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendAPIModelsCommandOutput> {
     return deserializeAws_restJson1GetBackendAPIModelsCommand(output, context);
   }

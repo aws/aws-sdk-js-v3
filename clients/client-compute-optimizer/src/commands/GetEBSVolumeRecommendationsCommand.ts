@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEBSVolumeRecommendationsCommand}.
  */
 export interface GetEBSVolumeRecommendationsCommandInput extends GetEBSVolumeRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEBSVolumeRecommendationsCommand}.
  */
 export interface GetEBSVolumeRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetEBSVolumeRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon EBS volumes that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
@@ -52,6 +57,8 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEBSVolumeRecommendationsCommandInput - {@link GetEBSVolumeRecommendationsCommandInput}
+ * @returns {@link GetEBSVolumeRecommendationsCommandOutput}
  * @see {@link GetEBSVolumeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetEBSVolumeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetEBSVolumeRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEBSVolumeRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetEBSVolumeRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEBSVolumeRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetEBSVolumeRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

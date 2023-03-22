@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutContactPolicyCommand}.
  */
 export interface PutContactPolicyCommandInput extends PutContactPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutContactPolicyCommand}.
  */
 export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a resource policy to the specified contact or escalation plan. The resource policy
  *          is used to share the contact or escalation plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting up
  *             cross-account functionality</a>.</p>
@@ -48,6 +53,8 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContactPolicyCommandInput - {@link PutContactPolicyCommandInput}
+ * @returns {@link PutContactPolicyCommandOutput}
  * @see {@link PutContactPolicyCommandInput} for command's `input` shape.
  * @see {@link PutContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -103,6 +110,9 @@ export class PutContactPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContactPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class PutContactPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContactPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutContactPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContactPolicyCommandOutput> {
     return deserializeAws_json1_1PutContactPolicyCommand(output, context);
   }

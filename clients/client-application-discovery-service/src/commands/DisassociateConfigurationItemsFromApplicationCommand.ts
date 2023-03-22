@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
 export interface DisassociateConfigurationItemsFromApplicationCommandInput
   extends DisassociateConfigurationItemsFromApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
 export interface DisassociateConfigurationItemsFromApplicationCommandOutput
@@ -42,6 +46,7 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates one or more configuration items from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConfigurationItemsFromApplicationCommandInput - {@link DisassociateConfigurationItemsFromApplicationCommandInput}
+ * @returns {@link DisassociateConfigurationItemsFromApplicationCommandOutput}
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandInput} for command's `input` shape.
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -93,6 +100,9 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConfigurationItemsFromApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateConfigurationItemsFromApplicationCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     return serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

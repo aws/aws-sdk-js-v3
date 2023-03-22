@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuildsForProjectCommand}.
  */
 export interface ListBuildsForProjectCommandInput extends ListBuildsForProjectInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBuildsForProjectCommand}.
  */
 export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of build identifiers for the specified build project, with each build
  *             identifier representing a single build.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildsForProjectCommandInput - {@link ListBuildsForProjectCommandInput}
+ * @returns {@link ListBuildsForProjectCommandOutput}
  * @see {@link ListBuildsForProjectCommandInput} for command's `input` shape.
  * @see {@link ListBuildsForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListBuildsForProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildsForProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListBuildsForProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildsForProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBuildsForProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuildsForProjectCommandOutput> {
     return deserializeAws_json1_1ListBuildsForProjectCommand(output, context);
   }

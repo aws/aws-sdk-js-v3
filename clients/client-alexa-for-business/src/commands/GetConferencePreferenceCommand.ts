@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConferencePreferenceCommand}.
  */
 export interface GetConferencePreferenceCommandInput extends GetConferencePreferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConferencePreferenceCommand}.
  */
 export interface GetConferencePreferenceCommandOutput extends GetConferencePreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the existing conference preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConferencePreferenceCommandInput - {@link GetConferencePreferenceCommandInput}
+ * @returns {@link GetConferencePreferenceCommandOutput}
  * @see {@link GetConferencePreferenceCommandInput} for command's `input` shape.
  * @see {@link GetConferencePreferenceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetConferencePreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConferencePreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetConferencePreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConferencePreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetConferencePreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConferencePreferenceCommandOutput> {
     return deserializeAws_json1_1GetConferencePreferenceCommand(output, context);
   }

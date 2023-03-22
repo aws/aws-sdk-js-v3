@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRunsCommand}.
  */
 export interface ListRunsCommandInput extends ListRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRunsCommand}.
  */
 export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of runs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRunsCommandInput - {@link ListRunsCommandInput}
+ * @returns {@link ListRunsCommandOutput}
  * @see {@link ListRunsCommandInput} for command's `input` shape.
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListRunsCommand extends $Command<ListRunsCommandInput, ListRunsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListRunsCommand extends $Command<ListRunsCommandInput, ListRunsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunsCommandOutput> {
     return deserializeAws_restJson1ListRunsCommand(output, context);
   }

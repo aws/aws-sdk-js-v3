@@ -10,7 +10,7 @@ import { EMRServerlessClient } from "../EMRServerlessClient";
 import { EMRServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRServerlessClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListApplications(
   config: EMRServerlessPaginationConfiguration,
   input: ListApplicationsCommandInput,

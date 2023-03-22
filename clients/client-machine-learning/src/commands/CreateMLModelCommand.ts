@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMLModelCommand}.
  */
 export interface CreateMLModelCommandInput extends CreateMLModelInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMLModelCommand}.
  */
 export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
  *             information sources. </p>
  *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
@@ -65,6 +70,8 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMLModelCommandInput - {@link CreateMLModelCommandInput}
+ * @returns {@link CreateMLModelCommandOutput}
  * @see {@link CreateMLModelCommandInput} for command's `input` shape.
  * @see {@link CreateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMLModelCommandOutput> {
     return deserializeAws_json1_1CreateMLModelCommand(output, context);
   }

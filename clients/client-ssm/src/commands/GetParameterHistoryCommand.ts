@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetParameterHistoryCommand}.
  */
 export interface GetParameterHistoryCommandInput extends GetParameterHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetParameterHistoryCommand}.
  */
 export interface GetParameterHistoryCommandOutput extends GetParameterHistoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the history of all changes to a parameter.</p>
  *          <important>
  *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must
@@ -52,6 +57,8 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetParameterHistoryCommandInput - {@link GetParameterHistoryCommandInput}
+ * @returns {@link GetParameterHistoryCommandOutput}
  * @see {@link GetParameterHistoryCommandInput} for command's `input` shape.
  * @see {@link GetParameterHistoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetParameterHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetParameterHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetParameterHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetParameterHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetParameterHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParameterHistoryCommandOutput> {
     return deserializeAws_json1_1GetParameterHistoryCommand(output, context);
   }

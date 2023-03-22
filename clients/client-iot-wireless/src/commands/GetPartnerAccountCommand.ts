@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPartnerAccountCommand}.
  */
 export interface GetPartnerAccountCommandInput extends GetPartnerAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPartnerAccountCommand}.
  */
 export interface GetPartnerAccountCommandOutput extends GetPartnerAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPartnerAccountCommandInput - {@link GetPartnerAccountCommandInput}
+ * @returns {@link GetPartnerAccountCommandOutput}
  * @see {@link GetPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link GetPartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetPartnerAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPartnerAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetPartnerAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPartnerAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPartnerAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartnerAccountCommandOutput> {
     return deserializeAws_restJson1GetPartnerAccountCommand(output, context);
   }

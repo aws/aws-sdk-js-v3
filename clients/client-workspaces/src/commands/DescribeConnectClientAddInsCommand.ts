@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectClientAddInsCommand}.
  */
 export interface DescribeConnectClientAddInsCommandInput extends DescribeConnectClientAddInsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectClientAddInsCommand}.
  */
 export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnectClientAddInsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of Amazon Connect client add-ins that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectClientAddInsCommandInput - {@link DescribeConnectClientAddInsCommandInput}
+ * @returns {@link DescribeConnectClientAddInsCommandOutput}
  * @see {@link DescribeConnectClientAddInsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectClientAddInsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeConnectClientAddInsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectClientAddInsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeConnectClientAddInsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectClientAddInsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConnectClientAddInsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

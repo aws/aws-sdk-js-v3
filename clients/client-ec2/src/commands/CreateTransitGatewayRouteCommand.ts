@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayRouteCommand}.
  */
 export interface CreateTransitGatewayRouteCommandInput extends CreateTransitGatewayRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayRouteCommand}.
  */
 export interface CreateTransitGatewayRouteCommandOutput extends CreateTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a static route for the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateTransitGatewayRouteCommandOutput extends CreateTransitGat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayRouteCommandInput - {@link CreateTransitGatewayRouteCommandInput}
+ * @returns {@link CreateTransitGatewayRouteCommandOutput}
  * @see {@link CreateTransitGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class CreateTransitGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreateTransitGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransitGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTransitGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

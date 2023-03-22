@@ -10,7 +10,7 @@ import { ForecastClient } from "../ForecastClient";
 import { ForecastPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ForecastClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExplainabilityExportsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExplainabilityExports(
   config: ForecastPaginationConfiguration,
   input: ListExplainabilityExportsCommandInput,

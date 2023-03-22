@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVolumeCommand}.
  */
 export interface DeleteVolumeCommandInput extends DeleteVolumeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVolumeCommand}.
  */
 export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
  *          This operation is only supported in the cached volume and stored volume types. For stored
  *          volume gateways, the local disk that was configured as the storage volume is not deleted.
@@ -58,6 +63,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
+ * @returns {@link DeleteVolumeCommandOutput}
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -105,6 +112,9 @@ export class DeleteVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class DeleteVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVolumeCommandOutput> {
     return deserializeAws_json1_1DeleteVolumeCommand(output, context);
   }

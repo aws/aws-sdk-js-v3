@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelMulticastGroupSessionCommand}.
  */
 export interface CancelMulticastGroupSessionCommandInput extends CancelMulticastGroupSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelMulticastGroupSessionCommand}.
  */
 export interface CancelMulticastGroupSessionCommandOutput
@@ -37,6 +41,7 @@ export interface CancelMulticastGroupSessionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an existing multicast group session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CancelMulticastGroupSessionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelMulticastGroupSessionCommandInput - {@link CancelMulticastGroupSessionCommandInput}
+ * @returns {@link CancelMulticastGroupSessionCommandOutput}
  * @see {@link CancelMulticastGroupSessionCommandInput} for command's `input` shape.
  * @see {@link CancelMulticastGroupSessionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +96,9 @@ export class CancelMulticastGroupSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelMulticastGroupSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CancelMulticastGroupSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelMulticastGroupSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelMulticastGroupSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

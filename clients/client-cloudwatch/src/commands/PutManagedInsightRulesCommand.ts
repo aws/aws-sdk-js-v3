@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutManagedInsightRulesCommand}.
  */
 export interface PutManagedInsightRulesCommandInput extends PutManagedInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link PutManagedInsightRulesCommand}.
  */
 export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Creates a managed Contributor Insights rule
  * 			for a specified Amazon Web Services resource.
@@ -62,6 +67,8 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * const response = await client.send(command);
  * ```
  *
+ * @param PutManagedInsightRulesCommandInput - {@link PutManagedInsightRulesCommandInput}
+ * @returns {@link PutManagedInsightRulesCommandOutput}
  * @see {@link PutManagedInsightRulesCommandInput} for command's `input` shape.
  * @see {@link PutManagedInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -91,6 +98,9 @@ export class PutManagedInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutManagedInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class PutManagedInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutManagedInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutManagedInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutManagedInsightRulesCommandOutput> {
     return deserializeAws_queryPutManagedInsightRulesCommand(output, context);
   }

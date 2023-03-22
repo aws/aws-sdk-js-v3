@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingProcessTypesCommand}.
  */
 export interface DescribeScalingProcessTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingProcessTypesCommand}.
  */
 export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
  *             and <a>SuspendProcesses</a> APIs.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingProcessTypesCommandInput - {@link DescribeScalingProcessTypesCommandInput}
+ * @returns {@link DescribeScalingProcessTypesCommandOutput}
  * @see {@link DescribeScalingProcessTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingProcessTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -108,6 +115,9 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingProcessTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingProcessTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScalingProcessTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStackCommand}.
  */
 export interface CreateStackCommandInput extends CreateStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStackCommand}.
  */
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackCommandInput - {@link CreateStackCommandInput}
+ * @returns {@link CreateStackCommandOutput}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
     return deserializeAws_json1_1CreateStackCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceSpecificCredentialsCommand}.
  */
 export interface ListServiceSpecificCredentialsCommandInput extends ListServiceSpecificCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceSpecificCredentialsCommand}.
  */
 export interface ListServiceSpecificCredentialsCommandOutput
@@ -37,6 +41,7 @@ export interface ListServiceSpecificCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the service-specific credentials associated with the
  *             specified IAM user. If none exists, the operation returns an empty list. The
  *             service-specific credentials returned by this operation are used only for authenticating
@@ -53,6 +58,8 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceSpecificCredentialsCommandInput - {@link ListServiceSpecificCredentialsCommandInput}
+ * @returns {@link ListServiceSpecificCredentialsCommandOutput}
  * @see {@link ListServiceSpecificCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListServiceSpecificCredentialsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceSpecificCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServiceSpecificCredentialsCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     return serializeAws_queryListServiceSpecificCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

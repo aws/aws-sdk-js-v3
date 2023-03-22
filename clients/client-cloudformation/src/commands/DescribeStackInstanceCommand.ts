@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackInstanceCommand}.
  */
 export interface DescribeStackInstanceCommandInput extends DescribeStackInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackInstanceCommand}.
  */
 export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the stack instance that's associated with the specified stack set, Amazon Web Services account, and Region.</p>
  *          <p>For a list of stack instances that are associated with a specific stack set, use <a>ListStackInstances</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackInstanceCommandInput - {@link DescribeStackInstanceCommandInput}
+ * @returns {@link DescribeStackInstanceCommandOutput}
  * @see {@link DescribeStackInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeStackInstanceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeStackInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeStackInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStackInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackInstanceCommandOutput> {
     return deserializeAws_queryDescribeStackInstanceCommand(output, context);
   }

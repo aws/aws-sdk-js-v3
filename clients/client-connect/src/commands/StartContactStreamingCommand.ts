@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartContactStreamingCommand}.
  */
 export interface StartContactStreamingCommandInput extends StartContactStreamingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartContactStreamingCommand}.
  */
 export interface StartContactStreamingCommandOutput extends StartContactStreamingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Initiates real-time message streaming for a new chat contact.</p>
  *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
  *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContactStreamingCommandInput - {@link StartContactStreamingCommandInput}
+ * @returns {@link StartContactStreamingCommandOutput}
  * @see {@link StartContactStreamingCommandInput} for command's `input` shape.
  * @see {@link StartContactStreamingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartContactStreamingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContactStreamingCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartContactStreamingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContactStreamingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartContactStreamingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContactStreamingCommandOutput> {
     return deserializeAws_restJson1StartContactStreamingCommand(output, context);
   }

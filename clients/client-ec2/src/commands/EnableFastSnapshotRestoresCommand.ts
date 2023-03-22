@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableFastSnapshotRestoresCommand}.
  */
 export interface EnableFastSnapshotRestoresCommandInput extends EnableFastSnapshotRestoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableFastSnapshotRestoresCommand}.
  */
 export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
  *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.
  *       To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
@@ -51,6 +56,8 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableFastSnapshotRestoresCommandInput - {@link EnableFastSnapshotRestoresCommandInput}
+ * @returns {@link EnableFastSnapshotRestoresCommandOutput}
  * @see {@link EnableFastSnapshotRestoresCommandInput} for command's `input` shape.
  * @see {@link EnableFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableFastSnapshotRestoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableFastSnapshotRestoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EnableFastSnapshotRestoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

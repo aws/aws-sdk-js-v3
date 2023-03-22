@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcesSummaryCommand}.
  */
 export interface GetResourcesSummaryCommandInput extends GetResourcesSummaryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcesSummaryCommand}.
  */
 export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get counts of Proton resources.</p>
  *          <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action
  *    returns staleness counts. A resource is stale when it's behind the recommended version of the Proton template that it
@@ -55,6 +60,8 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcesSummaryCommandInput - {@link GetResourcesSummaryCommandInput}
+ * @returns {@link GetResourcesSummaryCommandOutput}
  * @see {@link GetResourcesSummaryCommandInput} for command's `input` shape.
  * @see {@link GetResourcesSummaryCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetResourcesSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcesSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetResourcesSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcesSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetResourcesSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcesSummaryCommandOutput> {
     return deserializeAws_json1_0GetResourcesSummaryCommand(output, context);
   }

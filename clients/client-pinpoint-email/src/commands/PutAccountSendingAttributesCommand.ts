@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountSendingAttributesCommand}.
  */
 export interface PutAccountSendingAttributesCommandInput extends PutAccountSendingAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountSendingAttributesCommand}.
  */
 export interface PutAccountSendingAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface PutAccountSendingAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable the ability of your account to send email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutAccountSendingAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSendingAttributesCommandInput - {@link PutAccountSendingAttributesCommandInput}
+ * @returns {@link PutAccountSendingAttributesCommandOutput}
  * @see {@link PutAccountSendingAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSendingAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -77,6 +84,9 @@ export class PutAccountSendingAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSendingAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class PutAccountSendingAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountSendingAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutAccountSendingAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

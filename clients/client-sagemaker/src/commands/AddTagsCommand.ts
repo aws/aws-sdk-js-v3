@@ -23,15 +23,20 @@ import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsComman
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsCommand}.
  */
 export interface AddTagsCommandInput extends AddTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsCommand}.
  */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add
  *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
  *             jobs, models, labeling jobs, work teams, endpoint configurations, and
@@ -67,6 +72,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -86,6 +93,9 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
     return deserializeAws_json1_1AddTagsCommand(output, context);
   }

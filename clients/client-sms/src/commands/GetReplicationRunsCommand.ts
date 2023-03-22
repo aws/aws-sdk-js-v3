@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReplicationRunsCommand}.
  */
 export interface GetReplicationRunsCommandInput extends GetReplicationRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReplicationRunsCommand}.
  */
 export interface GetReplicationRunsCommandOutput extends GetReplicationRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the replication runs for the specified replication job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetReplicationRunsCommandOutput extends GetReplicationRunsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReplicationRunsCommandInput - {@link GetReplicationRunsCommandInput}
+ * @returns {@link GetReplicationRunsCommandOutput}
  * @see {@link GetReplicationRunsCommandInput} for command's `input` shape.
  * @see {@link GetReplicationRunsCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetReplicationRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReplicationRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetReplicationRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReplicationRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReplicationRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReplicationRunsCommandOutput> {
     return deserializeAws_json1_1GetReplicationRunsCommand(output, context);
   }

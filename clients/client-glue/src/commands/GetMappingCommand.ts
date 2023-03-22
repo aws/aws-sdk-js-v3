@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMappingCommand}.
  */
 export interface GetMappingCommandInput extends GetMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMappingCommand}.
  */
 export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMappingCommandInput - {@link GetMappingCommandInput}
+ * @returns {@link GetMappingCommandOutput}
  * @see {@link GetMappingCommandInput} for command's `input` shape.
  * @see {@link GetMappingCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMappingCommandOutput> {
     return deserializeAws_json1_1GetMappingCommand(output, context);
   }

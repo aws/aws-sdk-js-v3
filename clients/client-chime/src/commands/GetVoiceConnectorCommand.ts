@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorCommand}.
  */
 export interface GetVoiceConnectorCommandInput extends GetVoiceConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorCommand}.
  */
 export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name, outbound host, and encryption requirements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorCommandInput - {@link GetVoiceConnectorCommandInput}
+ * @returns {@link GetVoiceConnectorCommandOutput}
  * @see {@link GetVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetVoiceConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetVoiceConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVoiceConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorCommandOutput> {
     return deserializeAws_restJson1GetVoiceConnectorCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSchemaCommand}.
  */
 export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSchemaCommand}.
  */
 export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a schema definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
+ * @returns {@link DeleteSchemaCommandOutput}
  * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchemaCommandOutput> {
     return deserializeAws_restJson1DeleteSchemaCommand(output, context);
   }

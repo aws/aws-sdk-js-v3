@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSimulationJobBatchCommand}.
  */
 export interface StartSimulationJobBatchCommandInput extends StartSimulationJobBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSimulationJobBatchCommand}.
  */
 export interface StartSimulationJobBatchCommandOutput extends StartSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new simulation job batch. The batch is defined using one or more
  *             <code>SimulationJobRequest</code> objects. </p>
  * @example
@@ -47,6 +52,8 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSimulationJobBatchCommandInput - {@link StartSimulationJobBatchCommandInput}
+ * @returns {@link StartSimulationJobBatchCommandOutput}
  * @see {@link StartSimulationJobBatchCommandInput} for command's `input` shape.
  * @see {@link StartSimulationJobBatchCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -88,6 +95,9 @@ export class StartSimulationJobBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSimulationJobBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StartSimulationJobBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSimulationJobBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartSimulationJobBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSimulationJobBatchCommandOutput> {
     return deserializeAws_restJson1StartSimulationJobBatchCommand(output, context);
   }

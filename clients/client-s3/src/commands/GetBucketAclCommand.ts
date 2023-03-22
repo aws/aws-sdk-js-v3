@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketAclCommand}.
  */
 export interface GetBucketAclCommandInput extends GetBucketAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketAclCommand}.
  */
 export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the <code>GET</code> action uses the <code>acl</code>
  *          subresource to return the access control list (ACL) of a bucket. To use <code>GET</code> to
  *          return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
@@ -67,6 +72,8 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketAclCommandInput - {@link GetBucketAclCommandInput}
+ * @returns {@link GetBucketAclCommandOutput}
  * @see {@link GetBucketAclCommandInput} for command's `input` shape.
  * @see {@link GetBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -96,6 +103,9 @@ export class GetBucketAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class GetBucketAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketAclCommandOutput> {
     return deserializeAws_restXmlGetBucketAclCommand(output, context);
   }

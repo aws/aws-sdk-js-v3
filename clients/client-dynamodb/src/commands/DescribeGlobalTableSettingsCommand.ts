@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGlobalTableSettingsCommand}.
  */
 export interface DescribeGlobalTableSettingsCommandInput extends DescribeGlobalTableSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGlobalTableSettingsCommand}.
  */
 export interface DescribeGlobalTableSettingsCommandOutput extends DescribeGlobalTableSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes Region-specific settings for a global table.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -58,6 +63,8 @@ export interface DescribeGlobalTableSettingsCommandOutput extends DescribeGlobal
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalTableSettingsCommandInput - {@link DescribeGlobalTableSettingsCommandInput}
+ * @returns {@link DescribeGlobalTableSettingsCommandOutput}
  * @see {@link DescribeGlobalTableSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalTableSettingsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeGlobalTableSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalTableSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeGlobalTableSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalTableSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeGlobalTableSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

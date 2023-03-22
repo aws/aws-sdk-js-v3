@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAliasCommand}.
  */
 export interface GetAliasCommandInput extends GetAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAliasCommand}.
  */
 export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAliasCommandInput - {@link GetAliasCommandInput}
+ * @returns {@link GetAliasCommandOutput}
  * @see {@link GetAliasCommandInput} for command's `input` shape.
  * @see {@link GetAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAliasCommandOutput> {
     return deserializeAws_restJson1GetAliasCommand(output, context);
   }

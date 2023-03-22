@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventPredictionCommand}.
  */
 export interface GetEventPredictionCommandInput extends GetEventPredictionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventPredictionCommand}.
  */
 export interface GetEventPredictionCommandOutput extends GetEventPredictionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventPredictionCommandInput - {@link GetEventPredictionCommandInput}
+ * @returns {@link GetEventPredictionCommandOutput}
  * @see {@link GetEventPredictionCommandInput} for command's `input` shape.
  * @see {@link GetEventPredictionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEventPredictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetEventPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEventPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventPredictionCommandOutput> {
     return deserializeAws_json1_1GetEventPredictionCommand(output, context);
   }

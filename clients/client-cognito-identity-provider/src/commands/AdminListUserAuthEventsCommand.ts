@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminListUserAuthEventsCommand}.
  */
 export interface AdminListUserAuthEventsCommandInput extends AdminListUserAuthEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminListUserAuthEventsCommand}.
  */
 export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A history of user activity and any risks detected as part of Amazon Cognito advanced
  *             security.</p>
  * @example
@@ -52,6 +57,8 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminListUserAuthEventsCommandInput - {@link AdminListUserAuthEventsCommandInput}
+ * @returns {@link AdminListUserAuthEventsCommandOutput}
  * @see {@link AdminListUserAuthEventsCommandInput} for command's `input` shape.
  * @see {@link AdminListUserAuthEventsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -99,6 +106,9 @@ export class AdminListUserAuthEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminListUserAuthEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class AdminListUserAuthEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminListUserAuthEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminListUserAuthEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListUserAuthEventsCommandOutput> {
     return deserializeAws_json1_1AdminListUserAuthEventsCommand(output, context);
   }

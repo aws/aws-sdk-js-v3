@@ -65,12 +65,14 @@ import {
 import { TextractClient } from "./TextractClient";
 
 /**
+ * @public
  * <p>Amazon Textract detects and analyzes text in documents and converts it
  *          into machine-readable text. This is the API reference documentation for
  *          Amazon Textract.</p>
  */
 export class Textract extends TextractClient {
   /**
+   * @public
    * <p>Analyzes an input document for relationships between detected items. </p>
    *          <p>The types of information returned are as follows: </p>
    *          <ul>
@@ -151,6 +153,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
    *          related relationships between text.</p>
@@ -200,6 +203,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Analyzes identity documents for relevant information. This information is extracted and
    *          returned as <code>IdentityDocumentFields</code>, which records both the normalized field
    *          and value of the extracted text.Unlike other Amazon Textract operations,
@@ -229,6 +233,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
    *          words that make up a line of text. The input document must be in one of the following image
    *          formats:  JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the detected
@@ -272,6 +277,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
    *          document.</p>
    *          <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>,
@@ -368,6 +374,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
    *      Amazon Textract can detect lines of text and the words that make up a line of text.</p>
    *          <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier
@@ -424,6 +431,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
    *    receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
    *    invoices and receipts.</p>
@@ -472,6 +480,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
    *             lending document. </p>
    *         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
@@ -514,6 +523,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets summarized results for the <code>StartLendingAnalysis</code> operation, which analyzes
    *    text in a lending document. The returned summary consists of information about documents grouped
    *    together by a common document type. Information like detected signatures, page numbers, and split
@@ -557,6 +567,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the asynchronous analysis of an input document for relationships between detected
    *          items such as key-value pairs, tables, and selection elements.</p>
    *
@@ -606,6 +617,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
    *          text and the words that make up a line of text.</p>
    *          <p>
@@ -654,6 +666,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the asynchronous analysis of invoices or receipts for data like contact information,
    *    items purchased, and vendor names.</p>
    *
@@ -701,6 +714,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the classification and analysis of an input document.
    *     <code>StartLendingAnalysis</code> initiates the classification and analysis of a packet of
    *    lending documents. <code>StartLendingAnalysis</code> operates on a document file located in an

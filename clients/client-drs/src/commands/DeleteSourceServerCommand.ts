@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSourceServerCommand}.
  */
 export interface DeleteSourceServerCommandInput extends DeleteSourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSourceServerCommand}.
  */
 export interface DeleteSourceServerCommandOutput extends DeleteSourceServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single Source Server by ID. The Source Server must be disconnected first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSourceServerCommandInput - {@link DeleteSourceServerCommandInput}
+ * @returns {@link DeleteSourceServerCommandOutput}
  * @see {@link DeleteSourceServerCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceServerCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteSourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteSourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSourceServerCommandOutput> {
     return deserializeAws_restJson1DeleteSourceServerCommand(output, context);
   }

@@ -3,10 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
+/**
+ * @public
+ */
 export enum AbortAction {
   CANCEL = "CANCEL",
 }
 
+/**
+ * @public
+ */
 export enum JobExecutionFailureType {
   ALL = "ALL",
   FAILED = "FAILED",
@@ -15,6 +21,7 @@ export enum JobExecutionFailureType {
 }
 
 /**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AbortCriteria {
@@ -42,6 +49,7 @@ export interface AbortCriteria {
 }
 
 /**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AbortConfig {
@@ -52,6 +60,7 @@ export interface AbortConfig {
 }
 
 /**
+ * @public
  * <p>The input for the AcceptCertificateTransfer operation.</p>
  */
 export interface AcceptCertificateTransferRequest {
@@ -68,6 +77,7 @@ export interface AcceptCertificateTransferRequest {
 }
 
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -87,6 +97,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -106,6 +117,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -125,6 +137,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -144,6 +157,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate exceeds the limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -163,6 +177,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't revert the certificate transfer because the transfer is already
  *          complete.</p>
  */
@@ -183,6 +198,7 @@ export class TransferAlreadyCompletedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform this operation.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -202,6 +218,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes an action that updates a CloudWatch alarm.</p>
  */
 export interface CloudwatchAlarmAction {
@@ -228,6 +245,7 @@ export interface CloudwatchAlarmAction {
 }
 
 /**
+ * @public
  * <p>Describes an action that sends data to CloudWatch Logs.</p>
  */
 export interface CloudwatchLogsAction {
@@ -249,6 +267,7 @@ export interface CloudwatchLogsAction {
 }
 
 /**
+ * @public
  * <p>Describes an action that captures a CloudWatch metric.</p>
  */
 export interface CloudwatchMetricAction {
@@ -284,27 +303,31 @@ export interface CloudwatchMetricAction {
   metricTimestamp?: string;
 }
 
+/**
+ * @public
+ */
 export enum DynamoKeyType {
   NUMBER = "NUMBER",
   STRING = "STRING",
 }
 
 /**
+ * @public
  * <p>Describes an action to write to a DynamoDB table.</p>
  *          <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code>
  *          values must match the values used when you created the table.</p>
  *          <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a
  *          substitution template syntax. These templates provide data at runtime. The syntax is as
- *          follows: ${<i>sql-expression</i>}.</p>
+ *          follows: $\{<i>sql-expression</i>\}.</p>
  *          <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON
  *          properties, comparisons, calculations, and functions. For example, the following field uses
  *          the third level of the topic:</p>
  *          <p>
- *             <code>"hashKeyValue": "${topic(3)}"</code>
+ *             <code>"hashKeyValue": "$\{topic(3)\}"</code>
  *          </p>
  *          <p>The following field uses the timestamp:</p>
  *          <p>
- *             <code>"rangeKeyValue": "${timestamp()}"</code>
+ *             <code>"rangeKeyValue": "$\{timestamp()\}"</code>
  *          </p>
  */
 export interface DynamoDBAction {
@@ -320,7 +343,7 @@ export interface DynamoDBAction {
 
   /**
    * <p>The type of operation to be performed. This follows the substitution template, so it
-   *          can be <code>${operation}</code>, but the substitution must result in one of the following:
+   *          can be <code>$\{operation\}</code>, but the substitution must result in one of the following:
    *             <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</p>
    */
   operation?: string;
@@ -362,6 +385,7 @@ export interface DynamoDBAction {
 }
 
 /**
+ * @public
  * <p>The input for the DynamoActionVS action that specifies the DynamoDB table to which
  *          the message data will be written.</p>
  */
@@ -373,6 +397,7 @@ export interface PutItemInput {
 }
 
 /**
+ * @public
  * <p>Describes an action to write to a DynamoDB table.</p>
  *          <p>This DynamoDB action writes each attribute in the message payload into it's own
  *          column in the DynamoDB table.</p>
@@ -387,8 +412,8 @@ export interface DynamoDBv2Action {
    * <p>Specifies the DynamoDB table to which the message data will be written. For
    *          example:</p>
    *          <p>
-   *             <code>{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName":
-   *             "my-table" } } }</code>
+   *             <code>\{ "dynamoDBv2": \{ "roleArn": "aws:iam:12341251:my-role" "putItem": \{ "tableName":
+   *             "my-table" \} \} \}</code>
    *          </p>
    *          <p>Each attribute in the message payload will be written to a separate column in the
    *          DynamoDB database.</p>
@@ -397,6 +422,7 @@ export interface DynamoDBv2Action {
 }
 
 /**
+ * @public
  * <p>Describes an action that writes data to an Amazon OpenSearch Service
  *          domain.</p>
  *          <note>
@@ -433,6 +459,7 @@ export interface ElasticsearchAction {
 }
 
 /**
+ * @public
  * <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
  */
 export interface FirehoseAction {
@@ -468,6 +495,7 @@ export interface FirehoseAction {
 }
 
 /**
+ * @public
  * <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a>.</p>
  */
 export interface SigV4Authorization {
@@ -488,6 +516,7 @@ export interface SigV4Authorization {
 }
 
 /**
+ * @public
  * <p>The authorization method used to send messages.</p>
  */
 export interface HttpAuthorization {
@@ -499,6 +528,7 @@ export interface HttpAuthorization {
 }
 
 /**
+ * @public
  * <p>The HTTP action header.</p>
  */
 export interface HttpActionHeader {
@@ -514,6 +544,7 @@ export interface HttpActionHeader {
 }
 
 /**
+ * @public
  * <p>Send data to an HTTPS endpoint.</p>
  */
 export interface HttpAction {
@@ -546,6 +577,7 @@ export interface HttpAction {
 }
 
 /**
+ * @public
  * <p>Sends message data to an IoT Analytics channel.</p>
  */
 export interface IotAnalyticsAction {
@@ -579,6 +611,7 @@ export interface IotAnalyticsAction {
 }
 
 /**
+ * @public
  * <p>Sends an input to an IoT Events detector.</p>
  */
 export interface IotEventsAction {
@@ -618,6 +651,7 @@ export interface IotEventsAction {
 }
 
 /**
+ * @public
  * <p>An asset property timestamp entry containing the following information.</p>
  */
 export interface AssetPropertyTimestamp {
@@ -635,6 +669,7 @@ export interface AssetPropertyTimestamp {
 }
 
 /**
+ * @public
  * <p>Contains an asset property value (of a single type).</p>
  */
 export type AssetPropertyVariant =
@@ -644,6 +679,9 @@ export type AssetPropertyVariant =
   | AssetPropertyVariant.StringValueMember
   | AssetPropertyVariant.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AssetPropertyVariant {
   /**
    * <p>Optional. The string value of the value entry. Accepts substitution templates.</p>
@@ -718,6 +756,7 @@ export namespace AssetPropertyVariant {
 }
 
 /**
+ * @public
  * <p>An asset property value entry containing the following information.</p>
  */
 export interface AssetPropertyValue {
@@ -739,6 +778,7 @@ export interface AssetPropertyValue {
 }
 
 /**
+ * @public
  * <p>An asset property value entry containing the following information.</p>
  */
 export interface PutAssetPropertyValueEntry {
@@ -778,6 +818,7 @@ export interface PutAssetPropertyValueEntry {
 }
 
 /**
+ * @public
  * <p>Describes an action to send data from an MQTT message that triggered the rule to IoT
  *       SiteWise asset properties.</p>
  */
@@ -795,6 +836,7 @@ export interface IotSiteWiseAction {
 }
 
 /**
+ * @public
  * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
  */
 export interface KafkaAction {
@@ -825,6 +867,7 @@ export interface KafkaAction {
 }
 
 /**
+ * @public
  * <p>Describes an action to write data to an Amazon Kinesis stream.</p>
  */
 export interface KinesisAction {
@@ -845,6 +888,7 @@ export interface KinesisAction {
 }
 
 /**
+ * @public
  * <p>Describes an action to invoke a Lambda function.</p>
  */
 export interface LambdaAction {
@@ -855,6 +899,7 @@ export interface LambdaAction {
 }
 
 /**
+ * @public
  * <p>Describes how to interpret an application-defined timestamp value from an MQTT message
  *          payload and the precision of that value.</p>
  */
@@ -875,6 +920,7 @@ export interface LocationTimestamp {
 }
 
 /**
+ * @public
  * <p>The Amazon Location rule action sends device location updates from
  *          an MQTT message to an Amazon Location tracker resource.</p>
  */
@@ -914,6 +960,7 @@ export interface LocationAction {
 }
 
 /**
+ * @public
  * <p>Describes an action that writes data to an Amazon OpenSearch Service
  *          domain.</p>
  */
@@ -945,6 +992,7 @@ export interface OpenSearchAction {
 }
 
 /**
+ * @public
  * <p>A key-value pair that you define in the header. Both the key and the value are either
  *          literal strings or valid <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
  *             templates</a>.</p>
@@ -962,6 +1010,7 @@ export interface UserProperty {
 }
 
 /**
+ * @public
  * <p>Specifies MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from
  *          Amazon Web Services IoT Core Developer Guide.</p>
  */
@@ -1030,6 +1079,7 @@ export interface MqttHeaders {
 }
 
 /**
+ * @public
  * <p>Describes an action to republish to another topic.</p>
  */
 export interface RepublishAction {
@@ -1056,6 +1106,9 @@ export interface RepublishAction {
   headers?: MqttHeaders;
 }
 
+/**
+ * @public
+ */
 export enum CannedAccessControlList {
   AuthenticatedRead = "authenticated-read",
   AwsExecRead = "aws-exec-read",
@@ -1068,6 +1121,7 @@ export enum CannedAccessControlList {
 }
 
 /**
+ * @public
  * <p>Describes an action to write data to an Amazon S3 bucket.</p>
  */
 export interface S3Action {
@@ -1094,6 +1148,7 @@ export interface S3Action {
 }
 
 /**
+ * @public
  * <p>Describes an action to write a message to a Salesforce IoT Cloud Input
  *          Stream.</p>
  */
@@ -1112,12 +1167,16 @@ export interface SalesforceAction {
   url: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MessageFormat {
   JSON = "JSON",
   RAW = "RAW",
 }
 
 /**
+ * @public
  * <p>Describes an action to publish to an Amazon SNS topic.</p>
  */
 export interface SnsAction {
@@ -1141,6 +1200,7 @@ export interface SnsAction {
 }
 
 /**
+ * @public
  * <p>Describes an action to publish data to an Amazon SQS queue.</p>
  */
 export interface SqsAction {
@@ -1161,6 +1221,7 @@ export interface SqsAction {
 }
 
 /**
+ * @public
  * <p>Starts execution of a Step Functions state machine.</p>
  */
 export interface StepFunctionsAction {
@@ -1184,6 +1245,7 @@ export interface StepFunctionsAction {
 }
 
 /**
+ * @public
  * <p>Metadata attributes of the time series that are written in each measure record.</p>
  */
 export interface TimestreamDimension {
@@ -1206,6 +1268,7 @@ export interface TimestreamDimension {
 }
 
 /**
+ * @public
  * <p>Describes how to interpret an application-defined timestamp value from an MQTT message
  *          payload and the precision of that value.</p>
  */
@@ -1226,6 +1289,7 @@ export interface TimestreamTimestamp {
 }
 
 /**
+ * @public
  * <p>The Timestream rule action writes attributes (measures) from an MQTT message
  *          into an Amazon Timestream table. For more information, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html">Timestream</a>
  *          topic rule action documentation.</p>
@@ -1265,6 +1329,7 @@ export interface TimestreamAction {
 }
 
 /**
+ * @public
  * <p>Describes the actions associated with a rule.</p>
  */
 export interface Action {
@@ -1396,6 +1461,9 @@ export interface Action {
   location?: LocationAction;
 }
 
+/**
+ * @public
+ */
 export enum ActionType {
   CONNECT = "CONNECT",
   PUBLISH = "PUBLISH",
@@ -1403,6 +1471,9 @@ export enum ActionType {
   SUBSCRIBE = "SUBSCRIBE",
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   GREATER_THAN = "greater-than",
   GREATER_THAN_EQUALS = "greater-than-equals",
@@ -1416,6 +1487,9 @@ export enum ComparisonOperator {
   NOT_IN_SET = "not-in-set",
 }
 
+/**
+ * @public
+ */
 export enum ConfidenceLevel {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -1423,6 +1497,7 @@ export enum ConfidenceLevel {
 }
 
 /**
+ * @public
  * <p>
  *             The configuration of an ML Detect Security Profile.
  *         </p>
@@ -1437,6 +1512,7 @@ export interface MachineLearningDetectionConfig {
 }
 
 /**
+ * @public
  * <p>A statistical ranking (percentile) that
  *       indicates a threshold value by which a behavior is determined to be in compliance or in
  *       violation of the behavior.</p>
@@ -1456,6 +1532,7 @@ export interface StatisticalThreshold {
 }
 
 /**
+ * @public
  * <p>The value to be compared with the <code>metric</code>.</p>
  */
 export interface MetricValue {
@@ -1500,6 +1577,7 @@ export interface MetricValue {
 }
 
 /**
+ * @public
  * <p>The criteria by which the behavior is determined to be normal.</p>
  */
 export interface BehaviorCriteria {
@@ -1574,12 +1652,16 @@ export interface BehaviorCriteria {
   mlDetectionConfig?: MachineLearningDetectionConfig;
 }
 
+/**
+ * @public
+ */
 export enum DimensionValueOperator {
   IN = "IN",
   NOT_IN = "NOT_IN",
 }
 
 /**
+ * @public
  * <p>The dimension of a metric.</p>
  */
 export interface MetricDimension {
@@ -1595,6 +1677,7 @@ export interface MetricDimension {
 }
 
 /**
+ * @public
  * <p>A Device Defender security profile behavior.</p>
  */
 export interface Behavior {
@@ -1629,6 +1712,9 @@ export interface Behavior {
   suppressAlerts?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum VerificationState {
   BENIGN_POSITIVE = "BENIGN_POSITIVE",
   FALSE_POSITIVE = "FALSE_POSITIVE",
@@ -1637,6 +1723,7 @@ export enum VerificationState {
 }
 
 /**
+ * @public
  * <p>
  *             The details of a violation event.
  *         </p>
@@ -1651,6 +1738,7 @@ export interface ViolationEventAdditionalInfo {
 }
 
 /**
+ * @public
  * <p>Information about an active Device Defender security profile behavior violation.</p>
  */
 export interface ActiveViolation {
@@ -1708,6 +1796,7 @@ export interface ActiveViolation {
 }
 
 /**
+ * @public
  * <p>The metric you want to retain. Dimensions are optional.</p>
  */
 export interface MetricToRetain {
@@ -1723,6 +1812,7 @@ export interface MetricToRetain {
 }
 
 /**
+ * @public
  * <p>Parameters used when defining a mitigation action that move a set of things to a thing group.</p>
  */
 export interface AddThingsToThingGroupParams {
@@ -1737,6 +1827,9 @@ export interface AddThingsToThingGroupParams {
   overrideDynamicGroups?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AddThingToBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -1762,8 +1855,14 @@ export interface AddThingToBillingGroupRequest {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddThingToBillingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface AddThingToThingGroupRequest {
   /**
    * <p>The name of the group to which you are adding a thing.</p>
@@ -1794,8 +1893,14 @@ export interface AddThingToThingGroupRequest {
   overrideDynamicGroups?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AddThingToThingGroupResponse {}
 
+/**
+ * @public
+ */
 export enum AggregationTypeName {
   CARDINALITY = "Cardinality",
   PERCENTILES = "Percentiles",
@@ -1803,6 +1908,7 @@ export enum AggregationTypeName {
 }
 
 /**
+ * @public
  * <p>The type of aggregation queries.</p>
  */
 export interface AggregationType {
@@ -1818,6 +1924,7 @@ export interface AggregationType {
 }
 
 /**
+ * @public
  * <p>A structure containing the alert target ARN and the role ARN.</p>
  */
 export interface AlertTarget {
@@ -1833,11 +1940,15 @@ export interface AlertTarget {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AlertTargetType {
   SNS = "SNS",
 }
 
 /**
+ * @public
  * <p>Describes an IoT policy.</p>
  */
 export interface Policy {
@@ -1853,6 +1964,7 @@ export interface Policy {
 }
 
 /**
+ * @public
  * <p>Contains information that allowed the authorization.</p>
  */
 export interface Allowed {
@@ -1862,6 +1974,9 @@ export interface Allowed {
   policies?: Policy[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateTargetsWithJobRequest {
   /**
    * <p>A list of thing group ARNs that define the targets of the job.</p>
@@ -1892,6 +2007,9 @@ export interface AssociateTargetsWithJobRequest {
   namespaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTargetsWithJobResponse {
   /**
    * <p>An ARN identifying the job.</p>
@@ -1910,6 +2028,7 @@ export interface AssociateTargetsWithJobResponse {
 }
 
 /**
+ * @public
  * <p>A limit has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1928,6 +2047,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AttachPolicyRequest {
   /**
    * <p>The name of the policy to attach.</p>
@@ -1941,6 +2063,7 @@ export interface AttachPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The input for the AttachPrincipalPolicy operation.</p>
  */
 export interface AttachPrincipalPolicyRequest {
@@ -1956,6 +2079,9 @@ export interface AttachPrincipalPolicyRequest {
   principal: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachSecurityProfileRequest {
   /**
    * <p>The security profile that is attached.</p>
@@ -1968,9 +2094,13 @@ export interface AttachSecurityProfileRequest {
   securityProfileTargetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachSecurityProfileResponse {}
 
 /**
+ * @public
  * <p>An exception thrown when the version of an entity specified with the
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
@@ -1992,6 +2122,7 @@ export class VersionConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the AttachThingPrincipal operation.</p>
  */
 export interface AttachThingPrincipalRequest {
@@ -2008,18 +2139,20 @@ export interface AttachThingPrincipalRequest {
 }
 
 /**
+ * @public
  * <p>The output from the AttachThingPrincipal operation.</p>
  */
 export interface AttachThingPrincipalResponse {}
 
 /**
+ * @public
  * <p>The attribute payload.</p>
  */
 export interface AttributePayload {
   /**
    * <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
    *          <p>
-   *             <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   *             <code>\{\"attributes\":\{\"string1\":\"string2\"\}\}</code>
    *          </p>
    */
   attributes?: Record<string, string>;
@@ -2036,6 +2169,7 @@ export interface AttributePayload {
 }
 
 /**
+ * @public
  * <p>Which audit checks are enabled and disabled for this account.</p>
  */
 export interface AuditCheckConfiguration {
@@ -2045,6 +2179,9 @@ export interface AuditCheckConfiguration {
   enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AuditCheckRunStatus {
   CANCELED = "CANCELED",
   COMPLETED_COMPLIANT = "COMPLETED_COMPLIANT",
@@ -2055,6 +2192,7 @@ export enum AuditCheckRunStatus {
 }
 
 /**
+ * @public
  * <p>Information about the audit check.</p>
  */
 export interface AuditCheckDetails {
@@ -2099,6 +2237,7 @@ export interface AuditCheckDetails {
 }
 
 /**
+ * @public
  * <p>The certificate issuer indentifier.</p>
  */
 export interface IssuerCertificateIdentifier {
@@ -2119,6 +2258,7 @@ export interface IssuerCertificateIdentifier {
 }
 
 /**
+ * @public
  * <p>Information about the version of the policy associated with the resource.</p>
  */
 export interface PolicyVersionIdentifier {
@@ -2134,6 +2274,7 @@ export interface PolicyVersionIdentifier {
 }
 
 /**
+ * @public
  * <p>Information that identifies the noncompliant resource.</p>
  */
 export interface ResourceIdentifier {
@@ -2188,6 +2329,9 @@ export interface ResourceIdentifier {
   deviceCertificateArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
   CA_CERTIFICATE = "CA_CERTIFICATE",
@@ -2201,6 +2345,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Information about the resource that was noncompliant with the audit check.</p>
  */
 export interface NonCompliantResource {
@@ -2221,6 +2366,7 @@ export interface NonCompliantResource {
 }
 
 /**
+ * @public
  * <p>Information about a related resource.</p>
  */
 export interface RelatedResource {
@@ -2240,6 +2386,9 @@ export interface RelatedResource {
   additionalInfo?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum AuditFindingSeverity {
   CRITICAL = "CRITICAL",
   HIGH = "HIGH",
@@ -2248,6 +2397,7 @@ export enum AuditFindingSeverity {
 }
 
 /**
+ * @public
  * <p>The findings (results) of the audit.</p>
  */
 export interface AuditFinding {
@@ -2311,6 +2461,9 @@ export interface AuditFinding {
   isSuppressed?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AuditFrequency {
   BIWEEKLY = "BIWEEKLY",
   DAILY = "DAILY",
@@ -2318,6 +2471,9 @@ export enum AuditFrequency {
   WEEKLY = "WEEKLY",
 }
 
+/**
+ * @public
+ */
 export enum AuditMitigationActionsExecutionStatus {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
@@ -2328,6 +2484,7 @@ export enum AuditMitigationActionsExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>
  */
 export interface AuditMitigationActionExecutionMetadata {
@@ -2377,6 +2534,9 @@ export interface AuditMitigationActionExecutionMetadata {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum AuditMitigationActionsTaskStatus {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
@@ -2385,6 +2545,7 @@ export enum AuditMitigationActionsTaskStatus {
 }
 
 /**
+ * @public
  * <p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>
  */
 export interface AuditMitigationActionsTaskMetadata {
@@ -2405,6 +2566,7 @@ export interface AuditMitigationActionsTaskMetadata {
 }
 
 /**
+ * @public
  * <p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>
  */
 export interface TaskStatisticsForAuditCheck {
@@ -2435,6 +2597,7 @@ export interface TaskStatisticsForAuditCheck {
 }
 
 /**
+ * @public
  * <p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>
  */
 export interface AuditMitigationActionsTaskTarget {
@@ -2455,6 +2618,7 @@ export interface AuditMitigationActionsTaskTarget {
 }
 
 /**
+ * @public
  * <p>Information about the targets to which audit notifications are sent.</p>
  */
 export interface AuditNotificationTarget {
@@ -2474,11 +2638,15 @@ export interface AuditNotificationTarget {
   enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AuditNotificationType {
   SNS = "SNS",
 }
 
 /**
+ * @public
  * <p> Filters out specific findings of a Device Defender audit. </p>
  */
 export interface AuditSuppression {
@@ -2517,6 +2685,9 @@ export interface AuditSuppression {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export enum AuditTaskStatus {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
@@ -2524,12 +2695,16 @@ export enum AuditTaskStatus {
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum AuditTaskType {
   ON_DEMAND_AUDIT_TASK = "ON_DEMAND_AUDIT_TASK",
   SCHEDULED_AUDIT_TASK = "SCHEDULED_AUDIT_TASK",
 }
 
 /**
+ * @public
  * <p>The audits that were performed.</p>
  */
 export interface AuditTaskMetadata {
@@ -2550,6 +2725,9 @@ export interface AuditTaskMetadata {
   taskType?: AuditTaskType | string;
 }
 
+/**
+ * @public
+ */
 export enum AuthDecision {
   ALLOWED = "ALLOWED",
   EXPLICIT_DENY = "EXPLICIT_DENY",
@@ -2557,6 +2735,7 @@ export enum AuthDecision {
 }
 
 /**
+ * @public
  * <p>A collection of authorization information.</p>
  */
 export interface AuthInfo {
@@ -2573,6 +2752,7 @@ export interface AuthInfo {
 }
 
 /**
+ * @public
  * <p>An object that specifies the authorization service for a domain.</p>
  */
 export interface AuthorizerConfig {
@@ -2587,12 +2767,16 @@ export interface AuthorizerConfig {
   allowAuthorizerOverride?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AuthorizerStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p>The authorizer description.</p>
  */
 export interface AuthorizerDescription {
@@ -2651,6 +2835,7 @@ export interface AuthorizerDescription {
 }
 
 /**
+ * @public
  * <p>The authorizer summary.</p>
  */
 export interface AuthorizerSummary {
@@ -2666,6 +2851,7 @@ export interface AuthorizerSummary {
 }
 
 /**
+ * @public
  * <p>Information that explicitly denies authorization.</p>
  */
 export interface ExplicitDeny {
@@ -2676,6 +2862,7 @@ export interface ExplicitDeny {
 }
 
 /**
+ * @public
  * <p>Information that implicitly denies authorization. When policy doesn't explicitly deny
  *          or allow an action on a resource it is considered an implicit deny.</p>
  */
@@ -2688,6 +2875,7 @@ export interface ImplicitDeny {
 }
 
 /**
+ * @public
  * <p>Contains information that denied the authorization.</p>
  */
 export interface Denied {
@@ -2705,6 +2893,7 @@ export interface Denied {
 }
 
 /**
+ * @public
  * <p>The authorizer result.</p>
  */
 export interface AuthResult {
@@ -2736,11 +2925,17 @@ export interface AuthResult {
   missingContextValues?: string[];
 }
 
+/**
+ * @public
+ */
 export enum AutoRegistrationStatus {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
 }
 
+/**
+ * @public
+ */
 export interface CancelAuditMitigationActionsTaskRequest {
   /**
    * <p>The unique identifier for the task that you want to cancel. </p>
@@ -2748,8 +2943,14 @@ export interface CancelAuditMitigationActionsTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelAuditMitigationActionsTaskResponse {}
 
+/**
+ * @public
+ */
 export interface CancelAuditTaskRequest {
   /**
    * <p>The ID of the audit you want to cancel. You can only cancel an
@@ -2758,9 +2959,13 @@ export interface CancelAuditTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelAuditTaskResponse {}
 
 /**
+ * @public
  * <p>The input for the CancelCertificateTransfer operation.</p>
  */
 export interface CancelCertificateTransferRequest {
@@ -2771,6 +2976,9 @@ export interface CancelCertificateTransferRequest {
   certificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDetectMitigationActionsTaskRequest {
   /**
    * <p>
@@ -2780,8 +2988,14 @@ export interface CancelDetectMitigationActionsTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDetectMitigationActionsTaskResponse {}
 
+/**
+ * @public
+ */
 export interface CancelJobRequest {
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
@@ -2809,6 +3023,9 @@ export interface CancelJobRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobResponse {
   /**
    * <p>The job ARN.</p>
@@ -2826,6 +3043,9 @@ export interface CancelJobResponse {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobExecutionRequest {
   /**
    * <p>The ID of the job to be canceled.</p>
@@ -2867,6 +3087,7 @@ export interface CancelJobExecutionRequest {
 }
 
 /**
+ * @public
  * <p>An attempt was made to change to an invalid state, for example by deleting a job or a
  *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
  *          parameter.</p>
@@ -2887,10 +3108,19 @@ export class InvalidStateTransitionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ClearDefaultAuthorizerRequest {}
 
+/**
+ * @public
+ */
 export interface ClearDefaultAuthorizerResponse {}
 
+/**
+ * @public
+ */
 export interface ConfirmTopicRuleDestinationRequest {
   /**
    * <p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>
@@ -2898,9 +3128,13 @@ export interface ConfirmTopicRuleDestinationRequest {
   confirmationToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmTopicRuleDestinationResponse {}
 
 /**
+ * @public
  * <p>A conflicting resource update exception. This exception is thrown when two pending
  *          updates cause a conflict.</p>
  */
@@ -2921,6 +3155,7 @@ export class ConflictingResourceUpdateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
 export class InternalException extends __BaseException {
@@ -2939,6 +3174,9 @@ export class InternalException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAuditSuppressionRequest {
   /**
    * <p>An audit check name. Checks must be enabled
@@ -2983,9 +3221,13 @@ export interface CreateAuditSuppressionRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuditSuppressionResponse {}
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -3017,6 +3259,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A set of key/value pairs that are used to manage the resource.</p>
  */
 export interface Tag {
@@ -3031,6 +3274,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuthorizerRequest {
   /**
    * <p>The authorizer name.</p>
@@ -3085,6 +3331,9 @@ export interface CreateAuthorizerRequest {
   enableCachingForHttp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuthorizerResponse {
   /**
    * <p>The authorizer's name.</p>
@@ -3098,6 +3347,7 @@ export interface CreateAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>The properties of a billing group.</p>
  */
 export interface BillingGroupProperties {
@@ -3107,6 +3357,9 @@ export interface BillingGroupProperties {
   billingGroupDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBillingGroupRequest {
   /**
    * <p>The name you wish to give to the billing group.</p>
@@ -3124,6 +3377,9 @@ export interface CreateBillingGroupRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBillingGroupResponse {
   /**
    * <p>The name you gave to the billing group.</p>
@@ -3142,6 +3398,7 @@ export interface CreateBillingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreateCertificateFromCsr operation.</p>
  */
 export interface CreateCertificateFromCsrRequest {
@@ -3157,6 +3414,7 @@ export interface CreateCertificateFromCsrRequest {
 }
 
 /**
+ * @public
  * <p>The output from the CreateCertificateFromCsr operation.</p>
  */
 export interface CreateCertificateFromCsrResponse {
@@ -3178,6 +3436,9 @@ export interface CreateCertificateFromCsrResponse {
   certificatePem?: string;
 }
 
+/**
+ * @public
+ */
 export enum CustomMetricType {
   IP_ADDRESS_LIST = "ip-address-list",
   NUMBER = "number",
@@ -3185,6 +3446,9 @@ export enum CustomMetricType {
   STRING_LIST = "string-list",
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomMetricRequest {
   /**
    * <p> The name of the custom metric. This will be used in the metric report submitted from the
@@ -3227,6 +3491,9 @@ export interface CreateCustomMetricRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomMetricResponse {
   /**
    * <p>
@@ -3244,10 +3511,16 @@ export interface CreateCustomMetricResponse {
   metricArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DimensionType {
   TOPIC_FILTER = "TOPIC_FILTER",
 }
 
+/**
+ * @public
+ */
 export interface CreateDimensionRequest {
   /**
    * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
@@ -3277,6 +3550,9 @@ export interface CreateDimensionRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDimensionResponse {
   /**
    * <p>A unique identifier for the dimension.</p>
@@ -3293,6 +3569,7 @@ export interface CreateDimensionResponse {
 }
 
 /**
+ * @public
  * <p>The certificate is invalid.</p>
  */
 export class CertificateValidationException extends __BaseException {
@@ -3311,12 +3588,18 @@ export class CertificateValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ServiceType {
   CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER",
   DATA = "DATA",
   JOBS = "JOBS",
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainConfigurationRequest {
   /**
    * <p>The name of the domain configuration. This value must be unique to a region.</p>
@@ -3366,6 +3649,9 @@ export interface CreateDomainConfigurationRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainConfigurationResponse {
   /**
    * <p>The name of the domain configuration.</p>
@@ -3379,6 +3665,7 @@ export interface CreateDomainConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Thing group properties.</p>
  */
 export interface ThingGroupProperties {
@@ -3393,6 +3680,9 @@ export interface ThingGroupProperties {
   attributePayload?: AttributePayload;
 }
 
+/**
+ * @public
+ */
 export interface CreateDynamicThingGroupRequest {
   /**
    * <p>The dynamic thing group name to create.</p>
@@ -3433,6 +3723,9 @@ export interface CreateDynamicThingGroupRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDynamicThingGroupResponse {
   /**
    * <p>The dynamic thing group name.</p>
@@ -3466,6 +3759,7 @@ export interface CreateDynamicThingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The query is invalid.</p>
  */
 export class InvalidQueryException extends __BaseException {
@@ -3484,6 +3778,9 @@ export class InvalidQueryException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FleetMetricUnit {
   Bits = "Bits",
   BitsSecond = "Bits/Second",
@@ -3514,6 +3811,9 @@ export enum FleetMetricUnit {
   TerabytesSecond = "Terabytes/Second",
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetMetricRequest {
   /**
    * <p>The name of the fleet metric to create.</p>
@@ -3567,6 +3867,9 @@ export interface CreateFleetMetricRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetMetricResponse {
   /**
    * <p>The name of the fleet metric to create.</p>
@@ -3580,6 +3883,7 @@ export interface CreateFleetMetricResponse {
 }
 
 /**
+ * @public
  * <p>The index is not ready.</p>
  */
 export class IndexNotReadyException extends __BaseException {
@@ -3599,6 +3903,7 @@ export class IndexNotReadyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The aggregation is invalid.</p>
  */
 export class InvalidAggregationException extends __BaseException {
@@ -3617,6 +3922,9 @@ export class InvalidAggregationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RetryableFailureType {
   ALL = "ALL",
   FAILED = "FAILED",
@@ -3624,6 +3932,7 @@ export enum RetryableFailureType {
 }
 
 /**
+ * @public
  * <p>The criteria that determines how many retries are allowed for each failure
  *             type for a job.</p>
  */
@@ -3640,6 +3949,7 @@ export interface RetryCriteria {
 }
 
 /**
+ * @public
  * <p>The configuration that determines how many retries are allowed for each failure
  *             type for a job.</p>
  */
@@ -3652,6 +3962,7 @@ export interface JobExecutionsRetryConfig {
 }
 
 /**
+ * @public
  * <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
  */
 export interface RateIncreaseCriteria {
@@ -3667,6 +3978,7 @@ export interface RateIncreaseCriteria {
 }
 
 /**
+ * @public
  * <p>Allows you to create an exponential rate of rollout for a job.</p>
  */
 export interface ExponentialRolloutRate {
@@ -3689,6 +4001,7 @@ export interface ExponentialRolloutRate {
 }
 
 /**
+ * @public
  * <p>Allows you to create a staged rollout of a job.</p>
  */
 export interface JobExecutionsRolloutConfig {
@@ -3706,6 +4019,7 @@ export interface JobExecutionsRolloutConfig {
 }
 
 /**
+ * @public
  * <p>Configuration for pre-signed S3 URLs.</p>
  */
 export interface PresignedUrlConfig {
@@ -3726,6 +4040,9 @@ export interface PresignedUrlConfig {
   expiresInSec?: number;
 }
 
+/**
+ * @public
+ */
 export enum JobEndBehavior {
   CANCEL = "CANCEL",
   FORCE_CANCEL = "FORCE_CANCEL",
@@ -3733,6 +4050,7 @@ export enum JobEndBehavior {
 }
 
 /**
+ * @public
  * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
  */
 export interface MaintenanceWindow {
@@ -3748,6 +4066,7 @@ export interface MaintenanceWindow {
 }
 
 /**
+ * @public
  * <p>Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group. Additionally, you can specify the end behavior for each job execution when it reaches the scheduled end time.</p>
  */
 export interface SchedulingConfig {
@@ -3784,12 +4103,16 @@ export interface SchedulingConfig {
   maintenanceWindows?: MaintenanceWindow[];
 }
 
+/**
+ * @public
+ */
 export enum TargetSelection {
   CONTINUOUS = "CONTINUOUS",
   SNAPSHOT = "SNAPSHOT",
 }
 
 /**
+ * @public
  * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
  *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
  *            execution status is not set to another terminal state before the timer expires, it will
@@ -3806,6 +4129,9 @@ export interface TimeoutConfig {
   inProgressTimeoutInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>A job identifier which must be unique for your Amazon Web Services account. We recommend using a UUID. Alpha-numeric
@@ -3824,7 +4150,7 @@ export interface CreateJobRequest {
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
-   *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
+   *                <code>$\{aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>\}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
    *          </note>
@@ -3923,6 +4249,9 @@ export interface CreateJobRequest {
   schedulingConfig?: SchedulingConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * <p>The job ARN.</p>
@@ -3941,6 +4270,7 @@ export interface CreateJobResponse {
 }
 
 /**
+ * @public
  * <p>A resource with the same name already exists.</p>
  */
 export class ConflictException extends __BaseException {
@@ -3959,6 +4289,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateRequest {
   /**
    * <p>A unique identifier for the job template. We recommend using a UUID. Alpha-numeric
@@ -3977,7 +4310,7 @@ export interface CreateJobTemplateRequest {
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
-   *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
+   *                <code>$\{aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>\}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
    *          </note>
@@ -4033,6 +4366,9 @@ export interface CreateJobTemplateRequest {
   maintenanceWindows?: MaintenanceWindow[];
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateResponse {
   /**
    * <p>The ARN of the job template.</p>
@@ -4046,6 +4382,7 @@ export interface CreateJobTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreateKeysAndCertificate operation.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificateRequest</a> action.</p>
  */
@@ -4057,6 +4394,7 @@ export interface CreateKeysAndCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Describes a key pair.</p>
  */
 export interface KeyPair {
@@ -4072,6 +4410,7 @@ export interface KeyPair {
 }
 
 /**
+ * @public
  * <p>The output of the CreateKeysAndCertificate operation.</p>
  */
 export interface CreateKeysAndCertificateResponse {
@@ -4097,6 +4436,9 @@ export interface CreateKeysAndCertificateResponse {
   keyPair?: KeyPair;
 }
 
+/**
+ * @public
+ */
 export enum LogLevel {
   DEBUG = "DEBUG",
   DISABLED = "DISABLED",
@@ -4106,6 +4448,7 @@ export enum LogLevel {
 }
 
 /**
+ * @public
  * <p>Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.</p>
  */
 export interface EnableIoTLoggingParams {
@@ -4121,6 +4464,7 @@ export interface EnableIoTLoggingParams {
 }
 
 /**
+ * @public
  * <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
  */
 export interface PublishFindingToSnsParams {
@@ -4130,11 +4474,15 @@ export interface PublishFindingToSnsParams {
   topicArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PolicyTemplateName {
   BLANK_POLICY = "BLANK_POLICY",
 }
 
 /**
+ * @public
  * <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
  */
 export interface ReplaceDefaultPolicyVersionParams {
@@ -4144,11 +4492,15 @@ export interface ReplaceDefaultPolicyVersionParams {
   templateName: PolicyTemplateName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CACertificateUpdateAction {
   DEACTIVATE = "DEACTIVATE",
 }
 
 /**
+ * @public
  * <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
  */
 export interface UpdateCACertificateParams {
@@ -4158,11 +4510,15 @@ export interface UpdateCACertificateParams {
   action: CACertificateUpdateAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeviceCertificateUpdateAction {
   DEACTIVATE = "DEACTIVATE",
 }
 
 /**
+ * @public
  * <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
  */
 export interface UpdateDeviceCertificateParams {
@@ -4173,6 +4529,7 @@ export interface UpdateDeviceCertificateParams {
 }
 
 /**
+ * @public
  * <p>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</p>
  */
 export interface MitigationActionParams {
@@ -4207,6 +4564,9 @@ export interface MitigationActionParams {
   publishFindingToSnsParams?: PublishFindingToSnsParams;
 }
 
+/**
+ * @public
+ */
 export interface CreateMitigationActionRequest {
   /**
    * <p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>
@@ -4229,6 +4589,9 @@ export interface CreateMitigationActionRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMitigationActionResponse {
   /**
    * <p>The ARN for the new mitigation action.</p>
@@ -4241,10 +4604,16 @@ export interface CreateMitigationActionResponse {
   actionId?: string;
 }
 
+/**
+ * @public
+ */
 export enum AwsJobAbortCriteriaAbortAction {
   CANCEL = "CANCEL",
 }
 
+/**
+ * @public
+ */
 export enum AwsJobAbortCriteriaFailureType {
   ALL = "ALL",
   FAILED = "FAILED",
@@ -4253,6 +4622,7 @@ export enum AwsJobAbortCriteriaFailureType {
 }
 
 /**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AwsJobAbortCriteria {
@@ -4280,6 +4650,7 @@ export interface AwsJobAbortCriteria {
 }
 
 /**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AwsJobAbortConfig {
@@ -4290,6 +4661,7 @@ export interface AwsJobAbortConfig {
 }
 
 /**
+ * @public
  * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
  */
 export interface AwsJobRateIncreaseCriteria {
@@ -4307,6 +4679,7 @@ export interface AwsJobRateIncreaseCriteria {
 }
 
 /**
+ * @public
  * <p>The rate of increase for a job rollout. This parameter allows you to define an exponential rate
  *             increase for a job rollout.</p>
  */
@@ -4331,6 +4704,7 @@ export interface AwsJobExponentialRolloutRate {
 }
 
 /**
+ * @public
  * <p>Configuration for the rollout of OTA updates.</p>
  */
 export interface AwsJobExecutionsRolloutConfig {
@@ -4347,6 +4721,7 @@ export interface AwsJobExecutionsRolloutConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code>
  *            contains HTTP.</p>
  */
@@ -4359,6 +4734,7 @@ export interface AwsJobPresignedUrlConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer is
  *             started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution
  *             status is not set to another terminal state before the timer expires, it will be automatically
@@ -4376,6 +4752,7 @@ export interface AwsJobTimeoutConfig {
 }
 
 /**
+ * @public
  * <p>Describes the certificate chain being used when code signing a file.</p>
  */
 export interface CodeSigningCertificateChain {
@@ -4391,6 +4768,7 @@ export interface CodeSigningCertificateChain {
 }
 
 /**
+ * @public
  * <p>Describes the signature for a file.</p>
  */
 export interface CodeSigningSignature {
@@ -4401,6 +4779,7 @@ export interface CodeSigningSignature {
 }
 
 /**
+ * @public
  * <p>Describes a custom method used to code sign a file.</p>
  */
 export interface CustomCodeSigning {
@@ -4426,6 +4805,7 @@ export interface CustomCodeSigning {
 }
 
 /**
+ * @public
  * <p>Describes the location of updated firmware in S3.</p>
  */
 export interface S3Destination {
@@ -4441,6 +4821,7 @@ export interface S3Destination {
 }
 
 /**
+ * @public
  * <p>Describes the location of the updated firmware.</p>
  */
 export interface Destination {
@@ -4451,6 +4832,7 @@ export interface Destination {
 }
 
 /**
+ * @public
  * <p>Describes the code-signing profile.</p>
  */
 export interface SigningProfileParameter {
@@ -4471,6 +4853,7 @@ export interface SigningProfileParameter {
 }
 
 /**
+ * @public
  * <p>Information required to start a signing job.</p>
  */
 export interface StartSigningJobParameter {
@@ -4491,6 +4874,7 @@ export interface StartSigningJobParameter {
 }
 
 /**
+ * @public
  * <p>Describes the method to use when code signing a file.</p>
  */
 export interface CodeSigning {
@@ -4511,6 +4895,7 @@ export interface CodeSigning {
 }
 
 /**
+ * @public
  * <p>The S3 location.</p>
  */
 export interface S3Location {
@@ -4531,6 +4916,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Describes a group of files that can be streamed.</p>
  */
 export interface _Stream {
@@ -4546,6 +4932,7 @@ export interface _Stream {
 }
 
 /**
+ * @public
  * <p>The location of the OTA update.</p>
  */
 export interface FileLocation {
@@ -4561,6 +4948,7 @@ export interface FileLocation {
 }
 
 /**
+ * @public
  * <p>Describes a file to be associated with an OTA update.</p>
  */
 export interface OTAUpdateFile {
@@ -4596,11 +4984,17 @@ export interface OTAUpdateFile {
   attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum Protocol {
   HTTP = "HTTP",
   MQTT = "MQTT",
 }
 
+/**
+ * @public
+ */
 export interface CreateOTAUpdateRequest {
   /**
    * <p>The ID of the OTA update to be created.</p>
@@ -4677,6 +5071,9 @@ export interface CreateOTAUpdateRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum OTAUpdateStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -4684,6 +5081,9 @@ export enum OTAUpdateStatus {
   CREATE_PENDING = "CREATE_PENDING",
 }
 
+/**
+ * @public
+ */
 export interface CreateOTAUpdateResponse {
   /**
    * <p>The OTA update ID.</p>
@@ -4712,6 +5112,7 @@ export interface CreateOTAUpdateResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreatePolicy operation.</p>
  */
 export interface CreatePolicyRequest {
@@ -4740,6 +5141,7 @@ export interface CreatePolicyRequest {
 }
 
 /**
+ * @public
  * <p>The output from the CreatePolicy operation.</p>
  */
 export interface CreatePolicyResponse {
@@ -4765,6 +5167,7 @@ export interface CreatePolicyResponse {
 }
 
 /**
+ * @public
  * <p>The policy documentation is not valid.</p>
  */
 export class MalformedPolicyException extends __BaseException {
@@ -4784,6 +5187,7 @@ export class MalformedPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the CreatePolicyVersion operation.</p>
  */
 export interface CreatePolicyVersionRequest {
@@ -4807,6 +5211,7 @@ export interface CreatePolicyVersionRequest {
 }
 
 /**
+ * @public
  * <p>The output of the CreatePolicyVersion operation.</p>
  */
 export interface CreatePolicyVersionResponse {
@@ -4832,6 +5237,7 @@ export interface CreatePolicyVersionResponse {
 }
 
 /**
+ * @public
  * <p>The number of policy versions exceeds the limit.</p>
  */
 export class VersionsLimitExceededException extends __BaseException {
@@ -4850,6 +5256,9 @@ export class VersionsLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningClaimRequest {
   /**
    * <p>The name of the provisioning template to use.</p>
@@ -4857,6 +5266,9 @@ export interface CreateProvisioningClaimRequest {
   templateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningClaimResponse {
   /**
    * <p>The ID of the certificate.</p>
@@ -4880,6 +5292,7 @@ export interface CreateProvisioningClaimResponse {
 }
 
 /**
+ * @public
  * <p>Structure that contains <code>payloadVersion</code> and
  *          <code>targetArn</code>.</p>
  */
@@ -4899,11 +5312,17 @@ export interface ProvisioningHook {
   targetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TemplateType {
   FLEET_PROVISIONING = "FLEET_PROVISIONING",
   JITP = "JITP",
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateRequest {
   /**
    * <p>The name of the provisioning template.</p>
@@ -4959,6 +5378,9 @@ export interface CreateProvisioningTemplateRequest {
   type?: TemplateType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateResponse {
   /**
    * <p>The ARN that identifies the provisioning template.</p>
@@ -4976,6 +5398,9 @@ export interface CreateProvisioningTemplateResponse {
   defaultVersionId?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateVersionRequest {
   /**
    * <p>The name of the provisioning template.</p>
@@ -4993,6 +5418,9 @@ export interface CreateProvisioningTemplateVersionRequest {
   setAsDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateVersionResponse {
   /**
    * <p>The ARN that identifies the provisioning template.</p>
@@ -5016,6 +5444,9 @@ export interface CreateProvisioningTemplateVersionResponse {
   isDefaultVersion?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoleAliasRequest {
   /**
    * <p>The role alias that points to a role ARN. This allows you to change the role without
@@ -5048,6 +5479,9 @@ export interface CreateRoleAliasRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRoleAliasResponse {
   /**
    * <p>The role alias.</p>
@@ -5060,6 +5494,9 @@ export interface CreateRoleAliasResponse {
   roleAliasArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DayOfWeek {
   FRI = "FRI",
   MON = "MON",
@@ -5070,6 +5507,9 @@ export enum DayOfWeek {
   WED = "WED",
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduledAuditRequest {
   /**
    * <p>How often the scheduled audit takes
@@ -5121,6 +5561,9 @@ export interface CreateScheduledAuditRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduledAuditResponse {
   /**
    * <p>The ARN of the scheduled audit.</p>
@@ -5128,6 +5571,9 @@ export interface CreateScheduledAuditResponse {
   scheduledAuditArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityProfileRequest {
   /**
    * <p>The name you are giving to the security profile.</p>
@@ -5173,6 +5619,9 @@ export interface CreateSecurityProfileRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityProfileResponse {
   /**
    * <p>The name you gave to the security profile.</p>
@@ -5186,6 +5635,7 @@ export interface CreateSecurityProfileResponse {
 }
 
 /**
+ * @public
  * <p>Represents a file to stream.</p>
  */
 export interface StreamFile {
@@ -5200,6 +5650,9 @@ export interface StreamFile {
   s3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamRequest {
   /**
    * <p>The stream ID.</p>
@@ -5227,6 +5680,9 @@ export interface CreateStreamRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamResponse {
   /**
    * <p>The stream ID.</p>
@@ -5250,6 +5706,7 @@ export interface CreateStreamResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreateThing operation.</p>
  */
 export interface CreateThingRequest {
@@ -5269,7 +5726,7 @@ export interface CreateThingRequest {
    * <p>The attribute payload, which consists of up to three name/value pairs in a JSON
    * 			document. For example:</p>
    *          <p>
-   *             <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   *             <code>\{\"attributes\":\{\"string1\":\"string2\"\}\}</code>
    *          </p>
    */
   attributePayload?: AttributePayload;
@@ -5281,6 +5738,7 @@ export interface CreateThingRequest {
 }
 
 /**
+ * @public
  * <p>The output of the CreateThing operation.</p>
  */
 export interface CreateThingResponse {
@@ -5300,6 +5758,9 @@ export interface CreateThingResponse {
   thingId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateThingGroupRequest {
   /**
    * <p>The thing group name to create.</p>
@@ -5322,6 +5783,9 @@ export interface CreateThingGroupRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateThingGroupResponse {
   /**
    * <p>The thing group name.</p>
@@ -5340,6 +5804,7 @@ export interface CreateThingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The ThingTypeProperties contains information about the thing type including: a thing type description,
  * 			and a list of searchable thing attribute names.</p>
  */
@@ -5356,6 +5821,7 @@ export interface ThingTypeProperties {
 }
 
 /**
+ * @public
  * <p>The input for the CreateThingType operation.</p>
  */
 export interface CreateThingTypeRequest {
@@ -5378,6 +5844,7 @@ export interface CreateThingTypeRequest {
 }
 
 /**
+ * @public
  * <p>The output of the CreateThingType operation.</p>
  */
 export interface CreateThingTypeResponse {
@@ -5398,6 +5865,7 @@ export interface CreateThingTypeResponse {
 }
 
 /**
+ * @public
  * <p>Describes a rule.</p>
  */
 export interface TopicRulePayload {
@@ -5434,6 +5902,7 @@ export interface TopicRulePayload {
 }
 
 /**
+ * @public
  * <p>The input for the CreateTopicRule operation.</p>
  */
 export interface CreateTopicRuleRequest {
@@ -5461,6 +5930,7 @@ export interface CreateTopicRuleRequest {
 }
 
 /**
+ * @public
  * <p>The Rule-SQL expression can't be parsed correctly.</p>
  */
 export class SqlParseException extends __BaseException {
@@ -5480,6 +5950,7 @@ export class SqlParseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>
  */
 export interface HttpUrlDestinationConfiguration {
@@ -5491,6 +5962,7 @@ export interface HttpUrlDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration information for a virtual private cloud (VPC) destination.</p>
  */
 export interface VpcDestinationConfiguration {
@@ -5516,6 +5988,7 @@ export interface VpcDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration of the topic rule destination.</p>
  */
 export interface TopicRuleDestinationConfiguration {
@@ -5530,6 +6003,9 @@ export interface TopicRuleDestinationConfiguration {
   vpcConfiguration?: VpcDestinationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateTopicRuleDestinationRequest {
   /**
    * <p>The topic rule destination configuration.</p>
@@ -5538,6 +6014,7 @@ export interface CreateTopicRuleDestinationRequest {
 }
 
 /**
+ * @public
  * <p>HTTP URL destination properties.</p>
  */
 export interface HttpUrlDestinationProperties {
@@ -5547,6 +6024,9 @@ export interface HttpUrlDestinationProperties {
   confirmationUrl?: string;
 }
 
+/**
+ * @public
+ */
 export enum TopicRuleDestinationStatus {
   DELETING = "DELETING",
   DISABLED = "DISABLED",
@@ -5556,6 +6036,7 @@ export enum TopicRuleDestinationStatus {
 }
 
 /**
+ * @public
  * <p>The properties of a virtual private cloud (VPC) destination.</p>
  */
 export interface VpcDestinationProperties {
@@ -5581,6 +6062,7 @@ export interface VpcDestinationProperties {
 }
 
 /**
+ * @public
  * <p>A topic rule destination.</p>
  */
 export interface TopicRuleDestination {
@@ -5652,6 +6134,9 @@ export interface TopicRuleDestination {
   vpcProperties?: VpcDestinationProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreateTopicRuleDestinationResponse {
   /**
    * <p>The topic rule destination.</p>
@@ -5659,6 +6144,9 @@ export interface CreateTopicRuleDestinationResponse {
   topicRuleDestination?: TopicRuleDestination;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAuditConfigurationRequest {
   /**
    * <p>If true, all scheduled audits are deleted.</p>
@@ -5666,8 +6154,14 @@ export interface DeleteAccountAuditConfigurationRequest {
   deleteScheduledAudits?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAuditConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAuditSuppressionRequest {
   /**
    * <p>An audit check name. Checks must be enabled
@@ -5683,8 +6177,14 @@ export interface DeleteAuditSuppressionRequest {
   resourceIdentifier: ResourceIdentifier | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAuditSuppressionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAuthorizerRequest {
   /**
    * <p>The name of the authorizer to delete.</p>
@@ -5692,9 +6192,13 @@ export interface DeleteAuthorizerRequest {
   authorizerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAuthorizerResponse {}
 
 /**
+ * @public
  * <p>You can't delete the resource because it is attached to one or more
  *          resources.</p>
  */
@@ -5714,6 +6218,9 @@ export class DeleteConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -5729,9 +6236,13 @@ export interface DeleteBillingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBillingGroupResponse {}
 
 /**
+ * @public
  * <p>The certificate operation is not allowed.</p>
  */
 export class CertificateStateException extends __BaseException {
@@ -5751,6 +6262,7 @@ export class CertificateStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input for the DeleteCACertificate operation.</p>
  */
 export interface DeleteCACertificateRequest {
@@ -5762,11 +6274,13 @@ export interface DeleteCACertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output for the DeleteCACertificate operation.</p>
  */
 export interface DeleteCACertificateResponse {}
 
 /**
+ * @public
  * <p>The input for the DeleteCertificate operation.</p>
  */
 export interface DeleteCertificateRequest {
@@ -5783,6 +6297,9 @@ export interface DeleteCertificateRequest {
   forceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomMetricRequest {
   /**
    * <p>
@@ -5792,8 +6309,14 @@ export interface DeleteCustomMetricRequest {
   metricName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomMetricResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDimensionRequest {
   /**
    * <p>The unique identifier for the dimension that you want to delete.</p>
@@ -5801,8 +6324,14 @@ export interface DeleteDimensionRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDimensionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDomainConfigurationRequest {
   /**
    * <p>The name of the domain configuration to be deleted.</p>
@@ -5810,8 +6339,14 @@ export interface DeleteDomainConfigurationRequest {
   domainConfigurationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDynamicThingGroupRequest {
   /**
    * <p>The name of the dynamic thing group to delete.</p>
@@ -5824,8 +6359,14 @@ export interface DeleteDynamicThingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDynamicThingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteFleetMetricRequest {
   /**
    * <p>The name of the fleet metric to delete.</p>
@@ -5838,6 +6379,9 @@ export interface DeleteFleetMetricRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the job to be deleted.</p>
@@ -5874,6 +6418,9 @@ export interface DeleteJobRequest {
   namespaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobExecutionRequest {
   /**
    * <p>The ID of the job whose execution on a particular device will be deleted.</p>
@@ -5919,6 +6466,9 @@ export interface DeleteJobExecutionRequest {
   namespaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateRequest {
   /**
    * <p>The unique identifier of the job template to delete.</p>
@@ -5926,6 +6476,9 @@ export interface DeleteJobTemplateRequest {
   jobTemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMitigationActionRequest {
   /**
    * <p>The name of the mitigation action that you want to delete.</p>
@@ -5933,8 +6486,14 @@ export interface DeleteMitigationActionRequest {
   actionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMitigationActionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteOTAUpdateRequest {
   /**
    * <p>The ID of the OTA update to delete.</p>
@@ -5954,9 +6513,13 @@ export interface DeleteOTAUpdateRequest {
   forceDeleteAWSJob?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOTAUpdateResponse {}
 
 /**
+ * @public
  * <p>The input for the DeletePolicy operation.</p>
  */
 export interface DeletePolicyRequest {

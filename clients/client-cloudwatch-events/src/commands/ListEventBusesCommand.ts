@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventBusesCommand}.
  */
 export interface ListEventBusesCommandInput extends ListEventBusesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventBusesCommand}.
  */
 export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the event buses in your account, including the default event bus, custom event
  *       buses, and partner event buses.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventBusesCommandInput - {@link ListEventBusesCommandInput}
+ * @returns {@link ListEventBusesCommandOutput}
  * @see {@link ListEventBusesCommandInput} for command's `input` shape.
  * @see {@link ListEventBusesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListEventBusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventBusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListEventBusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventBusesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventBusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventBusesCommandOutput> {
     return deserializeAws_json1_1ListEventBusesCommand(output, context);
   }

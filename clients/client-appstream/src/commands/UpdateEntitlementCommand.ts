@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEntitlementCommand}.
  */
 export interface UpdateEntitlementCommandInput extends UpdateEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEntitlementCommand}.
  */
 export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEntitlementCommandInput - {@link UpdateEntitlementCommandInput}
+ * @returns {@link UpdateEntitlementCommandOutput}
  * @see {@link UpdateEntitlementCommandInput} for command's `input` shape.
  * @see {@link UpdateEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEntitlementCommandOutput> {
     return deserializeAws_json1_1UpdateEntitlementCommand(output, context);
   }

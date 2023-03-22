@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptHandshakeCommand}.
  */
 export interface AcceptHandshakeCommandInput extends AcceptHandshakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptHandshakeCommand}.
  */
 export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a response to the originator of a handshake agreeing to the action proposed by
  *             the handshake request.</p>
  *          <p>You can only call this operation by the following principals when they also have the
@@ -76,6 +81,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptHandshakeCommandInput - {@link AcceptHandshakeCommandInput}
+ * @returns {@link AcceptHandshakeCommandOutput}
  * @see {@link AcceptHandshakeCommandInput} for command's `input` shape.
  * @see {@link AcceptHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -363,6 +370,9 @@ export class AcceptHandshakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptHandshakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -402,10 +412,16 @@ export class AcceptHandshakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptHandshakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptHandshakeCommandOutput> {
     return deserializeAws_json1_1AcceptHandshakeCommand(output, context);
   }

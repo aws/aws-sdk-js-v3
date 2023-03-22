@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { VoiceIDServiceException as __BaseException } from "./VoiceIDServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient permissions to perform this action. Check the error message
  *             and try again.</p>
  */
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration used to authenticate a speaker during a session.</p>
  */
 export interface AuthenticationConfiguration {
@@ -35,6 +37,9 @@ export interface AuthenticationConfiguration {
   AcceptanceThreshold: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationDecision {
   ACCEPT = "ACCEPT",
   NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
@@ -46,6 +51,7 @@ export enum AuthenticationDecision {
 }
 
 /**
+ * @public
  * <p>The authentication result produced by Voice ID, processed against the current session
  *             state and streamed audio of the speaker.</p>
  */
@@ -103,6 +109,9 @@ export interface AuthenticationResult {
   Configuration?: AuthenticationConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ConflictType {
   ANOTHER_ACTIVE_STREAM = "ANOTHER_ACTIVE_STREAM",
   CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT = "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
@@ -115,6 +124,7 @@ export enum ConflictType {
 }
 
 /**
+ * @public
  * <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error
  *             message for more details.</p>
  */
@@ -174,6 +184,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration containing information about the customer managed key used for
  *             encrypting customer data.</p>
  */
@@ -186,7 +197,8 @@ export interface ServerSideEncryptionConfiguration {
 }
 
 /**
- * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ * @public
+ * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
  */
 export interface Tag {
   /**
@@ -202,6 +214,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>The name of the domain.</p>
@@ -232,12 +247,18 @@ export interface CreateDomainRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum DomainStatus {
   ACTIVE = "ACTIVE",
   PENDING = "PENDING",
   SUSPENDED = "SUSPENDED",
 }
 
+/**
+ * @public
+ */
 export enum ServerSideEncryptionUpdateStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -245,6 +266,7 @@ export enum ServerSideEncryptionUpdateStatus {
 }
 
 /**
+ * @public
  * <p>Details about the most recent server-side encryption configuration update. When the
  *             server-side encryption configuration is changed, dependency on the old KMS key is removed through an asynchronous process. When this update is
  *             complete, the domain’s data can only be accessed using the new KMS key.</p>
@@ -273,6 +295,7 @@ export interface ServerSideEncryptionUpdateDetails {
 }
 
 /**
+ * @public
  * <p>Contains all the information about a domain.</p>
  */
 export interface Domain {
@@ -325,6 +348,9 @@ export interface Domain {
   ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResponse {
   /**
    * <p>Information about the newly created domain.</p>
@@ -333,6 +359,7 @@ export interface CreateDomainResponse {
 }
 
 /**
+ * @public
  * <p>The request failed due to an unknown error on the server side.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -353,6 +380,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   BATCH_JOB = "BATCH_JOB",
   COMPLIANCE_CONSENT = "COMPLIANCE_CONSENT",
@@ -363,6 +393,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
  *             message for more details.</p>
  */
@@ -392,6 +423,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeded the service quota. Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas">Voice ID Service Quotas</a> and try your request again.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -413,6 +445,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling. Please slow down your request rate.
  *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
  *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
@@ -437,6 +470,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  */
@@ -458,6 +492,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>The identifier of the domain you want to delete.</p>
@@ -465,6 +502,9 @@ export interface DeleteDomainRequest {
   DomainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFraudsterRequest {
   /**
    * <p>The identifier of the domain containing the fraudster.</p>
@@ -477,6 +517,9 @@ export interface DeleteFraudsterRequest {
   FraudsterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSpeakerRequest {
   /**
    * <p>The identifier of the domain containing the speaker.</p>
@@ -489,6 +532,9 @@ export interface DeleteSpeakerRequest {
   SpeakerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
    * <p>The identifier of the domain you are describing.</p>
@@ -496,6 +542,9 @@ export interface DescribeDomainRequest {
   DomainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainResponse {
   /**
    * <p>Information about the specified domain.</p>
@@ -503,6 +552,9 @@ export interface DescribeDomainResponse {
   Domain?: Domain;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFraudsterRequest {
   /**
    * <p>The identifier of the domain containing the fraudster.</p>
@@ -516,6 +568,7 @@ export interface DescribeFraudsterRequest {
 }
 
 /**
+ * @public
  * <p>Contains all the information about a fraudster.</p>
  */
 export interface Fraudster {
@@ -535,6 +588,9 @@ export interface Fraudster {
   CreatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFraudsterResponse {
   /**
    * <p>Information about the specified fraudster.</p>
@@ -542,6 +598,9 @@ export interface DescribeFraudsterResponse {
   Fraudster?: Fraudster;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFraudsterRegistrationJobRequest {
   /**
    * <p>The identifier for the domain containing the fraudster registration job.</p>
@@ -555,6 +614,7 @@ export interface DescribeFraudsterRegistrationJobRequest {
 }
 
 /**
+ * @public
  * <p>Contains error details for a failed batch job.</p>
  */
 export interface FailureDetails {
@@ -570,6 +630,7 @@ export interface FailureDetails {
 }
 
 /**
+ * @public
  * <p>The configuration containing input file information for a batch job.</p>
  */
 export interface InputDataConfig {
@@ -581,6 +642,7 @@ export interface InputDataConfig {
 }
 
 /**
+ * @public
  * <p>Indicates the completion progress for a batch job.</p>
  */
 export interface JobProgress {
@@ -591,6 +653,9 @@ export interface JobProgress {
   PercentComplete?: number;
 }
 
+/**
+ * @public
+ */
 export enum FraudsterRegistrationJobStatus {
   COMPLETED = "COMPLETED",
   COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
@@ -600,6 +665,7 @@ export enum FraudsterRegistrationJobStatus {
 }
 
 /**
+ * @public
  * <p>The configuration containing output file information for a batch job.</p>
  */
 export interface OutputDataConfig {
@@ -620,12 +686,16 @@ export interface OutputDataConfig {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export enum DuplicateRegistrationAction {
   REGISTER_AS_NEW = "REGISTER_AS_NEW",
   SKIP = "SKIP",
 }
 
 /**
+ * @public
  * <p>The configuration defining the action to take when a duplicate fraudster is detected,
  *             and the similarity threshold to use for detecting a duplicate fraudster during a batch
  *             fraudster registration job.</p>
@@ -647,6 +717,7 @@ export interface RegistrationConfig {
 }
 
 /**
+ * @public
  * <p>Contains all the information about a fraudster registration job.</p>
  */
 export interface FraudsterRegistrationJob {
@@ -722,6 +793,9 @@ export interface FraudsterRegistrationJob {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFraudsterRegistrationJobResponse {
   /**
    * <p>Contains details about the specified fraudster registration job.</p>
@@ -729,6 +803,9 @@ export interface DescribeFraudsterRegistrationJobResponse {
   Job?: FraudsterRegistrationJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerRequest {
   /**
    * <p>The identifier of the domain that contains the speaker.</p>
@@ -741,6 +818,9 @@ export interface DescribeSpeakerRequest {
   SpeakerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SpeakerStatus {
   ENROLLED = "ENROLLED",
   EXPIRED = "EXPIRED",
@@ -749,6 +829,7 @@ export enum SpeakerStatus {
 }
 
 /**
+ * @public
  * <p>Contains all the information about a speaker.</p>
  */
 export interface Speaker {
@@ -789,6 +870,9 @@ export interface Speaker {
   LastAccessedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerResponse {
   /**
    * <p>Information about the specified speaker.</p>
@@ -796,6 +880,9 @@ export interface DescribeSpeakerResponse {
   Speaker?: Speaker;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerEnrollmentJobRequest {
   /**
    * <p>The identifier of the domain containing the speaker enrollment job.</p>
@@ -808,17 +895,24 @@ export interface DescribeSpeakerEnrollmentJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExistingEnrollmentAction {
   OVERWRITE = "OVERWRITE",
   SKIP = "SKIP",
 }
 
+/**
+ * @public
+ */
 export enum FraudDetectionAction {
   FAIL = "FAIL",
   IGNORE = "IGNORE",
 }
 
 /**
+ * @public
  * <p>The configuration defining the action to take when a speaker is flagged by the fraud
  *             detection system during a batch speaker enrollment job, and the risk threshold to use
  *             for identification.</p>
@@ -841,6 +935,7 @@ export interface EnrollmentJobFraudDetectionConfig {
 }
 
 /**
+ * @public
  * <p>Contains configurations defining enrollment behavior for the batch job.</p>
  */
 export interface EnrollmentConfig {
@@ -859,6 +954,9 @@ export interface EnrollmentConfig {
   FraudDetectionConfig?: EnrollmentJobFraudDetectionConfig;
 }
 
+/**
+ * @public
+ */
 export enum SpeakerEnrollmentJobStatus {
   COMPLETED = "COMPLETED",
   COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
@@ -868,6 +966,7 @@ export enum SpeakerEnrollmentJobStatus {
 }
 
 /**
+ * @public
  * <p>Contains all the information about a speaker enrollment job.</p>
  */
 export interface SpeakerEnrollmentJob {
@@ -942,6 +1041,9 @@ export interface SpeakerEnrollmentJob {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerEnrollmentJobResponse {
   /**
    * <p>Contains details about the specified speaker enrollment job.</p>
@@ -949,6 +1051,9 @@ export interface DescribeSpeakerEnrollmentJobResponse {
   Job?: SpeakerEnrollmentJob;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>The maximum number of domains to list per API call.</p>
@@ -965,6 +1070,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a domain.</p>
  */
 export interface DomainSummary {
@@ -1017,6 +1123,9 @@ export interface DomainSummary {
   ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>A list containing details about each domain in the Amazon Web Services account.</p>
@@ -1032,6 +1141,9 @@ export interface ListDomainsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainRequest {
   /**
    * <p>The identifier of the domain to be updated.</p>
@@ -1060,6 +1172,9 @@ export interface UpdateDomainRequest {
   ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainResponse {
   /**
    * <p>Details about the updated domain</p>
@@ -1067,6 +1182,9 @@ export interface UpdateDomainResponse {
   Domain?: Domain;
 }
 
+/**
+ * @public
+ */
 export interface EvaluateSessionRequest {
   /**
    * <p>The identifier of the domain where the session started.</p>
@@ -1081,6 +1199,7 @@ export interface EvaluateSessionRequest {
 }
 
 /**
+ * @public
  * <p>The configuration used for performing fraud detection over a speaker during a
  *             session.</p>
  */
@@ -1093,18 +1212,25 @@ export interface FraudDetectionConfiguration {
   RiskThreshold: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FraudDetectionDecision {
   HIGH_RISK = "HIGH_RISK",
   LOW_RISK = "LOW_RISK",
   NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
 }
 
+/**
+ * @public
+ */
 export enum FraudDetectionReason {
   KNOWN_FRAUDSTER = "KNOWN_FRAUDSTER",
   VOICE_SPOOFING = "VOICE_SPOOFING",
 }
 
 /**
+ * @public
  * <p>Contains details produced as a result of performing known fraudster risk analysis on a
  *             speaker.</p>
  */
@@ -1123,6 +1249,7 @@ export interface KnownFraudsterRisk {
 }
 
 /**
+ * @public
  * <p>The details resulting from 'Voice Spoofing Risk' analysis of the speaker.</p>
  */
 export interface VoiceSpoofingRisk {
@@ -1133,6 +1260,7 @@ export interface VoiceSpoofingRisk {
 }
 
 /**
+ * @public
  * <p>Details regarding various fraud risk analyses performed against the current session
  *             state and streamed audio of the speaker.</p>
  */
@@ -1149,6 +1277,7 @@ export interface FraudRiskDetails {
 }
 
 /**
+ * @public
  * <p>The fraud detection result produced by Voice ID, processed against the current
  *             session state and streamed audio of the speaker.</p>
  */
@@ -1200,12 +1329,18 @@ export interface FraudDetectionResult {
   RiskDetails?: FraudRiskDetails;
 }
 
+/**
+ * @public
+ */
 export enum StreamingStatus {
   ENDED = "ENDED",
   ONGOING = "ONGOING",
   PENDING_CONFIGURATION = "PENDING_CONFIGURATION",
 }
 
+/**
+ * @public
+ */
 export interface EvaluateSessionResponse {
   /**
    * <p>The identifier of the domain containing the session.</p>
@@ -1249,6 +1384,7 @@ export interface EvaluateSessionResponse {
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a fraudster registration job.</p>
  */
 export interface FraudsterRegistrationJobSummary {
@@ -1298,6 +1434,9 @@ export interface FraudsterRegistrationJobSummary {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ */
 export interface ListFraudsterRegistrationJobsRequest {
   /**
    * <p>The identifier of the domain containing the fraudster registration Jobs.</p>
@@ -1325,6 +1464,9 @@ export interface ListFraudsterRegistrationJobsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFraudsterRegistrationJobsResponse {
   /**
    * <p>A list containing details about each specified fraudster registration job.</p>
@@ -1340,6 +1482,9 @@ export interface ListFraudsterRegistrationJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeakerEnrollmentJobsRequest {
   /**
    * <p>The identifier of the domain containing the speaker enrollment jobs.</p>
@@ -1368,6 +1513,7 @@ export interface ListSpeakerEnrollmentJobsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a speaker enrollment job.</p>
  */
 export interface SpeakerEnrollmentJobSummary {
@@ -1417,6 +1563,9 @@ export interface SpeakerEnrollmentJobSummary {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeakerEnrollmentJobsResponse {
   /**
    * <p>A list containing details about each specified speaker enrollment job.</p>
@@ -1432,6 +1581,9 @@ export interface ListSpeakerEnrollmentJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeakersRequest {
   /**
    * <p>The identifier of the domain.</p>
@@ -1455,6 +1607,7 @@ export interface ListSpeakersRequest {
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a speaker.</p>
  */
 export interface SpeakerSummary {
@@ -1495,6 +1648,9 @@ export interface SpeakerSummary {
   LastAccessedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeakersResponse {
   /**
    * <p>A list containing details about each speaker in the Amazon Web Services account.
@@ -1511,6 +1667,9 @@ export interface ListSpeakersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Voice ID resource for which you want to list
@@ -1519,6 +1678,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags associated with the specified resource.</p>
@@ -1526,6 +1688,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface OptOutSpeakerRequest {
   /**
    * <p>The identifier of the domain containing the speaker.</p>
@@ -1538,6 +1703,9 @@ export interface OptOutSpeakerRequest {
   SpeakerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface OptOutSpeakerResponse {
   /**
    * <p>Details about the opted-out speaker.</p>
@@ -1545,6 +1713,9 @@ export interface OptOutSpeakerResponse {
   Speaker?: Speaker;
 }
 
+/**
+ * @public
+ */
 export interface StartFraudsterRegistrationJobRequest {
   /**
    * <p>The idempotency token for starting a new fraudster registration job. If not provided,
@@ -1593,6 +1764,9 @@ export interface StartFraudsterRegistrationJobRequest {
   OutputDataConfig: OutputDataConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartFraudsterRegistrationJobResponse {
   /**
    * <p>Details about the started fraudster registration job.</p>
@@ -1600,6 +1774,9 @@ export interface StartFraudsterRegistrationJobResponse {
   Job?: FraudsterRegistrationJob;
 }
 
+/**
+ * @public
+ */
 export interface StartSpeakerEnrollmentJobRequest {
   /**
    * <p>The idempotency token for starting a new speaker enrollment Job. If not provided,
@@ -1646,6 +1823,9 @@ export interface StartSpeakerEnrollmentJobRequest {
   OutputDataConfig: OutputDataConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSpeakerEnrollmentJobResponse {
   /**
    * <p>Details about the started speaker enrollment job.</p>
@@ -1653,6 +1833,9 @@ export interface StartSpeakerEnrollmentJobResponse {
   Job?: SpeakerEnrollmentJob;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Voice ID resource you want to tag.</p>
@@ -1665,8 +1848,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Voice ID resource you want to remove tags
@@ -1680,6 +1869,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

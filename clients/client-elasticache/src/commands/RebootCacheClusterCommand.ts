@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RebootCacheClusterCommand}.
  */
 export interface RebootCacheClusterCommandInput extends RebootCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootCacheClusterCommand}.
  */
 export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots some, or all, of the cache nodes
  *             within a provisioned cluster. This operation applies any modified cache parameter
  *             groups to the cluster. The reboot operation takes place as soon as possible, and
@@ -56,6 +61,8 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootCacheClusterCommandInput - {@link RebootCacheClusterCommandInput}
+ * @returns {@link RebootCacheClusterCommandOutput}
  * @see {@link RebootCacheClusterCommandInput} for command's `input` shape.
  * @see {@link RebootCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -129,6 +136,9 @@ export class RebootCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class RebootCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRebootCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootCacheClusterCommandOutput> {
     return deserializeAws_queryRebootCacheClusterCommand(output, context);
   }

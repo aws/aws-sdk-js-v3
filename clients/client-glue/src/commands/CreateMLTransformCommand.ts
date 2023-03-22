@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMLTransformCommand}.
  */
 export interface CreateMLTransformCommandInput extends CreateMLTransformRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMLTransformCommand}.
  */
 export interface CreateMLTransformCommandOutput extends CreateMLTransformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Glue machine learning transform. This operation creates the transform and
  *       all the necessary parameters to train it.</p>
  *          <p>Call this operation as the first step in the process of using a machine learning transform
@@ -56,6 +61,8 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMLTransformCommandInput - {@link CreateMLTransformCommandInput}
+ * @returns {@link CreateMLTransformCommandOutput}
  * @see {@link CreateMLTransformCommandInput} for command's `input` shape.
  * @see {@link CreateMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreateMLTransformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateMLTransformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMLTransformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMLTransformCommandOutput> {
     return deserializeAws_json1_1CreateMLTransformCommand(output, context);
   }

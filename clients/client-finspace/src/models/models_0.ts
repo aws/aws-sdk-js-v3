@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { FinspaceServiceException as __BaseException } from "./FinspaceServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,12 +23,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FederationMode {
   FEDERATED = "FEDERATED",
   LOCAL = "LOCAL",
 }
 
 /**
+ * @public
  * <p>Configuration information when authentication mode is FEDERATED.</p>
  */
 export interface FederationParameters {
@@ -67,6 +72,7 @@ export interface FederationParameters {
 }
 
 /**
+ * @public
  * <p>Configuration information for the superuser.</p>
  */
 export interface SuperuserParameters {
@@ -86,6 +92,9 @@ export interface SuperuserParameters {
   lastName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentRequest {
   /**
    * <p>The name of the FinSpace environment to be created.</p>
@@ -137,17 +146,20 @@ export interface CreateEnvironmentRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>arn:aws:finspace:${Region}::data-bundle/capital-markets-sample</code> - Contains sample Capital Markets datasets, categories and controlled vocabularies.</p>
+   *                   <code>arn:aws:finspace:$\{Region\}::data-bundle/capital-markets-sample</code> - Contains sample Capital Markets datasets, categories and controlled vocabularies.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>arn:aws:finspace:${Region}::data-bundle/taq</code> (default) - Contains trades and quotes data in addition to sample Capital Markets data.</p>
+   *                   <code>arn:aws:finspace:$\{Region\}::data-bundle/taq</code> (default) - Contains trades and quotes data in addition to sample Capital Markets data.</p>
    *             </li>
    *          </ul>
    */
   dataBundles?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentResponse {
   /**
    * <p>The unique identifier for FinSpace environment that you created.</p>
@@ -166,6 +178,7 @@ export interface CreateEnvironmentResponse {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
  */
@@ -186,6 +199,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A service limit or quota is exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -205,6 +219,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> You have exceeded your service quota. To perform the requested action,
  *          remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
  */
@@ -225,6 +240,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -244,6 +260,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -262,6 +279,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentRequest {
   /**
    * <p>The identifier for the FinSpace environment.</p>
@@ -269,9 +289,13 @@ export interface DeleteEnvironmentRequest {
   environmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentResponse {}
 
 /**
+ * @public
  * <p>One or more resources can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -290,6 +314,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentRequest {
   /**
    * <p>The identifier of the FinSpace environment.</p>
@@ -297,6 +324,9 @@ export interface GetEnvironmentRequest {
   environmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentStatus {
   CREATED = "CREATED",
   CREATE_REQUESTED = "CREATE_REQUESTED",
@@ -311,6 +341,7 @@ export enum EnvironmentStatus {
 }
 
 /**
+ * @public
  * <p>Represents an FinSpace environment.</p>
  */
 export interface Environment {
@@ -376,6 +407,9 @@ export interface Environment {
   federationParameters?: FederationParameters;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentResponse {
   /**
    * <p>The name of the FinSpace environment.</p>
@@ -383,6 +417,9 @@ export interface GetEnvironmentResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsRequest {
   /**
    * <p>A token generated by FinSpace that specifies where to continue pagination if a previous
@@ -397,6 +434,9 @@ export interface ListEnvironmentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsResponse {
   /**
    * <p>A list of all of your FinSpace environments.</p>
@@ -411,6 +451,7 @@ export interface ListEnvironmentsResponse {
 }
 
 /**
+ * @public
  * <p>The request is invalid. Something is wrong with the input to the request.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -429,6 +470,9 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name of the resource.</p>
@@ -436,6 +480,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of all tags for a resource.</p>
@@ -443,6 +490,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource.</p>
@@ -455,8 +505,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>A FinSpace resource from which you want to remove a tag or tags. The value for this
@@ -470,8 +526,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentRequest {
   /**
    * <p>The identifier of the FinSpace environment.</p>
@@ -509,6 +571,9 @@ export interface UpdateEnvironmentRequest {
   federationParameters?: FederationParameters;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentResponse {
   /**
    * <p>Returns the FinSpace environment object.</p>

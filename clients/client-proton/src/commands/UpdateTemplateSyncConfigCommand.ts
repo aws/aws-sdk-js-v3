@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTemplateSyncConfigCommand}.
  */
 export interface UpdateTemplateSyncConfigCommandInput extends UpdateTemplateSyncConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTemplateSyncConfigCommand}.
  */
 export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update template sync configuration parameters, except for the <code>templateName</code> and
  *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked repository. A
  *    linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
@@ -48,6 +53,8 @@ export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyn
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTemplateSyncConfigCommandInput - {@link UpdateTemplateSyncConfigCommandInput}
+ * @returns {@link UpdateTemplateSyncConfigCommandOutput}
  * @see {@link UpdateTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateTemplateSyncConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateTemplateSyncConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateTemplateSyncConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateSyncConfigCommandOutput> {
     return deserializeAws_json1_0UpdateTemplateSyncConfigCommand(output, context);
   }

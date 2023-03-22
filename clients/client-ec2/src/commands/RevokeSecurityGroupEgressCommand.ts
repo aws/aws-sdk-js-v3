@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeSecurityGroupEgressCommand}.
  */
 export interface RevokeSecurityGroupEgressCommandInput extends RevokeSecurityGroupEgressRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeSecurityGroupEgressCommand}.
  */
 export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGroupEgressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Removes the specified outbound (egress) rules from a security group for EC2-VPC.
  *        This action does not apply to security groups for use in EC2-Classic.</p>
  *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
@@ -59,6 +64,8 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSecurityGroupEgressCommandInput - {@link RevokeSecurityGroupEgressCommandInput}
+ * @returns {@link RevokeSecurityGroupEgressCommandOutput}
  * @see {@link RevokeSecurityGroupEgressCommandInput} for command's `input` shape.
  * @see {@link RevokeSecurityGroupEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +89,9 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSecurityGroupEgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSecurityGroupEgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RevokeSecurityGroupEgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceSetCommand}.
  */
 export interface GetResourceSetCommandInput extends GetResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceSetCommand}.
  */
 export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the details about a resource set, including a list of the resources in the set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceSetCommandInput - {@link GetResourceSetCommandInput}
+ * @returns {@link GetResourceSetCommandOutput}
  * @see {@link GetResourceSetCommandInput} for command's `input` shape.
  * @see {@link GetResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceSetCommandOutput> {
     return deserializeAws_restJson1GetResourceSetCommand(output, context);
   }

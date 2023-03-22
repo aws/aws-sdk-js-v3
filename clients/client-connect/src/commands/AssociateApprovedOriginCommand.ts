@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApprovedOriginCommand}.
  */
 export interface AssociateApprovedOriginCommandInput extends AssociateApprovedOriginRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApprovedOriginCommand}.
  */
 export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates an approved origin to an Amazon Connect instance.</p>
  * @example
@@ -42,6 +47,8 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApprovedOriginCommandInput - {@link AssociateApprovedOriginCommandInput}
+ * @returns {@link AssociateApprovedOriginCommandOutput}
  * @see {@link AssociateApprovedOriginCommandInput} for command's `input` shape.
  * @see {@link AssociateApprovedOriginCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class AssociateApprovedOriginCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApprovedOriginCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class AssociateApprovedOriginCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateApprovedOriginCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateApprovedOriginCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateApprovedOriginCommandOutput> {
     return deserializeAws_restJson1AssociateApprovedOriginCommand(output, context);
   }

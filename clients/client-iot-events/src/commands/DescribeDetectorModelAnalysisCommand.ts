@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDetectorModelAnalysisCommand}.
  */
 export interface DescribeDetectorModelAnalysisCommandInput extends DescribeDetectorModelAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDetectorModelAnalysisCommand}.
  */
 export interface DescribeDetectorModelAnalysisCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDetectorModelAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves runtime information about a detector model analysis.</p>
  *          <note>
  *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
@@ -51,6 +56,8 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDetectorModelAnalysisCommandInput - {@link DescribeDetectorModelAnalysisCommandInput}
+ * @returns {@link DescribeDetectorModelAnalysisCommandOutput}
  * @see {@link DescribeDetectorModelAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorModelAnalysisCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDetectorModelAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDetectorModelAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDetectorModelAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

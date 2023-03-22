@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMatchBackfillCommand}.
  */
 export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput {}
 /**
+ * @public
+ *
  * The output of {@link StartMatchBackfillCommand}.
  */
 export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds new players to fill open slots in currently running game sessions. The backfill
  *             match process is essentially identical to the process of forming new matches. Backfill
  *             requests use the same matchmaker that was used to make the original match, and they
@@ -83,6 +88,8 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMatchBackfillCommandInput - {@link StartMatchBackfillCommandInput}
+ * @returns {@link StartMatchBackfillCommandOutput}
  * @see {@link StartMatchBackfillCommandInput} for command's `input` shape.
  * @see {@link StartMatchBackfillCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -120,6 +127,9 @@ export class StartMatchBackfillCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMatchBackfillCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class StartMatchBackfillCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMatchBackfillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMatchBackfillCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMatchBackfillCommandOutput> {
     return deserializeAws_json1_1StartMatchBackfillCommand(output, context);
   }

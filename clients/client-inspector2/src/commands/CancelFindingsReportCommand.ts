@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelFindingsReportCommand}.
  */
 export interface CancelFindingsReportCommandInput extends CancelFindingsReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelFindingsReportCommand}.
  */
 export interface CancelFindingsReportCommandOutput extends CancelFindingsReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the given findings report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelFindingsReportCommandOutput extends CancelFindingsReportR
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelFindingsReportCommandInput - {@link CancelFindingsReportCommandInput}
+ * @returns {@link CancelFindingsReportCommandOutput}
  * @see {@link CancelFindingsReportCommandInput} for command's `input` shape.
  * @see {@link CancelFindingsReportCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -85,6 +92,9 @@ export class CancelFindingsReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelFindingsReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CancelFindingsReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelFindingsReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelFindingsReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelFindingsReportCommandOutput> {
     return deserializeAws_restJson1CancelFindingsReportCommand(output, context);
   }

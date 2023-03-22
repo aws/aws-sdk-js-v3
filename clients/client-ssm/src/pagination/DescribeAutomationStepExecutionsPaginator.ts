@@ -10,7 +10,7 @@ import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeAutomationStepExecutionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeAutomationStepExecutions(
   config: SSMPaginationConfiguration,
   input: DescribeAutomationStepExecutionsCommandInput,

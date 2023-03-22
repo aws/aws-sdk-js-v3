@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePipeCommand}.
  */
 export interface DescribePipeCommandInput extends DescribePipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePipeCommand}.
  */
 export interface DescribePipeCommandOutput extends DescribePipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the information about an existing pipe. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePipeCommandInput - {@link DescribePipeCommandInput}
+ * @returns {@link DescribePipeCommandOutput}
  * @see {@link DescribePipeCommandInput} for command's `input` shape.
  * @see {@link DescribePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribePipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribePipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribePipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePipeCommandOutput> {
     return deserializeAws_restJson1DescribePipeCommand(output, context);
   }

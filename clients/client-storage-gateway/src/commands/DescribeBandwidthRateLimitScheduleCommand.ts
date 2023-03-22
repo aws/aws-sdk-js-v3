@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBandwidthRateLimitScheduleCommand}.
  */
 export interface DescribeBandwidthRateLimitScheduleCommandInput extends DescribeBandwidthRateLimitScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBandwidthRateLimitScheduleCommand}.
  */
 export interface DescribeBandwidthRateLimitScheduleCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about the bandwidth rate limit schedule of a gateway. By default,
  *          gateways do not have bandwidth rate limit schedules, which means no bandwidth rate limiting
  *          is in effect. This operation is supported only for volume, tape and S3 file gateways. FSx
@@ -64,6 +69,8 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBandwidthRateLimitScheduleCommandInput - {@link DescribeBandwidthRateLimitScheduleCommandInput}
+ * @returns {@link DescribeBandwidthRateLimitScheduleCommandOutput}
  * @see {@link DescribeBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBandwidthRateLimitScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeBandwidthRateLimitScheduleCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command<
     return serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

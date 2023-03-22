@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link HeadObjectCommand}.
  */
 export interface HeadObjectCommandInput extends HeadObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link HeadObjectCommand}.
  */
 export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The HEAD action retrieves metadata from an object without returning the object
  *          itself. This action is useful if you're only interested in an object's metadata. To use
  *          HEAD, you must have READ access to the object.</p>
@@ -156,6 +161,8 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param HeadObjectCommandInput - {@link HeadObjectCommandInput}
+ * @returns {@link HeadObjectCommandOutput}
  * @see {@link HeadObjectCommandInput} for command's `input` shape.
  * @see {@link HeadObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -211,6 +218,9 @@ export class HeadObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: HeadObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -249,10 +259,16 @@ export class HeadObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HeadObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlHeadObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadObjectCommandOutput> {
     return deserializeAws_restXmlHeadObjectCommand(output, context);
   }

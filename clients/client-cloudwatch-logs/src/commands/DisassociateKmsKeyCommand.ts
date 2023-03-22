@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateKmsKeyCommand}.
  */
 export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateKmsKeyCommand}.
  */
 export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the associated KMS key from the specified log
  *       group.</p>
  *          <p>After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data
@@ -46,6 +51,8 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateKmsKeyCommandInput - {@link DisassociateKmsKeyCommandInput}
+ * @returns {@link DisassociateKmsKeyCommandOutput}
  * @see {@link DisassociateKmsKeyCommandInput} for command's `input` shape.
  * @see {@link DisassociateKmsKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateKmsKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateKmsKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DisassociateKmsKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateKmsKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateKmsKeyCommandOutput> {
     return deserializeAws_json1_1DisassociateKmsKeyCommand(output, context);
   }

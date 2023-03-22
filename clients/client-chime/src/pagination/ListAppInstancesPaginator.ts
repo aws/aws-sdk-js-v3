@@ -10,7 +10,7 @@ import {
 import { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAppInstancesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAppInstances(
   config: ChimePaginationConfiguration,
   input: ListAppInstancesCommandInput,

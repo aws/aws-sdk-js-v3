@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DiscoverPollEndpointCommand}.
  */
 export interface DiscoverPollEndpointCommandInput extends DiscoverPollEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DiscoverPollEndpointCommand}.
  */
 export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -49,6 +54,8 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * const response = await client.send(command);
  * ```
  *
+ * @param DiscoverPollEndpointCommandInput - {@link DiscoverPollEndpointCommandInput}
+ * @returns {@link DiscoverPollEndpointCommandOutput}
  * @see {@link DiscoverPollEndpointCommandInput} for command's `input` shape.
  * @see {@link DiscoverPollEndpointCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -80,6 +87,9 @@ export class DiscoverPollEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DiscoverPollEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DiscoverPollEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DiscoverPollEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DiscoverPollEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverPollEndpointCommandOutput> {
     return deserializeAws_json1_1DiscoverPollEndpointCommand(output, context);
   }

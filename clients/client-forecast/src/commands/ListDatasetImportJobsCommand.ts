@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetImportJobsCommand}.
  */
 export interface ListDatasetImportJobsCommandInput extends ListDatasetImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetImportJobsCommand}.
  */
 export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of dataset import jobs created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
  *       operation. For each import job, this operation returns a summary of its properties, including
  *       its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
@@ -50,6 +55,8 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetImportJobsCommandInput - {@link ListDatasetImportJobsCommandInput}
+ * @returns {@link ListDatasetImportJobsCommandOutput}
  * @see {@link ListDatasetImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetImportJobsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListDatasetImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListDatasetImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetImportJobsCommandOutput> {
     return deserializeAws_json1_1ListDatasetImportJobsCommand(output, context);
   }

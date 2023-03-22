@@ -30,10 +30,14 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedRoute53HealthChecksCommand}.
  */
 export interface ListAssociatedRoute53HealthChecksCommandInput extends ListAssociatedRoute53HealthChecksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedRoute53HealthChecksCommand}.
  */
 export interface ListAssociatedRoute53HealthChecksCommandOutput
@@ -41,6 +45,7 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of all Amazon Route 53 health checks associated with a specific routing control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedRoute53HealthChecksCommandInput - {@link ListAssociatedRoute53HealthChecksCommandInput}
+ * @returns {@link ListAssociatedRoute53HealthChecksCommandOutput}
  * @see {@link ListAssociatedRoute53HealthChecksCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedRoute53HealthChecksCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedRoute53HealthChecksCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssociatedRoute53HealthChecksCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
     return serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

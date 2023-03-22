@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSitesCommand}.
  */
 export interface ListSitesCommandInput extends ListSitesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSitesCommand}.
  */
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
  *       results.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
@@ -50,6 +55,8 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSitesCommandInput - {@link ListSitesCommandInput}
+ * @returns {@link ListSitesCommandOutput}
  * @see {@link ListSitesCommandInput} for command's `input` shape.
  * @see {@link ListSitesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListSitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSitesCommandOutput> {
     return deserializeAws_restJson1ListSitesCommand(output, context);
   }

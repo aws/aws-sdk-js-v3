@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendersCommand}.
  */
 export interface ListRecommendersCommandInput extends ListRecommendersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendersCommand}.
  */
 export interface ListRecommendersCommandOutput extends ListRecommendersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of recommenders in a given Domain dataset group.
  *       When a Domain dataset group is not specified, all the recommenders associated with the account are listed.
  *       The response provides the properties for each recommender, including the Amazon Resource Name (ARN).
@@ -49,6 +54,8 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendersCommandInput - {@link ListRecommendersCommandInput}
+ * @returns {@link ListRecommendersCommandOutput}
  * @see {@link ListRecommendersCommandInput} for command's `input` shape.
  * @see {@link ListRecommendersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListRecommendersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListRecommendersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRecommendersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendersCommandOutput> {
     return deserializeAws_json1_1ListRecommendersCommand(output, context);
   }

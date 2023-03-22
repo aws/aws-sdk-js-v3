@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEndpointAttributesCommand}.
  */
 export interface GetEndpointAttributesCommandInput extends GetEndpointAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEndpointAttributesCommand}.
  */
 export interface GetEndpointAttributesCommandOutput extends GetEndpointAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the endpoint attributes for a device on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -48,6 +53,8 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEndpointAttributesCommandInput - {@link GetEndpointAttributesCommandInput}
+ * @returns {@link GetEndpointAttributesCommandOutput}
  * @see {@link GetEndpointAttributesCommandInput} for command's `input` shape.
  * @see {@link GetEndpointAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetEndpointAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEndpointAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetEndpointAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEndpointAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetEndpointAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEndpointAttributesCommandOutput> {
     return deserializeAws_queryGetEndpointAttributesCommand(output, context);
   }

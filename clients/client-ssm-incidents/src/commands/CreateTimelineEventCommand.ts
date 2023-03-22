@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTimelineEventCommand}.
  */
 export interface CreateTimelineEventCommandInput extends CreateTimelineEventInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTimelineEventCommand}.
  */
 export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom timeline event on the incident details page of an incident record.
  *             Timeline events are automatically created by Incident Manager, marking key moment during an
  *             incident. You can create custom timeline events to mark important events that are
@@ -49,6 +54,8 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTimelineEventCommandInput - {@link CreateTimelineEventCommandInput}
+ * @returns {@link CreateTimelineEventCommandOutput}
  * @see {@link CreateTimelineEventCommandInput} for command's `input` shape.
  * @see {@link CreateTimelineEventCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateTimelineEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTimelineEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateTimelineEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTimelineEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTimelineEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTimelineEventCommandOutput> {
     return deserializeAws_restJson1CreateTimelineEventCommand(output, context);
   }

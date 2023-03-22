@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
 export interface DescribeVpcEndpointServicePermissionsCommandInput
   extends DescribeVpcEndpointServicePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
 export interface DescribeVpcEndpointServicePermissionsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC
  *             endpoint service.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointServicePermissionsCommandInput - {@link DescribeVpcEndpointServicePermissionsCommandInput}
+ * @returns {@link DescribeVpcEndpointServicePermissionsCommandOutput}
  * @see {@link DescribeVpcEndpointServicePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointServicePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcEndpointServicePermissionsCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
     return serializeAws_ec2DescribeVpcEndpointServicePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

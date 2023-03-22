@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVariableCommand}.
  */
 export interface UpdateVariableCommandInput extends UpdateVariableRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVariableCommand}.
  */
 export interface UpdateVariableCommandOutput extends UpdateVariableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a variable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVariableCommandInput - {@link UpdateVariableCommandInput}
+ * @returns {@link UpdateVariableCommandOutput}
  * @see {@link UpdateVariableCommandInput} for command's `input` shape.
  * @see {@link UpdateVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateVariableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVariableCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateVariableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVariableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVariableCommandOutput> {
     return deserializeAws_json1_1UpdateVariableCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLicenseConversionTaskForResourceCommand}.
  */
 export interface CreateLicenseConversionTaskForResourceCommandInput
   extends CreateLicenseConversionTaskForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLicenseConversionTaskForResourceCommand}.
  */
 export interface CreateLicenseConversionTaskForResourceCommandOutput
@@ -38,6 +42,7 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new license conversion task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLicenseConversionTaskForResourceCommandInput - {@link CreateLicenseConversionTaskForResourceCommandInput}
+ * @returns {@link CreateLicenseConversionTaskForResourceCommandOutput}
  * @see {@link CreateLicenseConversionTaskForResourceCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConversionTaskForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseConversionTaskForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLicenseConversionTaskForResourceCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
     return serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

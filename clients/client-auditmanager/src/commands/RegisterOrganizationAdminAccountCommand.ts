@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterOrganizationAdminAccountCommand}.
  */
 export interface RegisterOrganizationAdminAccountCommandInput extends RegisterOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterOrganizationAdminAccountCommand}.
  */
 export interface RegisterOrganizationAdminAccountCommandOutput
@@ -37,6 +41,7 @@ export interface RegisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Enables an Amazon Web Services account within the organization as the delegated
  *          administrator for Audit Manager. </p>
  * @example
@@ -49,6 +54,8 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterOrganizationAdminAccountCommandInput - {@link RegisterOrganizationAdminAccountCommandInput}
+ * @returns {@link RegisterOrganizationAdminAccountCommandOutput}
  * @see {@link RegisterOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class RegisterOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class RegisterOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterOrganizationAdminAccountCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class RegisterOrganizationAdminAccountCommand extends $Command<
     return serializeAws_restJson1RegisterOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupMembershipCommand}.
  */
 export interface CreateGroupMembershipCommandInput extends CreateGroupMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupMembershipCommand}.
  */
 export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a relationship between a member and a group. The following identifiers must be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupMembershipCommandInput - {@link CreateGroupMembershipCommandInput}
+ * @returns {@link CreateGroupMembershipCommandOutput}
  * @see {@link CreateGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateGroupMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateGroupMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGroupMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupMembershipCommandOutput> {
     return deserializeAws_json1_1CreateGroupMembershipCommand(output, context);
   }

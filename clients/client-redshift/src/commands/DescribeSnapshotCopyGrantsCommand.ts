@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotCopyGrantsCommand}.
  */
 export interface DescribeSnapshotCopyGrantsCommandInput extends DescribeSnapshotCopyGrantsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotCopyGrantsCommand}.
  */
 export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGrantMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
  *             region.</p>
  *          <p>
@@ -52,6 +57,8 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotCopyGrantsCommandInput - {@link DescribeSnapshotCopyGrantsCommandInput}
+ * @returns {@link DescribeSnapshotCopyGrantsCommandOutput}
  * @see {@link DescribeSnapshotCopyGrantsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotCopyGrantsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotCopyGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotCopyGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeSnapshotCopyGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

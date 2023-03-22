@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEntityTypeCommand}.
  */
 export interface DeleteEntityTypeCommandInput extends DeleteEntityTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEntityTypeCommand}.
  */
 export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an entity type.</p>
  *          <p>You cannot delete an entity type that is included in an event type.</p>
  *          <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -48,6 +53,8 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEntityTypeCommandInput - {@link DeleteEntityTypeCommandInput}
+ * @returns {@link DeleteEntityTypeCommandOutput}
  * @see {@link DeleteEntityTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteEntityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEntityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteEntityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEntityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEntityTypeCommandOutput> {
     return deserializeAws_json1_1DeleteEntityTypeCommand(output, context);
   }

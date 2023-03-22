@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopGUISessionCommand}.
  */
 export interface StopGUISessionCommandInput extends StopGUISessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopGUISessionCommand}.
  */
 export interface StopGUISessionCommandOutput extends StopGUISessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
  *       operating system or application. The session will close and any unsaved data will be lost.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StopGUISessionCommandOutput extends StopGUISessionResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopGUISessionCommandInput - {@link StopGUISessionCommandInput}
+ * @returns {@link StopGUISessionCommandOutput}
  * @see {@link StopGUISessionCommandInput} for command's `input` shape.
  * @see {@link StopGUISessionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +100,9 @@ export class StopGUISessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopGUISessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class StopGUISessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopGUISessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopGUISessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopGUISessionCommandOutput> {
     return deserializeAws_json1_1StopGUISessionCommand(output, context);
   }

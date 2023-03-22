@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteJobTaggingCommand}.
  */
 export interface DeleteJobTaggingCommandInput extends DeleteJobTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteJobTaggingCommand}.
  */
 export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use
  *          the
  *             <code>DeleteJobTagging</code> operation, you must have permission to
@@ -71,6 +76,8 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobTaggingCommandInput - {@link DeleteJobTaggingCommandInput}
+ * @returns {@link DeleteJobTaggingCommandOutput}
  * @see {@link DeleteJobTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteJobTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DeleteJobTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteJobTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTaggingCommandOutput> {
     return deserializeAws_restXmlDeleteJobTaggingCommand(output, context);
   }

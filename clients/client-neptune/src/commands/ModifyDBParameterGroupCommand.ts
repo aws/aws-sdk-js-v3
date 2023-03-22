@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBParameterGroupCommand}.
  */
 export interface ModifyDBParameterGroupCommandInput extends ModifyDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBParameterGroupCommand}.
  */
 export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
  *       submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
  *       <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
@@ -65,6 +70,8 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBParameterGroupCommandInput - {@link ModifyDBParameterGroupCommandInput}
+ * @returns {@link ModifyDBParameterGroupCommandOutput}
  * @see {@link ModifyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -97,6 +104,9 @@ export class ModifyDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ModifyDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBParameterGroupCommandOutput> {
     return deserializeAws_queryModifyDBParameterGroupCommand(output, context);
   }

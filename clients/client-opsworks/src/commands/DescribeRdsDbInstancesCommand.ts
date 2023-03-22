@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRdsDbInstancesCommand}.
  */
 export interface DescribeRdsDbInstancesCommandInput extends DescribeRdsDbInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRdsDbInstancesCommand}.
  */
 export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes Amazon RDS instances.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -52,6 +57,8 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRdsDbInstancesCommandInput - {@link DescribeRdsDbInstancesCommandInput}
+ * @returns {@link DescribeRdsDbInstancesCommandOutput}
  * @see {@link DescribeRdsDbInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeRdsDbInstancesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRdsDbInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRdsDbInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRdsDbInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRdsDbInstancesCommandOutput> {
     return deserializeAws_json1_1DescribeRdsDbInstancesCommand(output, context);
   }

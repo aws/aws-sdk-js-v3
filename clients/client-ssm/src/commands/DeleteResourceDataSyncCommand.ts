@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceDataSyncCommand}.
  */
 export interface DeleteResourceDataSyncCommandInput extends DeleteResourceDataSyncRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceDataSyncCommand}.
  */
 export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataSyncResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a resource data sync configuration. After the configuration is deleted, changes to
  *    data on managed nodes are no longer synced to or from the target. Deleting a sync configuration
  *    doesn't delete data.</p>
@@ -48,6 +53,8 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceDataSyncCommandInput - {@link DeleteResourceDataSyncCommandInput}
+ * @returns {@link DeleteResourceDataSyncCommandOutput}
  * @see {@link DeleteResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteResourceDataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceDataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteResourceDataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResourceDataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceDataSyncCommandOutput> {
     return deserializeAws_json1_1DeleteResourceDataSyncCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIntentCommand}.
  */
 export interface GetIntentCommandInput extends GetIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIntentCommand}.
  */
 export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about an intent. In addition to the intent
  *       name, you must specify the intent version. </p>
  *          <p> This operation requires permissions to perform the
@@ -53,6 +58,8 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntentCommandInput - {@link GetIntentCommandInput}
+ * @returns {@link GetIntentCommandOutput}
  * @see {@link GetIntentCommandInput} for command's `input` shape.
  * @see {@link GetIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -238,6 +245,9 @@ export class GetIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -275,10 +285,16 @@ export class GetIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentCommandOutput> {
     return deserializeAws_restJson1GetIntentCommand(output, context);
   }

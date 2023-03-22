@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessPointCommand}.
  */
 export interface CreateAccessPointCommandInput extends CreateAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessPointCommand}.
  */
 export interface CreateAccessPointCommandOutput extends AccessPointDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an EFS access point. An access point is an application-specific view into an EFS
  *       file system that applies an operating system user and group, and a file system path, to any
  *       file system request made through the access point. The operating system user and group
@@ -59,6 +64,8 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPointCommandInput - {@link CreateAccessPointCommandInput}
+ * @returns {@link CreateAccessPointCommandOutput}
  * @see {@link CreateAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -109,6 +116,9 @@ export class CreateAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
     return deserializeAws_restJson1CreateAccessPointCommand(output, context);
   }

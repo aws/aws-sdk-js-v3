@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverRulePolicyCommand}.
  */
 export interface GetResolverRulePolicyCommandInput extends GetResolverRulePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverRulePolicyCommand}.
  */
 export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Resolver rule policy for a specified rule. A Resolver rule policy includes the rule that you want to share
  * 			with another account, the account that you want to share the rule with, and the Resolver operations that you want to allow the account to use. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolic
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverRulePolicyCommandInput - {@link GetResolverRulePolicyCommandInput}
+ * @returns {@link GetResolverRulePolicyCommandOutput}
  * @see {@link GetResolverRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResolverRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetResolverRulePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetResolverRulePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResolverRulePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverRulePolicyCommandOutput> {
     return deserializeAws_json1_1GetResolverRulePolicyCommand(output, context);
   }

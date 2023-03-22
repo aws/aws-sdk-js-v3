@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAutomaticTapeCreationPolicyCommand}.
  */
 export interface UpdateAutomaticTapeCreationPolicyCommandInput extends UpdateAutomaticTapeCreationPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAutomaticTapeCreationPolicyCommand}.
  */
 export interface UpdateAutomaticTapeCreationPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy
  *          with a new set of automatic tape creation rules. This is only supported for tape
  *          gateways.</p>
@@ -56,6 +61,8 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAutomaticTapeCreationPolicyCommandInput - {@link UpdateAutomaticTapeCreationPolicyCommandInput}
+ * @returns {@link UpdateAutomaticTapeCreationPolicyCommandOutput}
  * @see {@link UpdateAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAutomaticTapeCreationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAutomaticTapeCreationPolicyCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     return serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

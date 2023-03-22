@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoaCommand}.
  */
 export interface DescribeLoaCommandInput extends DescribeLoaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoaCommand}.
  */
 export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing
  *       your cross connect to Amazon Web Services at the colocation facility. For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at Direct Connect Locations</a>
@@ -49,6 +54,8 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoaCommandInput - {@link DescribeLoaCommandInput}
+ * @returns {@link DescribeLoaCommandOutput}
  * @see {@link DescribeLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeLoaCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeLoaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoaCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeLoaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLoaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoaCommandOutput> {
     return deserializeAws_json1_1DescribeLoaCommand(output, context);
   }

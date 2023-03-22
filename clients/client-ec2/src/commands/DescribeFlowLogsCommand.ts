@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlowLogsCommand}.
  */
 export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlowLogsCommand}.
  */
 export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more flow logs.</p>
  *          <p>To view the published flow log records, you must view the log destination. For example,
  *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
@@ -48,6 +53,8 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlowLogsCommandInput - {@link DescribeFlowLogsCommandInput}
+ * @returns {@link DescribeFlowLogsCommandOutput}
  * @see {@link DescribeFlowLogsCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeFlowLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlowLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeFlowLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFlowLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowLogsCommandOutput> {
     return deserializeAws_ec2DescribeFlowLogsCommand(output, context);
   }

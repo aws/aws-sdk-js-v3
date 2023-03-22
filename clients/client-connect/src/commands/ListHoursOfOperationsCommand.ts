@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHoursOfOperationsCommand}.
  */
 export interface ListHoursOfOperationsCommandInput extends ListHoursOfOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHoursOfOperationsCommand}.
  */
 export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the hours of operation for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
@@ -49,6 +54,8 @@ export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperation
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHoursOfOperationsCommandInput - {@link ListHoursOfOperationsCommandInput}
+ * @returns {@link ListHoursOfOperationsCommandOutput}
  * @see {@link ListHoursOfOperationsCommandInput} for command's `input` shape.
  * @see {@link ListHoursOfOperationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListHoursOfOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHoursOfOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListHoursOfOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHoursOfOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListHoursOfOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHoursOfOperationsCommandOutput> {
     return deserializeAws_restJson1ListHoursOfOperationsCommand(output, context);
   }

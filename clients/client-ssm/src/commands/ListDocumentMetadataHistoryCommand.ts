@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDocumentMetadataHistoryCommand}.
  */
 export interface ListDocumentMetadataHistoryCommandInput extends ListDocumentMetadataHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDocumentMetadataHistoryCommand}.
  */
 export interface ListDocumentMetadataHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface ListDocumentMetadataHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentMetadataHistoryCommandInput - {@link ListDocumentMetadataHistoryCommandInput}
+ * @returns {@link ListDocumentMetadataHistoryCommandOutput}
  * @see {@link ListDocumentMetadataHistoryCommandInput} for command's `input` shape.
  * @see {@link ListDocumentMetadataHistoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentMetadataHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentMetadataHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDocumentMetadataHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIndexingConfigurationCommand}.
  */
 export interface UpdateIndexingConfigurationCommandInput extends UpdateIndexingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIndexingConfigurationCommand}.
  */
 export interface UpdateIndexingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateIndexingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the search configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateIndexingConfiguration</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateIndexingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIndexingConfigurationCommandInput - {@link UpdateIndexingConfigurationCommandInput}
+ * @returns {@link UpdateIndexingConfigurationCommandOutput}
  * @see {@link UpdateIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIndexingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIndexingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIndexingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

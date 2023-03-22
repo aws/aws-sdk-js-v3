@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppVersionAppComponentCommand}.
  */
 export interface DescribeAppVersionAppComponentCommandInput extends DescribeAppVersionAppComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppVersionAppComponentCommand}.
  */
 export interface DescribeAppVersionAppComponentCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Application Component in the AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAppVersionAppComponentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppVersionAppComponentCommandInput - {@link DescribeAppVersionAppComponentCommandInput}
+ * @returns {@link DescribeAppVersionAppComponentCommandOutput}
  * @see {@link DescribeAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppVersionAppComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAppVersionAppComponentCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
     return serializeAws_restJson1DescribeAppVersionAppComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

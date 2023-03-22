@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachObjectCommand}.
  */
 export interface DetachObjectCommandInput extends DetachObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachObjectCommand}.
  */
 export interface DetachObjectCommandOutput extends DetachObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a given object from the parent object. The object that is to be detached from the
  *       parent is specified by the link name.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachObjectCommandInput - {@link DetachObjectCommandInput}
+ * @returns {@link DetachObjectCommandOutput}
  * @see {@link DetachObjectCommandInput} for command's `input` shape.
  * @see {@link DetachObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -99,6 +106,9 @@ export class DetachObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DetachObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetachObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachObjectCommandOutput> {
     return deserializeAws_restJson1DetachObjectCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetManagedScalingPolicyCommand}.
  */
 export interface GetManagedScalingPolicyCommandInput extends GetManagedScalingPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetManagedScalingPolicyCommand}.
  */
 export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the attached managed scaling policy for an Amazon EMR cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * const response = await client.send(command);
  * ```
  *
+ * @param GetManagedScalingPolicyCommandInput - {@link GetManagedScalingPolicyCommandInput}
+ * @returns {@link GetManagedScalingPolicyCommandOutput}
  * @see {@link GetManagedScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link GetManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -69,6 +76,9 @@ export class GetManagedScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetManagedScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetManagedScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetManagedScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetManagedScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetManagedScalingPolicyCommandOutput> {
     return deserializeAws_json1_1GetManagedScalingPolicyCommand(output, context);
   }

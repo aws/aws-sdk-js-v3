@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationDPUSizesCommand}.
  */
 export interface ListApplicationDPUSizesCommandInput extends ListApplicationDPUSizesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationDPUSizesCommand}.
  */
 export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPUSizesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the supported DPU sizes for the supported application runtimes (for example,
  *                 <code>Jupyter 1.0</code>). </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationDPUSizesCommandInput - {@link ListApplicationDPUSizesCommandInput}
+ * @returns {@link ListApplicationDPUSizesCommandOutput}
  * @see {@link ListApplicationDPUSizesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationDPUSizesCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListApplicationDPUSizesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationDPUSizesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListApplicationDPUSizesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationDPUSizesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationDPUSizesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationDPUSizesCommandOutput> {
     return deserializeAws_json1_1ListApplicationDPUSizesCommand(output, context);
   }

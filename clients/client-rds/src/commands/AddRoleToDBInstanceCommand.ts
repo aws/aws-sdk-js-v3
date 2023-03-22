@@ -21,15 +21,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddRoleToDBInstanceCommand}.
  */
 export interface AddRoleToDBInstanceCommandInput extends AddRoleToDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddRoleToDBInstanceCommand}.
  */
 export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p>
  *          <note>
  *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
@@ -45,6 +50,8 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddRoleToDBInstanceCommandInput - {@link AddRoleToDBInstanceCommandInput}
+ * @returns {@link AddRoleToDBInstanceCommandOutput}
  * @see {@link AddRoleToDBInstanceCommandInput} for command's `input` shape.
  * @see {@link AddRoleToDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +88,9 @@ export class AddRoleToDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddRoleToDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class AddRoleToDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRoleToDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddRoleToDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBInstanceCommandOutput> {
     return deserializeAws_queryAddRoleToDBInstanceCommand(output, context);
   }

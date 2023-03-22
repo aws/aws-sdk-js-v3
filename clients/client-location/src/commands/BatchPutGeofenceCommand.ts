@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutGeofenceCommand}.
  */
 export interface BatchPutGeofenceCommandInput extends BatchPutGeofenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutGeofenceCommand}.
  */
 export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A batch request for storing geofence geometries into a given geofence collection, or
  *             updates the geometry of an existing geofence if a geofence ID is included in the request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutGeofenceCommandInput - {@link BatchPutGeofenceCommandInput}
+ * @returns {@link BatchPutGeofenceCommandOutput}
  * @see {@link BatchPutGeofenceCommandInput} for command's `input` shape.
  * @see {@link BatchPutGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -86,6 +93,9 @@ export class BatchPutGeofenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutGeofenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class BatchPutGeofenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutGeofenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchPutGeofenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutGeofenceCommandOutput> {
     return deserializeAws_restJson1BatchPutGeofenceCommand(output, context);
   }

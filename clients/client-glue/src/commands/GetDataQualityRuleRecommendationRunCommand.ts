@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataQualityRuleRecommendationRunCommand}.
  */
 export interface GetDataQualityRuleRecommendationRunCommandInput extends GetDataQualityRuleRecommendationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataQualityRuleRecommendationRunCommand}.
  */
 export interface GetDataQualityRuleRecommendationRunCommandOutput
@@ -37,6 +41,7 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified recommendation run that was used to generate rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataQualityRuleRecommendationRunCommandInput - {@link GetDataQualityRuleRecommendationRunCommandInput}
+ * @returns {@link GetDataQualityRuleRecommendationRunCommandOutput}
  * @see {@link GetDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
     return serializeAws_json1_1GetDataQualityRuleRecommendationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

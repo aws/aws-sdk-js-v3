@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTaskContactCommand}.
  */
 export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTaskContactCommand}.
  */
 export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a flow to start a new task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTaskContactCommandInput - {@link StartTaskContactCommandInput}
+ * @returns {@link StartTaskContactCommandOutput}
  * @see {@link StartTaskContactCommandInput} for command's `input` shape.
  * @see {@link StartTaskContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartTaskContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTaskContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartTaskContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTaskContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartTaskContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskContactCommandOutput> {
     return deserializeAws_restJson1StartTaskContactCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJobCommand}.
  */
 export interface CancelJobCommandInput extends CancelJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJobCommand}.
  */
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The CancelJob operation cancels an unfinished job.</p>
  *         <note>
  *             <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a
@@ -55,6 +60,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobCommandInput - {@link CancelJobCommandInput}
+ * @returns {@link CancelJobCommandOutput}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -97,6 +104,9 @@ export class CancelJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CancelJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
     return deserializeAws_restJson1CancelJobCommand(output, context);
   }

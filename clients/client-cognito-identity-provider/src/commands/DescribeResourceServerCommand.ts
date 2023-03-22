@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourceServerCommand}.
  */
 export interface DescribeResourceServerCommandInput extends DescribeResourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourceServerCommand}.
  */
 export interface DescribeResourceServerCommandOutput extends DescribeResourceServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a resource server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourceServerCommandInput - {@link DescribeResourceServerCommandInput}
+ * @returns {@link DescribeResourceServerCommandOutput}
  * @see {@link DescribeResourceServerCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeResourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeResourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeResourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourceServerCommandOutput> {
     return deserializeAws_json1_1DescribeResourceServerCommand(output, context);
   }

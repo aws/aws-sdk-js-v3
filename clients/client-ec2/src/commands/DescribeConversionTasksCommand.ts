@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConversionTasksCommand}.
  */
 export interface DescribeConversionTasksCommandInput extends DescribeConversionTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConversionTasksCommand}.
  */
 export interface DescribeConversionTasksCommandOutput extends DescribeConversionTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the
  *    <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConversionTasksCommandInput - {@link DescribeConversionTasksCommandInput}
+ * @returns {@link DescribeConversionTasksCommandOutput}
  * @see {@link DescribeConversionTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeConversionTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeConversionTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConversionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeConversionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConversionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeConversionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConversionTasksCommandOutput> {
     return deserializeAws_ec2DescribeConversionTasksCommand(output, context);
   }

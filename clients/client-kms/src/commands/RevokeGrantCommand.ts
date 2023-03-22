@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeGrantCommand}.
  */
 export interface RevokeGrantCommandInput extends RevokeGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeGrantCommand}.
  */
 export interface RevokeGrantCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
  *       grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete">Retiring and revoking grants</a> in
  *       the <i>
@@ -84,6 +89,8 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeGrantCommandInput - {@link RevokeGrantCommandInput}
+ * @returns {@link RevokeGrantCommandOutput}
  * @see {@link RevokeGrantCommandInput} for command's `input` shape.
  * @see {@link RevokeGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -156,6 +163,9 @@ export class RevokeGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class RevokeGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokeGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeGrantCommandOutput> {
     return deserializeAws_json1_1RevokeGrantCommand(output, context);
   }

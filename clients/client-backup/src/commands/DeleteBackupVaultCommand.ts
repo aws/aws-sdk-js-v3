@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupVaultCommand}.
  */
 export interface DeleteBackupVaultCommandInput extends DeleteBackupVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupVaultCommand}.
  */
 export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is
  *          empty.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupVaultCommandInput - {@link DeleteBackupVaultCommandInput}
+ * @returns {@link DeleteBackupVaultCommandOutput}
  * @see {@link DeleteBackupVaultCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteBackupVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteBackupVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBackupVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupVaultCommandOutput> {
     return deserializeAws_restJson1DeleteBackupVaultCommand(output, context);
   }

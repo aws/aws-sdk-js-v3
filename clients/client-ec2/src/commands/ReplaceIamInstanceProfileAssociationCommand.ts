@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceIamInstanceProfileAssociationCommand}.
  */
 export interface ReplaceIamInstanceProfileAssociationCommandInput extends ReplaceIamInstanceProfileAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceIamInstanceProfileAssociationCommand}.
  */
 export interface ReplaceIamInstanceProfileAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces an IAM instance profile for the specified running instance. You can use
  *             this action to change the IAM instance profile that's associated with an instance
  *             without having to disassociate the existing IAM instance profile first.</p>
@@ -52,6 +57,8 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceIamInstanceProfileAssociationCommandInput - {@link ReplaceIamInstanceProfileAssociationCommandInput}
+ * @returns {@link ReplaceIamInstanceProfileAssociationCommandOutput}
  * @see {@link ReplaceIamInstanceProfileAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceIamInstanceProfileAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceIamInstanceProfileAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ReplaceIamInstanceProfileAssociationCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     return serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -86,6 +86,7 @@ import {
 import { OutpostsClient } from "./OutpostsClient";
 
 /**
+ * @public
  * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools to
  *       customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts enables
  *       customers to build and run applications on premises using the same programming interfaces as
@@ -94,6 +95,7 @@ import { OutpostsClient } from "./OutpostsClient";
  */
 export class Outposts extends OutpostsClient {
   /**
+   * @public
    * <p>Cancels the specified order for an Outpost.</p>
    */
   public cancelOrder(args: CancelOrderCommandInput, options?: __HttpHandlerOptions): Promise<CancelOrderCommandOutput>;
@@ -120,6 +122,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Creates an order for an Outpost.</p>
    */
   public createOrder(args: CreateOrderCommandInput, options?: __HttpHandlerOptions): Promise<CreateOrderCommandOutput>;
@@ -146,6 +149,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Creates an Outpost.</p>
    *          <p>You can specify either an Availability one or an AZ ID.</p>
    */
@@ -179,6 +183,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p> Creates a site for an Outpost. </p>
    */
   public createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
@@ -205,6 +210,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Outpost.</p>
    */
   public deleteOutpost(
@@ -237,6 +243,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified site.</p>
    */
   public deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
@@ -263,6 +270,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified catalog item.</p>
    */
   public getCatalogItem(
@@ -295,6 +303,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>
    *       Amazon Web Services uses this action to install Outpost servers.</p>
@@ -337,6 +346,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified order.</p>
    */
   public getOrder(args: GetOrderCommandInput, options?: __HttpHandlerOptions): Promise<GetOrderCommandOutput>;
@@ -363,6 +373,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified Outpost.</p>
    */
   public getOutpost(args: GetOutpostCommandInput, options?: __HttpHandlerOptions): Promise<GetOutpostCommandOutput>;
@@ -389,6 +400,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Gets the instance types for the specified Outpost.</p>
    */
   public getOutpostInstanceTypes(
@@ -421,6 +433,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified Outpost site.</p>
    */
   public getSite(args: GetSiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSiteCommandOutput>;
@@ -447,6 +460,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p> Gets the site address of the specified site. </p>
    */
   public getSiteAddress(
@@ -479,6 +493,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists the hardware assets for the specified Outpost.</p>
    *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
    *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -508,6 +523,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists the items in the catalog.</p>
    *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
    *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -543,6 +559,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists the Outpost orders for your Amazon Web Services account.</p>
    */
   public listOrders(args: ListOrdersCommandInput, options?: __HttpHandlerOptions): Promise<ListOrdersCommandOutput>;
@@ -569,6 +586,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists the Outposts for your Amazon Web Services account.</p>
    *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
    *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -601,6 +619,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
    *       results.</p>
    *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
@@ -631,6 +650,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -663,6 +683,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>
    *       Amazon Web Services uses this action to install Outpost servers.</p>
@@ -705,6 +726,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -731,6 +753,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the specified resource.</p>
    */
   public untagResource(
@@ -763,6 +786,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p> Updates an Outpost. </p>
    */
   public updateOutpost(
@@ -795,6 +819,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified site.</p>
    */
   public updateSite(args: UpdateSiteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSiteCommandOutput>;
@@ -821,6 +846,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Updates the address of the specified site.</p>
    *          <p>You can't update a site address if there is an order in progress. You must wait for the
    *       order to complete or cancel the order.</p>
@@ -857,6 +883,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Update the physical and logistical details for a rack at a site. For more information
    *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
    *         readiness checklist</a> in the Amazon Web Services Outposts User Guide.

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListActionTypesCommand}.
  */
 export interface ListActionTypesCommandInput extends ListActionTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListActionTypesCommand}.
  */
 export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a summary of all AWS CodePipeline action types associated with your
  *             account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActionTypesCommandInput - {@link ListActionTypesCommandInput}
+ * @returns {@link ListActionTypesCommandOutput}
  * @see {@link ListActionTypesCommandInput} for command's `input` shape.
  * @see {@link ListActionTypesCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListActionTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActionTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListActionTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActionTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListActionTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionTypesCommandOutput> {
     return deserializeAws_json1_1ListActionTypesCommand(output, context);
   }

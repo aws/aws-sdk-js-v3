@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMonitorCommand}.
  */
 export interface UpdateMonitorCommandInput extends UpdateMonitorInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMonitorCommand}.
  */
 export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a monitor. You can update a monitor to add or remove resources, or to change the status of the monitor. You can't change the name of a
  * 			monitor.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMonitorCommandInput - {@link UpdateMonitorCommandInput}
+ * @returns {@link UpdateMonitorCommandOutput}
  * @see {@link UpdateMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitorCommandOutput> {
     return deserializeAws_restJson1UpdateMonitorCommand(output, context);
   }

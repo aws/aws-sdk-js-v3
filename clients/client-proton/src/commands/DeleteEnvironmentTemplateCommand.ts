@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEnvironmentTemplateCommand}.
  */
 export interface DeleteEnvironmentTemplateCommandInput extends DeleteEnvironmentTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEnvironmentTemplateCommand}.
  */
 export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If no other major or minor versions of an environment template exist, delete the environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmen
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentTemplateCommandInput - {@link DeleteEnvironmentTemplateCommandInput}
+ * @returns {@link DeleteEnvironmentTemplateCommandOutput}
  * @see {@link DeleteEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteEnvironmentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

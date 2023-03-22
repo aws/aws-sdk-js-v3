@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutCorsPolicyCommand}.
  */
 export interface PutCorsPolicyCommandInput extends PutCorsPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutCorsPolicyCommand}.
  */
 export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the cross-origin resource sharing (CORS) configuration on a container so that
  *          the container can service cross-origin requests. For example, you might want to enable a
  *          request whose origin is http://www.example.com to access your AWS Elemental MediaStore
@@ -56,6 +61,8 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCorsPolicyCommandInput - {@link PutCorsPolicyCommandInput}
+ * @returns {@link PutCorsPolicyCommandOutput}
  * @see {@link PutCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutCorsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCorsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutCorsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutCorsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCorsPolicyCommandOutput> {
     return deserializeAws_json1_1PutCorsPolicyCommand(output, context);
   }

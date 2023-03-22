@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartWorkspacesCommand}.
  */
 export interface StartWorkspacesCommandInput extends StartWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartWorkspacesCommand}.
  */
 export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified WorkSpaces.</p>
  *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>STOPPED</code>.</p>
@@ -48,6 +53,8 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartWorkspacesCommandInput - {@link StartWorkspacesCommandInput}
+ * @returns {@link StartWorkspacesCommandOutput}
  * @see {@link StartWorkspacesCommandInput} for command's `input` shape.
  * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -71,6 +78,9 @@ export class StartWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class StartWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkspacesCommandOutput> {
     return deserializeAws_json1_1StartWorkspacesCommand(output, context);
   }

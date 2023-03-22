@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoginProfileCommand}.
  */
 export interface CreateLoginProfileCommandInput extends CreateLoginProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoginProfileCommand}.
  */
 export interface CreateLoginProfileCommandOutput extends CreateLoginProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a password for the specified IAM user. A password allows an IAM user to
  *             access Amazon Web Services services through the Amazon Web Services Management Console.</p>
  *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
@@ -51,6 +56,8 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoginProfileCommandInput - {@link CreateLoginProfileCommandInput}
+ * @returns {@link CreateLoginProfileCommandOutput}
  * @see {@link CreateLoginProfileCommandInput} for command's `input` shape.
  * @see {@link CreateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -116,6 +123,9 @@ export class CreateLoginProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class CreateLoginProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateLoginProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoginProfileCommandOutput> {
     return deserializeAws_queryCreateLoginProfileCommand(output, context);
   }

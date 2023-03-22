@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointConnectionNotificationsCommand}.
  */
 export interface DescribeVpcEndpointConnectionNotificationsCommandInput
   extends DescribeVpcEndpointConnectionNotificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointConnectionNotificationsCommand}.
  */
 export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the connection notifications for VPC endpoints and VPC endpoint
  *             services.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointConnectionNotificationsCommandInput - {@link DescribeVpcEndpointConnectionNotificationsCommandInput}
+ * @returns {@link DescribeVpcEndpointConnectionNotificationsCommandOutput}
  * @see {@link DescribeVpcEndpointConnectionNotificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointConnectionNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcEndpointConnectionNotificationsCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     return serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

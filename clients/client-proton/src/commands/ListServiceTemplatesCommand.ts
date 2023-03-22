@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceTemplatesCommand}.
  */
 export interface ListServiceTemplatesCommandInput extends ListServiceTemplatesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceTemplatesCommand}.
  */
 export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List service templates with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceTemplatesCommandInput - {@link ListServiceTemplatesCommandInput}
+ * @returns {@link ListServiceTemplatesCommandOutput}
  * @see {@link ListServiceTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListServiceTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListServiceTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListServiceTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListServiceTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceTemplatesCommandOutput> {
     return deserializeAws_json1_0ListServiceTemplatesCommand(output, context);
   }

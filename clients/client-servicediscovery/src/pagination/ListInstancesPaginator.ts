@@ -10,7 +10,7 @@ import { ServiceDiscoveryClient } from "../ServiceDiscoveryClient";
 import { ServiceDiscoveryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceDiscoveryClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInstancesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListInstances(
   config: ServiceDiscoveryPaginationConfiguration,
   input: ListInstancesCommandInput,

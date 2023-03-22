@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateKnowledgeBaseTemplateUriCommand}.
  */
 export interface UpdateKnowledgeBaseTemplateUriCommandInput extends UpdateKnowledgeBaseTemplateUriRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateKnowledgeBaseTemplateUriCommand}.
  */
 export interface UpdateKnowledgeBaseTemplateUriCommandOutput
@@ -37,11 +41,12 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the template URI of a knowledge base. This is only supported for knowledge bases
- *       of type EXTERNAL. Include a single variable in <code>${variable}</code> format; this
+ *       of type EXTERNAL. Include a single variable in <code>$\{variable\}</code> format; this
  *       interpolated by Wisdom using ingested content. For example, if you ingest a Salesforce
  *       article, it has an <code>Id</code> value, and you can set the template URI to
- *         <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*\/view</code>.
+ *         <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*$\{Id\}*\/view</code>.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateKnowledgeBaseTemplateUriCommandInput - {@link UpdateKnowledgeBaseTemplateUriCommandInput}
+ * @returns {@link UpdateKnowledgeBaseTemplateUriCommandOutput}
  * @see {@link UpdateKnowledgeBaseTemplateUriCommandInput} for command's `input` shape.
  * @see {@link UpdateKnowledgeBaseTemplateUriCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateKnowledgeBaseTemplateUriCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateKnowledgeBaseTemplateUriCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command<
     return serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

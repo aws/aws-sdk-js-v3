@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCachediSCSIVolumeCommand}.
  */
 export interface CreateCachediSCSIVolumeCommandInput extends CreateCachediSCSIVolumeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCachediSCSIVolumeCommand}.
  */
 export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cached volume on a specified cached volume gateway. This operation is only
  *          supported in the cached volume gateway type.</p>
  *
@@ -63,6 +68,8 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCachediSCSIVolumeCommandInput - {@link CreateCachediSCSIVolumeCommandInput}
+ * @returns {@link CreateCachediSCSIVolumeCommandOutput}
  * @see {@link CreateCachediSCSIVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateCachediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -116,6 +123,9 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCachediSCSIVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCachediSCSIVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCachediSCSIVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCachediSCSIVolumeCommandOutput> {
     return deserializeAws_json1_1CreateCachediSCSIVolumeCommand(output, context);
   }

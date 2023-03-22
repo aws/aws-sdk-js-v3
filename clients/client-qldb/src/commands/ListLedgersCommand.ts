@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLedgersCommand}.
  */
 export interface ListLedgersCommandInput extends ListLedgersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLedgersCommand}.
  */
 export interface ListLedgersCommandOutput extends ListLedgersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of ledger summaries that are associated with the current Amazon Web Services account
  *          and Region.</p>
  *          <p>This action returns a maximum of 100 items and is paginated so that you can
@@ -49,6 +54,8 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLedgersCommandInput - {@link ListLedgersCommandInput}
+ * @returns {@link ListLedgersCommandOutput}
  * @see {@link ListLedgersCommandInput} for command's `input` shape.
  * @see {@link ListLedgersCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListLedgersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLedgersCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListLedgersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLedgersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLedgersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLedgersCommandOutput> {
     return deserializeAws_restJson1ListLedgersCommand(output, context);
   }

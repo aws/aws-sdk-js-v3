@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDomainPermissionsPolicyCommand}.
  */
 export interface PutDomainPermissionsPolicyCommandInput extends PutDomainPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDomainPermissionsPolicyCommand}.
  */
 export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Sets a resource policy on a domain that specifies permissions to access it.
  *       </p>
@@ -53,6 +58,8 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDomainPermissionsPolicyCommandInput - {@link PutDomainPermissionsPolicyCommandInput}
+ * @returns {@link PutDomainPermissionsPolicyCommandOutput}
  * @see {@link PutDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDomainPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -109,6 +116,9 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDomainPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutDomainPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

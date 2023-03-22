@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAutoMLJobCommand}.
  */
 export interface CreateAutoMLJobCommandInput extends CreateAutoMLJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAutoMLJobCommand}.
  */
 export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Autopilot job.</p>
  *          <p>Find the best-performing model after you run an Autopilot job by calling .</p>
  *          <p>For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate Model
@@ -49,6 +54,8 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAutoMLJobCommandInput - {@link CreateAutoMLJobCommandInput}
+ * @returns {@link CreateAutoMLJobCommandOutput}
  * @see {@link CreateAutoMLJobCommandInput} for command's `input` shape.
  * @see {@link CreateAutoMLJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateAutoMLJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAutoMLJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateAutoMLJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAutoMLJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoMLJobCommandOutput> {
     return deserializeAws_json1_1CreateAutoMLJobCommand(output, context);
   }

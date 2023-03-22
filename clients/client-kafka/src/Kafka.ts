@@ -176,10 +176,12 @@ import {
 import { KafkaClient } from "./KafkaClient";
 
 /**
+ * @public
  * <p>The operations for managing an Amazon MSK cluster.</p>
  */
 export class Kafka extends KafkaClient {
   /**
+   * @public
    * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
    */
   public batchAssociateScramSecret(
@@ -212,6 +214,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>
    */
   public batchDisassociateScramSecret(
@@ -244,6 +247,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Creates a new MSK cluster.</p>
    */
   public createCluster(
@@ -276,6 +280,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Creates a new MSK cluster.</p>
    */
   public createClusterV2(
@@ -308,6 +313,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Creates a new MSK configuration.</p>
    */
   public createConfiguration(
@@ -340,6 +346,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
    */
   public deleteCluster(
@@ -372,6 +379,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Deletes an MSK Configuration.</p>
    */
   public deleteConfiguration(
@@ -404,6 +412,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
    */
   public describeCluster(
@@ -436,6 +445,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a description of the cluster operation specified by the ARN.</p>
    */
   public describeClusterOperation(
@@ -468,6 +478,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
    */
   public describeClusterV2(
@@ -500,6 +511,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a description of this MSK configuration.</p>
    */
   public describeConfiguration(
@@ -532,6 +544,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a description of this revision of the configuration.</p>
    */
   public describeConfigurationRevision(
@@ -564,6 +577,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>A list of brokers that a client application can use to bootstrap.</p>
    */
   public getBootstrapBrokers(
@@ -596,6 +610,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>
    */
   public getCompatibleKafkaVersions(
@@ -628,6 +643,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
    */
   public listClusterOperations(
@@ -660,6 +676,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the MSK clusters in the current Region.</p>
    */
   public listClusters(
@@ -689,6 +706,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the MSK clusters in the current Region.</p>
    */
   public listClustersV2(
@@ -721,6 +739,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the MSK configurations in this Region.</p>
    */
   public listConfigurationRevisions(
@@ -753,6 +772,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the MSK configurations in this Region.</p>
    */
   public listConfigurations(
@@ -785,6 +805,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Apache Kafka versions.</p>
    */
   public listKafkaVersions(
@@ -817,6 +838,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the broker nodes in the cluster.</p>
    */
   public listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
@@ -843,6 +865,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>
    */
   public listScramSecrets(
@@ -875,6 +898,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags associated with the specified resource.</p>
    */
   public listTagsForResource(
@@ -907,6 +931,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * Reboots brokers.
    */
   public rebootBroker(
@@ -936,6 +961,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to the specified MSK resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -962,6 +988,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Removes the tags associated with the keys that are provided in the query.</p>
    */
   public untagResource(
@@ -994,6 +1021,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates the number of broker nodes in the cluster.</p>
    */
   public updateBrokerCount(
@@ -1026,6 +1054,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates the EBS storage associated with MSK brokers.</p>
    */
   public updateBrokerStorage(
@@ -1058,6 +1087,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates EC2 instance type.</p>
    */
   public updateBrokerType(
@@ -1090,6 +1120,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates the cluster with the configuration that is specified in the request body.</p>
    */
   public updateClusterConfiguration(
@@ -1122,6 +1153,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates the Apache Kafka version for the cluster.</p>
    */
   public updateClusterKafkaVersion(
@@ -1154,6 +1186,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates an MSK configuration.</p>
    */
   public updateConfiguration(
@@ -1186,6 +1219,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates the cluster's connectivity configuration.</p>
    */
   public updateConnectivity(
@@ -1218,6 +1252,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus.</p>
    */
   public updateMonitoring(
@@ -1250,6 +1285,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * <p>Updates the security settings for the cluster. You can use this operation to specify encryption and authentication on existing clusters.</p>
    */
   public updateSecurity(
@@ -1282,6 +1318,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * @public
    * Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
    */
   public updateStorage(

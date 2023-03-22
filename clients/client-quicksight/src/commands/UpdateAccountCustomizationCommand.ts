@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountCustomizationCommand}.
  */
 export interface UpdateAccountCustomizationCommandInput extends UpdateAccountCustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountCustomizationCommand}.
  */
 export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, the only customization that you can use is a theme.</p>
  *          <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
  *             Amazon QuickSight namespace instead. Customizations that apply to a namespace override
@@ -50,6 +55,8 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountCustomizationCommandInput - {@link UpdateAccountCustomizationCommandInput}
+ * @returns {@link UpdateAccountCustomizationCommandOutput}
  * @see {@link UpdateAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateAccountCustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateAccountCustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAccountCustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

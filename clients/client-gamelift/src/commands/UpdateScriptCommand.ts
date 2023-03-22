@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScriptCommand}.
  */
 export interface UpdateScriptCommandInput extends UpdateScriptInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScriptCommand}.
  */
 export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates Realtime script metadata and content.</p>
  *         <p>To update script metadata, specify the script ID and provide updated name and/or
  *             version values. </p>
@@ -67,6 +72,8 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScriptCommandInput - {@link UpdateScriptCommandInput}
+ * @returns {@link UpdateScriptCommandOutput}
  * @see {@link UpdateScriptCommandInput} for command's `input` shape.
  * @see {@link UpdateScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScriptCommandOutput> {
     return deserializeAws_json1_1UpdateScriptCommand(output, context);
   }

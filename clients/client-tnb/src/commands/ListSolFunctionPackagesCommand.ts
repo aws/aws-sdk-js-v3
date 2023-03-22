@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolFunctionPackagesCommand}.
  */
 export interface ListSolFunctionPackagesCommandInput extends ListSolFunctionPackagesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolFunctionPackagesCommand}.
  */
 export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPackagesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about function packages.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolFunctionPackagesCommandInput - {@link ListSolFunctionPackagesCommandInput}
+ * @returns {@link ListSolFunctionPackagesCommandOutput}
  * @see {@link ListSolFunctionPackagesCommandInput} for command's `input` shape.
  * @see {@link ListSolFunctionPackagesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSolFunctionPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolFunctionPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSolFunctionPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolFunctionPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSolFunctionPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolFunctionPackagesCommandOutput> {
     return deserializeAws_restJson1ListSolFunctionPackagesCommand(output, context);
   }

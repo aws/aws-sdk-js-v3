@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateGatewayFromServerCommand}.
  */
 export interface DisassociateGatewayFromServerCommandInput extends DisassociateGatewayFromServerInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateGatewayFromServerCommand}.
  */
 export interface DisassociateGatewayFromServerCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateGatewayFromServerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a backup gateway from the specified server. After the disassociation process
  *       finishes, the gateway can no longer access the virtual machines on the server.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DisassociateGatewayFromServerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateGatewayFromServerCommandInput - {@link DisassociateGatewayFromServerCommandInput}
+ * @returns {@link DisassociateGatewayFromServerCommandOutput}
  * @see {@link DisassociateGatewayFromServerCommandInput} for command's `input` shape.
  * @see {@link DisassociateGatewayFromServerCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateGatewayFromServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateGatewayFromServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisassociateGatewayFromServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateGatewayFromServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DisassociateGatewayFromServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

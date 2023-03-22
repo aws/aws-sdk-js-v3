@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestSegmentPatternCommand}.
  */
 export interface TestSegmentPatternCommandInput extends TestSegmentPatternRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestSegmentPatternCommand}.
  */
 export interface TestSegmentPatternCommandOutput extends TestSegmentPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to test a rules pattern that you plan to use to create an audience segment.
  *       For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface TestSegmentPatternCommandOutput extends TestSegmentPatternRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param TestSegmentPatternCommandInput - {@link TestSegmentPatternCommandInput}
+ * @returns {@link TestSegmentPatternCommandOutput}
  * @see {@link TestSegmentPatternCommandInput} for command's `input` shape.
  * @see {@link TestSegmentPatternCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -79,6 +86,9 @@ export class TestSegmentPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestSegmentPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class TestSegmentPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestSegmentPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestSegmentPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestSegmentPatternCommandOutput> {
     return deserializeAws_restJson1TestSegmentPatternCommand(output, context);
   }

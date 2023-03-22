@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClientVpnEndpointCommand}.
  */
 export interface ModifyClientVpnEndpointCommandInput extends ModifyClientVpnEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClientVpnEndpointCommand}.
  */
 export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClientVpnEndpointCommandInput - {@link ModifyClientVpnEndpointCommandInput}
+ * @returns {@link ModifyClientVpnEndpointCommandOutput}
  * @see {@link ModifyClientVpnEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifyClientVpnEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClientVpnEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifyClientVpnEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClientVpnEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyClientVpnEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClientVpnEndpointCommandOutput> {
     return deserializeAws_ec2ModifyClientVpnEndpointCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutTemplateActionCommand}.
  */
 export interface PutTemplateActionCommandInput extends PutTemplateActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutTemplateActionCommand}.
  */
 export interface PutTemplateActionCommandOutput extends TemplateActionDocument, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Put template post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTemplateActionCommandInput - {@link PutTemplateActionCommandInput}
+ * @returns {@link PutTemplateActionCommandOutput}
  * @see {@link PutTemplateActionCommandInput} for command's `input` shape.
  * @see {@link PutTemplateActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutTemplateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTemplateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutTemplateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTemplateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutTemplateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTemplateActionCommandOutput> {
     return deserializeAws_restJson1PutTemplateActionCommand(output, context);
   }

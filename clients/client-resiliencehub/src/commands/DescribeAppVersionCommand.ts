@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppVersionCommand}.
  */
 export interface DescribeAppVersionCommandInput extends DescribeAppVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppVersionCommand}.
  */
 export interface DescribeAppVersionCommandOutput extends DescribeAppVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the AWS Resilience Hub application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAppVersionCommandOutput extends DescribeAppVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppVersionCommandInput - {@link DescribeAppVersionCommandInput}
+ * @returns {@link DescribeAppVersionCommandOutput}
  * @see {@link DescribeAppVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAppVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAppVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAppVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppVersionCommandOutput> {
     return deserializeAws_restJson1DescribeAppVersionCommand(output, context);
   }

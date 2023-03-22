@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCollectionCommand}.
  */
 export interface DescribeCollectionCommandInput extends DescribeCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCollectionCommand}.
  */
 export interface DescribeCollectionCommandOutput extends DescribeCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified collection. You can use <code>DescribeCollection</code> to get
  *          information, such as the number of faces indexed into a collection and the version of the
  *          model used by the collection for face detection.</p>
@@ -50,6 +55,8 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCollectionCommandInput - {@link DescribeCollectionCommandInput}
+ * @returns {@link DescribeCollectionCommandOutput}
  * @see {@link DescribeCollectionCommandInput} for command's `input` shape.
  * @see {@link DescribeCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCollectionCommandOutput> {
     return deserializeAws_json1_1DescribeCollectionCommand(output, context);
   }

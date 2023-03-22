@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPersonalizedRankingCommand}.
  */
 export interface GetPersonalizedRankingCommandInput extends GetPersonalizedRankingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPersonalizedRankingCommand}.
  */
 export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRankingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
  *       deemed the most likely item to be of interest to the user.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPersonalizedRankingCommandInput - {@link GetPersonalizedRankingCommandInput}
+ * @returns {@link GetPersonalizedRankingCommandOutput}
  * @see {@link GetPersonalizedRankingCommandInput} for command's `input` shape.
  * @see {@link GetPersonalizedRankingCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetPersonalizedRankingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPersonalizedRankingCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetPersonalizedRankingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPersonalizedRankingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPersonalizedRankingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPersonalizedRankingCommandOutput> {
     return deserializeAws_restJson1GetPersonalizedRankingCommand(output, context);
   }

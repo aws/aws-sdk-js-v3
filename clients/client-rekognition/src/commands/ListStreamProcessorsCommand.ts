@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamProcessorsCommand}.
  */
 export interface ListStreamProcessorsCommandInput extends ListStreamProcessorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamProcessorsCommand}.
  */
 export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamProcessorsCommandInput - {@link ListStreamProcessorsCommandInput}
+ * @returns {@link ListStreamProcessorsCommandOutput}
  * @see {@link ListStreamProcessorsCommandInput} for command's `input` shape.
  * @see {@link ListStreamProcessorsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListStreamProcessorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamProcessorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListStreamProcessorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamProcessorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStreamProcessorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamProcessorsCommandOutput> {
     return deserializeAws_json1_1ListStreamProcessorsCommand(output, context);
   }

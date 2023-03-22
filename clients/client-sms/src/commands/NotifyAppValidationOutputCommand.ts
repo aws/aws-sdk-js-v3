@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyAppValidationOutputCommand}.
  */
 export interface NotifyAppValidationOutputCommandInput extends NotifyAppValidationOutputRequest {}
 /**
+ * @public
+ *
  * The output of {@link NotifyAppValidationOutputCommand}.
  */
 export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidationOutputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information to Server Migration Service about whether application validation is successful.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyAppValidationOutputCommandInput - {@link NotifyAppValidationOutputCommandInput}
+ * @returns {@link NotifyAppValidationOutputCommandOutput}
  * @see {@link NotifyAppValidationOutputCommandInput} for command's `input` shape.
  * @see {@link NotifyAppValidationOutputCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +92,9 @@ export class NotifyAppValidationOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyAppValidationOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class NotifyAppValidationOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyAppValidationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyAppValidationOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

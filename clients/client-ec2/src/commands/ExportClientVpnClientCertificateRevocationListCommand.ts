@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ExportClientVpnClientCertificateRevocationListCommand}.
  */
 export interface ExportClientVpnClientCertificateRevocationListCommandInput
   extends ExportClientVpnClientCertificateRevocationListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportClientVpnClientCertificateRevocationListCommand}.
  */
 export interface ExportClientVpnClientCertificateRevocationListCommandOutput
@@ -38,6 +42,7 @@ export interface ExportClientVpnClientCertificateRevocationListCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads the client certificate revocation list for the specified Client VPN endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ExportClientVpnClientCertificateRevocationListCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportClientVpnClientCertificateRevocationListCommandInput - {@link ExportClientVpnClientCertificateRevocationListCommandInput}
+ * @returns {@link ExportClientVpnClientCertificateRevocationListCommandOutput}
  * @see {@link ExportClientVpnClientCertificateRevocationListCommandInput} for command's `input` shape.
  * @see {@link ExportClientVpnClientCertificateRevocationListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportClientVpnClientCertificateRevocationListCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportClientVpnClientCertificateRevocationListCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
     return serializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

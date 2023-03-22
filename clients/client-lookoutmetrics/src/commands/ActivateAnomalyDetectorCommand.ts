@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateAnomalyDetectorCommand}.
  */
 export interface ActivateAnomalyDetectorCommandInput extends ActivateAnomalyDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link ActivateAnomalyDetectorCommand}.
  */
 export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates an anomaly detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDet
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateAnomalyDetectorCommandInput - {@link ActivateAnomalyDetectorCommandInput}
+ * @returns {@link ActivateAnomalyDetectorCommandOutput}
  * @see {@link ActivateAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link ActivateAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -88,6 +95,9 @@ export class ActivateAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ActivateAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ActivateAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateAnomalyDetectorCommandOutput> {
     return deserializeAws_restJson1ActivateAnomalyDetectorCommand(output, context);
   }

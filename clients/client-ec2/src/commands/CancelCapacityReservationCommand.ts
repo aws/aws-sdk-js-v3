@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelCapacityReservationCommand}.
  */
 export interface CancelCapacityReservationCommandInput extends CancelCapacityReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelCapacityReservationCommand}.
  */
 export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
  * 			<code>cancelled</code>.</p>
  *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
@@ -51,6 +56,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelCapacityReservationCommandInput - {@link CancelCapacityReservationCommandInput}
+ * @returns {@link CancelCapacityReservationCommandOutput}
  * @see {@link CancelCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link CancelCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CancelCapacityReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CancelCapacityReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelCapacityReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

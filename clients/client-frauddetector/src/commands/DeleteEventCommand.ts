@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventCommand}.
  */
 export interface DeleteEventCommandInput extends DeleteEventRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventCommand}.
  */
 export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified event.</p>
  *          <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventCommandInput - {@link DeleteEventCommandInput}
+ * @returns {@link DeleteEventCommandOutput}
  * @see {@link DeleteEventCommandInput} for command's `input` shape.
  * @see {@link DeleteEventCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventCommandOutput> {
     return deserializeAws_json1_1DeleteEventCommand(output, context);
   }

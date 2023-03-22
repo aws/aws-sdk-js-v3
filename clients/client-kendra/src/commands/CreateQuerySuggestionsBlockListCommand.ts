@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQuerySuggestionsBlockListCommand}.
  */
 export interface CreateQuerySuggestionsBlockListCommandInput extends CreateQuerySuggestionsBlockListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQuerySuggestionsBlockListCommand}.
  */
 export interface CreateQuerySuggestionsBlockListCommandOutput
@@ -37,6 +41,7 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a block list to exlcude certain queries from suggestions.</p>
  *          <p>Any query that contains words or phrases specified in the block
  *             list is blocked or filtered out from being shown as a suggestion.</p>
@@ -62,6 +67,8 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQuerySuggestionsBlockListCommandInput - {@link CreateQuerySuggestionsBlockListCommandInput}
+ * @returns {@link CreateQuerySuggestionsBlockListCommandOutput}
  * @see {@link CreateQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link CreateQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -114,6 +121,9 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,6 +163,9 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
@@ -160,6 +173,9 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
     return serializeAws_json1_1CreateQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSpeechSynthesisTaskCommand}.
  */
 export interface GetSpeechSynthesisTaskCommandInput extends GetSpeechSynthesisTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSpeechSynthesisTaskCommand}.
  */
 export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID.
  *       This object contains information about the given speech synthesis task,
  *       including the status of the task, and a link to the S3 bucket containing
@@ -49,6 +54,8 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSpeechSynthesisTaskCommandInput - {@link GetSpeechSynthesisTaskCommandInput}
+ * @returns {@link GetSpeechSynthesisTaskCommandOutput}
  * @see {@link GetSpeechSynthesisTaskCommandInput} for command's `input` shape.
  * @see {@link GetSpeechSynthesisTaskCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetSpeechSynthesisTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSpeechSynthesisTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetSpeechSynthesisTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSpeechSynthesisTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSpeechSynthesisTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSpeechSynthesisTaskCommandOutput> {
     return deserializeAws_restJson1GetSpeechSynthesisTaskCommand(output, context);
   }

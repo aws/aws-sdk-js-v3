@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFolderCommand}.
  */
 export interface CreateFolderCommandInput extends CreateFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFolderCommand}.
  */
 export interface CreateFolderCommandOutput extends CreateFolderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty shared folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFolderCommandInput - {@link CreateFolderCommandInput}
+ * @returns {@link CreateFolderCommandOutput}
  * @see {@link CreateFolderCommandInput} for command's `input` shape.
  * @see {@link CreateFolderCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFolderCommandOutput> {
     return deserializeAws_restJson1CreateFolderCommand(output, context);
   }

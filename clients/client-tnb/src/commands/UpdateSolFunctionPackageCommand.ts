@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSolFunctionPackageCommand}.
  */
 export interface UpdateSolFunctionPackageCommandInput extends UpdateSolFunctionPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSolFunctionPackageCommand}.
  */
 export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunctionPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the operational state of function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSolFunctionPackageCommandInput - {@link UpdateSolFunctionPackageCommandInput}
+ * @returns {@link UpdateSolFunctionPackageCommandOutput}
  * @see {@link UpdateSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link UpdateSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateSolFunctionPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSolFunctionPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateSolFunctionPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSolFunctionPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSolFunctionPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSolFunctionPackageCommandOutput> {
     return deserializeAws_restJson1UpdateSolFunctionPackageCommand(output, context);
   }

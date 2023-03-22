@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetParametersByPathCommand}.
  */
 export interface GetParametersByPathCommandInput extends GetParametersByPathRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetParametersByPathCommand}.
  */
 export interface GetParametersByPathCommandOutput extends GetParametersByPathResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
@@ -52,6 +57,8 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetParametersByPathCommandInput - {@link GetParametersByPathCommandInput}
+ * @returns {@link GetParametersByPathCommandOutput}
  * @see {@link GetParametersByPathCommandInput} for command's `input` shape.
  * @see {@link GetParametersByPathCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetParametersByPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetParametersByPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class GetParametersByPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetParametersByPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetParametersByPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersByPathCommandOutput> {
     return deserializeAws_json1_1GetParametersByPathCommand(output, context);
   }

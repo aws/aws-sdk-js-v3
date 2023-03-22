@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserAccessLoggingSettingsCommand}.
  */
 export interface UpdateUserAccessLoggingSettingsCommandInput extends UpdateUserAccessLoggingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserAccessLoggingSettingsCommand}.
  */
 export interface UpdateUserAccessLoggingSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the user access logging settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserAccessLoggingSettingsCommandInput - {@link UpdateUserAccessLoggingSettingsCommandInput}
+ * @returns {@link UpdateUserAccessLoggingSettingsCommandOutput}
  * @see {@link UpdateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class UpdateUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class UpdateUserAccessLoggingSettingsCommand extends $Command<
     return serializeAws_restJson1UpdateUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

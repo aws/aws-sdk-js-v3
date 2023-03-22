@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDominantLanguageDetectionJobCommand}.
  */
 export interface DescribeDominantLanguageDetectionJobCommandInput extends DescribeDominantLanguageDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDominantLanguageDetectionJobCommand}.
  */
 export interface DescribeDominantLanguageDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a dominant language detection job. Use this operation
  *       to get the status of a detection job.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDominantLanguageDetectionJobCommandInput - {@link DescribeDominantLanguageDetectionJobCommandInput}
+ * @returns {@link DescribeDominantLanguageDetectionJobCommandOutput}
  * @see {@link DescribeDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDominantLanguageDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     return serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

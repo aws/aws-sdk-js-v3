@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableEbsEncryptionByDefaultCommand}.
  */
 export interface EnableEbsEncryptionByDefaultCommandInput extends EnableEbsEncryptionByDefaultRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableEbsEncryptionByDefaultCommand}.
  */
 export interface EnableEbsEncryptionByDefaultCommandOutput
@@ -37,6 +41,7 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables EBS encryption by default for your account in the current Region.</p>
  *          <p>After you enable encryption by default, the EBS volumes that you create are
  *     	always encrypted, either using the default KMS key or the KMS key that you specified
@@ -59,6 +64,8 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableEbsEncryptionByDefaultCommandInput - {@link EnableEbsEncryptionByDefaultCommandInput}
+ * @returns {@link EnableEbsEncryptionByDefaultCommandOutput}
  * @see {@link EnableEbsEncryptionByDefaultCommandInput} for command's `input` shape.
  * @see {@link EnableEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +89,9 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableEbsEncryptionByDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableEbsEncryptionByDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EnableEbsEncryptionByDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

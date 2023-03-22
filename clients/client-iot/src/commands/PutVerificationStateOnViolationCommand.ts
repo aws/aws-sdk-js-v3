@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVerificationStateOnViolationCommand}.
  */
 export interface PutVerificationStateOnViolationCommandInput extends PutVerificationStateOnViolationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVerificationStateOnViolationCommand}.
  */
 export interface PutVerificationStateOnViolationCommandOutput
@@ -37,6 +41,7 @@ export interface PutVerificationStateOnViolationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set a verification state and provide a description of that verification state on a violation (detect alarm).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutVerificationStateOnViolationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVerificationStateOnViolationCommandInput - {@link PutVerificationStateOnViolationCommandInput}
+ * @returns {@link PutVerificationStateOnViolationCommandOutput}
  * @see {@link PutVerificationStateOnViolationCommandInput} for command's `input` shape.
  * @see {@link PutVerificationStateOnViolationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -80,6 +87,9 @@ export class PutVerificationStateOnViolationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVerificationStateOnViolationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class PutVerificationStateOnViolationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVerificationStateOnViolationCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class PutVerificationStateOnViolationCommand extends $Command<
     return serializeAws_restJson1PutVerificationStateOnViolationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

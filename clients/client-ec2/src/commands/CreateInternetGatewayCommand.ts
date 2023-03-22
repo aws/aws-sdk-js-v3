@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInternetGatewayCommand}.
  */
 export interface CreateInternetGatewayCommandInput extends CreateInternetGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInternetGatewayCommand}.
  */
 export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an internet gateway for use with a VPC. After creating the internet gateway,
  * 			you attach it to a VPC using <a>AttachInternetGateway</a>.</p>
  *          <p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInternetGatewayCommandInput - {@link CreateInternetGatewayCommandInput}
+ * @returns {@link CreateInternetGatewayCommandOutput}
  * @see {@link CreateInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -89,6 +96,9 @@ export class CreateInternetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInternetGatewayCommandOutput> {
     return deserializeAws_ec2CreateInternetGatewayCommand(output, context);
   }

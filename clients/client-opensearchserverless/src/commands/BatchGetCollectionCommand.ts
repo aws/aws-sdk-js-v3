@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetCollectionCommand}.
  */
 export interface BatchGetCollectionCommandInput extends BatchGetCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetCollectionCommand}.
  */
 export interface BatchGetCollectionCommandOutput extends BatchGetCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns attributes for one or more collections, including the collection endpoint and
  *             the OpenSearch Dashboards endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
@@ -52,6 +57,8 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCollectionCommandInput - {@link BatchGetCollectionCommandInput}
+ * @returns {@link BatchGetCollectionCommandOutput}
  * @see {@link BatchGetCollectionCommandInput} for command's `input` shape.
  * @see {@link BatchGetCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchGetCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchGetCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0BatchGetCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCollectionCommandOutput> {
     return deserializeAws_json1_0BatchGetCollectionCommand(output, context);
   }

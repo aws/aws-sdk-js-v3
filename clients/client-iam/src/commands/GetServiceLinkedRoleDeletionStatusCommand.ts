@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceLinkedRoleDeletionStatusCommand}.
  */
 export interface GetServiceLinkedRoleDeletionStatusCommandInput extends GetServiceLinkedRoleDeletionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceLinkedRoleDeletionStatusCommand}.
  */
 export interface GetServiceLinkedRoleDeletionStatusCommandOutput
@@ -37,6 +41,7 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of your service-linked role deletion. After you use <a>DeleteServiceLinkedRole</a> to submit a service-linked role for deletion,
  *             you can use the <code>DeletionTaskId</code> parameter in
  *                 <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion.
@@ -52,6 +57,8 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceLinkedRoleDeletionStatusCommandInput - {@link GetServiceLinkedRoleDeletionStatusCommandInput}
+ * @returns {@link GetServiceLinkedRoleDeletionStatusCommandOutput}
  * @see {@link GetServiceLinkedRoleDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link GetServiceLinkedRoleDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceLinkedRoleDeletionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetServiceLinkedRoleDeletionStatusCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     return serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

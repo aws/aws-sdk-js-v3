@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminAddUserToGroupCommand}.
  */
 export interface AdminAddUserToGroupCommandInput extends AdminAddUserToGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminAddUserToGroupCommand}.
  */
 export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified user to the specified group.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminAddUserToGroupCommandInput - {@link AdminAddUserToGroupCommandInput}
+ * @returns {@link AdminAddUserToGroupCommandOutput}
  * @see {@link AdminAddUserToGroupCommandInput} for command's `input` shape.
  * @see {@link AdminAddUserToGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -91,6 +98,9 @@ export class AdminAddUserToGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminAddUserToGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class AdminAddUserToGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminAddUserToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminAddUserToGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminAddUserToGroupCommandOutput> {
     return deserializeAws_json1_1AdminAddUserToGroupCommand(output, context);
   }

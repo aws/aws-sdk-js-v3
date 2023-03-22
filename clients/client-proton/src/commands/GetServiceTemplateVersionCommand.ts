@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceTemplateVersionCommand}.
  */
 export interface GetServiceTemplateVersionCommandInput extends GetServiceTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceTemplateVersionCommand}.
  */
 export interface GetServiceTemplateVersionCommandOutput extends GetServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a major or minor version of a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetServiceTemplateVersionCommandOutput extends GetServiceTempla
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceTemplateVersionCommandInput - {@link GetServiceTemplateVersionCommandInput}
+ * @returns {@link GetServiceTemplateVersionCommandOutput}
  * @see {@link GetServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link GetServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetServiceTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetServiceTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetServiceTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

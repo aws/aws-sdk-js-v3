@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartStreamProcessorCommand}.
  */
 export interface StartStreamProcessorCommandInput extends StartStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStreamProcessorCommand}.
  */
 export interface StartStreamProcessorCommandOutput extends StartStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
  *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
  *             <code>CreateStreamProcessor</code>.</p>
@@ -49,6 +54,8 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStreamProcessorCommandInput - {@link StartStreamProcessorCommandInput}
+ * @returns {@link StartStreamProcessorCommandOutput}
  * @see {@link StartStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link StartStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -95,6 +102,9 @@ export class StartStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class StartStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamProcessorCommandOutput> {
     return deserializeAws_json1_1StartStreamProcessorCommand(output, context);
   }

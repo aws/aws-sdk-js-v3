@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRdsDbInstanceCommand}.
  */
 export interface UpdateRdsDbInstanceCommandInput extends UpdateRdsDbInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRdsDbInstanceCommand}.
  */
 export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon RDS instance.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRdsDbInstanceCommandInput - {@link UpdateRdsDbInstanceCommandInput}
+ * @returns {@link UpdateRdsDbInstanceCommandOutput}
  * @see {@link UpdateRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateRdsDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateRdsDbInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRdsDbInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateRdsDbInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRdsDbInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRdsDbInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRdsDbInstanceCommandOutput> {
     return deserializeAws_json1_1UpdateRdsDbInstanceCommand(output, context);
   }

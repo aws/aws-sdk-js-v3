@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventsConfigurationCommand}.
  */
 export interface GetEventsConfigurationCommandInput extends GetEventsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventsConfigurationCommand}.
  */
 export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventsConfigurationCommandInput - {@link GetEventsConfigurationCommandInput}
+ * @returns {@link GetEventsConfigurationCommandOutput}
  * @see {@link GetEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetEventsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEventsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetEventsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEventsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventsConfigurationCommandOutput> {
     return deserializeAws_restJson1GetEventsConfigurationCommand(output, context);
   }

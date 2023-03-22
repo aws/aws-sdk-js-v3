@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectSentimentCommand}.
  */
 export interface DetectSentimentCommandInput extends DetectSentimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectSentimentCommand}.
  */
 export interface DetectSentimentCommandOutput extends DetectSentimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects text and returns an inference of the prevailing sentiment
  *         (<code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>). </p>
  * @example
@@ -47,6 +52,8 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectSentimentCommandInput - {@link DetectSentimentCommandInput}
+ * @returns {@link DetectSentimentCommandOutput}
  * @see {@link DetectSentimentCommandInput} for command's `input` shape.
  * @see {@link DetectSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -86,6 +93,9 @@ export class DetectSentimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectSentimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DetectSentimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectSentimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectSentimentCommandOutput> {
     return deserializeAws_json1_1DetectSentimentCommand(output, context);
   }

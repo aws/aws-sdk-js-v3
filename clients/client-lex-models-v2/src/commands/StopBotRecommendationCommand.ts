@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopBotRecommendationCommand}.
  */
 export interface StopBotRecommendationCommandInput extends StopBotRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopBotRecommendationCommand}.
  */
 export interface StopBotRecommendationCommandOutput extends StopBotRecommendationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stop an already running Bot Recommendation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopBotRecommendationCommandOutput extends StopBotRecommendatio
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBotRecommendationCommandInput - {@link StopBotRecommendationCommandInput}
+ * @returns {@link StopBotRecommendationCommandOutput}
  * @see {@link StopBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link StopBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -98,6 +105,9 @@ export class StopBotRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBotRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class StopBotRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopBotRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBotRecommendationCommandOutput> {
     return deserializeAws_restJson1StopBotRecommendationCommand(output, context);
   }

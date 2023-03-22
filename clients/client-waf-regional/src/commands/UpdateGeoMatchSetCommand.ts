@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGeoMatchSetCommand}.
  */
 export interface UpdateGeoMatchSetCommandInput extends UpdateGeoMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGeoMatchSetCommand}.
  */
 export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -84,6 +89,8 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGeoMatchSetCommandInput - {@link UpdateGeoMatchSetCommandInput}
+ * @returns {@link UpdateGeoMatchSetCommandOutput}
  * @see {@link UpdateGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -216,6 +223,9 @@ export class UpdateGeoMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGeoMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -255,10 +265,16 @@ export class UpdateGeoMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGeoMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGeoMatchSetCommandOutput> {
     return deserializeAws_json1_1UpdateGeoMatchSetCommand(output, context);
   }

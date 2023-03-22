@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssociationCommand}.
  */
 export interface DescribeAssociationCommandInput extends DescribeAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssociationCommand}.
  */
 export interface DescribeAssociationCommandOutput extends DescribeAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the association for the specified target or managed node. If you created the
  *    association by using the <code>Targets</code> parameter, then you must retrieve the association
  *    by using the association ID.</p>
@@ -48,6 +53,8 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssociationCommandInput - {@link DescribeAssociationCommandInput}
+ * @returns {@link DescribeAssociationCommandOutput}
  * @see {@link DescribeAssociationCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DescribeAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssociationCommandOutput> {
     return deserializeAws_json1_1DescribeAssociationCommand(output, context);
   }

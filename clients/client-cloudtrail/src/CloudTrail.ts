@@ -156,6 +156,7 @@ import {
 import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
 
 /**
+ * @public
  * <fullname>CloudTrail</fullname>
  *          <p>This is the CloudTrail API Reference. It provides descriptions of actions, data
  *          types, common parameters, and common errors for CloudTrail.</p>
@@ -175,6 +176,7 @@ import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput }
  */
 export class CloudTrail extends CloudTrailClient {
   /**
+   * @public
    * <p>Adds one or more tags to a trail, event data store, or channel, up to a limit of 50. Overwrites an
    *          existing tag's value when a new value is specified for an existing tag key. Tag key names
    *          must be unique; you cannot have two keys with the same name but different
@@ -207,6 +209,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Cancels a query if the query is not in a terminated state, such as
    *             <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
@@ -238,6 +241,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Creates a channel for CloudTrail to ingest events from a partner or external source.
    *          After you create a channel, a CloudTrail Lake event data store can log events
    *       from the partner or source that you specify.</p>
@@ -272,6 +276,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Creates a new event data store.</p>
    */
   public createEventDataStore(
@@ -304,6 +309,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
    *          </p>
    */
@@ -331,6 +337,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a channel.</p>
    */
   public deleteChannel(
@@ -363,6 +370,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
    *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
    *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
@@ -404,6 +412,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>
    *          Deletes the resource-based policy attached to the CloudTrail channel.
    *       </p>
@@ -438,6 +447,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a trail. This operation must be called from the region in which the trail was
    *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
    *          in other regions) of a trail that is enabled in all regions.</p>
@@ -466,6 +476,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Removes CloudTrail delegated administrator permissions from a member account in
    *          an organization.</p>
    */
@@ -499,6 +510,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about a query, including query run time in milliseconds, number of
    *          events scanned and matched, and query status. You must specify an ARN for
    *             <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
@@ -533,6 +545,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Retrieves settings for one or more trails associated with the current region for your
    *          account.</p>
    */
@@ -566,6 +579,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p> Returns information about a specific channel.
    *       </p>
    */
@@ -593,6 +607,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an event data store specified as either an ARN or the ID
    *          portion of the ARN.</p>
    */
@@ -626,6 +641,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Describes the settings for the event selectors that you configured for your trail. The
    *          information returned for your event selectors includes the following:</p>
    *          <ul>
@@ -686,6 +702,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p> Returns information about a specific import. </p>
    */
   public getImport(args: GetImportCommandInput, options?: __HttpHandlerOptions): Promise<GetImportCommandOutput>;
@@ -712,6 +729,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Describes the settings for the Insights event selectors that you configured for your
    *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
    *          is enabled on the trail, and if it is, which insight types are enabled. If you run
@@ -750,6 +768,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
    *          returned by the <code>StartQuery</code> operation, and an ARN for
    *             <code>EventDataStore</code>.</p>
@@ -784,6 +803,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>
    *          Retrieves the JSON text of the resource-based policy document attached to the CloudTrail channel.
    *       </p>
@@ -818,6 +838,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Returns settings information for a specified trail.</p>
    */
   public getTrail(args: GetTrailCommandInput, options?: __HttpHandlerOptions): Promise<GetTrailCommandOutput>;
@@ -844,6 +865,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Returns a JSON-formatted list of information about the specified trail. Fields include
    *          information on delivery errors, Amazon SNS and Amazon S3 errors, and start
    *          and stop logging times for each trail. This operation returns trail status from a single
@@ -880,6 +902,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p> Lists the channels in the current account, and their source names.
    *       </p>
    */
@@ -910,6 +933,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all event data stores in the account, in the current
    *          region.</p>
    */
@@ -943,6 +967,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of failures for the specified import. </p>
    */
   public listImportFailures(
@@ -975,6 +1000,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p> Returns information on all imports, or a select set of imports by
    *             <code>ImportStatus</code> or <code>Destination</code>. </p>
    */
@@ -1002,6 +1028,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Returns all public keys whose private keys were used to sign the digest files within the
    *          specified time range. The public key is needed to validate digest files that were signed
    *          with its corresponding private key.</p>
@@ -1042,6 +1069,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of queries and query statuses for the past seven days. You must specify
    *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
    *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
@@ -1074,6 +1102,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the trail, event data store, or channel in the current region.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
@@ -1100,6 +1129,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Lists trails that are in the current account.</p>
    */
   public listTrails(args: ListTrailsCommandInput, options?: __HttpHandlerOptions): Promise<ListTrailsCommandOutput>;
@@ -1126,6 +1156,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
    *          You can look up events that occurred in a region within the last 90 days. Lookup supports
    *          the following attributes for management events:</p>
@@ -1202,6 +1233,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Configures an event selector or advanced event selectors for your trail. Use event
    *          selectors or advanced event selectors to specify management and data event settings for
    *          your trail. By default, trails created without specific event selectors are configured to
@@ -1276,6 +1308,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
    *          want to enable on an existing trail. You also use <code>PutInsightSelectors</code> to turn
    *          off Insights event logging, by passing an empty list of insight types. The valid Insights
@@ -1312,6 +1345,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>
    *          Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of Amazon Web Services. For more information about resource-based policies, see
    *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail resource-based policy examples</a>
@@ -1348,6 +1382,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Registers an organization’s member account as the CloudTrail delegated
    *          administrator.</p>
    */
@@ -1381,6 +1416,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from a trail, event data store, or channel.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
@@ -1407,6 +1443,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which
    *          accepts an event data store ARN. You can only restore a deleted event data store within the
    *          seven-day wait period after deletion. Restoring an event data store can take several
@@ -1442,6 +1479,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p> Starts an import of logged trail events from a source S3 bucket to a destination event
    *          data store. By default, CloudTrail only imports events contained in the S3 bucket's
    *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
@@ -1484,6 +1522,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail.
    *          For a trail that is enabled in all regions, this operation must be called from the region
    *          in which the trail was created. This operation cannot be called on the shadow trails
@@ -1516,6 +1555,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
    *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
    *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
@@ -1545,6 +1585,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p> Stops a specified import. </p>
    */
   public stopImport(args: StopImportCommandInput, options?: __HttpHandlerOptions): Promise<StopImportCommandOutput>;
@@ -1571,6 +1612,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the
    *          specified trail. Under most circumstances, there is no need to use this action. You can
    *          update a trail without stopping it first. This action is the only way to stop recording.
@@ -1603,6 +1645,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Updates a channel specified by a required channel ARN or UUID.</p>
    */
   public updateChannel(
@@ -1635,6 +1678,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
    *          the ID portion of the ARN. Other parameters are optional, but at least one optional
    *          parameter must be specified, or CloudTrail throws an error.
@@ -1677,6 +1721,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * @public
    * <p>Updates trail settings that control what events you are logging, and how to handle log
    *          files. Changes to a trail do not require stopping the CloudTrail service. Use this
    *          action to designate an existing bucket for log delivery. If the existing bucket has

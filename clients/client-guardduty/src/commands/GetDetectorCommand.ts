@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDetectorCommand}.
  */
 export interface GetDetectorCommandInput extends GetDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDetectorCommand}.
  */
 export interface GetDetectorCommandOutput extends GetDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -49,6 +54,8 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDetectorCommandInput - {@link GetDetectorCommandInput}
+ * @returns {@link GetDetectorCommandOutput}
  * @see {@link GetDetectorCommandInput} for command's `input` shape.
  * @see {@link GetDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDetectorCommandOutput> {
     return deserializeAws_restJson1GetDetectorCommand(output, context);
   }

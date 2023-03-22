@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceAccessDetailsCommand}.
  */
 export interface GetInstanceAccessDetailsCommandInput extends GetInstanceAccessDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceAccessDetailsCommand}.
  */
 export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccessDetailsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or
  *         <i>instance</i>.</p>
  *          <p>The <code>get instance access details</code> operation supports tag-based access control
@@ -50,6 +55,8 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceAccessDetailsCommandInput - {@link GetInstanceAccessDetailsCommandInput}
+ * @returns {@link GetInstanceAccessDetailsCommandOutput}
  * @see {@link GetInstanceAccessDetailsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceAccessDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceAccessDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceAccessDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceAccessDetailsCommandOutput> {
     return deserializeAws_json1_1GetInstanceAccessDetailsCommand(output, context);
   }

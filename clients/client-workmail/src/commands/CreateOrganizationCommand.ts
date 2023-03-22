@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOrganizationCommand}.
  */
 export interface CreateOrganizationCommandInput extends CreateOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOrganizationCommand}.
  */
 export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
  *          <p>You can associate multiple email domains with an organization, then choose your
  *          default email domain from the WorkMail console. You can also associate a domain that is managed
@@ -54,6 +59,8 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrganizationCommandInput - {@link CreateOrganizationCommandInput}
+ * @returns {@link CreateOrganizationCommandOutput}
  * @see {@link CreateOrganizationCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrganizationCommandOutput> {
     return deserializeAws_json1_1CreateOrganizationCommand(output, context);
   }

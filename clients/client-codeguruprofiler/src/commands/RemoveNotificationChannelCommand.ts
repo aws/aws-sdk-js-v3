@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveNotificationChannelCommand}.
  */
 export interface RemoveNotificationChannelCommandInput extends RemoveNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveNotificationChannelCommand}.
  */
 export interface RemoveNotificationChannelCommandOutput extends RemoveNotificationChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove one anomaly notifications channel for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveNotificationChannelCommandInput - {@link RemoveNotificationChannelCommandInput}
+ * @returns {@link RemoveNotificationChannelCommandOutput}
  * @see {@link RemoveNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link RemoveNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -81,6 +88,9 @@ export class RemoveNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RemoveNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

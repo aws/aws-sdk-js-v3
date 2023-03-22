@@ -14,10 +14,12 @@ import {
 import { ForecastqueryClient } from "./ForecastqueryClient";
 
 /**
+ * @public
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
 export class Forecastquery extends ForecastqueryClient {
   /**
+   * @public
    * <p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p>
    *          <p>The criteria is a key-value pair. The key is either <code>item_id</code> (or the
    *       equivalent non-timestamp, non-target field) from the <code>TARGET_TIME_SERIES</code> dataset,
@@ -61,6 +63,7 @@ export class Forecastquery extends ForecastqueryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a what-if forecast.</p>
    */
   public queryWhatIfForecast(

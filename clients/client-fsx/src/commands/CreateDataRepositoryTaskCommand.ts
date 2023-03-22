@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataRepositoryTaskCommand}.
  */
 export interface CreateDataRepositoryTaskCommandInput extends CreateDataRepositoryTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataRepositoryTaskCommand}.
  */
 export interface CreateDataRepositoryTaskCommandOutput extends CreateDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon FSx for Lustre data repository task. You use data repository tasks
  *             to perform bulk operations between your Amazon FSx file system and its linked data
  *             repositories. An example of a data repository task is exporting any data and metadata
@@ -55,6 +60,8 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataRepositoryTaskCommandInput - {@link CreateDataRepositoryTaskCommandInput}
+ * @returns {@link CreateDataRepositoryTaskCommandOutput}
  * @see {@link CreateDataRepositoryTaskCommandInput} for command's `input` shape.
  * @see {@link CreateDataRepositoryTaskCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateDataRepositoryTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataRepositoryTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateDataRepositoryTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataRepositoryTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataRepositoryTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataRepositoryTaskCommandOutput> {
     return deserializeAws_json1_1CreateDataRepositoryTaskCommand(output, context);
   }

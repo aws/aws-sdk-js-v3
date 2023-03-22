@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWhatIfForecastCommand}.
  */
 export interface DeleteWhatIfForecastCommandInput extends DeleteWhatIfForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWhatIfForecastCommand}.
  */
 export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a what-if forecast created using the <a>CreateWhatIfForecast</a>
  *       operation. You can delete only what-if forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfForecast</a> operation. </p>
  *          <p>You can't delete a what-if forecast while it is being exported. After a what-if forecast is deleted, you can no longer query the what-if analysis.</p>
@@ -43,6 +48,8 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWhatIfForecastCommandInput - {@link DeleteWhatIfForecastCommandInput}
+ * @returns {@link DeleteWhatIfForecastCommandOutput}
  * @see {@link DeleteWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link DeleteWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteWhatIfForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWhatIfForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteWhatIfForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWhatIfForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWhatIfForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWhatIfForecastCommandOutput> {
     return deserializeAws_json1_1DeleteWhatIfForecastCommand(output, context);
   }

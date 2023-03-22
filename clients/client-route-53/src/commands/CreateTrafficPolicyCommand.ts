@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficPolicyCommand}.
  */
 export interface CreateTrafficPolicyCommandInput extends CreateTrafficPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficPolicyCommand}.
  */
 export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets
  * 			for one domain name (such as example.com) or one subdomain name (such as
  * 			www.example.com).</p>
@@ -48,6 +53,8 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficPolicyCommandInput - {@link CreateTrafficPolicyCommandInput}
+ * @returns {@link CreateTrafficPolicyCommandOutput}
  * @see {@link CreateTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreateTrafficPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateTrafficPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateTrafficPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrafficPolicyCommandOutput> {
     return deserializeAws_restXmlCreateTrafficPolicyCommand(output, context);
   }

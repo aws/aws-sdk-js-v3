@@ -10,7 +10,7 @@ import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutEquipmentClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataIngestionJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDataIngestionJobs(
   config: LookoutEquipmentPaginationConfiguration,
   input: ListDataIngestionJobsCommandInput,

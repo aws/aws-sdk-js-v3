@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetContentSummaryCommand}.
  */
 export interface GetContentSummaryCommandInput extends GetContentSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContentSummaryCommand}.
  */
 export interface GetContentSummaryCommandOutput extends GetContentSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves summary information about the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContentSummaryCommandInput - {@link GetContentSummaryCommandInput}
+ * @returns {@link GetContentSummaryCommandOutput}
  * @see {@link GetContentSummaryCommandInput} for command's `input` shape.
  * @see {@link GetContentSummaryCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetContentSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContentSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetContentSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContentSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetContentSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentSummaryCommandOutput> {
     return deserializeAws_restJson1GetContentSummaryCommand(output, context);
   }

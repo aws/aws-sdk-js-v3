@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRecoveryPointFromParentCommand}.
  */
 export interface DisassociateRecoveryPointFromParentCommandInput extends DisassociateRecoveryPointFromParentInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRecoveryPointFromParentCommand}.
  */
 export interface DisassociateRecoveryPointFromParentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action to a specific child (nested) recovery point removes the relationship
  *          between the specified recovery point and its parent (composite) recovery point.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRecoveryPointFromParentCommandInput - {@link DisassociateRecoveryPointFromParentCommandInput}
+ * @returns {@link DisassociateRecoveryPointFromParentCommandOutput}
  * @see {@link DisassociateRecoveryPointFromParentCommandInput} for command's `input` shape.
  * @see {@link DisassociateRecoveryPointFromParentCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisassociateRecoveryPointFromParentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRecoveryPointFromParentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DisassociateRecoveryPointFromParentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateRecoveryPointFromParentCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DisassociateRecoveryPointFromParentCommand extends $Command<
     return serializeAws_restJson1DisassociateRecoveryPointFromParentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationConfigurationCommand}.
  */
 export interface CreateReplicationConfigurationCommandInput extends CreateReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationConfigurationCommand}.
  */
 export interface CreateReplicationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication configuration that replicates an existing EFS file system to a new,
  *       read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>. The replication configuration
@@ -129,6 +134,8 @@ export interface CreateReplicationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationConfigurationCommandInput - {@link CreateReplicationConfigurationCommandInput}
+ * @returns {@link CreateReplicationConfigurationCommandOutput}
  * @see {@link CreateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -191,6 +198,9 @@ export class CreateReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -230,6 +240,9 @@ export class CreateReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateReplicationConfigurationCommandInput,
     context: __SerdeContext
@@ -237,6 +250,9 @@ export class CreateReplicationConfigurationCommand extends $Command<
     return serializeAws_restJson1CreateReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

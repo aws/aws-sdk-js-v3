@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobRunsCommand}.
  */
 export interface GetJobRunsCommandInput extends GetJobRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobRunsCommand}.
  */
 export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metadata for all runs of a given job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobRunsCommandInput - {@link GetJobRunsCommandInput}
+ * @returns {@link GetJobRunsCommandOutput}
  * @see {@link GetJobRunsCommandInput} for command's `input` shape.
  * @see {@link GetJobRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetJobRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetJobRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetJobRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunsCommandOutput> {
     return deserializeAws_json1_1GetJobRunsCommand(output, context);
   }

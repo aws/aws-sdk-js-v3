@@ -33,15 +33,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMediaCommand}.
  */
 export interface GetMediaCommandInput extends GetMediaInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMediaCommand}.
  */
 export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutput, "Payload">, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Use this API to retrieve media content from a Kinesis video stream. In the request,
  *       you identify the stream name or stream Amazon Resource Name (ARN), and the starting chunk.
  *       Kinesis Video Streams then returns a stream of chunks in order by fragment number.</p>
@@ -98,6 +103,8 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMediaCommandInput - {@link GetMediaCommandInput}
+ * @returns {@link GetMediaCommandOutput}
  * @see {@link GetMediaCommandInput} for command's `input` shape.
  * @see {@link GetMediaCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoMediaClientResolvedConfig | config} for KinesisVideoMediaClient's `config` shape.
@@ -145,6 +152,9 @@ export class GetMediaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMediaCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class GetMediaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMediaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMediaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

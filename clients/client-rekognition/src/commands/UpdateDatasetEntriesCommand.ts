@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatasetEntriesCommand}.
  */
 export interface UpdateDatasetEntriesCommandInput extends UpdateDatasetEntriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatasetEntriesCommand}.
  */
 export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates one or more entries (images) in a dataset. An entry is a JSON Line which contains the
  *       information for a single image,  including
  *       the image location, assigned labels, and object location bounding boxes.  For more information,
@@ -67,6 +72,8 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasetEntriesCommandInput - {@link UpdateDatasetEntriesCommandInput}
+ * @returns {@link UpdateDatasetEntriesCommandOutput}
  * @see {@link UpdateDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -118,6 +125,9 @@ export class UpdateDatasetEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class UpdateDatasetEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDatasetEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetEntriesCommandOutput> {
     return deserializeAws_json1_1UpdateDatasetEntriesCommand(output, context);
   }

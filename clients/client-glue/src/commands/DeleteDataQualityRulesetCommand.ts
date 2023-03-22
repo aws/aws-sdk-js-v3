@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataQualityRulesetCommand}.
  */
 export interface DeleteDataQualityRulesetCommandInput extends DeleteDataQualityRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataQualityRulesetCommand}.
  */
 export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data quality ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQuality
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataQualityRulesetCommandInput - {@link DeleteDataQualityRulesetCommandInput}
+ * @returns {@link DeleteDataQualityRulesetCommandOutput}
  * @see {@link DeleteDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteDataQualityRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataQualityRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteDataQualityRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataQualityRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDataQualityRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataQualityRulesetCommandOutput> {
     return deserializeAws_json1_1DeleteDataQualityRulesetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectivityInfoCommand}.
  */
 export interface UpdateConnectivityInfoCommandInput extends UpdateConnectivityInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectivityInfoCommand}.
  */
 export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates the connectivity information for the core. Any devices that belong to the group which has this core will receive this information in order to find the location of the core and connect to it.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
+ * @returns {@link UpdateConnectivityInfoCommandOutput}
  * @see {@link UpdateConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateConnectivityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectivityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateConnectivityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConnectivityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectivityInfoCommandOutput> {
     return deserializeAws_restJson1UpdateConnectivityInfoCommand(output, context);
   }

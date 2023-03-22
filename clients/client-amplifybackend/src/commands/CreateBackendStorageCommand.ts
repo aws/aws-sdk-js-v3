@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackendStorageCommand}.
  */
 export interface CreateBackendStorageCommandInput extends CreateBackendStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackendStorageCommand}.
  */
 export interface CreateBackendStorageCommandOutput extends CreateBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackendStorageCommandInput - {@link CreateBackendStorageCommandInput}
+ * @returns {@link CreateBackendStorageCommandOutput}
  * @see {@link CreateBackendStorageCommandInput} for command's `input` shape.
  * @see {@link CreateBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendStorageCommandOutput> {
     return deserializeAws_restJson1CreateBackendStorageCommand(output, context);
   }

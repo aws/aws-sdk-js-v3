@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInfrastructureConfigurationCommand}.
  */
 export interface CreateInfrastructureConfigurationCommandInput extends CreateInfrastructureConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInfrastructureConfigurationCommand}.
  */
 export interface CreateInfrastructureConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateInfrastructureConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
  * 			environment in which your image will be built and tested.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateInfrastructureConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInfrastructureConfigurationCommandInput - {@link CreateInfrastructureConfigurationCommandInput}
+ * @returns {@link CreateInfrastructureConfigurationCommandOutput}
  * @see {@link CreateInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInfrastructureConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateInfrastructureConfigurationCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     return serializeAws_restJson1CreateInfrastructureConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

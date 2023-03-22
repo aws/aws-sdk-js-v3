@@ -26,11 +26,15 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveDraftAppVersionResourceMappingsCommand}.
  */
 export interface RemoveDraftAppVersionResourceMappingsCommandInput
   extends RemoveDraftAppVersionResourceMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveDraftAppVersionResourceMappingsCommand}.
  */
 export interface RemoveDraftAppVersionResourceMappingsCommandOutput
@@ -38,6 +42,7 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes resource mappings from a draft application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveDraftAppVersionResourceMappingsCommandInput - {@link RemoveDraftAppVersionResourceMappingsCommandInput}
+ * @returns {@link RemoveDraftAppVersionResourceMappingsCommandOutput}
  * @see {@link RemoveDraftAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link RemoveDraftAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -96,6 +103,9 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveDraftAppVersionResourceMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveDraftAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
     return serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

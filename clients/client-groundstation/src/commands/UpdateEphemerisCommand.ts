@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEphemerisCommand}.
  */
 export interface UpdateEphemerisCommandInput extends UpdateEphemerisRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEphemerisCommand}.
  */
 export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing ephemeris</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEphemerisCommandInput - {@link UpdateEphemerisCommandInput}
+ * @returns {@link UpdateEphemerisCommandOutput}
  * @see {@link UpdateEphemerisCommandInput} for command's `input` shape.
  * @see {@link UpdateEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateEphemerisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEphemerisCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateEphemerisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEphemerisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEphemerisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEphemerisCommandOutput> {
     return deserializeAws_restJson1UpdateEphemerisCommand(output, context);
   }

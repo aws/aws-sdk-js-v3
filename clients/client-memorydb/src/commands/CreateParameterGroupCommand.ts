@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateParameterGroupCommand}.
  */
 export interface CreateParameterGroupCommandInput extends CreateParameterGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateParameterGroupCommand}.
  */
 export interface CreateParameterGroupCommandOutput extends CreateParameterGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For
  *          more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html">Configuring engine parameters using parameter groups</a>.
  *
@@ -49,6 +54,8 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateParameterGroupCommandInput - {@link CreateParameterGroupCommandInput}
+ * @returns {@link CreateParameterGroupCommandOutput}
  * @see {@link CreateParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParameterGroupCommandOutput> {
     return deserializeAws_json1_1CreateParameterGroupCommand(output, context);
   }

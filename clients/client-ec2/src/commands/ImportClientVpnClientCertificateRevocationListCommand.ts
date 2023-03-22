@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ImportClientVpnClientCertificateRevocationListCommand}.
  */
 export interface ImportClientVpnClientCertificateRevocationListCommandInput
   extends ImportClientVpnClientCertificateRevocationListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportClientVpnClientCertificateRevocationListCommand}.
  */
 export interface ImportClientVpnClientCertificateRevocationListCommandOutput
@@ -38,6 +42,7 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
  *          <p>Uploading a client certificate revocation list resets existing client connections.</p>
  * @example
@@ -50,6 +55,8 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportClientVpnClientCertificateRevocationListCommandInput - {@link ImportClientVpnClientCertificateRevocationListCommandInput}
+ * @returns {@link ImportClientVpnClientCertificateRevocationListCommandOutput}
  * @see {@link ImportClientVpnClientCertificateRevocationListCommandInput} for command's `input` shape.
  * @see {@link ImportClientVpnClientCertificateRevocationListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportClientVpnClientCertificateRevocationListCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ImportClientVpnClientCertificateRevocationListCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
     return serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

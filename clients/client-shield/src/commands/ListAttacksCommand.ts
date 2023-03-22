@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttacksCommand}.
  */
 export interface ListAttacksCommandInput extends ListAttacksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttacksCommand}.
  */
 export interface ListAttacksCommandOutput extends ListAttacksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
  *          period.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttacksCommandInput - {@link ListAttacksCommandInput}
+ * @returns {@link ListAttacksCommandOutput}
  * @see {@link ListAttacksCommandInput} for command's `input` shape.
  * @see {@link ListAttacksCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListAttacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListAttacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAttacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttacksCommandOutput> {
     return deserializeAws_json1_1ListAttacksCommand(output, context);
   }

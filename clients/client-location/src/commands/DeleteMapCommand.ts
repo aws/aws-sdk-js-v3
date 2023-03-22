@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMapCommand}.
  */
 export interface DeleteMapCommandInput extends DeleteMapRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMapCommand}.
  */
 export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a map resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the map is being used in an application,
@@ -50,6 +55,8 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMapCommandInput - {@link DeleteMapCommandInput}
+ * @returns {@link DeleteMapCommandOutput}
  * @see {@link DeleteMapCommandInput} for command's `input` shape.
  * @see {@link DeleteMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMapCommandOutput> {
     return deserializeAws_restJson1DeleteMapCommand(output, context);
   }

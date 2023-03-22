@@ -25,15 +25,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCustomDBEngineVersionCommand}.
  */
 export interface ModifyCustomDBEngineVersionCommandInput extends ModifyCustomDBEngineVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCustomDBEngineVersionCommand}.
  */
 export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
  *             <code>DescribeDBEngineVersions</code>.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCustomDBEngineVersionCommandInput - {@link ModifyCustomDBEngineVersionCommandInput}
+ * @returns {@link ModifyCustomDBEngineVersionCommandOutput}
  * @see {@link ModifyCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link ModifyCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -84,6 +91,9 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCustomDBEngineVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCustomDBEngineVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCustomDBEngineVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRulesOfIpGroupCommand}.
  */
 export interface UpdateRulesOfIpGroupCommandInput extends UpdateRulesOfIpGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRulesOfIpGroupCommand}.
  */
 export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the current rules of the specified IP access control group with the specified
  *          rules.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRulesOfIpGroupCommandInput - {@link UpdateRulesOfIpGroupCommandInput}
+ * @returns {@link UpdateRulesOfIpGroupCommandOutput}
  * @see {@link UpdateRulesOfIpGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRulesOfIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRulesOfIpGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRulesOfIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRulesOfIpGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRulesOfIpGroupCommandOutput> {
     return deserializeAws_json1_1UpdateRulesOfIpGroupCommand(output, context);
   }

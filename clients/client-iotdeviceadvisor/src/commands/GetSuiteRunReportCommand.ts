@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSuiteRunReportCommand}.
  */
 export interface GetSuiteRunReportCommandInput extends GetSuiteRunReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSuiteRunReportCommand}.
  */
 export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a report download link for a successful Device Advisor qualifying test suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRunReport</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSuiteRunReportCommandInput - {@link GetSuiteRunReportCommandInput}
+ * @returns {@link GetSuiteRunReportCommandOutput}
  * @see {@link GetSuiteRunReportCommandInput} for command's `input` shape.
  * @see {@link GetSuiteRunReportCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetSuiteRunReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSuiteRunReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetSuiteRunReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSuiteRunReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSuiteRunReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuiteRunReportCommandOutput> {
     return deserializeAws_restJson1GetSuiteRunReportCommand(output, context);
   }

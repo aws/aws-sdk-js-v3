@@ -49,6 +49,9 @@ import {
   VocabularyState,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface ListContactFlowModulesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -73,6 +76,7 @@ export interface ListContactFlowModulesRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a flow.</p>
  */
 export interface ContactFlowModuleSummary {
@@ -97,6 +101,9 @@ export interface ContactFlowModuleSummary {
   State?: ContactFlowModuleState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactFlowModulesResponse {
   /**
    * <p>Information about the flow module.</p>
@@ -109,6 +116,9 @@ export interface ListContactFlowModulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactFlowsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -133,6 +143,7 @@ export interface ListContactFlowsRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -164,6 +175,9 @@ export interface ContactFlowSummary {
   ContactFlowState?: ContactFlowState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactFlowsResponse {
   /**
    * <p>Information about the flows.</p>
@@ -176,6 +190,9 @@ export interface ListContactFlowsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactReferencesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -203,12 +220,16 @@ export interface ListContactReferencesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReferenceStatus {
   APPROVED = "APPROVED",
   REJECTED = "REJECTED",
 }
 
 /**
+ * @public
  * <p>Information about a reference when the <code>referenceType</code> is
  *    <code>ATTACHMENT</code>. Otherwise, null.</p>
  */
@@ -230,6 +251,7 @@ export interface AttachmentReference {
 }
 
 /**
+ * @public
  * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
  *    Otherwise, null.</p>
  */
@@ -246,6 +268,7 @@ export interface DateReference {
 }
 
 /**
+ * @public
  * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
  *    Otherwise, null.</p>
  */
@@ -262,6 +285,7 @@ export interface EmailReference {
 }
 
 /**
+ * @public
  * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
  *    Otherwise, null.</p>
  */
@@ -278,6 +302,7 @@ export interface NumberReference {
 }
 
 /**
+ * @public
  * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
  *    Otherwise, null.</p>
  */
@@ -294,6 +319,7 @@ export interface StringReference {
 }
 
 /**
+ * @public
  * <p>The URL reference.</p>
  */
 export interface UrlReference {
@@ -309,6 +335,7 @@ export interface UrlReference {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a reference. <code>ReferenceSummary</code> contains only
  *    one non null field between the URL and attachment based on the reference type.</p>
  */
@@ -321,6 +348,9 @@ export type ReferenceSummary =
   | ReferenceSummary.UrlMember
   | ReferenceSummary.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ReferenceSummary {
   /**
    * <p>Information about the reference when the <code>referenceType</code> is <code>URL</code>.
@@ -437,6 +467,9 @@ export namespace ReferenceSummary {
   };
 }
 
+/**
+ * @public
+ */
 export interface ListContactReferencesResponse {
   /**
    * <p>Information about the flows.</p>
@@ -452,6 +485,9 @@ export interface ListContactReferencesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDefaultVocabulariesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -478,6 +514,7 @@ export interface ListDefaultVocabulariesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a default vocabulary.</p>
  */
 export interface DefaultVocabulary {
@@ -504,6 +541,9 @@ export interface DefaultVocabulary {
   VocabularyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDefaultVocabulariesResponse {
   /**
    * <p>A list of default vocabularies.</p>
@@ -516,6 +556,9 @@ export interface ListDefaultVocabulariesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHoursOfOperationsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -535,6 +578,7 @@ export interface ListHoursOfOperationsRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about hours of operation for a contact center.</p>
  */
 export interface HoursOfOperationSummary {
@@ -554,6 +598,9 @@ export interface HoursOfOperationSummary {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHoursOfOperationsResponse {
   /**
    * <p>Information about the hours of operation.</p>
@@ -566,6 +613,9 @@ export interface ListHoursOfOperationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceAttributesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -584,6 +634,9 @@ export interface ListInstanceAttributesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceAttributesResponse {
   /**
    * <p>The attribute types.</p>
@@ -596,6 +649,9 @@ export interface ListInstanceAttributesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstancesRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -610,6 +666,7 @@ export interface ListInstancesRequest {
 }
 
 /**
+ * @public
  * <p>Information about the instance.</p>
  */
 export interface InstanceSummary {
@@ -659,6 +716,9 @@ export interface InstanceSummary {
   OutboundCallsEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListInstancesResponse {
   /**
    * <p>Information about the instances.</p>
@@ -671,6 +731,9 @@ export interface ListInstancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceStorageConfigsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -694,6 +757,9 @@ export interface ListInstanceStorageConfigsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceStorageConfigsResponse {
   /**
    * <p>A valid storage type.</p>
@@ -706,6 +772,9 @@ export interface ListInstanceStorageConfigsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIntegrationAssociationsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -730,6 +799,7 @@ export interface ListIntegrationAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about the associated AppIntegrations.</p>
  */
 export interface IntegrationAssociationSummary {
@@ -774,6 +844,9 @@ export interface IntegrationAssociationSummary {
   SourceType?: SourceType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListIntegrationAssociationsResponse {
   /**
    * <p>The associations.</p>
@@ -786,6 +859,9 @@ export interface ListIntegrationAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLambdaFunctionsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -804,6 +880,9 @@ export interface ListLambdaFunctionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLambdaFunctionsResponse {
   /**
    * <p>The Lambdafunction ARNs associated with the specified instance.</p>
@@ -816,6 +895,9 @@ export interface ListLambdaFunctionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLexBotsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -835,6 +917,9 @@ export interface ListLexBotsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLexBotsResponse {
   /**
    * <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the
@@ -848,6 +933,9 @@ export interface ListLexBotsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumbersRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -877,6 +965,7 @@ export interface ListPhoneNumbersRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a phone number for a contact center.</p>
  */
 export interface PhoneNumberSummary {
@@ -906,6 +995,9 @@ export interface PhoneNumberSummary {
   PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumbersResponse {
   /**
    * <p>Information about the phone numbers.</p>
@@ -918,6 +1010,9 @@ export interface ListPhoneNumbersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumbersV2Request {
   /**
    * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed
@@ -953,6 +1048,7 @@ export interface ListPhoneNumbersV2Request {
 }
 
 /**
+ * @public
  * <p>Information about phone numbers that have been claimed to your Amazon Connect instance
  *    or traffic distribution group.</p>
  */
@@ -988,6 +1084,9 @@ export interface ListPhoneNumbersSummary {
   TargetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumbersV2Response {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1001,6 +1100,9 @@ export interface ListPhoneNumbersV2Response {
   ListPhoneNumbersSummaryList?: ListPhoneNumbersSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListPromptsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1020,6 +1122,7 @@ export interface ListPromptsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the prompt.</p>
  */
 export interface PromptSummary {
@@ -1039,6 +1142,9 @@ export interface PromptSummary {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPromptsResponse {
   /**
    * <p>Information about the prompts.</p>
@@ -1051,6 +1157,9 @@ export interface ListPromptsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueueQuickConnectsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1075,6 +1184,7 @@ export interface ListQueueQuickConnectsRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a quick connect.</p>
  */
 export interface QuickConnectSummary {
@@ -1100,6 +1210,9 @@ export interface QuickConnectSummary {
   QuickConnectType?: QuickConnectType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueueQuickConnectsResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1112,11 +1225,17 @@ export interface ListQueueQuickConnectsResponse {
   QuickConnectSummaryList?: QuickConnectSummary[];
 }
 
+/**
+ * @public
+ */
 export enum QueueType {
   AGENT = "AGENT",
   STANDARD = "STANDARD",
 }
 
+/**
+ * @public
+ */
 export interface ListQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1141,6 +1260,7 @@ export interface ListQueuesRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a queue.</p>
  */
 export interface QueueSummary {
@@ -1165,6 +1285,9 @@ export interface QueueSummary {
   QueueType?: QueueType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueuesResponse {
   /**
    * <p>Information about the queues.</p>
@@ -1177,6 +1300,9 @@ export interface ListQueuesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListQuickConnectsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1201,6 +1327,9 @@ export interface ListQuickConnectsRequest {
   QuickConnectTypes?: (QuickConnectType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListQuickConnectsResponse {
   /**
    * <p>Information about the quick connects.</p>
@@ -1213,6 +1342,9 @@ export interface ListQuickConnectsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1237,6 +1369,7 @@ export interface ListRoutingProfileQueuesRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a routing profile queue.</p>
  */
 export interface RoutingProfileQueueConfigSummary {
@@ -1275,6 +1408,9 @@ export interface RoutingProfileQueueConfigSummary {
   Channel: Channel | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingProfileQueuesResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1287,6 +1423,9 @@ export interface ListRoutingProfileQueuesResponse {
   RoutingProfileQueueConfigSummaryList?: RoutingProfileQueueConfigSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingProfilesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1306,6 +1445,7 @@ export interface ListRoutingProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a routing profile.</p>
  */
 export interface RoutingProfileSummary {
@@ -1325,6 +1465,9 @@ export interface RoutingProfileSummary {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingProfilesResponse {
   /**
    * <p>Information about the routing profiles.</p>
@@ -1337,6 +1480,9 @@ export interface ListRoutingProfilesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1366,6 +1512,7 @@ export interface ListRulesRequest {
 }
 
 /**
+ * @public
  * <p>A list of <code>ActionTypes</code> associated with a rule. </p>
  */
 export interface RuleSummary {
@@ -1410,6 +1557,9 @@ export interface RuleSummary {
   LastUpdatedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesResponse {
   /**
    * <p>Summary information about a rule.</p>
@@ -1422,6 +1572,9 @@ export interface ListRulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityKeysRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1441,6 +1594,7 @@ export interface ListSecurityKeysRequest {
 }
 
 /**
+ * @public
  * <p>Configuration information of the security key.</p>
  */
 export interface SecurityKey {
@@ -1460,6 +1614,9 @@ export interface SecurityKey {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityKeysResponse {
   /**
    * <p>The security keys.</p>
@@ -1472,6 +1629,9 @@ export interface ListSecurityKeysResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityProfilePermissionsRequest {
   /**
    * <p>The identifier for the security profle.</p>
@@ -1495,6 +1655,9 @@ export interface ListSecurityProfilePermissionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityProfilePermissionsResponse {
   /**
    * <p>The permissions granted to the security profile. For a complete list of valid permissions,
@@ -1509,6 +1672,9 @@ export interface ListSecurityProfilePermissionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityProfilesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1528,6 +1694,7 @@ export interface ListSecurityProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a security profile.</p>
  */
 export interface SecurityProfileSummary {
@@ -1547,6 +1714,9 @@ export interface SecurityProfileSummary {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityProfilesResponse {
   /**
    * <p>Information about the security profiles.</p>
@@ -1559,6 +1729,9 @@ export interface ListSecurityProfilesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances, queues, flows, routing
@@ -1567,6 +1740,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
@@ -1574,6 +1750,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTaskTemplatesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1612,6 +1791,7 @@ export interface ListTaskTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about the task template.</p>
  */
 export interface TaskTemplateMetadata {
@@ -1653,6 +1833,9 @@ export interface TaskTemplateMetadata {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTaskTemplatesResponse {
   /**
    * <p>Provides details about a list of task templates belonging to an instance.</p>
@@ -1668,6 +1851,9 @@ export interface ListTaskTemplatesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrafficDistributionGroupsRequest {
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -1687,6 +1873,7 @@ export interface ListTrafficDistributionGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Information about traffic distribution groups.</p>
  */
 export interface TrafficDistributionGroupSummary {
@@ -1747,6 +1934,9 @@ export interface TrafficDistributionGroupSummary {
   Status?: TrafficDistributionGroupStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrafficDistributionGroupsResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1760,6 +1950,7 @@ export interface ListTrafficDistributionGroupsResponse {
 }
 
 /**
+ * @public
  * <p>Provides summary information about the use cases for the specified integration
  *    association.</p>
  */
@@ -1787,6 +1978,7 @@ export interface ListUseCasesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the
  *    use
  *    case.</p>
@@ -1809,6 +2001,9 @@ export interface UseCase {
   UseCaseType?: UseCaseType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListUseCasesResponse {
   /**
    * <p>The use cases.</p>
@@ -1821,6 +2016,9 @@ export interface ListUseCasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUserHierarchyGroupsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1839,6 +2037,9 @@ export interface ListUserHierarchyGroupsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUserHierarchyGroupsResponse {
   /**
    * <p>Information about the hierarchy groups.</p>
@@ -1851,6 +2052,9 @@ export interface ListUserHierarchyGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1870,6 +2074,7 @@ export interface ListUsersRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a user.</p>
  */
 export interface UserSummary {
@@ -1889,6 +2094,9 @@ export interface UserSummary {
   Username?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>Information about the users.</p>
@@ -1901,6 +2109,9 @@ export interface ListUsersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface MonitorContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
@@ -1933,6 +2144,9 @@ export interface MonitorContactRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface MonitorContactResponse {
   /**
    * <p>The identifier of the contact.</p>
@@ -1945,6 +2159,9 @@ export interface MonitorContactResponse {
   ContactArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutUserStatusRequest {
   /**
    * <p>The identifier of the user.</p>
@@ -1962,8 +2179,14 @@ export interface PutUserStatusRequest {
   AgentStatusId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutUserStatusResponse {}
 
+/**
+ * @public
+ */
 export interface ReleasePhoneNumberRequest {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -1979,6 +2202,9 @@ export interface ReleasePhoneNumberRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ReplicateInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
@@ -2004,6 +2230,9 @@ export interface ReplicateInstanceRequest {
   ReplicaAlias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ReplicateInstanceResponse {
   /**
    * <p>The identifier of the replicated instance. You can find the <code>instanceId</code> in the
@@ -2018,6 +2247,9 @@ export interface ReplicateInstanceResponse {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResumeContactRecordingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2036,8 +2268,14 @@ export interface ResumeContactRecordingRequest {
   InitialContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeContactRecordingResponse {}
 
+/**
+ * @public
+ */
 export interface SearchAvailablePhoneNumbersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
@@ -2072,6 +2310,7 @@ export interface SearchAvailablePhoneNumbersRequest {
 }
 
 /**
+ * @public
  * <p>Information about available phone numbers.</p>
  */
 export interface AvailableNumberSummary {
@@ -2091,6 +2330,9 @@ export interface AvailableNumberSummary {
   PhoneNumberType?: PhoneNumberType | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchAvailablePhoneNumbersResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -2103,10 +2345,16 @@ export interface SearchAvailablePhoneNumbersResponse {
   AvailableNumbersList?: AvailableNumberSummary[];
 }
 
+/**
+ * @public
+ */
 export enum SearchableQueueType {
   STANDARD = "STANDARD",
 }
 
+/**
+ * @public
+ */
 export enum StringComparisonType {
   CONTAINS = "CONTAINS",
   EXACT = "EXACT",
@@ -2114,6 +2362,7 @@ export enum StringComparisonType {
 }
 
 /**
+ * @public
  * <p>A leaf node condition which can be used to specify a string condition. </p>
  *          <note>
  *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
@@ -2138,6 +2387,7 @@ export interface StringCondition {
 }
 
 /**
+ * @public
  * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
  *     BPO = 123</code>. </p>
  */
@@ -2154,6 +2404,7 @@ export interface TagCondition {
 }
 
 /**
+ * @public
  * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
  *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
  *          <ul>
@@ -2187,6 +2438,7 @@ export interface ControlPlaneTagFilter {
 }
 
 /**
+ * @public
  * <p>Filters to be applied to search results.</p>
  */
 export interface QueueSearchFilter {
@@ -2207,6 +2459,9 @@ export interface QueueSearchFilter {
   TagFilter?: ControlPlaneTagFilter;
 }
 
+/**
+ * @public
+ */
 export interface SearchQueuesResponse {
   /**
    * <p>Information about the queues.</p>
@@ -2225,6 +2480,7 @@ export interface SearchQueuesResponse {
 }
 
 /**
+ * @public
  * <p>Filters to be applied to search results.</p>
  */
 export interface RoutingProfileSearchFilter {
@@ -2245,6 +2501,9 @@ export interface RoutingProfileSearchFilter {
   TagFilter?: ControlPlaneTagFilter;
 }
 
+/**
+ * @public
+ */
 export interface SearchRoutingProfilesResponse {
   /**
    * <p>Information about the routing profiles.</p>
@@ -2263,6 +2522,7 @@ export interface SearchRoutingProfilesResponse {
 }
 
 /**
+ * @public
  * <p>Filters to be applied to search results.</p>
  */
 export interface SecurityProfilesSearchFilter {
@@ -2284,6 +2544,7 @@ export interface SecurityProfilesSearchFilter {
 }
 
 /**
+ * @public
  * <p>Information about the returned security profiles.</p>
  */
 export interface SecurityProfileSearchSummary {
@@ -2313,11 +2574,14 @@ export interface SecurityProfileSearchSummary {
   Description?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SearchSecurityProfilesResponse {
   /**
    * <p>Information about the security profiles.</p>
@@ -2335,12 +2599,16 @@ export interface SearchSecurityProfilesResponse {
   ApproximateTotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum HierarchyGroupMatchType {
   EXACT = "EXACT",
   WITH_CHILD_GROUPS = "WITH_CHILD_GROUPS",
 }
 
 /**
+ * @public
  * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
  */
 export interface HierarchyGroupCondition {
@@ -2356,6 +2624,7 @@ export interface HierarchyGroupCondition {
 }
 
 /**
+ * @public
  * <p>Filters to be applied to search results.</p>
  */
 export interface UserSearchFilter {
@@ -2377,6 +2646,7 @@ export interface UserSearchFilter {
 }
 
 /**
+ * @public
  * <p>The user's first name and last name.</p>
  */
 export interface UserIdentityInfoLite {
@@ -2392,6 +2662,7 @@ export interface UserIdentityInfoLite {
 }
 
 /**
+ * @public
  * <p>Information about the returned users.</p>
  */
 export interface UserSearchSummary {
@@ -2436,7 +2707,7 @@ export interface UserSearchSummary {
   SecurityProfileIds?: string[];
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -2446,6 +2717,9 @@ export interface UserSearchSummary {
   Username?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchUsersResponse {
   /**
    * <p>Information about the users.</p>
@@ -2463,6 +2737,9 @@ export interface SearchUsersResponse {
   ApproximateTotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchVocabulariesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2499,6 +2776,7 @@ export interface SearchVocabulariesRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about the custom vocabulary.</p>
  */
 export interface VocabularySummary {
@@ -2540,6 +2818,9 @@ export interface VocabularySummary {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchVocabulariesResponse {
   /**
    * <p>The list of the available custom vocabularies.</p>
@@ -2553,6 +2834,7 @@ export interface SearchVocabulariesResponse {
 }
 
 /**
+ * @public
  * <p>A chat message.</p>
  */
 export interface ChatMessage {
@@ -2579,6 +2861,7 @@ export interface ChatMessage {
 }
 
 /**
+ * @public
  * <p>The customer's details.</p>
  */
 export interface ParticipantDetails {
@@ -2588,12 +2871,16 @@ export interface ParticipantDetails {
   DisplayName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RehydrationType {
   ENTIRE_PAST_SESSION = "ENTIRE_PAST_SESSION",
   FROM_SEGMENT = "FROM_SEGMENT",
 }
 
 /**
+ * @public
  * <p>Enable persistent chats. For more information about enabling persistent chat, and for
  *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
  */
@@ -2627,6 +2914,9 @@ export interface PersistentChat {
   SourceContactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartChatContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2694,6 +2984,9 @@ export interface StartChatContactRequest {
   PersistentChat?: PersistentChat;
 }
 
+/**
+ * @public
+ */
 export interface StartChatContactResponse {
   /**
    * <p>The identifier of this contact within the Amazon Connect instance. </p>
@@ -2719,6 +3012,9 @@ export interface StartChatContactResponse {
   ContinuedFromContactId?: string;
 }
 
+/**
+ * @public
+ */
 export enum VoiceRecordingTrack {
   ALL = "ALL",
   FROM_AGENT = "FROM_AGENT",
@@ -2726,6 +3022,7 @@ export enum VoiceRecordingTrack {
 }
 
 /**
+ * @public
  * <p>Contains information about the recording configuration settings.</p>
  */
 export interface VoiceRecordingConfiguration {
@@ -2735,6 +3032,9 @@ export interface VoiceRecordingConfiguration {
   VoiceRecordingTrack?: VoiceRecordingTrack | string;
 }
 
+/**
+ * @public
+ */
 export interface StartContactRecordingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2758,9 +3058,13 @@ export interface StartContactRecordingRequest {
   VoiceRecordingConfiguration: VoiceRecordingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartContactRecordingResponse {}
 
 /**
+ * @public
  * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
  */
 export interface ChatStreamingConfiguration {
@@ -2771,6 +3075,9 @@ export interface ChatStreamingConfiguration {
   StreamingEndpointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartContactStreamingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2797,6 +3104,9 @@ export interface StartContactStreamingRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartContactStreamingResponse {
   /**
    * <p>The identifier of the streaming configuration enabled. </p>
@@ -2805,6 +3115,7 @@ export interface StartContactStreamingResponse {
 }
 
 /**
+ * @public
  * <p>Outbound calls to the destination number are not allowed.</p>
  */
 export class DestinationNotAllowedException extends __BaseException {
@@ -2829,6 +3140,7 @@ export class DestinationNotAllowedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The contact is not permitted.</p>
  */
 export class OutboundContactNotPermittedException extends __BaseException {
@@ -2853,6 +3165,7 @@ export class OutboundContactNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration of the answering machine detection.</p>
  */
 export interface AnswerMachineDetectionConfig {
@@ -2869,11 +3182,17 @@ export interface AnswerMachineDetectionConfig {
   AwaitAnswerMachinePrompt?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TrafficType {
   CAMPAIGN = "CAMPAIGN",
   GENERAL = "GENERAL",
 }
 
+/**
+ * @public
+ */
 export interface StartOutboundVoiceContactRequest {
   /**
    * <p>The phone number of the customer, in E.164 format.</p>
@@ -2946,6 +3265,9 @@ export interface StartOutboundVoiceContactRequest {
   TrafficType?: TrafficType | string;
 }
 
+/**
+ * @public
+ */
 export interface StartOutboundVoiceContactResponse {
   /**
    * <p>The identifier of this contact within the Amazon Connect instance.</p>
@@ -2953,6 +3275,9 @@ export interface StartOutboundVoiceContactResponse {
   ContactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartTaskContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3026,6 +3351,9 @@ export interface StartTaskContactRequest {
   RelatedContactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartTaskContactResponse {
   /**
    * <p>The identifier of this contact within the Amazon Connect instance.</p>
@@ -3034,6 +3362,7 @@ export interface StartTaskContactResponse {
 }
 
 /**
+ * @public
  * <p>The contact with the specified ID is not active or does not exist. Applies to Voice calls
  *    only, not to Chat, Task, or Voice Callback.</p>
  */
@@ -3058,6 +3387,9 @@ export class ContactNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopContactRequest {
   /**
    * <p>The ID of the contact.</p>
@@ -3070,8 +3402,14 @@ export interface StopContactRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopContactResponse {}
 
+/**
+ * @public
+ */
 export interface StopContactRecordingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3090,8 +3428,14 @@ export interface StopContactRecordingRequest {
   InitialContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopContactRecordingResponse {}
 
+/**
+ * @public
+ */
 export interface StopContactStreamingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3110,8 +3454,14 @@ export interface StopContactStreamingRequest {
   StreamingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopContactStreamingResponse {}
 
+/**
+ * @public
+ */
 export interface SuspendContactRecordingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3130,8 +3480,14 @@ export interface SuspendContactRecordingRequest {
   InitialContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SuspendContactRecordingResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3139,11 +3495,14 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TransferContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3179,6 +3538,9 @@ export interface TransferContactRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TransferContactResponse {
   /**
    * <p>The identifier of the contact in this instance of Amazon Connect. </p>
@@ -3191,6 +3553,9 @@ export interface TransferContactResponse {
   ContactArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3203,6 +3568,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3240,6 +3608,9 @@ export interface UpdateAgentStatusRequest {
   ResetOrderNumber?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3268,8 +3639,14 @@ export interface UpdateContactRequest {
   References?: Record<string, Reference>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactAttributesRequest {
   /**
    * <p>The identifier of the contact. This is the identifier of the contact associated with the
@@ -3291,8 +3668,14 @@ export interface UpdateContactAttributesRequest {
   Attributes: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactAttributesResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowContentRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -3311,8 +3694,14 @@ export interface UpdateContactFlowContentRequest {
   Content: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowContentResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowMetadataRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3340,8 +3729,14 @@ export interface UpdateContactFlowMetadataRequest {
   ContactFlowState?: ContactFlowState | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowMetadataResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowModuleContentRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3359,8 +3754,14 @@ export interface UpdateContactFlowModuleContentRequest {
   Content: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowModuleContentResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowModuleMetadataRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3388,8 +3789,14 @@ export interface UpdateContactFlowModuleMetadataRequest {
   State?: ContactFlowModuleState | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowModuleMetadataResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowNameRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -3412,8 +3819,14 @@ export interface UpdateContactFlowNameRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactFlowNameResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactScheduleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3431,8 +3844,14 @@ export interface UpdateContactScheduleRequest {
   ScheduledTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateHoursOfOperationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3465,6 +3884,9 @@ export interface UpdateHoursOfOperationRequest {
   Config?: HoursOfOperationConfig[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceAttributeRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3486,6 +3908,9 @@ export interface UpdateInstanceAttributeRequest {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3508,21 +3933,31 @@ export interface UpdateInstanceStorageConfigRequest {
   StorageConfig: InstanceStorageConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TimerEligibleParticipantRoles {
   AGENT = "AGENT",
   CUSTOMER = "CUSTOMER",
 }
 
+/**
+ * @public
+ */
 export enum ParticipantTimerType {
   DISCONNECT_NONCUSTOMER = "DISCONNECT_NONCUSTOMER",
   IDLE = "IDLE",
 }
 
+/**
+ * @public
+ */
 export enum ParticipantTimerAction {
   Unset = "Unset",
 }
 
 /**
+ * @public
  * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or
  *    the duration of the timer in minutes. Only one value can be set.</p>
  *          <p>For more information about how chat timeouts work, see
@@ -3533,6 +3968,9 @@ export type ParticipantTimerValue =
   | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
   | ParticipantTimerValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ParticipantTimerValue {
   /**
    * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a
@@ -3574,6 +4012,7 @@ export namespace ParticipantTimerValue {
 }
 
 /**
+ * @public
  * <p>Configuration information for the timer. After the timer configuration is set, it persists
  *    for the duration of the chat. It persists across new contacts in the chain, for example, transfer
  *    contacts.</p>
@@ -3601,6 +4040,7 @@ export interface ParticipantTimerConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration information for the chat participant role.</p>
  */
 export interface ChatParticipantRoleConfig {
@@ -3612,12 +4052,16 @@ export interface ChatParticipantRoleConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information for the chat participant role.</p>
  */
 export type UpdateParticipantRoleConfigChannelInfo =
   | UpdateParticipantRoleConfigChannelInfo.ChatMember
   | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace UpdateParticipantRoleConfigChannelInfo {
   /**
    * <p>Configuration information for the chat participant role.</p>
@@ -3643,6 +4087,9 @@ export namespace UpdateParticipantRoleConfigChannelInfo {
   };
 }
 
+/**
+ * @public
+ */
 export interface UpdateParticipantRoleConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3660,8 +4107,14 @@ export interface UpdateParticipantRoleConfigRequest {
   ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateParticipantRoleConfigResponse {}
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberRequest {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -3682,6 +4135,9 @@ export interface UpdatePhoneNumberRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberResponse {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -3694,6 +4150,9 @@ export interface UpdatePhoneNumberResponse {
   PhoneNumberArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueHoursOfOperationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3711,6 +4170,9 @@ export interface UpdateQueueHoursOfOperationRequest {
   HoursOfOperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueMaxContactsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3728,6 +4190,9 @@ export interface UpdateQueueMaxContactsRequest {
   MaxContacts?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueNameRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3750,6 +4215,9 @@ export interface UpdateQueueNameRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueOutboundCallerConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3767,6 +4235,9 @@ export interface UpdateQueueOutboundCallerConfigRequest {
   OutboundCallerConfig: OutboundCallerConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3784,6 +4255,9 @@ export interface UpdateQueueStatusRequest {
   Status: QueueStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQuickConnectConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3801,6 +4275,9 @@ export interface UpdateQuickConnectConfigRequest {
   QuickConnectConfig: QuickConnectConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQuickConnectNameRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3823,6 +4300,9 @@ export interface UpdateQuickConnectNameRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingProfileConcurrencyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3840,6 +4320,9 @@ export interface UpdateRoutingProfileConcurrencyRequest {
   MediaConcurrencies: MediaConcurrency[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3857,6 +4340,9 @@ export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
   DefaultOutboundQueueId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingProfileNameRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3879,6 +4365,9 @@ export interface UpdateRoutingProfileNameRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3898,6 +4387,9 @@ export interface UpdateRoutingProfileQueuesRequest {
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleRequest {
   /**
    * <p>A unique identifier for the rule.</p>
@@ -3933,6 +4425,9 @@ export interface UpdateRuleRequest {
   PublishStatus: RulePublishStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityProfileRequest {
   /**
    * <p>The description of the security profile.</p>
@@ -3966,6 +4461,9 @@ export interface UpdateSecurityProfileRequest {
   TagRestrictedResources?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskTemplateRequest {
   /**
    * <p>A unique identifier for the task template.</p>
@@ -4015,6 +4513,9 @@ export interface UpdateTaskTemplateRequest {
   Fields?: TaskTemplateField[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskTemplateResponse {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4079,6 +4580,9 @@ export interface UpdateTaskTemplateResponse {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrafficDistributionRequest {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -4093,8 +4597,14 @@ export interface UpdateTrafficDistributionRequest {
   TelephonyConfig?: TelephonyConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrafficDistributionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateUserHierarchyRequest {
   /**
    * <p>The identifier of the hierarchy group.</p>
@@ -4112,6 +4622,9 @@ export interface UpdateUserHierarchyRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserHierarchyGroupNameRequest {
   /**
    * <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
@@ -4130,6 +4643,7 @@ export interface UpdateUserHierarchyGroupNameRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the hierarchy level to update.</p>
  */
 export interface HierarchyLevelUpdate {
@@ -4140,6 +4654,7 @@ export interface HierarchyLevelUpdate {
 }
 
 /**
+ * @public
  * <p>Contains information about the level hierarchy to update.</p>
  */
 export interface HierarchyStructureUpdate {
@@ -4171,6 +4686,9 @@ export interface HierarchyStructureUpdate {
   LevelFive?: HierarchyLevelUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserHierarchyStructureRequest {
   /**
    * <p>The hierarchy levels to update.</p>
@@ -4183,6 +4701,9 @@ export interface UpdateUserHierarchyStructureRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserIdentityInfoRequest {
   /**
    * <p>The identity information for the user.</p>
@@ -4200,6 +4721,9 @@ export interface UpdateUserIdentityInfoRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserPhoneConfigRequest {
   /**
    * <p>Information about phone configuration settings for the user.</p>
@@ -4217,6 +4741,9 @@ export interface UpdateUserPhoneConfigRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserRoutingProfileRequest {
   /**
    * <p>The identifier of the routing profile for the user.</p>
@@ -4234,6 +4761,9 @@ export interface UpdateUserRoutingProfileRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserSecurityProfilesRequest {
   /**
    * <p>The identifiers of the security profiles for the user.</p>
@@ -4252,6 +4782,7 @@ export interface UpdateUserSecurityProfilesRequest {
 }
 
 /**
+ * @public
  * <p>The search criteria to be used to return queues.</p>
  *          <note>
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
@@ -4286,6 +4817,7 @@ export interface QueueSearchCriteria {
 }
 
 /**
+ * @public
  * <p>The search criteria to be used to return routing profiles.</p>
  *          <note>
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
@@ -4315,6 +4847,7 @@ export interface RoutingProfileSearchCriteria {
 }
 
 /**
+ * @public
  * <p>The search criteria to be used to return security profiles.</p>
  *          <note>
  *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and
@@ -4344,6 +4877,7 @@ export interface SecurityProfileSearchCriteria {
 }
 
 /**
+ * @public
  * <p>The search criteria to be used to return users.</p>
  *          <note>
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
@@ -4375,6 +4909,9 @@ export interface UserSearchCriteria {
   HierarchyGroupCondition?: HierarchyGroupCondition;
 }
 
+/**
+ * @public
+ */
 export interface SearchQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4408,6 +4945,9 @@ export interface SearchQueuesRequest {
   SearchCriteria?: QueueSearchCriteria;
 }
 
+/**
+ * @public
+ */
 export interface SearchRoutingProfilesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4441,6 +4981,9 @@ export interface SearchRoutingProfilesRequest {
   SearchCriteria?: RoutingProfileSearchCriteria;
 }
 
+/**
+ * @public
+ */
 export interface SearchSecurityProfilesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4478,6 +5021,9 @@ export interface SearchSecurityProfilesRequest {
   SearchFilter?: SecurityProfilesSearchFilter;
 }
 
+/**
+ * @public
+ */
 export interface SearchUsersRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>

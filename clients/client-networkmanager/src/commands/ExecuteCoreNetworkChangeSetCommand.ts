@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteCoreNetworkChangeSetCommand}.
  */
 export interface ExecuteCoreNetworkChangeSetCommandInput extends ExecuteCoreNetworkChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteCoreNetworkChangeSetCommand}.
  */
 export interface ExecuteCoreNetworkChangeSetCommandOutput
@@ -37,6 +41,7 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Executes a change set on your core network. Deploys changes globally based on the policy submitted..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteCoreNetworkChangeSetCommandInput - {@link ExecuteCoreNetworkChangeSetCommandInput}
+ * @returns {@link ExecuteCoreNetworkChangeSetCommandOutput}
  * @see {@link ExecuteCoreNetworkChangeSetCommandInput} for command's `input` shape.
  * @see {@link ExecuteCoreNetworkChangeSetCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class ExecuteCoreNetworkChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteCoreNetworkChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ExecuteCoreNetworkChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteCoreNetworkChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExecuteCoreNetworkChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

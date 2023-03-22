@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecordingConfigurationCommand}.
  */
 export interface CreateRecordingConfigurationCommandInput extends CreateRecordingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecordingConfigurationCommand}.
  */
 export interface CreateRecordingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateRecordingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>
  *          <p>
  *             <b>Known issue:</b> In the us-east-1 region, if you use the
@@ -59,6 +64,8 @@ export interface CreateRecordingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecordingConfigurationCommandInput - {@link CreateRecordingConfigurationCommandInput}
+ * @returns {@link CreateRecordingConfigurationCommandOutput}
  * @see {@link CreateRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreateRecordingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecordingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateRecordingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRecordingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutResolverQueryLogConfigPolicyCommand}.
  */
 export interface PutResolverQueryLogConfigPolicyCommandInput extends PutResolverQueryLogConfigPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResolverQueryLogConfigPolicyCommand}.
  */
 export interface PutResolverQueryLogConfigPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,
  * 			and the operations that you want the account to be able to perform on the configuration.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResolverQueryLogConfigPolicyCommandInput - {@link PutResolverQueryLogConfigPolicyCommandInput}
+ * @returns {@link PutResolverQueryLogConfigPolicyCommandOutput}
  * @see {@link PutResolverQueryLogConfigPolicyCommandInput} for command's `input` shape.
  * @see {@link PutResolverQueryLogConfigPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResolverQueryLogConfigPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutResolverQueryLogConfigPolicyCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
     return serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

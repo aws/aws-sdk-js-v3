@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1DecryptCommand, serializeAws_json1_1DecryptCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DecryptCommand}.
  */
 export interface DecryptCommandInput extends DecryptRequest {}
 /**
+ * @public
+ *
  * The output of {@link DecryptCommand}.
  */
 export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decrypts ciphertext that was encrypted by a KMS key using any of the following
  *       operations:</p>
  *          <ul>
@@ -130,6 +135,8 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DecryptCommandInput - {@link DecryptCommandInput}
+ * @returns {@link DecryptCommandOutput}
  * @see {@link DecryptCommandInput} for command's `input` shape.
  * @see {@link DecryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -242,6 +249,9 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -279,10 +289,16 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DecryptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecryptCommandOutput> {
     return deserializeAws_json1_1DecryptCommand(output, context);
   }

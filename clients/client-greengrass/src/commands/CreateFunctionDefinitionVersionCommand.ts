@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionDefinitionVersionCommand}.
  */
 export interface CreateFunctionDefinitionVersionCommandInput extends CreateFunctionDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionDefinitionVersionCommand}.
  */
 export interface CreateFunctionDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateFunctionDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a Lambda function definition that has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionDefinitionVersionCommandInput - {@link CreateFunctionDefinitionVersionCommandInput}
+ * @returns {@link CreateFunctionDefinitionVersionCommandOutput}
  * @see {@link CreateFunctionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateFunctionDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateFunctionDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateFunctionDefinitionVersionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateFunctionDefinitionVersionCommand extends $Command<
     return serializeAws_restJson1CreateFunctionDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

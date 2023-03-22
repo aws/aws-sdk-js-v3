@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterEventTopicCommand}.
  */
 export interface DeregisterEventTopicCommandInput extends DeregisterEventTopicRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterEventTopicCommand}.
  */
 export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterEventTopicCommandInput - {@link DeregisterEventTopicCommandInput}
+ * @returns {@link DeregisterEventTopicCommandOutput}
  * @see {@link DeregisterEventTopicCommandInput} for command's `input` shape.
  * @see {@link DeregisterEventTopicCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeregisterEventTopicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterEventTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeregisterEventTopicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterEventTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterEventTopicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterEventTopicCommandOutput> {
     return deserializeAws_json1_1DeregisterEventTopicCommand(output, context);
   }

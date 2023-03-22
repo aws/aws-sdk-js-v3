@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationConfigurationCommand}.
  */
 export interface DescribeNotificationConfigurationCommandInput extends DescribeNotificationConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationConfigurationCommand}.
  */
 export interface DescribeNotificationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeNotificationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationConfigurationCommandInput - {@link DescribeNotificationConfigurationCommandInput}
+ * @returns {@link DescribeNotificationConfigurationCommandOutput}
  * @see {@link DescribeNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeNotificationConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

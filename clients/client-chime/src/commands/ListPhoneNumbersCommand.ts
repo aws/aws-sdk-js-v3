@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPhoneNumbersCommand}.
  */
 export interface ListPhoneNumbersCommandInput extends ListPhoneNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPhoneNumbersCommand}.
  */
 export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the phone numbers for the specified Amazon Chime account, Amazon Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPhoneNumbersCommandInput - {@link ListPhoneNumbersCommandInput}
+ * @returns {@link ListPhoneNumbersCommandOutput}
  * @see {@link ListPhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListPhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListPhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumbersCommandOutput> {
     return deserializeAws_restJson1ListPhoneNumbersCommand(output, context);
   }

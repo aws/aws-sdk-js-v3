@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsageForLicenseConfigurationCommand}.
  */
 export interface ListUsageForLicenseConfigurationCommandInput extends ListUsageForLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsageForLicenseConfigurationCommand}.
  */
 export interface ListUsageForLicenseConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface ListUsageForLicenseConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all license usage records for a license configuration, displaying license
  *          consumption details by resource at a selected point in time. Use this action to audit the
  *          current license consumption for any license inventory and configuration.</p>
@@ -50,6 +55,8 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsageForLicenseConfigurationCommandInput - {@link ListUsageForLicenseConfigurationCommandInput}
+ * @returns {@link ListUsageForLicenseConfigurationCommandOutput}
  * @see {@link ListUsageForLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link ListUsageForLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsageForLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListUsageForLicenseConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     return serializeAws_json1_1ListUsageForLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

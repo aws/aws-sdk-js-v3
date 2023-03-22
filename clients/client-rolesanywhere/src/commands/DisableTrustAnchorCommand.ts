@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableTrustAnchorCommand}.
  */
 export interface DisableTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableTrustAnchorCommand}.
  */
 export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a trust anchor. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests specifying this trust anchor are unauthorized.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailRespon
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableTrustAnchorCommandInput - {@link DisableTrustAnchorCommandInput}
+ * @returns {@link DisableTrustAnchorCommandOutput}
  * @see {@link DisableTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link DisableTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class DisableTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DisableTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableTrustAnchorCommandOutput> {
     return deserializeAws_restJson1DisableTrustAnchorCommand(output, context);
   }

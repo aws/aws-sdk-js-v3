@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWebhookCommand}.
  */
 export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWebhookCommand}.
  */
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously created webhook by name. Deleting the webhook stops AWS
  *             CodePipeline from starting a pipeline every time an external event occurs. The API
  *             returns successfully when trying to delete a webhook that is already deleted. If a
@@ -50,6 +55,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
+ * @returns {@link DeleteWebhookCommandOutput}
  * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
  * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebhookCommandOutput> {
     return deserializeAws_json1_1DeleteWebhookCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketLifecycleConfigurationCommand}.
  */
 export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketLifecycleConfigurationCommand}.
  */
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a
  *             lifecycle configuration to an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
@@ -70,6 +75,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketLifecycleConfigurationCommandInput - {@link PutBucketLifecycleConfigurationCommandInput}
+ * @returns {@link PutBucketLifecycleConfigurationCommandOutput}
  * @see {@link PutBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -97,6 +104,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     return serializeAws_restXmlPutBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

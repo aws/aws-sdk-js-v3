@@ -10,7 +10,7 @@ import { QLDBClient } from "../QLDBClient";
 import { QLDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: QLDBClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJournalS3ExportsForLedgerCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListJournalS3ExportsForLedger(
   config: QLDBPaginationConfiguration,
   input: ListJournalS3ExportsForLedgerCommandInput,

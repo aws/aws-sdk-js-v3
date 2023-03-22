@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentReportsCommand}.
  */
 export interface ListAssessmentReportsCommandInput extends ListAssessmentReportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentReportsCommand}.
  */
 export interface ListAssessmentReportsCommandOutput extends ListAssessmentReportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of assessment reports created in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentReportsCommandInput - {@link ListAssessmentReportsCommandInput}
+ * @returns {@link ListAssessmentReportsCommandOutput}
  * @see {@link ListAssessmentReportsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentReportsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListAssessmentReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListAssessmentReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssessmentReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentReportsCommandOutput> {
     return deserializeAws_restJson1ListAssessmentReportsCommand(output, context);
   }

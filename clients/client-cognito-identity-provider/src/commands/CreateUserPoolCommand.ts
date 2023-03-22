@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserPoolCommand}.
  */
 export interface CreateUserPoolCommandInput extends CreateUserPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserPoolCommand}.
  */
 export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Cognito user pool and sets the password policy for the
  *             pool.</p>
  *
@@ -70,6 +75,8 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserPoolCommandInput - {@link CreateUserPoolCommandInput}
+ * @returns {@link CreateUserPoolCommandOutput}
  * @see {@link CreateUserPoolCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -128,6 +135,9 @@ export class CreateUserPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class CreateUserPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserPoolCommandOutput> {
     return deserializeAws_json1_1CreateUserPoolCommand(output, context);
   }

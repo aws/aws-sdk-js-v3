@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMembersCommand}.
  */
 export interface CreateMembersCommandInput extends CreateMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMembersCommand}.
  */
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account
  *       IDs. This step is a prerequisite for managing the associated member accounts either by
  *       invitation or through an organization.</p>
@@ -54,6 +59,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
+ * @returns {@link CreateMembersCommandOutput}
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMembersCommandOutput> {
     return deserializeAws_restJson1CreateMembersCommand(output, context);
   }

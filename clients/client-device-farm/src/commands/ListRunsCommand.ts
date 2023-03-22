@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ListRunsCommand, serializeAws_json1_1ListRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRunsCommand}.
  */
 export interface ListRunsCommandInput extends ListRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRunsCommand}.
  */
 export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRunsCommandInput - {@link ListRunsCommandInput}
+ * @returns {@link ListRunsCommandOutput}
  * @see {@link ListRunsCommandInput} for command's `input` shape.
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -122,6 +129,9 @@ export class ListRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class ListRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunsCommandOutput> {
     return deserializeAws_json1_1ListRunsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountCustomizationCommand}.
  */
 export interface DeleteAccountCustomizationCommandInput extends DeleteAccountCustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountCustomizationCommand}.
  */
 export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for the specified
  *             Amazon Web Services account and Amazon QuickSight namespace.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountCustomizationCommandInput - {@link DeleteAccountCustomizationCommandInput}
+ * @returns {@link DeleteAccountCustomizationCommandOutput}
  * @see {@link DeleteAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteAccountCustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteAccountCustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccountCustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketPolicyStatusCommand}.
  */
 export interface GetBucketPolicyStatusCommandInput extends GetBucketPolicyStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketPolicyStatusCommand}.
  */
 export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.
  *          In order to use this operation, you must have the <code>s3:GetBucketPolicyStatus</code>
  *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
@@ -74,6 +79,8 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketPolicyStatusCommandInput - {@link GetBucketPolicyStatusCommandInput}
+ * @returns {@link GetBucketPolicyStatusCommandOutput}
  * @see {@link GetBucketPolicyStatusCommandInput} for command's `input` shape.
  * @see {@link GetBucketPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -103,6 +110,9 @@ export class GetBucketPolicyStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketPolicyStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetBucketPolicyStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketPolicyStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketPolicyStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyStatusCommandOutput> {
     return deserializeAws_restXmlGetBucketPolicyStatusCommand(output, context);
   }

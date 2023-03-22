@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscriptionsByTopicCommand}.
  */
 export interface ListSubscriptionsByTopicCommandInput extends ListSubscriptionsByTopicInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscriptionsByTopicCommand}.
  */
 export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptionsByTopicResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the subscriptions to a specific topic. Each call returns a limited
  *             list of subscriptions, up to 100. If there are more subscriptions, a
  *                 <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in
@@ -50,6 +55,8 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscriptionsByTopicCommandInput - {@link ListSubscriptionsByTopicCommandInput}
+ * @returns {@link ListSubscriptionsByTopicCommandOutput}
  * @see {@link ListSubscriptionsByTopicCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionsByTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListSubscriptionsByTopicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscriptionsByTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListSubscriptionsByTopicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscriptionsByTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSubscriptionsByTopicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscriptionsByTopicCommandOutput> {
     return deserializeAws_queryListSubscriptionsByTopicCommand(output, context);
   }

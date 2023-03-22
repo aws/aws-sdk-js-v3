@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLegalHoldsCommand}.
  */
 export interface ListLegalHoldsCommandInput extends ListLegalHoldsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLegalHoldsCommand}.
  */
 export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns metadata about active and previous legal holds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLegalHoldsCommandInput - {@link ListLegalHoldsCommandInput}
+ * @returns {@link ListLegalHoldsCommandOutput}
  * @see {@link ListLegalHoldsCommandInput} for command's `input` shape.
  * @see {@link ListLegalHoldsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListLegalHoldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLegalHoldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListLegalHoldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLegalHoldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLegalHoldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLegalHoldsCommandOutput> {
     return deserializeAws_restJson1ListLegalHoldsCommand(output, context);
   }

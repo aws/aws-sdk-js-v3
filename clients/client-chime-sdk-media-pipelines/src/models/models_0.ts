@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "./ChimeSDKMediaPipelinesServiceException";
 
+/**
+ * @public
+ */
 export enum AudioArtifactsConcatenationState {
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>The audio artifact concatenation configuration object.</p>
  */
 export interface AudioConcatenationConfiguration {
@@ -18,12 +22,16 @@ export interface AudioConcatenationConfiguration {
   State: AudioArtifactsConcatenationState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ArtifactsConcatenationState {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>The composited video configuration object for a specified
  *          media pipeline. <code>SourceType</code> must be
  *          <code>ChimeSdkMeeting</code>.</p>
@@ -36,6 +44,7 @@ export interface CompositedVideoConcatenationConfiguration {
 }
 
 /**
+ * @public
  * <p>The composited content configuration object for a specified
  *          media pipeline. </p>
  */
@@ -47,6 +56,7 @@ export interface ContentConcatenationConfiguration {
 }
 
 /**
+ * @public
  * <p>The content configuration object's data channel.</p>
  */
 export interface DataChannelConcatenationConfiguration {
@@ -57,6 +67,7 @@ export interface DataChannelConcatenationConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration object for an event concatenation pipeline.</p>
  */
 export interface MeetingEventsConcatenationConfiguration {
@@ -67,6 +78,7 @@ export interface MeetingEventsConcatenationConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration object for concatenating transcription messages.</p>
  */
 export interface TranscriptionMessagesConcatenationConfiguration {
@@ -77,6 +89,7 @@ export interface TranscriptionMessagesConcatenationConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration object of a video contacatentation pipeline.</p>
  */
 export interface VideoConcatenationConfiguration {
@@ -87,6 +100,7 @@ export interface VideoConcatenationConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for the artifacts concatenation.</p>
  */
 export interface ArtifactsConcatenationConfiguration {
@@ -126,6 +140,9 @@ export interface ArtifactsConcatenationConfiguration {
   CompositedVideo: CompositedVideoConcatenationConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AudioMuxType {
   AudioOnly = "AudioOnly",
   AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
@@ -133,6 +150,7 @@ export enum AudioMuxType {
 }
 
 /**
+ * @public
  * <p>The audio artifact configuration object.</p>
  */
 export interface AudioArtifactsConfiguration {
@@ -142,12 +160,18 @@ export interface AudioArtifactsConfiguration {
   MuxType: AudioMuxType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContentShareLayoutOption {
   Horizontal = "Horizontal",
   PresenterOnly = "PresenterOnly",
   Vertical = "Vertical",
 }
 
+/**
+ * @public
+ */
 export enum PresenterPosition {
   BottomLeft = "BottomLeft",
   BottomRight = "BottomRight",
@@ -156,6 +180,7 @@ export enum PresenterPosition {
 }
 
 /**
+ * @public
  * <p>Defines the configuration for a presenter only video tile.</p>
  */
 export interface PresenterOnlyConfiguration {
@@ -166,6 +191,7 @@ export interface PresenterOnlyConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the type of grid layout.</p>
  */
 export interface GridViewConfiguration {
@@ -180,16 +206,23 @@ export interface GridViewConfiguration {
   PresenterOnlyConfiguration?: PresenterOnlyConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum LayoutOption {
   GridView = "GridView",
 }
 
+/**
+ * @public
+ */
 export enum ResolutionOption {
   FHD = "FHD",
   HD = "HD",
 }
 
 /**
+ * @public
  * <p>Describes the configuration for the composited video artifacts.</p>
  */
 export interface CompositedVideoArtifactsConfiguration {
@@ -209,16 +242,23 @@ export interface CompositedVideoArtifactsConfiguration {
   GridViewConfiguration: GridViewConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContentMuxType {
   ContentOnly = "ContentOnly",
 }
 
+/**
+ * @public
+ */
 export enum ArtifactsState {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>The content artifact object.</p>
  */
 export interface ContentArtifactsConfiguration {
@@ -233,11 +273,15 @@ export interface ContentArtifactsConfiguration {
   MuxType?: ContentMuxType | string;
 }
 
+/**
+ * @public
+ */
 export enum VideoMuxType {
   VideoOnly = "VideoOnly",
 }
 
 /**
+ * @public
  * <p>The video artifact configuration object.</p>
  */
 export interface VideoArtifactsConfiguration {
@@ -253,6 +297,7 @@ export interface VideoArtifactsConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for the artifacts.</p>
  */
 export interface ArtifactsConfiguration {
@@ -277,11 +322,17 @@ export interface ArtifactsConfiguration {
   CompositedVideo?: CompositedVideoArtifactsConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum AudioChannelsOption {
   Mono = "Mono",
   Stereo = "Stereo",
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   BadRequest = "BadRequest",
   Forbidden = "Forbidden",
@@ -293,6 +344,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>The input parameters don't match the service's restrictions.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -321,6 +373,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The video streams for a specified media pipeline. The total number of
  *          video streams can't exceed 25.</p>
  */
@@ -337,6 +390,7 @@ export interface SelectedVideoStreams {
 }
 
 /**
+ * @public
  * <p>Source configuration for a specified media pipeline.</p>
  */
 export interface SourceConfiguration {
@@ -348,6 +402,7 @@ export interface SourceConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration object of the Amazon Chime SDK meeting for a specified media pipeline. <code>SourceType</code> must be <code>ChimeSdkMeeting</code>.</p>
  */
 export interface ChimeSdkMeetingConfiguration {
@@ -362,15 +417,22 @@ export interface ChimeSdkMeetingConfiguration {
   ArtifactsConfiguration?: ArtifactsConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum MediaPipelineSinkType {
   S3Bucket = "S3Bucket",
 }
 
+/**
+ * @public
+ */
 export enum MediaPipelineSourceType {
   ChimeSdkMeeting = "ChimeSdkMeeting",
 }
 
 /**
+ * @public
  * <p>A key/value pair that grants users access to meeting resources.</p>
  */
 export interface Tag {
@@ -385,6 +447,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaCapturePipelineRequest {
   /**
    * <p>Source type from which the media artifacts are captured. A Chime SDK Meeting is the only
@@ -424,6 +489,9 @@ export interface CreateMediaCapturePipelineRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum MediaPipelineStatus {
   Failed = "Failed",
   InProgress = "InProgress",
@@ -433,6 +501,7 @@ export enum MediaPipelineStatus {
 }
 
 /**
+ * @public
  * <p>A media pipeline object consisting of an ID, source type, source ARN, a sink
  *          type, a sink ARN, and a configuration object.</p>
  */
@@ -491,6 +560,9 @@ export interface MediaCapturePipeline {
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaCapturePipelineResponse {
   /**
    * <p>A media pipeline object, the ID, source type, source ARN, sink type, and sink
@@ -500,6 +572,7 @@ export interface CreateMediaCapturePipelineResponse {
 }
 
 /**
+ * @public
  * <p>The client is permanently forbidden from making the request.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -528,6 +601,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeds the resource limit.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -556,6 +630,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -584,6 +659,7 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -612,6 +688,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client exceeded its request rate limit.</p>
  */
 export class ThrottledClientException extends __BaseException {
@@ -640,6 +717,7 @@ export class ThrottledClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is not currently authorized to make the request.</p>
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -668,6 +746,7 @@ export class UnauthorizedClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration settings for the S3 bucket.</p>
  */
 export interface S3BucketSinkConfiguration {
@@ -677,11 +756,15 @@ export interface S3BucketSinkConfiguration {
   Destination: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConcatenationSinkType {
   S3Bucket = "S3Bucket",
 }
 
 /**
+ * @public
  * <p>The data sink of the configuration object.</p>
  */
 export interface ConcatenationSink {
@@ -697,6 +780,7 @@ export interface ConcatenationSink {
 }
 
 /**
+ * @public
  * <p>The configuration object of the Amazon Chime SDK meeting concatenation for a specified
  *          media pipeline.</p>
  */
@@ -708,6 +792,7 @@ export interface ChimeSdkMeetingConcatenationConfiguration {
 }
 
 /**
+ * @public
  * <p>The source configuration object of a media capture pipeline.</p>
  */
 export interface MediaCapturePipelineSourceConfiguration {
@@ -722,11 +807,15 @@ export interface MediaCapturePipelineSourceConfiguration {
   ChimeSdkMeetingConfiguration: ChimeSdkMeetingConcatenationConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConcatenationSourceType {
   MediaCapturePipeline = "MediaCapturePipeline",
 }
 
 /**
+ * @public
  * <p>The source type and media pipeline configuration settings in a configuration object.</p>
  */
 export interface ConcatenationSource {
@@ -741,6 +830,9 @@ export interface ConcatenationSource {
   MediaCapturePipelineSourceConfiguration: MediaCapturePipelineSourceConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaConcatenationPipelineRequest {
   /**
    * <p>An object that specifies the sources for the media concatenation pipeline.</p>
@@ -765,6 +857,7 @@ export interface CreateMediaConcatenationPipelineRequest {
 }
 
 /**
+ * @public
  * <p>Concatenates audio and video data from one or more data streams.</p>
  */
 export interface MediaConcatenationPipeline {
@@ -804,6 +897,9 @@ export interface MediaConcatenationPipeline {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaConcatenationPipelineResponse {
   /**
    * <p>A media concatenation pipeline object, the ID, source type, <code>MediaPipelineARN</code>, and sink of a
@@ -813,6 +909,7 @@ export interface CreateMediaConcatenationPipelineResponse {
 }
 
 /**
+ * @public
  * <p>The media pipeline's RTMP configuration object.</p>
  */
 export interface LiveConnectorRTMPConfiguration {
@@ -832,11 +929,15 @@ export interface LiveConnectorRTMPConfiguration {
   AudioSampleRate?: string;
 }
 
+/**
+ * @public
+ */
 export enum LiveConnectorSinkType {
   RTMP = "RTMP",
 }
 
 /**
+ * @public
  * <p>The media pipeline's sink configuration settings.</p>
  */
 export interface LiveConnectorSinkConfiguration {
@@ -851,12 +952,16 @@ export interface LiveConnectorSinkConfiguration {
   RTMPConfiguration: LiveConnectorRTMPConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum LiveConnectorMuxType {
   AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
   AudioWithCompositedVideo = "AudioWithCompositedVideo",
 }
 
 /**
+ * @public
  * <p>The media pipeline's configuration object.</p>
  */
 export interface ChimeSdkMeetingLiveConnectorConfiguration {
@@ -881,11 +986,15 @@ export interface ChimeSdkMeetingLiveConnectorConfiguration {
   SourceConfiguration?: SourceConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum LiveConnectorSourceType {
   ChimeSdkMeeting = "ChimeSdkMeeting",
 }
 
 /**
+ * @public
  * <p>The data source configuration object of a streaming media pipeline.</p>
  */
 export interface LiveConnectorSourceConfiguration {
@@ -900,6 +1009,9 @@ export interface LiveConnectorSourceConfiguration {
   ChimeSdkMeetingLiveConnectorConfiguration: ChimeSdkMeetingLiveConnectorConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaLiveConnectorPipelineRequest {
   /**
    * <p>The media pipeline's data sources.</p>
@@ -923,6 +1035,7 @@ export interface CreateMediaLiveConnectorPipelineRequest {
 }
 
 /**
+ * @public
  * <p>The connector pipeline.</p>
  */
 export interface MediaLiveConnectorPipeline {
@@ -962,6 +1075,9 @@ export interface MediaLiveConnectorPipeline {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaLiveConnectorPipelineResponse {
   /**
    * <p>The new media pipeline.</p>
@@ -969,6 +1085,9 @@ export interface CreateMediaLiveConnectorPipelineResponse {
   MediaLiveConnectorPipeline?: MediaLiveConnectorPipeline;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMediaCapturePipelineRequest {
   /**
    * <p>The ID of the media pipeline being deleted. </p>
@@ -977,6 +1096,7 @@ export interface DeleteMediaCapturePipelineRequest {
 }
 
 /**
+ * @public
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1004,6 +1124,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMediaPipelineRequest {
   /**
    * <p>The ID of the media pipeline to delete.</p>
@@ -1011,6 +1134,9 @@ export interface DeleteMediaPipelineRequest {
   MediaPipelineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaCapturePipelineRequest {
   /**
    * <p>The ID of the pipeline that you want to get.</p>
@@ -1018,6 +1144,9 @@ export interface GetMediaCapturePipelineRequest {
   MediaPipelineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaCapturePipelineResponse {
   /**
    * <p>The media pipeline object.</p>
@@ -1025,6 +1154,9 @@ export interface GetMediaCapturePipelineResponse {
   MediaCapturePipeline?: MediaCapturePipeline;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaPipelineRequest {
   /**
    * <p>The ID of the pipeline that you want to get.</p>
@@ -1033,6 +1165,7 @@ export interface GetMediaPipelineRequest {
 }
 
 /**
+ * @public
  * <p>A pipeline consisting of a media capture, media concatenation, or live-streaming pipeline.</p>
  */
 export interface MediaPipeline {
@@ -1052,6 +1185,9 @@ export interface MediaPipeline {
   MediaConcatenationPipeline?: MediaConcatenationPipeline;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaPipelineResponse {
   /**
    * <p>The media pipeline object.</p>
@@ -1059,6 +1195,9 @@ export interface GetMediaPipelineResponse {
   MediaPipeline?: MediaPipeline;
 }
 
+/**
+ * @public
+ */
 export interface ListMediaCapturePipelinesRequest {
   /**
    * <p>The token used to retrieve the next page of results.</p>
@@ -1072,6 +1211,7 @@ export interface ListMediaCapturePipelinesRequest {
 }
 
 /**
+ * @public
  * <p>The summary data of a media capture pipeline.</p>
  */
 export interface MediaCapturePipelineSummary {
@@ -1086,6 +1226,9 @@ export interface MediaCapturePipelineSummary {
   MediaPipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMediaCapturePipelinesResponse {
   /**
    * <p>The media pipeline objects in the list.</p>
@@ -1098,6 +1241,9 @@ export interface ListMediaCapturePipelinesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMediaPipelinesRequest {
   /**
    * <p>The token used to retrieve the next page of results.</p>
@@ -1111,6 +1257,7 @@ export interface ListMediaPipelinesRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the media pipeline.</p>
  */
 export interface MediaPipelineSummary {
@@ -1125,6 +1272,9 @@ export interface MediaPipelineSummary {
   MediaPipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMediaPipelinesResponse {
   /**
    * <p>The media pipeline objects in the list.</p>
@@ -1137,6 +1287,9 @@ export interface ListMediaPipelinesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's region, resource ID, and pipeline ID.</p>
@@ -1144,6 +1297,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the specified media pipeline.</p>
@@ -1151,6 +1307,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's endpoint region, resource ID, and pipeline ID.</p>
@@ -1163,8 +1322,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the pipeline that you want to untag.</p>
@@ -1177,6 +1342,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

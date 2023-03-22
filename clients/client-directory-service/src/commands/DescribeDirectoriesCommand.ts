@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDirectoriesCommand}.
  */
 export interface DescribeDirectoriesCommandInput extends DescribeDirectoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDirectoriesCommand}.
  */
 export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains information about the directories that belong to this account.</p>
  *          <p>You can retrieve information about specific directories by passing the directory
  *       identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong
@@ -56,6 +61,8 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectoriesCommandInput - {@link DescribeDirectoriesCommandInput}
+ * @returns {@link DescribeDirectoriesCommandOutput}
  * @see {@link DescribeDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDirectoriesCommandOutput> {
     return deserializeAws_json1_1DescribeDirectoriesCommand(output, context);
   }

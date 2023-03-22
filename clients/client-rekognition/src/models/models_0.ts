@@ -7,6 +7,7 @@ import {
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
 
 /**
+ * @public
  * <p>You are not authorized to perform the action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -35,6 +36,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Structure containing the estimated age range, in years, for a face.</p>
  *          <p>Amazon Rekognition estimates an age range for faces detected in the input image. Estimated age
  *       ranges can overlap. A face of a 5-year-old might have an estimated range of 4-6, while the
@@ -53,6 +55,7 @@ export interface AgeRange {
 }
 
 /**
+ * @public
  * <p>Provides the S3 bucket name and object name.</p>
  *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
  *       Amazon Rekognition operations.</p>
@@ -78,6 +81,7 @@ export interface S3Object {
 }
 
 /**
+ * @public
  * <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file.
  * </p>
  */
@@ -94,6 +98,7 @@ export interface GroundTruthManifest {
 }
 
 /**
+ * @public
  * <p>Assets are the images that you use to train and evaluate a model version.
  *          Assets can also contain validation information that you use to debug a failed model training.
  *          </p>
@@ -106,12 +111,16 @@ export interface Asset {
   GroundTruthManifest?: GroundTruthManifest;
 }
 
+/**
+ * @public
+ */
 export enum Attribute {
   ALL = "ALL",
   DEFAULT = "DEFAULT",
 }
 
 /**
+ * @public
  * <p>Metadata information about an audio stream. An array of <code>AudioMetadata</code> objects
  *       for the audio streams found in a stored video is returned by <a>GetSegmentDetection</a>. </p>
  */
@@ -138,6 +147,7 @@ export interface AudioMetadata {
 }
 
 /**
+ * @public
  * <p>Indicates whether or not the face has a beard, and the confidence level in the
  *       determination.</p>
  */
@@ -154,6 +164,7 @@ export interface Beard {
 }
 
 /**
+ * @public
  * <p>
  *       A filter that allows you to control the black frame detection by specifying the black levels
  *       and pixel coverage of black pixels in a frame. As videos can come from multiple sources, formats,
@@ -185,6 +196,9 @@ export interface BlackFrame {
   MinCoveragePercentage?: number;
 }
 
+/**
+ * @public
+ */
 export enum BodyPart {
   FACE = "FACE",
   HEAD = "HEAD",
@@ -193,6 +207,7 @@ export enum BodyPart {
 }
 
 /**
+ * @public
  * <p>Identifies the bounding box around the label, face, text, object of interest, or
  *       personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code>
  *       (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note
@@ -235,6 +250,7 @@ export interface BoundingBox {
 }
 
 /**
+ * @public
  * <p>Information about an item of Personal Protective Equipment covering a corresponding body part. For more
  *          information, see <a>DetectProtectiveEquipment</a>.</p>
  */
@@ -250,6 +266,9 @@ export interface CoversBodyPart {
   Value?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ProtectiveEquipmentType {
   FACE_COVER = "FACE_COVER",
   HAND_COVER = "HAND_COVER",
@@ -257,6 +276,7 @@ export enum ProtectiveEquipmentType {
 }
 
 /**
+ * @public
  * <p>Information about an item of Personal Protective Equipment (PPE) detected by
  *          <a>DetectProtectiveEquipment</a>. For more
  *          information, see <a>DetectProtectiveEquipment</a>.</p>
@@ -284,6 +304,7 @@ export interface EquipmentDetection {
 }
 
 /**
+ * @public
  * <p>Information about a body part detected by <a>DetectProtectiveEquipment</a> that contains PPE.
  *          An array of <code>ProtectiveEquipmentBodyPart</code> objects is returned for each person detected by
  *          <code>DetectProtectiveEquipment</code>. </p>
@@ -306,6 +327,9 @@ export interface ProtectiveEquipmentBodyPart {
   EquipmentDetections?: EquipmentDetection[];
 }
 
+/**
+ * @public
+ */
 export enum EmotionName {
   ANGRY = "ANGRY",
   CALM = "CALM",
@@ -319,6 +343,7 @@ export enum EmotionName {
 }
 
 /**
+ * @public
  * <p>The emotions that appear to be expressed on the face, and the confidence level in the
  *       determination. The API is only making a determination of the physical appearance of a person's
  *       face. It is not a determination of the person’s internal emotional state and should not be
@@ -337,6 +362,9 @@ export interface Emotion {
   Confidence?: number;
 }
 
+/**
+ * @public
+ */
 export enum LandmarkType {
   chinBottom = "chinBottom",
   eyeLeft = "eyeLeft",
@@ -371,6 +399,7 @@ export enum LandmarkType {
 }
 
 /**
+ * @public
  * <p>Indicates the location of the landmark on the face.</p>
  */
 export interface Landmark {
@@ -396,6 +425,7 @@ export interface Landmark {
 }
 
 /**
+ * @public
  * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
  */
 export interface Pose {
@@ -416,6 +446,7 @@ export interface Pose {
 }
 
 /**
+ * @public
  * <p>Identifies face image brightness and sharpness. </p>
  */
 export interface ImageQuality {
@@ -433,6 +464,7 @@ export interface ImageQuality {
 }
 
 /**
+ * @public
  * <p>Indicates whether or not the face is smiling, and the confidence level in the
  *       determination.</p>
  */
@@ -449,6 +481,7 @@ export interface Smile {
 }
 
 /**
+ * @public
  * <p>Provides face metadata for target image faces that are analyzed by
  *         <code>CompareFaces</code> and <code>RecognizeCelebrities</code>.</p>
  */
@@ -492,6 +525,9 @@ export interface ComparedFace {
   Smile?: Smile;
 }
 
+/**
+ * @public
+ */
 export enum KnownGenderType {
   Female = "Female",
   Male = "Male",
@@ -500,6 +536,7 @@ export enum KnownGenderType {
 }
 
 /**
+ * @public
  * <p>The known gender identity for the celebrity that matches the provided ID. The known
  *       gender identity can be Male, Female, Nonbinary, or Unlisted.</p>
  */
@@ -511,6 +548,7 @@ export interface KnownGender {
 }
 
 /**
+ * @public
  * <p>Provides information about a celebrity recognized by the <a>RecognizeCelebrities</a> operation.</p>
  */
 export interface Celebrity {
@@ -550,6 +588,7 @@ export interface Celebrity {
 }
 
 /**
+ * @public
  * <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
  *       the determination.</p>
  */
@@ -566,6 +605,7 @@ export interface Eyeglasses {
 }
 
 /**
+ * @public
  * <p>Indicates whether or not the eyes on the face are open, and the confidence level in the
  *       determination.</p>
  */
@@ -581,12 +621,16 @@ export interface EyeOpen {
   Confidence?: number;
 }
 
+/**
+ * @public
+ */
 export enum GenderType {
   Female = "Female",
   Male = "Male",
 }
 
 /**
+ * @public
  * <p>The predicted gender of a detected face.
  *
  *     </p>
@@ -615,6 +659,7 @@ export interface Gender {
 }
 
 /**
+ * @public
  * <p>Indicates whether or not the mouth on the face is open, and the confidence level in the
  *       determination.</p>
  */
@@ -631,6 +676,7 @@ export interface MouthOpen {
 }
 
 /**
+ * @public
  * <p>Indicates whether or not the face has a mustache, and the confidence level in the
  *       determination.</p>
  */
@@ -647,6 +693,7 @@ export interface Mustache {
 }
 
 /**
+ * @public
  * <p>Indicates whether or not the face is wearing sunglasses, and the confidence level in
  *       the determination.</p>
  */
@@ -663,6 +710,7 @@ export interface Sunglasses {
 }
 
 /**
+ * @public
  * <p>Structure containing attributes of the face that the algorithm detected.</p>
  *          <p>A <code>FaceDetail</code> object contains either the default facial attributes or all
  *       facial attributes. The default attributes are <code>BoundingBox</code>,
@@ -782,6 +830,7 @@ export interface FaceDetail {
 }
 
 /**
+ * @public
  * <p>Information about a recognized celebrity.</p>
  */
 export interface CelebrityDetail {
@@ -822,6 +871,7 @@ export interface CelebrityDetail {
 }
 
 /**
+ * @public
  * <p>Information about a detected celebrity and the time the celebrity was detected in a stored video.
  *         For more information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.</p>
  */
@@ -838,12 +888,16 @@ export interface CelebrityRecognition {
   Celebrity?: CelebrityDetail;
 }
 
+/**
+ * @public
+ */
 export enum CelebrityRecognitionSortBy {
   ID = "ID",
   TIMESTAMP = "TIMESTAMP",
 }
 
 /**
+ * @public
  * <p>Type that describes the face Amazon Rekognition chose to compare with the faces in the target.
  *       This contains a bounding box for the selected face and confidence level that the bounding box
  *       contains a face. Note that Amazon Rekognition selects the largest face in the source image for this
@@ -861,6 +915,9 @@ export interface ComparedSourceImageFace {
   Confidence?: number;
 }
 
+/**
+ * @public
+ */
 export enum QualityFilter {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -870,6 +927,7 @@ export enum QualityFilter {
 }
 
 /**
+ * @public
  * <p>Provides the input image either as bytes or an S3 object.</p>
  *          <p>You pass image bytes to an Amazon Rekognition API operation by using the <code>Bytes</code>
  *       property. For example, you would use the <code>Bytes</code> property to pass an image loaded
@@ -904,6 +962,9 @@ export interface Image {
   S3Object?: S3Object;
 }
 
+/**
+ * @public
+ */
 export interface CompareFacesRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
@@ -946,6 +1007,7 @@ export interface CompareFacesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a face in a target image that matches the source image face
  *       analyzed by <code>CompareFaces</code>. The <code>Face</code> property contains the bounding
  *       box of the face in the target image. The <code>Similarity</code> property is the confidence
@@ -964,6 +1026,9 @@ export interface CompareFacesMatch {
   Face?: ComparedFace;
 }
 
+/**
+ * @public
+ */
 export enum OrientationCorrection {
   ROTATE_0 = "ROTATE_0",
   ROTATE_180 = "ROTATE_180",
@@ -971,6 +1036,9 @@ export enum OrientationCorrection {
   ROTATE_90 = "ROTATE_90",
 }
 
+/**
+ * @public
+ */
 export interface CompareFacesResponse {
   /**
    * <p>The face in the source image that was used for comparison.</p>
@@ -1019,6 +1087,7 @@ export interface CompareFacesResponse {
 }
 
 /**
+ * @public
  * <p>The input image size exceeds the allowed limit. If you are calling
  *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
  *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
@@ -1050,6 +1119,7 @@ export class ImageTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -1078,6 +1148,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided image format is not supported. </p>
  */
 export class InvalidImageFormatException extends __BaseException {
@@ -1106,6 +1177,7 @@ export class InvalidImageFormatException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input parameter violated a constraint. Validate your parameter before calling the API
  *       operation again.</p>
  */
@@ -1135,6 +1207,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  */
 export class InvalidS3ObjectException extends __BaseException {
@@ -1163,6 +1236,7 @@ export class InvalidS3ObjectException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of requests exceeded your throughput limit. If you want to increase this
  *       limit, contact Amazon Rekognition.</p>
  */
@@ -1192,6 +1266,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1220,6 +1295,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Label detection settings to use on a streaming video. Defining the settings is required in the request parameter for <a>CreateStreamProcessor</a>.
  *             Including this setting in the <code>CreateStreamProcessor</code> request enables you to use the stream processor for label detection.
@@ -1245,6 +1321,7 @@ export interface ConnectedHomeSettings {
 }
 
 /**
+ * @public
  * <p>
  *             The label detection settings you want to use in your stream processor. This includes the labels you want the stream processor to detect and the minimum confidence level allowed to label objects.
  *         </p>
@@ -1265,12 +1342,16 @@ export interface ConnectedHomeSettingsForUpdate {
   MinConfidence?: number;
 }
 
+/**
+ * @public
+ */
 export enum ContentClassifier {
   FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
   FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
 }
 
 /**
+ * @public
  * <p>Provides information about a single type of inappropriate, unwanted, or
  *       offensive content found in an image or video. Each type of moderated content has a label
  *       within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition
@@ -1299,6 +1380,7 @@ export interface ModerationLabel {
 }
 
 /**
+ * @public
  * <p>Information about an inappropriate, unwanted, or offensive content label detection in a stored video.</p>
  */
 export interface ContentModerationDetection {
@@ -1314,12 +1396,16 @@ export interface ContentModerationDetection {
   ModerationLabel?: ModerationLabel;
 }
 
+/**
+ * @public
+ */
 export enum ContentModerationSortBy {
   NAME = "NAME",
   TIMESTAMP = "TIMESTAMP",
 }
 
 /**
+ * @public
  * <p>The S3 bucket and folder location where training output is placed.</p>
  */
 export interface OutputConfig {
@@ -1334,6 +1420,9 @@ export interface OutputConfig {
   S3KeyPrefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyProjectVersionRequest {
   /**
    * <p>The ARN of the source project in the trusting AWS account.</p>
@@ -1392,6 +1481,9 @@ export interface CopyProjectVersionRequest {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyProjectVersionResponse {
   /**
    * <p>The ARN of the copied model version in the destination project. </p>
@@ -1400,6 +1492,7 @@ export interface CopyProjectVersionResponse {
 }
 
 /**
+ * @public
  * <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
  *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
  *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
@@ -1430,6 +1523,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource is already being used.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1458,6 +1552,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request cannot be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1486,6 +1581,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  *          <p>The size of the collection exceeds the allowed limit. For more information,
  *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
@@ -1515,6 +1611,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCollectionRequest {
   /**
    * <p>ID for the collection that you are creating.</p>
@@ -1527,6 +1626,9 @@ export interface CreateCollectionRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateCollectionResponse {
   /**
    * <p>HTTP status code indicating the result of the operation.</p>
@@ -1547,6 +1649,7 @@ export interface CreateCollectionResponse {
 }
 
 /**
+ * @public
  * <p>A resource with the specified ID already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -1575,6 +1678,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  * The source that Amazon Rekognition Custom Labels uses to create a dataset. To
  * use an Amazon Sagemaker format manifest file, specify the  S3 bucket location in the <code>GroundTruthManifest</code> field.
@@ -1601,11 +1705,17 @@ export interface DatasetSource {
   DatasetArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DatasetType {
   TEST = "TEST",
   TRAIN = "TRAIN",
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>
@@ -1633,6 +1743,9 @@ export interface CreateDatasetRequest {
   ProjectArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>
@@ -1642,6 +1755,9 @@ export interface CreateDatasetResponse {
   DatasetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
    * <p>The name of the project to create.</p>
@@ -1649,6 +1765,9 @@ export interface CreateProjectRequest {
   ProjectName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the new project. You can use the ARN to
@@ -1658,6 +1777,7 @@ export interface CreateProjectResponse {
 }
 
 /**
+ * @public
  * <p>The dataset used for testing. Optionally, if <code>AutoCreate</code> is set,  Amazon Rekognition Custom Labels uses the
  *          training dataset to create a test dataset with a temporary split of the training dataset. </p>
  */
@@ -1675,6 +1795,7 @@ export interface TestingData {
 }
 
 /**
+ * @public
  * <p>The dataset used for training.</p>
  */
 export interface TrainingData {
@@ -1684,6 +1805,9 @@ export interface TrainingData {
   Assets?: Asset[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectVersionRequest {
   /**
    * <p>The ARN of the Amazon Rekognition Custom Labels project that
@@ -1751,6 +1875,9 @@ export interface CreateProjectVersionRequest {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectVersionResponse {
   /**
    * <p>The ARN of the model version that was created. Use <code>DescribeProjectVersion</code>
@@ -1760,6 +1887,7 @@ export interface CreateProjectVersionResponse {
 }
 
 /**
+ * @public
  * <p>
  *             Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
  *                 Note that if you opt out at the account level this setting is ignored on individual streams.
@@ -1776,6 +1904,7 @@ export interface StreamProcessorDataSharingPreference {
 }
 
 /**
+ * @public
  * <p>Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
@@ -1787,6 +1916,7 @@ export interface KinesisVideoStream {
 }
 
 /**
+ * @public
  * <p>Information about the source streaming video. </p>
  */
 export interface StreamProcessorInput {
@@ -1797,6 +1927,7 @@ export interface StreamProcessorInput {
 }
 
 /**
+ * @public
  * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
  *          <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
  *             detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications,
@@ -1813,6 +1944,7 @@ export interface StreamProcessorNotificationChannel {
 }
 
 /**
+ * @public
  * <p>The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
@@ -1824,6 +1956,7 @@ export interface KinesisDataStream {
 }
 
 /**
+ * @public
  * <p>
  *             The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
  *             These results include the name of the stream processor resource, the session ID of the stream processing session,
@@ -1848,6 +1981,7 @@ export interface S3Destination {
 }
 
 /**
+ * @public
  * <p>Information about the Amazon Kinesis Data Streams stream to which a Amazon Rekognition Video stream processor streams the results of a video analysis. For more
  *            information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
@@ -1866,6 +2000,7 @@ export interface StreamProcessorOutput {
 }
 
 /**
+ * @public
  * <p>The X and Y coordinates of a point on an image or video frame. The X and Y values are
  *       ratios of the overall image size or video resolution. For example, if an input image is
  *       700x200 and the values are X=0.5 and Y=0.25, then the point is at the (350,50) pixel
@@ -1888,6 +2023,7 @@ export interface Point {
 }
 
 /**
+ * @public
  * <p>Specifies a location within the frame that Rekognition checks for objects of interest such as text, labels, or faces. It uses a <code>BoundingBox</code>
  *       or <code>Polygon</code> to set a region of the screen.</p>
  *          <p>A word, face, or label is included in the region if it is more than half in that region. If there is more than
@@ -1909,6 +2045,7 @@ export interface RegionOfInterest {
 }
 
 /**
+ * @public
  * <p>Input face recognition parameters for an Amazon Rekognition stream processor.
  *             Includes the collection to use for face recognition and the face attributes to detect.
  *             Defining the settings is required in the request parameter for <a>CreateStreamProcessor</a>.</p>
@@ -1927,6 +2064,7 @@ export interface FaceSearchSettings {
 }
 
 /**
+ * @public
  * <p>Input parameters used in a streaming video analyzed by a Amazon Rekognition stream processor.
  *             You can use <code>FaceSearch</code> to recognize faces in a streaming video, or you can use <code>ConnectedHome</code> to detect labels. </p>
  */
@@ -1948,6 +2086,9 @@ export interface StreamProcessorSettings {
   ConnectedHome?: ConnectedHomeSettings;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamProcessorRequest {
   /**
    * <p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>. This is required for both face search and label detection stream processors.</p>
@@ -2021,6 +2162,9 @@ export interface CreateStreamProcessorRequest {
   DataSharingPreference?: StreamProcessorDataSharingPreference;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamProcessorResponse {
   /**
    * <p>Amazon Resource Number for the newly created stream processor.</p>
@@ -2029,6 +2173,7 @@ export interface CreateStreamProcessorResponse {
 }
 
 /**
+ * @public
  * <p>Information about where an object (<a>DetectCustomLabels</a>) or text (<a>DetectText</a>) is located on an image.</p>
  */
 export interface Geometry {
@@ -2045,6 +2190,7 @@ export interface Geometry {
 }
 
 /**
+ * @public
  * <p>A custom label detected in an image by a call to <a>DetectCustomLabels</a>.</p>
  */
 export interface CustomLabel {
@@ -2068,6 +2214,7 @@ export interface CustomLabel {
 }
 
 /**
+ * @public
  * <p>
  * Describes updates or additions to a dataset. A Single update or addition
  * is an entry (JSON Line) that provides information about a single image. To update an existing entry,
@@ -2090,6 +2237,7 @@ export interface DatasetChanges {
 }
 
 /**
+ * @public
  * <p>
  * Provides statistics about a dataset. For more information, see <a>DescribeDataset</a>.
  *
@@ -2125,6 +2273,9 @@ export interface DatasetStats {
   ErrorEntries?: number;
 }
 
+/**
+ * @public
+ */
 export enum DatasetStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -2135,6 +2286,9 @@ export enum DatasetStatus {
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum DatasetStatusMessageCode {
   CLIENT_ERROR = "CLIENT_ERROR",
   SERVICE_ERROR = "SERVICE_ERROR",
@@ -2142,6 +2296,7 @@ export enum DatasetStatusMessageCode {
 }
 
 /**
+ * @public
  * <p>
  * A description for a dataset. For more information, see <a>DescribeDataset</a>.</p>
  *          <p>The status fields <code>Status</code>, <code>StatusMessage</code>, and <code>StatusMessageCode</code>
@@ -2195,6 +2350,7 @@ export interface DatasetDescription {
 }
 
 /**
+ * @public
  * <p>
  *    Statistics about a label used in a dataset. For more information, see <a>DatasetLabelDescription</a>.
  * </p>
@@ -2216,6 +2372,7 @@ export interface DatasetLabelStats {
 }
 
 /**
+ * @public
  * <p>
  * Describes a dataset label. For more information, see <a>ListDatasetLabels</a>.
  * </p>
@@ -2237,6 +2394,7 @@ export interface DatasetLabelDescription {
 }
 
 /**
+ * @public
  * <p>
  *    Summary information for an Amazon Rekognition Custom Labels dataset. For more information, see
  *    <a>ProjectDescription</a>.
@@ -2288,6 +2446,9 @@ export interface DatasetMetadata {
   StatusMessageCode?: DatasetStatusMessageCode | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollectionRequest {
   /**
    * <p>ID of the collection to delete.</p>
@@ -2295,6 +2456,9 @@ export interface DeleteCollectionRequest {
   CollectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollectionResponse {
   /**
    * <p>HTTP status code that indicates the result of the operation.</p>
@@ -2302,6 +2466,9 @@ export interface DeleteCollectionResponse {
   StatusCode?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetRequest {
   /**
    * <p>
@@ -2311,8 +2478,14 @@ export interface DeleteDatasetRequest {
   DatasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteFacesRequest {
   /**
    * <p>Collection from which to remove the specific faces.</p>
@@ -2325,6 +2498,9 @@ export interface DeleteFacesRequest {
   FaceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFacesResponse {
   /**
    * <p>An array of strings (face IDs) of the faces that were deleted.</p>
@@ -2332,6 +2508,9 @@ export interface DeleteFacesResponse {
   DeletedFaces?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project that you want to delete.</p>
@@ -2339,12 +2518,18 @@ export interface DeleteProjectRequest {
   ProjectArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProjectStatus {
   CREATED = "CREATED",
   CREATING = "CREATING",
   DELETING = "DELETING",
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectResponse {
   /**
    * <p>The current status of the delete project operation.</p>
@@ -2352,6 +2537,9 @@ export interface DeleteProjectResponse {
   Status?: ProjectStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project that the project policy you want to delete is attached to.</p>
@@ -2369,9 +2557,13 @@ export interface DeleteProjectPolicyRequest {
   PolicyRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectPolicyResponse {}
 
 /**
+ * @public
  * <p>The supplied revision id for the project policy is invalid.</p>
  */
 export class InvalidPolicyRevisionIdException extends __BaseException {
@@ -2399,6 +2591,9 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
@@ -2406,6 +2601,9 @@ export interface DeleteProjectVersionRequest {
   ProjectVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProjectVersionStatus {
   COPYING_COMPLETED = "COPYING_COMPLETED",
   COPYING_FAILED = "COPYING_FAILED",
@@ -2421,6 +2619,9 @@ export enum ProjectVersionStatus {
   TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectVersionResponse {
   /**
    * <p>The status of the deletion operation.</p>
@@ -2428,6 +2629,9 @@ export interface DeleteProjectVersionResponse {
   Status?: ProjectVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamProcessorRequest {
   /**
    * <p>The name of the stream processor you want to delete.</p>
@@ -2435,8 +2639,14 @@ export interface DeleteStreamProcessorRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamProcessorResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeCollectionRequest {
   /**
    * <p>The ID of the collection to describe.</p>
@@ -2444,6 +2654,9 @@ export interface DescribeCollectionRequest {
   CollectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCollectionResponse {
   /**
    * <p>The number of faces that are indexed into the collection. To index faces into a
@@ -2470,6 +2683,9 @@ export interface DescribeCollectionResponse {
   CreationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>
@@ -2479,6 +2695,9 @@ export interface DescribeDatasetRequest {
   DatasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>
@@ -2488,6 +2707,9 @@ export interface DescribeDatasetResponse {
   DatasetDescription?: DatasetDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectsRequest {
   /**
    * <p>If the previous response was incomplete (because there is more
@@ -2511,6 +2733,7 @@ export interface DescribeProjectsRequest {
 }
 
 /**
+ * @public
  * <p>A description of an Amazon Rekognition Custom Labels project. For more information, see <a>DescribeProjects</a>.</p>
  */
 export interface ProjectDescription {
@@ -2537,6 +2760,9 @@ export interface ProjectDescription {
   Datasets?: DatasetMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectsResponse {
   /**
    * <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
@@ -2552,6 +2778,7 @@ export interface DescribeProjectsResponse {
 }
 
 /**
+ * @public
  * <p>Pagination token in the request is not valid.</p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -2579,6 +2806,9 @@ export class InvalidPaginationTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project that contains the models you want to describe.</p>
@@ -2609,6 +2839,7 @@ export interface DescribeProjectVersionsRequest {
 }
 
 /**
+ * @public
  * <p>The S3 bucket that contains the training summary. The training summary includes
  *          aggregated evaluation metrics for the entire testing dataset and metrics for each
  *          individual label.  </p>
@@ -2628,6 +2859,7 @@ export interface Summary {
 }
 
 /**
+ * @public
  * <p>The evaluation results for the training of a model.</p>
  */
 export interface EvaluationResult {
@@ -2647,6 +2879,7 @@ export interface EvaluationResult {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 bucket location of the validation data for a model training job. </p>
  *          <p>The validation data includes error information for individual JSON Lines in the dataset.
  *          For more information, see <i>Debugging a Failed Model Training</i> in the
@@ -2666,6 +2899,7 @@ export interface ValidationData {
 }
 
 /**
+ * @public
  * <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
  */
 export interface TestingDataResult {
@@ -2687,6 +2921,7 @@ export interface TestingDataResult {
 }
 
 /**
+ * @public
  * <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
  */
 export interface TrainingDataResult {
@@ -2707,6 +2942,7 @@ export interface TrainingDataResult {
 }
 
 /**
+ * @public
  * <p>A description of a version of an Amazon Rekognition Custom Labels model.</p>
  */
 export interface ProjectVersionDescription {
@@ -2790,6 +3026,9 @@ export interface ProjectVersionDescription {
   SourceProjectVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectVersionsResponse {
   /**
    * <p>A list of model descriptions. The list is sorted by the creation date and time of
@@ -2805,6 +3044,9 @@ export interface DescribeProjectVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamProcessorRequest {
   /**
    * <p>Name of the stream processor for which you want information.</p>
@@ -2812,6 +3054,9 @@ export interface DescribeStreamProcessorRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StreamProcessorStatus {
   FAILED = "FAILED",
   RUNNING = "RUNNING",
@@ -2821,6 +3066,9 @@ export enum StreamProcessorStatus {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamProcessorResponse {
   /**
    * <p>Name of the stream processor. </p>
@@ -2906,6 +3154,9 @@ export interface DescribeStreamProcessorResponse {
   DataSharingPreference?: StreamProcessorDataSharingPreference;
 }
 
+/**
+ * @public
+ */
 export interface DetectCustomLabelsRequest {
   /**
    * <p>The ARN of the model version that you want to use.</p>
@@ -2956,6 +3207,9 @@ export interface DetectCustomLabelsRequest {
   MinConfidence?: number;
 }
 
+/**
+ * @public
+ */
 export interface DetectCustomLabelsResponse {
   /**
    * <p>An array of custom labels detected in the input image.</p>
@@ -2964,6 +3218,7 @@ export interface DetectCustomLabelsResponse {
 }
 
 /**
+ * @public
  * <p>The requested resource isn't ready. For example,
  *          this exception occurs when you call <code>DetectCustomLabels</code> with a
  *          model version that isn't deployed. </p>
@@ -2993,6 +3248,9 @@ export class ResourceNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DetectFacesRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
@@ -3016,6 +3274,9 @@ export interface DetectFacesRequest {
   Attributes?: (Attribute | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DetectFacesResponse {
   /**
    * <p>Details of each face found in the image. </p>
@@ -3037,6 +3298,7 @@ export interface DetectFacesResponse {
 }
 
 /**
+ * @public
  * <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
  */
 export interface DetectionFilter {
@@ -3060,12 +3322,16 @@ export interface DetectionFilter {
   MinBoundingBoxWidth?: number;
 }
 
+/**
+ * @public
+ */
 export enum DetectLabelsFeatureName {
   GENERAL_LABELS = "GENERAL_LABELS",
   IMAGE_PROPERTIES = "IMAGE_PROPERTIES",
 }
 
 /**
+ * @public
  * <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive,
  *       exclusive, or a combination of both and can be applied to individual l
  *       abels or entire label categories.</p>
@@ -3093,6 +3359,7 @@ export interface GeneralLabelsSettings {
 }
 
 /**
+ * @public
  * <p>Settings for the IMAGE_PROPERTIES feature type.</p>
  */
 export interface DetectLabelsImagePropertiesSettings {
@@ -3103,6 +3370,7 @@ export interface DetectLabelsImagePropertiesSettings {
 }
 
 /**
+ * @public
  * <p>Settings for the DetectLabels request. Settings can include
  *       filters for both GENERAL_LABELS and IMAGE_PROPERTIES. GENERAL_LABELS filters can be inclusive
  *       or exclusive and applied to individual labels or label categories. IMAGE_PROPERTIES filters
@@ -3120,6 +3388,9 @@ export interface DetectLabelsSettings {
   ImageProperties?: DetectLabelsImagePropertiesSettings;
 }
 
+/**
+ * @public
+ */
 export interface DetectLabelsRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
@@ -3162,6 +3433,7 @@ export interface DetectLabelsRequest {
 }
 
 /**
+ * @public
  * <p>A description of the dominant colors in an image.</p>
  */
 export interface DominantColor {
@@ -3202,6 +3474,7 @@ export interface DominantColor {
 }
 
 /**
+ * @public
  * <p>The quality of an image provided for label detection, with regard to brightness, sharpness, and contrast.</p>
  */
 export interface DetectLabelsImageQuality {
@@ -3222,6 +3495,7 @@ export interface DetectLabelsImageQuality {
 }
 
 /**
+ * @public
  * <p>The background of the image with regard to image quality and dominant colors.</p>
  */
 export interface DetectLabelsImageBackground {
@@ -3239,6 +3513,7 @@ export interface DetectLabelsImageBackground {
 }
 
 /**
+ * @public
  * <p>The foreground of the image with regard to image quality and dominant colors.</p>
  */
 export interface DetectLabelsImageForeground {
@@ -3256,6 +3531,7 @@ export interface DetectLabelsImageForeground {
 }
 
 /**
+ * @public
  * <p>Information about the quality and dominant colors of an input image.
  *       Quality and color information is returned for the entire image, foreground, and background.</p>
  */
@@ -3289,6 +3565,7 @@ export interface DetectLabelsImageProperties {
 }
 
 /**
+ * @public
  * <p>A potential alias of for a given label.</p>
  */
 export interface LabelAlias {
@@ -3299,6 +3576,7 @@ export interface LabelAlias {
 }
 
 /**
+ * @public
  * <p>The category that applies to a given label.</p>
  */
 export interface LabelCategory {
@@ -3309,6 +3587,7 @@ export interface LabelCategory {
 }
 
 /**
+ * @public
  * <p>An instance of a label returned by Amazon Rekognition Image (<a>DetectLabels</a>) or by
  *       Amazon Rekognition Video (<a>GetLabelDetection</a>).</p>
  */
@@ -3330,6 +3609,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>A parent label for a label. A label can have 0, 1, or more parents. </p>
  */
 export interface Parent {
@@ -3340,6 +3620,7 @@ export interface Parent {
 }
 
 /**
+ * @public
  * <p>Structure containing details about the detected label, including the name, detected instances, parent labels, and level of
  *       confidence.</p>
  *          <p>
@@ -3378,6 +3659,9 @@ export interface Label {
   Categories?: LabelCategory[];
 }
 
+/**
+ * @public
+ */
 export interface DetectLabelsResponse {
   /**
    * <p>An array of labels for the real-world objects detected. </p>
@@ -3409,6 +3693,7 @@ export interface DetectLabelsResponse {
 }
 
 /**
+ * @public
  * <p>Allows you to set attributes of the image. Currently, you can declare an image as free of
  *       personally identifiable information.</p>
  */
@@ -3420,6 +3705,7 @@ export interface HumanLoopDataAttributes {
 }
 
 /**
+ * @public
  * <p>Sets up the flow definition the image will be sent to if one of the conditions is met. You
  *       can also set certain attributes of the image before review.</p>
  */
@@ -3442,6 +3728,9 @@ export interface HumanLoopConfig {
   DataAttributes?: HumanLoopDataAttributes;
 }
 
+/**
+ * @public
+ */
 export interface DetectModerationLabelsRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
@@ -3468,6 +3757,7 @@ export interface DetectModerationLabelsRequest {
 }
 
 /**
+ * @public
  * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the
  *       input did not trigger human review.</p>
  */
@@ -3489,6 +3779,9 @@ export interface HumanLoopActivationOutput {
   HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface DetectModerationLabelsResponse {
   /**
    * <p>Array of detected Moderation labels and the time, in milliseconds from the start of the
@@ -3509,6 +3802,7 @@ export interface DetectModerationLabelsResponse {
 }
 
 /**
+ * @public
  * <p>The number of in-progress human reviews you have has exceeded the number allowed.</p>
  */
 export class HumanLoopQuotaExceededException extends __BaseException {
@@ -3555,6 +3849,7 @@ export class HumanLoopQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies summary attributes to return from a call to <a>DetectProtectiveEquipment</a>.
  *          You can specify which types of PPE to summarize. You can also specify a minimum confidence value for detections.
  *          Summary information is returned in the <code>Summary</code> (<a>ProtectiveEquipmentSummary</a>) field of the response from
@@ -3586,6 +3881,9 @@ export interface ProtectiveEquipmentSummarizationAttributes {
   RequiredEquipmentTypes: (ProtectiveEquipmentType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectProtectiveEquipmentRequest {
   /**
    * <p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can
@@ -3600,6 +3898,7 @@ export interface DetectProtectiveEquipmentRequest {
 }
 
 /**
+ * @public
  * <p>A person detected by a call to <a>DetectProtectiveEquipment</a>. The API returns
  *          all persons detected in the input
  *          image in an array of <code>ProtectiveEquipmentPerson</code> objects.</p>
@@ -3628,6 +3927,7 @@ export interface ProtectiveEquipmentPerson {
 }
 
 /**
+ * @public
  * <p>Summary information for required items of personal protective equipment (PPE) detected on persons by a call
  *          to <a>DetectProtectiveEquipment</a>. You specify the required type of PPE in
  *          the <code>SummarizationAttributes</code>
@@ -3666,6 +3966,9 @@ export interface ProtectiveEquipmentSummary {
   PersonsIndeterminate?: number[];
 }
 
+/**
+ * @public
+ */
 export interface DetectProtectiveEquipmentResponse {
   /**
    * <p>The version number of the PPE detection model used to detect PPE in the image.</p>
@@ -3685,6 +3988,7 @@ export interface DetectProtectiveEquipmentResponse {
 }
 
 /**
+ * @public
  * <p>A set of optional parameters that you can use to set the criteria that the text must meet
  *       to be included in your response. <code>WordFilter</code> looks at a word’s height, width, and
  *       minimum confidence. <code>RegionOfInterest</code> lets you set a specific region of the image
@@ -3703,6 +4007,9 @@ export interface DetectTextFilters {
   RegionsOfInterest?: RegionOfInterest[];
 }
 
+/**
+ * @public
+ */
 export interface DetectTextRequest {
   /**
    * <p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS
@@ -3720,12 +4027,16 @@ export interface DetectTextRequest {
   Filters?: DetectTextFilters;
 }
 
+/**
+ * @public
+ */
 export enum TextTypes {
   LINE = "LINE",
   WORD = "WORD",
 }
 
 /**
+ * @public
  * <p>Information about a word or line of text detected by <a>DetectText</a>.</p>
  *          <p>The <code>DetectedText</code> field contains the text that Amazon Rekognition detected in the
  *       image. </p>
@@ -3774,6 +4085,9 @@ export interface TextDetection {
   Geometry?: Geometry;
 }
 
+/**
+ * @public
+ */
 export interface DetectTextResponse {
   /**
    * <p>An array of text that was detected in the input image.</p>
@@ -3787,6 +4101,7 @@ export interface DetectTextResponse {
 }
 
 /**
+ * @public
  * <p>
  *          A training dataset or a test dataset used in a dataset distribution operation.
  *          For more information, see <a>DistributeDatasetEntries</a>.
@@ -3800,6 +4115,9 @@ export interface DistributeDataset {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DistributeDatasetEntriesRequest {
   /**
    * <p>The ARNS for the training dataset and test dataset that you want to use. The datasets must belong to
@@ -3809,9 +4127,13 @@ export interface DistributeDatasetEntriesRequest {
   Datasets: DistributeDataset[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DistributeDatasetEntriesResponse {}
 
 /**
+ * @public
  * <p>Describes the face properties such as the bounding box, face ID, image ID of the input
  *       image, and external image ID that you assigned. </p>
  */
@@ -3849,12 +4171,16 @@ export interface Face {
   IndexFacesModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum FaceAttributes {
   ALL = "ALL",
   DEFAULT = "DEFAULT",
 }
 
 /**
+ * @public
  * <p>Information about a face detected in a video analysis request and the time the face was detected in the video. </p>
  */
 export interface FaceDetection {
@@ -3871,6 +4197,7 @@ export interface FaceDetection {
 }
 
 /**
+ * @public
  * <p>Provides face metadata. In addition, it also provides the confidence in the match of
  *       this face with the input face.</p>
  */
@@ -3888,6 +4215,7 @@ export interface FaceMatch {
 }
 
 /**
+ * @public
  * <p>Object containing both the face metadata (stored in the backend database), and facial
  *       attributes that are detected but aren't stored in the database.</p>
  */
@@ -3904,11 +4232,17 @@ export interface FaceRecord {
   FaceDetail?: FaceDetail;
 }
 
+/**
+ * @public
+ */
 export enum FaceSearchSortBy {
   INDEX = "INDEX",
   TIMESTAMP = "TIMESTAMP",
 }
 
+/**
+ * @public
+ */
 export interface GetCelebrityInfoRequest {
   /**
    * <p>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a> operation, which recognizes celebrities in an image.
@@ -3917,6 +4251,9 @@ export interface GetCelebrityInfoRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCelebrityInfoResponse {
   /**
    * <p>An array of URLs pointing to additional celebrity information. </p>
@@ -3934,6 +4271,9 @@ export interface GetCelebrityInfoResponse {
   KnownGender?: KnownGender;
 }
 
+/**
+ * @public
+ */
 export interface GetCelebrityRecognitionRequest {
   /**
    * <p>Job identifier for the required celebrity recognition analysis. You can get the job identifer from
@@ -3961,18 +4301,25 @@ export interface GetCelebrityRecognitionRequest {
   SortBy?: CelebrityRecognitionSortBy | string;
 }
 
+/**
+ * @public
+ */
 export enum VideoJobStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export enum VideoColorRange {
   FULL = "FULL",
   LIMITED = "LIMITED",
 }
 
 /**
+ * @public
  * <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in
  *             every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
@@ -4015,6 +4362,9 @@ export interface VideoMetadata {
   ColorRange?: VideoColorRange | string;
 }
 
+/**
+ * @public
+ */
 export interface GetCelebrityRecognitionResponse {
   /**
    * <p>The current status of the celebrity recognition job.</p>
@@ -4044,6 +4394,9 @@ export interface GetCelebrityRecognitionResponse {
   Celebrities?: CelebrityRecognition[];
 }
 
+/**
+ * @public
+ */
 export interface GetContentModerationRequest {
   /**
    * <p>The identifier for the inappropriate, unwanted, or offensive content moderation job. Use <code>JobId</code> to identify the job in
@@ -4075,6 +4428,9 @@ export interface GetContentModerationRequest {
   SortBy?: ContentModerationSortBy | string;
 }
 
+/**
+ * @public
+ */
 export interface GetContentModerationResponse {
   /**
    * <p>The current status of the content moderation analysis job.</p>
@@ -4109,6 +4465,9 @@ export interface GetContentModerationResponse {
   ModerationModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFaceDetectionRequest {
   /**
    * <p>Unique identifier for the face detection job. The <code>JobId</code> is returned from <code>StartFaceDetection</code>.</p>
@@ -4129,6 +4488,9 @@ export interface GetFaceDetectionRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFaceDetectionResponse {
   /**
    * <p>The current status of the face detection job.</p>
@@ -4158,6 +4520,9 @@ export interface GetFaceDetectionResponse {
   Faces?: FaceDetection[];
 }
 
+/**
+ * @public
+ */
 export interface GetFaceSearchRequest {
   /**
    * <p>The job identifer for the search request. You get the job identifier from an initial call to <code>StartFaceSearch</code>.</p>
@@ -4185,6 +4550,7 @@ export interface GetFaceSearchRequest {
 }
 
 /**
+ * @public
  * <p>Details about a person detected in a video analysis request.</p>
  */
 export interface PersonDetail {
@@ -4205,6 +4571,7 @@ export interface PersonDetail {
 }
 
 /**
+ * @public
  * <p>Information about a person whose face matches a face(s) in an Amazon Rekognition collection.
  *       Includes information about the faces in the Amazon Rekognition collection (<a>FaceMatch</a>), information about the person (<a>PersonDetail</a>), and the time stamp for
  *       when the person was detected in a video. An array of <code>PersonMatch</code> objects is
@@ -4229,6 +4596,9 @@ export interface PersonMatch {
   FaceMatches?: FaceMatch[];
 }
 
+/**
+ * @public
+ */
 export interface GetFaceSearchResponse {
   /**
    * <p>The current status of the face search job.</p>
@@ -4263,16 +4633,25 @@ export interface GetFaceSearchResponse {
   Persons?: PersonMatch[];
 }
 
+/**
+ * @public
+ */
 export enum LabelDetectionAggregateBy {
   SEGMENTS = "SEGMENTS",
   TIMESTAMPS = "TIMESTAMPS",
 }
 
+/**
+ * @public
+ */
 export enum LabelDetectionSortBy {
   NAME = "NAME",
   TIMESTAMP = "TIMESTAMP",
 }
 
+/**
+ * @public
+ */
 export interface GetLabelDetectionRequest {
   /**
    * <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from
@@ -4309,6 +4688,7 @@ export interface GetLabelDetectionRequest {
 }
 
 /**
+ * @public
  * <p>Information about a label detected in a video analysis request and the time the label was detected in the video. </p>
  */
 export interface LabelDetection {
@@ -4339,6 +4719,9 @@ export interface LabelDetection {
   DurationMillis?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetLabelDetectionResponse {
   /**
    * <p>The current status of the label detection job.</p>
@@ -4374,11 +4757,17 @@ export interface GetLabelDetectionResponse {
   LabelModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum PersonTrackingSortBy {
   INDEX = "INDEX",
   TIMESTAMP = "TIMESTAMP",
 }
 
+/**
+ * @public
+ */
 export interface GetPersonTrackingRequest {
   /**
    * <p>The identifier for a job that tracks persons in a video. You get the <code>JobId</code> from a call to <code>StartPersonTracking</code>.
@@ -4409,6 +4798,7 @@ export interface GetPersonTrackingRequest {
 }
 
 /**
+ * @public
  * <p>Details and path tracking information for a single time a person's path is tracked in a video.
  *             Amazon Rekognition operations that track people's paths return an array of <code>PersonDetection</code> objects
  *             with elements for each time a person's path is tracked in a video. </p>
@@ -4427,6 +4817,9 @@ export interface PersonDetection {
   Person?: PersonDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetPersonTrackingResponse {
   /**
    * <p>The current status of the person tracking job.</p>
@@ -4456,6 +4849,9 @@ export interface GetPersonTrackingResponse {
   Persons?: PersonDetection[];
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentDetectionRequest {
   /**
    * <p>Job identifier for the text detection operation for which you want results returned.
@@ -4476,6 +4872,7 @@ export interface GetSegmentDetectionRequest {
 }
 
 /**
+ * @public
  * <p>Information about a shot detection segment detected in a video. For more information,
  *       see <a>SegmentDetection</a>.</p>
  */
@@ -4491,6 +4888,9 @@ export interface ShotSegment {
   Confidence?: number;
 }
 
+/**
+ * @public
+ */
 export enum TechnicalCueType {
   BLACK_FRAMES = "BlackFrames",
   COLOR_BARS = "ColorBars",
@@ -4502,6 +4902,7 @@ export enum TechnicalCueType {
 }
 
 /**
+ * @public
  * <p>Information about a technical cue segment. For more information, see <a>SegmentDetection</a>.</p>
  */
 export interface TechnicalCueSegment {
@@ -4516,12 +4917,16 @@ export interface TechnicalCueSegment {
   Confidence?: number;
 }
 
+/**
+ * @public
+ */
 export enum SegmentType {
   SHOT = "SHOT",
   TECHNICAL_CUE = "TECHNICAL_CUE",
 }
 
 /**
+ * @public
  * <p>A technical cue or shot detection segment detected in a video. An array
  *     of <code>SegmentDetection</code> objects containing all segments detected in a stored video
  *       is returned by <a>GetSegmentDetection</a>.
@@ -4603,6 +5008,7 @@ export interface SegmentDetection {
 }
 
 /**
+ * @public
  * <p>Information about the type of a segment requested in a call to <a>StartSegmentDetection</a>.
  *       An array of <code>SegmentTypeInfo</code> objects is returned  by the response from <a>GetSegmentDetection</a>.</p>
  */
@@ -4618,6 +5024,9 @@ export interface SegmentTypeInfo {
   ModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentDetectionResponse {
   /**
    * <p>Current status of the segment detection job.</p>
@@ -4669,6 +5078,9 @@ export interface GetSegmentDetectionResponse {
   SelectedSegmentTypes?: SegmentTypeInfo[];
 }
 
+/**
+ * @public
+ */
 export interface GetTextDetectionRequest {
   /**
    * <p>Job identifier for the text detection operation for which you want results returned.
@@ -4689,6 +5101,7 @@ export interface GetTextDetectionRequest {
 }
 
 /**
+ * @public
  * <p>Information about text detected in a video. Incudes the detected text,
  *         the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.</p>
  */
@@ -4705,6 +5118,9 @@ export interface TextDetectionResult {
   TextDetection?: TextDetection;
 }
 
+/**
+ * @public
+ */
 export interface GetTextDetectionResponse {
   /**
    * <p>Current status of the text detection job.</p>
@@ -4741,6 +5157,7 @@ export interface GetTextDetectionResponse {
 }
 
 /**
+ * @public
  * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
  *         parameters is different from the previous call to the operation.</p>
  */
@@ -4769,6 +5186,9 @@ export class IdempotentParameterMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface IndexFacesRequest {
   /**
    * <p>The ID of an existing collection to which you want to add the faces that are detected
@@ -4835,6 +5255,9 @@ export interface IndexFacesRequest {
   QualityFilter?: QualityFilter | string;
 }
 
+/**
+ * @public
+ */
 export enum Reason {
   EXCEEDS_MAX_FACES = "EXCEEDS_MAX_FACES",
   EXTREME_POSE = "EXTREME_POSE",
@@ -4846,6 +5269,7 @@ export enum Reason {
 }
 
 /**
+ * @public
  * <p>A face that <a>IndexFaces</a> detected, but didn't index. Use the
  *         <code>Reasons</code> response attribute to determine why a face wasn't indexed.</p>
  */
@@ -4885,6 +5309,9 @@ export interface UnindexedFace {
   FaceDetail?: FaceDetail;
 }
 
+/**
+ * @public
+ */
 export interface IndexFacesResponse {
   /**
    * <p>An array of faces detected and added to the collection. For more information,
@@ -4935,6 +5362,7 @@ export interface IndexFacesResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the starting point in a Kinesis stream to start processing. You can use the
  *             producer timestamp or the fragment number. One of either producer timestamp or fragment
  *             number is required. If you use the producer timestamp, you must put the time in
@@ -4955,11 +5383,15 @@ export interface KinesisVideoStreamStartSelector {
   FragmentNumber?: string;
 }
 
+/**
+ * @public
+ */
 export enum LabelDetectionFeatureName {
   GENERAL_LABELS = "GENERAL_LABELS",
 }
 
 /**
+ * @public
  * <p>Contains the specified filters that should be applied to a list of returned GENERAL_LABELS.</p>
  */
 export interface LabelDetectionSettings {
@@ -4971,6 +5403,9 @@ export interface LabelDetectionSettings {
   GeneralLabels?: GeneralLabelsSettings;
 }
 
+/**
+ * @public
+ */
 export interface ListCollectionsRequest {
   /**
    * <p>Pagination token from the previous response.</p>
@@ -4983,6 +5418,9 @@ export interface ListCollectionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCollectionsResponse {
   /**
    * <p>An array of collection IDs.</p>
@@ -5004,6 +5442,9 @@ export interface ListCollectionsResponse {
   FaceModelVersions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetEntriesRequest {
   /**
    * <p>
@@ -5056,6 +5497,9 @@ export interface ListDatasetEntriesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetEntriesResponse {
   /**
    * <p>
@@ -5072,6 +5516,9 @@ export interface ListDatasetEntriesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetLabelsRequest {
   /**
    * <p>
@@ -5095,6 +5542,9 @@ export interface ListDatasetLabelsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetLabelsResponse {
   /**
    * <p>
@@ -5111,6 +5561,9 @@ export interface ListDatasetLabelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFacesRequest {
   /**
    * <p>ID of the collection from which to list the faces.</p>
@@ -5130,6 +5583,9 @@ export interface ListFacesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFacesResponse {
   /**
    * <p>An array of <code>Face</code> objects. </p>
@@ -5149,6 +5605,9 @@ export interface ListFacesResponse {
   FaceModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectPoliciesRequest {
   /**
    * <p>The ARN of the project for which you want to list the project policies.</p>
@@ -5171,6 +5630,7 @@ export interface ListProjectPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a project policy in the response from <a>ListProjectPolicies</a>. </p>
  *          <p> </p>
  */
@@ -5206,6 +5666,9 @@ export interface ProjectPolicy {
   LastUpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectPoliciesResponse {
   /**
    * <p>A list of project policies attached to the project.</p>
@@ -5219,6 +5682,9 @@ export interface ListProjectPoliciesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamProcessorsRequest {
   /**
    * <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video
@@ -5233,6 +5699,7 @@ export interface ListStreamProcessorsRequest {
 }
 
 /**
+ * @public
  * <p>An object that recognizes faces or labels in a streaming video. An Amazon Rekognition stream processor is created by a call to <a>CreateStreamProcessor</a>.  The request
  *         parameters for <code>CreateStreamProcessor</code> describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts.
  *
@@ -5250,6 +5717,9 @@ export interface StreamProcessor {
   Status?: StreamProcessorStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamProcessorsResponse {
   /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
@@ -5263,6 +5733,9 @@ export interface ListStreamProcessorsResponse {
   StreamProcessors?: StreamProcessor[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that contains
@@ -5271,6 +5744,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p> A list of key-value tags assigned to the resource. </p>
@@ -5279,6 +5755,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The format of the project policy document that you supplied to
  *       <code>PutProjectPolicy</code> is incorrect. </p>
  */
@@ -5308,6 +5785,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
  *           <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html">Calling Amazon Rekognition Video operations</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
  *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
@@ -5324,6 +5802,9 @@ export interface NotificationChannel {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutProjectPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project that the project policy is attached to.</p>
@@ -5352,6 +5833,9 @@ export interface PutProjectPolicyRequest {
   PolicyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutProjectPolicyResponse {
   /**
    * <p>The ID of the project policy.</p>
@@ -5359,6 +5843,9 @@ export interface PutProjectPolicyResponse {
   PolicyRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RecognizeCelebritiesRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
@@ -5370,6 +5857,9 @@ export interface RecognizeCelebritiesRequest {
   Image: Image | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RecognizeCelebritiesResponse {
   /**
    * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64
@@ -5408,6 +5898,9 @@ export interface RecognizeCelebritiesResponse {
   OrientationCorrection?: OrientationCorrection | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFacesRequest {
   /**
    * <p>ID of the collection the face belongs to.</p>
@@ -5433,6 +5926,9 @@ export interface SearchFacesRequest {
   FaceMatchThreshold?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchFacesResponse {
   /**
    * <p>ID of the face that was searched for matches in a collection.</p>
@@ -5452,6 +5948,9 @@ export interface SearchFacesResponse {
   FaceModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFacesByImageRequest {
   /**
    * <p>ID of the collection to search.</p>
@@ -5496,6 +5995,9 @@ export interface SearchFacesByImageRequest {
   QualityFilter?: QualityFilter | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFacesByImageResponse {
   /**
    * <p>The bounding box around the face in the input image that Amazon Rekognition used for the
@@ -5523,6 +6025,7 @@ export interface SearchFacesByImageResponse {
 }
 
 /**
+ * @public
  * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
  *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
  */
@@ -5533,6 +6036,9 @@ export interface Video {
   S3Object?: S3Object;
 }
 
+/**
+ * @public
+ */
 export interface StartCelebrityRecognitionRequest {
   /**
    * <p>The video in which you want to recognize celebrities. The video must be stored
@@ -5560,6 +6066,9 @@ export interface StartCelebrityRecognitionRequest {
   JobTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCelebrityRecognitionResponse {
   /**
    * <p>The identifier for the celebrity recognition analysis job. Use <code>JobId</code> to identify the job in
@@ -5569,6 +6078,7 @@ export interface StartCelebrityRecognitionResponse {
 }
 
 /**
+ * @public
  * <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  */
@@ -5597,6 +6107,9 @@ export class VideoTooLargeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartContentModerationRequest {
   /**
    * <p>The video in which you want to detect inappropriate, unwanted, or offensive content. The video must be stored
@@ -5633,6 +6146,9 @@ export interface StartContentModerationRequest {
   JobTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartContentModerationResponse {
   /**
    * <p>The identifier for the content analysis job. Use <code>JobId</code> to identify the job in
@@ -5641,6 +6157,9 @@ export interface StartContentModerationResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFaceDetectionRequest {
   /**
    * <p>The video in which you want to detect faces. The video must be stored
@@ -5677,6 +6196,9 @@ export interface StartFaceDetectionRequest {
   JobTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFaceDetectionResponse {
   /**
    * <p>The identifier for the face detection job. Use <code>JobId</code> to identify the job in
@@ -5685,6 +6207,9 @@ export interface StartFaceDetectionResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFaceSearchRequest {
   /**
    * <p>The video you want to search. The video must be stored in an Amazon S3 bucket. </p>
@@ -5721,6 +6246,9 @@ export interface StartFaceSearchRequest {
   JobTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFaceSearchResponse {
   /**
    * <p>The identifier for the search job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceSearch</code>. </p>
@@ -5728,6 +6256,9 @@ export interface StartFaceSearchResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartLabelDetectionRequest {
   /**
    * <p>The video in which you want to detect labels. The video must be stored
@@ -5777,6 +6308,9 @@ export interface StartLabelDetectionRequest {
   Settings?: LabelDetectionSettings;
 }
 
+/**
+ * @public
+ */
 export interface StartLabelDetectionResponse {
   /**
    * <p>The identifier for the label detection job. Use <code>JobId</code> to identify the job in
@@ -5785,6 +6319,9 @@ export interface StartLabelDetectionResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartPersonTrackingRequest {
   /**
    * <p>The video in which you want to detect people. The video must be stored
@@ -5812,6 +6349,9 @@ export interface StartPersonTrackingRequest {
   JobTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartPersonTrackingResponse {
   /**
    * <p>The identifier for the person detection job. Use <code>JobId</code> to identify the job in
@@ -5820,6 +6360,9 @@ export interface StartPersonTrackingResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartProjectVersionRequest {
   /**
    * <p>The Amazon Resource Name(ARN) of the model version that you want to start.</p>
@@ -5847,6 +6390,9 @@ export interface StartProjectVersionRequest {
   MaxInferenceUnits?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartProjectVersionResponse {
   /**
    * <p>The current running status of the model. </p>
@@ -5855,6 +6401,7 @@ export interface StartProjectVersionResponse {
 }
 
 /**
+ * @public
  * <p>Filters for the shot detection segments returned by <code>GetSegmentDetection</code>.
  *       For more information, see <a>StartSegmentDetectionFilters</a>.</p>
  */
@@ -5871,6 +6418,7 @@ export interface StartShotDetectionFilter {
 }
 
 /**
+ * @public
  * <p>Filters for the technical segments returned by <a>GetSegmentDetection</a>. For more information,
  *       see <a>StartSegmentDetectionFilters</a>.</p>
  */
@@ -5895,6 +6443,7 @@ export interface StartTechnicalCueDetectionFilter {
 }
 
 /**
+ * @public
  * <p>Filters applied to the technical cue or shot detection segments.
  *       For more information, see <a>StartSegmentDetection</a>.
  *     </p>
@@ -5911,6 +6460,9 @@ export interface StartSegmentDetectionFilters {
   ShotFilter?: StartShotDetectionFilter;
 }
 
+/**
+ * @public
+ */
 export interface StartSegmentDetectionRequest {
   /**
    * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
@@ -5948,6 +6500,9 @@ export interface StartSegmentDetectionRequest {
   SegmentTypes: (SegmentType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSegmentDetectionResponse {
   /**
    * <p>Unique identifier for the segment detection job. The <code>JobId</code> is returned from <code>StartSegmentDetection</code>.
@@ -5957,6 +6512,7 @@ export interface StartSegmentDetectionResponse {
 }
 
 /**
+ * @public
  * <p>This is a required parameter for label detection stream processors and should not be used
  *             to start a face search stream processor.</p>
  */
@@ -5970,6 +6526,7 @@ export interface StreamProcessingStartSelector {
 }
 
 /**
+ * @public
  * <p>
  *             Specifies when to stop processing the stream. You can specify a maximum amount
  *             of time to process the video.
@@ -5984,6 +6541,9 @@ export interface StreamProcessingStopSelector {
   MaxDurationInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamProcessorRequest {
   /**
    * <p>The name of the stream processor to start processing.</p>
@@ -6010,6 +6570,9 @@ export interface StartStreamProcessorRequest {
   StopSelector?: StreamProcessingStopSelector;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamProcessorResponse {
   /**
    * <p>
@@ -6020,6 +6583,7 @@ export interface StartStreamProcessorResponse {
 }
 
 /**
+ * @public
  * <p>Set of optional parameters that let you set the criteria text must meet to be included in your response.
  *       <code>WordFilter</code> looks at a word's height, width and minimum confidence. <code>RegionOfInterest</code>
  *       lets you set a specific region of the screen to look for text in.</p>
@@ -6037,6 +6601,9 @@ export interface StartTextDetectionFilters {
   RegionsOfInterest?: RegionOfInterest[];
 }
 
+/**
+ * @public
+ */
 export interface StartTextDetectionRequest {
   /**
    * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
@@ -6070,6 +6637,9 @@ export interface StartTextDetectionRequest {
   Filters?: StartTextDetectionFilters;
 }
 
+/**
+ * @public
+ */
 export interface StartTextDetectionResponse {
   /**
    * <p>Identifier for the text detection job.  Use <code>JobId</code> to identify the job in a subsequent call to <code>GetTextDetection</code>.</p>
@@ -6077,6 +6647,9 @@ export interface StartTextDetectionResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopProjectVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
@@ -6085,6 +6658,9 @@ export interface StopProjectVersionRequest {
   ProjectVersionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopProjectVersionResponse {
   /**
    * <p>The current status of the stop operation. </p>
@@ -6092,6 +6668,9 @@ export interface StopProjectVersionResponse {
   Status?: ProjectVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamProcessorRequest {
   /**
    * <p>The name of a stream processor created by <a>CreateStreamProcessor</a>.</p>
@@ -6099,8 +6678,14 @@ export interface StopStreamProcessorRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamProcessorResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
@@ -6114,8 +6699,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
@@ -6129,8 +6720,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatasetEntriesRequest {
   /**
    * <p>
@@ -6147,14 +6744,21 @@ export interface UpdateDatasetEntriesRequest {
   Changes: DatasetChanges | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatasetEntriesResponse {}
 
+/**
+ * @public
+ */
 export enum StreamProcessorParameterToDelete {
   ConnectedHomeMinConfidence = "ConnectedHomeMinConfidence",
   RegionsOfInterest = "RegionsOfInterest",
 }
 
 /**
+ * @public
  * <p>
  *             The stream processor settings that you want to update. <code>ConnectedHome</code> settings can be updated to detect different labels with a different minimum confidence.
  *         </p>
@@ -6168,6 +6772,9 @@ export interface StreamProcessorSettingsForUpdate {
   ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamProcessorRequest {
   /**
    * <p>
@@ -6206,6 +6813,9 @@ export interface UpdateStreamProcessorRequest {
   ParametersToDelete?: (StreamProcessorParameterToDelete | string)[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamProcessorResponse {}
 
 /**

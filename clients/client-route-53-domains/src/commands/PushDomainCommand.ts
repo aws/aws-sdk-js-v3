@@ -21,15 +21,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link PushDomainCommand}.
  */
 export interface PushDomainCommandInput extends PushDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link PushDomainCommand}.
  */
 export interface PushDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Moves a domain from Amazon Web Services to another registrar. </p>
  *          <p>Supported actions:</p>
  *          <ul>
@@ -48,6 +53,8 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PushDomainCommandInput - {@link PushDomainCommandInput}
+ * @returns {@link PushDomainCommandOutput}
  * @see {@link PushDomainCommandInput} for command's `input` shape.
  * @see {@link PushDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -84,6 +91,9 @@ export class PushDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PushDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PushDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PushDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PushDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PushDomainCommandOutput> {
     return deserializeAws_json1_1PushDomainCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTriggersCommand}.
  */
 export interface ListTriggersCommandInput extends ListTriggersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTriggersCommand}.
  */
 export interface ListTriggersCommandOutput extends ListTriggersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
  *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
  *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
@@ -49,6 +54,8 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTriggersCommandInput - {@link ListTriggersCommandInput}
+ * @returns {@link ListTriggersCommandOutput}
  * @see {@link ListTriggersCommandInput} for command's `input` shape.
  * @see {@link ListTriggersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTriggersCommandOutput> {
     return deserializeAws_json1_1ListTriggersCommand(output, context);
   }

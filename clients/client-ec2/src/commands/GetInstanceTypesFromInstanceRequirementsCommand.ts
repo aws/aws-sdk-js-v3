@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceTypesFromInstanceRequirementsCommand}.
  */
 export interface GetInstanceTypesFromInstanceRequirementsCommandInput
   extends GetInstanceTypesFromInstanceRequirementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceTypesFromInstanceRequirementsCommand}.
  */
 export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
@@ -38,6 +42,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of instance types with the specified instance attributes. You can
  *          use the response to preview the instance types without launching instances. Note
  *          that the response does not consider capacity.</p>
@@ -58,6 +63,8 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceTypesFromInstanceRequirementsCommandInput - {@link GetInstanceTypesFromInstanceRequirementsCommandInput}
+ * @returns {@link GetInstanceTypesFromInstanceRequirementsCommandOutput}
  * @see {@link GetInstanceTypesFromInstanceRequirementsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceTypesFromInstanceRequirementsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -81,6 +88,9 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceTypesFromInstanceRequirementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInstanceTypesFromInstanceRequirementsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
     return serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

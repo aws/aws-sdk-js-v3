@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuildsCommand}.
  */
 export interface ListBuildsCommandInput extends ListBuildsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBuildsCommand}.
  */
 export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
+ * @returns {@link ListBuildsCommandOutput}
  * @see {@link ListBuildsCommandInput} for command's `input` shape.
  * @see {@link ListBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListBuildsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListBuildsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBuildsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuildsCommandOutput> {
     return deserializeAws_json1_1ListBuildsCommand(output, context);
   }

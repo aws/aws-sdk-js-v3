@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRetirableGrantsCommand}.
  */
 export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRetirableGrantsCommand}.
  */
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all grants in the Amazon Web Services account and Region that have the
  *       specified retiring principal. </p>
  *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
@@ -88,6 +93,8 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRetirableGrantsCommandInput - {@link ListRetirableGrantsCommandInput}
+ * @returns {@link ListRetirableGrantsCommandOutput}
  * @see {@link ListRetirableGrantsCommandInput} for command's `input` shape.
  * @see {@link ListRetirableGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -161,6 +168,9 @@ export class ListRetirableGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRetirableGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,10 +210,16 @@ export class ListRetirableGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRetirableGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRetirableGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRetirableGrantsCommandOutput> {
     return deserializeAws_json1_1ListRetirableGrantsCommand(output, context);
   }

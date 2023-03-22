@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolutionVersionsCommand}.
  */
 export interface ListSolutionVersionsCommandInput extends ListSolutionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSolutionVersionsCommand}.
  */
 export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of solution versions for the given solution. When a solution is not
  *       specified, all the solution versions associated with the account are listed. The response
  *       provides the properties for each solution version, including the Amazon Resource Name (ARN).</p>
@@ -48,6 +53,8 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolutionVersionsCommandInput - {@link ListSolutionVersionsCommandInput}
+ * @returns {@link ListSolutionVersionsCommandOutput}
  * @see {@link ListSolutionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSolutionVersionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListSolutionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolutionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListSolutionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolutionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSolutionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolutionVersionsCommandOutput> {
     return deserializeAws_json1_1ListSolutionVersionsCommand(output, context);
   }

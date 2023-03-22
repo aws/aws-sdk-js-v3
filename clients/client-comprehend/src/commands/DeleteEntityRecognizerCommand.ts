@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEntityRecognizerCommand}.
  */
 export interface DeleteEntityRecognizerCommandInput extends DeleteEntityRecognizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEntityRecognizerCommand}.
  */
 export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecognizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an entity recognizer.</p>
  *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
@@ -52,6 +57,8 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEntityRecognizerCommandInput - {@link DeleteEntityRecognizerCommandInput}
+ * @returns {@link DeleteEntityRecognizerCommandOutput}
  * @see {@link DeleteEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link DeleteEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteEntityRecognizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEntityRecognizerCommandOutput> {
     return deserializeAws_json1_1DeleteEntityRecognizerCommand(output, context);
   }

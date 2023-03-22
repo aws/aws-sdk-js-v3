@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateUserFromPermissionGroupCommand}.
  */
 export interface DisassociateUserFromPermissionGroupCommandInput extends DisassociateUserFromPermissionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateUserFromPermissionGroupCommand}.
  */
 export interface DisassociateUserFromPermissionGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user account from a permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateUserFromPermissionGroupCommandInput - {@link DisassociateUserFromPermissionGroupCommandInput}
+ * @returns {@link DisassociateUserFromPermissionGroupCommandOutput}
  * @see {@link DisassociateUserFromPermissionGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserFromPermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -90,6 +97,9 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateUserFromPermissionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateUserFromPermissionGroupCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
     return serializeAws_restJson1DisassociateUserFromPermissionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

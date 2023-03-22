@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVolumeAttributeCommand}.
  */
 export interface ModifyVolumeAttributeCommandInput extends ModifyVolumeAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVolumeAttributeCommand}.
  */
 export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a volume attribute.</p>
  *          <p>By default, all I/O operations for the volume are suspended when the data on the volume is
  *       determined to be potentially inconsistent, to prevent undetectable, latent data corruption.
@@ -47,6 +52,8 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVolumeAttributeCommandInput - {@link ModifyVolumeAttributeCommandInput}
+ * @returns {@link ModifyVolumeAttributeCommandOutput}
  * @see {@link ModifyVolumeAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +92,9 @@ export class ModifyVolumeAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVolumeAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ModifyVolumeAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVolumeAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVolumeAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVolumeAttributeCommandOutput> {
     return deserializeAws_ec2ModifyVolumeAttributeCommand(output, context);
   }

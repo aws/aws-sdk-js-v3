@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIntegrationResponsesCommand}.
  */
 export interface GetIntegrationResponsesCommandInput extends GetIntegrationResponsesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIntegrationResponsesCommand}.
  */
 export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResponsesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the IntegrationResponses for an Integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntegrationResponsesCommandInput - {@link GetIntegrationResponsesCommandInput}
+ * @returns {@link GetIntegrationResponsesCommandOutput}
  * @see {@link GetIntegrationResponsesCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationResponsesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetIntegrationResponsesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntegrationResponsesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetIntegrationResponsesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntegrationResponsesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIntegrationResponsesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntegrationResponsesCommandOutput> {
     return deserializeAws_restJson1GetIntegrationResponsesCommand(output, context);
   }

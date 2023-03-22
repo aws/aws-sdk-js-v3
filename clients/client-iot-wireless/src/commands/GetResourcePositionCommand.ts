@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePositionCommand}.
  */
 export interface GetResourcePositionCommandInput extends GetResourcePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePositionCommand}.
  */
 export interface GetResourcePositionCommandOutput extends GetResourcePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the position information for a given wireless device or a wireless gateway resource.
  *             The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
  *                 (WGS84)</a>.</p>
@@ -48,6 +53,8 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePositionCommandInput - {@link GetResourcePositionCommandInput}
+ * @returns {@link GetResourcePositionCommandOutput}
  * @see {@link GetResourcePositionCommandInput} for command's `input` shape.
  * @see {@link GetResourcePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetResourcePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetResourcePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourcePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePositionCommandOutput> {
     return deserializeAws_restJson1GetResourcePositionCommand(output, context);
   }

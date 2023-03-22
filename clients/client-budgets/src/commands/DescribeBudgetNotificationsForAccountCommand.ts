@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBudgetNotificationsForAccountCommand}.
  */
 export interface DescribeBudgetNotificationsForAccountCommandInput
   extends DescribeBudgetNotificationsForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBudgetNotificationsForAccountCommand}.
  */
 export interface DescribeBudgetNotificationsForAccountCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Lists the budget names and notifications that are associated with an account.
  * 		</p>
@@ -51,6 +56,8 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetNotificationsForAccountCommandInput - {@link DescribeBudgetNotificationsForAccountCommandInput}
+ * @returns {@link DescribeBudgetNotificationsForAccountCommandOutput}
  * @see {@link DescribeBudgetNotificationsForAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetNotificationsForAccountCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetNotificationsForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeBudgetNotificationsForAccountCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
     return serializeAws_json1_1DescribeBudgetNotificationsForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

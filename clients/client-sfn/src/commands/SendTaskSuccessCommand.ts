@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendTaskSuccessCommand}.
  */
 export interface SendTaskSuccessCommandInput extends SendTaskSuccessInput {}
 /**
+ * @public
+ *
  * The output of {@link SendTaskSuccessCommand}.
  */
 export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
  *       pattern to report that the task identified by the <code>taskToken</code> completed
  *       successfully.</p>
@@ -48,6 +53,8 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTaskSuccessCommandInput - {@link SendTaskSuccessCommandInput}
+ * @returns {@link SendTaskSuccessCommandOutput}
  * @see {@link SendTaskSuccessCommandInput} for command's `input` shape.
  * @see {@link SendTaskSuccessCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -81,6 +88,9 @@ export class SendTaskSuccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTaskSuccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class SendTaskSuccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTaskSuccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendTaskSuccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskSuccessCommandOutput> {
     return deserializeAws_json1_0SendTaskSuccessCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DetachVerifiedAccessTrustProviderCommand}.
  */
 export interface DetachVerifiedAccessTrustProviderCommandInput extends DetachVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachVerifiedAccessTrustProviderCommand}.
  */
 export interface DetachVerifiedAccessTrustProviderCommandOutput
@@ -37,6 +41,7 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachVerifiedAccessTrustProviderCommandInput - {@link DetachVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link DetachVerifiedAccessTrustProviderCommandOutput}
  * @see {@link DetachVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link DetachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
     return serializeAws_ec2DetachVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

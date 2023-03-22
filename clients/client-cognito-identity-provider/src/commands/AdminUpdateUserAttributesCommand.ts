@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminUpdateUserAttributesCommand}.
  */
 export interface AdminUpdateUserAttributesCommandInput extends AdminUpdateUserAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminUpdateUserAttributesCommand}.
  */
 export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified user's attributes, including developer attributes, as an
  *             administrator. Works on any user.</p>
  *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
@@ -76,6 +81,8 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUpdateUserAttributesCommandInput - {@link AdminUpdateUserAttributesCommandInput}
+ * @returns {@link AdminUpdateUserAttributesCommandOutput}
  * @see {@link AdminUpdateUserAttributesCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -152,6 +159,9 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUpdateUserAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,10 +202,16 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminUpdateUserAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

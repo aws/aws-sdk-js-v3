@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SQSServiceException as __BaseException } from "./SQSServiceException";
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddPermissionRequest {
@@ -36,6 +37,7 @@ export interface AddPermissionRequest {
 }
 
 /**
+ * @public
  * <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
  *             returns this error if the maximum number of inflight messages is reached and
  *                 <code>AddPermission</code> returns this error if the maximum number of permissions
@@ -57,6 +59,9 @@ export class OverLimit extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ChangeMessageVisibilityRequest {
   /**
    * <p>The URL of the Amazon SQS queue whose message's visibility is changed.</p>
@@ -78,6 +83,7 @@ export interface ChangeMessageVisibilityRequest {
 }
 
 /**
+ * @public
  * <p>The specified message isn't in flight.</p>
  */
 export class MessageNotInflight extends __BaseException {
@@ -97,6 +103,7 @@ export class MessageNotInflight extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified receipt handle isn't valid.</p>
  */
 export class ReceiptHandleIsInvalid extends __BaseException {
@@ -116,6 +123,7 @@ export class ReceiptHandleIsInvalid extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
  */
 export class BatchEntryIdsNotDistinct extends __BaseException {
@@ -135,6 +143,7 @@ export class BatchEntryIdsNotDistinct extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Encloses a receipt handle and an entry id for each message in <code>
  *                <a>ChangeMessageVisibilityBatch</a>.</code>
  *          </p>
@@ -173,6 +182,7 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ChangeMessageVisibilityBatchRequest {
@@ -189,6 +199,7 @@ export interface ChangeMessageVisibilityBatchRequest {
 }
 
 /**
+ * @public
  * <p>Gives a detailed description of the result of an action on each entry in the
  *             request.</p>
  */
@@ -215,6 +226,7 @@ export interface BatchResultErrorEntry {
 }
 
 /**
+ * @public
  * <p>Encloses the <code>Id</code> of an entry in <code>
  *                <a>ChangeMessageVisibilityBatch</a>.</code>
  *          </p>
@@ -227,6 +239,7 @@ export interface ChangeMessageVisibilityBatchResultEntry {
 }
 
 /**
+ * @public
  * <p>For each message in the batch, the response contains a <code>
  *                <a>ChangeMessageVisibilityBatchResultEntry</a>
  *             </code> tag if the message succeeds or a <code>
@@ -250,6 +263,7 @@ export interface ChangeMessageVisibilityBatchResult {
 }
 
 /**
+ * @public
  * <p>The batch request doesn't contain any entries.</p>
  */
 export class EmptyBatchRequest extends __BaseException {
@@ -269,6 +283,7 @@ export class EmptyBatchRequest extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
  */
 export class InvalidBatchEntryId extends __BaseException {
@@ -288,6 +303,7 @@ export class InvalidBatchEntryId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The batch request contains more entries than permissible.</p>
  */
 export class TooManyEntriesInBatchRequest extends __BaseException {
@@ -306,6 +322,9 @@ export class TooManyEntriesInBatchRequest extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type QueueAttributeName =
   | "All"
   | "ApproximateNumberOfMessages"
@@ -331,6 +350,7 @@ export type QueueAttributeName =
   | "VisibilityTimeout";
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateQueueRequest {
@@ -552,6 +572,7 @@ export interface CreateQueueRequest {
 }
 
 /**
+ * @public
  * <p>Returns the <code>QueueUrl</code> attribute of the created queue.</p>
  */
 export interface CreateQueueResult {
@@ -562,6 +583,7 @@ export interface CreateQueueResult {
 }
 
 /**
+ * @public
  * <p>You must wait 60 seconds after deleting a queue before you can create another queue
  *             with the same name.</p>
  */
@@ -582,6 +604,7 @@ export class QueueDeletedRecently extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A queue with this name already exists. Amazon SQS returns this error only if the request
  *             includes attributes whose values differ from those of the existing queue.</p>
  */
@@ -602,6 +625,7 @@ export class QueueNameExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteMessageRequest {
@@ -618,6 +642,7 @@ export interface DeleteMessageRequest {
 }
 
 /**
+ * @public
  * <p>The specified receipt handle isn't valid for the current version.</p>
  */
 export class InvalidIdFormat extends __BaseException {
@@ -637,6 +662,7 @@ export class InvalidIdFormat extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Encloses a receipt handle and an identifier for it.</p>
  */
 export interface DeleteMessageBatchRequestEntry {
@@ -656,6 +682,7 @@ export interface DeleteMessageBatchRequestEntry {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteMessageBatchRequest {
@@ -672,6 +699,7 @@ export interface DeleteMessageBatchRequest {
 }
 
 /**
+ * @public
  * <p>Encloses the <code>Id</code> of an entry in <code>
  *                <a>DeleteMessageBatch</a>.</code>
  *          </p>
@@ -684,6 +712,7 @@ export interface DeleteMessageBatchResultEntry {
 }
 
 /**
+ * @public
  * <p>For each message in the batch, the response contains a  <code>
  *                <a>DeleteMessageBatchResultEntry</a>
  *             </code> tag if the message is deleted or a <code>
@@ -707,6 +736,7 @@ export interface DeleteMessageBatchResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteQueueRequest {
@@ -718,6 +748,7 @@ export interface DeleteQueueRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface GetQueueAttributesRequest {
@@ -903,6 +934,7 @@ export interface GetQueueAttributesRequest {
 }
 
 /**
+ * @public
  * <p>A list of returned queue attributes.</p>
  */
 export interface GetQueueAttributesResult {
@@ -913,6 +945,7 @@ export interface GetQueueAttributesResult {
 }
 
 /**
+ * @public
  * <p>The specified attribute doesn't exist.</p>
  */
 export class InvalidAttributeName extends __BaseException {
@@ -932,6 +965,7 @@ export class InvalidAttributeName extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface GetQueueUrlRequest {
@@ -948,6 +982,7 @@ export interface GetQueueUrlRequest {
 }
 
 /**
+ * @public
  * <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting Responses</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  */
 export interface GetQueueUrlResult {
@@ -958,6 +993,7 @@ export interface GetQueueUrlResult {
 }
 
 /**
+ * @public
  * <p>The specified queue doesn't exist.</p>
  */
 export class QueueDoesNotExist extends __BaseException {
@@ -977,6 +1013,7 @@ export class QueueDoesNotExist extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ListDeadLetterSourceQueuesRequest {
@@ -999,6 +1036,7 @@ export interface ListDeadLetterSourceQueuesRequest {
 }
 
 /**
+ * @public
  * <p>A list of your dead letter source queues.</p>
  */
 export interface ListDeadLetterSourceQueuesResult {
@@ -1015,6 +1053,7 @@ export interface ListDeadLetterSourceQueuesResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ListQueuesRequest {
@@ -1037,6 +1076,7 @@ export interface ListQueuesRequest {
 }
 
 /**
+ * @public
  * <p>A list of your queues.</p>
  */
 export interface ListQueuesResult {
@@ -1052,6 +1092,9 @@ export interface ListQueuesResult {
   QueueUrls?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListQueueTagsRequest {
   /**
    * <p>The URL of the queue.</p>
@@ -1059,6 +1102,9 @@ export interface ListQueueTagsRequest {
   QueueUrl: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListQueueTagsResult {
   /**
    * <p>The list of all tags added to the specified queue.</p>
@@ -1067,6 +1113,7 @@ export interface ListQueueTagsResult {
 }
 
 /**
+ * @public
  * <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
  */
 export class PurgeQueueInProgress extends __BaseException {
@@ -1086,6 +1133,7 @@ export class PurgeQueueInProgress extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface PurgeQueueRequest {
@@ -1097,6 +1145,7 @@ export interface PurgeQueueRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ReceiveMessageRequest {
@@ -1260,7 +1309,7 @@ export interface ReceiveMessageRequest {
    *             </li>
    *          </ul>
    *          <p>The maximum length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and
-   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~</code>).</p>
+   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~</code>).</p>
    *          <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see
    *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a>
    *           in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -1268,6 +1317,9 @@ export interface ReceiveMessageRequest {
   ReceiveRequestAttemptId?: string;
 }
 
+/**
+ * @public
+ */
 export type MessageSystemAttributeName =
   | "AWSTraceHeader"
   | "ApproximateFirstReceiveTimestamp"
@@ -1279,6 +1331,7 @@ export type MessageSystemAttributeName =
   | "SequenceNumber";
 
 /**
+ * @public
  * <p>The user-specified message attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code>
  *                <a>SendMessage</a>.</code>
  *          </p>
@@ -1314,6 +1367,7 @@ export interface MessageAttributeValue {
 }
 
 /**
+ * @public
  * <p>An Amazon SQS message.</p>
  */
 export interface Message {
@@ -1400,6 +1454,7 @@ export interface Message {
 }
 
 /**
+ * @public
  * <p>A list of received messages.</p>
  */
 export interface ReceiveMessageResult {
@@ -1410,6 +1465,7 @@ export interface ReceiveMessageResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RemovePermissionRequest {
@@ -1428,6 +1484,7 @@ export interface RemovePermissionRequest {
 }
 
 /**
+ * @public
  * <p>The message contains characters outside the allowed set.</p>
  */
 export class InvalidMessageContents extends __BaseException {
@@ -1446,9 +1503,13 @@ export class InvalidMessageContents extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
 
 /**
+ * @public
  * <p>The user-specified message system attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code>
  *                <a>SendMessage</a>.</code>
  *          </p>
@@ -1484,6 +1545,7 @@ export interface MessageSystemAttributeValue {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface SendMessageRequest {
@@ -1585,7 +1647,7 @@ export interface SendMessageRequest {
    *             <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
    *          </note>
    *          <p>The maximum length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and
-   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~</code>).</p>
+   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~</code>).</p>
    *          <p>For best practices of using <code>MessageDeduplicationId</code>, see
    *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a>
    *           in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -1611,7 +1673,7 @@ export interface SendMessageRequest {
    *               specify a <code>MessageGroupId</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *          <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    *          <p>For best practices of using <code>MessageGroupId</code>, see
    *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a>
    *           in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -1624,6 +1686,7 @@ export interface SendMessageRequest {
 }
 
 /**
+ * @public
  * <p>The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.</p>
  */
 export interface SendMessageResult {
@@ -1659,6 +1722,7 @@ export interface SendMessageResult {
 }
 
 /**
+ * @public
  * <p>Error code 400. Unsupported operation.</p>
  */
 export class UnsupportedOperation extends __BaseException {
@@ -1678,6 +1742,7 @@ export class UnsupportedOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The length of all the messages put together is more than the limit.</p>
  */
 export class BatchRequestTooLong extends __BaseException {
@@ -1697,6 +1762,7 @@ export class BatchRequestTooLong extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the details of a single Amazon SQS message along with an <code>Id</code>.</p>
  */
 export interface SendMessageBatchRequestEntry {
@@ -1794,7 +1860,7 @@ export interface SendMessageBatchRequestEntry {
    *             <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
    *          </note>
    *          <p>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and
-   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~</code>).</p>
+   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~</code>).</p>
    *          <p>For best practices of using <code>MessageDeduplicationId</code>, see
    *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a>
    *           in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -1820,7 +1886,7 @@ export interface SendMessageBatchRequestEntry {
    *               specify a <code>MessageGroupId</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *          <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    *          <p>For best practices of using <code>MessageGroupId</code>, see
    *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a>
    *           in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -1833,6 +1899,7 @@ export interface SendMessageBatchRequestEntry {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface SendMessageBatchRequest {
@@ -1851,6 +1918,7 @@ export interface SendMessageBatchRequest {
 }
 
 /**
+ * @public
  * <p>Encloses a <code>MessageId</code> for a successfully-enqueued message in a <code>
  *                <a>SendMessageBatch</a>.</code>
  *          </p>
@@ -1891,6 +1959,7 @@ export interface SendMessageBatchResultEntry {
 }
 
 /**
+ * @public
  * <p>For each message in the batch, the response contains a <code>
  *                <a>SendMessageBatchResultEntry</a>
  *             </code> tag if the message succeeds or a <code>
@@ -1914,6 +1983,7 @@ export interface SendMessageBatchResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface SetQueueAttributesRequest {
@@ -2083,6 +2153,9 @@ export interface SetQueueAttributesRequest {
   Attributes: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagQueueRequest {
   /**
    * <p>The URL of the queue.</p>
@@ -2095,6 +2168,9 @@ export interface TagQueueRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagQueueRequest {
   /**
    * <p>The URL of the queue.</p>

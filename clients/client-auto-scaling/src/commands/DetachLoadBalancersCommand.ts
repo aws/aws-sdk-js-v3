@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachLoadBalancersCommand}.
  */
 export interface DetachLoadBalancersCommandInput extends DetachLoadBalancersType {}
 /**
+ * @public
+ *
  * The output of {@link DetachLoadBalancersCommand}.
  */
 export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersResultType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
  *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
  *             Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
@@ -51,6 +56,8 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachLoadBalancersCommandInput - {@link DetachLoadBalancersCommandInput}
+ * @returns {@link DetachLoadBalancersCommandOutput}
  * @see {@link DetachLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -92,6 +99,9 @@ export class DetachLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DetachLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachLoadBalancersCommandOutput> {
     return deserializeAws_queryDetachLoadBalancersCommand(output, context);
   }

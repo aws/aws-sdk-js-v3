@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTargetGroupAttributesCommand}.
  */
 export interface ModifyTargetGroupAttributesCommandInput extends ModifyTargetGroupAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTargetGroupAttributesCommand}.
  */
 export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified attributes of the specified target group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTargetGroupAttributesCommandInput - {@link ModifyTargetGroupAttributesCommandInput}
+ * @returns {@link ModifyTargetGroupAttributesCommandOutput}
  * @see {@link ModifyTargetGroupAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -118,6 +125,9 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTargetGroupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTargetGroupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyTargetGroupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

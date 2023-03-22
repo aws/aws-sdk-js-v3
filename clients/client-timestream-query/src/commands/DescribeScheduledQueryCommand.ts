@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledQueryCommand}.
  */
 export interface DescribeScheduledQueryCommandInput extends DescribeScheduledQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledQueryCommand}.
  */
 export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides detailed information about a scheduled query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,6 +52,8 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledQueryCommandInput - {@link DescribeScheduledQueryCommandInput}
+ * @returns {@link DescribeScheduledQueryCommandOutput}
  * @see {@link DescribeScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeScheduledQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeScheduledQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeScheduledQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledQueryCommandOutput> {
     return deserializeAws_json1_0DescribeScheduledQueryCommand(output, context);
   }

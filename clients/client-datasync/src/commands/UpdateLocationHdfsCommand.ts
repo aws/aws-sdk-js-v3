@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLocationHdfsCommand}.
  */
 export interface UpdateLocationHdfsCommandInput extends UpdateLocationHdfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLocationHdfsCommand}.
  */
 export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some parameters of a previously created location for a Hadoop Distributed File
  *       System cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLocationHdfsCommandInput - {@link UpdateLocationHdfsCommandInput}
+ * @returns {@link UpdateLocationHdfsCommandOutput}
  * @see {@link UpdateLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationHdfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateLocationHdfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLocationHdfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateLocationHdfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLocationHdfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLocationHdfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLocationHdfsCommandOutput> {
     return deserializeAws_json1_1UpdateLocationHdfsCommand(output, context);
   }

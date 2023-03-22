@@ -54,6 +54,9 @@ import {
 } from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
 
+/**
+ * @public
+ */
 export interface UpdateDomainRequest {
   /**
    * <p>The ID of the domain to be updated.</p>
@@ -85,6 +88,9 @@ export interface UpdateDomainRequest {
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the domain.</p>
@@ -92,6 +98,9 @@ export interface UpdateDomainResponse {
   DomainArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum VariantPropertyType {
   DataCaptureConfig = "DataCaptureConfig",
   DesiredInstanceCount = "DesiredInstanceCount",
@@ -99,6 +108,7 @@ export enum VariantPropertyType {
 }
 
 /**
+ * @public
  * <p>Specifies a production variant property type for an Endpoint.</p>
  *          <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
  *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
@@ -128,6 +138,9 @@ export interface VariantProperty {
   VariantPropertyType: VariantPropertyType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointInput {
   /**
    * <p>The name of the endpoint whose configuration you want to update.</p>
@@ -172,6 +185,9 @@ export interface UpdateEndpointInput {
   RetainDeploymentConfig?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
@@ -179,6 +195,9 @@ export interface UpdateEndpointOutput {
   EndpointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointWeightsAndCapacitiesInput {
   /**
    * <p>The name of an existing SageMaker endpoint.</p>
@@ -191,6 +210,9 @@ export interface UpdateEndpointWeightsAndCapacitiesInput {
   DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointWeightsAndCapacitiesOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
@@ -198,6 +220,9 @@ export interface UpdateEndpointWeightsAndCapacitiesOutput {
   EndpointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentRequest {
   /**
    * <p>The name of the experiment to update.</p>
@@ -216,6 +241,9 @@ export interface UpdateExperimentRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
@@ -223,6 +251,9 @@ export interface UpdateExperimentResponse {
   ExperimentArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureGroupRequest {
   /**
    * <p>The name of the feature group that you're updating.</p>
@@ -237,6 +268,9 @@ export interface UpdateFeatureGroupRequest {
   FeatureAdditions?: FeatureDefinition[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureGroupResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
@@ -244,6 +278,9 @@ export interface UpdateFeatureGroupResponse {
   FeatureGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureMetadataRequest {
   /**
    * <p>The name of the feature group containing the feature that you're updating.</p>
@@ -271,6 +308,9 @@ export interface UpdateFeatureMetadataRequest {
   ParameterRemovals?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateHubRequest {
   /**
    * <p>The name of the hub to update.</p>
@@ -293,6 +333,9 @@ export interface UpdateHubRequest {
   HubSearchKeywords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateHubResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated hub.</p>
@@ -300,6 +343,9 @@ export interface UpdateHubResponse {
   HubArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageRequest {
   /**
    * <p>A list of properties to delete. Only the <code>Description</code> and
@@ -328,6 +374,9 @@ export interface UpdateImageRequest {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageResponse {
   /**
    * <p>The ARN of the image.</p>
@@ -335,6 +384,9 @@ export interface UpdateImageResponse {
   ImageArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageVersionRequest {
   /**
    * <p>The name of the image.</p>
@@ -439,6 +491,9 @@ export interface UpdateImageVersionRequest {
   ReleaseNotes?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageVersionResponse {
   /**
    * <p>The ARN of the image version.</p>
@@ -446,6 +501,9 @@ export interface UpdateImageVersionResponse {
   ImageVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to be updated.</p>
@@ -490,6 +548,9 @@ export interface UpdateInferenceExperimentRequest {
   ShadowModeConfig?: ShadowModeConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInferenceExperimentResponse {
   /**
    * <p>The ARN of the updated inference experiment.</p>
@@ -497,6 +558,9 @@ export interface UpdateInferenceExperimentResponse {
   InferenceExperimentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelCardRequest {
   /**
    * <p>The name of the model card to update.</p>
@@ -534,6 +598,9 @@ export interface UpdateModelCardRequest {
   ModelCardStatus?: ModelCardStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelCardResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated model card.</p>
@@ -541,6 +608,9 @@ export interface UpdateModelCardResponse {
   ModelCardArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelPackageInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
@@ -577,6 +647,9 @@ export interface UpdateModelPackageInput {
   AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelPackageOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the model.</p>
@@ -584,6 +657,9 @@ export interface UpdateModelPackageOutput {
   ModelPackageArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringAlertRequest {
   /**
    * <p>The name of a monitoring schedule.</p>
@@ -608,6 +684,9 @@ export interface UpdateMonitoringAlertRequest {
   EvaluationPeriod: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringAlertResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -620,6 +699,9 @@ export interface UpdateMonitoringAlertResponse {
   MonitoringAlertName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringScheduleRequest {
   /**
    * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
@@ -634,6 +716,9 @@ export interface UpdateMonitoringScheduleRequest {
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringScheduleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -641,6 +726,9 @@ export interface UpdateMonitoringScheduleResponse {
   MonitoringScheduleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance to update.</p>
@@ -755,8 +843,14 @@ export interface UpdateNotebookInstanceInput {
   InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceLifecycleConfigInput {
   /**
    * <p>The name of the lifecycle configuration.</p>
@@ -777,8 +871,14 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
   OnStart?: NotebookInstanceLifecycleHook[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceLifecycleConfigOutput {}
 
+/**
+ * @public
+ */
 export interface UpdatePipelineRequest {
   /**
    * <p>The name of the pipeline to update.</p>
@@ -817,6 +917,9 @@ export interface UpdatePipelineRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipelineResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated pipeline.</p>
@@ -824,6 +927,9 @@ export interface UpdatePipelineResponse {
   PipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -847,6 +953,9 @@ export interface UpdatePipelineExecutionRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated pipeline execution.</p>
@@ -855,6 +964,7 @@ export interface UpdatePipelineExecutionResponse {
 }
 
 /**
+ * @public
  * <p>Details that you specify to provision a service catalog product.
  *             For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.
  *         </p>
@@ -871,6 +981,9 @@ export interface ServiceCatalogProvisioningUpdateDetails {
   ProvisioningParameters?: ProvisioningParameter[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectInput {
   /**
    * <p>The name of the project.</p>
@@ -902,6 +1015,9 @@ export interface UpdateProjectInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the project.</p>
@@ -909,6 +1025,9 @@ export interface UpdateProjectOutput {
   ProjectArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSpaceRequest {
   /**
    * <p>The ID of the associated Domain.</p>
@@ -926,6 +1045,9 @@ export interface UpdateSpaceRequest {
   SpaceSettings?: SpaceSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSpaceResponse {
   /**
    * <p>The space's Amazon Resource Name (ARN).</p>
@@ -933,6 +1055,9 @@ export interface UpdateSpaceResponse {
   SpaceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrainingJobRequest {
   /**
    * <p>The name of a training job to update the Debugger profiling configuration.</p>
@@ -958,6 +1083,9 @@ export interface UpdateTrainingJobRequest {
   ResourceConfig?: ResourceConfigForUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrainingJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the training job.</p>
@@ -965,6 +1093,9 @@ export interface UpdateTrainingJobResponse {
   TrainingJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialRequest {
   /**
    * <p>The name of the trial to update.</p>
@@ -978,6 +1109,9 @@ export interface UpdateTrialRequest {
   DisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
@@ -985,6 +1119,9 @@ export interface UpdateTrialResponse {
   TrialArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialComponentRequest {
   /**
    * <p>The name of the component to update.</p>
@@ -1044,6 +1181,9 @@ export interface UpdateTrialComponentRequest {
   OutputArtifactsToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialComponentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -1051,6 +1191,9 @@ export interface UpdateTrialComponentResponse {
   TrialComponentArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserProfileRequest {
   /**
    * <p>The domain ID.</p>
@@ -1068,6 +1211,9 @@ export interface UpdateUserProfileRequest {
   UserSettings?: UserSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserProfileResponse {
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
@@ -1075,6 +1221,9 @@ export interface UpdateUserProfileResponse {
   UserProfileArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkforceRequest {
   /**
    * <p>The name of the private workforce that you want to update. You can find your workforce
@@ -1101,6 +1250,9 @@ export interface UpdateWorkforceRequest {
   WorkforceVpcConfig?: WorkforceVpcConfigRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkforceResponse {
   /**
    * <p>A single private workforce. You can create one private work force in each Amazon Web Services Region. By default,
@@ -1110,6 +1262,9 @@ export interface UpdateWorkforceResponse {
   Workforce: Workforce | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkteamRequest {
   /**
    * <p>The name of the work team to update.</p>
@@ -1151,6 +1306,9 @@ export interface UpdateWorkteamRequest {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkteamResponse {
   /**
    * <p>A <code>Workteam</code> object that describes the updated work team.</p>
@@ -1159,6 +1317,7 @@ export interface UpdateWorkteamResponse {
 }
 
 /**
+ * @public
  * <p>A multi-expression that searches for the specified resource or resources in a search. All resource
  *       objects that satisfy the expression's condition are included in the search results. You must specify at
  *       least one subexpression, filter, or nested filter. A <code>SearchExpression</code> can contain up to
@@ -1211,6 +1370,9 @@ export interface SearchExpression {
   Operator?: BooleanOperator | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchRequest {
   /**
    * <p>The name of the SageMaker resource to search for.</p>

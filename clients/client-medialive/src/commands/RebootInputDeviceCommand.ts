@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootInputDeviceCommand}.
  */
 export interface RebootInputDeviceCommandInput extends RebootInputDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootInputDeviceCommand}.
  */
 export interface RebootInputDeviceCommandOutput extends RebootInputDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Send a reboot command to the specified input device. The device will begin rebooting within a few seconds of sending the command. When the reboot is complete, the device’s connection status will change to connected.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootInputDeviceCommandInput - {@link RebootInputDeviceCommandInput}
+ * @returns {@link RebootInputDeviceCommandOutput}
  * @see {@link RebootInputDeviceCommandInput} for command's `input` shape.
  * @see {@link RebootInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class RebootInputDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class RebootInputDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RebootInputDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInputDeviceCommandOutput> {
     return deserializeAws_restJson1RebootInputDeviceCommand(output, context);
   }

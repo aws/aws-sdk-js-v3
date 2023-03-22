@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRuleCommand}.
  */
 export interface DescribeRuleCommandInput extends DescribeRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRuleCommand}.
  */
 export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified rule.</p>
  *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
  *       rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuleCommandInput - {@link DescribeRuleCommandInput}
+ * @returns {@link DescribeRuleCommandOutput}
  * @see {@link DescribeRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuleCommandOutput> {
     return deserializeAws_json1_1DescribeRuleCommand(output, context);
   }

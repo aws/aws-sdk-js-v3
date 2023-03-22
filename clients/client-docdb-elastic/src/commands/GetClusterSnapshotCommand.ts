@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClusterSnapshotCommand}.
  */
 export interface GetClusterSnapshotCommandInput extends GetClusterSnapshotInput {}
 /**
+ * @public
+ *
  * The output of {@link GetClusterSnapshotCommand}.
  */
 export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific Elastic DocumentDB snapshot</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterSnapshotCommandInput - {@link GetClusterSnapshotCommandInput}
+ * @returns {@link GetClusterSnapshotCommandOutput}
  * @see {@link GetClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterSnapshotCommandOutput> {
     return deserializeAws_restJson1GetClusterSnapshotCommand(output, context);
   }

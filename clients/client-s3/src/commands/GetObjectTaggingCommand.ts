@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectTaggingCommand}.
  */
 export interface GetObjectTaggingCommandInput extends GetObjectTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectTaggingCommand}.
  */
 export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the tag-set of an object. You send the GET request against the tagging
  *          subresource associated with the object.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -74,6 +79,8 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectTaggingCommandInput - {@link GetObjectTaggingCommandInput}
+ * @returns {@link GetObjectTaggingCommandOutput}
  * @see {@link GetObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -154,6 +161,9 @@ export class GetObjectTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class GetObjectTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectTaggingCommandOutput> {
     return deserializeAws_restXmlGetObjectTaggingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMemberDetectorsCommand}.
  */
 export interface GetMemberDetectorsCommandInput extends GetMemberDetectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMemberDetectorsCommand}.
  */
 export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes which data sources are enabled for the member account's detector.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -49,6 +54,8 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMemberDetectorsCommandInput - {@link GetMemberDetectorsCommandInput}
+ * @returns {@link GetMemberDetectorsCommandOutput}
  * @see {@link GetMemberDetectorsCommandInput} for command's `input` shape.
  * @see {@link GetMemberDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetMemberDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMemberDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetMemberDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMemberDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMemberDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMemberDetectorsCommandOutput> {
     return deserializeAws_restJson1GetMemberDetectorsCommand(output, context);
   }

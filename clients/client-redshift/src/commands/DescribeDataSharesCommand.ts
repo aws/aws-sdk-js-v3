@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSharesCommand}.
  */
 export interface DescribeDataSharesCommandInput extends DescribeDataSharesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSharesCommand}.
  */
 export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shows the status of any inbound or outbound datashares available in the specified
  *             account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSharesCommandInput - {@link DescribeDataSharesCommandInput}
+ * @returns {@link DescribeDataSharesCommandOutput}
  * @see {@link DescribeDataSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeDataSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeDataSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDataSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSharesCommandOutput> {
     return deserializeAws_queryDescribeDataSharesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrustAnchorsCommand}.
  */
 export interface ListTrustAnchorsCommandInput extends ListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrustAnchorsCommand}.
  */
 export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the trust anchors in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrustAnchorsCommandInput - {@link ListTrustAnchorsCommandInput}
+ * @returns {@link ListTrustAnchorsCommandOutput}
  * @see {@link ListTrustAnchorsCommandInput} for command's `input` shape.
  * @see {@link ListTrustAnchorsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListTrustAnchorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrustAnchorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListTrustAnchorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrustAnchorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTrustAnchorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrustAnchorsCommandOutput> {
     return deserializeAws_restJson1ListTrustAnchorsCommand(output, context);
   }

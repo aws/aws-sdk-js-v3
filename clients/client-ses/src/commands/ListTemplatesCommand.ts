@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTemplatesCommand}.
  */
 export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTemplatesCommand}.
  */
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the email templates present in your Amazon SES account in the current AWS
  *             Region.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -48,6 +53,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
+ * @returns {@link ListTemplatesCommandOutput}
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
     return deserializeAws_queryListTemplatesCommand(output, context);
   }

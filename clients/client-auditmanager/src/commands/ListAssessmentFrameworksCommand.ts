@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentFrameworksCommand}.
  */
 export interface ListAssessmentFrameworksCommandInput extends ListAssessmentFrameworksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentFrameworksCommand}.
  */
 export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFrameworksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of the frameworks that are available in the Audit Manager framework
  *          library. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentFrameworksCommandInput - {@link ListAssessmentFrameworksCommandInput}
+ * @returns {@link ListAssessmentFrameworksCommandOutput}
  * @see {@link ListAssessmentFrameworksCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworksCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListAssessmentFrameworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentFrameworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListAssessmentFrameworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentFrameworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssessmentFrameworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentFrameworksCommandOutput> {
     return deserializeAws_restJson1ListAssessmentFrameworksCommand(output, context);
   }

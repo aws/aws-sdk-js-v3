@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteJobQueueCommand}.
  */
 export interface DeleteJobQueueCommandInput extends DeleteJobQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteJobQueueCommand}.
  */
 export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated when you delete a job queue.
  *    The jobs are terminated at a rate of about 16 jobs each second.</p>
  *          <p>It's not necessary to disassociate compute environments from a queue before submitting a
@@ -49,6 +54,8 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobQueueCommandInput - {@link DeleteJobQueueCommandInput}
+ * @returns {@link DeleteJobQueueCommandOutput}
  * @see {@link DeleteJobQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteJobQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteJobQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteJobQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobQueueCommandOutput> {
     return deserializeAws_restJson1DeleteJobQueueCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
 export interface ConfigureLogsForPlaybackConfigurationCommandInput
   extends ConfigureLogsForPlaybackConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
 export interface ConfigureLogsForPlaybackConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon CloudWatch log settings for a playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureLogsForPlaybackConfigurationCommandInput - {@link ConfigureLogsForPlaybackConfigurationCommandInput}
+ * @returns {@link ConfigureLogsForPlaybackConfigurationCommandOutput}
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -72,6 +79,9 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureLogsForPlaybackConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConfigureLogsForPlaybackConfigurationCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<
     return serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

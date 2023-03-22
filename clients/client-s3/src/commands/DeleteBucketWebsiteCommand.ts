@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketWebsiteCommand}.
  */
 export interface DeleteBucketWebsiteCommandInput extends DeleteBucketWebsiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketWebsiteCommand}.
  */
 export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action removes the website configuration for a bucket. Amazon S3 returns a <code>200
  *             OK</code> response upon successfully deleting a website configuration on the specified
  *          bucket. You will get a <code>200 OK</code> response if the website configuration you are
@@ -64,6 +69,8 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketWebsiteCommandInput - {@link DeleteBucketWebsiteCommandInput}
+ * @returns {@link DeleteBucketWebsiteCommandOutput}
  * @see {@link DeleteBucketWebsiteCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -104,6 +111,9 @@ export class DeleteBucketWebsiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketWebsiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteBucketWebsiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketWebsiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketWebsiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketWebsiteCommandOutput> {
     return deserializeAws_restXmlDeleteBucketWebsiteCommand(output, context);
   }

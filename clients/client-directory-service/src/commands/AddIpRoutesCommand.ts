@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddIpRoutesCommand}.
  */
 export interface AddIpRoutesCommandInput extends AddIpRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddIpRoutesCommand}.
  */
 export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If the DNS server for your self-managed domain uses a publicly addressable IP address,
  *          you must add a CIDR address block to correctly route traffic to and from your Microsoft AD
  *          on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can
@@ -53,6 +58,8 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param AddIpRoutesCommandInput - {@link AddIpRoutesCommandInput}
+ * @returns {@link AddIpRoutesCommandOutput}
  * @see {@link AddIpRoutesCommandInput} for command's `input` shape.
  * @see {@link AddIpRoutesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -98,6 +105,9 @@ export class AddIpRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddIpRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AddIpRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddIpRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddIpRoutesCommandOutput> {
     return deserializeAws_json1_1AddIpRoutesCommand(output, context);
   }

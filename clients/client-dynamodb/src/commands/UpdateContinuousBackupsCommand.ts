@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContinuousBackupsCommand}.
  */
 export interface UpdateContinuousBackupsCommandInput extends UpdateContinuousBackupsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContinuousBackupsCommand}.
  */
 export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBackupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>UpdateContinuousBackups</code> enables or disables point in time recovery for
  *             the specified table. A successful <code>UpdateContinuousBackups</code> call returns the
@@ -57,6 +62,8 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContinuousBackupsCommandInput - {@link UpdateContinuousBackupsCommandInput}
+ * @returns {@link UpdateContinuousBackupsCommandOutput}
  * @see {@link UpdateContinuousBackupsCommandInput} for command's `input` shape.
  * @see {@link UpdateContinuousBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateContinuousBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContinuousBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateContinuousBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContinuousBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateContinuousBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContinuousBackupsCommandOutput> {
     return deserializeAws_json1_0UpdateContinuousBackupsCommand(output, context);
   }

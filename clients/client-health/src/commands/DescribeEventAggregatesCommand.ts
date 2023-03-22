@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventAggregatesCommand}.
  */
 export interface DescribeEventAggregatesCommandInput extends DescribeEventAggregatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventAggregatesCommand}.
  */
 export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggregatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of events of each event type (issue, scheduled change, and account
  *          notification). If no filter is specified, the counts of all events in each category are
  *          returned.</p>
@@ -51,6 +56,8 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventAggregatesCommandInput - {@link DescribeEventAggregatesCommandInput}
+ * @returns {@link DescribeEventAggregatesCommandOutput}
  * @see {@link DescribeEventAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeEventAggregatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeEventAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventAggregatesCommandOutput> {
     return deserializeAws_json1_1DescribeEventAggregatesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCalculationExecutionStatusCommand}.
  */
 export interface GetCalculationExecutionStatusCommandInput extends GetCalculationExecutionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCalculationExecutionStatusCommand}.
  */
 export interface GetCalculationExecutionStatusCommandOutput
@@ -37,6 +41,7 @@ export interface GetCalculationExecutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of a current calculation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetCalculationExecutionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCalculationExecutionStatusCommandInput - {@link GetCalculationExecutionStatusCommandInput}
+ * @returns {@link GetCalculationExecutionStatusCommandOutput}
  * @see {@link GetCalculationExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link GetCalculationExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetCalculationExecutionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCalculationExecutionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetCalculationExecutionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCalculationExecutionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCalculationExecutionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

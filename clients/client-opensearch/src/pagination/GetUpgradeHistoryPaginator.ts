@@ -10,7 +10,7 @@ import { OpenSearchClient } from "../OpenSearchClient";
 import { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetUpgradeHistoryCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetUpgradeHistory(
   config: OpenSearchPaginationConfiguration,
   input: GetUpgradeHistoryCommandInput,

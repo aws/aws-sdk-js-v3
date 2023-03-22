@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { StorageGatewayServiceException as __BaseException } from "./StorageGatewayServiceException";
 
 /**
+ * @public
  * <p>A key-value pair that helps you manage, filter, and search for your resource. Allowed
  *          characters: letters, white space, and numbers, representable in UTF-8, and the following
  *          characters: + - = . _ : /.</p>
@@ -21,6 +22,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -153,6 +155,7 @@ export interface ActivateGatewayInput {
 }
 
 /**
+ * @public
  * <p>Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It
  *          is a string made of information such as your account, gateway name, and Amazon Web Services Region. This ARN is used to reference the gateway in other API operations as
  *          well as resource-based authorization.</p>
@@ -171,6 +174,9 @@ export interface ActivateGatewayOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export type ErrorCode =
   | "ActivationKeyExpired"
   | "ActivationKeyInvalid"
@@ -236,6 +242,7 @@ export type ErrorCode =
   | "VolumeNotReady";
 
 /**
+ * @public
  * <p>Provides additional information about an error that was returned by the service. See the
  *             <code>errorCode</code> and <code>errorDetails</code> members for more information about
  *          the error.</p>
@@ -253,6 +260,7 @@ export interface StorageGatewayError {
 }
 
 /**
+ * @public
  * <p>An internal server error has occurred during the request. For more information, see the
  *          error and message fields.</p>
  */
@@ -280,6 +288,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  */
@@ -306,6 +315,9 @@ export class InvalidGatewayRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type ActiveDirectoryStatus =
   | "ACCESS_DENIED"
   | "DETACHED"
@@ -315,6 +327,9 @@ export type ActiveDirectoryStatus =
   | "TIMEOUT"
   | "UNKNOWN_ERROR";
 
+/**
+ * @public
+ */
 export interface AddCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -330,6 +345,9 @@ export interface AddCacheInput {
   DiskIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -339,6 +357,7 @@ export interface AddCacheOutput {
 }
 
 /**
+ * @public
  * <p>AddTagsToResourceInput</p>
  */
 export interface AddTagsToResourceInput {
@@ -362,6 +381,7 @@ export interface AddTagsToResourceInput {
 }
 
 /**
+ * @public
  * <p>AddTagsToResourceOutput</p>
  */
 export interface AddTagsToResourceOutput {
@@ -371,6 +391,9 @@ export interface AddTagsToResourceOutput {
   ResourceARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddUploadBufferInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -386,6 +409,9 @@ export interface AddUploadBufferInput {
   DiskIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddUploadBufferOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -395,6 +421,7 @@ export interface AddUploadBufferOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -421,6 +448,7 @@ export interface AddWorkingStorageInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway for which working
  *          storage was configured.</p>
  */
@@ -432,6 +460,9 @@ export interface AddWorkingStorageOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssignTapePoolInput {
   /**
    * <p>The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the
@@ -461,6 +492,9 @@ export interface AssignTapePoolInput {
   BypassGovernanceRetention?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssignTapePoolOutput {
   /**
    * <p>The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape
@@ -470,6 +504,7 @@ export interface AssignTapePoolOutput {
 }
 
 /**
+ * @public
  * <p>The refresh cache information for the file share or FSx file systems.</p>
  */
 export interface CacheAttributes {
@@ -485,6 +520,7 @@ export interface CacheAttributes {
 }
 
 /**
+ * @public
  * <p>Specifies network configuration information for the gateway associated with the Amazon FSx file system.</p>
  */
 export interface EndpointNetworkConfiguration {
@@ -499,6 +535,9 @@ export interface EndpointNetworkConfiguration {
   IpAddresses?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateFileSystemInput {
   /**
    * <p>The user name of the user credential that has permission to access the root share D$ of
@@ -557,6 +596,9 @@ export interface AssociateFileSystemInput {
   EndpointNetworkConfiguration?: EndpointNetworkConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface AssociateFileSystemOutput {
   /**
    * <p>The ARN of the newly created file system association.</p>
@@ -565,6 +607,7 @@ export interface AssociateFileSystemOutput {
 }
 
 /**
+ * @public
  * <p>AttachVolumeInput</p>
  */
 export interface AttachVolumeInput {
@@ -609,6 +652,7 @@ export interface AttachVolumeInput {
 }
 
 /**
+ * @public
  * <p>AttachVolumeOutput</p>
  */
 export interface AttachVolumeOutput {
@@ -625,6 +669,7 @@ export interface AttachVolumeOutput {
 }
 
 /**
+ * @public
  * <p>An automatic tape creation policy consists of automatic tape creation rules where each
  *          rule defines when and how to create new tapes. For more information about automatic tape
  *          creation, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically">Creating Tapes Automatically</a>.</p>
@@ -672,6 +717,7 @@ export interface AutomaticTapeCreationRule {
 }
 
 /**
+ * @public
  * <p>Information about the gateway's automatic tape creation policies, including the
  *          automatic tape creation rules and the gateway that is using the policies.</p>
  */
@@ -690,9 +736,13 @@ export interface AutomaticTapeCreationPolicyInfo {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
 
 /**
+ * @public
  * <p> Describes a bandwidth rate limit interval for a gateway. A bandwidth rate limit
  *          schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit
  *          interval defines a period of time on one or more days of the week, during which bandwidth
@@ -748,6 +798,7 @@ export interface BandwidthRateLimitInterval {
 }
 
 /**
+ * @public
  * <p>Lists iSCSI information about a volume.</p>
  */
 export interface VolumeiSCSIAttributes {
@@ -778,6 +829,7 @@ export interface VolumeiSCSIAttributes {
 }
 
 /**
+ * @public
  * <p>Describes an iSCSI cached volume.</p>
  */
 export interface CachediSCSIVolume {
@@ -878,6 +930,7 @@ export interface CachediSCSIVolume {
 }
 
 /**
+ * @public
  * <p>CancelArchivalInput</p>
  */
 export interface CancelArchivalInput {
@@ -895,6 +948,7 @@ export interface CancelArchivalInput {
 }
 
 /**
+ * @public
  * <p>CancelArchivalOutput</p>
  */
 export interface CancelArchivalOutput {
@@ -906,6 +960,7 @@ export interface CancelArchivalOutput {
 }
 
 /**
+ * @public
  * <p>CancelRetrievalInput</p>
  */
 export interface CancelRetrievalInput {
@@ -923,6 +978,7 @@ export interface CancelRetrievalInput {
 }
 
 /**
+ * @public
  * <p>CancelRetrievalOutput</p>
  */
 export interface CancelRetrievalOutput {
@@ -933,9 +989,13 @@ export interface CancelRetrievalOutput {
   TapeARN?: string;
 }
 
+/**
+ * @public
+ */
 export type CaseSensitivity = "CaseSensitive" | "ClientSpecified";
 
 /**
+ * @public
  * <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports
  *          authentication between your gateway and iSCSI initiators.</p>
  */
@@ -965,6 +1025,9 @@ export interface ChapInfo {
   SecretToAuthenticateTarget?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCachediSCSIVolumeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1050,6 +1113,9 @@ export interface CreateCachediSCSIVolumeInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCachediSCSIVolumeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the configured volume.</p>
@@ -1064,6 +1130,7 @@ export interface CreateCachediSCSIVolumeOutput {
 }
 
 /**
+ * @public
  * <p>Describes Network File System (NFS) file share default values. Files and folders stored
  *          as Amazon S3 objects in S3 buckets don't, by default, have Unix file
  *          permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3
@@ -1097,6 +1164,9 @@ export interface NFSFileShareDefaults {
   OwnerId?: number;
 }
 
+/**
+ * @public
+ */
 export type ObjectACL =
   | "authenticated-read"
   | "aws-exec-read"
@@ -1107,6 +1177,7 @@ export type ObjectACL =
   | "public-read-write";
 
 /**
+ * @public
  * <p>CreateNFSFileShareInput</p>
  */
 export interface CreateNFSFileShareInput {
@@ -1305,13 +1376,13 @@ export interface CreateNFSFileShareInput {
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
    *
    *          <p>
-   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *             <code>\{\"Upload\": \{\"SettlingTimeInSeconds\": 60\}\}</code>
    *          </p>
    *
    *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
    *
    *          <p>
-   *             <code>{}</code>
+   *             <code>\{\}</code>
    *          </p>
    */
   NotificationPolicy?: string;
@@ -1344,6 +1415,7 @@ export interface CreateNFSFileShareInput {
 }
 
 /**
+ * @public
  * <p>CreateNFSFileShareOutput</p>
  */
 export interface CreateNFSFileShareOutput {
@@ -1354,6 +1426,7 @@ export interface CreateNFSFileShareOutput {
 }
 
 /**
+ * @public
  * <p>CreateSMBFileShareInput</p>
  */
 export interface CreateSMBFileShareInput {
@@ -1593,13 +1666,13 @@ export interface CreateSMBFileShareInput {
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
    *
    *          <p>
-   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *             <code>\{\"Upload\": \{\"SettlingTimeInSeconds\": 60\}\}</code>
    *          </p>
    *
    *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
    *
    *          <p>
-   *             <code>{}</code>
+   *             <code>\{\}</code>
    *          </p>
    */
   NotificationPolicy?: string;
@@ -1638,6 +1711,7 @@ export interface CreateSMBFileShareInput {
 }
 
 /**
+ * @public
  * <p>CreateSMBFileShareOutput</p>
  */
 export interface CreateSMBFileShareOutput {
@@ -1648,6 +1722,7 @@ export interface CreateSMBFileShareOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -1693,6 +1768,7 @@ export interface CreateSnapshotInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface CreateSnapshotOutput {
@@ -1710,6 +1786,7 @@ export interface CreateSnapshotOutput {
 }
 
 /**
+ * @public
  * <p>An internal server error has occurred because the service is unavailable. For more
  *          information, see the error and message fields.</p>
  */
@@ -1736,6 +1813,9 @@ export class ServiceUnavailableError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotFromVolumeRecoveryPointInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
@@ -1765,6 +1845,9 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotFromVolumeRecoveryPointOutput {
   /**
    * <p>The ID of the snapshot.</p>
@@ -1784,6 +1867,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -1897,6 +1981,7 @@ export interface CreateStorediSCSIVolumeInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface CreateStorediSCSIVolumeOutput {
@@ -1917,10 +2002,19 @@ export interface CreateStorediSCSIVolumeOutput {
   TargetARN?: string;
 }
 
+/**
+ * @public
+ */
 export type RetentionLockType = "COMPLIANCE" | "GOVERNANCE" | "NONE";
 
+/**
+ * @public
+ */
 export type TapeStorageClass = "DEEP_ARCHIVE" | "GLACIER";
 
+/**
+ * @public
+ */
 export interface CreateTapePoolInput {
   /**
    * <p>The name of the new custom tape pool.</p>
@@ -1962,6 +2056,9 @@ export interface CreateTapePoolInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTapePoolOutput {
   /**
    * <p>The unique Amazon Resource Name (ARN) that represents the custom tape pool. Use the
@@ -1972,6 +2069,7 @@ export interface CreateTapePoolOutput {
 }
 
 /**
+ * @public
  * <p>CreateTapesInput</p>
  */
 export interface CreateTapesInput {
@@ -2063,6 +2161,7 @@ export interface CreateTapesInput {
 }
 
 /**
+ * @public
  * <p>CreateTapeOutput</p>
  */
 export interface CreateTapesOutput {
@@ -2074,6 +2173,7 @@ export interface CreateTapesOutput {
 }
 
 /**
+ * @public
  * <p>CreateTapeWithBarcodeInput</p>
  */
 export interface CreateTapeWithBarcodeInput {
@@ -2148,6 +2248,7 @@ export interface CreateTapeWithBarcodeInput {
 }
 
 /**
+ * @public
  * <p>CreateTapeOutput</p>
  */
 export interface CreateTapeWithBarcodeOutput {
@@ -2158,6 +2259,9 @@ export interface CreateTapeWithBarcodeOutput {
   TapeARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAutomaticTapeCreationPolicyInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2166,6 +2270,9 @@ export interface DeleteAutomaticTapeCreationPolicyInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAutomaticTapeCreationPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2175,6 +2282,7 @@ export interface DeleteAutomaticTapeCreationPolicyOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  *
  *          <ul>
@@ -2203,6 +2311,7 @@ export interface DeleteBandwidthRateLimitInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway whose bandwidth
  *          rate information was deleted.</p>
  */
@@ -2215,6 +2324,7 @@ export interface DeleteBandwidthRateLimitOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -2244,6 +2354,7 @@ export interface DeleteChapCredentialsInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DeleteChapCredentialsOutput {
@@ -2259,6 +2370,7 @@ export interface DeleteChapCredentialsOutput {
 }
 
 /**
+ * @public
  * <p>DeleteFileShareInput</p>
  */
 export interface DeleteFileShareInput {
@@ -2280,6 +2392,7 @@ export interface DeleteFileShareInput {
 }
 
 /**
+ * @public
  * <p>DeleteFileShareOutput</p>
  */
 export interface DeleteFileShareOutput {
@@ -2290,6 +2403,7 @@ export interface DeleteFileShareOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the ID of the gateway to delete.</p>
  */
 export interface DeleteGatewayInput {
@@ -2301,6 +2415,7 @@ export interface DeleteGatewayInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the ID of the deleted gateway.</p>
  */
 export interface DeleteGatewayOutput {
@@ -2311,6 +2426,9 @@ export interface DeleteGatewayOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotScheduleInput {
   /**
    * <p>The volume which snapshot schedule to delete.</p>
@@ -2318,6 +2436,9 @@ export interface DeleteSnapshotScheduleInput {
   VolumeARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotScheduleOutput {
   /**
    * <p>The volume which snapshot schedule was deleted.</p>
@@ -2326,6 +2447,7 @@ export interface DeleteSnapshotScheduleOutput {
 }
 
 /**
+ * @public
  * <p>DeleteTapeInput</p>
  */
 export interface DeleteTapeInput {
@@ -2351,6 +2473,7 @@ export interface DeleteTapeInput {
 }
 
 /**
+ * @public
  * <p>DeleteTapeOutput</p>
  */
 export interface DeleteTapeOutput {
@@ -2361,6 +2484,7 @@ export interface DeleteTapeOutput {
 }
 
 /**
+ * @public
  * <p>DeleteTapeArchiveInput</p>
  */
 export interface DeleteTapeArchiveInput {
@@ -2380,6 +2504,7 @@ export interface DeleteTapeArchiveInput {
 }
 
 /**
+ * @public
  * <p>DeleteTapeArchiveOutput</p>
  */
 export interface DeleteTapeArchiveOutput {
@@ -2390,6 +2515,9 @@ export interface DeleteTapeArchiveOutput {
   TapeARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTapePoolInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom tape pool to delete.</p>
@@ -2397,6 +2525,9 @@ export interface DeleteTapePoolInput {
   PoolARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTapePoolOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom tape pool being deleted.</p>
@@ -2405,6 +2536,7 @@ export interface DeleteTapePoolOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to
  *          delete.</p>
  */
@@ -2417,6 +2549,7 @@ export interface DeleteVolumeInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the storage volume that was
  *          deleted.</p>
  */
@@ -2428,6 +2561,9 @@ export interface DeleteVolumeOutput {
   VolumeARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAvailabilityMonitorTestInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2436,6 +2572,9 @@ export interface DescribeAvailabilityMonitorTestInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAvailabilityMonitorTestOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2457,6 +2596,7 @@ export interface DescribeAvailabilityMonitorTestOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface DescribeBandwidthRateLimitInput {
@@ -2468,6 +2608,7 @@ export interface DescribeBandwidthRateLimitInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeBandwidthRateLimitOutput {
@@ -2490,6 +2631,9 @@ export interface DescribeBandwidthRateLimitOutput {
   AverageDownloadRateLimitInBitsPerSec?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBandwidthRateLimitScheduleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2498,6 +2642,9 @@ export interface DescribeBandwidthRateLimitScheduleInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBandwidthRateLimitScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2511,6 +2658,9 @@ export interface DescribeBandwidthRateLimitScheduleOutput {
   BandwidthRateLimitIntervals?: BandwidthRateLimitInterval[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2519,6 +2669,9 @@ export interface DescribeCacheInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2564,6 +2717,9 @@ export interface DescribeCacheOutput {
   CacheMissPercentage?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCachediSCSIVolumesInput {
   /**
    * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
@@ -2573,6 +2729,7 @@ export interface DescribeCachediSCSIVolumesInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeCachediSCSIVolumesOutput {
@@ -2583,6 +2740,7 @@ export interface DescribeCachediSCSIVolumesOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
  *          target.</p>
  */
@@ -2595,6 +2753,7 @@ export interface DescribeChapCredentialsInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeChapCredentialsOutput {
@@ -2636,6 +2795,9 @@ export interface DescribeChapCredentialsOutput {
   ChapCredentials?: ChapInfo[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFileSystemAssociationsInput {
   /**
    * <p>An array containing the Amazon Resource Name (ARN) of each file system association to be
@@ -2645,6 +2807,7 @@ export interface DescribeFileSystemAssociationsInput {
 }
 
 /**
+ * @public
  * <p>Detailed information on file system association status.</p>
  */
 export interface FileSystemAssociationStatusDetail {
@@ -2655,6 +2818,7 @@ export interface FileSystemAssociationStatusDetail {
 }
 
 /**
+ * @public
  * <p>Describes the object returned by <code>DescribeFileSystemAssociations</code> that
  *          describes a created file system association.</p>
  */
@@ -2717,6 +2881,9 @@ export interface FileSystemAssociationInfo {
   FileSystemAssociationStatusDetails?: FileSystemAssociationStatusDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFileSystemAssociationsOutput {
   /**
    * <p>An array containing the <code>FileSystemAssociationInfo</code> data type of each file
@@ -2727,6 +2894,7 @@ export interface DescribeFileSystemAssociationsOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the ID of the gateway.</p>
  */
 export interface DescribeGatewayInformationInput {
@@ -2737,6 +2905,9 @@ export interface DescribeGatewayInformationInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum GatewayCapacity {
   Large = "Large",
   Medium = "Medium",
@@ -2744,6 +2915,7 @@ export enum GatewayCapacity {
 }
 
 /**
+ * @public
  * <p>Describes a gateway's network interface.</p>
  */
 export interface NetworkInterface {
@@ -2768,9 +2940,13 @@ export interface NetworkInterface {
   Ipv6Address?: string;
 }
 
+/**
+ * @public
+ */
 export type HostEnvironment = "EC2" | "HYPER-V" | "KVM" | "OTHER" | "SNOWBALL" | "VMWARE";
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeGatewayInformationOutput {
@@ -2902,6 +3078,7 @@ export interface DescribeGatewayInformationOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface DescribeMaintenanceStartTimeInput {
@@ -2913,6 +3090,7 @@ export interface DescribeMaintenanceStartTimeInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  *
  *          <ul>
@@ -2986,6 +3164,7 @@ export interface DescribeMaintenanceStartTimeOutput {
 }
 
 /**
+ * @public
  * <p>DescribeNFSFileSharesInput</p>
  */
 export interface DescribeNFSFileSharesInput {
@@ -2997,6 +3176,7 @@ export interface DescribeNFSFileSharesInput {
 }
 
 /**
+ * @public
  * <p>The Unix file permissions and ownership information assigned, by default, to native S3
  *          objects when an S3 File Gateway discovers them in S3 buckets. This operation is only
  *          supported in S3 File Gateways.</p>
@@ -3212,13 +3392,13 @@ export interface NFSFileShareInfo {
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
    *
    *          <p>
-   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *             <code>\{\"Upload\": \{\"SettlingTimeInSeconds\": 60\}\}</code>
    *          </p>
    *
    *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
    *
    *          <p>
-   *             <code>{}</code>
+   *             <code>\{\}</code>
    *          </p>
    */
   NotificationPolicy?: string;
@@ -3251,6 +3431,7 @@ export interface NFSFileShareInfo {
 }
 
 /**
+ * @public
  * <p>DescribeNFSFileSharesOutput</p>
  */
 export interface DescribeNFSFileSharesOutput {
@@ -3261,6 +3442,7 @@ export interface DescribeNFSFileSharesOutput {
 }
 
 /**
+ * @public
  * <p>DescribeSMBFileSharesInput</p>
  */
 export interface DescribeSMBFileSharesInput {
@@ -3272,6 +3454,7 @@ export interface DescribeSMBFileSharesInput {
 }
 
 /**
+ * @public
  * <p>The Windows file permissions and ownership information assigned, by default, to native
  *          S3 objects when S3 File Gateway discovers them in S3 buckets. This operation is only
  *          supported for S3 File Gateways.</p>
@@ -3519,13 +3702,13 @@ export interface SMBFileShareInfo {
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
    *
    *          <p>
-   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *             <code>\{\"Upload\": \{\"SettlingTimeInSeconds\": 60\}\}</code>
    *          </p>
    *
    *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
    *
    *          <p>
-   *             <code>{}</code>
+   *             <code>\{\}</code>
    *          </p>
    */
   NotificationPolicy?: string;
@@ -3564,6 +3747,7 @@ export interface SMBFileShareInfo {
 }
 
 /**
+ * @public
  * <p>DescribeSMBFileSharesOutput</p>
  */
 export interface DescribeSMBFileSharesOutput {
@@ -3573,6 +3757,9 @@ export interface DescribeSMBFileSharesOutput {
   SMBFileShareInfoList?: SMBFileShareInfo[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSMBSettingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -3582,6 +3769,7 @@ export interface DescribeSMBSettingsInput {
 }
 
 /**
+ * @public
  * <p>A list of Active Directory users and groups that have special permissions for SMB file
  *          shares on the gateway.</p>
  */
@@ -3596,8 +3784,14 @@ export interface SMBLocalGroups {
   GatewayAdmins?: string[];
 }
 
+/**
+ * @public
+ */
 export type SMBSecurityStrategy = "ClientSpecified" | "MandatoryEncryption" | "MandatorySigning";
 
+/**
+ * @public
+ */
 export interface DescribeSMBSettingsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -3704,6 +3898,7 @@ export interface DescribeSMBSettingsOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a>
  *          of the volume.</p>
  */
@@ -3715,6 +3910,9 @@ export interface DescribeSnapshotScheduleInput {
   VolumeARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the volume that was specified in the request.</p>
@@ -3752,6 +3950,7 @@ export interface DescribeSnapshotScheduleOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.</p>
  */
 export interface DescribeStorediSCSIVolumesInput {
@@ -3763,6 +3962,7 @@ export interface DescribeStorediSCSIVolumesInput {
 }
 
 /**
+ * @public
  * <p>Describes an iSCSI stored volume.</p>
  */
 export interface StorediSCSIVolume {
@@ -3870,6 +4070,9 @@ export interface StorediSCSIVolume {
   TargetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStorediSCSIVolumesOutput {
   /**
    * <p>Describes a single unit of output from <a>DescribeStorediSCSIVolumes</a>. The
@@ -3961,6 +4164,7 @@ export interface DescribeStorediSCSIVolumesOutput {
 }
 
 /**
+ * @public
  * <p>DescribeTapeArchivesInput</p>
  */
 export interface DescribeTapeArchivesInput {
@@ -3984,6 +4188,7 @@ export interface DescribeTapeArchivesInput {
 }
 
 /**
+ * @public
  * <p>Represents a virtual tape that is archived in the virtual tape shelf (VTS).</p>
  */
 export interface TapeArchive {
@@ -4071,6 +4276,7 @@ export interface TapeArchive {
 }
 
 /**
+ * @public
  * <p>DescribeTapeArchivesOutput</p>
  */
 export interface DescribeTapeArchivesOutput {
@@ -4092,6 +4298,7 @@ export interface DescribeTapeArchivesOutput {
 }
 
 /**
+ * @public
  * <p>DescribeTapeRecoveryPointsInput</p>
  */
 export interface DescribeTapeRecoveryPointsInput {
@@ -4115,6 +4322,7 @@ export interface DescribeTapeRecoveryPointsInput {
 }
 
 /**
+ * @public
  * <p>Describes a recovery point.</p>
  */
 export interface TapeRecoveryPointInfo {
@@ -4144,6 +4352,7 @@ export interface TapeRecoveryPointInfo {
 }
 
 /**
+ * @public
  * <p>DescribeTapeRecoveryPointsOutput</p>
  */
 export interface DescribeTapeRecoveryPointsOutput {
@@ -4170,6 +4379,7 @@ export interface DescribeTapeRecoveryPointsOutput {
 }
 
 /**
+ * @public
  * <p>DescribeTapesInput</p>
  */
 export interface DescribeTapesInput {
@@ -4206,6 +4416,7 @@ export interface DescribeTapesInput {
 }
 
 /**
+ * @public
  * <p>Describes a virtual tape object.</p>
  */
 export interface Tape {
@@ -4288,6 +4499,7 @@ export interface Tape {
 }
 
 /**
+ * @public
  * <p>DescribeTapesOutput</p>
  */
 export interface DescribeTapesOutput {
@@ -4306,6 +4518,9 @@ export interface DescribeTapesOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUploadBufferInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -4314,6 +4529,9 @@ export interface DescribeUploadBufferInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUploadBufferOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -4341,6 +4559,7 @@ export interface DescribeUploadBufferOutput {
 }
 
 /**
+ * @public
  * <p>DescribeVTLDevicesInput</p>
  */
 export interface DescribeVTLDevicesInput {
@@ -4375,6 +4594,7 @@ export interface DescribeVTLDevicesInput {
 }
 
 /**
+ * @public
  * <p>Lists iSCSI information about a VTL device.</p>
  */
 export interface DeviceiSCSIAttributes {
@@ -4401,6 +4621,7 @@ export interface DeviceiSCSIAttributes {
 }
 
 /**
+ * @public
  * <p>Represents a device object associated with a tape gateway.</p>
  */
 export interface VTLDevice {
@@ -4432,6 +4653,7 @@ export interface VTLDevice {
 }
 
 /**
+ * @public
  * <p>DescribeVTLDevicesOutput</p>
  */
 export interface DescribeVTLDevicesOutput {
@@ -4457,6 +4679,7 @@ export interface DescribeVTLDevicesOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface DescribeWorkingStorageInput {
@@ -4468,6 +4691,7 @@ export interface DescribeWorkingStorageInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeWorkingStorageOutput {
@@ -4499,6 +4723,7 @@ export interface DescribeWorkingStorageOutput {
 }
 
 /**
+ * @public
  * <p>AttachVolumeInput</p>
  */
 export interface DetachVolumeInput {
@@ -4520,6 +4745,7 @@ export interface DetachVolumeInput {
 }
 
 /**
+ * @public
  * <p>AttachVolumeOutput</p>
  */
 export interface DetachVolumeOutput {
@@ -4530,6 +4756,7 @@ export interface DetachVolumeOutput {
 }
 
 /**
+ * @public
  * <p>DisableGatewayInput</p>
  */
 export interface DisableGatewayInput {
@@ -4541,6 +4768,7 @@ export interface DisableGatewayInput {
 }
 
 /**
+ * @public
  * <p>DisableGatewayOutput</p>
  */
 export interface DisableGatewayOutput {
@@ -4550,6 +4778,9 @@ export interface DisableGatewayOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFileSystemInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the file system association to be deleted.</p>
@@ -4565,6 +4796,9 @@ export interface DisassociateFileSystemInput {
   ForceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFileSystemOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted file system association.</p>
@@ -4573,6 +4807,7 @@ export interface DisassociateFileSystemOutput {
 }
 
 /**
+ * @public
  * <p>Represents a gateway's local disk.</p>
  */
 export interface Disk {
@@ -4623,9 +4858,13 @@ export interface Disk {
   DiskAttributeList?: string[];
 }
 
+/**
+ * @public
+ */
 export type FileShareType = "NFS" | "SMB";
 
 /**
+ * @public
  * <p>Describes a file share. Only supported S3 File Gateway.</p>
  */
 export interface FileShareInfo {
@@ -4661,6 +4900,7 @@ export interface FileShareInfo {
 }
 
 /**
+ * @public
  * <p>Gets the summary returned by <code>ListFileSystemAssociation</code>, which is a summary
  *          of a created file system association.</p>
  */
@@ -4691,6 +4931,7 @@ export interface FileSystemAssociationSummary {
 }
 
 /**
+ * @public
  * <p>Describes a gateway object.</p>
  */
 export interface GatewayInfo {
@@ -4749,6 +4990,7 @@ export interface GatewayInfo {
 }
 
 /**
+ * @public
  * <p>JoinDomainInput</p>
  */
 export interface JoinDomainInput {
@@ -4799,6 +5041,7 @@ export interface JoinDomainInput {
 }
 
 /**
+ * @public
  * <p>JoinDomainOutput</p>
  */
 export interface JoinDomainOutput {
@@ -4850,6 +5093,9 @@ export interface JoinDomainOutput {
   ActiveDirectoryStatus?: ActiveDirectoryStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAutomaticTapeCreationPoliciesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -4858,6 +5104,9 @@ export interface ListAutomaticTapeCreationPoliciesInput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAutomaticTapeCreationPoliciesOutput {
   /**
    * <p>Gets a listing of information about the gateway's automatic tape creation policies,
@@ -4868,6 +5117,7 @@ export interface ListAutomaticTapeCreationPoliciesOutput {
 }
 
 /**
+ * @public
  * <p>ListFileShareInput</p>
  */
 export interface ListFileSharesInput {
@@ -4892,6 +5142,7 @@ export interface ListFileSharesInput {
 }
 
 /**
+ * @public
  * <p>ListFileShareOutput</p>
  */
 export interface ListFileSharesOutput {
@@ -4914,6 +5165,9 @@ export interface ListFileSharesOutput {
   FileShareInfoList?: FileShareInfo[];
 }
 
+/**
+ * @public
+ */
 export interface ListFileSystemAssociationsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -4935,6 +5189,9 @@ export interface ListFileSystemAssociationsInput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFileSystemAssociationsOutput {
   /**
    * <p>If the request includes <code>Marker</code>, the response returns that value in this
@@ -4957,6 +5214,7 @@ export interface ListFileSystemAssociationsOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing zero or more of the following fields:</p>
  *
  *          <ul>
@@ -4986,6 +5244,9 @@ export interface ListGatewaysInput {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewaysOutput {
   /**
    * <p>An array of <a>GatewayInfo</a> objects.</p>
@@ -5000,6 +5261,7 @@ export interface ListGatewaysOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface ListLocalDisksInput {
@@ -5010,6 +5272,9 @@ export interface ListLocalDisksInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLocalDisksOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5032,6 +5297,7 @@ export interface ListLocalDisksOutput {
 }
 
 /**
+ * @public
  * <p>ListTagsForResourceInput</p>
  */
 export interface ListTagsForResourceInput {
@@ -5054,6 +5320,7 @@ export interface ListTagsForResourceInput {
 }
 
 /**
+ * @public
  * <p>ListTagsForResourceOutput</p>
  */
 export interface ListTagsForResourceOutput {
@@ -5074,6 +5341,9 @@ export interface ListTagsForResourceOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTapePoolsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you
@@ -5093,9 +5363,13 @@ export interface ListTapePoolsInput {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export type PoolStatus = "ACTIVE" | "DELETED";
 
 /**
+ * @public
  * <p>Describes a custom tape pool.</p>
  */
 export interface PoolInfo {
@@ -5140,6 +5414,9 @@ export interface PoolInfo {
   PoolStatus?: PoolStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTapePoolsOutput {
   /**
    * <p>An array of <code>PoolInfo</code> objects, where each object describes a single custom
@@ -5157,6 +5434,7 @@ export interface ListTapePoolsOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object that contains one or more of the following fields:</p>
  *
  *          <ul>
@@ -5197,6 +5475,7 @@ export interface ListTapesInput {
 }
 
 /**
+ * @public
  * <p>Describes a virtual tape.</p>
  */
 export interface TapeInfo {
@@ -5247,6 +5526,7 @@ export interface TapeInfo {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  *
  *          <ul>
@@ -5279,6 +5559,7 @@ export interface ListTapesOutput {
 }
 
 /**
+ * @public
  * <p>ListVolumeInitiatorsInput</p>
  */
 export interface ListVolumeInitiatorsInput {
@@ -5290,6 +5571,7 @@ export interface ListVolumeInitiatorsInput {
 }
 
 /**
+ * @public
  * <p>ListVolumeInitiatorsOutput</p>
  */
 export interface ListVolumeInitiatorsOutput {
@@ -5300,6 +5582,9 @@ export interface ListVolumeInitiatorsOutput {
   Initiators?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListVolumeRecoveryPointsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5309,6 +5594,7 @@ export interface ListVolumeRecoveryPointsInput {
 }
 
 /**
+ * @public
  * <p>Describes a storage volume recovery point object.</p>
  */
 export interface VolumeRecoveryPointInfo {
@@ -5338,6 +5624,9 @@ export interface VolumeRecoveryPointInfo {
   VolumeRecoveryPointTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVolumeRecoveryPointsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5352,6 +5641,7 @@ export interface ListVolumeRecoveryPointsOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object that contains one or more of the following fields:</p>
  *
  *          <ul>
@@ -5388,6 +5678,7 @@ export interface ListVolumesInput {
 }
 
 /**
+ * @public
  * <p>Describes a storage volume object.</p>
  */
 export interface VolumeInfo {
@@ -5445,6 +5736,7 @@ export interface VolumeInfo {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  *
  *          <ul>
@@ -5481,6 +5773,9 @@ export interface ListVolumesOutput {
   VolumeInfos?: VolumeInfo[];
 }
 
+/**
+ * @public
+ */
 export interface NotifyWhenUploadedInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the file share.</p>
@@ -5488,6 +5783,9 @@ export interface NotifyWhenUploadedInput {
   FileShareARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface NotifyWhenUploadedOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the file share.</p>
@@ -5502,6 +5800,7 @@ export interface NotifyWhenUploadedOutput {
 }
 
 /**
+ * @public
  * <p>RefreshCacheInput</p>
  */
 export interface RefreshCacheInput {
@@ -5533,6 +5832,7 @@ export interface RefreshCacheInput {
 }
 
 /**
+ * @public
  * <p>RefreshCacheOutput</p>
  */
 export interface RefreshCacheOutput {
@@ -5549,6 +5849,7 @@ export interface RefreshCacheOutput {
 }
 
 /**
+ * @public
  * <p>RemoveTagsFromResourceInput</p>
  */
 export interface RemoveTagsFromResourceInput {
@@ -5565,6 +5866,7 @@ export interface RemoveTagsFromResourceInput {
 }
 
 /**
+ * @public
  * <p>RemoveTagsFromResourceOutput</p>
  */
 export interface RemoveTagsFromResourceOutput {
@@ -5574,6 +5876,9 @@ export interface RemoveTagsFromResourceOutput {
   ResourceARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5582,6 +5887,9 @@ export interface ResetCacheInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResetCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5591,6 +5899,7 @@ export interface ResetCacheOutput {
 }
 
 /**
+ * @public
  * <p>RetrieveTapeArchiveInput</p>
  */
 export interface RetrieveTapeArchiveInput {
@@ -5612,6 +5921,7 @@ export interface RetrieveTapeArchiveInput {
 }
 
 /**
+ * @public
  * <p>RetrieveTapeArchiveOutput</p>
  */
 export interface RetrieveTapeArchiveOutput {
@@ -5622,6 +5932,7 @@ export interface RetrieveTapeArchiveOutput {
 }
 
 /**
+ * @public
  * <p>RetrieveTapeRecoveryPointInput</p>
  */
 export interface RetrieveTapeRecoveryPointInput {
@@ -5639,6 +5950,7 @@ export interface RetrieveTapeRecoveryPointInput {
 }
 
 /**
+ * @public
  * <p>RetrieveTapeRecoveryPointOutput</p>
  */
 export interface RetrieveTapeRecoveryPointOutput {
@@ -5650,6 +5962,7 @@ export interface RetrieveTapeRecoveryPointOutput {
 }
 
 /**
+ * @public
  * <p>SetLocalConsolePasswordInput</p>
  */
 export interface SetLocalConsolePasswordInput {
@@ -5665,6 +5978,9 @@ export interface SetLocalConsolePasswordInput {
   LocalConsolePassword: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetLocalConsolePasswordOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5674,6 +5990,7 @@ export interface SetLocalConsolePasswordOutput {
 }
 
 /**
+ * @public
  * <p>SetSMBGuestPasswordInput</p>
  */
 export interface SetSMBGuestPasswordInput {
@@ -5689,6 +6006,9 @@ export interface SetSMBGuestPasswordInput {
   Password: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetSMBGuestPasswordOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5698,6 +6018,7 @@ export interface SetSMBGuestPasswordOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway to shut
  *          down.</p>
  */
@@ -5710,6 +6031,7 @@ export interface ShutdownGatewayInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway that was shut
  *          down.</p>
  */
@@ -5721,6 +6043,9 @@ export interface ShutdownGatewayOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAvailabilityMonitorTestInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5729,6 +6054,9 @@ export interface StartAvailabilityMonitorTestInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartAvailabilityMonitorTestOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5738,6 +6066,7 @@ export interface StartAvailabilityMonitorTestOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway to start.</p>
  */
 export interface StartGatewayInput {
@@ -5749,6 +6078,7 @@ export interface StartGatewayInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway that was
  *          restarted.</p>
  */
@@ -5760,6 +6090,9 @@ export interface StartGatewayOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAutomaticTapeCreationPolicyInput {
   /**
    * <p>An automatic tape creation policy consists of a list of automatic tape creation rules.
@@ -5774,6 +6107,9 @@ export interface UpdateAutomaticTapeCreationPolicyInput {
   GatewayARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAutomaticTapeCreationPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5783,6 +6119,7 @@ export interface UpdateAutomaticTapeCreationPolicyOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -5817,6 +6154,7 @@ export interface UpdateBandwidthRateLimitInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway whose throttle
  *          information was updated.</p>
  */
@@ -5828,6 +6166,9 @@ export interface UpdateBandwidthRateLimitOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBandwidthRateLimitScheduleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5842,6 +6183,9 @@ export interface UpdateBandwidthRateLimitScheduleInput {
   BandwidthRateLimitIntervals: BandwidthRateLimitInterval[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBandwidthRateLimitScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -5851,6 +6195,7 @@ export interface UpdateBandwidthRateLimitScheduleOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -5913,6 +6258,7 @@ export interface UpdateChapCredentialsInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  */
 export interface UpdateChapCredentialsOutput {
@@ -5929,6 +6275,9 @@ export interface UpdateChapCredentialsOutput {
   InitiatorName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFileSystemAssociationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the file system association that you want to
@@ -5959,6 +6308,9 @@ export interface UpdateFileSystemAssociationInput {
   CacheAttributes?: CacheAttributes;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFileSystemAssociationOutput {
   /**
    * <p>The ARN of the updated file system association.</p>
@@ -5966,6 +6318,9 @@ export interface UpdateFileSystemAssociationOutput {
   FileSystemAssociationARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayInformationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6000,6 +6355,7 @@ export interface UpdateGatewayInformationInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway that was
  *          updated.</p>
  */
@@ -6017,6 +6373,7 @@ export interface UpdateGatewayInformationOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway to update.</p>
  */
 export interface UpdateGatewaySoftwareNowInput {
@@ -6028,6 +6385,7 @@ export interface UpdateGatewaySoftwareNowInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway that was
  *          updated.</p>
  */
@@ -6040,6 +6398,7 @@ export interface UpdateGatewaySoftwareNowOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the following fields:</p>
  *
  *          <ul>
@@ -6101,6 +6460,7 @@ export interface UpdateMaintenanceStartTimeInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway whose maintenance
  *          start time is updated.</p>
  */
@@ -6113,6 +6473,7 @@ export interface UpdateMaintenanceStartTimeOutput {
 }
 
 /**
+ * @public
  * <p>UpdateNFSFileShareInput</p>
  */
 export interface UpdateNFSFileShareInput {
@@ -6256,13 +6617,13 @@ export interface UpdateNFSFileShareInput {
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
    *
    *          <p>
-   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *             <code>\{\"Upload\": \{\"SettlingTimeInSeconds\": 60\}\}</code>
    *          </p>
    *
    *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
    *
    *          <p>
-   *             <code>{}</code>
+   *             <code>\{\}</code>
    *          </p>
    */
   NotificationPolicy?: string;
@@ -6274,6 +6635,7 @@ export interface UpdateNFSFileShareInput {
 }
 
 /**
+ * @public
  * <p>UpdateNFSFileShareOutput</p>
  */
 export interface UpdateNFSFileShareOutput {
@@ -6284,6 +6646,7 @@ export interface UpdateNFSFileShareOutput {
 }
 
 /**
+ * @public
  * <p>UpdateSMBFileShareInput</p>
  */
 export interface UpdateSMBFileShareInput {
@@ -6456,13 +6819,13 @@ export interface UpdateSMBFileShareInput {
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
    *
    *          <p>
-   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *             <code>\{\"Upload\": \{\"SettlingTimeInSeconds\": 60\}\}</code>
    *          </p>
    *
    *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
    *
    *          <p>
-   *             <code>{}</code>
+   *             <code>\{\}</code>
    *          </p>
    */
   NotificationPolicy?: string;
@@ -6480,6 +6843,7 @@ export interface UpdateSMBFileShareInput {
 }
 
 /**
+ * @public
  * <p>UpdateSMBFileShareOutput</p>
  */
 export interface UpdateSMBFileShareOutput {
@@ -6489,6 +6853,9 @@ export interface UpdateSMBFileShareOutput {
   FileShareARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSMBFileShareVisibilityInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6502,6 +6869,9 @@ export interface UpdateSMBFileShareVisibilityInput {
   FileSharesVisible: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSMBFileShareVisibilityOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6510,6 +6880,9 @@ export interface UpdateSMBFileShareVisibilityOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSMBLocalGroupsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6524,6 +6897,9 @@ export interface UpdateSMBLocalGroupsInput {
   SMBLocalGroups: SMBLocalGroups | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSMBLocalGroupsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6532,6 +6908,9 @@ export interface UpdateSMBLocalGroupsOutput {
   GatewayARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSMBSecurityStrategyInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6559,6 +6938,9 @@ export interface UpdateSMBSecurityStrategyInput {
   SMBSecurityStrategy: SMBSecurityStrategy | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSMBSecurityStrategyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6568,6 +6950,7 @@ export interface UpdateSMBSecurityStrategyOutput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing one or more of the following fields:</p>
  *
  *          <ul>
@@ -6632,6 +7015,7 @@ export interface UpdateSnapshotScheduleInput {
 }
 
 /**
+ * @public
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the updated storage
  *          volume.</p>
  */
@@ -6643,6 +7027,9 @@ export interface UpdateSnapshotScheduleOutput {
   VolumeARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVTLDeviceTypeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
@@ -6660,6 +7047,7 @@ export interface UpdateVTLDeviceTypeInput {
 }
 
 /**
+ * @public
  * <p>UpdateVTLDeviceTypeOutput</p>
  */
 export interface UpdateVTLDeviceTypeOutput {

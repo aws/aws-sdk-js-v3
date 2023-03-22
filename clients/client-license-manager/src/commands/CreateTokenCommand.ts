@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandInput extends CreateTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a long-lived token.</p>
  *          <p>A refresh token is a JWT token used to get an access token. With an access token,
  *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
@@ -49,6 +54,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
+ * @returns {@link CreateTokenCommandOutput}
  * @see {@link CreateTokenCommandInput} for command's `input` shape.
  * @see {@link CreateTokenCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenCommandOutput> {
     return deserializeAws_json1_1CreateTokenCommand(output, context);
   }

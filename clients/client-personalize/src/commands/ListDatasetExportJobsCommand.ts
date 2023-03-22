@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetExportJobsCommand}.
  */
 export interface ListDatasetExportJobsCommandInput extends ListDatasetExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetExportJobsCommand}.
  */
 export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of dataset export jobs that use the given dataset. When
  *       a dataset is not specified, all the dataset export jobs associated with
  *       the account are listed. The response provides the properties for each
@@ -51,6 +56,8 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetExportJobsCommandInput - {@link ListDatasetExportJobsCommandInput}
+ * @returns {@link ListDatasetExportJobsCommandOutput}
  * @see {@link ListDatasetExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetExportJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListDatasetExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListDatasetExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetExportJobsCommandOutput> {
     return deserializeAws_json1_1ListDatasetExportJobsCommand(output, context);
   }

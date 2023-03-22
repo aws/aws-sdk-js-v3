@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateContactChannelCommand}.
  */
 export interface ActivateContactChannelCommandInput extends ActivateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link ActivateContactChannelCommand}.
  */
 export interface ActivateContactChannelCommandOutput extends ActivateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a contact's contact channel. Incident Manager can't engage a contact until the
  *          contact channel has been activated.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateContactChannelCommandInput - {@link ActivateContactChannelCommandInput}
+ * @returns {@link ActivateContactChannelCommandOutput}
  * @see {@link ActivateContactChannelCommandInput} for command's `input` shape.
  * @see {@link ActivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -99,6 +106,9 @@ export class ActivateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ActivateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ActivateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateContactChannelCommandOutput> {
     return deserializeAws_json1_1ActivateContactChannelCommand(output, context);
   }

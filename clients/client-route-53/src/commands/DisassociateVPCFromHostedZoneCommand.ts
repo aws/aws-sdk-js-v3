@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateVPCFromHostedZoneCommand}.
  */
 export interface DisassociateVPCFromHostedZoneCommandInput extends DisassociateVPCFromHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateVPCFromHostedZoneCommand}.
  */
 export interface DisassociateVPCFromHostedZoneCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53
  * 			private hosted zone. Note the following:</p>
  *          <ul>
@@ -97,6 +102,8 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateVPCFromHostedZoneCommandInput - {@link DisassociateVPCFromHostedZoneCommandInput}
+ * @returns {@link DisassociateVPCFromHostedZoneCommandOutput}
  * @see {@link DisassociateVPCFromHostedZoneCommandInput} for command's `input` shape.
  * @see {@link DisassociateVPCFromHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -138,6 +145,9 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateVPCFromHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateVPCFromHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

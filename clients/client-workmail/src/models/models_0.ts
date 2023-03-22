@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { WorkMailServiceException as __BaseException } from "./WorkMailServiceException";
 
+/**
+ * @public
+ */
 export enum AccessControlRuleEffect {
   ALLOW = "ALLOW",
   DENY = "DENY",
 }
 
 /**
+ * @public
  * <p>A rule that controls access to an WorkMail organization.</p>
  */
 export interface AccessControlRule {
@@ -82,11 +86,17 @@ export interface AccessControlRule {
   NotImpersonationRoleIds?: string[];
 }
 
+/**
+ * @public
+ */
 export enum AccessEffect {
   ALLOW = "ALLOW",
   DENY = "DENY",
 }
 
+/**
+ * @public
+ */
 export interface AssociateDelegateToResourceRequest {
   /**
    * <p>The organization under which the resource exists.</p>
@@ -104,9 +114,13 @@ export interface AssociateDelegateToResourceRequest {
   EntityId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDelegateToResourceResponse {}
 
 /**
+ * @public
  * <p>The identifier supplied for the user, group, or resource does not exist in your
  *          organization.</p>
  */
@@ -129,6 +143,7 @@ export class EntityNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are performing an operation on a user, group, or resource that isn't in the
  *          expected state, such as trying to delete an active user.</p>
  */
@@ -151,6 +166,7 @@ export class EntityStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the input parameters don't match the service's restrictions.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -172,6 +188,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An operation received a valid organization identifier that either doesn't belong or
  *          exist in the system.</p>
  */
@@ -194,6 +211,7 @@ export class OrganizationNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  */
@@ -215,6 +233,9 @@ export class OrganizationStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateMemberToGroupRequest {
   /**
    * <p>The organization under which the group exists.</p>
@@ -232,9 +253,13 @@ export interface AssociateMemberToGroupRequest {
   MemberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateMemberToGroupResponse {}
 
 /**
+ * @public
  * <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
  */
 export class DirectoryServiceAuthenticationFailedException extends __BaseException {
@@ -256,6 +281,7 @@ export class DirectoryServiceAuthenticationFailedException extends __BaseExcepti
 }
 
 /**
+ * @public
  * <p>The directory is unavailable. It might be located in another Region or deleted.</p>
  */
 export class DirectoryUnavailableException extends __BaseException {
@@ -277,6 +303,7 @@ export class DirectoryUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't perform a write operation against a read-only directory.</p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -297,6 +324,9 @@ export class UnsupportedOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssumeImpersonationRoleRequest {
   /**
    * <p>The WorkMail organization under which the impersonation role will be assumed.</p>
@@ -309,6 +339,9 @@ export interface AssumeImpersonationRoleRequest {
   ImpersonationRoleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssumeImpersonationRoleResponse {
   /**
    * <p>The authentication token for the impersonation role.</p>
@@ -322,6 +355,7 @@ export interface AssumeImpersonationRoleResponse {
 }
 
 /**
+ * @public
  * <p>The resource cannot be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -343,6 +377,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes an EWS based availability provider when returned from the service. It does not
  *          contain the password of the endpoint.</p>
  */
@@ -359,6 +394,7 @@ export interface RedactedEwsAvailabilityProvider {
 }
 
 /**
+ * @public
  * <p>Describes a Lambda based availability provider.</p>
  */
 export interface LambdaAvailabilityProvider {
@@ -368,12 +404,16 @@ export interface LambdaAvailabilityProvider {
   LambdaArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AvailabilityProviderType {
   EWS = "EWS",
   LAMBDA = "LAMBDA",
 }
 
 /**
+ * @public
  * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail
  *          organization.</p>
  */
@@ -412,6 +452,7 @@ export interface AvailabilityConfiguration {
 }
 
 /**
+ * @public
  * <p>At least one delegate must be associated to the resource to disable automatic replies
  *          from the resource.</p>
  */
@@ -433,6 +474,9 @@ export interface BookingOptions {
   AutoDeclineConflictingRequests?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelMailboxExportJobRequest {
   /**
    * <p>The idempotency token for the client request.</p>
@@ -450,8 +494,14 @@ export interface CancelMailboxExportJobRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelMailboxExportJobResponse {}
 
+/**
+ * @public
+ */
 export interface CreateAliasRequest {
   /**
    * <p>The organization under which the member (user or group) exists.</p>
@@ -469,9 +519,13 @@ export interface CreateAliasRequest {
   Alias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAliasResponse {}
 
 /**
+ * @public
  * <p>The email address that you're trying to assign is already created for a different
  *          user, group, or resource.</p>
  */
@@ -494,6 +548,7 @@ export class EmailAddressInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeds the limit of the resource.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -515,6 +570,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The domain specified is not found in your organization.</p>
  */
 export class MailDomainNotFoundException extends __BaseException {
@@ -536,6 +592,7 @@ export class MailDomainNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>After a domain has been added to the organization, it must be verified. The domain is
  *          not yet verified.</p>
  */
@@ -558,6 +615,7 @@ export class MailDomainStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes an EWS based availability provider. This is only used as input to the service.</p>
  */
 export interface EwsAvailabilityProvider {
@@ -577,6 +635,9 @@ export interface EwsAvailabilityProvider {
   EwsPassword: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAvailabilityConfigurationRequest {
   /**
    * <p>An idempotent token that ensures that an API request is executed only once.</p>
@@ -604,9 +665,13 @@ export interface CreateAvailabilityConfigurationRequest {
   LambdaProvider?: LambdaAvailabilityProvider;
 }
 
+/**
+ * @public
+ */
 export interface CreateAvailabilityConfigurationResponse {}
 
 /**
+ * @public
  * <p>The user, group, or resource name isn't unique in WorkMail.</p>
  */
 export class NameAvailabilityException extends __BaseException {
@@ -627,6 +692,9 @@ export class NameAvailabilityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupRequest {
   /**
    * <p>The organization under which the group is to be created.</p>
@@ -639,6 +707,9 @@ export interface CreateGroupRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupResponse {
   /**
    * <p>The identifier of the group.</p>
@@ -647,6 +718,7 @@ export interface CreateGroupResponse {
 }
 
 /**
+ * @public
  * <p>This user, group, or resource name is not allowed in WorkMail.</p>
  */
 export class ReservedNameException extends __BaseException {
@@ -668,6 +740,7 @@ export class ReservedNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rules for the given impersonation role.</p>
  */
 export interface ImpersonationRule {
@@ -703,11 +776,17 @@ export interface ImpersonationRule {
   NotTargetUsers?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ImpersonationRoleType {
   FULL_ACCESS = "FULL_ACCESS",
   READ_ONLY = "READ_ONLY",
 }
 
+/**
+ * @public
+ */
 export interface CreateImpersonationRoleRequest {
   /**
    * <p>The idempotency token for the client request.</p>
@@ -741,6 +820,9 @@ export interface CreateImpersonationRoleRequest {
   Rules: ImpersonationRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateImpersonationRoleResponse {
   /**
    * <p>The new impersonation role ID.</p>
@@ -748,11 +830,17 @@ export interface CreateImpersonationRoleResponse {
   ImpersonationRoleId?: string;
 }
 
+/**
+ * @public
+ */
 export enum MobileDeviceAccessRuleEffect {
   ALLOW = "ALLOW",
   DENY = "DENY",
 }
 
+/**
+ * @public
+ */
 export interface CreateMobileDeviceAccessRuleRequest {
   /**
    * <p>The WorkMail organization under which the rule will be created.</p>
@@ -820,6 +908,9 @@ export interface CreateMobileDeviceAccessRuleRequest {
   NotDeviceUserAgents?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMobileDeviceAccessRuleResponse {
   /**
    * <p>The identifier for the newly created mobile device access rule.</p>
@@ -828,6 +919,7 @@ export interface CreateMobileDeviceAccessRuleResponse {
 }
 
 /**
+ * @public
  * <p>The domain to associate with an WorkMail organization.</p>
  *          <p>When you configure a domain hosted in Amazon Route 53 (Route 53), all recommended DNS records are added to the organization when you create it. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a domain</a> in the <i>WorkMail Administrator Guide</i>.</p>
  */
@@ -843,6 +935,9 @@ export interface Domain {
   HostedZoneId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateOrganizationRequest {
   /**
    * <p>The AWS Directory Service directory ID.</p>
@@ -877,6 +972,9 @@ export interface CreateOrganizationRequest {
   EnableInteroperability?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateOrganizationResponse {
   /**
    * <p>The organization ID.</p>
@@ -885,6 +983,7 @@ export interface CreateOrganizationResponse {
 }
 
 /**
+ * @public
  * <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
  */
 export class DirectoryInUseException extends __BaseException {
@@ -905,11 +1004,17 @@ export class DirectoryInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   EQUIPMENT = "EQUIPMENT",
   ROOM = "ROOM",
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceRequest {
   /**
    * <p>The identifier associated with the organization for which the resource is
@@ -929,6 +1034,9 @@ export interface CreateResourceRequest {
   Type: ResourceType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceResponse {
   /**
    * <p>The identifier of the new resource.</p>
@@ -936,6 +1044,9 @@ export interface CreateResourceResponse {
   ResourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The identifier of the organization for which the user is created.</p>
@@ -958,6 +1069,9 @@ export interface CreateUserRequest {
   Password: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The identifier for the new user.</p>
@@ -966,6 +1080,7 @@ export interface CreateUserResponse {
 }
 
 /**
+ * @public
  * <p>The supplied password doesn't match the minimum security constraints, such as length
  *          or use of special characters.</p>
  */
@@ -987,12 +1102,16 @@ export class InvalidPasswordException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum MemberType {
   GROUP = "GROUP",
   USER = "USER",
 }
 
 /**
+ * @public
  * <p>The name of the attribute, which is one of the values defined in the UserAttribute
  *          enumeration.</p>
  */
@@ -1008,6 +1127,9 @@ export interface Delegate {
   Type: MemberType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessControlRuleRequest {
   /**
    * <p>The identifier for the organization.</p>
@@ -1020,8 +1142,14 @@ export interface DeleteAccessControlRuleRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessControlRuleResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAliasRequest {
   /**
    * <p>The identifier for the organization under which the user exists.</p>
@@ -1041,8 +1169,14 @@ export interface DeleteAliasRequest {
   Alias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAliasResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAvailabilityConfigurationRequest {
   /**
    * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
@@ -1055,8 +1189,14 @@ export interface DeleteAvailabilityConfigurationRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAvailabilityConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteEmailMonitoringConfigurationRequest {
   /**
    * <p>The ID of the organization from which the email monitoring configuration is deleted.</p>
@@ -1064,8 +1204,14 @@ export interface DeleteEmailMonitoringConfigurationRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailMonitoringConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteGroupRequest {
   /**
    * <p>The organization that contains the group.</p>
@@ -1078,8 +1224,14 @@ export interface DeleteGroupRequest {
   GroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteImpersonationRoleRequest {
   /**
    * <p>The WorkMail organization from which to delete the impersonation role.</p>
@@ -1092,8 +1244,14 @@ export interface DeleteImpersonationRoleRequest {
   ImpersonationRoleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImpersonationRoleResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteMailboxPermissionsRequest {
   /**
    * <p>The identifier of the organization under which the member (user or group)
@@ -1113,8 +1271,14 @@ export interface DeleteMailboxPermissionsRequest {
   GranteeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMailboxPermissionsResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteMobileDeviceAccessOverrideRequest {
   /**
    * <p>The WorkMail organization for which the access override will be deleted.</p>
@@ -1146,8 +1310,14 @@ export interface DeleteMobileDeviceAccessOverrideRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMobileDeviceAccessOverrideResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteMobileDeviceAccessRuleRequest {
   /**
    * <p>The WorkMail organization under which the rule will be deleted.</p>
@@ -1160,8 +1330,14 @@ export interface DeleteMobileDeviceAccessRuleRequest {
   MobileDeviceAccessRuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMobileDeviceAccessRuleResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteOrganizationRequest {
   /**
    * <p>The idempotency token associated with the request.</p>
@@ -1179,6 +1355,9 @@ export interface DeleteOrganizationRequest {
   DeleteDirectory: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOrganizationResponse {
   /**
    * <p>The organization ID.</p>
@@ -1191,6 +1370,9 @@ export interface DeleteOrganizationResponse {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceRequest {
   /**
    * <p>The identifier associated with the organization from which the resource is
@@ -1204,8 +1386,14 @@ export interface DeleteResourceRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRetentionPolicyRequest {
   /**
    * <p>The organization ID.</p>
@@ -1218,8 +1406,14 @@ export interface DeleteRetentionPolicyRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRetentionPolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The organization that contains the user to be deleted.</p>
@@ -1232,8 +1426,14 @@ export interface DeleteUserRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterFromWorkMailRequest {
   /**
    * <p>The identifier for the organization under which the WorkMail entity exists.</p>
@@ -1246,8 +1446,14 @@ export interface DeregisterFromWorkMailRequest {
   EntityId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterFromWorkMailResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterMailDomainRequest {
   /**
    * <p>The WorkMail organization for which the domain will be deregistered.</p>
@@ -1260,9 +1466,13 @@ export interface DeregisterMailDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterMailDomainResponse {}
 
 /**
+ * @public
  * <p>You SES configuration has customizations that WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
  *          <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html">CreateReceiptRule</a>.</p>
  */
@@ -1285,6 +1495,7 @@ export class InvalidCustomSesConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
  */
 export class MailDomainInUseException extends __BaseException {
@@ -1305,6 +1516,9 @@ export class MailDomainInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeEmailMonitoringConfigurationRequest {
   /**
    * <p>The ID of the organization for which the email monitoring configuration is described.</p>
@@ -1312,6 +1526,9 @@ export interface DescribeEmailMonitoringConfigurationRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEmailMonitoringConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.</p>
@@ -1324,6 +1541,9 @@ export interface DescribeEmailMonitoringConfigurationResponse {
   LogGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupRequest {
   /**
    * <p>The identifier for the organization under which the group exists.</p>
@@ -1336,12 +1556,18 @@ export interface DescribeGroupRequest {
   GroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EntityState {
   DELETED = "DELETED",
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupResponse {
   /**
    * <p>The identifier of the described group.</p>
@@ -1377,6 +1603,9 @@ export interface DescribeGroupResponse {
   DisabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInboundDmarcSettingsRequest {
   /**
    * <p>Lists the ID of the given organization.</p>
@@ -1384,6 +1613,9 @@ export interface DescribeInboundDmarcSettingsRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInboundDmarcSettingsResponse {
   /**
    * <p>Lists the enforcement setting of the applied policy.</p>
@@ -1391,6 +1623,9 @@ export interface DescribeInboundDmarcSettingsResponse {
   Enforced?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMailboxExportJobRequest {
   /**
    * <p>The mailbox export job ID.</p>
@@ -1403,6 +1638,9 @@ export interface DescribeMailboxExportJobRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MailboxExportJobState {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -1410,6 +1648,9 @@ export enum MailboxExportJobState {
   RUNNING = "RUNNING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeMailboxExportJobResponse {
   /**
    * <p>The identifier of the user or resource associated with the mailbox.</p>
@@ -1475,6 +1716,9 @@ export interface DescribeMailboxExportJobResponse {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationRequest {
   /**
    * <p>The identifier for the organization to be described.</p>
@@ -1482,6 +1726,9 @@ export interface DescribeOrganizationRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationResponse {
   /**
    * <p>The identifier of an organization.</p>
@@ -1531,6 +1778,9 @@ export interface DescribeOrganizationResponse {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceRequest {
   /**
    * <p>The identifier associated with the organization for which the resource is
@@ -1544,6 +1794,9 @@ export interface DescribeResourceRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceResponse {
   /**
    * <p>The identifier of the described resource.</p>
@@ -1589,6 +1842,9 @@ export interface DescribeResourceResponse {
   DisabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The identifier for the organization under which the user exists.</p>
@@ -1601,12 +1857,18 @@ export interface DescribeUserRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum UserRole {
   RESOURCE = "RESOURCE",
   SYSTEM_USER = "SYSTEM_USER",
   USER = "USER",
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>The identifier for the described user.</p>
@@ -1656,6 +1918,9 @@ export interface DescribeUserResponse {
   DisabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDelegateFromResourceRequest {
   /**
    * <p>The identifier for the organization under which the resource exists.</p>
@@ -1675,8 +1940,14 @@ export interface DisassociateDelegateFromResourceRequest {
   EntityId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDelegateFromResourceResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateMemberFromGroupRequest {
   /**
    * <p>The identifier for the organization under which the group exists.</p>
@@ -1694,9 +1965,13 @@ export interface DisassociateMemberFromGroupRequest {
   MemberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMemberFromGroupResponse {}
 
 /**
+ * @public
  * <p>A DNS record uploaded to your DNS provider.</p>
  */
 export interface DnsRecord {
@@ -1716,6 +1991,9 @@ export interface DnsRecord {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export enum DnsRecordVerificationStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
@@ -1723,6 +2001,7 @@ export enum DnsRecordVerificationStatus {
 }
 
 /**
+ * @public
  * <p>The user, group, or resource that you're trying to register is already
  *          registered.</p>
  */
@@ -1744,12 +2023,18 @@ export class EntityAlreadyRegisteredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RetentionAction {
   DELETE = "DELETE",
   NONE = "NONE",
   PERMANENTLY_DELETE = "PERMANENTLY_DELETE",
 }
 
+/**
+ * @public
+ */
 export enum FolderName {
   DELETED_ITEMS = "DELETED_ITEMS",
   DRAFTS = "DRAFTS",
@@ -1759,6 +2044,7 @@ export enum FolderName {
 }
 
 /**
+ * @public
  * <p>The configuration applied to an organization's folders by its retention
  *          policy.</p>
  */
@@ -1780,6 +2066,9 @@ export interface FolderConfiguration {
   Period?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessControlEffectRequest {
   /**
    * <p>The identifier for the organization.</p>
@@ -1809,6 +2098,9 @@ export interface GetAccessControlEffectRequest {
   ImpersonationRoleId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessControlEffectResponse {
   /**
    * <p>The rule effect.</p>
@@ -1821,6 +2113,9 @@ export interface GetAccessControlEffectResponse {
   MatchedRules?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetDefaultRetentionPolicyRequest {
   /**
    * <p>The organization ID.</p>
@@ -1828,6 +2123,9 @@ export interface GetDefaultRetentionPolicyRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDefaultRetentionPolicyResponse {
   /**
    * <p>The retention policy ID.</p>
@@ -1850,6 +2148,9 @@ export interface GetDefaultRetentionPolicyResponse {
   FolderConfigurations?: FolderConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetImpersonationRoleRequest {
   /**
    * <p>The WorkMail organization from which to retrieve the impersonation role.</p>
@@ -1862,6 +2163,9 @@ export interface GetImpersonationRoleRequest {
   ImpersonationRoleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetImpersonationRoleResponse {
   /**
    * <p>The impersonation role ID.</p>
@@ -1899,6 +2203,9 @@ export interface GetImpersonationRoleResponse {
   DateModified?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetImpersonationRoleEffectRequest {
   /**
    * <p>The WorkMail organization where the impersonation role is defined.</p>
@@ -1932,6 +2239,7 @@ export interface GetImpersonationRoleEffectRequest {
 }
 
 /**
+ * @public
  * <p>The impersonation rule that matched the input.</p>
  */
 export interface ImpersonationMatchedRule {
@@ -1946,6 +2254,9 @@ export interface ImpersonationMatchedRule {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetImpersonationRoleEffectResponse {
   /**
    * <p>The impersonation role type.</p>
@@ -1965,6 +2276,9 @@ export interface GetImpersonationRoleEffectResponse {
   MatchedRules?: ImpersonationMatchedRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetMailboxDetailsRequest {
   /**
    * <p>The identifier for the organization that contains the user whose mailbox details are
@@ -1978,6 +2292,9 @@ export interface GetMailboxDetailsRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMailboxDetailsResponse {
   /**
    * <p>The maximum allowed mailbox size, in MB, for the specified user.</p>
@@ -1990,6 +2307,9 @@ export interface GetMailboxDetailsResponse {
   MailboxSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetMailDomainRequest {
   /**
    * <p>The WorkMail organization for which the domain is retrieved.</p>
@@ -2002,6 +2322,9 @@ export interface GetMailDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMailDomainResponse {
   /**
    * <p>A list of the DNS records that WorkMail recommends adding in your DNS provider for the best user experience. The records configure your domain with DMARC, SPF, DKIM, and direct incoming
@@ -2030,6 +2353,9 @@ export interface GetMailDomainResponse {
   DkimVerificationStatus?: DnsRecordVerificationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMobileDeviceAccessEffectRequest {
   /**
    * <p>The WorkMail organization to simulate the access effect for.</p>
@@ -2058,6 +2384,7 @@ export interface GetMobileDeviceAccessEffectRequest {
 }
 
 /**
+ * @public
  * <p>The rule that a simulated user matches.</p>
  */
 export interface MobileDeviceAccessMatchedRule {
@@ -2072,6 +2399,9 @@ export interface MobileDeviceAccessMatchedRule {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMobileDeviceAccessEffectResponse {
   /**
    * <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the WorkMail organization for the simulated
@@ -2085,6 +2415,9 @@ export interface GetMobileDeviceAccessEffectResponse {
   MatchedRules?: MobileDeviceAccessMatchedRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetMobileDeviceAccessOverrideRequest {
   /**
    * <p>The WorkMail organization to which you want to apply the override.</p>
@@ -2116,6 +2449,9 @@ export interface GetMobileDeviceAccessOverrideRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMobileDeviceAccessOverrideResponse {
   /**
    * <p>The WorkMail user to which the access override applies.</p>
@@ -2149,6 +2485,7 @@ export interface GetMobileDeviceAccessOverrideResponse {
 }
 
 /**
+ * @public
  * <p>The representation of an WorkMail group.</p>
  */
 export interface Group {
@@ -2184,6 +2521,7 @@ export interface Group {
 }
 
 /**
+ * @public
  * <p>An impersonation role for the given WorkMail organization.</p>
  */
 export interface ImpersonationRole {
@@ -2214,6 +2552,7 @@ export interface ImpersonationRole {
 }
 
 /**
+ * @public
  * <p>The configuration for a resource isn't valid. A resource must either be able to
  *          auto-respond to requests or have at least one delegate associated that can do so on its
  *          behalf.</p>
@@ -2237,6 +2576,7 @@ export class InvalidConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The details of a mailbox export job, including the user or resource ID associated
  *          with the mailbox and the S3 bucket that the mailbox contents are exported to.</p>
  */
@@ -2287,6 +2627,9 @@ export interface MailboxExportJob {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessControlRulesRequest {
   /**
    * <p>The identifier for the organization.</p>
@@ -2294,6 +2637,9 @@ export interface ListAccessControlRulesRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessControlRulesResponse {
   /**
    * <p>The access control rules.</p>
@@ -2301,6 +2647,9 @@ export interface ListAccessControlRulesResponse {
   Rules?: AccessControlRule[];
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesRequest {
   /**
    * <p>The identifier for the organization under which the entity exists.</p>
@@ -2324,6 +2673,9 @@ export interface ListAliasesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesResponse {
   /**
    * <p>The entity's paginated aliases.</p>
@@ -2337,6 +2689,9 @@ export interface ListAliasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailabilityConfigurationsRequest {
   /**
    * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will be
@@ -2355,6 +2710,9 @@ export interface ListAvailabilityConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailabilityConfigurationsResponse {
   /**
    * <p>The list of <code>AvailabilityConfiguration</code>'s that exist for the specified WorkMail organization.</p>
@@ -2367,6 +2725,9 @@ export interface ListAvailabilityConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembersRequest {
   /**
    * <p>The identifier for the organization under which the group exists.</p>
@@ -2392,6 +2753,7 @@ export interface ListGroupMembersRequest {
 }
 
 /**
+ * @public
  * <p>The representation of a user or group.</p>
  */
 export interface Member {
@@ -2426,6 +2788,9 @@ export interface Member {
   DisabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembersResponse {
   /**
    * <p>The members associated to the group.</p>
@@ -2439,6 +2804,9 @@ export interface ListGroupMembersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsRequest {
   /**
    * <p>The identifier for the organization under which the groups exist.</p>
@@ -2457,6 +2825,9 @@ export interface ListGroupsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsResponse {
   /**
    * <p>The overview of groups for an organization.</p>
@@ -2470,6 +2841,9 @@ export interface ListGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImpersonationRolesRequest {
   /**
    * <p>The WorkMail organization to which the listed impersonation roles belong.</p>
@@ -2488,6 +2862,9 @@ export interface ListImpersonationRolesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListImpersonationRolesResponse {
   /**
    * <p>The list of impersonation roles under the given WorkMail organization.</p>
@@ -2501,6 +2878,9 @@ export interface ListImpersonationRolesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMailboxExportJobsRequest {
   /**
    * <p>The organization ID.</p>
@@ -2518,6 +2898,9 @@ export interface ListMailboxExportJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListMailboxExportJobsResponse {
   /**
    * <p>The mailbox export job details.</p>
@@ -2530,6 +2913,9 @@ export interface ListMailboxExportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMailboxPermissionsRequest {
   /**
    * <p>The identifier of the organization under which the user, group, or resource
@@ -2555,6 +2941,9 @@ export interface ListMailboxPermissionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum PermissionType {
   FULL_ACCESS = "FULL_ACCESS",
   SEND_AS = "SEND_AS",
@@ -2562,6 +2951,7 @@ export enum PermissionType {
 }
 
 /**
+ * @public
  * <p>Permission granted to a user, group, or resource to access a certain aspect of
  *          another user, group, or resource mailbox.</p>
  */
@@ -2588,6 +2978,9 @@ export interface Permission {
   PermissionValues: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMailboxPermissionsResponse {
   /**
    * <p>One page of the user, group, or resource mailbox permissions.</p>
@@ -2601,6 +2994,9 @@ export interface ListMailboxPermissionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMailDomainsRequest {
   /**
    * <p>The WorkMail organization for which to list domains.</p>
@@ -2619,6 +3015,7 @@ export interface ListMailDomainsRequest {
 }
 
 /**
+ * @public
  * <p>The data for a given domain.</p>
  */
 export interface MailDomainSummary {
@@ -2633,6 +3030,9 @@ export interface MailDomainSummary {
   DefaultDomain?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListMailDomainsResponse {
   /**
    * <p>The list of mail domain summaries, specifying domains that exist in the specified WorkMail organization, along with the information about whether the domain is or isn't the default.</p>
@@ -2645,6 +3045,9 @@ export interface ListMailDomainsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMobileDeviceAccessOverridesRequest {
   /**
    * <p>The WorkMail organization under which to list mobile device access overrides.</p>
@@ -2687,6 +3090,7 @@ export interface ListMobileDeviceAccessOverridesRequest {
 }
 
 /**
+ * @public
  * <p>The override object.</p>
  */
 export interface MobileDeviceAccessOverride {
@@ -2721,6 +3125,9 @@ export interface MobileDeviceAccessOverride {
   DateModified?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMobileDeviceAccessOverridesResponse {
   /**
    * <p>The list of mobile device access overrides that exist for the specified WorkMail organization and user.</p>
@@ -2733,6 +3140,9 @@ export interface ListMobileDeviceAccessOverridesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMobileDeviceAccessRulesRequest {
   /**
    * <p>The WorkMail organization for which to list the rules.</p>
@@ -2741,6 +3151,7 @@ export interface ListMobileDeviceAccessRulesRequest {
 }
 
 /**
+ * @public
  * <p>A rule that controls access to mobile devices for an WorkMail group.</p>
  */
 export interface MobileDeviceAccessRule {
@@ -2815,6 +3226,9 @@ export interface MobileDeviceAccessRule {
   DateModified?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMobileDeviceAccessRulesResponse {
   /**
    * <p>The list of mobile device access rules that exist under the specified WorkMail organization.</p>
@@ -2822,6 +3236,9 @@ export interface ListMobileDeviceAccessRulesResponse {
   Rules?: MobileDeviceAccessRule[];
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationsRequest {
   /**
    * <p>The token to use to retrieve the next page of results. The first call does not
@@ -2836,6 +3253,7 @@ export interface ListOrganizationsRequest {
 }
 
 /**
+ * @public
  * <p>The representation of an organization.</p>
  */
 export interface OrganizationSummary {
@@ -2867,6 +3285,9 @@ export interface OrganizationSummary {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationsResponse {
   /**
    * <p>The overview of owned organizations presented as a list of organization
@@ -2881,6 +3302,9 @@ export interface ListOrganizationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceDelegatesRequest {
   /**
    * <p>The identifier for the organization that contains the resource for which delegates
@@ -2905,6 +3329,9 @@ export interface ListResourceDelegatesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceDelegatesResponse {
   /**
    * <p>One page of the resource's delegates.</p>
@@ -2919,6 +3346,9 @@ export interface ListResourceDelegatesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesRequest {
   /**
    * <p>The identifier for the organization under which the resources exist.</p>
@@ -2938,6 +3368,7 @@ export interface ListResourcesRequest {
 }
 
 /**
+ * @public
  * <p>The representation of a resource.</p>
  */
 export interface Resource {
@@ -2977,6 +3408,9 @@ export interface Resource {
   DisabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesResponse {
   /**
    * <p>One page of the organization's resource representation.</p>
@@ -2991,6 +3425,9 @@ export interface ListResourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -2999,6 +3436,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>Describes a tag applied to a resource.</p>
  */
 export interface Tag {
@@ -3013,6 +3451,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tag key-value pairs.</p>
@@ -3020,6 +3461,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>The identifier for the organization under which the users exist.</p>
@@ -3039,6 +3483,7 @@ export interface ListUsersRequest {
 }
 
 /**
+ * @public
  * <p>The representation of an WorkMail user.</p>
  */
 export interface User {
@@ -3083,6 +3528,9 @@ export interface User {
   DisabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>The overview of users for an organization.</p>
@@ -3096,6 +3544,9 @@ export interface ListUsersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutAccessControlRuleRequest {
   /**
    * <p>The rule name.</p>
@@ -3162,8 +3613,14 @@ export interface PutAccessControlRuleRequest {
   NotImpersonationRoleIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface PutAccessControlRuleResponse {}
 
+/**
+ * @public
+ */
 export interface PutEmailMonitoringConfigurationRequest {
   /**
    * <p>The ID of the organization for which the email monitoring configuration is set.</p>
@@ -3181,8 +3638,14 @@ export interface PutEmailMonitoringConfigurationRequest {
   LogGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutEmailMonitoringConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface PutInboundDmarcSettingsRequest {
   /**
    * <p>The ID of the organization that you are applying the DMARC policy to.</p>
@@ -3195,8 +3658,14 @@ export interface PutInboundDmarcSettingsRequest {
   Enforced: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutInboundDmarcSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface PutMailboxPermissionsRequest {
   /**
    * <p>The identifier of the organization under which the user, group, or resource
@@ -3227,8 +3696,14 @@ export interface PutMailboxPermissionsRequest {
   PermissionValues: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutMailboxPermissionsResponse {}
 
+/**
+ * @public
+ */
 export interface PutMobileDeviceAccessOverrideRequest {
   /**
    * <p>Identifies the WorkMail organization for which you create the override.</p>
@@ -3270,8 +3745,14 @@ export interface PutMobileDeviceAccessOverrideRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutMobileDeviceAccessOverrideResponse {}
 
+/**
+ * @public
+ */
 export interface PutRetentionPolicyRequest {
   /**
    * <p>The organization ID.</p>
@@ -3299,8 +3780,14 @@ export interface PutRetentionPolicyRequest {
   FolderConfigurations: FolderConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRetentionPolicyResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterMailDomainRequest {
   /**
    * <p>Idempotency token used when retrying requests.</p>
@@ -3318,8 +3805,14 @@ export interface RegisterMailDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterMailDomainResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterToWorkMailRequest {
   /**
    * <p>The identifier for the organization under which the user, group, or resource
@@ -3338,8 +3831,14 @@ export interface RegisterToWorkMailRequest {
   Email: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterToWorkMailResponse {}
 
+/**
+ * @public
+ */
 export interface ResetPasswordRequest {
   /**
    * <p>The identifier of the organization that contains the user for which the password is
@@ -3358,8 +3857,14 @@ export interface ResetPasswordRequest {
   Password: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResetPasswordResponse {}
 
+/**
+ * @public
+ */
 export interface StartMailboxExportJobRequest {
   /**
    * <p>The idempotency token for the client request.</p>
@@ -3404,6 +3909,9 @@ export interface StartMailboxExportJobRequest {
   S3Prefix: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMailboxExportJobResponse {
   /**
    * <p>The job ID.</p>
@@ -3411,6 +3919,9 @@ export interface StartMailboxExportJobResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -3423,9 +3934,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The resource can have up to 50 user-applied tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -3446,6 +3961,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TestAvailabilityConfigurationRequest {
   /**
    * <p>The WorkMail organization where the availability provider will be tested.</p>
@@ -3468,6 +3986,9 @@ export interface TestAvailabilityConfigurationRequest {
   LambdaProvider?: LambdaAvailabilityProvider;
 }
 
+/**
+ * @public
+ */
 export interface TestAvailabilityConfigurationResponse {
   /**
    * <p>Boolean indicating whether the test passed or failed.</p>
@@ -3480,6 +4001,9 @@ export interface TestAvailabilityConfigurationResponse {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -3492,8 +4016,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAvailabilityConfigurationRequest {
   /**
    * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be
@@ -3521,8 +4051,14 @@ export interface UpdateAvailabilityConfigurationRequest {
   LambdaProvider?: LambdaAvailabilityProvider;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAvailabilityConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDefaultMailDomainRequest {
   /**
    * <p>The WorkMail organization for which to list domains.</p>
@@ -3535,8 +4071,14 @@ export interface UpdateDefaultMailDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDefaultMailDomainResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateImpersonationRoleRequest {
   /**
    * <p>The WorkMail organization that contains the impersonation role to update.</p>
@@ -3569,8 +4111,14 @@ export interface UpdateImpersonationRoleRequest {
   Rules: ImpersonationRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImpersonationRoleResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateMailboxQuotaRequest {
   /**
    * <p>The identifier for the organization that contains the user for whom to update the
@@ -3589,8 +4137,14 @@ export interface UpdateMailboxQuotaRequest {
   MailboxQuota: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMailboxQuotaResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateMobileDeviceAccessRuleRequest {
   /**
    * <p>The WorkMail organization under which the rule will be updated.</p>
@@ -3658,8 +4212,14 @@ export interface UpdateMobileDeviceAccessRuleRequest {
   NotDeviceUserAgents?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateMobileDeviceAccessRuleResponse {}
 
+/**
+ * @public
+ */
 export interface UpdatePrimaryEmailAddressRequest {
   /**
    * <p>The organization that contains the user, group, or resource to update.</p>
@@ -3677,8 +4237,14 @@ export interface UpdatePrimaryEmailAddressRequest {
   Email: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePrimaryEmailAddressResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateResourceRequest {
   /**
    * <p>The identifier associated with the organization for which the resource is
@@ -3702,6 +4268,9 @@ export interface UpdateResourceRequest {
   BookingOptions?: BookingOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceResponse {}
 
 /**

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePermissionGroupCommand}.
  */
 export interface DeletePermissionGroupCommandInput extends DeletePermissionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePermissionGroupCommand}.
  */
 export interface DeletePermissionGroupCommandOutput extends DeletePermissionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a permission group. This action is irreversible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionGroupCommandInput - {@link DeletePermissionGroupCommandInput}
+ * @returns {@link DeletePermissionGroupCommandOutput}
  * @see {@link DeletePermissionGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeletePermissionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeletePermissionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePermissionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePermissionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionGroupCommandOutput> {
     return deserializeAws_restJson1DeletePermissionGroupCommand(output, context);
   }

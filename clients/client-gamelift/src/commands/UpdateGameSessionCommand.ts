@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGameSessionCommand}.
  */
 export interface UpdateGameSessionCommandInput extends UpdateGameSessionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGameSessionCommand}.
  */
 export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the mutable properties of a game session. </p>
  *         <p>To update a game session, specify the game session ID and the values you want to
  *             change. </p>
@@ -52,6 +57,8 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameSessionCommandInput - {@link UpdateGameSessionCommandInput}
+ * @returns {@link UpdateGameSessionCommandOutput}
  * @see {@link UpdateGameSessionCommandInput} for command's `input` shape.
  * @see {@link UpdateGameSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateGameSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class UpdateGameSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGameSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameSessionCommandOutput> {
     return deserializeAws_json1_1UpdateGameSessionCommand(output, context);
   }

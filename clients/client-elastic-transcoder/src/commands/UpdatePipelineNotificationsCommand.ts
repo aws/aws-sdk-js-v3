@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineNotificationsCommand}.
  */
 export interface UpdatePipelineNotificationsCommandInput extends UpdatePipelineNotificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineNotificationsCommand}.
  */
 export interface UpdatePipelineNotificationsCommandOutput
@@ -41,6 +45,7 @@ export interface UpdatePipelineNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
  *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  * @example
@@ -53,6 +58,8 @@ export interface UpdatePipelineNotificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineNotificationsCommandInput - {@link UpdatePipelineNotificationsCommandInput}
+ * @returns {@link UpdatePipelineNotificationsCommandOutput}
  * @see {@link UpdatePipelineNotificationsCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineNotificationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePipelineNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

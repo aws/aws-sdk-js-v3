@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMeshCommand}.
  */
 export interface CreateMeshCommandInput extends CreateMeshInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMeshCommand}.
  */
 export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a service mesh.</p>
  *          <p> A service mesh is a logical boundary for network traffic between services that are
  *          represented by resources within the mesh. After you create your service mesh, you can
@@ -51,6 +56,8 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeshCommandInput - {@link CreateMeshCommandInput}
+ * @returns {@link CreateMeshCommandOutput}
  * @see {@link CreateMeshCommandInput} for command's `input` shape.
  * @see {@link CreateMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateMeshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeshCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateMeshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMeshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeshCommandOutput> {
     return deserializeAws_restJson1CreateMeshCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddonCommand}.
  */
 export interface DescribeAddonCommandInput extends DescribeAddonRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddonCommand}.
  */
 export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Amazon EKS add-on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddonCommandInput - {@link DescribeAddonCommandInput}
+ * @returns {@link DescribeAddonCommandOutput}
  * @see {@link DescribeAddonCommandInput} for command's `input` shape.
  * @see {@link DescribeAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeAddonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddonCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeAddonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAddonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddonCommandOutput> {
     return deserializeAws_restJson1DescribeAddonCommand(output, context);
   }

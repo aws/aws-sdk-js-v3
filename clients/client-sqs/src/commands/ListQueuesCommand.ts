@@ -23,15 +23,20 @@ import { deserializeAws_queryListQueuesCommand, serializeAws_queryListQueuesComm
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandInput extends ListQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of your queues in the current region. The response includes a maximum of 1,000 results. If you specify a value for the optional
  *           <code>QueueNamePrefix</code> parameter, only queues with a name that begins with the specified value are returned.</p>
  *          <p> The <code>listQueues</code> methods supports
@@ -56,6 +61,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
+ * @returns {@link ListQueuesCommandOutput}
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuesCommandOutput> {
     return deserializeAws_queryListQueuesCommand(output, context);
   }

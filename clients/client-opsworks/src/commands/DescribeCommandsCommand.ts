@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCommandsCommand}.
  */
 export interface DescribeCommandsCommandInput extends DescribeCommandsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCommandsCommand}.
  */
 export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the results of specified commands.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -54,6 +59,8 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCommandsCommandInput - {@link DescribeCommandsCommandInput}
+ * @returns {@link DescribeCommandsCommandOutput}
  * @see {@link DescribeCommandsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommandsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeCommandsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCommandsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeCommandsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCommandsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCommandsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommandsCommandOutput> {
     return deserializeAws_json1_1DescribeCommandsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopStreamingSessionCommand}.
  */
 export interface StopStreamingSessionCommandInput extends StopStreamingSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopStreamingSessionCommand}.
  */
 export interface StopStreamingSessionCommandOutput extends StopStreamingSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transitions sessions from the <code>READY</code> state into the <code>STOPPED</code>
  *             state. The <code>STOP_IN_PROGRESS</code> state is the intermediate state between the
  *                 <code>READY</code> and <code>STOPPED</code> states.</p>
@@ -48,6 +53,8 @@ export interface StopStreamingSessionCommandOutput extends StopStreamingSessionR
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStreamingSessionCommandInput - {@link StopStreamingSessionCommandInput}
+ * @returns {@link StopStreamingSessionCommandOutput}
  * @see {@link StopStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link StopStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +102,9 @@ export class StopStreamingSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class StopStreamingSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopStreamingSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamingSessionCommandOutput> {
     return deserializeAws_restJson1StopStreamingSessionCommand(output, context);
   }

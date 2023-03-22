@@ -23,15 +23,20 @@ import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import { deserializeAws_json1_1GetHITCommand, serializeAws_json1_1GetHITCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHITCommand}.
  */
 export interface GetHITCommandInput extends GetHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHITCommand}.
  */
 export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>GetHIT</code> operation retrieves the details of the specified HIT.
  *         </p>
@@ -45,6 +50,8 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHITCommandInput - {@link GetHITCommandInput}
+ * @returns {@link GetHITCommandOutput}
  * @see {@link GetHITCommandInput} for command's `input` shape.
  * @see {@link GetHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -70,6 +77,9 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHITCommandOutput> {
     return deserializeAws_json1_1GetHITCommand(output, context);
   }

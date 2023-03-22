@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectCommand}.
  */
-type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
+export type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
   /**
    * For *`PutObjectRequest["Body"]`*, see {@link PutObjectRequest.Body}.
    */
@@ -39,11 +41,14 @@ type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectCommand}.
  */
 export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB for standard upload availability and 10 MB for streaming upload availability.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +60,8 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectCommandInput - {@link PutObjectCommandInput}
+ * @returns {@link PutObjectCommandOutput}
  * @see {@link PutObjectCommandInput} for command's `input` shape.
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
@@ -84,6 +91,9 @@ export class PutObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
     return deserializeAws_restJson1PutObjectCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartCanaryCommand}.
  */
 export interface StartCanaryCommandInput extends StartCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCanaryCommand}.
  */
 export interface StartCanaryCommandOutput extends StartCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to run a canary that has already been created.
  *          The frequency of the canary runs is determined by the value of the canary's <code>Schedule</code>. To see a canary's schedule,
  *          use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html">GetCanary</a>.</p>
@@ -48,6 +53,8 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCanaryCommandInput - {@link StartCanaryCommandInput}
+ * @returns {@link StartCanaryCommandOutput}
  * @see {@link StartCanaryCommandInput} for command's `input` shape.
  * @see {@link StartCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -83,6 +90,9 @@ export class StartCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class StartCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCanaryCommandOutput> {
     return deserializeAws_restJson1StartCanaryCommand(output, context);
   }

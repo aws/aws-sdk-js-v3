@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutClusterCapacityProvidersCommand}.
  */
 export interface PutClusterCapacityProvidersCommandInput extends PutClusterCapacityProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutClusterCapacityProvidersCommand}.
  */
 export interface PutClusterCapacityProvidersCommandOutput
@@ -37,6 +41,7 @@ export interface PutClusterCapacityProvidersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the available capacity providers and the default capacity provider strategy
  * 			for a cluster.</p>
  *          <p>You must specify both the available capacity providers and a default capacity provider
@@ -61,6 +66,8 @@ export interface PutClusterCapacityProvidersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutClusterCapacityProvidersCommandInput - {@link PutClusterCapacityProvidersCommandInput}
+ * @returns {@link PutClusterCapacityProvidersCommandOutput}
  * @see {@link PutClusterCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link PutClusterCapacityProvidersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -109,6 +116,9 @@ export class PutClusterCapacityProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutClusterCapacityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class PutClusterCapacityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutClusterCapacityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutClusterCapacityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

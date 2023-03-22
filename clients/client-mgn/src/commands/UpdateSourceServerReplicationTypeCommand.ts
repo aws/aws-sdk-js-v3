@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSourceServerReplicationTypeCommand}.
  */
 export interface UpdateSourceServerReplicationTypeCommandInput extends UpdateSourceServerReplicationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSourceServerReplicationTypeCommand}.
  */
 export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSourceServerReplicationTypeCommandInput - {@link UpdateSourceServerReplicationTypeCommandInput}
+ * @returns {@link UpdateSourceServerReplicationTypeCommandOutput}
  * @see {@link UpdateSourceServerReplicationTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceServerReplicationTypeCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSourceServerReplicationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSourceServerReplicationTypeCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
     return serializeAws_restJson1UpdateSourceServerReplicationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateApiCommand}.
  */
 export interface DisassociateApiCommandInput extends DisassociateApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateApiCommand}.
  */
 export interface DisassociateApiCommandOutput extends DisassociateApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an <code>ApiAssociation</code> object from a custom domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateApiCommandOutput extends DisassociateApiResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateApiCommandInput - {@link DisassociateApiCommandInput}
+ * @returns {@link DisassociateApiCommandOutput}
  * @see {@link DisassociateApiCommandInput} for command's `input` shape.
  * @see {@link DisassociateApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisassociateApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateApiCommandOutput> {
     return deserializeAws_restJson1DisassociateApiCommand(output, context);
   }

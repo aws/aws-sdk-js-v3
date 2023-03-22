@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveBackendConfigCommand}.
  */
 export interface RemoveBackendConfigCommandInput extends RemoveBackendConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveBackendConfigCommand}.
  */
 export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the AWS resources required to access the Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveBackendConfigCommandInput - {@link RemoveBackendConfigCommandInput}
+ * @returns {@link RemoveBackendConfigCommandOutput}
  * @see {@link RemoveBackendConfigCommandInput} for command's `input` shape.
  * @see {@link RemoveBackendConfigCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class RemoveBackendConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveBackendConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RemoveBackendConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveBackendConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveBackendConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveBackendConfigCommandOutput> {
     return deserializeAws_restJson1RemoveBackendConfigCommand(output, context);
   }

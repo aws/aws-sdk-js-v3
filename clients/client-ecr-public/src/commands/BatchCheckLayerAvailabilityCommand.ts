@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCheckLayerAvailabilityCommand}.
  */
 export interface BatchCheckLayerAvailabilityCommandInput extends BatchCheckLayerAvailabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCheckLayerAvailabilityCommand}.
  */
 export interface BatchCheckLayerAvailabilityCommandOutput
@@ -37,6 +41,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the availability of one or more image layers that are within a repository in a
  *          public registry. When an image is pushed to a repository, each image layer is checked to
  *          verify if it has been uploaded before. If it has been uploaded, then the image layer is
@@ -54,6 +59,8 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCheckLayerAvailabilityCommandInput - {@link BatchCheckLayerAvailabilityCommandInput}
+ * @returns {@link BatchCheckLayerAvailabilityCommandOutput}
  * @see {@link BatchCheckLayerAvailabilityCommandInput} for command's `input` shape.
  * @see {@link BatchCheckLayerAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -94,6 +101,9 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCheckLayerAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCheckLayerAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchCheckLayerAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

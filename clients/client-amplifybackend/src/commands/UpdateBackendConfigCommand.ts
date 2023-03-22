@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBackendConfigCommand}.
  */
 export interface UpdateBackendConfigCommandInput extends UpdateBackendConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBackendConfigCommand}.
  */
 export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the AWS resources required to access the Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBackendConfigCommandInput - {@link UpdateBackendConfigCommandInput}
+ * @returns {@link UpdateBackendConfigCommandOutput}
  * @see {@link UpdateBackendConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendConfigCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateBackendConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBackendConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateBackendConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBackendConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBackendConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackendConfigCommandOutput> {
     return deserializeAws_restJson1UpdateBackendConfigCommand(output, context);
   }

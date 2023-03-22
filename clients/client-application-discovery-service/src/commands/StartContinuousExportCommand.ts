@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartContinuousExportCommand}.
  */
 export interface StartContinuousExportCommandInput extends StartContinuousExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartContinuousExportCommand}.
  */
 export interface StartContinuousExportCommandOutput extends StartContinuousExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContinuousExportCommandInput - {@link StartContinuousExportCommandInput}
+ * @returns {@link StartContinuousExportCommandOutput}
  * @see {@link StartContinuousExportCommandInput} for command's `input` shape.
  * @see {@link StartContinuousExportCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -103,6 +110,9 @@ export class StartContinuousExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContinuousExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class StartContinuousExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContinuousExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartContinuousExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContinuousExportCommandOutput> {
     return deserializeAws_json1_1StartContinuousExportCommand(output, context);
   }

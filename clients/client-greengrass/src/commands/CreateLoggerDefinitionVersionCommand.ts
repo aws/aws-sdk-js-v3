@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoggerDefinitionVersionCommand}.
  */
 export interface CreateLoggerDefinitionVersionCommandInput extends CreateLoggerDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoggerDefinitionVersionCommand}.
  */
 export interface CreateLoggerDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateLoggerDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a logger definition that has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoggerDefinitionVersionCommandInput - {@link CreateLoggerDefinitionVersionCommandInput}
+ * @returns {@link CreateLoggerDefinitionVersionCommandOutput}
  * @see {@link CreateLoggerDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLoggerDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateLoggerDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoggerDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateLoggerDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoggerDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLoggerDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

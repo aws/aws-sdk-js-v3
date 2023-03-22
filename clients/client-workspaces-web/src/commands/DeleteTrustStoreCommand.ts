@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrustStoreCommand}.
  */
 export interface DeleteTrustStoreCommandInput extends DeleteTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrustStoreCommand}.
  */
 export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrustStoreCommandInput - {@link DeleteTrustStoreCommandInput}
+ * @returns {@link DeleteTrustStoreCommandOutput}
  * @see {@link DeleteTrustStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustStoreCommandOutput> {
     return deserializeAws_restJson1DeleteTrustStoreCommand(output, context);
   }

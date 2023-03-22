@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceCommand}.
  */
 export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceCommand}.
  */
 export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Lightsail instance.</p>
  *          <p>The <code>delete instance</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -49,6 +54,8 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
+ * @returns {@link DeleteInstanceCommandOutput}
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DeleteInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceCommandOutput> {
     return deserializeAws_json1_1DeleteInstanceCommand(output, context);
   }

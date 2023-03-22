@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveEndpointsCommand}.
  */
 export interface RemoveEndpointsCommandInput extends RemoveEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveEndpointsCommand}.
  */
 export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove endpoints from an endpoint group. </p>
  * 		       <p>The <code>RemoveEndpoints</code> API operation is the recommended option for removing endpoints. The alternative is to remove
  * 			endpoints by updating an endpoint group by using the
@@ -61,6 +66,8 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveEndpointsCommandInput - {@link RemoveEndpointsCommandInput}
+ * @returns {@link RemoveEndpointsCommandOutput}
  * @see {@link RemoveEndpointsCommandInput} for command's `input` shape.
  * @see {@link RemoveEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -99,6 +106,9 @@ export class RemoveEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class RemoveEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveEndpointsCommandOutput> {
     return deserializeAws_json1_1RemoveEndpointsCommand(output, context);
   }

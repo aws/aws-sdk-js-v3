@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnvironmentTemplateCommand}.
  */
 export interface UpdateEnvironmentTemplateCommandInput extends UpdateEnvironmentTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnvironmentTemplateCommand}.
  */
 export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmen
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentTemplateCommandInput - {@link UpdateEnvironmentTemplateCommandInput}
+ * @returns {@link UpdateEnvironmentTemplateCommandOutput}
  * @see {@link UpdateEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateEnvironmentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateEnvironmentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateEnvironmentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

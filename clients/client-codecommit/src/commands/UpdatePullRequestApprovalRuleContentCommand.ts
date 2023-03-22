@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePullRequestApprovalRuleContentCommand}.
  */
 export interface UpdatePullRequestApprovalRuleContentCommandInput extends UpdatePullRequestApprovalRuleContentInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePullRequestApprovalRuleContentCommand}.
  */
 export interface UpdatePullRequestApprovalRuleContentCommandOutput
@@ -37,6 +41,7 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and
  *             the approval pool for approvers. </p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePullRequestApprovalRuleContentCommandInput - {@link UpdatePullRequestApprovalRuleContentCommandInput}
+ * @returns {@link UpdatePullRequestApprovalRuleContentCommandOutput}
  * @see {@link UpdatePullRequestApprovalRuleContentCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestApprovalRuleContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -121,6 +128,9 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePullRequestApprovalRuleContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,6 +170,9 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdatePullRequestApprovalRuleContentCommandInput,
     context: __SerdeContext
@@ -167,6 +180,9 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     return serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

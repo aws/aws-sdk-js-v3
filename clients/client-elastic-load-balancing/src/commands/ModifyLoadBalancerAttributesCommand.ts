@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyLoadBalancerAttributesCommand}.
  */
 export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBalancerAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyLoadBalancerAttributesCommand}.
  */
 export interface ModifyLoadBalancerAttributesCommandOutput
@@ -41,6 +45,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the attributes of the specified load balancer.</p>
  *         <p>You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>, and
  *             <code>CrossZoneLoadBalancing</code> by either enabling or disabling them. Or, you can modify the load balancer attribute
@@ -78,6 +83,8 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
+ * @returns {@link ModifyLoadBalancerAttributesCommandOutput}
  * @see {@link ModifyLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -164,6 +171,9 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyLoadBalancerAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,10 +213,16 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyLoadBalancerAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyLoadBalancerAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

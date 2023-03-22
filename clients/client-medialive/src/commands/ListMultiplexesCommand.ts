@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMultiplexesCommand}.
  */
 export interface ListMultiplexesCommandInput extends ListMultiplexesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMultiplexesCommand}.
  */
 export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve a list of the existing multiplexes.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultiplexesCommandInput - {@link ListMultiplexesCommandInput}
+ * @returns {@link ListMultiplexesCommandOutput}
  * @see {@link ListMultiplexesCommandInput} for command's `input` shape.
  * @see {@link ListMultiplexesCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListMultiplexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultiplexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListMultiplexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultiplexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMultiplexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultiplexesCommandOutput> {
     return deserializeAws_restJson1ListMultiplexesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEulasCommand}.
  */
 export interface ListEulasCommandInput extends ListEulasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEulasCommand}.
  */
 export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List EULAs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEulasCommandInput - {@link ListEulasCommandInput}
+ * @returns {@link ListEulasCommandOutput}
  * @see {@link ListEulasCommandInput} for command's `input` shape.
  * @see {@link ListEulasCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListEulasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEulasCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListEulasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEulasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEulasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEulasCommandOutput> {
     return deserializeAws_restJson1ListEulasCommand(output, context);
   }

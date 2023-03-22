@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ComposeEnvironmentsCommand}.
  */
 export interface ComposeEnvironmentsCommandInput extends ComposeEnvironmentsMessage {}
 /**
+ * @public
+ *
  * The output of {@link ComposeEnvironmentsCommand}.
  */
 export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create or update a group of environments that each run a separate component of a single
  *       application. Takes a list of version labels that specify application source bundles for each
  *       of the environments to create or update. The name of each environment and other required
@@ -51,6 +56,8 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * const response = await client.send(command);
  * ```
  *
+ * @param ComposeEnvironmentsCommandInput - {@link ComposeEnvironmentsCommandInput}
+ * @returns {@link ComposeEnvironmentsCommandOutput}
  * @see {@link ComposeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ComposeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -81,6 +88,9 @@ export class ComposeEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ComposeEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ComposeEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ComposeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryComposeEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ComposeEnvironmentsCommandOutput> {
     return deserializeAws_queryComposeEnvironmentsCommand(output, context);
   }

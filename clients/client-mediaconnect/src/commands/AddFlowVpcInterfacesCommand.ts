@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddFlowVpcInterfacesCommand}.
  */
 export interface AddFlowVpcInterfacesCommandInput extends AddFlowVpcInterfacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddFlowVpcInterfacesCommand}.
  */
 export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Adds VPC interfaces to flow
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFlowVpcInterfacesCommandInput - {@link AddFlowVpcInterfacesCommandInput}
+ * @returns {@link AddFlowVpcInterfacesCommandOutput}
  * @see {@link AddFlowVpcInterfacesCommandInput} for command's `input` shape.
  * @see {@link AddFlowVpcInterfacesCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFlowVpcInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFlowVpcInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddFlowVpcInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowVpcInterfacesCommandOutput> {
     return deserializeAws_restJson1AddFlowVpcInterfacesCommand(output, context);
   }

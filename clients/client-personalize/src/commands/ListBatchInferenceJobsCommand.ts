@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchInferenceJobsCommand}.
  */
 export interface ListBatchInferenceJobsCommandInput extends ListBatchInferenceJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchInferenceJobsCommand}.
  */
 export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the batch inference jobs that have been performed off of a solution
  *       version.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchInferenceJobsCommandInput - {@link ListBatchInferenceJobsCommandInput}
+ * @returns {@link ListBatchInferenceJobsCommandOutput}
  * @see {@link ListBatchInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListBatchInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListBatchInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListBatchInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBatchInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchInferenceJobsCommandOutput> {
     return deserializeAws_json1_1ListBatchInferenceJobsCommand(output, context);
   }

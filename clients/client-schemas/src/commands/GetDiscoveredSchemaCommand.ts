@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDiscoveredSchemaCommand}.
  */
 export interface GetDiscoveredSchemaCommandInput extends GetDiscoveredSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDiscoveredSchemaCommand}.
  */
 export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the discovered schema that was generated based on sampled events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDiscoveredSchemaCommandInput - {@link GetDiscoveredSchemaCommandInput}
+ * @returns {@link GetDiscoveredSchemaCommandOutput}
  * @see {@link GetDiscoveredSchemaCommandInput} for command's `input` shape.
  * @see {@link GetDiscoveredSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetDiscoveredSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDiscoveredSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetDiscoveredSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDiscoveredSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDiscoveredSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiscoveredSchemaCommandOutput> {
     return deserializeAws_restJson1GetDiscoveredSchemaCommand(output, context);
   }

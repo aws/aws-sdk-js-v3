@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopStreamEncryptionCommand}.
  */
 export interface StopStreamEncryptionCommandInput extends StopStreamEncryptionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopStreamEncryptionCommand}.
  */
 export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables server-side encryption for a specified stream. </p>
  *          <note>
  *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
@@ -59,6 +64,8 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStreamEncryptionCommandInput - {@link StopStreamEncryptionCommandInput}
+ * @returns {@link StopStreamEncryptionCommandOutput}
  * @see {@link StopStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StopStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -104,6 +111,9 @@ export class StopStreamEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class StopStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamEncryptionCommandOutput> {
     return deserializeAws_json1_1StopStreamEncryptionCommand(output, context);
   }

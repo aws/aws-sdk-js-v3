@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSystemTemplateRevisionsCommand}.
  */
 export interface GetSystemTemplateRevisionsCommandInput extends GetSystemTemplateRevisionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSystemTemplateRevisionsCommand}.
  */
 export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTemplateRevisionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
@@ -49,6 +54,8 @@ export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTempla
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSystemTemplateRevisionsCommandInput - {@link GetSystemTemplateRevisionsCommandInput}
+ * @returns {@link GetSystemTemplateRevisionsCommandOutput}
  * @see {@link GetSystemTemplateRevisionsCommandInput} for command's `input` shape.
  * @see {@link GetSystemTemplateRevisionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSystemTemplateRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSystemTemplateRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSystemTemplateRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingsInThingGroupCommand}.
  */
 export interface ListThingsInThingGroupCommandInput extends ListThingsInThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingsInThingGroupCommand}.
  */
 export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the things in the specified group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInThingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGr
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingsInThingGroupCommandInput - {@link ListThingsInThingGroupCommandInput}
+ * @returns {@link ListThingsInThingGroupCommandOutput}
  * @see {@link ListThingsInThingGroupCommandInput} for command's `input` shape.
  * @see {@link ListThingsInThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListThingsInThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingsInThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListThingsInThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingsInThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThingsInThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingsInThingGroupCommandOutput> {
     return deserializeAws_restJson1ListThingsInThingGroupCommand(output, context);
   }

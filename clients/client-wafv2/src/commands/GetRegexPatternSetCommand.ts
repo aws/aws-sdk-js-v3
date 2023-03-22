@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegexPatternSetCommand}.
  */
 export interface GetRegexPatternSetCommandInput extends GetRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegexPatternSetCommand}.
  */
 export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified <a>RegexPatternSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegexPatternSetCommandInput - {@link GetRegexPatternSetCommandInput}
+ * @returns {@link GetRegexPatternSetCommandOutput}
  * @see {@link GetRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link GetRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -103,6 +110,9 @@ export class GetRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegexPatternSetCommandOutput> {
     return deserializeAws_json1_1GetRegexPatternSetCommand(output, context);
   }

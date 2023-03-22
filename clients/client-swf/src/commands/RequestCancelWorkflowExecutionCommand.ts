@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RequestCancelWorkflowExecutionCommand}.
  */
 export interface RequestCancelWorkflowExecutionCommandInput extends RequestCancelWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link RequestCancelWorkflowExecutionCommand}.
  */
 export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records a <code>WorkflowExecutionCancelRequested</code> event in the currently running
  *       workflow execution identified by the given domain, workflowId, and runId. This logically
  *       requests the cancellation of the workflow execution as a whole. It is up to the decider to
@@ -82,6 +87,8 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestCancelWorkflowExecutionCommandInput - {@link RequestCancelWorkflowExecutionCommandInput}
+ * @returns {@link RequestCancelWorkflowExecutionCommandOutput}
  * @see {@link RequestCancelWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link RequestCancelWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -111,6 +118,9 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestCancelWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RequestCancelWorkflowExecutionCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     return serializeAws_json1_0RequestCancelWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

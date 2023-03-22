@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceOnboardingJobCommand}.
  */
 export interface DeleteInstanceOnboardingJobCommandInput extends DeleteInstanceOnboardingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceOnboardingJobCommand}.
  */
 export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Delete the Connect Campaigns onboarding job for the specified Amazon Connect instance.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceOnboardingJobCommandInput - {@link DeleteInstanceOnboardingJobCommandInput}
+ * @returns {@link DeleteInstanceOnboardingJobCommandOutput}
  * @see {@link DeleteInstanceOnboardingJobCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceOnboardingJobCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceOnboardingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceOnboardingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteInstanceOnboardingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

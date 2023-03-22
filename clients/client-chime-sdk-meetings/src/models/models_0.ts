@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKMeetingsServiceException";
 
+/**
+ * @public
+ */
 export enum MediaCapabilities {
   NONE = "None",
   RECEIVE = "Receive",
@@ -11,6 +14,7 @@ export enum MediaCapabilities {
 }
 
 /**
+ * @public
  * <p>The media capabilities of an attendee: audio, video, or content. </p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
@@ -51,6 +55,7 @@ export interface AttendeeCapabilities {
 }
 
 /**
+ * @public
  * <p>An Amazon Chime SDK meeting attendee. Includes a unique
  *            <code>AttendeeId</code> and <code>JoinToken</code>. The
  *            <code>JoinToken</code>
@@ -67,7 +72,7 @@ export interface AttendeeCapabilities {
 export interface Attendee {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
    *          </p>
    *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
    *             Case insensitive.</p>
@@ -111,6 +116,7 @@ export interface Attendee {
 }
 
 /**
+ * @public
  * <p>A structure that contains one or more attendee IDs.</p>
  */
 export interface AttendeeIdItem {
@@ -120,12 +126,16 @@ export interface AttendeeIdItem {
   AttendeeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MeetingFeatureStatus {
   AVAILABLE = "AVAILABLE",
   UNAVAILABLE = "UNAVAILABLE",
 }
 
 /**
+ * @public
  * <p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus. </p>
  */
 export interface AudioFeatures {
@@ -136,6 +146,7 @@ export interface AudioFeatures {
 }
 
 /**
+ * @public
  * <p>The input parameters don't match the service's restrictions.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -164,12 +175,13 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.</p>
  */
 export interface CreateAttendeeRequestItem {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
    *          </p>
    *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
    *             Case insensitive.</p>
@@ -182,6 +194,9 @@ export interface CreateAttendeeRequestItem {
   Capabilities?: AttendeeCapabilities;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK ID of the meeting to which you're adding attendees.</p>
@@ -195,12 +210,13 @@ export interface BatchCreateAttendeeRequest {
 }
 
 /**
+ * @public
  * <p>The list of errors returned when errors are encountered during the BatchCreateAttendee and CreateAttendee actions. This includes external user IDs, error codes, and error messages.</p>
  */
 export interface CreateAttendeeError {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
    *          </p>
    *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
    *             Case insensitive.</p>
@@ -218,6 +234,9 @@ export interface CreateAttendeeError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
@@ -231,6 +250,7 @@ export interface BatchCreateAttendeeResponse {
 }
 
 /**
+ * @public
  * <p>The client is permanently forbidden from making the request.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -259,6 +279,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeds the resource limit.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -287,6 +308,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -315,6 +337,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -343,6 +366,7 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -377,6 +401,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of customer requests exceeds the request rate limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -405,6 +430,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user isn't authorized to request a resource.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -433,6 +459,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -460,6 +487,9 @@ export class UnprocessableEntityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
   /**
    * <p>The ID of the meeting associated with the update request.</p>
@@ -478,6 +508,7 @@ export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
 }
 
 /**
+ * @public
  * <p>Multiple instances of the same request have been made simultaneously.</p>
  */
 export class ConflictException extends __BaseException {
@@ -505,6 +536,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAttendeeRequest {
   /**
    * <p>The unique ID of the meeting.</p>
@@ -513,7 +547,7 @@ export interface CreateAttendeeRequest {
 
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
    *          </p>
    *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that
    *             uses this prefix.</p>
@@ -547,6 +581,9 @@ export interface CreateAttendeeRequest {
   Capabilities?: AttendeeCapabilities;
 }
 
+/**
+ * @public
+ */
 export interface CreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendee ID and join token.</p>
@@ -555,6 +592,7 @@ export interface CreateAttendeeResponse {
 }
 
 /**
+ * @public
  * <p>The configuration settings of the features available to a meeting.</p>
  */
 export interface MeetingFeaturesConfiguration {
@@ -565,6 +603,7 @@ export interface MeetingFeaturesConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
  */
 export interface NotificationsConfiguration {
@@ -585,6 +624,7 @@ export interface NotificationsConfiguration {
 }
 
 /**
+ * @public
  * <p>A key-value pair that you define.</p>
  */
 export interface Tag {
@@ -599,6 +639,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingRequest {
   /**
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -639,7 +682,7 @@ export interface CreateMeetingRequest {
 
   /**
    * <p>The external meeting ID.</p>
-   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
    *          </p>
    *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
    *            Case insensitive.</p>
@@ -710,6 +753,7 @@ export interface CreateMeetingRequest {
 }
 
 /**
+ * @public
  * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
  */
 export interface MediaPlacement {
@@ -755,6 +799,7 @@ export interface MediaPlacement {
 }
 
 /**
+ * @public
  * <p>A meeting created using the Amazon Chime SDK.</p>
  */
 export interface Meeting {
@@ -770,7 +815,7 @@ export interface Meeting {
 
   /**
    * <p>The external meeting ID.</p>
-   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
    *          </p>
    *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
    *             Case insensitive.</p>
@@ -814,6 +859,9 @@ export interface Meeting {
   MeetingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingResponse {
   /**
    * <p>The meeting information, including the meeting ID and
@@ -822,6 +870,9 @@ export interface CreateMeetingResponse {
   Meeting?: Meeting;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingWithAttendeesRequest {
   /**
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -862,7 +913,7 @@ export interface CreateMeetingWithAttendeesRequest {
 
   /**
    * <p>The external meeting ID.</p>
-   *          <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
    *          </p>
    *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
    *            Case insensitive.</p>
@@ -900,6 +951,9 @@ export interface CreateMeetingWithAttendeesRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingWithAttendeesResponse {
   /**
    * <p>The meeting information, including the meeting ID and
@@ -918,6 +972,9 @@ export interface CreateMeetingWithAttendeesResponse {
   Errors?: CreateAttendeeError[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -930,6 +987,9 @@ export interface DeleteAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -937,6 +997,9 @@ export interface DeleteMeetingRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -949,6 +1012,9 @@ export interface GetAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAttendeeResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -956,6 +1022,9 @@ export interface GetAttendeeResponse {
   Attendee?: Attendee;
 }
 
+/**
+ * @public
+ */
 export interface GetMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -963,6 +1032,9 @@ export interface GetMeetingRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMeetingResponse {
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
@@ -970,6 +1042,9 @@ export interface GetMeetingResponse {
   Meeting?: Meeting;
 }
 
+/**
+ * @public
+ */
 export interface ListAttendeesRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -987,6 +1062,9 @@ export interface ListAttendeesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAttendeesResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -999,6 +1077,9 @@ export interface ListAttendeesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1006,6 +1087,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags requested for the specified resource.</p>
@@ -1014,6 +1098,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The resource that you want to tag couldn't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1047,14 +1132,23 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalContentIdentificationType {
   PHI = "PHI",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalLanguageCode {
   EN_US = "en-US",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalRegion {
   AP_SOUTHEAST_2 = "ap-southeast-2",
   AUTO = "auto",
@@ -1065,6 +1159,9 @@ export enum TranscribeMedicalRegion {
   US_WEST_2 = "us-west-2",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalSpecialty {
   CARDIOLOGY = "CARDIOLOGY",
   NEUROLOGY = "NEUROLOGY",
@@ -1074,12 +1171,16 @@ export enum TranscribeMedicalSpecialty {
   UROLOGY = "UROLOGY",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalType {
   CONVERSATION = "CONVERSATION",
   DICTATION = "DICTATION",
 }
 
 /**
+ * @public
  * <p>Settings specific to the Amazon Transcribe Medical engine.</p>
  */
 export interface EngineTranscribeMedicalSettings {
@@ -1114,14 +1215,23 @@ export interface EngineTranscribeMedicalSettings {
   ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
 }
 
+/**
+ * @public
+ */
 export enum TranscribeContentIdentificationType {
   PII = "PII",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeContentRedactionType {
   PII = "PII",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeLanguageCode {
   DE_DE = "de-DE",
   EN_AU = "en-AU",
@@ -1137,12 +1247,18 @@ export enum TranscribeLanguageCode {
   ZH_CN = "zh-CN",
 }
 
+/**
+ * @public
+ */
 export enum TranscribePartialResultsStability {
   HIGH = "high",
   LOW = "low",
   MEDIUM = "medium",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeRegion {
   AP_NORTHEAST_1 = "ap-northeast-1",
   AP_NORTHEAST_2 = "ap-northeast-2",
@@ -1159,6 +1275,9 @@ export enum TranscribeRegion {
   US_WEST_2 = "us-west-2",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeVocabularyFilterMethod {
   MASK = "mask",
   REMOVE = "remove",
@@ -1166,6 +1285,7 @@ export enum TranscribeVocabularyFilterMethod {
 }
 
 /**
+ * @public
  * <p>Settings specific to the Amazon Transcribe engine.</p>
  */
 export interface EngineTranscribeSettings {
@@ -1248,6 +1368,7 @@ export interface EngineTranscribeSettings {
 }
 
 /**
+ * @public
  * <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or <code>EngineTranscribeMedicalSettings</code>.</p>
  */
 export interface TranscriptionConfiguration {
@@ -1262,6 +1383,9 @@ export interface TranscriptionConfiguration {
   EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings;
 }
 
+/**
+ * @public
+ */
 export interface StartMeetingTranscriptionRequest {
   /**
    * <p>The unique ID of the meeting being transcribed.</p>
@@ -1275,6 +1399,9 @@ export interface StartMeetingTranscriptionRequest {
   TranscriptionConfiguration: TranscriptionConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMeetingTranscriptionRequest {
   /**
    * <p>The unique ID of the meeting for which you stop transcription.</p>
@@ -1282,6 +1409,9 @@ export interface StopMeetingTranscriptionRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1294,9 +1424,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Too many tags were added to the specified resource.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -1330,6 +1464,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource that you're removing tags from.</p>
@@ -1342,8 +1479,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAttendeeCapabilitiesRequest {
   /**
    * <p>The ID of the meeting associated with the update request.</p>
@@ -1361,6 +1504,9 @@ export interface UpdateAttendeeCapabilitiesRequest {
   Capabilities: AttendeeCapabilities | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAttendeeCapabilitiesResponse {
   /**
    * <p>The updated attendee data.</p>

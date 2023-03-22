@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCrawlerScheduleCommand}.
  */
 export interface StartCrawlerScheduleCommandInput extends StartCrawlerScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCrawlerScheduleCommand}.
  */
 export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the schedule state of the specified crawler to
  *       <code>SCHEDULED</code>, unless the crawler is already running or the
  *       schedule state is already <code>SCHEDULED</code>.</p>
@@ -48,6 +53,8 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCrawlerScheduleCommandInput - {@link StartCrawlerScheduleCommandInput}
+ * @returns {@link StartCrawlerScheduleCommandOutput}
  * @see {@link StartCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link StartCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartCrawlerScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCrawlerScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartCrawlerScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartCrawlerScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1StartCrawlerScheduleCommand(output, context);
   }

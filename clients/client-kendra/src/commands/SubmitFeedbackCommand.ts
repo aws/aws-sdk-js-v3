@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitFeedbackCommand}.
  */
 export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitFeedbackCommand}.
  */
 export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables you to provide feedback to Amazon Kendra to improve the
  *             performance of your index.</p>
  *          <p>
@@ -45,6 +50,8 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
+ * @returns {@link SubmitFeedbackCommandOutput}
  * @see {@link SubmitFeedbackCommandInput} for command's `input` shape.
  * @see {@link SubmitFeedbackCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -92,6 +99,9 @@ export class SubmitFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class SubmitFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SubmitFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitFeedbackCommandOutput> {
     return deserializeAws_json1_1SubmitFeedbackCommand(output, context);
   }

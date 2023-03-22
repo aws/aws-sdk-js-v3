@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkloadCommand}.
  */
 export interface CreateWorkloadCommandInput extends CreateWorkloadInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkloadCommand}.
  */
 export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new workload.</p>
  *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts, IAM users,
  *             an organization, and organizational units (OUs)
@@ -51,6 +56,8 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkloadCommandInput - {@link CreateWorkloadCommandInput}
+ * @returns {@link CreateWorkloadCommandOutput}
  * @see {@link CreateWorkloadCommandInput} for command's `input` shape.
  * @see {@link CreateWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateWorkloadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateWorkloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorkloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkloadCommandOutput> {
     return deserializeAws_restJson1CreateWorkloadCommand(output, context);
   }

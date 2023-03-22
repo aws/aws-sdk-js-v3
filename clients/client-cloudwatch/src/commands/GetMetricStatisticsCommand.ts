@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricStatisticsCommand}.
  */
 export interface GetMetricStatisticsCommandInput extends GetMetricStatisticsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricStatisticsCommand}.
  */
 export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets statistics for the specified metric.</p>
  *          <p>The maximum number of data points returned from a single call is 1,440. If
  * 			you request more than 1,440 data points, CloudWatch returns an error.
@@ -92,6 +97,8 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricStatisticsCommandInput - {@link GetMetricStatisticsCommandInput}
+ * @returns {@link GetMetricStatisticsCommandOutput}
  * @see {@link GetMetricStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetMetricStatisticsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -127,6 +134,9 @@ export class GetMetricStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class GetMetricStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetMetricStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricStatisticsCommandOutput> {
     return deserializeAws_queryGetMetricStatisticsCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingControlCommand}.
  */
 export interface UpdateRoutingControlCommandInput extends UpdateRoutingControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingControlCommand}.
  */
 export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a routing control. You can only update the name of the routing control. To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingControlCommandInput - {@link UpdateRoutingControlCommandInput}
+ * @returns {@link UpdateRoutingControlCommandOutput}
  * @see {@link UpdateRoutingControlCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateRoutingControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateRoutingControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRoutingControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoutingControlCommandOutput> {
     return deserializeAws_restJson1UpdateRoutingControlCommand(output, context);
   }

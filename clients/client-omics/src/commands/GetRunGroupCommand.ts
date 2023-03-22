@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRunGroupCommand}.
  */
 export interface GetRunGroupCommandInput extends GetRunGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRunGroupCommand}.
  */
 export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a workflow run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRunGroupCommandInput - {@link GetRunGroupCommandInput}
+ * @returns {@link GetRunGroupCommandOutput}
  * @see {@link GetRunGroupCommandInput} for command's `input` shape.
  * @see {@link GetRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetRunGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRunGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetRunGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRunGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunGroupCommandOutput> {
     return deserializeAws_restJson1GetRunGroupCommand(output, context);
   }

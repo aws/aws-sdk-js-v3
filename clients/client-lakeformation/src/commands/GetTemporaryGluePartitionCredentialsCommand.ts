@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemporaryGluePartitionCredentialsCommand}.
  */
 export interface GetTemporaryGluePartitionCredentialsCommandInput extends GetTemporaryGluePartitionCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTemporaryGluePartitionCredentialsCommand}.
  */
 export interface GetTemporaryGluePartitionCredentialsCommandOutput
@@ -37,6 +41,7 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is identical to <code>GetTemporaryTableCredentials</code> except that this is used when the target Data Catalog resource is of type Partition.  Lake Formation restricts the permission of the vended credentials with the same scope down policy which restricts access to a single Amazon S3 prefix.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemporaryGluePartitionCredentialsCommandInput - {@link GetTemporaryGluePartitionCredentialsCommandInput}
+ * @returns {@link GetTemporaryGluePartitionCredentialsCommandOutput}
  * @see {@link GetTemporaryGluePartitionCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetTemporaryGluePartitionCredentialsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemporaryGluePartitionCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTemporaryGluePartitionCredentialsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
     return serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

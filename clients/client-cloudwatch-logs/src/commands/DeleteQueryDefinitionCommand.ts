@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueryDefinitionCommand}.
  */
 export interface DeleteQueryDefinitionCommandInput extends DeleteQueryDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueryDefinitionCommand}.
  */
 export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a saved CloudWatch Logs Insights query definition.
  *       A query definition contains details about a saved CloudWatch Logs Insights query.</p>
  *          <p>Each <code>DeleteQueryDefinition</code> operation can delete one query definition.</p>
@@ -50,6 +55,8 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueryDefinitionCommandInput - {@link DeleteQueryDefinitionCommandInput}
+ * @returns {@link DeleteQueryDefinitionCommandOutput}
  * @see {@link DeleteQueryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteQueryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteQueryDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueryDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteQueryDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteQueryDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueryDefinitionCommandOutput> {
     return deserializeAws_json1_1DeleteQueryDefinitionCommand(output, context);
   }

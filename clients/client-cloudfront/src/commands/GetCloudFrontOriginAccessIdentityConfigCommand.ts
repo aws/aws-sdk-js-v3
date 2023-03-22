@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
  */
 export interface GetCloudFrontOriginAccessIdentityConfigCommandInput
   extends GetCloudFrontOriginAccessIdentityConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
  */
 export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
@@ -38,6 +42,7 @@ export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the configuration information about an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCloudFrontOriginAccessIdentityConfigCommandInput - {@link GetCloudFrontOriginAccessIdentityConfigCommandInput}
+ * @returns {@link GetCloudFrontOriginAccessIdentityConfigCommandOutput}
  * @see {@link GetCloudFrontOriginAccessIdentityConfigCommandInput} for command's `input` shape.
  * @see {@link GetCloudFrontOriginAccessIdentityConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCloudFrontOriginAccessIdentityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     return serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

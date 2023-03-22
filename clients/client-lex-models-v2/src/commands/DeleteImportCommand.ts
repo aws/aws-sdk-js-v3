@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImportCommand}.
  */
 export interface DeleteImportCommandInput extends DeleteImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImportCommand}.
  */
 export interface DeleteImportCommandOutput extends DeleteImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a previous import and the associated file stored in an S3
  *          bucket.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteImportCommandOutput extends DeleteImportResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImportCommandInput - {@link DeleteImportCommandInput}
+ * @returns {@link DeleteImportCommandOutput}
  * @see {@link DeleteImportCommandInput} for command's `input` shape.
  * @see {@link DeleteImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImportCommandOutput> {
     return deserializeAws_restJson1DeleteImportCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RespondDecisionTaskCompletedCommand}.
  */
 export interface RespondDecisionTaskCompletedCommandInput extends RespondDecisionTaskCompletedInput {}
 /**
+ * @public
+ *
  * The output of {@link RespondDecisionTaskCompletedCommand}.
  */
 export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified
  *       by the <code>taskToken</code> has successfully completed. The <code>decisions</code> argument
  *       specifies the list of decisions made while processing the task.</p>
@@ -63,6 +68,8 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondDecisionTaskCompletedCommandInput - {@link RespondDecisionTaskCompletedCommandInput}
+ * @returns {@link RespondDecisionTaskCompletedCommandOutput}
  * @see {@link RespondDecisionTaskCompletedCommandInput} for command's `input` shape.
  * @see {@link RespondDecisionTaskCompletedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -92,6 +99,9 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondDecisionTaskCompletedCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondDecisionTaskCompletedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RespondDecisionTaskCompletedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeActivitiesCommand}.
  */
 export interface DescribeActivitiesCommandInput extends DescribeActivitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeActivitiesCommand}.
  */
 export interface DescribeActivitiesCommandOutput extends DescribeActivitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the user activities in a specified time period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActivitiesCommandInput - {@link DescribeActivitiesCommandInput}
+ * @returns {@link DescribeActivitiesCommandOutput}
  * @see {@link DescribeActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeActivitiesCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeActivitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeActivitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeActivitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivitiesCommandOutput> {
     return deserializeAws_restJson1DescribeActivitiesCommand(output, context);
   }

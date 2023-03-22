@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectSkillCommand}.
  */
 export interface RejectSkillCommandInput extends RejectSkillRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectSkillCommand}.
  */
 export interface RejectSkillCommandOutput extends RejectSkillResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a skill from the organization under a user's AWS account. If the skill
  *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill
  *          that is rejected can be added later by calling the ApproveSkill API. </p>
@@ -48,6 +53,8 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectSkillCommandInput - {@link RejectSkillCommandInput}
+ * @returns {@link RejectSkillCommandOutput}
  * @see {@link RejectSkillCommandInput} for command's `input` shape.
  * @see {@link RejectSkillCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -77,6 +84,9 @@ export class RejectSkillCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectSkillCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class RejectSkillCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectSkillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectSkillCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSkillCommandOutput> {
     return deserializeAws_json1_1RejectSkillCommand(output, context);
   }

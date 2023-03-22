@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionPublicIpv4PoolCidrCommand}.
  */
 export interface ProvisionPublicIpv4PoolCidrCommandInput extends ProvisionPublicIpv4PoolCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionPublicIpv4PoolCidrCommand}.
  */
 export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPublicIpv4PoolCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provision a CIDR to a public IPv4 pool.</p>
  *          <p>For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionPublicIpv4PoolCidrCommandInput - {@link ProvisionPublicIpv4PoolCidrCommandInput}
+ * @returns {@link ProvisionPublicIpv4PoolCidrCommandOutput}
  * @see {@link ProvisionPublicIpv4PoolCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionPublicIpv4PoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionPublicIpv4PoolCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionPublicIpv4PoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ProvisionPublicIpv4PoolCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

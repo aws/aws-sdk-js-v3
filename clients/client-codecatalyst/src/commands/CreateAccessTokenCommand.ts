@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessTokenCommand}.
  */
 export interface CreateAccessTokenCommandInput extends CreateAccessTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessTokenCommand}.
  */
 export interface CreateAccessTokenCommandOutput extends CreateAccessTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a personal access token (PAT) for the current user. A personal access token (PAT) is similar to a password.
  *       It is associated with your user account. You use PATs to access Amazon CodeCatalyst resources such as source repositories from third-party applications
  *       like Git and integrated development environments (IDEs). For more information, see
@@ -49,6 +54,8 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessTokenCommandInput - {@link CreateAccessTokenCommandInput}
+ * @returns {@link CreateAccessTokenCommandOutput}
  * @see {@link CreateAccessTokenCommandInput} for command's `input` shape.
  * @see {@link CreateAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateAccessTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateAccessTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccessTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessTokenCommandOutput> {
     return deserializeAws_restJson1CreateAccessTokenCommand(output, context);
   }

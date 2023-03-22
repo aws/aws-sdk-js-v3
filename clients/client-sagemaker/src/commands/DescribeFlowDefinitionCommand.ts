@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFlowDefinitionCommand}.
  */
 export interface DescribeFlowDefinitionCommandInput extends DescribeFlowDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFlowDefinitionCommand}.
  */
 export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified flow definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlowDefinitionCommandInput - {@link DescribeFlowDefinitionCommandInput}
+ * @returns {@link DescribeFlowDefinitionCommandOutput}
  * @see {@link DescribeFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeFlowDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlowDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeFlowDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFlowDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowDefinitionCommandOutput> {
     return deserializeAws_json1_1DescribeFlowDefinitionCommand(output, context);
   }

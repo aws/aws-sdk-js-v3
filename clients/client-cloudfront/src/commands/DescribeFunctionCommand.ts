@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFunctionCommand}.
  */
 export interface DescribeFunctionCommandInput extends DescribeFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFunctionCommand}.
  */
 export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets configuration information and metadata about a CloudFront function, but not the
  * 			function's code. To get a function's code, use <code>GetFunction</code>.</p>
  *          <p>To get configuration information and metadata about a function, you must provide the
@@ -50,6 +55,8 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFunctionCommandInput - {@link DescribeFunctionCommandInput}
+ * @returns {@link DescribeFunctionCommandOutput}
  * @see {@link DescribeFunctionCommandInput} for command's `input` shape.
  * @see {@link DescribeFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDescribeFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFunctionCommandOutput> {
     return deserializeAws_restXmlDescribeFunctionCommand(output, context);
   }

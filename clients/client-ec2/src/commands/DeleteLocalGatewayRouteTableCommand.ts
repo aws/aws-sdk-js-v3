@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocalGatewayRouteTableCommand}.
  */
 export interface DeleteLocalGatewayRouteTableCommandInput extends DeleteLocalGatewayRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocalGatewayRouteTableCommand}.
  */
 export interface DeleteLocalGatewayRouteTableCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteLocalGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a local gateway route table.
  *       </p>
@@ -50,6 +55,8 @@ export interface DeleteLocalGatewayRouteTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocalGatewayRouteTableCommandInput - {@link DeleteLocalGatewayRouteTableCommandInput}
+ * @returns {@link DeleteLocalGatewayRouteTableCommandOutput}
  * @see {@link DeleteLocalGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteLocalGatewayRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocalGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteLocalGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLocalGatewayRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteLocalGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

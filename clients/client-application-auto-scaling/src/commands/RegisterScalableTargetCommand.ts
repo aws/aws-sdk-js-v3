@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterScalableTargetCommand}.
  */
 export interface RegisterScalableTargetCommandInput extends RegisterScalableTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterScalableTargetCommand}.
  */
 export interface RegisterScalableTargetCommandOutput extends RegisterScalableTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers or updates a scalable target, which is the resource that you want to
  *          scale.</p>
  *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
@@ -81,6 +86,8 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterScalableTargetCommandInput - {@link RegisterScalableTargetCommandInput}
+ * @returns {@link RegisterScalableTargetCommandOutput}
  * @see {@link RegisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link RegisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -133,6 +140,9 @@ export class RegisterScalableTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterScalableTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class RegisterScalableTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterScalableTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterScalableTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterScalableTargetCommandOutput> {
     return deserializeAws_json1_1RegisterScalableTargetCommand(output, context);
   }

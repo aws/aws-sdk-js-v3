@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMediaLiveConnectorPipelineCommand}.
  */
 export interface CreateMediaLiveConnectorPipelineCommandInput extends CreateMediaLiveConnectorPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMediaLiveConnectorPipelineCommand}.
  */
 export interface CreateMediaLiveConnectorPipelineCommandOutput
@@ -41,6 +45,7 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a streaming media pipeline in an Amazon Chime SDK meeting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMediaLiveConnectorPipelineCommandInput - {@link CreateMediaLiveConnectorPipelineCommandInput}
+ * @returns {@link CreateMediaLiveConnectorPipelineCommandOutput}
  * @see {@link CreateMediaLiveConnectorPipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaLiveConnectorPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMediaLiveConnectorPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateMediaLiveConnectorPipelineCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command<
     return serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

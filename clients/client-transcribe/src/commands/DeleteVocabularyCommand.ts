@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandInput extends DeleteVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom vocabulary. To use this operation, specify the name of the custom
  *             vocabulary you want to delete using <code>VocabularyName</code>. Custom vocabulary names
  *             are case sensitive.</p>
@@ -43,6 +48,8 @@ export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVocabularyCommandInput - {@link DeleteVocabularyCommandInput}
+ * @returns {@link DeleteVocabularyCommandOutput}
  * @see {@link DeleteVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVocabularyCommandOutput> {
     return deserializeAws_json1_1DeleteVocabularyCommand(output, context);
   }

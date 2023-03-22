@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterConfigurationCommand}.
  */
 export interface UpdateClusterConfigurationCommandInput extends UpdateClusterConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterConfigurationCommand}.
  */
 export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the cluster with the configuration that is specified in the request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterConfigurationCommandInput - {@link UpdateClusterConfigurationCommandInput}
+ * @returns {@link UpdateClusterConfigurationCommandOutput}
  * @see {@link UpdateClusterConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateClusterConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateClusterConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateClusterConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

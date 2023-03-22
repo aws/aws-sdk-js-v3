@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceCommand}.
  */
 export interface DeleteResourceCommandInput extends DeleteResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceCommand}.
  */
 export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
+ * @returns {@link DeleteResourceCommandOutput}
  * @see {@link DeleteResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceCommandOutput> {
     return deserializeAws_json1_1DeleteResourceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartPersonTrackingCommand}.
  */
 export interface StartPersonTrackingCommandInput extends StartPersonTrackingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartPersonTrackingCommand}.
  */
 export interface StartPersonTrackingCommandOutput extends StartPersonTrackingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
  *          <p>Amazon Rekognition Video can track the path of people in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *        and the filename of the video. <code>StartPersonTracking</code>
@@ -54,6 +59,8 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPersonTrackingCommandInput - {@link StartPersonTrackingCommandInput}
+ * @returns {@link StartPersonTrackingCommandOutput}
  * @see {@link StartPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link StartPersonTrackingCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -110,6 +117,9 @@ export class StartPersonTrackingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPersonTrackingCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class StartPersonTrackingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPersonTrackingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartPersonTrackingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPersonTrackingCommandOutput> {
     return deserializeAws_json1_1StartPersonTrackingCommand(output, context);
   }

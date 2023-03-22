@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketVersioningCommand}.
  */
 export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketVersioningCommand}.
  */
 export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the versioning state of an existing bucket.</p>
  *          <p>You can set the versioning state with one of the following values:</p>
  *          <p>
@@ -84,6 +89,8 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketVersioningCommandInput - {@link PutBucketVersioningCommandInput}
+ * @returns {@link PutBucketVersioningCommandOutput}
  * @see {@link PutBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link PutBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -128,6 +135,9 @@ export class PutBucketVersioningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketVersioningCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class PutBucketVersioningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketVersioningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketVersioningCommandOutput> {
     return deserializeAws_restXmlPutBucketVersioningCommand(output, context);
   }

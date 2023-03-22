@@ -24,15 +24,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketNotificationConfigurationCommand}.
  */
 export interface PutBucketNotificationConfigurationCommandInput extends PutBucketNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketNotificationConfigurationCommand}.
  */
 export interface PutBucketNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables notifications of specified events for a bucket. For more information about event
  *          notifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event
  *             Notifications</a>.</p>
@@ -98,6 +103,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketNotificationConfigurationCommandInput - {@link PutBucketNotificationConfigurationCommandInput}
+ * @returns {@link PutBucketNotificationConfigurationCommandOutput}
  * @see {@link PutBucketNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -148,6 +155,9 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,6 +197,9 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -194,6 +207,9 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     return serializeAws_restXmlPutBucketNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

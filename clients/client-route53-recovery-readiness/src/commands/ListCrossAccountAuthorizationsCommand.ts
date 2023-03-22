@@ -30,10 +30,14 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCrossAccountAuthorizationsCommand}.
  */
 export interface ListCrossAccountAuthorizationsCommandInput extends ListCrossAccountAuthorizationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCrossAccountAuthorizationsCommand}.
  */
 export interface ListCrossAccountAuthorizationsCommandOutput
@@ -41,6 +45,7 @@ export interface ListCrossAccountAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the cross-account readiness authorizations that are in place for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListCrossAccountAuthorizationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCrossAccountAuthorizationsCommandInput - {@link ListCrossAccountAuthorizationsCommandInput}
+ * @returns {@link ListCrossAccountAuthorizationsCommandOutput}
  * @see {@link ListCrossAccountAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link ListCrossAccountAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListCrossAccountAuthorizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCrossAccountAuthorizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListCrossAccountAuthorizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCrossAccountAuthorizationsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListCrossAccountAuthorizationsCommand extends $Command<
     return serializeAws_restJson1ListCrossAccountAuthorizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

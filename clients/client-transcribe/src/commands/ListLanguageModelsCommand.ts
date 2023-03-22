@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLanguageModelsCommand}.
  */
 export interface ListLanguageModelsCommandInput extends ListLanguageModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLanguageModelsCommand}.
  */
 export interface ListLanguageModelsCommandOutput extends ListLanguageModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom language models that match the specified criteria. If no
  *             criteria are specified, all custom language models are returned.</p>
  *          <p>To get detailed information about a specific custom language model, use the  operation.</p>
@@ -48,6 +53,8 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLanguageModelsCommandInput - {@link ListLanguageModelsCommandInput}
+ * @returns {@link ListLanguageModelsCommandOutput}
  * @see {@link ListLanguageModelsCommandInput} for command's `input` shape.
  * @see {@link ListLanguageModelsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListLanguageModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLanguageModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListLanguageModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLanguageModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLanguageModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLanguageModelsCommandOutput> {
     return deserializeAws_json1_1ListLanguageModelsCommand(output, context);
   }

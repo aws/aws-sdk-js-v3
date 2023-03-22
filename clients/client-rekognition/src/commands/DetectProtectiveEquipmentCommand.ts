@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectProtectiveEquipmentCommand}.
  */
 export interface DetectProtectiveEquipmentCommandInput extends DetectProtectiveEquipmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectProtectiveEquipmentCommand}.
  */
 export interface DetectProtectiveEquipmentCommandOutput extends DetectProtectiveEquipmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the
  *          following types of PPE.</p>
  *          <ul>
@@ -82,6 +87,8 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectProtectiveEquipmentCommandInput - {@link DetectProtectiveEquipmentCommandInput}
+ * @returns {@link DetectProtectiveEquipmentCommandOutput}
  * @see {@link DetectProtectiveEquipmentCommandInput} for command's `input` shape.
  * @see {@link DetectProtectiveEquipmentCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -134,6 +141,9 @@ export class DetectProtectiveEquipmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectProtectiveEquipmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class DetectProtectiveEquipmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectProtectiveEquipmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectProtectiveEquipmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

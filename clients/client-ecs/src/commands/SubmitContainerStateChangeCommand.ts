@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitContainerStateChangeCommand}.
  */
 export interface SubmitContainerStateChangeCommandInput extends SubmitContainerStateChangeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitContainerStateChangeCommand}.
  */
 export interface SubmitContainerStateChangeCommandOutput extends SubmitContainerStateChangeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -49,6 +54,8 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitContainerStateChangeCommandInput - {@link SubmitContainerStateChangeCommandInput}
+ * @returns {@link SubmitContainerStateChangeCommandOutput}
  * @see {@link SubmitContainerStateChangeCommandInput} for command's `input` shape.
  * @see {@link SubmitContainerStateChangeCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -83,6 +90,9 @@ export class SubmitContainerStateChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitContainerStateChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class SubmitContainerStateChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitContainerStateChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SubmitContainerStateChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

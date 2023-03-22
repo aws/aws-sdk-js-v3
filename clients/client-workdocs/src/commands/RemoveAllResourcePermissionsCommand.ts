@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAllResourcePermissionsCommand}.
  */
 export interface RemoveAllResourcePermissionsCommandInput extends RemoveAllResourcePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAllResourcePermissionsCommand}.
  */
 export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes all the permissions from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAllResourcePermissionsCommandInput - {@link RemoveAllResourcePermissionsCommandInput}
+ * @returns {@link RemoveAllResourcePermissionsCommandOutput}
  * @see {@link RemoveAllResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link RemoveAllResourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -81,6 +88,9 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAllResourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAllResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveAllResourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePricingPlanCommand}.
  */
 export interface UpdatePricingPlanCommandInput extends UpdatePricingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePricingPlanCommand}.
  */
 export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the pricing plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
+ * @returns {@link UpdatePricingPlanCommandOutput}
  * @see {@link UpdatePricingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdatePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdatePricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdatePricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePricingPlanCommandOutput> {
     return deserializeAws_restJson1UpdatePricingPlanCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourcePolicyCommand}.
  */
 export interface DescribeResourcePolicyCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourcePolicyCommand}.
  */
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a resource policy.</p>
  *          <p>You can only call this operation from the organization's management account or by a
  *             member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -43,6 +48,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
+ * @returns {@link DescribeResourcePolicyCommandOutput}
  * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -291,6 +298,9 @@ export class DescribeResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -330,10 +340,16 @@ export class DescribeResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
     return deserializeAws_json1_1DescribeResourcePolicyCommand(output, context);
   }

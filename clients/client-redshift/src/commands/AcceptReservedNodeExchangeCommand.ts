@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptReservedNodeExchangeCommand}.
  */
 export interface AcceptReservedNodeExchangeCommandInput extends AcceptReservedNodeExchangeInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link AcceptReservedNodeExchangeCommand}.
  */
 export interface AcceptReservedNodeExchangeCommandOutput
@@ -37,6 +41,7 @@ export interface AcceptReservedNodeExchangeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
  *             configuration (term, payment type, or number of nodes) and no additional costs.
  *         </p>
@@ -50,6 +55,8 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptReservedNodeExchangeCommandInput - {@link AcceptReservedNodeExchangeCommandInput}
+ * @returns {@link AcceptReservedNodeExchangeCommandOutput}
  * @see {@link AcceptReservedNodeExchangeCommandInput} for command's `input` shape.
  * @see {@link AcceptReservedNodeExchangeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptReservedNodeExchangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptReservedNodeExchangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAcceptReservedNodeExchangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

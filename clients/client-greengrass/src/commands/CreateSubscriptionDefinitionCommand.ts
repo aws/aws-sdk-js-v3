@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriptionDefinitionCommand}.
  */
 export interface CreateSubscriptionDefinitionCommandInput extends CreateSubscriptionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriptionDefinitionCommand}.
  */
 export interface CreateSubscriptionDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSubscriptionDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateSubscriptionDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriptionDefinitionCommandInput - {@link CreateSubscriptionDefinitionCommandInput}
+ * @returns {@link CreateSubscriptionDefinitionCommandOutput}
  * @see {@link CreateSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateSubscriptionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriptionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateSubscriptionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSubscriptionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

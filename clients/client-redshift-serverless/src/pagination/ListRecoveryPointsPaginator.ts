@@ -10,7 +10,7 @@ import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
 import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftServerlessClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRecoveryPointsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRecoveryPoints(
   config: RedshiftServerlessPaginationConfiguration,
   input: ListRecoveryPointsCommandInput,

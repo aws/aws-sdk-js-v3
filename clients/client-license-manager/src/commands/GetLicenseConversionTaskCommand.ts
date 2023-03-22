@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLicenseConversionTaskCommand}.
  */
 export interface GetLicenseConversionTaskCommandInput extends GetLicenseConversionTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLicenseConversionTaskCommand}.
  */
 export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConversionTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified license type conversion task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLicenseConversionTaskCommandInput - {@link GetLicenseConversionTaskCommandInput}
+ * @returns {@link GetLicenseConversionTaskCommandOutput}
  * @see {@link GetLicenseConversionTaskCommandInput} for command's `input` shape.
  * @see {@link GetLicenseConversionTaskCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetLicenseConversionTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLicenseConversionTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetLicenseConversionTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLicenseConversionTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLicenseConversionTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLicenseConversionTaskCommandOutput> {
     return deserializeAws_json1_1GetLicenseConversionTaskCommand(output, context);
   }

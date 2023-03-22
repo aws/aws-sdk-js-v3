@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
 export interface DisassociateWirelessDeviceFromMulticastGroupCommandInput
   extends DisassociateWirelessDeviceFromMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
 export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless device from a multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessDeviceFromMulticastGroupCommandInput - {@link DisassociateWirelessDeviceFromMulticastGroupCommandInput}
+ * @returns {@link DisassociateWirelessDeviceFromMulticastGroupCommandOutput}
  * @see {@link DisassociateWirelessDeviceFromMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessDeviceFromMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessDeviceFromMulticastGroupCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
     return serializeAws_restJson1DisassociateWirelessDeviceFromMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

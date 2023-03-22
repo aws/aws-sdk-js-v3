@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCaseCommand}.
  */
 export interface CreateCaseCommandInput extends CreateCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCaseCommand}.
  */
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case
  *             in the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
  *                 Case</a> page.</p>
@@ -78,6 +83,8 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCaseCommandInput - {@link CreateCaseCommandInput}
+ * @returns {@link CreateCaseCommandOutput}
  * @see {@link CreateCaseCommandInput} for command's `input` shape.
  * @see {@link CreateCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -114,6 +121,9 @@ export class CreateCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class CreateCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCaseCommandOutput> {
     return deserializeAws_json1_1CreateCaseCommand(output, context);
   }

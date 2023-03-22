@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetPasswordCommand}.
  */
 export interface ResetPasswordCommandInput extends ResetPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetPasswordCommand}.
  */
 export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the administrator to reset the password for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetPasswordCommandInput - {@link ResetPasswordCommandInput}
+ * @returns {@link ResetPasswordCommandOutput}
  * @see {@link ResetPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetPasswordCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -101,6 +108,9 @@ export class ResetPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ResetPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetPasswordCommandOutput> {
     return deserializeAws_json1_1ResetPasswordCommand(output, context);
   }

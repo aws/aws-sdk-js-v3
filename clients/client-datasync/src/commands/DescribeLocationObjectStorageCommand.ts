@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationObjectStorageCommand}.
  */
 export interface DescribeLocationObjectStorageCommandInput extends DescribeLocationObjectStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationObjectStorageCommand}.
  */
 export interface DescribeLocationObjectStorageCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about your DataSync location for an object storage system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeLocationObjectStorageCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationObjectStorageCommandInput - {@link DescribeLocationObjectStorageCommandInput}
+ * @returns {@link DescribeLocationObjectStorageCommandOutput}
  * @see {@link DescribeLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationObjectStorageCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationObjectStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationObjectStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput
   extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
@@ -38,6 +42,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates multiple self-service actions with provisioning artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateServiceActionWithProvisioningArtifactCommandInput - {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput}
+ * @returns {@link BatchAssociateServiceActionWithProvisioningArtifactCommandOutput}
  * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     return serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

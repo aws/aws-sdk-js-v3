@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartNetworkResourceUpdateCommand}.
  */
 export interface StartNetworkResourceUpdateCommandInput extends StartNetworkResourceUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartNetworkResourceUpdateCommand}.
  */
 export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkResourceUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an update of the specified network resource.</p>
  *          <p>After you submit a request to replace or return a network resource, the status
  *            of the network resource is <code>CREATING_SHIPPING_LABEL</code>. The shipping label
@@ -51,6 +56,8 @@ export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNetworkResourceUpdateCommandInput - {@link StartNetworkResourceUpdateCommandInput}
+ * @returns {@link StartNetworkResourceUpdateCommandOutput}
  * @see {@link StartNetworkResourceUpdateCommandInput} for command's `input` shape.
  * @see {@link StartNetworkResourceUpdateCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -83,6 +90,9 @@ export class StartNetworkResourceUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNetworkResourceUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StartNetworkResourceUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNetworkResourceUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartNetworkResourceUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

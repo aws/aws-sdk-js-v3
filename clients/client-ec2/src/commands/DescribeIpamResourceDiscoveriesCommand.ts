@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpamResourceDiscoveriesCommand}.
  */
 export interface DescribeIpamResourceDiscoveriesCommandInput extends DescribeIpamResourceDiscoveriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpamResourceDiscoveriesCommand}.
  */
 export interface DescribeIpamResourceDiscoveriesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeIpamResourceDiscoveriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeIpamResourceDiscoveriesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpamResourceDiscoveriesCommandInput - {@link DescribeIpamResourceDiscoveriesCommandInput}
+ * @returns {@link DescribeIpamResourceDiscoveriesCommandOutput}
  * @see {@link DescribeIpamResourceDiscoveriesCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamResourceDiscoveriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpamResourceDiscoveriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIpamResourceDiscoveriesCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
     return serializeAws_ec2DescribeIpamResourceDiscoveriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

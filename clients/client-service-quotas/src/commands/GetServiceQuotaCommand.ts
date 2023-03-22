@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceQuotaCommand}.
  */
 export interface GetServiceQuotaCommandInput extends GetServiceQuotaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceQuotaCommand}.
  */
 export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the
  *       default values are available. If the applied quota value is not available for a quota, the
  *       quota is not retrieved.</p>
@@ -48,6 +53,8 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceQuotaCommandInput - {@link GetServiceQuotaCommandInput}
+ * @returns {@link GetServiceQuotaCommandOutput}
  * @see {@link GetServiceQuotaCommandInput} for command's `input` shape.
  * @see {@link GetServiceQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetServiceQuotaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetServiceQuotaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetServiceQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceQuotaCommandOutput> {
     return deserializeAws_json1_1GetServiceQuotaCommand(output, context);
   }

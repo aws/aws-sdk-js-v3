@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetResourceConfigCommand}.
  */
 export interface BatchGetResourceConfigCommandInput extends BatchGetResourceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetResourceConfigCommand}.
  */
 export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <code>BaseConfigurationItem</code> for one or more requested resources.
  * 			The operation also returns a list of resources that are
  * 			not processed in the current request. If there are no unprocessed
@@ -64,6 +69,8 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetResourceConfigCommandInput - {@link BatchGetResourceConfigCommandInput}
+ * @returns {@link BatchGetResourceConfigCommandOutput}
  * @see {@link BatchGetResourceConfigCommandInput} for command's `input` shape.
  * @see {@link BatchGetResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -97,6 +104,9 @@ export class BatchGetResourceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetResourceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class BatchGetResourceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetResourceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetResourceConfigCommandOutput> {
     return deserializeAws_json1_1BatchGetResourceConfigCommand(output, context);
   }

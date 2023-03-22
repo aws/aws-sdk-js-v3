@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOriginRequestPolicyCommand}.
  */
 export interface DeleteOriginRequestPolicyCommandInput extends DeleteOriginRequestPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOriginRequestPolicyCommand}.
  */
 export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an origin request policy.</p>
  *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
  * 			First update your distributions to remove the origin request policy from all cache
@@ -50,6 +55,8 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOriginRequestPolicyCommandInput - {@link DeleteOriginRequestPolicyCommandInput}
+ * @returns {@link DeleteOriginRequestPolicyCommandOutput}
  * @see {@link DeleteOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteOriginRequestPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

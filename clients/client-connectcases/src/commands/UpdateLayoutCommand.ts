@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLayoutCommand}.
  */
 export interface UpdateLayoutCommandInput extends UpdateLayoutRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLayoutCommand}.
  */
 export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the attributes of an existing layout.</p>
  *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *       HTTP body.</p>
@@ -54,6 +59,8 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLayoutCommandInput - {@link UpdateLayoutCommandInput}
+ * @returns {@link UpdateLayoutCommandOutput}
  * @see {@link UpdateLayoutCommandInput} for command's `input` shape.
  * @see {@link UpdateLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateLayoutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLayoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UpdateLayoutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLayoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLayoutCommandOutput> {
     return deserializeAws_restJson1UpdateLayoutCommand(output, context);
   }

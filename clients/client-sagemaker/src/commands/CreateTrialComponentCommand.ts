@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrialComponentCommand}.
  */
 export interface CreateTrialComponentCommandInput extends CreateTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrialComponentCommand}.
  */
 export interface CreateTrialComponentCommandOutput extends CreateTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <i>trial component</i>, which is a stage of a machine learning
  *         <i>trial</i>. A trial is composed of one or more trial components. A trial
  *       component can be used in multiple trials.</p>
@@ -55,6 +60,8 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrialComponentCommandInput - {@link CreateTrialComponentCommandInput}
+ * @returns {@link CreateTrialComponentCommandOutput}
  * @see {@link CreateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link CreateTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrialComponentCommandOutput> {
     return deserializeAws_json1_1CreateTrialComponentCommand(output, context);
   }

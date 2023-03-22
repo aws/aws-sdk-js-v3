@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientAuthenticationSettingsCommand}.
  */
 export interface DescribeClientAuthenticationSettingsCommandInput extends DescribeClientAuthenticationSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientAuthenticationSettingsCommand}.
  */
 export interface DescribeClientAuthenticationSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the type of client authentication for the specified directory, if the type is specified. If no type is specified, information about all client authentication types that are supported for the specified directory is retrieved. Currently, only <code>SmartCard</code> is supported.
  *     </p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientAuthenticationSettingsCommandInput - {@link DescribeClientAuthenticationSettingsCommandInput}
+ * @returns {@link DescribeClientAuthenticationSettingsCommandOutput}
  * @see {@link DescribeClientAuthenticationSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientAuthenticationSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientAuthenticationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClientAuthenticationSettingsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
     return serializeAws_json1_1DescribeClientAuthenticationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

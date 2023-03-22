@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeVpcEndpointAccessCommand}.
  */
 export interface AuthorizeVpcEndpointAccessCommandInput extends AuthorizeVpcEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeVpcEndpointAccessCommand}.
  */
 export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeVpcEndpointAccessCommandInput - {@link AuthorizeVpcEndpointAccessCommandInput}
+ * @returns {@link AuthorizeVpcEndpointAccessCommandOutput}
  * @see {@link AuthorizeVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeVpcEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AuthorizeVpcEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

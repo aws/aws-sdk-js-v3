@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProjectsCommand}.
  */
 export interface DescribeProjectsCommandInput extends DescribeProjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProjectsCommand}.
  */
 export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about your Amazon Rekognition Custom Labels projects. </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProjectsCommandInput - {@link DescribeProjectsCommandInput}
+ * @returns {@link DescribeProjectsCommandOutput}
  * @see {@link DescribeProjectsCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectsCommandOutput> {
     return deserializeAws_json1_1DescribeProjectsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeviceSyncCommand}.
  */
 export interface StartDeviceSyncCommandInput extends StartDeviceSyncRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeviceSyncCommand}.
  */
 export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets a device and its account to the known default settings. This clears all
  *          information and settings set by previous users in the following ways:</p>
  *          <ul>
@@ -67,6 +72,8 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeviceSyncCommandInput - {@link StartDeviceSyncCommandInput}
+ * @returns {@link StartDeviceSyncCommandOutput}
  * @see {@link StartDeviceSyncCommandInput} for command's `input` shape.
  * @see {@link StartDeviceSyncCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -93,6 +100,9 @@ export class StartDeviceSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeviceSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class StartDeviceSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeviceSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDeviceSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceSyncCommandOutput> {
     return deserializeAws_json1_1StartDeviceSyncCommand(output, context);
   }

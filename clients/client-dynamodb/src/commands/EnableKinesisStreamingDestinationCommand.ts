@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link EnableKinesisStreamingDestinationCommand}.
  */
 export interface EnableKinesisStreamingDestinationCommandInput extends KinesisStreamingDestinationInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableKinesisStreamingDestinationCommand}.
  */
 export interface EnableKinesisStreamingDestinationCommandOutput
@@ -37,6 +41,7 @@ export interface EnableKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts table data replication to the specified Kinesis data stream at a timestamp
  *             chosen during the enable workflow. If this operation doesn't return results immediately,
  *             use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
@@ -51,6 +56,8 @@ export interface EnableKinesisStreamingDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableKinesisStreamingDestinationCommandInput - {@link EnableKinesisStreamingDestinationCommandInput}
+ * @returns {@link EnableKinesisStreamingDestinationCommandOutput}
  * @see {@link EnableKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link EnableKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -101,6 +108,9 @@ export class EnableKinesisStreamingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableKinesisStreamingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class EnableKinesisStreamingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableKinesisStreamingDestinationCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class EnableKinesisStreamingDestinationCommand extends $Command<
     return serializeAws_json1_0EnableKinesisStreamingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

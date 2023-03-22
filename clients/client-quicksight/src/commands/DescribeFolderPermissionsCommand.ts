@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFolderPermissionsCommand}.
  */
 export interface DescribeFolderPermissionsCommandInput extends DescribeFolderPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFolderPermissionsCommand}.
  */
 export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes permissions for a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFolderPermissionsCommandInput - {@link DescribeFolderPermissionsCommandInput}
+ * @returns {@link DescribeFolderPermissionsCommandOutput}
  * @see {@link DescribeFolderPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeFolderPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFolderPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeFolderPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFolderPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFolderPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

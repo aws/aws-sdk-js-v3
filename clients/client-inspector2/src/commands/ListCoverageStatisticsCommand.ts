@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoverageStatisticsCommand}.
  */
 export interface ListCoverageStatisticsCommandInput extends ListCoverageStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoverageStatisticsCommand}.
  */
 export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon Inspector coverage statistics for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoverageStatisticsCommandInput - {@link ListCoverageStatisticsCommandInput}
+ * @returns {@link ListCoverageStatisticsCommandOutput}
  * @see {@link ListCoverageStatisticsCommandInput} for command's `input` shape.
  * @see {@link ListCoverageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -79,6 +86,9 @@ export class ListCoverageStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoverageStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListCoverageStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoverageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCoverageStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoverageStatisticsCommandOutput> {
     return deserializeAws_restJson1ListCoverageStatisticsCommand(output, context);
   }

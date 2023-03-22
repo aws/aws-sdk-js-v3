@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIamInstanceProfileAssociationsCommand}.
  */
 export interface DescribeIamInstanceProfileAssociationsCommandInput
   extends DescribeIamInstanceProfileAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIamInstanceProfileAssociationsCommand}.
  */
 export interface DescribeIamInstanceProfileAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your IAM instance profile associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIamInstanceProfileAssociationsCommandInput - {@link DescribeIamInstanceProfileAssociationsCommandInput}
+ * @returns {@link DescribeIamInstanceProfileAssociationsCommandOutput}
  * @see {@link DescribeIamInstanceProfileAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeIamInstanceProfileAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIamInstanceProfileAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIamInstanceProfileAssociationsCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TransferCertificateCommand}.
  */
 export interface TransferCertificateCommandInput extends TransferCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link TransferCertificateCommand}.
  */
 export interface TransferCertificateCommandOutput extends TransferCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transfers the specified certificate to the specified Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a> action.</p>
  *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
@@ -54,6 +59,8 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param TransferCertificateCommandInput - {@link TransferCertificateCommandInput}
+ * @returns {@link TransferCertificateCommandOutput}
  * @see {@link TransferCertificateCommandInput} for command's `input` shape.
  * @see {@link TransferCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -102,6 +109,9 @@ export class TransferCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransferCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class TransferCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransferCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TransferCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferCertificateCommandOutput> {
     return deserializeAws_restJson1TransferCertificateCommand(output, context);
   }

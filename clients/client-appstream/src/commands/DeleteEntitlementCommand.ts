@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEntitlementCommand}.
  */
 export interface DeleteEntitlementCommandInput extends DeleteEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEntitlementCommand}.
  */
 export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEntitlementCommandInput - {@link DeleteEntitlementCommandInput}
+ * @returns {@link DeleteEntitlementCommandOutput}
  * @see {@link DeleteEntitlementCommandInput} for command's `input` shape.
  * @see {@link DeleteEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEntitlementCommandOutput> {
     return deserializeAws_json1_1DeleteEntitlementCommand(output, context);
   }

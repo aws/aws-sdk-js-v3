@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificateAuthorityAuditReportCommand}.
  */
 export interface DescribeCertificateAuthorityAuditReportCommandInput
   extends DescribeCertificateAuthorityAuditReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificateAuthorityAuditReportCommand}.
  */
 export interface DescribeCertificateAuthorityAuditReportCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action. Audit information is created
  * 			every time the certificate authority (CA) private key is used. The private key is used
  * 			when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action or the
@@ -52,6 +57,8 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateAuthorityAuditReportCommandInput - {@link DescribeCertificateAuthorityAuditReportCommandInput}
+ * @returns {@link DescribeCertificateAuthorityAuditReportCommandOutput}
  * @see {@link DescribeCertificateAuthorityAuditReportCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateAuthorityAuditReportCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateAuthorityAuditReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCertificateAuthorityAuditReportCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     return serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeliveryStreamCommand}.
  */
 export interface CreateDeliveryStreamCommandInput extends CreateDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeliveryStreamCommand}.
  */
 export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Kinesis Data Firehose delivery stream.</p>
  *
  *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
@@ -115,6 +120,8 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeliveryStreamCommandInput - {@link CreateDeliveryStreamCommandInput}
+ * @returns {@link CreateDeliveryStreamCommandOutput}
  * @see {@link CreateDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link CreateDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -154,6 +161,9 @@ export class CreateDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class CreateDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1CreateDeliveryStreamCommand(output, context);
   }

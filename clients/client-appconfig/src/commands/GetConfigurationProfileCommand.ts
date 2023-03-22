@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationProfileCommand}.
  */
 export interface GetConfigurationProfileCommandInput extends GetConfigurationProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationProfileCommand}.
  */
 export interface GetConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a configuration profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationProfileCommandInput - {@link GetConfigurationProfileCommandInput}
+ * @returns {@link GetConfigurationProfileCommandOutput}
  * @see {@link GetConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetConfigurationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetConfigurationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConfigurationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationProfileCommandOutput> {
     return deserializeAws_restJson1GetConfigurationProfileCommand(output, context);
   }

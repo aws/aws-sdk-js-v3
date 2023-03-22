@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPipelinesCommand}.
  */
 export interface ListPipelinesCommandInput extends ListPipelinesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPipelinesCommand}.
  */
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>
  *
  *         <examples>
@@ -48,7 +53,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {}</request>
+ * \{\}</request>
  *
  *             <response>
  *
@@ -58,14 +63,14 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * Content-Length: 39
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"PipelineIdList":
+ * \{"PipelineIdList":
  *   [
- *     {"id": "df-08785951KAKJEXAMPLE",
- *      "name": "MyPipeline"},
- *     {"id": "df-08662578ISYEXAMPLE",
- *      "name": "MySecondPipeline"}
+ *     \{"id": "df-08785951KAKJEXAMPLE",
+ *      "name": "MyPipeline"\},
+ *     \{"id": "df-08662578ISYEXAMPLE",
+ *      "name": "MySecondPipeline"\}
  *   ]
- * }</response>
+ * \}</response>
  *         </examples>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +82,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
+ * @returns {@link ListPipelinesCommandOutput}
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -106,6 +113,9 @@ export class ListPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
     return deserializeAws_json1_1ListPipelinesCommand(output, context);
   }

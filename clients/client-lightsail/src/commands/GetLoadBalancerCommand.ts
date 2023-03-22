@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoadBalancerCommand}.
  */
 export interface GetLoadBalancerCommandInput extends GetLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoadBalancerCommand}.
  */
 export interface GetLoadBalancerCommandOutput extends GetLoadBalancerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified Lightsail load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLoadBalancerCommandOutput extends GetLoadBalancerResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoadBalancerCommandInput - {@link GetLoadBalancerCommandInput}
+ * @returns {@link GetLoadBalancerCommandOutput}
  * @see {@link GetLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoadBalancerCommandOutput> {
     return deserializeAws_json1_1GetLoadBalancerCommand(output, context);
   }

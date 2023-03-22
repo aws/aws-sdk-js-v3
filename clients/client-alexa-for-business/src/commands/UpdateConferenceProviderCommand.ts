@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConferenceProviderCommand}.
  */
 export interface UpdateConferenceProviderCommandInput extends UpdateConferenceProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConferenceProviderCommand}.
  */
 export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing conference provider's settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConferenceProviderCommandInput - {@link UpdateConferenceProviderCommandInput}
+ * @returns {@link UpdateConferenceProviderCommandOutput}
  * @see {@link UpdateConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateConferenceProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConferenceProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class UpdateConferenceProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateConferenceProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConferenceProviderCommandOutput> {
     return deserializeAws_json1_1UpdateConferenceProviderCommand(output, context);
   }

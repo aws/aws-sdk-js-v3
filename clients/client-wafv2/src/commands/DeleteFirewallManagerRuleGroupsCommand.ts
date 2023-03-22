@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallManagerRuleGroupsCommand}.
  */
 export interface DeleteFirewallManagerRuleGroupsCommandInput extends DeleteFirewallManagerRuleGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallManagerRuleGroupsCommand}.
  */
 export interface DeleteFirewallManagerRuleGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all rule groups that are managed by Firewall Manager for the specified web ACL. </p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
  *             <a>WebACL</a>. </p>
@@ -50,6 +55,8 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallManagerRuleGroupsCommandInput - {@link DeleteFirewallManagerRuleGroupsCommandInput}
+ * @returns {@link DeleteFirewallManagerRuleGroupsCommandOutput}
  * @see {@link DeleteFirewallManagerRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallManagerRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -112,6 +119,9 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallManagerRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFirewallManagerRuleGroupsCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     return serializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

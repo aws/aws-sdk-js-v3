@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotebookMetadataCommand}.
  */
 export interface UpdateNotebookMetadataCommandInput extends UpdateNotebookMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotebookMetadataCommand}.
  */
 export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the metadata for a notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotebookMetadataCommandInput - {@link UpdateNotebookMetadataCommandInput}
+ * @returns {@link UpdateNotebookMetadataCommandOutput}
  * @see {@link UpdateNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateNotebookMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotebookMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateNotebookMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNotebookMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotebookMetadataCommandOutput> {
     return deserializeAws_json1_1UpdateNotebookMetadataCommand(output, context);
   }

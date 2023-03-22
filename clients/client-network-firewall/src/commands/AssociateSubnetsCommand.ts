@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSubnetsCommand}.
  */
 export interface AssociateSubnetsCommandInput extends AssociateSubnetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSubnetsCommand}.
  */
 export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified subnets in the Amazon VPC to the firewall. You can specify one
  *          subnet for each of the Availability Zones that the VPC spans. </p>
  *          <p>This request creates an Network Firewall firewall endpoint in each of the subnets. To
@@ -51,6 +56,8 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSubnetsCommandInput - {@link AssociateSubnetsCommandInput}
+ * @returns {@link AssociateSubnetsCommandOutput}
  * @see {@link AssociateSubnetsCommandInput} for command's `input` shape.
  * @see {@link AssociateSubnetsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -111,6 +118,9 @@ export class AssociateSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class AssociateSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0AssociateSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSubnetsCommandOutput> {
     return deserializeAws_json1_0AssociateSubnetsCommand(output, context);
   }

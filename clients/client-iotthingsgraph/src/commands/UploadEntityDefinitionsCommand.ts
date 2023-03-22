@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadEntityDefinitionsCommand}.
  */
 export interface UploadEntityDefinitionsCommandInput extends UploadEntityDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadEntityDefinitionsCommand}.
  */
 export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if
@@ -58,6 +63,8 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadEntityDefinitionsCommandInput - {@link UploadEntityDefinitionsCommandInput}
+ * @returns {@link UploadEntityDefinitionsCommandOutput}
  * @see {@link UploadEntityDefinitionsCommandInput} for command's `input` shape.
  * @see {@link UploadEntityDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -90,6 +97,9 @@ export class UploadEntityDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadEntityDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UploadEntityDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadEntityDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UploadEntityDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadEntityDefinitionsCommandOutput> {
     return deserializeAws_json1_1UploadEntityDefinitionsCommand(output, context);
   }

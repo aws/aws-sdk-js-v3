@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSMBFileSharesCommand}.
  */
 export interface DescribeSMBFileSharesCommandInput extends DescribeSMBFileSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSMBFileSharesCommand}.
  */
 export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a description for one or more Server Message Block (SMB) file shares from a S3 File
  *          Gateway. This operation is only supported for S3 File Gateways.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSMBFileSharesCommandInput - {@link DescribeSMBFileSharesCommandInput}
+ * @returns {@link DescribeSMBFileSharesCommandOutput}
  * @see {@link DescribeSMBFileSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeSMBFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeSMBFileSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSMBFileSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeSMBFileSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSMBFileSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSMBFileSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSMBFileSharesCommandOutput> {
     return deserializeAws_json1_1DescribeSMBFileSharesCommand(output, context);
   }

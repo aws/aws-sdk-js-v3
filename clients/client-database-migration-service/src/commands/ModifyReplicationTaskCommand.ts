@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationTaskCommand}.
  */
 export interface ModifyReplicationTaskCommandInput extends ModifyReplicationTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationTaskCommand}.
  */
 export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified replication task.</p>
  *          <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>
  *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks</a> in the
@@ -53,6 +58,8 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationTaskCommandInput - {@link ModifyReplicationTaskCommandInput}
+ * @returns {@link ModifyReplicationTaskCommandOutput}
  * @see {@link ModifyReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class ModifyReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ModifyReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReplicationTaskCommandOutput> {
     return deserializeAws_json1_1ModifyReplicationTaskCommand(output, context);
   }

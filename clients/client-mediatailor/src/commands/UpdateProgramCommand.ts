@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProgramCommand}.
  */
 export interface UpdateProgramCommandInput extends UpdateProgramRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProgramCommand}.
  */
 export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a program within a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProgramCommandInput - {@link UpdateProgramCommandInput}
+ * @returns {@link UpdateProgramCommandOutput}
  * @see {@link UpdateProgramCommandInput} for command's `input` shape.
  * @see {@link UpdateProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class UpdateProgramCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProgramCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class UpdateProgramCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProgramCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProgramCommandOutput> {
     return deserializeAws_restJson1UpdateProgramCommand(output, context);
   }

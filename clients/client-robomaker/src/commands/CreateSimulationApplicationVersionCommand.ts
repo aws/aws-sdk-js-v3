@@ -26,10 +26,14 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSimulationApplicationVersionCommand}.
  */
 export interface CreateSimulationApplicationVersionCommandInput extends CreateSimulationApplicationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSimulationApplicationVersionCommand}.
  */
 export interface CreateSimulationApplicationVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSimulationApplicationVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a simulation application with a specific revision id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateSimulationApplicationVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSimulationApplicationVersionCommandInput - {@link CreateSimulationApplicationVersionCommandInput}
+ * @returns {@link CreateSimulationApplicationVersionCommandOutput}
  * @see {@link CreateSimulationApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSimulationApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSimulationApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSimulationApplicationVersionCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     return serializeAws_restJson1CreateSimulationApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

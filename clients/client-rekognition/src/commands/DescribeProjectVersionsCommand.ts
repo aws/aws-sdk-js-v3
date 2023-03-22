@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProjectVersionsCommand}.
  */
 export interface DescribeProjectVersionsCommandInput extends DescribeProjectVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProjectVersionsCommand}.
  */
 export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists and describes the versions of a model in an Amazon Rekognition Custom Labels project. You
  *          can specify up to 10 model versions in <code>ProjectVersionArns</code>. If
  *          you don't specify a value, descriptions for all model versions in the project are returned.</p>
@@ -50,6 +55,8 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProjectVersionsCommandInput - {@link DescribeProjectVersionsCommandInput}
+ * @returns {@link DescribeProjectVersionsCommandOutput}
  * @see {@link DescribeProjectVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectVersionsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeProjectVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProjectVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeProjectVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProjectVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProjectVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectVersionsCommandOutput> {
     return deserializeAws_json1_1DescribeProjectVersionsCommand(output, context);
   }

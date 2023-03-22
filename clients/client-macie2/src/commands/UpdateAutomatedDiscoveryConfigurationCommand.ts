@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAutomatedDiscoveryConfigurationCommand}.
  */
 export interface UpdateAutomatedDiscoveryConfigurationCommandInput
   extends UpdateAutomatedDiscoveryConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAutomatedDiscoveryConfigurationCommand}.
  */
 export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables automated sensitive data discovery for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAutomatedDiscoveryConfigurationCommandInput - {@link UpdateAutomatedDiscoveryConfigurationCommandInput}
+ * @returns {@link UpdateAutomatedDiscoveryConfigurationCommandOutput}
  * @see {@link UpdateAutomatedDiscoveryConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAutomatedDiscoveryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAutomatedDiscoveryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAutomatedDiscoveryConfigurationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

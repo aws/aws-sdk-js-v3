@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomActionTypeCommand}.
  */
 export interface CreateCustomActionTypeCommandInput extends CreateCustomActionTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomActionTypeCommand}.
  */
 export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom action that can be used in all pipelines associated with the
  *             AWS account. Only used for custom actions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomActionTypeCommandInput - {@link CreateCustomActionTypeCommandInput}
+ * @returns {@link CreateCustomActionTypeCommandOutput}
  * @see {@link CreateCustomActionTypeCommandInput} for command's `input` shape.
  * @see {@link CreateCustomActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateCustomActionTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomActionTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateCustomActionTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCustomActionTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomActionTypeCommandOutput> {
     return deserializeAws_json1_1CreateCustomActionTypeCommand(output, context);
   }

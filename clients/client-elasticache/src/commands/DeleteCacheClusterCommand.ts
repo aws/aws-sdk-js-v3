@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCacheClusterCommand}.
  */
 export interface DeleteCacheClusterCommandInput extends DeleteCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCacheClusterCommand}.
  */
 export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned cluster.
  *                 <code>DeleteCacheCluster</code> deletes all associated cache nodes, node endpoints and the
  *             cluster itself. When you receive a successful response from this operation,
@@ -74,6 +79,8 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCacheClusterCommandInput - {@link DeleteCacheClusterCommandInput}
+ * @returns {@link DeleteCacheClusterCommandOutput}
  * @see {@link DeleteCacheClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -168,6 +175,9 @@ export class DeleteCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -207,10 +217,16 @@ export class DeleteCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheClusterCommandOutput> {
     return deserializeAws_queryDeleteCacheClusterCommand(output, context);
   }

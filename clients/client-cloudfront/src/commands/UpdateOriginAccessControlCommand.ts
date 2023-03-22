@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOriginAccessControlCommand}.
  */
 export interface UpdateOriginAccessControlCommandInput extends UpdateOriginAccessControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOriginAccessControlCommand}.
  */
 export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAccessControlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a CloudFront origin access control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOriginAccessControlCommandInput - {@link UpdateOriginAccessControlCommandInput}
+ * @returns {@link UpdateOriginAccessControlCommandOutput}
  * @see {@link UpdateOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateOriginAccessControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOriginAccessControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateOriginAccessControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateOriginAccessControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

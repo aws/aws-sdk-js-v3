@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPlaceCommand}.
  */
 export interface GetPlaceCommandInput extends GetPlaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPlaceCommand}.
  */
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
  *             operations.</p>
  *          <note>
@@ -62,6 +67,8 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPlaceCommandInput - {@link GetPlaceCommandInput}
+ * @returns {@link GetPlaceCommandOutput}
  * @see {@link GetPlaceCommandInput} for command's `input` shape.
  * @see {@link GetPlaceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetPlaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetPlaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPlaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPlaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlaceCommandOutput> {
     return deserializeAws_restJson1GetPlaceCommand(output, context);
   }

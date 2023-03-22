@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectorDefinitionVersionCommand}.
  */
 export interface CreateConnectorDefinitionVersionCommandInput extends CreateConnectorDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectorDefinitionVersionCommand}.
  */
 export interface CreateConnectorDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateConnectorDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a connector definition which has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectorDefinitionVersionCommandInput - {@link CreateConnectorDefinitionVersionCommandInput}
+ * @returns {@link CreateConnectorDefinitionVersionCommandOutput}
  * @see {@link CreateConnectorDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectorDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConnectorDefinitionVersionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     return serializeAws_restJson1CreateConnectorDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerPolicyCommand}.
  */
 export interface DeleteContainerPolicyCommandInput extends DeleteContainerPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerPolicyCommand}.
  */
 export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the access policy that is associated with the specified container.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerPolicyCommandInput - {@link DeleteContainerPolicyCommandInput}
+ * @returns {@link DeleteContainerPolicyCommandOutput}
  * @see {@link DeleteContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteContainerPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteContainerPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContainerPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteContainerPolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForStreamCommand}.
  */
 export interface ListTagsForStreamCommandInput extends ListTagsForStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForStreamCommand}.
  */
 export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of
  *             five transactions per second per account.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForStreamCommandInput - {@link ListTagsForStreamCommandInput}
+ * @returns {@link ListTagsForStreamCommandOutput}
  * @see {@link ListTagsForStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListTagsForStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListTagsForStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForStreamCommandOutput> {
     return deserializeAws_json1_1ListTagsForStreamCommand(output, context);
   }

@@ -23,15 +23,20 @@ import { deserializeAws_json1_1CreateHubCommand, serializeAws_json1_1CreateHubCo
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHubCommand}.
  */
 export interface CreateHubCommandInput extends CreateHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHubCommand}.
  */
 export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -46,6 +51,8 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHubCommandInput - {@link CreateHubCommandInput}
+ * @returns {@link CreateHubCommandOutput}
  * @see {@link CreateHubCommandInput} for command's `input` shape.
  * @see {@link CreateHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHubCommandOutput> {
     return deserializeAws_json1_1CreateHubCommand(output, context);
   }

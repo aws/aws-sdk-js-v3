@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigsCommand}.
  */
 export interface ListConfigsCommandInput extends ListConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigsCommand}.
  */
 export interface ListConfigsCommandOutput extends ListConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>Config</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigsCommandInput - {@link ListConfigsCommandInput}
+ * @returns {@link ListConfigsCommandOutput}
  * @see {@link ListConfigsCommandInput} for command's `input` shape.
  * @see {@link ListConfigsCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigsCommandOutput> {
     return deserializeAws_restJson1ListConfigsCommand(output, context);
   }

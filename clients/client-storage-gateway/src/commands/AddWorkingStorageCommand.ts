@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddWorkingStorageCommand}.
  */
 export interface AddWorkingStorageCommandInput extends AddWorkingStorageInput {}
 /**
+ * @public
+ *
  * The output of {@link AddWorkingStorageCommand}.
  */
 export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures one or more gateway local disks as working storage for a gateway. This
  *          operation is only supported in the stored volume gateway type. This operation is deprecated
  *          in cached volume API version 20120630. Use <a>AddUploadBuffer</a>
@@ -58,6 +63,8 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param AddWorkingStorageCommandInput - {@link AddWorkingStorageCommandInput}
+ * @returns {@link AddWorkingStorageCommandOutput}
  * @see {@link AddWorkingStorageCommandInput} for command's `input` shape.
  * @see {@link AddWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -109,6 +116,9 @@ export class AddWorkingStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddWorkingStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class AddWorkingStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddWorkingStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddWorkingStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddWorkingStorageCommandOutput> {
     return deserializeAws_json1_1AddWorkingStorageCommand(output, context);
   }

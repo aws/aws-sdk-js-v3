@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePublishingDestinationCommand}.
  */
 export interface DeletePublishingDestinationCommandInput extends DeletePublishingDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePublishingDestinationCommand}.
  */
 export interface DeletePublishingDestinationCommandOutput
@@ -37,6 +41,7 @@ export interface DeletePublishingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeletePublishingDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePublishingDestinationCommandInput - {@link DeletePublishingDestinationCommandInput}
+ * @returns {@link DeletePublishingDestinationCommandOutput}
  * @see {@link DeletePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link DeletePublishingDestinationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeletePublishingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePublishingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeletePublishingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePublishingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

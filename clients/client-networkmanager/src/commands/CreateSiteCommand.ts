@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSiteCommand}.
  */
 export interface CreateSiteCommandInput extends CreateSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSiteCommand}.
  */
 export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new site in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSiteCommandInput - {@link CreateSiteCommandInput}
+ * @returns {@link CreateSiteCommandOutput}
  * @see {@link CreateSiteCommandInput} for command's `input` shape.
  * @see {@link CreateSiteCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSiteCommandOutput> {
     return deserializeAws_restJson1CreateSiteCommand(output, context);
   }

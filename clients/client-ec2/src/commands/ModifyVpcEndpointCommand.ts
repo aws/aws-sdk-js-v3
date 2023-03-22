@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointCommand}.
  */
 export interface ModifyVpcEndpointCommandInput extends ModifyVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointCommand}.
  */
 export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify
  *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information,
  *             see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
@@ -49,6 +54,8 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointCommandInput - {@link ModifyVpcEndpointCommandInput}
+ * @returns {@link ModifyVpcEndpointCommandOutput}
  * @see {@link ModifyVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ModifyVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ModifyVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpcEndpointCommandOutput> {
     return deserializeAws_ec2ModifyVpcEndpointCommand(output, context);
   }

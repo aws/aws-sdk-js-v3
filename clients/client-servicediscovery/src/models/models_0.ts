@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ServiceDiscoveryServiceException as __BaseException } from "./ServiceDiscoveryServiceException";
 
 /**
+ * @public
  * <p>A custom key-value pair that's associated with a resource.</p>
  */
 export interface Tag {
@@ -19,6 +20,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateHttpNamespaceRequest {
   /**
    * <p>The name that you want to assign to this namespace.</p>
@@ -46,6 +50,9 @@ export interface CreateHttpNamespaceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateHttpNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -55,6 +62,7 @@ export interface CreateHttpNamespaceResponse {
 }
 
 /**
+ * @public
  * <p>The operation is already in progress.</p>
  */
 export class DuplicateRequest extends __BaseException {
@@ -81,6 +89,7 @@ export class DuplicateRequest extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more specified values aren't valid. For example, a required value might be missing, a
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
@@ -104,6 +113,7 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The namespace that you're trying to create already exists.</p>
  */
 export class NamespaceAlreadyExists extends __BaseException {
@@ -136,6 +146,7 @@ export class NamespaceAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation can't be completed because you've reached the quota for the number of
  *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
  *     <i>Cloud Map Developer Guide</i>.</p>
@@ -159,6 +170,7 @@ export class RequestLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource can't be created because you've reached the quota on the number of
  *    resources.</p>
  */
@@ -181,6 +193,7 @@ export class ResourceLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
  *    applied to a resource is 50.</p>
  */
@@ -208,6 +221,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Start of Authority
  *    (SOA) properties for a public or private DNS namespace.</p>
  */
@@ -220,6 +234,7 @@ export interface SOA {
 }
 
 /**
+ * @public
  * <p>DNS properties for
  *    the private DNS namespace.</p>
  */
@@ -233,6 +248,7 @@ export interface PrivateDnsPropertiesMutable {
 }
 
 /**
+ * @public
  * <p>DNS properties for
  *    the private DNS namespace.</p>
  */
@@ -244,6 +260,9 @@ export interface PrivateDnsNamespaceProperties {
   DnsProperties: PrivateDnsPropertiesMutable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePrivateDnsNamespaceRequest {
   /**
    * <p>The name that you want to assign to this namespace. When you create a private DNS namespace,
@@ -284,6 +303,9 @@ export interface CreatePrivateDnsNamespaceRequest {
   Properties?: PrivateDnsNamespaceProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreatePrivateDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -293,6 +315,7 @@ export interface CreatePrivateDnsNamespaceResponse {
 }
 
 /**
+ * @public
  * <p>DNS properties for
  *    the public DNS namespace.</p>
  */
@@ -305,6 +328,7 @@ export interface PublicDnsPropertiesMutable {
 }
 
 /**
+ * @public
  * <p>DNS properties for
  *    the public DNS namespace.</p>
  */
@@ -316,6 +340,9 @@ export interface PublicDnsNamespaceProperties {
   DnsProperties: PublicDnsPropertiesMutable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePublicDnsNamespaceRequest {
   /**
    * <p>The name that you want to assign to this namespace.</p>
@@ -352,6 +379,9 @@ export interface CreatePublicDnsNamespaceRequest {
   Properties?: PublicDnsNamespaceProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreatePublicDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the
@@ -360,6 +390,9 @@ export interface CreatePublicDnsNamespaceResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export enum RecordType {
   A = "A",
   AAAA = "AAAA",
@@ -368,6 +401,7 @@ export enum RecordType {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the Route 53 DNS records that you want
  *    Cloud Map to create when you register an instance.</p>
  */
@@ -526,12 +560,16 @@ export interface DnsRecord {
   TTL: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RoutingPolicy {
   MULTIVALUE = "MULTIVALUE",
   WEIGHTED = "WEIGHTED",
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the Amazon Route 53 DNS records that you want
  *    Cloud Map to create when you register an instance.</p>
  *          <important>
@@ -600,6 +638,9 @@ export interface DnsConfig {
   DnsRecords: DnsRecord[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HealthCheckType {
   HTTP = "HTTP",
   HTTPS = "HTTPS",
@@ -607,6 +648,7 @@ export enum HealthCheckType {
 }
 
 /**
+ * @public
  * <p>
  *             <i>Public DNS and HTTP namespaces only.</i> A complex type that contains
  *    settings for an optional health check. If you specify settings for a health check, Cloud Map
@@ -730,6 +772,7 @@ export interface HealthCheckConfig {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about an optional custom health check. A custom
  *    health check, which requires that you use a third-party health checker to evaluate the health of
  *    your resources, is useful in the following circumstances:</p>
@@ -804,10 +847,16 @@ export interface HealthCheckCustomConfig {
   FailureThreshold?: number;
 }
 
+/**
+ * @public
+ */
 export enum ServiceTypeOption {
   HTTP = "HTTP",
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceRequest {
   /**
    * <p>The name that you want to assign to the service.</p>
@@ -902,6 +951,9 @@ export interface CreateServiceRequest {
   Type?: ServiceTypeOption | string;
 }
 
+/**
+ * @public
+ */
 export enum ServiceType {
   DNS = "DNS",
   DNS_HTTP = "DNS_HTTP",
@@ -909,6 +961,7 @@ export enum ServiceType {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the specified service.</p>
  */
 export interface Service {
@@ -1008,6 +1061,9 @@ export interface Service {
   CreatorRequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceResponse {
   /**
    * <p>A complex type that contains information about the new service.</p>
@@ -1016,6 +1072,7 @@ export interface CreateServiceResponse {
 }
 
 /**
+ * @public
  * <p>No namespace exists with the specified ID.</p>
  */
 export class NamespaceNotFound extends __BaseException {
@@ -1037,6 +1094,7 @@ export class NamespaceNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service can't be created because a service with the same name already exists.</p>
  */
 export class ServiceAlreadyExists extends __BaseException {
@@ -1069,6 +1127,7 @@ export class ServiceAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The health check for the instance that's specified by <code>ServiceId</code> and
  *     <code>InstanceId</code> isn't a custom health check. </p>
  */
@@ -1090,11 +1149,17 @@ export class CustomHealthNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum CustomHealthStatus {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {
   /**
    * <p>The ID of the namespace that you want to delete.</p>
@@ -1102,6 +1167,9 @@ export interface DeleteNamespaceRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -1111,6 +1179,7 @@ export interface DeleteNamespaceResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource can't be deleted because it contains other resources. For example,
  *    you can't delete a service that contains any instances.</p>
  */
@@ -1132,6 +1201,9 @@ export class ResourceInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceRequest {
   /**
    * <p>The ID of the service that you want to delete.</p>
@@ -1139,9 +1211,13 @@ export interface DeleteServiceRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceResponse {}
 
 /**
+ * @public
  * <p>No service exists with the specified ID.</p>
  */
 export class ServiceNotFound extends __BaseException {
@@ -1162,6 +1238,9 @@ export class ServiceNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterInstanceRequest {
   /**
    * <p>The ID of the service that the instance is associated with.</p>
@@ -1174,6 +1253,9 @@ export interface DeregisterInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterInstanceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -1183,6 +1265,7 @@ export interface DeregisterInstanceResponse {
 }
 
 /**
+ * @public
  * <p>No instance exists with the specified ID, or the instance was recently registered, and
  *    information about the instance hasn't propagated yet.</p>
  */
@@ -1204,6 +1287,9 @@ export class InstanceNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum HealthStatusFilter {
   ALL = "ALL",
   HEALTHY = "HEALTHY",
@@ -1211,6 +1297,9 @@ export enum HealthStatusFilter {
   UNHEALTHY = "UNHEALTHY",
 }
 
+/**
+ * @public
+ */
 export interface DiscoverInstancesRequest {
   /**
    * <p>The <code>HttpName</code> name of the namespace. It's found in the
@@ -1233,7 +1322,7 @@ export interface DiscoverInstancesRequest {
 
   /**
    * <p>Filters to scope the results based on custom attributes for the instance (for example,
-   *     <code>{version=v1, az=1a}</code>). Only instances that match all the specified key-value pairs
+   *     <code>\{version=v1, az=1a\}</code>). Only instances that match all the specified key-value pairs
    *    are returned.</p>
    */
   QueryParameters?: Record<string, string>;
@@ -1275,6 +1364,9 @@ export interface DiscoverInstancesRequest {
   HealthStatus?: HealthStatusFilter | string;
 }
 
+/**
+ * @public
+ */
 export enum HealthStatus {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
@@ -1282,6 +1374,7 @@ export enum HealthStatus {
 }
 
 /**
+ * @public
  * <p>In a response to a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a> request,
  *     <code>HttpInstanceSummary</code> contains information about one instance that matches the values
  *    that you specified in the request.</p>
@@ -1322,6 +1415,9 @@ export interface HttpInstanceSummary {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DiscoverInstancesResponse {
   /**
    * <p>A complex type that contains one <code>HttpInstanceSummary</code> for each registered
@@ -1331,6 +1427,7 @@ export interface DiscoverInstancesResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about changes to the Route 53 DNS records that
  *    Cloud Map creates when you register an instance.</p>
  */
@@ -1343,6 +1440,7 @@ export interface DnsConfigChange {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the ID for the Route 53 hosted zone that Cloud Map creates when
  *    you create a namespace.</p>
  */
@@ -1358,6 +1456,9 @@ export interface DnsProperties {
   SOA?: SOA;
 }
 
+/**
+ * @public
+ */
 export enum FilterCondition {
   BEGINS_WITH = "BEGINS_WITH",
   BETWEEN = "BETWEEN",
@@ -1365,6 +1466,9 @@ export enum FilterCondition {
   IN = "IN",
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceRequest {
   /**
    * <p>The ID of the service that the instance is associated with.</p>
@@ -1378,6 +1482,7 @@ export interface GetInstanceRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about an instance that Cloud Map creates when you
  *    submit a <code>RegisterInstance</code> request.</p>
  */
@@ -1522,6 +1627,9 @@ export interface Instance {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceResponse {
   /**
    * <p>A complex type that contains information about a specified instance.</p>
@@ -1529,6 +1637,9 @@ export interface GetInstanceResponse {
   Instance?: Instance;
 }
 
+/**
+ * @public
+ */
 export interface GetInstancesHealthStatusRequest {
   /**
    * <p>The ID of the service that the instance is associated with.</p>
@@ -1563,6 +1674,9 @@ export interface GetInstancesHealthStatusRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstancesHealthStatusResponse {
   /**
    * <p>A complex type that contains the IDs and the health status of the instances that you
@@ -1578,6 +1692,9 @@ export interface GetInstancesHealthStatusResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNamespaceRequest {
   /**
    * <p>The ID of the namespace that you want to get information about.</p>
@@ -1586,6 +1703,7 @@ export interface GetNamespaceRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the name of an HTTP namespace.</p>
  */
 export interface HttpProperties {
@@ -1596,6 +1714,7 @@ export interface HttpProperties {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information that's specific to the namespace type.</p>
  */
 export interface NamespaceProperties {
@@ -1611,6 +1730,9 @@ export interface NamespaceProperties {
   HttpProperties?: HttpProperties;
 }
 
+/**
+ * @public
+ */
 export enum NamespaceType {
   DNS_PRIVATE = "DNS_PRIVATE",
   DNS_PUBLIC = "DNS_PUBLIC",
@@ -1618,6 +1740,7 @@ export enum NamespaceType {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about a specified namespace.</p>
  */
 export interface Namespace {
@@ -1689,6 +1812,9 @@ export interface Namespace {
   CreatorRequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNamespaceResponse {
   /**
    * <p>A complex type that contains information about the specified namespace.</p>
@@ -1696,6 +1822,9 @@ export interface GetNamespaceResponse {
   Namespace?: Namespace;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationRequest {
   /**
    * <p>The ID of the operation that you want to get more information about.</p>
@@ -1703,6 +1832,9 @@ export interface GetOperationRequest {
   OperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OperationStatus {
   FAIL = "FAIL",
   PENDING = "PENDING",
@@ -1710,12 +1842,18 @@ export enum OperationStatus {
   SUCCESS = "SUCCESS",
 }
 
+/**
+ * @public
+ */
 export enum OperationTargetType {
   INSTANCE = "INSTANCE",
   NAMESPACE = "NAMESPACE",
   SERVICE = "SERVICE",
 }
 
+/**
+ * @public
+ */
 export enum OperationType {
   CREATE_NAMESPACE = "CREATE_NAMESPACE",
   DELETE_NAMESPACE = "DELETE_NAMESPACE",
@@ -1726,6 +1864,7 @@ export enum OperationType {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about a specified operation.</p>
  */
 export interface Operation {
@@ -1847,6 +1986,9 @@ export interface Operation {
   Targets?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationResponse {
   /**
    * <p>A complex type that contains information about the operation.</p>
@@ -1855,6 +1997,7 @@ export interface GetOperationResponse {
 }
 
 /**
+ * @public
  * <p>No operation exists with the specified ID.</p>
  */
 export class OperationNotFound extends __BaseException {
@@ -1875,6 +2018,9 @@ export class OperationNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetServiceRequest {
   /**
    * <p>The ID of the service that you want to get settings for.</p>
@@ -1882,6 +2028,9 @@ export interface GetServiceRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceResponse {
   /**
    * <p>A complex type that contains information about the service.</p>
@@ -1890,6 +2039,7 @@ export interface GetServiceResponse {
 }
 
 /**
+ * @public
  * <p>Updated properties
  *    for the HTTP namespace.</p>
  */
@@ -1902,6 +2052,7 @@ export interface HttpNamespaceChange {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the instances that you registered by using a
  *    specified service.</p>
  */
@@ -1967,6 +2118,9 @@ export interface InstanceSummary {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListInstancesRequest {
   /**
    * <p>The ID of the service that you want to list instances for.</p>
@@ -1989,6 +2143,9 @@ export interface ListInstancesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInstancesResponse {
   /**
    * <p>Summary information about the instances that are associated with the specified
@@ -2004,6 +2161,9 @@ export interface ListInstancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum NamespaceFilterName {
   HTTP_NAME = "HTTP_NAME",
   NAME = "NAME",
@@ -2011,6 +2171,7 @@ export enum NamespaceFilterName {
 }
 
 /**
+ * @public
  * <p>A complex type that identifies the namespaces that you want to list. You can choose to list
  *    public or private namespaces.</p>
  */
@@ -2079,6 +2240,9 @@ export interface NamespaceFilter {
   Condition?: FilterCondition | string;
 }
 
+/**
+ * @public
+ */
 export interface ListNamespacesRequest {
   /**
    * <p>For the first <code>ListNamespaces</code> request, omit this value.</p>
@@ -2110,6 +2274,7 @@ export interface ListNamespacesRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about a namespace.</p>
  */
 export interface NamespaceSummary {
@@ -2155,6 +2320,9 @@ export interface NamespaceSummary {
   CreateDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListNamespacesResponse {
   /**
    * <p>An array that contains one <code>NamespaceSummary</code> object for each namespace that
@@ -2176,6 +2344,9 @@ export interface ListNamespacesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OperationFilterName {
   NAMESPACE_ID = "NAMESPACE_ID",
   SERVICE_ID = "SERVICE_ID",
@@ -2185,6 +2356,7 @@ export enum OperationFilterName {
 }
 
 /**
+ * @public
  * <p>A complex type that lets you select the operations that you want to list.</p>
  */
 export interface OperationFilter {
@@ -2282,6 +2454,9 @@ export interface OperationFilter {
   Condition?: FilterCondition | string;
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsRequest {
   /**
    * <p>For the first <code>ListOperations</code> request, omit this value.</p>
@@ -2314,6 +2489,7 @@ export interface ListOperationsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about an operation that matches the criteria that
  *    you specified in a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a> request.</p>
  */
@@ -2349,6 +2525,9 @@ export interface OperationSummary {
   Status?: OperationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsResponse {
   /**
    * <p>Summary information about the operations that match the specified criteria.</p>
@@ -2369,11 +2548,15 @@ export interface ListOperationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ServiceFilterName {
   NAMESPACE_ID = "NAMESPACE_ID",
 }
 
 /**
+ * @public
  * <p>A complex type that lets you specify the namespaces that you want to list services
  *    for.</p>
  */
@@ -2403,6 +2586,9 @@ export interface ServiceFilter {
   Condition?: FilterCondition | string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesRequest {
   /**
    * <p>For the first <code>ListServices</code> request, omit this value.</p>
@@ -2435,6 +2621,7 @@ export interface ListServicesRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about a specified service.</p>
  */
 export interface ServiceSummary {
@@ -2529,6 +2716,9 @@ export interface ServiceSummary {
   CreateDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesResponse {
   /**
    * <p>An array that contains one <code>ServiceSummary</code> object for each service that matches
@@ -2550,6 +2740,9 @@ export interface ListServicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
@@ -2557,6 +2750,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the resource.</p>
@@ -2565,6 +2761,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The operation can't be completed because the resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -2586,6 +2783,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Updated Start of
  *    Authority (SOA) properties for a public or private DNS namespace.</p>
  */
@@ -2598,6 +2796,7 @@ export interface SOAChange {
 }
 
 /**
+ * @public
  * <p>Updated DNS
  *    properties for the private DNS namespace.</p>
  */
@@ -2611,6 +2810,7 @@ export interface PrivateDnsPropertiesMutableChange {
 }
 
 /**
+ * @public
  * <p>Updated properties
  *    for the private DNS namespace.</p>
  */
@@ -2623,6 +2823,7 @@ export interface PrivateDnsNamespacePropertiesChange {
 }
 
 /**
+ * @public
  * <p>Updated properties
  *    for the private DNS namespace.</p>
  */
@@ -2641,6 +2842,7 @@ export interface PrivateDnsNamespaceChange {
 }
 
 /**
+ * @public
  * <p>Updated DNS
  *    properties for the public DNS namespace.</p>
  */
@@ -2654,6 +2856,7 @@ export interface PublicDnsPropertiesMutableChange {
 }
 
 /**
+ * @public
  * <p>Updated properties
  *    for the public DNS namespace.</p>
  */
@@ -2666,6 +2869,7 @@ export interface PublicDnsNamespacePropertiesChange {
 }
 
 /**
+ * @public
  * <p>Updated properties
  *    for the public DNS namespace.</p>
  */
@@ -2683,6 +2887,9 @@ export interface PublicDnsNamespaceChange {
   Properties?: PublicDnsNamespacePropertiesChange;
 }
 
+/**
+ * @public
+ */
 export interface RegisterInstanceRequest {
   /**
    * <p>The ID of the service that you want to use for settings for the instance.</p>
@@ -2845,6 +3052,9 @@ export interface RegisterInstanceRequest {
   Attributes: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterInstanceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -2853,6 +3063,9 @@ export interface RegisterInstanceResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
@@ -2866,8 +3079,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
@@ -2880,8 +3099,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateHttpNamespaceRequest {
   /**
    * <p>The ID of the
@@ -2904,6 +3129,9 @@ export interface UpdateHttpNamespaceRequest {
   Namespace: HttpNamespaceChange | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHttpNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -2912,6 +3140,9 @@ export interface UpdateHttpNamespaceResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceCustomHealthStatusRequest {
   /**
    * <p>The ID of the service that includes the configuration for the custom health check that you
@@ -2930,6 +3161,9 @@ export interface UpdateInstanceCustomHealthStatusRequest {
   Status: CustomHealthStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePrivateDnsNamespaceRequest {
   /**
    * <p>The ID of the
@@ -2952,6 +3186,9 @@ export interface UpdatePrivateDnsNamespaceRequest {
   Namespace: PrivateDnsNamespaceChange | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePrivateDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -2960,6 +3197,9 @@ export interface UpdatePrivateDnsNamespaceResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePublicDnsNamespaceRequest {
   /**
    * <p>The ID of the
@@ -2982,6 +3222,9 @@ export interface UpdatePublicDnsNamespaceRequest {
   Namespace: PublicDnsNamespaceChange | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePublicDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -2991,6 +3234,7 @@ export interface UpdatePublicDnsNamespaceResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains changes to an existing service.</p>
  */
 export interface ServiceChange {
@@ -3014,6 +3258,9 @@ export interface ServiceChange {
   HealthCheckConfig?: HealthCheckConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceRequest {
   /**
    * <p>The ID of the service that you want to update.</p>
@@ -3026,6 +3273,9 @@ export interface UpdateServiceRequest {
   Service: ServiceChange | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.

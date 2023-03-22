@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetActionCommand}.
  */
 export interface GetActionCommandInput extends GetActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetActionCommand}.
  */
 export interface GetActionCommandOutput extends GetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified FIS action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetActionCommandInput - {@link GetActionCommandInput}
+ * @returns {@link GetActionCommandOutput}
  * @see {@link GetActionCommandInput} for command's `input` shape.
  * @see {@link GetActionCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -71,6 +78,9 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActionCommandOutput> {
     return deserializeAws_restJson1GetActionCommand(output, context);
   }

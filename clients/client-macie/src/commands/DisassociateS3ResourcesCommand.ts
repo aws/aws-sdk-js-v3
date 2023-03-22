@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateS3ResourcesCommand}.
  */
 export interface DisassociateS3ResourcesCommandInput extends DisassociateS3ResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateS3ResourcesCommand}.
  */
 export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Removes specified S3 resources from being monitored by Amazon Macie
  *       Classic. If <code>memberAccountId</code> isn't specified, the action removes specified S3 resources from
  *       Macie Classic for the current Macie Classic administrator account. If <code>memberAccountId</code> is
@@ -50,6 +55,8 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateS3ResourcesCommandInput - {@link DisassociateS3ResourcesCommandInput}
+ * @returns {@link DisassociateS3ResourcesCommandOutput}
  * @see {@link DisassociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link DisassociateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -83,6 +90,9 @@ export class DisassociateS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DisassociateS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateS3ResourcesCommandOutput> {
     return deserializeAws_json1_1DisassociateS3ResourcesCommand(output, context);
   }

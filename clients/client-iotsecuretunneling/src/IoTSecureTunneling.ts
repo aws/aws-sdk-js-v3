@@ -28,6 +28,7 @@ import {
 import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
 
 /**
+ * @public
  * <fullname>IoT Secure Tunneling</fullname>
  * 		       <p>IoT Secure Tunneling creates remote connections to devices deployed in the
  * 			field.</p>
@@ -36,6 +37,7 @@ import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
  */
 export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   /**
+   * @public
    * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
    * 			request is received, we close the WebSocket connections between the client and proxy
    * 			server so no data can be transmitted.</p>
@@ -65,6 +67,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
    * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeTunnel</a> action.</p>
    */
@@ -98,6 +101,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -130,6 +134,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
+   * @public
    * <p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
    * 			descending order, newer tunnels will be listed before older tunnels.</p>
    * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
@@ -158,6 +163,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
+   * @public
    * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
    * 			connect to the IoT Secure Tunneling proxy server.</p>
    * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">OpenTunnel</a> action.</p>
@@ -186,6 +192,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
+   * @public
    * <p>Revokes the current client access token (CAT) and returns new CAT for clients to
    * 			use when reconnecting to secure tunneling to access the same tunnel.</p>
    * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RotateTunnelAccessToken</a> action.</p>
@@ -226,6 +233,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
+   * @public
    * <p>A resource tag.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -252,6 +260,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from a resource.</p>
    */
   public untagResource(

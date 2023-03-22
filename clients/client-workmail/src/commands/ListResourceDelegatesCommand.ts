@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceDelegatesCommand}.
  */
 export interface ListResourceDelegatesCommandInput extends ListResourceDelegatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceDelegatesCommand}.
  */
 export interface ListResourceDelegatesCommandOutput extends ListResourceDelegatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the delegates associated with a resource. Users and groups can be resource
  *          delegates and answer requests on behalf of the resource.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceDelegatesCommandInput - {@link ListResourceDelegatesCommandInput}
+ * @returns {@link ListResourceDelegatesCommandOutput}
  * @see {@link ListResourceDelegatesCommandInput} for command's `input` shape.
  * @see {@link ListResourceDelegatesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListResourceDelegatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceDelegatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListResourceDelegatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceDelegatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourceDelegatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceDelegatesCommandOutput> {
     return deserializeAws_json1_1ListResourceDelegatesCommand(output, context);
   }

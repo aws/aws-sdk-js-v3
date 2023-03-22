@@ -85,6 +85,9 @@ import {
   VerifiedAccessGroup,
 } from "./models_2";
 
+/**
+ * @public
+ */
 export interface DeleteSubnetRequest {
   /**
    * <p>The ID of the subnet.</p>
@@ -99,6 +102,9 @@ export interface DeleteSubnetRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubnetCidrReservationRequest {
   /**
    * <p>The ID of the subnet CIDR reservation.</p>
@@ -113,6 +119,9 @@ export interface DeleteSubnetCidrReservationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubnetCidrReservationResult {
   /**
    * <p>Information about the deleted subnet CIDR reservation.</p>
@@ -120,6 +129,9 @@ export interface DeleteSubnetCidrReservationResult {
   DeletedSubnetCidrReservation?: SubnetCidrReservation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -147,6 +159,9 @@ export interface DeleteTagsRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorFilterRequest {
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -161,6 +176,9 @@ export interface DeleteTrafficMirrorFilterRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorFilterResult {
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -168,6 +186,9 @@ export interface DeleteTrafficMirrorFilterResult {
   TrafficMirrorFilterId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorFilterRuleRequest {
   /**
    * <p>The ID of the Traffic Mirror rule.</p>
@@ -182,6 +203,9 @@ export interface DeleteTrafficMirrorFilterRuleRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorFilterRuleResult {
   /**
    * <p>The ID of the deleted Traffic Mirror rule.</p>
@@ -189,6 +213,9 @@ export interface DeleteTrafficMirrorFilterRuleResult {
   TrafficMirrorFilterRuleId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorSessionRequest {
   /**
    * <p>The ID of the Traffic Mirror session.</p>
@@ -203,6 +230,9 @@ export interface DeleteTrafficMirrorSessionRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorSessionResult {
   /**
    * <p>The ID of the deleted Traffic Mirror session.</p>
@@ -210,6 +240,9 @@ export interface DeleteTrafficMirrorSessionResult {
   TrafficMirrorSessionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorTargetRequest {
   /**
    * <p>The ID of the Traffic Mirror target.</p>
@@ -224,6 +257,9 @@ export interface DeleteTrafficMirrorTargetRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficMirrorTargetResult {
   /**
    * <p>The ID of the deleted Traffic Mirror target.</p>
@@ -231,6 +267,9 @@ export interface DeleteTrafficMirrorTargetResult {
   TrafficMirrorTargetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayRequest {
   /**
    * <p>The ID of the transit gateway.</p>
@@ -245,6 +284,9 @@ export interface DeleteTransitGatewayRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayResult {
   /**
    * <p>Information about the deleted transit gateway.</p>
@@ -252,6 +294,9 @@ export interface DeleteTransitGatewayResult {
   TransitGateway?: TransitGateway;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayConnectRequest {
   /**
    * <p>The ID of the Connect attachment.</p>
@@ -266,6 +311,9 @@ export interface DeleteTransitGatewayConnectRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayConnectResult {
   /**
    * <p>Information about the deleted Connect attachment.</p>
@@ -273,6 +321,9 @@ export interface DeleteTransitGatewayConnectResult {
   TransitGatewayConnect?: TransitGatewayConnect;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayConnectPeerRequest {
   /**
    * <p>The ID of the Connect peer.</p>
@@ -287,6 +338,9 @@ export interface DeleteTransitGatewayConnectPeerRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayConnectPeerResult {
   /**
    * <p>Information about the deleted Connect peer.</p>
@@ -294,6 +348,9 @@ export interface DeleteTransitGatewayConnectPeerResult {
   TransitGatewayConnectPeer?: TransitGatewayConnectPeer;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -308,6 +365,9 @@ export interface DeleteTransitGatewayMulticastDomainRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayMulticastDomainResult {
   /**
    * <p>Information about the deleted transit gateway multicast domain.</p>
@@ -315,6 +375,9 @@ export interface DeleteTransitGatewayMulticastDomainResult {
   TransitGatewayMulticastDomain?: TransitGatewayMulticastDomain;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayPeeringAttachmentRequest {
   /**
    * <p>The ID of the transit gateway peering attachment.</p>
@@ -329,6 +392,9 @@ export interface DeleteTransitGatewayPeeringAttachmentRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayPeeringAttachmentResult {
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -336,6 +402,9 @@ export interface DeleteTransitGatewayPeeringAttachmentResult {
   TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayPolicyTableRequest {
   /**
    * <p>The transit gateway policy table to delete.</p>
@@ -350,6 +419,9 @@ export interface DeleteTransitGatewayPolicyTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayPolicyTableResult {
   /**
    * <p>Provides details about the deleted transit gateway policy table.</p>
@@ -357,6 +429,9 @@ export interface DeleteTransitGatewayPolicyTableResult {
   TransitGatewayPolicyTable?: TransitGatewayPolicyTable;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayPrefixListReferenceRequest {
   /**
    * <p>The ID of the route table.</p>
@@ -376,6 +451,9 @@ export interface DeleteTransitGatewayPrefixListReferenceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayPrefixListReferenceResult {
   /**
    * <p>Information about the deleted prefix list reference.</p>
@@ -383,6 +461,9 @@ export interface DeleteTransitGatewayPrefixListReferenceResult {
   TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayRouteRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -402,6 +483,9 @@ export interface DeleteTransitGatewayRouteRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayRouteResult {
   /**
    * <p>Information about the route.</p>
@@ -409,6 +493,9 @@ export interface DeleteTransitGatewayRouteResult {
   Route?: TransitGatewayRoute;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayRouteTableRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -423,6 +510,9 @@ export interface DeleteTransitGatewayRouteTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayRouteTableResult {
   /**
    * <p>Information about the deleted transit gateway route table.</p>
@@ -430,6 +520,9 @@ export interface DeleteTransitGatewayRouteTableResult {
   TransitGatewayRouteTable?: TransitGatewayRouteTable;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayRouteTableAnnouncementRequest {
   /**
    * <p>The transit gateway route table ID that's being deleted. </p>
@@ -444,6 +537,9 @@ export interface DeleteTransitGatewayRouteTableAnnouncementRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayRouteTableAnnouncementResult {
   /**
    * <p>Provides details about a deleted transit gateway route table.</p>
@@ -451,6 +547,9 @@ export interface DeleteTransitGatewayRouteTableAnnouncementResult {
   TransitGatewayRouteTableAnnouncement?: TransitGatewayRouteTableAnnouncement;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayVpcAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -465,6 +564,9 @@ export interface DeleteTransitGatewayVpcAttachmentRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayVpcAttachmentResult {
   /**
    * <p>Information about the deleted VPC attachment.</p>
@@ -472,6 +574,9 @@ export interface DeleteTransitGatewayVpcAttachmentResult {
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessEndpointRequest {
   /**
    * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
@@ -492,6 +597,9 @@ export interface DeleteVerifiedAccessEndpointRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessEndpointResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
@@ -499,6 +607,9 @@ export interface DeleteVerifiedAccessEndpointResult {
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessGroupRequest {
   /**
    * <p>The ID of the Amazon Web Services Verified Access group.</p>
@@ -519,6 +630,9 @@ export interface DeleteVerifiedAccessGroupRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessGroupResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access group.</p>
@@ -526,6 +640,9 @@ export interface DeleteVerifiedAccessGroupResult {
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessInstanceRequest {
   /**
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
@@ -546,6 +663,9 @@ export interface DeleteVerifiedAccessInstanceRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessInstanceResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
@@ -553,6 +673,9 @@ export interface DeleteVerifiedAccessInstanceResult {
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessTrustProviderRequest {
   /**
    * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
@@ -573,6 +696,9 @@ export interface DeleteVerifiedAccessTrustProviderRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVerifiedAccessTrustProviderResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
@@ -580,6 +706,9 @@ export interface DeleteVerifiedAccessTrustProviderResult {
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVolumeRequest {
   /**
    * <p>The ID of the volume.</p>
@@ -594,6 +723,9 @@ export interface DeleteVolumeRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcRequest {
   /**
    * <p>The ID of the VPC.</p>
@@ -608,6 +740,9 @@ export interface DeleteVpcRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointConnectionNotificationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -622,6 +757,9 @@ export interface DeleteVpcEndpointConnectionNotificationsRequest {
   ConnectionNotificationIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointConnectionNotificationsResult {
   /**
    * <p>Information about the notifications that could not be deleted
@@ -630,6 +768,9 @@ export interface DeleteVpcEndpointConnectionNotificationsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -644,6 +785,9 @@ export interface DeleteVpcEndpointsRequest {
   VpcEndpointIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointsResult {
   /**
    * <p>Information about the VPC endpoints that were not successfully deleted.</p>
@@ -651,6 +795,9 @@ export interface DeleteVpcEndpointsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointServiceConfigurationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -665,6 +812,9 @@ export interface DeleteVpcEndpointServiceConfigurationsRequest {
   ServiceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointServiceConfigurationsResult {
   /**
    * <p>Information about the service configurations that were not deleted, if
@@ -673,6 +823,9 @@ export interface DeleteVpcEndpointServiceConfigurationsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringConnectionRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -687,6 +840,9 @@ export interface DeleteVpcPeeringConnectionRequest {
   VpcPeeringConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringConnectionResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -695,6 +851,7 @@ export interface DeleteVpcPeeringConnectionResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteVpnConnection.</p>
  */
 export interface DeleteVpnConnectionRequest {
@@ -713,6 +870,7 @@ export interface DeleteVpnConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteVpnConnectionRoute.</p>
  */
 export interface DeleteVpnConnectionRouteRequest {
@@ -728,6 +886,7 @@ export interface DeleteVpnConnectionRouteRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteVpnGateway.</p>
  */
 export interface DeleteVpnGatewayRequest {
@@ -745,6 +904,9 @@ export interface DeleteVpnGatewayRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeprovisionByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation. The prefix must be the same prefix
@@ -760,6 +922,9 @@ export interface DeprovisionByoipCidrRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeprovisionByoipCidrResult {
   /**
    * <p>Information about the address range.</p>
@@ -767,6 +932,9 @@ export interface DeprovisionByoipCidrResult {
   ByoipCidr?: ByoipCidr;
 }
 
+/**
+ * @public
+ */
 export interface DeprovisionIpamPoolCidrRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -786,12 +954,16 @@ export interface DeprovisionIpamPoolCidrRequest {
   Cidr?: string;
 }
 
+/**
+ * @public
+ */
 export enum IpamPoolCidrFailureCode {
   cidr_not_available = "cidr-not-available",
   limit_exceeded = "limit-exceeded",
 }
 
 /**
+ * @public
  * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
  */
 export interface IpamPoolCidrFailureReason {
@@ -806,6 +978,9 @@ export interface IpamPoolCidrFailureReason {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum IpamPoolCidrState {
   deprovisioned = "deprovisioned",
   failed_deprovision = "failed-deprovision",
@@ -818,6 +993,7 @@ export enum IpamPoolCidrState {
 }
 
 /**
+ * @public
  * <p>A CIDR provisioned to an IPAM pool.</p>
  */
 export interface IpamPoolCidr {
@@ -848,6 +1024,9 @@ export interface IpamPoolCidr {
   NetmaskLength?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeprovisionIpamPoolCidrResult {
   /**
    * <p>The deprovisioned pool CIDR.</p>
@@ -855,6 +1034,9 @@ export interface DeprovisionIpamPoolCidrResult {
   IpamPoolCidr?: IpamPoolCidr;
 }
 
+/**
+ * @public
+ */
 export interface DeprovisionPublicIpv4PoolCidrRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -874,6 +1056,9 @@ export interface DeprovisionPublicIpv4PoolCidrRequest {
   Cidr: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeprovisionPublicIpv4PoolCidrResult {
   /**
    * <p>The ID of the pool that you deprovisioned the CIDR from.</p>
@@ -887,6 +1072,7 @@ export interface DeprovisionPublicIpv4PoolCidrResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeregisterImage.</p>
  */
 export interface DeregisterImageRequest {
@@ -904,6 +1090,7 @@ export interface DeregisterImageRequest {
 }
 
 /**
+ * @public
  * <p>Information about the tag keys to deregister for the current Region. You can either specify
  *    		individual tag keys or deregister all tag keys in the current Region. You must specify either
  *    		<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
@@ -921,6 +1108,9 @@ export interface DeregisterInstanceTagAttributeRequest {
   InstanceTagKeys?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeregisterInstanceEventNotificationAttributesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -936,6 +1126,7 @@ export interface DeregisterInstanceEventNotificationAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the registered tag keys for the current Region.</p>
  */
 export interface InstanceTagNotificationAttribute {
@@ -951,6 +1142,9 @@ export interface InstanceTagNotificationAttribute {
   IncludeAllTagsOfInstance?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterInstanceEventNotificationAttributesResult {
   /**
    * <p>The resulting set of tag keys.</p>
@@ -958,6 +1152,9 @@ export interface DeregisterInstanceEventNotificationAttributesResult {
   InstanceTagAttribute?: InstanceTagNotificationAttribute;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -983,6 +1180,7 @@ export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
 }
 
 /**
+ * @public
  * <p>Describes the deregistered  transit gateway multicast group members.</p>
  */
 export interface TransitGatewayMulticastDeregisteredGroupMembers {
@@ -1002,6 +1200,9 @@ export interface TransitGatewayMulticastDeregisteredGroupMembers {
   GroupIpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayMulticastGroupMembersResult {
   /**
    * <p>Information about the deregistered members.</p>
@@ -1009,6 +1210,9 @@ export interface DeregisterTransitGatewayMulticastGroupMembersResult {
   DeregisteredMulticastGroupMembers?: TransitGatewayMulticastDeregisteredGroupMembers;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -1034,6 +1238,7 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the deregistered  transit gateway multicast group sources.</p>
  */
 export interface TransitGatewayMulticastDeregisteredGroupSources {
@@ -1053,6 +1258,9 @@ export interface TransitGatewayMulticastDeregisteredGroupSources {
   GroupIpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
   /**
    * <p>Information about the deregistered group sources.</p>
@@ -1060,6 +1268,9 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
   DeregisteredMulticastGroupSources?: TransitGatewayMulticastDeregisteredGroupSources;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesRequest {
   /**
    * <p>The account attribute names.</p>
@@ -1074,6 +1285,9 @@ export interface DescribeAccountAttributesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesResult {
   /**
    * <p>Information about the account attributes.</p>
@@ -1082,6 +1296,7 @@ export interface DescribeAccountAttributesResult {
 }
 
 /**
+ * @public
  * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation.
  *          Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>
  *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
@@ -1101,6 +1316,9 @@ export interface Filter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddressesRequest {
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
@@ -1175,6 +1393,9 @@ export interface DescribeAddressesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddressesResult {
   /**
    * <p>Information about the Elastic IP addresses.</p>
@@ -1182,6 +1403,9 @@ export interface DescribeAddressesResult {
   Addresses?: Address[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddressesAttributeRequest {
   /**
    * <p>[EC2-VPC] The allocation IDs.</p>
@@ -1211,6 +1435,9 @@ export interface DescribeAddressesAttributeRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddressesAttributeResult {
   /**
    * <p>Information about the IP addresses.</p>
@@ -1223,6 +1450,9 @@ export interface DescribeAddressesAttributeResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddressTransfersRequest {
   /**
    * <p>The allocation IDs of Elastic IP addresses.</p>
@@ -1247,6 +1477,9 @@ export interface DescribeAddressTransfersRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAddressTransfersResult {
   /**
    * <p>The Elastic IP address transfer.</p>
@@ -1259,6 +1492,9 @@ export interface DescribeAddressTransfersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAggregateIdFormatRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1269,6 +1505,7 @@ export interface DescribeAggregateIdFormatRequest {
 }
 
 /**
+ * @public
  * <p>Describes the ID format for a resource.</p>
  */
 export interface IdFormat {
@@ -1288,6 +1525,9 @@ export interface IdFormat {
   UseLongIds?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAggregateIdFormatResult {
   /**
    * <p>Indicates whether all resource types in the Region are configured to use longer IDs.
@@ -1302,6 +1542,9 @@ export interface DescribeAggregateIdFormatResult {
   Statuses?: IdFormat[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAvailabilityZonesRequest {
   /**
    * <p>The filters.</p>
@@ -1389,6 +1632,7 @@ export interface DescribeAvailabilityZonesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.</p>
  */
 export interface AvailabilityZoneMessage {
@@ -1398,12 +1642,18 @@ export interface AvailabilityZoneMessage {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum AvailabilityZoneOptInStatus {
   not_opted_in = "not-opted-in",
   opt_in_not_required = "opt-in-not-required",
   opted_in = "opted-in",
 }
 
+/**
+ * @public
+ */
 export enum AvailabilityZoneState {
   available = "available",
   impaired = "impaired",
@@ -1412,6 +1662,7 @@ export enum AvailabilityZoneState {
 }
 
 /**
+ * @public
  * <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
  */
 export interface AvailabilityZone {
@@ -1482,6 +1733,9 @@ export interface AvailabilityZone {
   ParentZoneId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAvailabilityZonesResult {
   /**
    * <p>Information about the Availability Zones, Local Zones, and Wavelength Zones.</p>
@@ -1489,6 +1743,9 @@ export interface DescribeAvailabilityZonesResult {
   AvailabilityZones?: AvailabilityZone[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
   /**
    * <p>The maximum number of results to return with a single call.
@@ -1514,10 +1771,16 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum MetricType {
   aggregate_latency = "aggregate-latency",
 }
 
+/**
+ * @public
+ */
 export enum PeriodType {
   fifteen_minutes = "fifteen-minutes",
   five_minutes = "five-minutes",
@@ -1527,11 +1790,15 @@ export enum PeriodType {
   three_hours = "three-hours",
 }
 
+/**
+ * @public
+ */
 export enum StatisticType {
   p50 = "p50",
 }
 
 /**
+ * @public
  * <p>Describes an Infrastructure Performance subscription.</p>
  */
 export interface Subscription {
@@ -1561,6 +1828,9 @@ export interface Subscription {
   Period?: PeriodType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAwsNetworkPerformanceMetricSubscriptionsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -1573,6 +1843,9 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsResult {
   Subscriptions?: Subscription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBundleTasksRequest {
   /**
    * <p>The bundle task IDs.</p>
@@ -1636,6 +1909,9 @@ export interface DescribeBundleTasksRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBundleTasksResult {
   /**
    * <p>Information about the bundle tasks.</p>
@@ -1643,6 +1919,9 @@ export interface DescribeBundleTasksResult {
   BundleTasks?: BundleTask[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeByoipCidrsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1663,6 +1942,9 @@ export interface DescribeByoipCidrsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeByoipCidrsResult {
   /**
    * <p>Information about your address ranges.</p>
@@ -1675,6 +1957,9 @@ export interface DescribeByoipCidrsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCapacityReservationFleetsRequest {
   /**
    * <p>The IDs of the Capacity Reservation Fleets to describe.</p>
@@ -1723,6 +2008,7 @@ export interface DescribeCapacityReservationFleetsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a Capacity Reservation Fleet.</p>
  */
 export interface CapacityReservationFleet {
@@ -1862,6 +2148,9 @@ export interface CapacityReservationFleet {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeCapacityReservationFleetsResult {
   /**
    * <p>Information about the Capacity Reservation Fleets.</p>
@@ -1874,6 +2163,9 @@ export interface DescribeCapacityReservationFleetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCapacityReservationsRequest {
   /**
    * <p>The ID of the Capacity Reservation.</p>
@@ -2013,6 +2305,9 @@ export interface DescribeCapacityReservationsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCapacityReservationsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -2025,6 +2320,9 @@ export interface DescribeCapacityReservationsResult {
   CapacityReservations?: CapacityReservation[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeCarrierGatewaysRequest {
   /**
    * <p>One or more carrier gateway IDs.</p>
@@ -2083,6 +2381,9 @@ export interface DescribeCarrierGatewaysRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCarrierGatewaysResult {
   /**
    * <p>Information about the carrier gateway.</p>
@@ -2095,6 +2396,9 @@ export interface DescribeCarrierGatewaysResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClassicLinkInstancesRequest {
   /**
    * <p>One or more filters.</p>
@@ -2154,6 +2458,7 @@ export interface DescribeClassicLinkInstancesRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -2181,6 +2486,9 @@ export interface ClassicLinkInstance {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClassicLinkInstancesResult {
   /**
    * <p>Information about one or more linked EC2-Classic instances.</p>
@@ -2193,6 +2501,9 @@ export interface DescribeClassicLinkInstancesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnAuthorizationRulesRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2236,6 +2547,7 @@ export interface DescribeClientVpnAuthorizationRulesRequest {
 }
 
 /**
+ * @public
  * <p>Information about an authorization rule.</p>
  */
 export interface AuthorizationRule {
@@ -2270,6 +2582,9 @@ export interface AuthorizationRule {
   Status?: ClientVpnAuthorizationRuleStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnAuthorizationRulesResult {
   /**
    * <p>Information about the authorization rules.</p>
@@ -2282,6 +2597,9 @@ export interface DescribeClientVpnAuthorizationRulesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnConnectionsRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2320,6 +2638,9 @@ export interface DescribeClientVpnConnectionsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ClientVpnConnectionStatusCode {
   active = "active",
   failed_to_terminate = "failed-to-terminate",
@@ -2328,6 +2649,7 @@ export enum ClientVpnConnectionStatusCode {
 }
 
 /**
+ * @public
  * <p>Describes the status of a client connection.</p>
  */
 export interface ClientVpnConnectionStatus {
@@ -2343,6 +2665,7 @@ export interface ClientVpnConnectionStatus {
 }
 
 /**
+ * @public
  * <p>Describes a client connection.</p>
  */
 export interface ClientVpnConnection {
@@ -2419,6 +2742,9 @@ export interface ClientVpnConnection {
   PostureComplianceStatuses?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnConnectionsResult {
   /**
    * <p>Information about the active and terminated client connections.</p>
@@ -2431,6 +2757,9 @@ export interface DescribeClientVpnConnectionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnEndpointsRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2469,11 +2798,15 @@ export interface DescribeClientVpnEndpointsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AssociatedNetworkType {
   vpc = "vpc",
 }
 
 /**
+ * @public
  * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
  */
 export interface AssociatedTargetNetwork {
@@ -2489,6 +2822,7 @@ export interface AssociatedTargetNetwork {
 }
 
 /**
+ * @public
  * <p>Describes an Active Directory.</p>
  */
 export interface DirectoryServiceAuthentication {
@@ -2499,6 +2833,7 @@ export interface DirectoryServiceAuthentication {
 }
 
 /**
+ * @public
  * <p>Describes the IAM SAML identity providers used for federated authentication.</p>
  */
 export interface FederatedAuthentication {
@@ -2514,6 +2849,7 @@ export interface FederatedAuthentication {
 }
 
 /**
+ * @public
  * <p>Information about the client certificate used for authentication.</p>
  */
 export interface CertificateAuthentication {
@@ -2524,6 +2860,7 @@ export interface CertificateAuthentication {
 }
 
 /**
+ * @public
  * <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
  * 			in the <i>Client VPN Administrator Guide</i>.</p>
  */
@@ -2549,12 +2886,16 @@ export interface ClientVpnAuthentication {
   FederatedAuthentication?: FederatedAuthentication;
 }
 
+/**
+ * @public
+ */
 export enum ClientVpnEndpointAttributeStatusCode {
   applied = "applied",
   applying = "applying",
 }
 
 /**
+ * @public
  * <p>Describes the status of the Client VPN endpoint attribute.</p>
  */
 export interface ClientVpnEndpointAttributeStatus {
@@ -2570,6 +2911,7 @@ export interface ClientVpnEndpointAttributeStatus {
 }
 
 /**
+ * @public
  * <p>The options for managing connection authorization for new client connections.</p>
  */
 export interface ClientConnectResponseOptions {
@@ -2590,6 +2932,7 @@ export interface ClientConnectResponseOptions {
 }
 
 /**
+ * @public
  * <p>Current state of options for customizable text banner that will be displayed on
  * 			Amazon Web Services provided clients when a VPN session is established.</p>
  */
@@ -2610,6 +2953,7 @@ export interface ClientLoginBannerResponseOptions {
 }
 
 /**
+ * @public
  * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
  */
 export interface ConnectionLogResponseOptions {
@@ -2629,11 +2973,15 @@ export interface ConnectionLogResponseOptions {
   CloudwatchLogStream?: string;
 }
 
+/**
+ * @public
+ */
 export enum VpnProtocol {
   openvpn = "openvpn",
 }
 
 /**
+ * @public
  * <p>Describes a Client VPN endpoint.</p>
  */
 export interface ClientVpnEndpoint {
@@ -2762,6 +3110,9 @@ export interface ClientVpnEndpoint {
   ClientLoginBannerOptions?: ClientLoginBannerResponseOptions;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnEndpointsResult {
   /**
    * <p>Information about the Client VPN endpoints.</p>
@@ -2774,6 +3125,9 @@ export interface DescribeClientVpnEndpointsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnRoutesRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2816,6 +3170,7 @@ export interface DescribeClientVpnRoutesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a Client VPN endpoint route.</p>
  */
 export interface ClientVpnRoute {
@@ -2858,6 +3213,9 @@ export interface ClientVpnRoute {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnRoutesResult {
   /**
    * <p>Information about the Client VPN endpoint routes.</p>
@@ -2870,6 +3228,9 @@ export interface DescribeClientVpnRoutesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnTargetNetworksRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2917,6 +3278,7 @@ export interface DescribeClientVpnTargetNetworksRequest {
 }
 
 /**
+ * @public
  * <p>Describes a target network associated with a Client VPN endpoint.</p>
  */
 export interface TargetNetwork {
@@ -2951,6 +3313,9 @@ export interface TargetNetwork {
   SecurityGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientVpnTargetNetworksResult {
   /**
    * <p>Information about the associated target networks.</p>
@@ -2963,6 +3328,9 @@ export interface DescribeClientVpnTargetNetworksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCoipPoolsRequest {
   /**
    * <p>The IDs of the address pools.</p>
@@ -3003,6 +3371,9 @@ export interface DescribeCoipPoolsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCoipPoolsResult {
   /**
    * <p>Information about the address pools.</p>
@@ -3015,6 +3386,9 @@ export interface DescribeCoipPoolsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConversionTasksRequest {
   /**
    * <p>The conversion task IDs.</p>
@@ -3030,6 +3404,7 @@ export interface DescribeConversionTasksRequest {
 }
 
 /**
+ * @public
  * <p>Describes a disk image.</p>
  */
 export interface DiskImageDescription {
@@ -3058,6 +3433,7 @@ export interface DiskImageDescription {
 }
 
 /**
+ * @public
  * <p>Describes a disk image volume.</p>
  */
 export interface DiskImageVolumeDescription {
@@ -3073,6 +3449,7 @@ export interface DiskImageVolumeDescription {
 }
 
 /**
+ * @public
  * <p>Describes an import volume task.</p>
  */
 export interface ImportInstanceVolumeDetailItem {
@@ -3113,6 +3490,7 @@ export interface ImportInstanceVolumeDetailItem {
 }
 
 /**
+ * @public
  * <p>Describes an import instance task.</p>
  */
 export interface ImportInstanceTaskDetails {
@@ -3138,6 +3516,7 @@ export interface ImportInstanceTaskDetails {
 }
 
 /**
+ * @public
  * <p>Describes an import volume task.</p>
  */
 export interface ImportVolumeTaskDetails {
@@ -3167,6 +3546,9 @@ export interface ImportVolumeTaskDetails {
   Volume?: DiskImageVolumeDescription;
 }
 
+/**
+ * @public
+ */
 export enum ConversionTaskState {
   active = "active",
   cancelled = "cancelled",
@@ -3175,6 +3557,7 @@ export enum ConversionTaskState {
 }
 
 /**
+ * @public
  * <p>Describes a conversion task.</p>
  */
 export interface ConversionTask {
@@ -3215,6 +3598,9 @@ export interface ConversionTask {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeConversionTasksResult {
   /**
    * <p>Information about the conversion tasks.</p>
@@ -3223,6 +3609,7 @@ export interface DescribeConversionTasksResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeCustomerGateways.</p>
  */
 export interface DescribeCustomerGatewaysRequest {
@@ -3283,6 +3670,7 @@ export interface DescribeCustomerGatewaysRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeCustomerGateways.</p>
  */
 export interface DescribeCustomerGatewaysResult {
@@ -3292,6 +3680,9 @@ export interface DescribeCustomerGatewaysResult {
   CustomerGateways?: CustomerGateway[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDhcpOptionsRequest {
   /**
    * <p>The IDs of one or more DHCP options sets.</p>
@@ -3351,6 +3742,9 @@ export interface DescribeDhcpOptionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDhcpOptionsResult {
   /**
    * <p>Information about one or more DHCP options sets.</p>
@@ -3363,6 +3757,9 @@ export interface DescribeDhcpOptionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEgressOnlyInternetGatewaysRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3405,6 +3802,9 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEgressOnlyInternetGatewaysResult {
   /**
    * <p>Information about the egress-only internet gateways.</p>
@@ -3417,6 +3817,9 @@ export interface DescribeEgressOnlyInternetGatewaysResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeElasticGpusRequest {
   /**
    * <p>The Elastic Graphics accelerator IDs.</p>
@@ -3475,12 +3878,16 @@ export interface DescribeElasticGpusRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ElasticGpuStatus {
   Impaired = "IMPAIRED",
   Ok = "OK",
 }
 
 /**
+ * @public
  * <p>Describes the status of an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuHealth {
@@ -3490,11 +3897,15 @@ export interface ElasticGpuHealth {
   Status?: ElasticGpuStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum ElasticGpuState {
   Attached = "ATTACHED",
 }
 
 /**
+ * @public
  * <p>Describes an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpus {
@@ -3534,6 +3945,9 @@ export interface ElasticGpus {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeElasticGpusResult {
   /**
    * <p>Information about the Elastic Graphics accelerators.</p>
@@ -3554,6 +3968,9 @@ export interface DescribeElasticGpusResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportImageTasksRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3585,6 +4002,7 @@ export interface DescribeExportImageTasksRequest {
 }
 
 /**
+ * @public
  * <p>Describes the destination for an export image task.</p>
  */
 export interface ExportTaskS3Location {
@@ -3600,6 +4018,7 @@ export interface ExportTaskS3Location {
 }
 
 /**
+ * @public
  * <p>Describes an export image task.</p>
  */
 export interface ExportImageTask {
@@ -3645,6 +4064,9 @@ export interface ExportImageTask {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportImageTasksResult {
   /**
    * <p>Information about the export image tasks.</p>
@@ -3658,6 +4080,9 @@ export interface DescribeExportImageTasksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportTasksRequest {
   /**
    * <p>The export task IDs.</p>
@@ -3670,6 +4095,9 @@ export interface DescribeExportTasksRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportTasksResult {
   /**
    * <p>Information about the export tasks.</p>
@@ -3677,6 +4105,9 @@ export interface DescribeExportTasksResult {
   ExportTasks?: ExportTask[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFastLaunchImagesRequest {
   /**
    * <p>Details for one or more Windows AMI image IDs.</p>
@@ -3727,6 +4158,7 @@ export interface DescribeFastLaunchImagesRequest {
 }
 
 /**
+ * @public
  * <p>Identifies the launch template to use for faster launching of the Windows AMI.</p>
  */
 export interface FastLaunchLaunchTemplateSpecificationResponse {
@@ -3746,11 +4178,15 @@ export interface FastLaunchLaunchTemplateSpecificationResponse {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export enum FastLaunchResourceType {
   SNAPSHOT = "snapshot",
 }
 
 /**
+ * @public
  * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
  */
 export interface FastLaunchSnapshotConfigurationResponse {
@@ -3760,6 +4196,9 @@ export interface FastLaunchSnapshotConfigurationResponse {
   TargetResourceCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum FastLaunchStateCode {
   disabling = "disabling",
   disabling_failed = "disabling-failed",
@@ -3770,6 +4209,7 @@ export enum FastLaunchStateCode {
 }
 
 /**
+ * @public
  * <p>Describe details about a fast-launch enabled Windows image that meets the requested
  * 			criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>
  */
@@ -3824,6 +4264,9 @@ export interface DescribeFastLaunchImagesSuccessItem {
   StateTransitionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFastLaunchImagesResult {
   /**
    * <p>A collection of details about the fast-launch enabled Windows images that meet
@@ -3838,6 +4281,9 @@ export interface DescribeFastLaunchImagesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFastSnapshotRestoresRequest {
   /**
    * <p>The filters. The possible values are:</p>
@@ -3888,6 +4334,9 @@ export interface DescribeFastSnapshotRestoresRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum FastSnapshotRestoreStateCode {
   disabled = "disabled",
   disabling = "disabling",
@@ -3897,6 +4346,7 @@ export enum FastSnapshotRestoreStateCode {
 }
 
 /**
+ * @public
  * <p>Describes fast snapshot restores for a snapshot.</p>
  */
 export interface DescribeFastSnapshotRestoreSuccessItem {
@@ -3968,6 +4418,9 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
   DisabledTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFastSnapshotRestoresResult {
   /**
    * <p>Information about the state of fast snapshot restores.</p>
@@ -3981,12 +4434,18 @@ export interface DescribeFastSnapshotRestoresResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FleetEventType {
   FLEET_CHANGE = "fleet-change",
   INSTANCE_CHANGE = "instance-change",
   SERVICE_ERROR = "service-error",
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetHistoryRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4025,6 +4484,7 @@ export interface DescribeFleetHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Describes an EC2 Fleet or Spot Fleet event.</p>
  */
 export interface EventInformation {
@@ -4172,6 +4632,7 @@ export interface EventInformation {
 }
 
 /**
+ * @public
  * <p>Describes an event in the history of an EC2 Fleet.</p>
  */
 export interface HistoryRecordEntry {
@@ -4192,6 +4653,9 @@ export interface HistoryRecordEntry {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetHistoryResult {
   /**
    * <p>Information about the events in the history of the EC2 Fleet.</p>
@@ -4225,6 +4689,9 @@ export interface DescribeFleetHistoryResult {
   StartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetInstancesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4262,6 +4729,9 @@ export interface DescribeFleetInstancesRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetInstancesResult {
   /**
    * <p>The running instances. This list is refreshed periodically and might be out of
@@ -4281,6 +4751,9 @@ export interface DescribeFleetInstancesResult {
   FleetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4347,6 +4820,9 @@ export interface DescribeFleetsRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export enum FleetActivityStatus {
   ERROR = "error",
   FULFILLED = "fulfilled",
@@ -4355,6 +4831,7 @@ export enum FleetActivityStatus {
 }
 
 /**
+ * @public
  * <p>Describes the instances that could not be launched by the fleet.</p>
  */
 export interface DescribeFleetError {
@@ -4383,6 +4860,7 @@ export interface DescribeFleetError {
 }
 
 /**
+ * @public
  * <p>Describes the instances that were launched by the fleet.</p>
  */
 export interface DescribeFleetsInstances {
@@ -4415,6 +4893,7 @@ export interface DescribeFleetsInstances {
 }
 
 /**
+ * @public
  * <p>Describes a launch template and overrides.</p>
  */
 export interface FleetLaunchTemplateConfig {
@@ -4431,6 +4910,7 @@ export interface FleetLaunchTemplateConfig {
 }
 
 /**
+ * @public
  * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
  *          capacity.</p>
  *          <note>
@@ -4459,6 +4939,7 @@ export interface CapacityReservationOptions {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
  */
 export interface OnDemandOptions {
@@ -4513,6 +4994,7 @@ export interface OnDemandOptions {
 }
 
 /**
+ * @public
  * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
  *          elevated risk of being interrupted.</p>
  */
@@ -4545,6 +5027,7 @@ export interface FleetSpotCapacityRebalance {
 }
 
 /**
+ * @public
  * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
  *          interrupted.</p>
  */
@@ -4557,6 +5040,7 @@ export interface FleetSpotMaintenanceStrategies {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
  */
 export interface SpotOptions {
@@ -4672,6 +5156,7 @@ export interface SpotOptions {
 }
 
 /**
+ * @public
  * <p>The number of units to request. You can choose to set the target capacity in terms of
  *          instances or a performance characteristic that is important to your application workload,
  *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
@@ -4716,6 +5201,7 @@ export interface TargetCapacitySpecification {
 }
 
 /**
+ * @public
  * <p>Describes an EC2 Fleet.</p>
  */
 export interface FleetData {
@@ -4854,6 +5340,9 @@ export interface FleetData {
   Context?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetsResult {
   /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
@@ -4867,6 +5356,9 @@ export interface DescribeFleetsResult {
   Fleets?: FleetData[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowLogsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4939,6 +5431,7 @@ export interface DescribeFlowLogsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the destination options for a flow log.</p>
  */
 export interface DestinationOptionsResponse {
@@ -4959,6 +5452,7 @@ export interface DestinationOptionsResponse {
 }
 
 /**
+ * @public
  * <p>Describes a flow log.</p>
  */
 export interface FlowLog {
@@ -5053,6 +5547,9 @@ export interface FlowLog {
   DestinationOptions?: DestinationOptionsResponse;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowLogsResult {
   /**
    * <p>Information about the flow logs.</p>
@@ -5065,6 +5562,9 @@ export interface DescribeFlowLogsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FpgaImageAttributeName {
   description = "description",
   loadPermission = "loadPermission",
@@ -5072,6 +5572,9 @@ export enum FpgaImageAttributeName {
   productCodes = "productCodes",
 }
 
+/**
+ * @public
+ */
 export interface DescribeFpgaImageAttributeRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5091,11 +5594,15 @@ export interface DescribeFpgaImageAttributeRequest {
   Attribute: FpgaImageAttributeName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PermissionGroup {
   all = "all",
 }
 
 /**
+ * @public
  * <p>Describes a load permission.</p>
  */
 export interface LoadPermission {
@@ -5110,12 +5617,16 @@ export interface LoadPermission {
   Group?: PermissionGroup | string;
 }
 
+/**
+ * @public
+ */
 export enum ProductCodeValues {
   devpay = "devpay",
   marketplace = "marketplace",
 }
 
 /**
+ * @public
  * <p>Describes a product code.</p>
  */
 export interface ProductCode {
@@ -5131,6 +5642,7 @@ export interface ProductCode {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon FPGA image (AFI) attribute.</p>
  */
 export interface FpgaImageAttribute {
@@ -5160,6 +5672,9 @@ export interface FpgaImageAttribute {
   ProductCodes?: ProductCode[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFpgaImageAttributeResult {
   /**
    * <p>Information about the attribute.</p>
@@ -5167,6 +5682,9 @@ export interface DescribeFpgaImageAttributeResult {
   FpgaImageAttribute?: FpgaImageAttribute;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFpgaImagesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5251,6 +5769,7 @@ export interface DescribeFpgaImagesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
  */
 export interface PciId {
@@ -5275,6 +5794,9 @@ export interface PciId {
   SubsystemVendorId?: string;
 }
 
+/**
+ * @public
+ */
 export enum FpgaImageStateCode {
   available = "available",
   failed = "failed",
@@ -5283,6 +5805,7 @@ export enum FpgaImageStateCode {
 }
 
 /**
+ * @public
  * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
  */
 export interface FpgaImageState {
@@ -5316,6 +5839,7 @@ export interface FpgaImageState {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon FPGA image (AFI).</p>
  */
 export interface FpgaImage {
@@ -5400,6 +5924,9 @@ export interface FpgaImage {
   InstanceTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFpgaImagesResult {
   /**
    * <p>Information about the FPGA images.</p>
@@ -5412,6 +5939,9 @@ export interface DescribeFpgaImagesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostReservationOfferingsRequest {
   /**
    * <p>The filters.</p>
@@ -5462,6 +5992,9 @@ export interface DescribeHostReservationOfferingsRequest {
   OfferingId?: string;
 }
 
+/**
+ * @public
+ */
 export enum PaymentOption {
   ALL_UPFRONT = "AllUpfront",
   NO_UPFRONT = "NoUpfront",
@@ -5469,6 +6002,7 @@ export enum PaymentOption {
 }
 
 /**
+ * @public
  * <p>Details about the Dedicated Host Reservation offering.</p>
  */
 export interface HostOffering {
@@ -5508,6 +6042,9 @@ export interface HostOffering {
   UpfrontPrice?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostReservationOfferingsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -5520,6 +6057,9 @@ export interface DescribeHostReservationOfferingsResult {
   OfferingSet?: HostOffering[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostReservationsRequest {
   /**
    * <p>The filters.</p>
@@ -5569,6 +6109,9 @@ export interface DescribeHostReservationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReservationState {
   ACTIVE = "active",
   PAYMENT_FAILED = "payment-failed",
@@ -5577,6 +6120,7 @@ export enum ReservationState {
 }
 
 /**
+ * @public
  * <p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>
  */
 export interface HostReservation {
@@ -5656,6 +6200,9 @@ export interface HostReservation {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostReservationsResult {
   /**
    * <p>Details about the reservation's configuration.</p>
@@ -5668,6 +6215,9 @@ export interface DescribeHostReservationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostsRequest {
   /**
    * <p>The filters.</p>
@@ -5731,6 +6281,7 @@ export interface DescribeHostsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the number of instances that can be launched onto the Dedicated
  *             Host.</p>
  */
@@ -5754,6 +6305,7 @@ export interface InstanceCapacity {
 }
 
 /**
+ * @public
  * <p>The capacity information for instances that can be launched onto the Dedicated Host.
  *         </p>
  */
@@ -5773,6 +6325,7 @@ export interface AvailableCapacity {
 }
 
 /**
+ * @public
  * <p>Describes the properties of a Dedicated Host.</p>
  */
 export interface HostProperties {
@@ -5805,6 +6358,7 @@ export interface HostProperties {
 }
 
 /**
+ * @public
  * <p>Describes an instance running on a Dedicated Host.</p>
  */
 export interface HostInstance {
@@ -5826,6 +6380,7 @@ export interface HostInstance {
 }
 
 /**
+ * @public
  * <p>Describes the properties of the Dedicated Host.</p>
  */
 export interface Host {
@@ -5932,6 +6487,9 @@ export interface Host {
   HostMaintenance?: HostMaintenance | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostsResult {
   /**
    * <p>Information about the Dedicated Hosts.</p>
@@ -5944,6 +6502,9 @@ export interface DescribeHostsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIamInstanceProfileAssociationsRequest {
   /**
    * <p>The IAM instance profile associations.</p>
@@ -5980,6 +6541,9 @@ export interface DescribeIamInstanceProfileAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIamInstanceProfileAssociationsResult {
   /**
    * <p>Information about the IAM instance profile associations.</p>
@@ -5993,6 +6557,9 @@ export interface DescribeIamInstanceProfileAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdentityIdFormatRequest {
   /**
    * <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
@@ -6018,6 +6585,9 @@ export interface DescribeIdentityIdFormatRequest {
   Resource?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdentityIdFormatResult {
   /**
    * <p>Information about the ID format for the resources.</p>
@@ -6025,6 +6595,9 @@ export interface DescribeIdentityIdFormatResult {
   Statuses?: IdFormat[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdFormatRequest {
   /**
    * <p>The type of resource: <code>bundle</code> |
@@ -6045,6 +6618,9 @@ export interface DescribeIdFormatRequest {
   Resource?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIdFormatResult {
   /**
    * <p>Information about the ID format for the resource.</p>
@@ -6052,6 +6628,9 @@ export interface DescribeIdFormatResult {
   Statuses?: IdFormat[];
 }
 
+/**
+ * @public
+ */
 export enum ImageAttributeName {
   blockDeviceMapping = "blockDeviceMapping",
   bootMode = "bootMode",
@@ -6068,6 +6647,7 @@ export enum ImageAttributeName {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeImageAttribute.</p>
  */
 export interface DescribeImageAttributeRequest {
@@ -6094,6 +6674,7 @@ export interface DescribeImageAttributeRequest {
 }
 
 /**
+ * @public
  * <p>Describes a launch permission.</p>
  */
 export interface LaunchPermission {
@@ -6120,6 +6701,7 @@ export interface LaunchPermission {
 }
 
 /**
+ * @public
  * <p>Describes an image attribute.</p>
  */
 export interface ImageAttribute {
@@ -6204,6 +6786,9 @@ export interface ImageAttribute {
   ImdsSupport?: AttributeValue;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesRequest {
   /**
    * <p>Scopes the images by users with explicit launch permissions.
@@ -6429,6 +7014,9 @@ export interface DescribeImagesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ArchitectureValues {
   arm64 = "arm64",
   arm64_mac = "arm64_mac",
@@ -6437,32 +7025,50 @@ export enum ArchitectureValues {
   x86_64_mac = "x86_64_mac",
 }
 
+/**
+ * @public
+ */
 export enum BootModeValues {
   legacy_bios = "legacy-bios",
   uefi = "uefi",
   uefi_preferred = "uefi-preferred",
 }
 
+/**
+ * @public
+ */
 export enum HypervisorType {
   ovm = "ovm",
   xen = "xen",
 }
 
+/**
+ * @public
+ */
 export enum ImageTypeValues {
   kernel = "kernel",
   machine = "machine",
   ramdisk = "ramdisk",
 }
 
+/**
+ * @public
+ */
 export enum ImdsSupportValues {
   v2_0 = "v2.0",
 }
 
+/**
+ * @public
+ */
 export enum DeviceType {
   ebs = "ebs",
   instance_store = "instance-store",
 }
 
+/**
+ * @public
+ */
 export enum ImageState {
   available = "available",
   deregistered = "deregistered",
@@ -6473,16 +7079,23 @@ export enum ImageState {
   transient = "transient",
 }
 
+/**
+ * @public
+ */
 export enum TpmSupportValues {
   v2_0 = "v2.0",
 }
 
+/**
+ * @public
+ */
 export enum VirtualizationType {
   hvm = "hvm",
   paravirtual = "paravirtual",
 }
 
 /**
+ * @public
  * <p>Describes an image.</p>
  */
 export interface Image {
@@ -6659,6 +7272,9 @@ export interface Image {
   ImdsSupport?: ImdsSupportValues | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesResult {
   /**
    * <p>Information about the images.</p>
@@ -6672,6 +7288,9 @@ export interface DescribeImagesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportImageTasksRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6703,6 +7322,7 @@ export interface DescribeImportImageTasksRequest {
 }
 
 /**
+ * @public
  * <p> The response information for license configurations.</p>
  */
 export interface ImportImageLicenseConfigurationResponse {
@@ -6713,6 +7333,7 @@ export interface ImportImageLicenseConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon S3 bucket for the disk image.</p>
  */
 export interface UserBucketDetails {
@@ -6728,6 +7349,7 @@ export interface UserBucketDetails {
 }
 
 /**
+ * @public
  * <p>Describes the snapshot created from the imported disk.</p>
  */
 export interface SnapshotDetail {
@@ -6783,6 +7405,7 @@ export interface SnapshotDetail {
 }
 
 /**
+ * @public
  * <p>Describes an import image task.</p>
  */
 export interface ImportImageTask {
@@ -6876,6 +7499,9 @@ export interface ImportImageTask {
   BootMode?: BootModeValues | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportImageTasksResult {
   /**
    * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
@@ -6890,6 +7516,9 @@ export interface DescribeImportImageTasksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportSnapshotTasksRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6921,6 +7550,7 @@ export interface DescribeImportSnapshotTasksRequest {
 }
 
 /**
+ * @public
  * <p>Details about the import snapshot task.</p>
  */
 export interface SnapshotTaskDetail {
@@ -6981,6 +7611,7 @@ export interface SnapshotTaskDetail {
 }
 
 /**
+ * @public
  * <p>Describes an import snapshot task.</p>
  */
 export interface ImportSnapshotTask {
@@ -7005,6 +7636,9 @@ export interface ImportSnapshotTask {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportSnapshotTasksResult {
   /**
    * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
@@ -7019,6 +7653,9 @@ export interface DescribeImportSnapshotTasksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum InstanceAttributeName {
   blockDeviceMapping = "blockDeviceMapping",
   disableApiStop = "disableApiStop",
@@ -7038,6 +7675,9 @@ export enum InstanceAttributeName {
   userData = "userData",
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAttributeRequest {
   /**
    * <p>The instance attribute.</p>
@@ -7059,6 +7699,7 @@ export interface DescribeInstanceAttributeRequest {
 }
 
 /**
+ * @public
  * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
  */
 export interface EbsInstanceBlockDevice {
@@ -7084,6 +7725,7 @@ export interface EbsInstanceBlockDevice {
 }
 
 /**
+ * @public
  * <p>Describes a block device mapping.</p>
  */
 export interface InstanceBlockDeviceMapping {
@@ -7100,6 +7742,7 @@ export interface InstanceBlockDeviceMapping {
 }
 
 /**
+ * @public
  * <p>Describes a value for a resource attribute that is a Boolean value.</p>
  */
 export interface AttributeBooleanValue {
@@ -7110,6 +7753,7 @@ export interface AttributeBooleanValue {
 }
 
 /**
+ * @public
  * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
  *             Enclaves.</p>
  */
@@ -7122,6 +7766,7 @@ export interface EnclaveOptions {
 }
 
 /**
+ * @public
  * <p>Describes an instance attribute.</p>
  */
 export interface InstanceAttribute {
@@ -7222,6 +7867,9 @@ export interface InstanceAttribute {
   DisableApiStop?: AttributeBooleanValue;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceCreditSpecificationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7264,6 +7912,7 @@ export interface DescribeInstanceCreditSpecificationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
  */
 export interface InstanceCreditSpecification {
@@ -7280,6 +7929,9 @@ export interface InstanceCreditSpecification {
   CpuCredits?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceCreditSpecificationsResult {
   /**
    * <p>Information about the credit option for CPU usage of an instance.</p>
@@ -7293,6 +7945,9 @@ export interface DescribeInstanceCreditSpecificationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceEventNotificationAttributesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7302,6 +7957,9 @@ export interface DescribeInstanceEventNotificationAttributesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceEventNotificationAttributesResult {
   /**
    * <p>Information about the registered tag keys.</p>
@@ -7310,6 +7968,7 @@ export interface DescribeInstanceEventNotificationAttributesResult {
 }
 
 /**
+ * @public
  * <para>Describe instance event windows by InstanceEventWindow.</para>
  */
 export interface DescribeInstanceEventWindowsRequest {
@@ -7396,6 +8055,9 @@ export interface DescribeInstanceEventWindowsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceEventWindowsResult {
   /**
    * <p>Information about the event windows.</p>
@@ -7408,6 +8070,9 @@ export interface DescribeInstanceEventWindowsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancesRequest {
   /**
    * <p>The filters.</p>
@@ -7916,6 +8581,7 @@ export interface DescribeInstancesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the instance's Capacity Reservation targeting preferences. The action returns the
  *                 <code>capacityReservationPreference</code> response element if the instance is
  *             configured to run in On-Demand capacity, or if it is configured in run in any
@@ -7948,6 +8614,7 @@ export interface CapacityReservationSpecificationResponse {
 }
 
 /**
+ * @public
  * <p>The CPU options for the instance.</p>
  */
 export interface CpuOptions {
@@ -7962,12 +8629,16 @@ export interface CpuOptions {
   ThreadsPerCore?: number;
 }
 
+/**
+ * @public
+ */
 export enum InstanceBootModeValues {
   legacy_bios = "legacy-bios",
   uefi = "uefi",
 }
 
 /**
+ * @public
  * <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuAssociation {
@@ -7994,6 +8665,7 @@ export interface ElasticGpuAssociation {
 }
 
 /**
+ * @public
  * <p>
  *             Describes the association between an instance and an elastic inference accelerator.
  *         </p>
@@ -8029,6 +8701,7 @@ export interface ElasticInferenceAcceleratorAssociation {
 }
 
 /**
+ * @public
  * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
  *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
  *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
@@ -8042,12 +8715,16 @@ export interface HibernationOptions {
   Configured?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum InstanceLifecycleType {
   scheduled = "scheduled",
   spot = "spot",
 }
 
 /**
+ * @public
  * <p>Describes a license configuration.</p>
  */
 export interface LicenseConfiguration {
@@ -8057,12 +8734,16 @@ export interface LicenseConfiguration {
   LicenseConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum InstanceAutoRecoveryState {
   default = "default",
   disabled = "disabled",
 }
 
 /**
+ * @public
  * <p>The maintenance options for the instance.</p>
  */
 export interface InstanceMaintenanceOptions {
@@ -8073,32 +8754,48 @@ export interface InstanceMaintenanceOptions {
   AutoRecovery?: InstanceAutoRecoveryState | string;
 }
 
+/**
+ * @public
+ */
 export enum InstanceMetadataEndpointState {
   disabled = "disabled",
   enabled = "enabled",
 }
 
+/**
+ * @public
+ */
 export enum InstanceMetadataProtocolState {
   disabled = "disabled",
   enabled = "enabled",
 }
 
+/**
+ * @public
+ */
 export enum HttpTokensState {
   optional = "optional",
   required = "required",
 }
 
+/**
+ * @public
+ */
 export enum InstanceMetadataTagsState {
   disabled = "disabled",
   enabled = "enabled",
 }
 
+/**
+ * @public
+ */
 export enum InstanceMetadataOptionsState {
   applied = "applied",
   pending = "pending",
 }
 
 /**
+ * @public
  * <p>The metadata options for the instance.</p>
  */
 export interface InstanceMetadataOptionsResponse {
@@ -8168,6 +8865,9 @@ export interface InstanceMetadataOptionsResponse {
   InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
 
+/**
+ * @public
+ */
 export enum MonitoringState {
   disabled = "disabled",
   disabling = "disabling",

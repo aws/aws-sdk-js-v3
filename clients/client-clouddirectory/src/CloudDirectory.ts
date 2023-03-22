@@ -294,6 +294,7 @@ import {
 } from "./commands/UpgradePublishedSchemaCommand";
 
 /**
+ * @public
  * <fullname>Amazon Cloud Directory</fullname>
  *          <p>Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the
  *       development and management of cloud-scale web, mobile, and IoT applications. This guide
@@ -303,6 +304,7 @@ import {
  */
 export class CloudDirectory extends CloudDirectoryClient {
   /**
+   * @public
    * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>
    */
   public addFacetToObject(
@@ -335,6 +337,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Copies the input published schema, at the specified version, into the <a>Directory</a> with the same
    *       name and version as that of the published schema.</p>
    */
@@ -362,6 +365,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Attaches an existing object to another object. An object can be accessed in two
    *       ways:</p>
    *          <ol>
@@ -401,6 +405,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
    *       policies.</p>
    */
@@ -431,6 +436,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Attaches the specified object to the specified index.</p>
    */
   public attachToIndex(
@@ -463,6 +469,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   public attachTypedLink(
@@ -495,6 +502,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Performs all the read operations in a batch. </p>
    */
   public batchRead(args: BatchReadCommandInput, options?: __HttpHandlerOptions): Promise<BatchReadCommandOutput>;
@@ -521,6 +529,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Performs all the write operations in a batch. Either all the operations succeed or
    *       none.</p>
    */
@@ -548,6 +557,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Creates a <a>Directory</a> by copying the published schema into the
    *       directory. A directory cannot be created without a schema.</p>
    *          <p>You can also quickly create a directory using a managed schema, called the
@@ -583,6 +593,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only
    *       in development or applied schemas.</p>
    */
@@ -610,6 +621,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html">Indexing and search</a> for more information.</p>
    */
   public createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
@@ -636,6 +648,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Creates an object in a <a>Directory</a>. Additionally attaches the object to
    *       a parent, if a parent reference and <code>LinkName</code> is specified. An object is simply a
    *       collection of <a>Facet</a> attributes. You can also use this API call to create a
@@ -668,6 +681,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Creates a new schema in a development state. A schema can exist in three
    *       phases:</p>
    *          <ul>
@@ -717,6 +731,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Creates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   public createTypedLinkFacet(
@@ -749,6 +764,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme
    *         caution
    *         when deleting directories.</p>
@@ -783,6 +799,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Deletes a given <a>Facet</a>. All attributes and <a>Rule</a>s
    *       that are associated with the facet will be deleted. Only development schema facets are allowed
    *       deletion.</p>
@@ -811,6 +828,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Deletes an object and its associated attributes. Only objects with no children and no
    *       parents can be deleted. The maximum number of attributes that can be deleted during an object deletion is 30. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.</p>
    */
@@ -841,6 +859,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Deletes a given schema. Schemas in a development and published state can only be deleted. </p>
    */
   public deleteSchema(
@@ -870,6 +889,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   public deleteTypedLinkFacet(
@@ -902,6 +922,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Detaches the specified object from the specified index.</p>
    */
   public detachFromIndex(
@@ -934,6 +955,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Detaches a given object from the parent object. The object that is to be detached from the
    *       parent is specified by the link name.</p>
    */
@@ -964,6 +986,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Detaches a policy from an object.</p>
    */
   public detachPolicy(
@@ -993,6 +1016,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   public detachTypedLink(
@@ -1025,6 +1049,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Disables the specified directory. Disabled directories cannot be read or written to.
    *       Only enabled directories can be disabled. Disabled directories may be reenabled.</p>
    */
@@ -1058,6 +1083,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Enables the specified directory. Only disabled directories can be enabled. Once
    *       enabled, the directory can then be read and written to.</p>
    */
@@ -1091,6 +1117,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns current applied schema version ARN, including the minor version in use.</p>
    */
   public getAppliedSchemaVersion(
@@ -1123,6 +1150,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata about a directory.</p>
    */
   public getDirectory(
@@ -1152,6 +1180,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Gets details of the <a>Facet</a>, such as facet name, attributes, <a>Rule</a>s, or <code>ObjectType</code>. You can call this on all kinds of schema
    *       facets -- published, development, or applied.</p>
    */
@@ -1179,6 +1208,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves attributes that are associated with a typed link.</p>
    */
   public getLinkAttributes(
@@ -1211,6 +1241,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves attributes within a facet that are associated with an object.</p>
    */
   public getObjectAttributes(
@@ -1243,6 +1274,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata about an object.</p>
    */
   public getObjectInformation(
@@ -1275,6 +1307,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a JSON representation of the schema. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
    */
   public getSchemaAsJson(
@@ -1307,6 +1340,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   public getTypedLinkFacetInformation(
@@ -1339,6 +1373,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided, lists the minor version.</p>
    */
   public listAppliedSchemaArns(
@@ -1371,6 +1406,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists indices attached to the specified object.</p>
    */
   public listAttachedIndices(
@@ -1403,6 +1439,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves each Amazon Resource Name (ARN) of schemas in the development
    *       state.</p>
    */
@@ -1436,6 +1473,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists directories created within an account.</p>
    */
   public listDirectories(
@@ -1468,6 +1506,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves attributes attached to the facet.</p>
    */
   public listFacetAttributes(
@@ -1500,6 +1539,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the names of facets that exist in a schema.</p>
    */
   public listFacetNames(
@@ -1532,6 +1572,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
    *       information for an object. It also supports filtering by typed link facet and identity
    *       attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
@@ -1566,6 +1607,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists objects attached to the specified index.</p>
    */
   public listIndex(args: ListIndexCommandInput, options?: __HttpHandlerOptions): Promise<ListIndexCommandOutput>;
@@ -1592,6 +1634,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.</p>
    */
   public listManagedSchemaArns(
@@ -1624,6 +1667,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists all attributes that are associated with an object.
    *       </p>
    */
@@ -1657,6 +1701,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of child objects that are associated with a given
    *       object.</p>
    */
@@ -1690,6 +1735,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all available parent paths for any object type such as node, leaf node,
    *       policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
    *          <p>Use this API to evaluate all parents for an object. The call returns all objects from
@@ -1729,6 +1775,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists parent objects that are associated with a given object in pagination
    *       fashion.</p>
    */
@@ -1762,6 +1809,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns policies attached to an object in pagination fashion.</p>
    */
   public listObjectPolicies(
@@ -1794,6 +1842,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
    *       information for an object. It also supports filtering by typed link facet and identity
    *       attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
@@ -1828,6 +1877,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
    */
   public listPolicyAttachments(
@@ -1860,6 +1910,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists the major version families of each published schema. If a major version ARN is provided as <code>SchemaArn</code>, the minor version revisions in that family are listed instead.</p>
    */
   public listPublishedSchemaArns(
@@ -1892,6 +1943,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns tags for a resource. Tagging is currently supported only for directories with a
    *       limit of 50 tags per directory. All 50 tags are returned for a given directory with this API
    *       call.</p>
@@ -1926,6 +1978,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   public listTypedLinkFacetAttributes(
@@ -1958,6 +2011,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema.
    *       For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
@@ -1991,6 +2045,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Lists all policies from the root of the <a>Directory</a> to the object
    *       specified. If there are no policies present, an empty list is returned. If policies are
    *       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
@@ -2025,6 +2080,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Publishes a development schema with a major version and a recommended minor version.</p>
    */
   public publishSchema(
@@ -2057,6 +2113,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Allows a schema to be updated using JSON upload. Only available for development schemas. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
    */
   public putSchemaFromJson(
@@ -2089,6 +2146,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified facet from the specified object.</p>
    */
   public removeFacetFromObject(
@@ -2121,6 +2179,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>An API operation for adding tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2147,6 +2206,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>An API operation for removing tags from a resource.</p>
    */
   public untagResource(
@@ -2179,6 +2239,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Does the following:</p>
    *          <ol>
    *             <li>
@@ -2216,6 +2277,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>
    */
   public updateLinkAttributes(
@@ -2248,6 +2310,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Updates a given object's attributes.</p>
    */
   public updateObjectAttributes(
@@ -2280,6 +2343,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Updates the schema name with a new name. Only development schema names can be
    *       updated.</p>
    */
@@ -2310,6 +2374,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Updates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   public updateTypedLinkFacet(
@@ -2342,6 +2407,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Upgrades a single directory in-place using the <code>PublishedSchemaArn</code> with schema updates found in <code>MinorVersion</code>. Backwards-compatible minor version upgrades are instantaneously available for readers on all objects in the directory. Note: This is a synchronous API call and upgrades only one schema on a given directory per call. To upgrade multiple directories from one schema, you would need to call this API on each directory.</p>
    */
   public upgradeAppliedSchema(
@@ -2374,6 +2440,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   }
 
   /**
+   * @public
    * <p>Upgrades a published schema under a new minor version revision using the current contents of <code>DevelopmentSchemaArn</code>.</p>
    */
   public upgradePublishedSchema(

@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DisableHostedZoneDNSSECCommand}.
  */
 export interface DisableHostedZoneDNSSECCommandInput extends DisableHostedZoneDNSSECRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableHostedZoneDNSSECCommand}.
  */
 export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any
  * 			key-signing keys (KSKs) that are active in the hosted zone.</p>
  * @example
@@ -48,6 +53,8 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableHostedZoneDNSSECCommandInput - {@link DisableHostedZoneDNSSECCommandInput}
+ * @returns {@link DisableHostedZoneDNSSECCommandOutput}
  * @see {@link DisableHostedZoneDNSSECCommandInput} for command's `input` shape.
  * @see {@link DisableHostedZoneDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -98,6 +105,9 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableHostedZoneDNSSECCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableHostedZoneDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDisableHostedZoneDNSSECCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableHostedZoneDNSSECCommandOutput> {
     return deserializeAws_restXmlDisableHostedZoneDNSSECCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLunaClientCommand}.
  */
 export interface DescribeLunaClientCommandInput extends DescribeLunaClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLunaClientCommand}.
  */
 export interface DescribeLunaClientCommandOutput extends DescribeLunaClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -56,6 +61,8 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLunaClientCommandInput - {@link DescribeLunaClientCommandInput}
+ * @returns {@link DescribeLunaClientCommandOutput}
  * @see {@link DescribeLunaClientCommandInput} for command's `input` shape.
  * @see {@link DescribeLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeLunaClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLunaClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeLunaClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLunaClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLunaClientCommandOutput> {
     return deserializeAws_json1_1DescribeLunaClientCommand(output, context);
   }

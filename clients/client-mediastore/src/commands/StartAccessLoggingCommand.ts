@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAccessLoggingCommand}.
  */
 export interface StartAccessLoggingCommandInput extends StartAccessLoggingInput {}
 /**
+ * @public
+ *
  * The output of {@link StartAccessLoggingCommand}.
  */
 export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAccessLoggingCommandInput - {@link StartAccessLoggingCommandInput}
+ * @returns {@link StartAccessLoggingCommandOutput}
  * @see {@link StartAccessLoggingCommandInput} for command's `input` shape.
  * @see {@link StartAccessLoggingCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -79,6 +86,9 @@ export class StartAccessLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAccessLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class StartAccessLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAccessLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAccessLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAccessLoggingCommandOutput> {
     return deserializeAws_json1_1StartAccessLoggingCommand(output, context);
   }

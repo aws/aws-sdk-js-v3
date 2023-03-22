@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorEntityCommand}.
  */
 export interface DescribeConnectorEntityCommandInput extends DescribeConnectorEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorEntityCommand}.
  */
 export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Provides details regarding the entity used with the connector, with a description of the
  *       data model for each field in that entity. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorEntityCommandInput - {@link DescribeConnectorEntityCommandInput}
+ * @returns {@link DescribeConnectorEntityCommandOutput}
  * @see {@link DescribeConnectorEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorEntityCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeConnectorEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeConnectorEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConnectorEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorEntityCommandOutput> {
     return deserializeAws_restJson1DescribeConnectorEntityCommand(output, context);
   }

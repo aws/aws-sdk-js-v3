@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchStartRecommendationsCommand}.
  */
 export interface BatchStartRecommendationsCommandInput extends BatchStartRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchStartRecommendationsCommand}.
  */
 export interface BatchStartRecommendationsCommandOutput extends BatchStartRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the analysis of up to 20 source databases to recommend target engines for each
  *             source database. This is a batch version of <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html">StartRecommendations</a>.</p>
  *          <p>The result of analysis of each source database is reported individually in the
@@ -55,6 +60,8 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStartRecommendationsCommandInput - {@link BatchStartRecommendationsCommandInput}
+ * @returns {@link BatchStartRecommendationsCommandOutput}
  * @see {@link BatchStartRecommendationsCommandInput} for command's `input` shape.
  * @see {@link BatchStartRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class BatchStartRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStartRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class BatchStartRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStartRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchStartRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityVerificationAttributesCommand}.
  */
 export interface GetIdentityVerificationAttributesCommandInput extends GetIdentityVerificationAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityVerificationAttributesCommand}.
  */
 export interface GetIdentityVerificationAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface GetIdentityVerificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a list of identities (email addresses and/or domains), returns the verification
  *             status and (for domain identities) the verification token for each identity.</p>
  *         <p>The verification status of an email address is "Pending" until the email address owner
@@ -63,6 +68,8 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityVerificationAttributesCommandInput - {@link GetIdentityVerificationAttributesCommandInput}
+ * @returns {@link GetIdentityVerificationAttributesCommandOutput}
  * @see {@link GetIdentityVerificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -109,6 +116,9 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityVerificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,6 +158,9 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityVerificationAttributesCommandInput,
     context: __SerdeContext
@@ -155,6 +168,9 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     return serializeAws_queryGetIdentityVerificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

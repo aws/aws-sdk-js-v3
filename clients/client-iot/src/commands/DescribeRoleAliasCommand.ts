@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRoleAliasCommand}.
  */
 export interface DescribeRoleAliasCommandInput extends DescribeRoleAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRoleAliasCommand}.
  */
 export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a role alias.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeRoleAlias</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRoleAliasCommandInput - {@link DescribeRoleAliasCommandInput}
+ * @returns {@link DescribeRoleAliasCommandOutput}
  * @see {@link DescribeRoleAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeRoleAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRoleAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeRoleAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRoleAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoleAliasCommandOutput> {
     return deserializeAws_restJson1DescribeRoleAliasCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateSubnetCommand, serializeAws_ec2CreateSubnetCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubnetCommand}.
  */
 export interface CreateSubnetCommandInput extends CreateSubnetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubnetCommand}.
  */
 export interface CreateSubnetCommandOutput extends CreateSubnetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block.
  *             If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead.
  *             For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both
@@ -59,6 +64,8 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubnetCommandInput - {@link CreateSubnetCommandInput}
+ * @returns {@link CreateSubnetCommandOutput}
  * @see {@link CreateSubnetCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -106,6 +113,9 @@ export class CreateSubnetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubnetCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateSubnetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubnetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateSubnetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubnetCommandOutput> {
     return deserializeAws_ec2CreateSubnetCommand(output, context);
   }

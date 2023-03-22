@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureHealthCheckCommand}.
  */
 export interface ConfigureHealthCheckCommandInput extends ConfigureHealthCheckInput {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureHealthCheckCommand}.
  */
 export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure Health Checks for Your Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -52,6 +57,8 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureHealthCheckCommandInput - {@link ConfigureHealthCheckCommandInput}
+ * @returns {@link ConfigureHealthCheckCommandOutput}
  * @see {@link ConfigureHealthCheckCommandInput} for command's `input` shape.
  * @see {@link ConfigureHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -107,6 +114,9 @@ export class ConfigureHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class ConfigureHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryConfigureHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureHealthCheckCommandOutput> {
     return deserializeAws_queryConfigureHealthCheckCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyResourceDeploymentStatusChangeCommand}.
  */
 export interface NotifyResourceDeploymentStatusChangeCommandInput extends NotifyResourceDeploymentStatusChangeInput {}
 /**
+ * @public
+ *
  * The output of {@link NotifyResourceDeploymentStatusChangeCommand}.
  */
 export interface NotifyResourceDeploymentStatusChangeCommandOutput
@@ -37,6 +41,7 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
  *     provisioning</a> in the <i>Proton User Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyResourceDeploymentStatusChangeCommandInput - {@link NotifyResourceDeploymentStatusChangeCommandInput}
+ * @returns {@link NotifyResourceDeploymentStatusChangeCommandOutput}
  * @see {@link NotifyResourceDeploymentStatusChangeCommandInput} for command's `input` shape.
  * @see {@link NotifyResourceDeploymentStatusChangeCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -95,6 +102,9 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyResourceDeploymentStatusChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: NotifyResourceDeploymentStatusChangeCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command<
     return serializeAws_json1_0NotifyResourceDeploymentStatusChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

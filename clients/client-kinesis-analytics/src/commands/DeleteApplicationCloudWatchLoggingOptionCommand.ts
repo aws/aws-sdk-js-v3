@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandInput
   extends DeleteApplicationCloudWatchLoggingOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -54,6 +59,8 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationCloudWatchLoggingOptionCommandInput - {@link DeleteApplicationCloudWatchLoggingOptionCommandInput}
+ * @returns {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput}
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     return serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

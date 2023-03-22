@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateOpsItemRelatedItemCommand}.
  */
 export interface DisassociateOpsItemRelatedItemCommandInput extends DisassociateOpsItemRelatedItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateOpsItemRelatedItemCommand}.
  */
 export interface DisassociateOpsItemRelatedItemCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between an OpsItem and a related item. For example, this API
  *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of
  *    Amazon Web Services Systems Manager.</p>
@@ -50,6 +55,8 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateOpsItemRelatedItemCommandInput - {@link DisassociateOpsItemRelatedItemCommandInput}
+ * @returns {@link DisassociateOpsItemRelatedItemCommandOutput}
  * @see {@link DisassociateOpsItemRelatedItemCommandInput} for command's `input` shape.
  * @see {@link DisassociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateOpsItemRelatedItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateOpsItemRelatedItemCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
     return serializeAws_json1_1DisassociateOpsItemRelatedItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

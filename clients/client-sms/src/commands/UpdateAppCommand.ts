@@ -23,15 +23,20 @@ import { deserializeAws_json1_1UpdateAppCommand, serializeAws_json1_1UpdateAppCo
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppCommand}.
  */
 export interface UpdateAppCommandInput extends UpdateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppCommand}.
  */
 export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
+ * @returns {@link UpdateAppCommandOutput}
  * @see {@link UpdateAppCommandInput} for command's `input` shape.
  * @see {@link UpdateAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppCommandOutput> {
     return deserializeAws_json1_1UpdateAppCommand(output, context);
   }

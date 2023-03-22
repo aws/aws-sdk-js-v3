@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
@@ -55,6 +60,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
+ * @returns {@link AcceptInvitationCommandOutput}
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -95,6 +102,9 @@ export class AcceptInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class AcceptInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AcceptInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInvitationCommandOutput> {
     return deserializeAws_restJson1AcceptInvitationCommand(output, context);
   }

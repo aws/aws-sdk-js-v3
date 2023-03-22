@@ -30,15 +30,20 @@ import {
 } from "../SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecordCommand}.
  */
 export interface GetRecordCommandInput extends GetRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecordCommand}.
  */
 export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the
  *          latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with
  *             <code>RecordIdentifierValue</code> is found, then an empty result is returned. </p>
@@ -52,6 +57,8 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecordCommandInput - {@link GetRecordCommandInput}
+ * @returns {@link GetRecordCommandOutput}
  * @see {@link GetRecordCommandInput} for command's `input` shape.
  * @see {@link GetRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordCommandOutput> {
     return deserializeAws_restJson1GetRecordCommand(output, context);
   }

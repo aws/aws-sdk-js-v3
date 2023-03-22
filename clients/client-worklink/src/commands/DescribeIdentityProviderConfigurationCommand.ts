@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdentityProviderConfigurationCommand}.
  */
 export interface DescribeIdentityProviderConfigurationCommandInput
   extends DescribeIdentityProviderConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdentityProviderConfigurationCommand}.
  */
 export interface DescribeIdentityProviderConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes the identity provider configuration of the specified fleet.</p>
@@ -51,6 +56,8 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityProviderConfigurationCommandInput - {@link DescribeIdentityProviderConfigurationCommandInput}
+ * @returns {@link DescribeIdentityProviderConfigurationCommandOutput}
  * @see {@link DescribeIdentityProviderConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityProviderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeIdentityProviderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link PollForDecisionTaskCommand}.
  */
 export interface PollForDecisionTaskCommandInput extends PollForDecisionTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link PollForDecisionTaskCommand}.
  */
 export interface PollForDecisionTaskCommandOutput extends DecisionTask, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by deciders to get a <a>DecisionTask</a> from the specified decision
  *         <code>taskList</code>. A decision task may be returned for any open workflow execution that
  *       is using the specified task list. The task includes a paginated view of the history of the
@@ -93,6 +98,8 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param PollForDecisionTaskCommandInput - {@link PollForDecisionTaskCommandInput}
+ * @returns {@link PollForDecisionTaskCommandOutput}
  * @see {@link PollForDecisionTaskCommandInput} for command's `input` shape.
  * @see {@link PollForDecisionTaskCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -125,6 +132,9 @@ export class PollForDecisionTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PollForDecisionTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class PollForDecisionTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PollForDecisionTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PollForDecisionTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForDecisionTaskCommandOutput> {
     return deserializeAws_json1_0PollForDecisionTaskCommand(output, context);
   }

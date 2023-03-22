@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualRouterCommand}.
  */
 export interface DeleteVirtualRouterCommandInput extends DeleteVirtualRouterInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualRouterCommand}.
  */
 export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing virtual router.</p>
  *          <p>You must delete any routes associated with the virtual router before you can delete the
  *          router itself.</p>
@@ -48,6 +53,8 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualRouterCommandInput - {@link DeleteVirtualRouterCommandInput}
+ * @returns {@link DeleteVirtualRouterCommandOutput}
  * @see {@link DeleteVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteVirtualRouterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualRouterCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteVirtualRouterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVirtualRouterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualRouterCommandOutput> {
     return deserializeAws_restJson1DeleteVirtualRouterCommand(output, context);
   }

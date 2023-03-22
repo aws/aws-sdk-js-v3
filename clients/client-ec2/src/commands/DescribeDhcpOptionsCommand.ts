@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDhcpOptionsCommand}.
  */
 export interface DescribeDhcpOptionsCommandInput extends DescribeDhcpOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDhcpOptionsCommand}.
  */
 export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your DHCP options sets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDhcpOptionsCommandInput - {@link DescribeDhcpOptionsCommandInput}
+ * @returns {@link DescribeDhcpOptionsCommandOutput}
  * @see {@link DescribeDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -106,6 +113,9 @@ export class DescribeDhcpOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDhcpOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DescribeDhcpOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDhcpOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeDhcpOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDhcpOptionsCommandOutput> {
     return deserializeAws_ec2DescribeDhcpOptionsCommand(output, context);
   }

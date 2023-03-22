@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUpdatesCommand}.
  */
 export interface ListUpdatesCommandInput extends ListUpdatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUpdatesCommand}.
  */
 export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the updates associated with an Amazon EKS cluster or managed node group
  *             in your Amazon Web Services account, in the specified Region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUpdatesCommandInput - {@link ListUpdatesCommandInput}
+ * @returns {@link ListUpdatesCommandOutput}
  * @see {@link ListUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListUpdatesCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListUpdatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUpdatesCommandOutput> {
     return deserializeAws_restJson1ListUpdatesCommand(output, context);
   }

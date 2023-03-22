@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCidrCollectionCommand}.
  */
 export interface DeleteCidrCollectionCommandInput extends DeleteCidrCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCidrCollectionCommand}.
  */
 export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CIDR collection in the current Amazon Web Services account. The collection
  * 			must be empty before it can be deleted.</p>
  * @example
@@ -48,6 +53,8 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCidrCollectionCommandInput - {@link DeleteCidrCollectionCommandInput}
+ * @returns {@link DeleteCidrCollectionCommandOutput}
  * @see {@link DeleteCidrCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteCidrCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteCidrCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteCidrCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCidrCollectionCommandOutput> {
     return deserializeAws_restXmlDeleteCidrCollectionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntitlementsCommand}.
  */
 export interface DescribeEntitlementsCommandInput extends DescribeEntitlementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntitlementsCommand}.
  */
 export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one of more entitlements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntitlementsCommandInput - {@link DescribeEntitlementsCommandInput}
+ * @returns {@link DescribeEntitlementsCommandOutput}
  * @see {@link DescribeEntitlementsCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeEntitlementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntitlementsCommandOutput> {
     return deserializeAws_json1_1DescribeEntitlementsCommand(output, context);
   }

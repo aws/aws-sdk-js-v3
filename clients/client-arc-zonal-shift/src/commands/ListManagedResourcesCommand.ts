@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedResourcesCommand}.
  */
 export interface ListManagedResourcesCommandInput extends ListManagedResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedResourcesCommand}.
  */
 export interface ListManagedResourcesCommandOutput extends ListManagedResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the resources in your AWS account in this AWS Region that are managed for zonal shifts in Amazon Route 53 Application Recovery Controller, and information
  *    		about them. The information includes their Amazon Resource Names (ARNs), the Availability Zones the resources are deployed in, and
  *    		the resource name.</p>
@@ -48,6 +53,8 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedResourcesCommandInput - {@link ListManagedResourcesCommandInput}
+ * @returns {@link ListManagedResourcesCommandOutput}
  * @see {@link ListManagedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListManagedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListManagedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListManagedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListManagedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedResourcesCommandOutput> {
     return deserializeAws_restJson1ListManagedResourcesCommand(output, context);
   }

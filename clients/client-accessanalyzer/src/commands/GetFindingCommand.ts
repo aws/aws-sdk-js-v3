@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingCommand}.
  */
 export interface GetFindingCommandInput extends GetFindingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingCommand}.
  */
 export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingCommandInput - {@link GetFindingCommandInput}
+ * @returns {@link GetFindingCommandOutput}
  * @see {@link GetFindingCommandInput} for command's `input` shape.
  * @see {@link GetFindingCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetFindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetFindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingCommandOutput> {
     return deserializeAws_restJson1GetFindingCommand(output, context);
   }

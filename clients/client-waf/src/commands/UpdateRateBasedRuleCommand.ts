@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRateBasedRuleCommand}.
  */
 export interface UpdateRateBasedRuleCommandInput extends UpdateRateBasedRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRateBasedRuleCommand}.
  */
 export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -100,6 +105,8 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRateBasedRuleCommandInput - {@link UpdateRateBasedRuleCommandInput}
+ * @returns {@link UpdateRateBasedRuleCommandOutput}
  * @see {@link UpdateRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -232,6 +239,9 @@ export class UpdateRateBasedRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRateBasedRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -271,10 +281,16 @@ export class UpdateRateBasedRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRateBasedRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRateBasedRuleCommandOutput> {
     return deserializeAws_json1_1UpdateRateBasedRuleCommand(output, context);
   }

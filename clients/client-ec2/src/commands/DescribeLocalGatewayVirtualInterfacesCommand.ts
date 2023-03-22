@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewayVirtualInterfacesCommand}.
  */
 export interface DescribeLocalGatewayVirtualInterfacesCommandInput
   extends DescribeLocalGatewayVirtualInterfacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewayVirtualInterfacesCommand}.
  */
 export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified local gateway virtual interfaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayVirtualInterfacesCommandInput - {@link DescribeLocalGatewayVirtualInterfacesCommandInput}
+ * @returns {@link DescribeLocalGatewayVirtualInterfacesCommandOutput}
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayVirtualInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayVirtualInterfacesCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     return serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

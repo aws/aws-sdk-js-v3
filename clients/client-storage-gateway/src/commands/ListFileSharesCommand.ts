@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFileSharesCommand}.
  */
 export interface ListFileSharesCommandInput extends ListFileSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFileSharesCommand}.
  */
 export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the file shares for a specific S3 File Gateway, or the list of file
  *          shares that belong to the calling user account. This operation is only supported for S3
  *          File Gateways.</p>
@@ -48,6 +53,8 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFileSharesCommandInput - {@link ListFileSharesCommandInput}
+ * @returns {@link ListFileSharesCommandOutput}
  * @see {@link ListFileSharesCommandInput} for command's `input` shape.
  * @see {@link ListFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListFileSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFileSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListFileSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFileSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFileSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFileSharesCommandOutput> {
     return deserializeAws_json1_1ListFileSharesCommand(output, context);
   }

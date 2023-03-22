@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmSubscriptionCommand}.
  */
 export interface ConfirmSubscriptionCommandInput extends ConfirmSubscriptionInput {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmSubscriptionCommand}.
  */
 export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
  *             to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the
  *             action creates a new subscription and returns its Amazon Resource Name (ARN). This call
@@ -50,6 +55,8 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmSubscriptionCommandInput - {@link ConfirmSubscriptionCommandInput}
+ * @returns {@link ConfirmSubscriptionCommandOutput}
  * @see {@link ConfirmSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ConfirmSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -95,6 +102,9 @@ export class ConfirmSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ConfirmSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryConfirmSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSubscriptionCommandOutput> {
     return deserializeAws_queryConfirmSubscriptionCommand(output, context);
   }

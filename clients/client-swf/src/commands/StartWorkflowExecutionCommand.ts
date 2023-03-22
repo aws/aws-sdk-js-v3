@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartWorkflowExecutionCommand}.
  */
 export interface StartWorkflowExecutionCommandInput extends StartWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartWorkflowExecutionCommand}.
  */
 export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an execution of the workflow type in the specified domain using the provided
  *         <code>workflowId</code> and input data.</p>
  *
@@ -111,6 +116,8 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param StartWorkflowExecutionCommandInput - {@link StartWorkflowExecutionCommandInput}
+ * @returns {@link StartWorkflowExecutionCommandOutput}
  * @see {@link StartWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link StartWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -163,6 +170,9 @@ export class StartWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -202,10 +212,16 @@ export class StartWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StartWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkflowExecutionCommandOutput> {
     return deserializeAws_json1_0StartWorkflowExecutionCommand(output, context);
   }

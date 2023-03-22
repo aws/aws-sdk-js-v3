@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEntityCommand}.
  */
 export interface UpdateEntityCommandInput extends UpdateEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEntityCommand}.
  */
 export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEntityCommandInput - {@link UpdateEntityCommandInput}
+ * @returns {@link UpdateEntityCommandOutput}
  * @see {@link UpdateEntityCommandInput} for command's `input` shape.
  * @see {@link UpdateEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEntityCommandOutput> {
     return deserializeAws_restJson1UpdateEntityCommand(output, context);
   }

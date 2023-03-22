@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTokensCommand}.
  */
 export interface ListTokensCommandInput extends ListTokensRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTokensCommand}.
  */
 export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your tokens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTokensCommandInput - {@link ListTokensCommandInput}
+ * @returns {@link ListTokensCommandOutput}
  * @see {@link ListTokensCommandInput} for command's `input` shape.
  * @see {@link ListTokensCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTokensCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTokensCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListTokensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTokensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTokensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTokensCommandOutput> {
     return deserializeAws_json1_1ListTokensCommand(output, context);
   }

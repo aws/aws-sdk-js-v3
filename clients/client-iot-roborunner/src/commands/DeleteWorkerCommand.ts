@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkerCommand}.
  */
 export interface DeleteWorkerCommandInput extends DeleteWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkerCommand}.
  */
 export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to delete a worker
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkerCommandInput - {@link DeleteWorkerCommandInput}
+ * @returns {@link DeleteWorkerCommandOutput}
  * @see {@link DeleteWorkerCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkerCommandOutput> {
     return deserializeAws_restJson1DeleteWorkerCommand(output, context);
   }

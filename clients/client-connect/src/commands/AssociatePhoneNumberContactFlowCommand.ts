@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePhoneNumberContactFlowCommand}.
  */
 export interface AssociatePhoneNumberContactFlowCommandInput extends AssociatePhoneNumberContactFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePhoneNumberContactFlowCommand}.
  */
 export interface AssociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
  *          <important>
  *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the
@@ -55,6 +60,8 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePhoneNumberContactFlowCommandInput - {@link AssociatePhoneNumberContactFlowCommandInput}
+ * @returns {@link AssociatePhoneNumberContactFlowCommandOutput}
  * @see {@link AssociatePhoneNumberContactFlowCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumberContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -93,6 +100,9 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumberContactFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociatePhoneNumberContactFlowCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
     return serializeAws_restJson1AssociatePhoneNumberContactFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

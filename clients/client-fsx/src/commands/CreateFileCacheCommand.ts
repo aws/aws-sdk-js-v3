@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFileCacheCommand}.
  */
 export interface CreateFileCacheCommandInput extends CreateFileCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFileCacheCommand}.
  */
 export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon File Cache resource.</p>
  *          <p>You can use this operation with a client request token in the request that
  *             Amazon File Cache uses to ensure idempotent creation.
@@ -69,6 +74,8 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFileCacheCommandInput - {@link CreateFileCacheCommandInput}
+ * @returns {@link CreateFileCacheCommandOutput}
  * @see {@link CreateFileCacheCommandInput} for command's `input` shape.
  * @see {@link CreateFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -116,6 +123,9 @@ export class CreateFileCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFileCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class CreateFileCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFileCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFileCacheCommandOutput> {
     return deserializeAws_json1_1CreateFileCacheCommand(output, context);
   }

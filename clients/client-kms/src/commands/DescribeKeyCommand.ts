@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeKeyCommand}.
  */
 export interface DescribeKeyCommandInput extends DescribeKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeKeyCommand}.
  */
 export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed
  *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
@@ -128,6 +133,8 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeyCommandInput - {@link DescribeKeyCommandInput}
+ * @returns {@link DescribeKeyCommandOutput}
  * @see {@link DescribeKeyCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -395,6 +402,9 @@ export class DescribeKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -432,10 +442,16 @@ export class DescribeKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeyCommandOutput> {
     return deserializeAws_json1_1DescribeKeyCommand(output, context);
   }

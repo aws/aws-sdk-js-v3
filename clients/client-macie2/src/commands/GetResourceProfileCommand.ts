@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceProfileCommand}.
  */
 export interface GetResourceProfileCommandInput extends GetResourceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceProfileCommand}.
  */
 export interface GetResourceProfileCommandOutput extends GetResourceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) sensitive data discovery statistics and the sensitivity score for an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetResourceProfileCommandOutput extends GetResourceProfileRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceProfileCommandInput - {@link GetResourceProfileCommandInput}
+ * @returns {@link GetResourceProfileCommandOutput}
  * @see {@link GetResourceProfileCommandInput} for command's `input` shape.
  * @see {@link GetResourceProfileCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -87,6 +94,9 @@ export class GetResourceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetResourceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceProfileCommandOutput> {
     return deserializeAws_restJson1GetResourceProfileCommand(output, context);
   }

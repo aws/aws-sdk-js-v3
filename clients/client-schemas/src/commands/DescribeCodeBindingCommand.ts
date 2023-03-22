@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCodeBindingCommand}.
  */
 export interface DescribeCodeBindingCommandInput extends DescribeCodeBindingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCodeBindingCommand}.
  */
 export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe the code binding URI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCodeBindingCommandInput - {@link DescribeCodeBindingCommandInput}
+ * @returns {@link DescribeCodeBindingCommandOutput}
  * @see {@link DescribeCodeBindingCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeBindingCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeCodeBindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCodeBindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeCodeBindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCodeBindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeCodeBindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeBindingCommandOutput> {
     return deserializeAws_restJson1DescribeCodeBindingCommand(output, context);
   }

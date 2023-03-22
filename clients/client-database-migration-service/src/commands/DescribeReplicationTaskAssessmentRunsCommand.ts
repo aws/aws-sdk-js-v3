@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
 export interface DescribeReplicationTaskAssessmentRunsCommandInput
   extends DescribeReplicationTaskAssessmentRunsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
 export interface DescribeReplicationTaskAssessmentRunsCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of premigration assessment runs based on filter
  *          settings.</p>
  *          <p>These filter settings can specify a combination of premigration assessment runs,
@@ -61,6 +66,8 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationTaskAssessmentRunsCommandInput - {@link DescribeReplicationTaskAssessmentRunsCommandInput}
+ * @returns {@link DescribeReplicationTaskAssessmentRunsCommandOutput}
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTaskAssessmentRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationTaskAssessmentRunsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     return serializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

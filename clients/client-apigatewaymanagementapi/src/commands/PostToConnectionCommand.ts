@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PostToConnectionCommand}.
  */
 export interface PostToConnectionCommandInput extends PostToConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PostToConnectionCommand}.
  */
 export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends the provided data to the specified connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PostToConnectionCommandInput - {@link PostToConnectionCommandInput}
+ * @returns {@link PostToConnectionCommandOutput}
  * @see {@link PostToConnectionCommandInput} for command's `input` shape.
  * @see {@link PostToConnectionCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.
@@ -80,6 +87,9 @@ export class PostToConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostToConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class PostToConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostToConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PostToConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostToConnectionCommandOutput> {
     return deserializeAws_restJson1PostToConnectionCommand(output, context);
   }

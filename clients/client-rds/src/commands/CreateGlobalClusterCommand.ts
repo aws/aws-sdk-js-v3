@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGlobalClusterCommand}.
  */
 export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateGlobalClusterCommand}.
  */
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Aurora global database
  *         spread across multiple Amazon Web Services Regions. The global database
  *         contains a single primary cluster with read-write capability,
@@ -58,6 +63,8 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalClusterCommandInput - {@link CreateGlobalClusterCommandInput}
+ * @returns {@link CreateGlobalClusterCommandOutput}
  * @see {@link CreateGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalClusterCommandOutput> {
     return deserializeAws_queryCreateGlobalClusterCommand(output, context);
   }

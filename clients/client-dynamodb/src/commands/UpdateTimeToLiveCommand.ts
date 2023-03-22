@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTimeToLiveCommand}.
  */
 export interface UpdateTimeToLiveCommandInput extends UpdateTimeToLiveInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTimeToLiveCommand}.
  */
 export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
  *             the specified table. A successful <code>UpdateTimeToLive</code> call returns the current
  *                 <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to
@@ -70,6 +75,8 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTimeToLiveCommandInput - {@link UpdateTimeToLiveCommandInput}
+ * @returns {@link UpdateTimeToLiveCommandOutput}
  * @see {@link UpdateTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link UpdateTimeToLiveCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -120,6 +127,9 @@ export class UpdateTimeToLiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTimeToLiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class UpdateTimeToLiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTimeToLiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateTimeToLiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTimeToLiveCommandOutput> {
     return deserializeAws_json1_0UpdateTimeToLiveCommand(output, context);
   }

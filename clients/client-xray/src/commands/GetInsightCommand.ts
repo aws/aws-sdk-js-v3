@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightCommand}.
  */
 export interface GetInsightCommandInput extends GetInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightCommand}.
  */
 export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the summary information of an insight. This includes impact to clients and
  *          root cause services, the top anomalous services, the category, the state of the insight,
  *          and the start and end time of the insight.</p>
@@ -48,6 +53,8 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightCommandInput - {@link GetInsightCommandInput}
+ * @returns {@link GetInsightCommandOutput}
  * @see {@link GetInsightCommandInput} for command's `input` shape.
  * @see {@link GetInsightCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightCommandOutput> {
     return deserializeAws_restJson1GetInsightCommand(output, context);
   }

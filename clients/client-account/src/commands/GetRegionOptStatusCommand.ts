@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegionOptStatusCommand}.
  */
 export interface GetRegionOptStatusCommandInput extends GetRegionOptStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegionOptStatusCommand}.
  */
 export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the opt-in status of a particular Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegionOptStatusCommandInput - {@link GetRegionOptStatusCommandInput}
+ * @returns {@link GetRegionOptStatusCommandOutput}
  * @see {@link GetRegionOptStatusCommandInput} for command's `input` shape.
  * @see {@link GetRegionOptStatusCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetRegionOptStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegionOptStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetRegionOptStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegionOptStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRegionOptStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegionOptStatusCommandOutput> {
     return deserializeAws_restJson1GetRegionOptStatusCommand(output, context);
   }

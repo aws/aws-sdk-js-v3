@@ -10,7 +10,7 @@ import {
 import { AppConfigPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppConfigClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExtensionAssociationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExtensionAssociations(
   config: AppConfigPaginationConfiguration,
   input: ListExtensionAssociationsCommandInput,

@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelRotateSecretCommand}.
  */
 export interface CancelRotateSecretCommandInput extends CancelRotateSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelRotateSecretCommand}.
  */
 export interface CancelRotateSecretCommandOutput extends CancelRotateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns off automatic rotation, and if a rotation is currently in
  *       progress, cancels the rotation.</p>
  *          <p>If you cancel a rotation in progress, it can leave the <code>VersionStage</code>
@@ -64,6 +69,8 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelRotateSecretCommandInput - {@link CancelRotateSecretCommandInput}
+ * @returns {@link CancelRotateSecretCommandOutput}
  * @see {@link CancelRotateSecretCommandInput} for command's `input` shape.
  * @see {@link CancelRotateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -131,6 +138,9 @@ export class CancelRotateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelRotateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class CancelRotateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelRotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelRotateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRotateSecretCommandOutput> {
     return deserializeAws_json1_1CancelRotateSecretCommand(output, context);
   }

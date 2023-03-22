@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFromAdministratorAccountCommand}.
  */
 export interface DisassociateFromAdministratorAccountCommandInput extends DisassociateFromAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFromAdministratorAccountCommand}.
  */
 export interface DisassociateFromAdministratorAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the current Security Hub member account from the associated administrator
  *          account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization. For
@@ -52,6 +57,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromAdministratorAccountCommandInput - {@link DisassociateFromAdministratorAccountCommandInput}
+ * @returns {@link DisassociateFromAdministratorAccountCommandOutput}
  * @see {@link DisassociateFromAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateFromAdministratorAccountCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     return serializeAws_restJson1DisassociateFromAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

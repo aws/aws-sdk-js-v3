@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamResourceCidrsCommand}.
  */
 export interface GetIpamResourceCidrsCommandInput extends GetIpamResourceCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamResourceCidrsCommand}.
  */
 export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamResourceCidrsCommandInput - {@link GetIpamResourceCidrsCommandInput}
+ * @returns {@link GetIpamResourceCidrsCommandOutput}
  * @see {@link GetIpamResourceCidrsCommandInput} for command's `input` shape.
  * @see {@link GetIpamResourceCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetIpamResourceCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamResourceCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetIpamResourceCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIpamResourceCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetIpamResourceCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIpamResourceCidrsCommandOutput> {
     return deserializeAws_ec2GetIpamResourceCidrsCommand(output, context);
   }

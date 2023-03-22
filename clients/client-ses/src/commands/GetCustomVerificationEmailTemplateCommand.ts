@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCustomVerificationEmailTemplateCommand}.
  */
 export interface GetCustomVerificationEmailTemplateCommandInput extends GetCustomVerificationEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCustomVerificationEmailTemplateCommand}.
  */
 export interface GetCustomVerificationEmailTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the custom email verification template for the template name you
  *             specify.</p>
  *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
@@ -52,6 +57,8 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomVerificationEmailTemplateCommandInput - {@link GetCustomVerificationEmailTemplateCommandInput}
+ * @returns {@link GetCustomVerificationEmailTemplateCommandOutput}
  * @see {@link GetCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link GetCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     return serializeAws_queryGetCustomVerificationEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

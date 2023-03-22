@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTaskDefinitionsCommand}.
  */
 export interface ListTaskDefinitionsCommandInput extends ListTaskDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTaskDefinitionsCommand}.
  */
 export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of task definitions that are registered to your account. You can filter
  * 			the results by family name with the <code>familyPrefix</code> parameter or by status
  * 			with the <code>status</code> parameter.</p>
@@ -48,6 +53,8 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTaskDefinitionsCommandInput - {@link ListTaskDefinitionsCommandInput}
+ * @returns {@link ListTaskDefinitionsCommandOutput}
  * @see {@link ListTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -125,6 +132,9 @@ export class ListTaskDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTaskDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class ListTaskDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTaskDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTaskDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskDefinitionsCommandOutput> {
     return deserializeAws_json1_1ListTaskDefinitionsCommand(output, context);
   }

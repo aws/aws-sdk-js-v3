@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationFsxOpenZfsCommand}.
  */
 export interface DescribeLocationFsxOpenZfsCommandInput extends DescribeLocationFsxOpenZfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationFsxOpenZfsCommand}.
  */
 export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about how an DataSync location for an Amazon FSx for OpenZFS file system is configured.</p>
  *          <note>
  *             <p>Response elements related to <code>SMB</code> aren't supported with the
@@ -50,6 +55,8 @@ export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationFsxOpenZfsCommandInput - {@link DescribeLocationFsxOpenZfsCommandInput}
+ * @returns {@link DescribeLocationFsxOpenZfsCommandOutput}
  * @see {@link DescribeLocationFsxOpenZfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxOpenZfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeLocationFsxOpenZfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationFsxOpenZfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeLocationFsxOpenZfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationFsxOpenZfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationFsxOpenZfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

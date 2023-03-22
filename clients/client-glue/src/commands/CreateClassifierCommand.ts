@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClassifierCommand}.
  */
 export interface CreateClassifierCommandInput extends CreateClassifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClassifierCommand}.
  */
 export interface CreateClassifierCommandOutput extends CreateClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
  *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
  *       depending on which field of the request is present.</p>
@@ -48,6 +53,8 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClassifierCommandInput - {@link CreateClassifierCommandInput}
+ * @returns {@link CreateClassifierCommandOutput}
  * @see {@link CreateClassifierCommandInput} for command's `input` shape.
  * @see {@link CreateClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClassifierCommandOutput> {
     return deserializeAws_json1_1CreateClassifierCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterSubnetGroupCommand}.
  */
 export interface CreateClusterSubnetGroupCommandInput extends CreateClusterSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterSubnetGroupCommand}.
  */
 export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more
  *             subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating
  *             Amazon Redshift subnet group.</p>
@@ -52,6 +57,8 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterSubnetGroupCommandInput - {@link CreateClusterSubnetGroupCommandInput}
+ * @returns {@link CreateClusterSubnetGroupCommandOutput}
  * @see {@link CreateClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -110,6 +117,9 @@ export class CreateClusterSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateClusterSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateClusterSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterSubnetGroupCommandOutput> {
     return deserializeAws_queryCreateClusterSubnetGroupCommand(output, context);
   }

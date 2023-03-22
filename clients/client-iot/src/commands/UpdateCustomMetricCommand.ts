@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomMetricCommand}.
  */
 export interface UpdateCustomMetricCommandInput extends UpdateCustomMetricRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomMetricCommand}.
  */
 export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a
  *       Device Defender detect custom metric. </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCustomMetric</a> action.</p>
@@ -48,6 +53,8 @@ export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomMetricCommandInput - {@link UpdateCustomMetricCommandInput}
+ * @returns {@link UpdateCustomMetricCommandOutput}
  * @see {@link UpdateCustomMetricCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateCustomMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateCustomMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCustomMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomMetricCommandOutput> {
     return deserializeAws_restJson1UpdateCustomMetricCommand(output, context);
   }

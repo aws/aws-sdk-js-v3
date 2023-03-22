@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventPredictionMetadataCommand}.
  */
 export interface GetEventPredictionMetadataCommandInput extends GetEventPredictionMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventPredictionMetadataCommand}.
  */
 export interface GetEventPredictionMetadataCommandOutput extends GetEventPredictionMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Gets details of the past fraud predictions for the specified event ID, event type, detector ID, and detector version ID that was generated in the specified time period.
  * </p>
@@ -48,6 +53,8 @@ export interface GetEventPredictionMetadataCommandOutput extends GetEventPredict
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventPredictionMetadataCommandInput - {@link GetEventPredictionMetadataCommandInput}
+ * @returns {@link GetEventPredictionMetadataCommandOutput}
  * @see {@link GetEventPredictionMetadataCommandInput} for command's `input` shape.
  * @see {@link GetEventPredictionMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetEventPredictionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventPredictionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetEventPredictionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventPredictionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEventPredictionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

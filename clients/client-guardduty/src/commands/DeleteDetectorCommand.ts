@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDetectorCommand}.
  */
 export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDetectorCommand}.
  */
 export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
+ * @returns {@link DeleteDetectorCommandOutput}
  * @see {@link DeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorCommandOutput> {
     return deserializeAws_restJson1DeleteDetectorCommand(output, context);
   }

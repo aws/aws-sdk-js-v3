@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEffectiveDeploymentsCommand}.
  */
 export interface ListEffectiveDeploymentsCommandInput extends ListEffectiveDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEffectiveDeploymentsCommand}.
  */
 export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDeploymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core
  *       devices.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEffectiveDeploymentsCommandInput - {@link ListEffectiveDeploymentsCommandInput}
+ * @returns {@link ListEffectiveDeploymentsCommandOutput}
  * @see {@link ListEffectiveDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListEffectiveDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -87,6 +94,9 @@ export class ListEffectiveDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEffectiveDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListEffectiveDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEffectiveDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEffectiveDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEffectiveDeploymentsCommandOutput> {
     return deserializeAws_restJson1ListEffectiveDeploymentsCommand(output, context);
   }

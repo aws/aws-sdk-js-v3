@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGeofenceCollectionCommand}.
  */
 export interface DeleteGeofenceCollectionCommandInput extends DeleteGeofenceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGeofenceCollectionCommand}.
  */
 export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a geofence collection from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the geofence collection is the
@@ -50,6 +55,8 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGeofenceCollectionCommandInput - {@link DeleteGeofenceCollectionCommandInput}
+ * @returns {@link DeleteGeofenceCollectionCommandOutput}
  * @see {@link DeleteGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteGeofenceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGeofenceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteGeofenceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGeofenceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGeofenceCollectionCommandOutput> {
     return deserializeAws_restJson1DeleteGeofenceCollectionCommand(output, context);
   }

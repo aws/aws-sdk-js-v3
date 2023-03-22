@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CheckDNSAvailabilityCommand}.
  */
 export interface CheckDNSAvailabilityCommandInput extends CheckDNSAvailabilityMessage {}
 /**
+ * @public
+ *
  * The output of {@link CheckDNSAvailabilityCommand}.
  */
 export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityResultMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks if the specified CNAME is available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckDNSAvailabilityCommandInput - {@link CheckDNSAvailabilityCommandInput}
+ * @returns {@link CheckDNSAvailabilityCommandOutput}
  * @see {@link CheckDNSAvailabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -86,6 +93,9 @@ export class CheckDNSAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckDNSAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CheckDNSAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckDNSAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCheckDNSAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckDNSAvailabilityCommandOutput> {
     return deserializeAws_queryCheckDNSAvailabilityCommand(output, context);
   }

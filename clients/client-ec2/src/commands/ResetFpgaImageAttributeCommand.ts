@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetFpgaImageAttributeCommand}.
  */
 export interface ResetFpgaImageAttributeCommandInput extends ResetFpgaImageAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetFpgaImageAttributeCommand}.
  */
 export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value.
  * 		    You can only reset the load permission attribute.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetFpgaImageAttributeCommandInput - {@link ResetFpgaImageAttributeCommandInput}
+ * @returns {@link ResetFpgaImageAttributeCommandOutput}
  * @see {@link ResetFpgaImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class ResetFpgaImageAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetFpgaImageAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ResetFpgaImageAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetFpgaImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ResetFpgaImageAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetFpgaImageAttributeCommandOutput> {
     return deserializeAws_ec2ResetFpgaImageAttributeCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserHierarchyGroupCommand}.
  */
 export interface DeleteUserHierarchyGroupCommandInput extends DeleteUserHierarchyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserHierarchyGroupCommand}.
  */
 export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
  *    any active child groups.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserHierarchyGroupCommandInput - {@link DeleteUserHierarchyGroupCommandInput}
+ * @returns {@link DeleteUserHierarchyGroupCommandOutput}
  * @see {@link DeleteUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserHierarchyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserHierarchyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUserHierarchyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserHierarchyGroupCommandOutput> {
     return deserializeAws_restJson1DeleteUserHierarchyGroupCommand(output, context);
   }

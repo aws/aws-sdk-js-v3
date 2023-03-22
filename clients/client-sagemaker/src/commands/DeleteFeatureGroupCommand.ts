@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFeatureGroupCommand}.
  */
 export interface DeleteFeatureGroupCommandInput extends DeleteFeatureGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFeatureGroupCommand}.
  */
 export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the <code>FeatureGroup</code> and any data that was written to the
  *             <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from
  *          the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p>
@@ -46,6 +51,8 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFeatureGroupCommandInput - {@link DeleteFeatureGroupCommandInput}
+ * @returns {@link DeleteFeatureGroupCommandOutput}
  * @see {@link DeleteFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteFeatureGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFeatureGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteFeatureGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFeatureGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFeatureGroupCommandOutput> {
     return deserializeAws_json1_1DeleteFeatureGroupCommand(output, context);
   }

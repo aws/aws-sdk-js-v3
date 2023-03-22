@@ -66,16 +66,25 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateHomeRegionControlCommandInput
   | DescribeHomeRegionControlsCommandInput
   | GetHomeRegionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateHomeRegionControlCommandOutput
   | DescribeHomeRegionControlsCommandOutput
   | GetHomeRegionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -83,7 +92,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -192,11 +201,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type MigrationHubConfigClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -207,10 +219,15 @@ type MigrationHubConfigClientConfigType = Partial<__SmithyConfiguration<__HttpHa
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MigrationHubConfigClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MigrationHubConfigClient class constructor that set the region, credentials and other options.
  */
 export interface MigrationHubConfigClientConfig extends MigrationHubConfigClientConfigType {}
 
+/**
+ * @public
+ */
 type MigrationHubConfigClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -221,11 +238,14 @@ type MigrationHubConfigClientResolvedConfigType = __SmithyResolvedConfiguration<
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MigrationHubConfigClient class. This is resolved and normalized from the {@link MigrationHubConfigClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MigrationHubConfigClient class. This is resolved and normalized from the {@link MigrationHubConfigClientConfig | constructor configuration interface}.
  */
 export interface MigrationHubConfigClientResolvedConfig extends MigrationHubConfigClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>

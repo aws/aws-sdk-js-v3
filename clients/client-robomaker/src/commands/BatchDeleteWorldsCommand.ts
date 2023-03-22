@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteWorldsCommand}.
  */
 export interface BatchDeleteWorldsCommandInput extends BatchDeleteWorldsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteWorldsCommand}.
  */
 export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more worlds in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteWorldsCommandInput - {@link BatchDeleteWorldsCommandInput}
+ * @returns {@link BatchDeleteWorldsCommandOutput}
  * @see {@link BatchDeleteWorldsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteWorldsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class BatchDeleteWorldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteWorldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class BatchDeleteWorldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteWorldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeleteWorldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteWorldsCommandOutput> {
     return deserializeAws_restJson1BatchDeleteWorldsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcIngressConnectionsCommand}.
  */
 export interface ListVpcIngressConnectionsCommandInput extends ListVpcIngressConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcIngressConnectionsCommand}.
  */
 export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a list of App Runner VPC Ingress Connections in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcIngressConnectionsCommandInput - {@link ListVpcIngressConnectionsCommandInput}
+ * @returns {@link ListVpcIngressConnectionsCommandOutput}
  * @see {@link ListVpcIngressConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListVpcIngressConnectionsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListVpcIngressConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcIngressConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListVpcIngressConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcIngressConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListVpcIngressConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

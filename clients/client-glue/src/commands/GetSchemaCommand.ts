@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetSchemaCommand, serializeAws_json1_1GetSchemaCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaCommand}.
  */
 export interface GetSchemaCommandInput extends GetSchemaInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaCommand}.
  */
 export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified schema in detail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaCommandInput - {@link GetSchemaCommandInput}
+ * @returns {@link GetSchemaCommandOutput}
  * @see {@link GetSchemaCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaCommandOutput> {
     return deserializeAws_json1_1GetSchemaCommand(output, context);
   }

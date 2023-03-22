@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListConstraintsForPortfolioCommand}.
  */
 export interface ListConstraintsForPortfolioCommandInput extends ListConstraintsForPortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link ListConstraintsForPortfolioCommand}.
  */
 export interface ListConstraintsForPortfolioCommandOutput extends ListConstraintsForPortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the constraints for the specified portfolio and product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConstraintsForPortfolioCommandInput - {@link ListConstraintsForPortfolioCommandInput}
+ * @returns {@link ListConstraintsForPortfolioCommandOutput}
  * @see {@link ListConstraintsForPortfolioCommandInput} for command's `input` shape.
  * @see {@link ListConstraintsForPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConstraintsForPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConstraintsForPortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListConstraintsForPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

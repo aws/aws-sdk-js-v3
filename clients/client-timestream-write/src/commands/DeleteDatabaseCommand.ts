@@ -22,15 +22,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatabaseCommand}.
  */
 export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatabaseCommand}.
  */
 export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given Timestream database. <i>This is an irreversible
  *             operation. After a database is deleted, the time-series data from its tables cannot be
  *             recovered.</i>
@@ -53,6 +58,8 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatabaseCommandInput - {@link DeleteDatabaseCommandInput}
+ * @returns {@link DeleteDatabaseCommandOutput}
  * @see {@link DeleteDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeleteDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatabaseCommandOutput> {
     return deserializeAws_json1_0DeleteDatabaseCommand(output, context);
   }

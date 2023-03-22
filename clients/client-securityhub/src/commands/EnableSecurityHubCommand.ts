@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSecurityHubCommand}.
  */
 export interface EnableSecurityHubCommandInput extends EnableSecurityHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableSecurityHubCommand}.
  */
 export interface EnableSecurityHubCommandOutput extends EnableSecurityHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Security Hub for your account in the current Region or the Region you specify in the
  *          request.</p>
  *          <p>When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings
@@ -65,6 +70,8 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSecurityHubCommandInput - {@link EnableSecurityHubCommandInput}
+ * @returns {@link EnableSecurityHubCommandOutput}
  * @see {@link EnableSecurityHubCommandInput} for command's `input` shape.
  * @see {@link EnableSecurityHubCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -104,6 +111,9 @@ export class EnableSecurityHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSecurityHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class EnableSecurityHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableSecurityHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableSecurityHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSecurityHubCommandOutput> {
     return deserializeAws_restJson1EnableSecurityHubCommand(output, context);
   }

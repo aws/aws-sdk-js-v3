@@ -29,10 +29,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSessionCommand}.
  */
 export interface PutSessionCommandInput extends PutSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSessionCommand}.
  */
 export interface PutSessionCommandOutput
@@ -40,6 +44,7 @@ export interface PutSessionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new session or modifies an existing session with an Amazon Lex V2
  *          bot. Use this operation to enable your application to set the state of
  *          the bot.</p>
@@ -53,6 +58,8 @@ export interface PutSessionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSessionCommandInput - {@link PutSessionCommandInput}
+ * @returns {@link PutSessionCommandOutput}
  * @see {@link PutSessionCommandInput} for command's `input` shape.
  * @see {@link PutSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class PutSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class PutSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

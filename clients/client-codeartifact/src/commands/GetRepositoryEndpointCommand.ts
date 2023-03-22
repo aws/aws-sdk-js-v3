@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryEndpointCommand}.
  */
 export interface GetRepositoryEndpointCommandInput extends GetRepositoryEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryEndpointCommand}.
  */
 export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each
  *       package format:
@@ -71,6 +76,8 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryEndpointCommandInput - {@link GetRepositoryEndpointCommandInput}
+ * @returns {@link GetRepositoryEndpointCommandOutput}
  * @see {@link GetRepositoryEndpointCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryEndpointCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -117,6 +124,9 @@ export class GetRepositoryEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class GetRepositoryEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRepositoryEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryEndpointCommandOutput> {
     return deserializeAws_restJson1GetRepositoryEndpointCommand(output, context);
   }

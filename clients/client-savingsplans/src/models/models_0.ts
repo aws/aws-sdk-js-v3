@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SavingsplansServiceException as __BaseException } from "./SavingsplansServiceException";
 
+/**
+ * @public
+ */
 export interface CreateSavingsPlanRequest {
   /**
    * <p>The ID of the offering.</p>
@@ -37,6 +40,9 @@ export interface CreateSavingsPlanRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSavingsPlanResponse {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -45,6 +51,7 @@ export interface CreateSavingsPlanResponse {
 }
 
 /**
+ * @public
  * <p>An unexpected error occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -64,6 +71,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -83,6 +91,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A service quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -102,6 +111,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the input parameters is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -120,6 +130,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueuedSavingsPlanRequest {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -127,8 +140,14 @@ export interface DeleteQueuedSavingsPlanRequest {
   savingsPlanId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueuedSavingsPlanResponse {}
 
+/**
+ * @public
+ */
 export enum SavingsPlanRateFilterName {
   INSTANCE_TYPE = "instanceType",
   OPERATION = "operation",
@@ -141,6 +160,7 @@ export enum SavingsPlanRateFilterName {
 }
 
 /**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanRateFilter {
@@ -155,6 +175,9 @@ export interface SavingsPlanRateFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlanRatesRequest {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -178,8 +201,14 @@ export interface DescribeSavingsPlanRatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export type CurrencyCode = "CNY" | "USD";
 
+/**
+ * @public
+ */
 export enum SavingsPlanProductType {
   EC2 = "EC2",
   FARGATE = "Fargate",
@@ -187,6 +216,9 @@ export enum SavingsPlanProductType {
   SAGEMAKER = "SageMaker",
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanRatePropertyKey {
   INSTANCE_FAMILY = "instanceFamily",
   INSTANCE_TYPE = "instanceType",
@@ -196,6 +228,7 @@ export enum SavingsPlanRatePropertyKey {
 }
 
 /**
+ * @public
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanRateProperty {
@@ -210,6 +243,9 @@ export interface SavingsPlanRateProperty {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanRateServiceCode {
   EC2 = "AmazonEC2",
   FARGATE = "AmazonECS",
@@ -218,6 +254,9 @@ export enum SavingsPlanRateServiceCode {
   SAGEMAKER = "AmazonSageMaker",
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanRateUnit {
   HOURS = "Hrs",
   LAMBDA_GB_SECOND = "Lambda-GB-Second",
@@ -225,6 +264,7 @@ export enum SavingsPlanRateUnit {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan rate.</p>
  */
 export interface SavingsPlanRate {
@@ -269,6 +309,9 @@ export interface SavingsPlanRate {
   properties?: SavingsPlanRateProperty[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlanRatesResponse {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -287,6 +330,9 @@ export interface DescribeSavingsPlanRatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlansFilterName {
   COMMITMENT = "commitment",
   EC2_INSTANCE_FAMILY = "ec2-instance-family",
@@ -300,6 +346,7 @@ export enum SavingsPlansFilterName {
 }
 
 /**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanFilter {
@@ -314,6 +361,9 @@ export interface SavingsPlanFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanState {
   ACTIVE = "active",
   PAYMENT_FAILED = "payment-failed",
@@ -323,6 +373,9 @@ export enum SavingsPlanState {
   RETIRED = "retired",
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
@@ -356,12 +409,18 @@ export interface DescribeSavingsPlansRequest {
   filters?: SavingsPlanFilter[];
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanPaymentOption {
   ALL_UPFRONT = "All Upfront",
   NO_UPFRONT = "No Upfront",
   PARTIAL_UPFRONT = "Partial Upfront",
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanType {
   COMPUTE = "Compute",
   EC2_INSTANCE = "EC2Instance",
@@ -369,6 +428,7 @@ export enum SavingsPlanType {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan.</p>
  */
 export interface SavingsPlan {
@@ -463,6 +523,9 @@ export interface SavingsPlan {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansResponse {
   /**
    * <p>Information about the Savings Plans.</p>
@@ -476,6 +539,9 @@ export interface DescribeSavingsPlansResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanRateFilterAttribute {
   INSTANCE_FAMILY = "instanceFamily",
   INSTANCE_TYPE = "instanceType",
@@ -486,6 +552,7 @@ export enum SavingsPlanRateFilterAttribute {
 }
 
 /**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingRateFilterElement {
@@ -500,6 +567,9 @@ export interface SavingsPlanOfferingRateFilterElement {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
    * <p>The IDs of the offerings.</p>
@@ -554,6 +624,7 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingRateProperty {
@@ -569,6 +640,7 @@ export interface SavingsPlanOfferingRateProperty {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan offering.</p>
  */
 export interface ParentSavingsPlanOffering {
@@ -604,6 +676,7 @@ export interface ParentSavingsPlanOffering {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan offering rate.</p>
  */
 export interface SavingsPlanOfferingRate {
@@ -648,6 +721,9 @@ export interface SavingsPlanOfferingRate {
   properties?: SavingsPlanOfferingRateProperty[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingRatesResponse {
   /**
    * <p>Information about the Savings Plans offering rates.</p>
@@ -661,12 +737,16 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanOfferingFilterAttribute {
   instanceFamily = "instanceFamily",
   region = "region",
 }
 
 /**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingFilterElement {
@@ -681,6 +761,9 @@ export interface SavingsPlanOfferingFilterElement {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The IDs of the offerings.</p>
@@ -749,12 +832,16 @@ export interface DescribeSavingsPlansOfferingsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum SavingsPlanOfferingPropertyKey {
   INSTANCE_FAMILY = "instanceFamily",
   REGION = "region",
 }
 
 /**
+ * @public
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingProperty {
@@ -770,6 +857,7 @@ export interface SavingsPlanOfferingProperty {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan offering.</p>
  */
 export interface SavingsPlanOffering {
@@ -829,6 +917,9 @@ export interface SavingsPlanOffering {
   properties?: SavingsPlanOfferingProperty[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingsResponse {
   /**
    * <p>Information about the Savings Plans offerings.</p>
@@ -842,6 +933,9 @@ export interface DescribeSavingsPlansOfferingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -849,6 +943,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
@@ -856,6 +953,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -863,13 +963,19 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>One or more tags. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -882,6 +988,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

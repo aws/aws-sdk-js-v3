@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePrefixListsCommand}.
  */
 export interface DescribePrefixListsCommandInput extends DescribePrefixListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePrefixListsCommand}.
  */
 export interface DescribePrefixListsCommandOutput extends DescribePrefixListsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
  *             name and prefix list ID of the service and the IP address range for the service.</p>
  *          <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
@@ -48,6 +53,8 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePrefixListsCommandInput - {@link DescribePrefixListsCommandInput}
+ * @returns {@link DescribePrefixListsCommandOutput}
  * @see {@link DescribePrefixListsCommandInput} for command's `input` shape.
  * @see {@link DescribePrefixListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribePrefixListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePrefixListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribePrefixListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePrefixListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribePrefixListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePrefixListsCommandOutput> {
     return deserializeAws_ec2DescribePrefixListsCommand(output, context);
   }

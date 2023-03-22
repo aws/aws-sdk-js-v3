@@ -178,6 +178,7 @@ import {
 import { WellArchitectedClient } from "./WellArchitectedClient";
 
 /**
+ * @public
  * <fullname>Well-Architected Tool</fullname>
  *
  *          <p>This is the <i>Well-Architected Tool API Reference</i>. The WA Tool API provides programmatic access to the
@@ -188,6 +189,7 @@ import { WellArchitectedClient } from "./WellArchitectedClient";
  */
 export class WellArchitected extends WellArchitectedClient {
   /**
+   * @public
    * <p>Associate a lens to a workload.</p>
    *         <p>Up to 10 lenses can be associated with a workload in a single API operation. A
    *         maximum of 20 lenses can be associated with a workload.</p>
@@ -230,6 +232,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Create a lens share.</p>
    *         <p>The owner of a lens can share it with other Amazon Web Services accounts, IAM users, an organization,
    *             and organizational units (OUs) in the same Amazon Web Services Region.
@@ -276,6 +279,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Create a new lens version.</p>
    *         <p>A lens can have up to 100 versions.</p>
    *         <p>After a lens has been imported, create a new lens version to publish it.  The owner of a lens can share the lens with other
@@ -312,6 +316,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Create a milestone for an existing workload.</p>
    */
   public createMilestone(
@@ -344,6 +349,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Create a new workload.</p>
    *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts, IAM users,
    *             an organization, and organizational units (OUs)
@@ -381,6 +387,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Create a workload share.</p>
    *         <p>The owner of a workload can share it with other Amazon Web Services accounts and IAM users in the same
    *             Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
@@ -418,6 +425,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Delete an existing lens.</p>
    *         <p>Only the owner of a lens can delete it.  After the lens is deleted,  Amazon Web Services accounts and IAM users
    *               that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
@@ -458,6 +466,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Delete a lens share.</p>
    *         <p>After the lens share is deleted,  Amazon Web Services accounts, IAM users, organizations,
    *             and organizational units (OUs)
@@ -504,6 +513,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Delete an existing workload.</p>
    */
   public deleteWorkload(
@@ -536,6 +546,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Delete a workload share.</p>
    */
   public deleteWorkloadShare(
@@ -568,6 +579,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Disassociate a lens from a workload.</p>
    *         <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
    *         <note>
@@ -605,6 +617,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Export an existing lens.</p>
    *         <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
    *             in the <i>Well-Architected Tool User Guide</i>. Only the owner of a lens can export it.
@@ -645,6 +658,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Get the answer to a specific question in a workload review.</p>
    */
   public getAnswer(args: GetAnswerCommandInput, options?: __HttpHandlerOptions): Promise<GetAnswerCommandOutput>;
@@ -671,6 +685,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Get an existing lens.</p>
    */
   public getLens(args: GetLensCommandInput, options?: __HttpHandlerOptions): Promise<GetLensCommandOutput>;
@@ -697,6 +712,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Get lens review.</p>
    */
   public getLensReview(
@@ -729,6 +745,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Get lens review report.</p>
    */
   public getLensReviewReport(
@@ -761,6 +778,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Get lens version differences.</p>
    */
   public getLensVersionDifference(
@@ -793,6 +811,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Get a milestone for an existing workload.</p>
    */
   public getMilestone(
@@ -822,6 +841,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Get an existing workload.</p>
    */
   public getWorkload(args: GetWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkloadCommandOutput>;
@@ -848,6 +868,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Import a new lens.</p>
    *         <p>The lens cannot be applied to workloads or shared with other Amazon Web Services accounts
    *             until it's published with <a>CreateLensVersion</a>
@@ -892,6 +913,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List of answers.</p>
    */
   public listAnswers(args: ListAnswersCommandInput, options?: __HttpHandlerOptions): Promise<ListAnswersCommandOutput>;
@@ -918,6 +940,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List of Trusted Advisor check details by account related to the workload.</p>
    */
   public listCheckDetails(
@@ -950,6 +973,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List of Trusted Advisor checks summarized for all accounts related to the workload.</p>
    */
   public listCheckSummaries(
@@ -982,6 +1006,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List the available lenses.</p>
    */
   public listLenses(args: ListLensesCommandInput, options?: __HttpHandlerOptions): Promise<ListLensesCommandOutput>;
@@ -1008,6 +1033,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List lens review improvements.</p>
    */
   public listLensReviewImprovements(
@@ -1040,6 +1066,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List lens reviews.</p>
    */
   public listLensReviews(
@@ -1072,6 +1099,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List the lens shares associated with the lens.</p>
    */
   public listLensShares(
@@ -1104,6 +1132,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List all milestones for an existing workload.</p>
    */
   public listMilestones(
@@ -1136,6 +1165,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List lens notifications.</p>
    */
   public listNotifications(
@@ -1168,6 +1198,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List  the workload invitations.</p>
    */
   public listShareInvitations(
@@ -1200,6 +1231,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List the tags for a resource.</p>
    *         <note>
    *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
@@ -1235,6 +1267,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List workloads. Paginated.</p>
    */
   public listWorkloads(
@@ -1267,6 +1300,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>List the workload shares associated with the workload.</p>
    */
   public listWorkloadShares(
@@ -1299,6 +1333,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to the specified resource.</p>
    *         <note>
    *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
@@ -1328,6 +1363,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Deletes specified tags from a resource.</p>
    *         <note>
    *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
@@ -1368,6 +1404,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Update the answer to a specific question in a workload review.</p>
    */
   public updateAnswer(
@@ -1397,6 +1434,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Updates whether the Amazon Web Services account is opted into organization sharing features.</p>
    */
   public updateGlobalSettings(
@@ -1429,6 +1467,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Update lens review.</p>
    */
   public updateLensReview(
@@ -1461,6 +1500,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Update a workload or custom lens share invitation.</p>
    *         <note>
    *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
@@ -1496,6 +1536,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Update an existing workload.</p>
    */
   public updateWorkload(
@@ -1528,6 +1569,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Update a workload share.</p>
    */
   public updateWorkloadShare(
@@ -1560,6 +1602,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * @public
    * <p>Upgrade lens review.</p>
    */
   public upgradeLensReview(

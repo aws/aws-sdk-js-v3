@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTasksCommand}.
  */
 export interface ListTasksCommandInput extends ListTasksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTasksCommand}.
  */
 export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tasks that can be filtered by state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTasksCommandInput - {@link ListTasksCommandInput}
+ * @returns {@link ListTasksCommandOutput}
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
     return deserializeAws_restJson1ListTasksCommand(output, context);
   }

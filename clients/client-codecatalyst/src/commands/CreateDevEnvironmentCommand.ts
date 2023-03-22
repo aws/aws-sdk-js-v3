@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDevEnvironmentCommand}.
  */
 export interface CreateDevEnvironmentCommandInput extends CreateDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDevEnvironmentCommand}.
  */
 export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment that you can use to quickly work on the code stored in the source repositories of your project.
  *       </p>
  *          <note>
@@ -51,6 +56,8 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDevEnvironmentCommandInput - {@link CreateDevEnvironmentCommandInput}
+ * @returns {@link CreateDevEnvironmentCommandOutput}
  * @see {@link CreateDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevEnvironmentCommandOutput> {
     return deserializeAws_restJson1CreateDevEnvironmentCommand(output, context);
   }

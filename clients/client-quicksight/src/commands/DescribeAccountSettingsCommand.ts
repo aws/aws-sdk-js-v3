@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountSettingsCommand}.
  */
 export interface DescribeAccountSettingsCommandInput extends DescribeAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountSettingsCommand}.
  */
 export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings that were used when your Amazon QuickSight subscription was first
  *             created in this Amazon Web Services account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountSettingsCommandInput - {@link DescribeAccountSettingsCommandInput}
+ * @returns {@link DescribeAccountSettingsCommandOutput}
  * @see {@link DescribeAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountSettingsCommandOutput> {
     return deserializeAws_restJson1DescribeAccountSettingsCommand(output, context);
   }

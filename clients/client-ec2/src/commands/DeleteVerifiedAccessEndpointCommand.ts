@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVerifiedAccessEndpointCommand}.
  */
 export interface DeleteVerifiedAccessEndpointCommandInput extends DeleteVerifiedAccessEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVerifiedAccessEndpointCommand}.
  */
 export interface DeleteVerifiedAccessEndpointCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteVerifiedAccessEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Amazon Web Services Verified Access endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteVerifiedAccessEndpointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedAccessEndpointCommandInput - {@link DeleteVerifiedAccessEndpointCommandInput}
+ * @returns {@link DeleteVerifiedAccessEndpointCommandOutput}
  * @see {@link DeleteVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteVerifiedAccessEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedAccessEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteVerifiedAccessEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVerifiedAccessEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVerifiedAccessEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

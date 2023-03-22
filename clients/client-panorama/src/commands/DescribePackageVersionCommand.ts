@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackageVersionCommand}.
  */
 export interface DescribePackageVersionCommandInput extends DescribePackageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackageVersionCommand}.
  */
 export interface DescribePackageVersionCommandOutput extends DescribePackageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a package version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackageVersionCommandInput - {@link DescribePackageVersionCommandInput}
+ * @returns {@link DescribePackageVersionCommandOutput}
  * @see {@link DescribePackageVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePackageVersionCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribePackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribePackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribePackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageVersionCommandOutput> {
     return deserializeAws_restJson1DescribePackageVersionCommand(output, context);
   }

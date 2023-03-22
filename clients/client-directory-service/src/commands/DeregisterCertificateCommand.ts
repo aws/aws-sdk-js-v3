@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterCertificateCommand}.
  */
 export interface DeregisterCertificateCommandInput extends DeregisterCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterCertificateCommand}.
  */
 export interface DeregisterCertificateCommandOutput extends DeregisterCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes from the system the certificate that was registered for secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterCertificateCommandInput - {@link DeregisterCertificateCommandInput}
+ * @returns {@link DeregisterCertificateCommandOutput}
  * @see {@link DeregisterCertificateCommandInput} for command's `input` shape.
  * @see {@link DeregisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeregisterCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeregisterCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterCertificateCommandOutput> {
     return deserializeAws_json1_1DeregisterCertificateCommand(output, context);
   }

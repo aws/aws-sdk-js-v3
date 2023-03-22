@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkSettingsCommand}.
  */
 export interface CreateNetworkSettingsCommandInput extends CreateNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkSettingsCommand}.
  */
 export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network settings resource that can be associated with a web portal. Once
  *          associated with a web portal, network settings define how streaming instances will connect
  *          with your specified VPC. </p>
@@ -48,6 +53,8 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkSettingsCommandInput - {@link CreateNetworkSettingsCommandInput}
+ * @returns {@link CreateNetworkSettingsCommandOutput}
  * @see {@link CreateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkSettingsCommandOutput> {
     return deserializeAws_restJson1CreateNetworkSettingsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePersonasToEntitiesCommand}.
  */
 export interface AssociatePersonasToEntitiesCommandInput extends AssociatePersonasToEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePersonasToEntitiesCommand}.
  */
 export interface AssociatePersonasToEntitiesCommandOutput
@@ -37,6 +41,7 @@ export interface AssociatePersonasToEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the specific permissions of users or groups in your IAM Identity Center
  *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
  *             experience such as a search application. For more information on creating a
@@ -52,6 +57,8 @@ export interface AssociatePersonasToEntitiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePersonasToEntitiesCommandInput - {@link AssociatePersonasToEntitiesCommandInput}
+ * @returns {@link AssociatePersonasToEntitiesCommandOutput}
  * @see {@link AssociatePersonasToEntitiesCommandInput} for command's `input` shape.
  * @see {@link AssociatePersonasToEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -99,6 +106,9 @@ export class AssociatePersonasToEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePersonasToEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class AssociatePersonasToEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePersonasToEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociatePersonasToEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

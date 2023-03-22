@@ -24,15 +24,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterParameterGroupCommand}.
  */
 export interface DeleteClusterParameterGroupCommandInput extends DeleteClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterParameterGroupCommand}.
  */
 export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified Amazon Redshift parameter group.</p>
  *          <note>
  *             <p>You cannot delete a parameter group if it is associated with a
@@ -48,6 +53,8 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterParameterGroupCommandInput - {@link DeleteClusterParameterGroupCommandInput}
+ * @returns {@link DeleteClusterParameterGroupCommandOutput}
  * @see {@link DeleteClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

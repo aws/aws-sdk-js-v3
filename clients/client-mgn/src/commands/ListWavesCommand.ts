@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWavesCommand}.
  */
 export interface ListWavesCommandInput extends ListWavesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWavesCommand}.
  */
 export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all waves or multiple waves by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWavesCommandInput - {@link ListWavesCommandInput}
+ * @returns {@link ListWavesCommandOutput}
  * @see {@link ListWavesCommandInput} for command's `input` shape.
  * @see {@link ListWavesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -68,6 +75,9 @@ export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWavesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWavesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWavesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWavesCommandOutput> {
     return deserializeAws_restJson1ListWavesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PostCommentForPullRequestCommand}.
  */
 export interface PostCommentForPullRequestCommandInput extends PostCommentForPullRequestInput {}
 /**
+ * @public
+ *
  * The output of {@link PostCommentForPullRequestCommand}.
  */
 export interface PostCommentForPullRequestCommandOutput extends PostCommentForPullRequestOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Posts a comment on a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
  * const response = await client.send(command);
  * ```
  *
+ * @param PostCommentForPullRequestCommandInput - {@link PostCommentForPullRequestCommandInput}
+ * @returns {@link PostCommentForPullRequestCommandOutput}
  * @see {@link PostCommentForPullRequestCommandInput} for command's `input` shape.
  * @see {@link PostCommentForPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -162,6 +169,9 @@ export class PostCommentForPullRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostCommentForPullRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,10 +211,16 @@ export class PostCommentForPullRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostCommentForPullRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PostCommentForPullRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

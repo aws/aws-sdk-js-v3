@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDocumentClassificationJobCommand}.
  */
 export interface StartDocumentClassificationJobCommandInput extends StartDocumentClassificationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDocumentClassificationJobCommand}.
  */
 export interface StartDocumentClassificationJobCommandOutput
@@ -37,6 +41,7 @@ export interface StartDocumentClassificationJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous document classification job. Use the
  *       <code>DescribeDocumentClassificationJob</code>
  *           operation to track the progress of the job.</p>
@@ -50,6 +55,8 @@ export interface StartDocumentClassificationJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDocumentClassificationJobCommandInput - {@link StartDocumentClassificationJobCommandInput}
+ * @returns {@link StartDocumentClassificationJobCommandOutput}
  * @see {@link StartDocumentClassificationJobCommandInput} for command's `input` shape.
  * @see {@link StartDocumentClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -98,6 +105,9 @@ export class StartDocumentClassificationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDocumentClassificationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class StartDocumentClassificationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDocumentClassificationJobCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class StartDocumentClassificationJobCommand extends $Command<
     return serializeAws_json1_1StartDocumentClassificationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

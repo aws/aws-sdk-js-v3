@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsageForecastCommand}.
  */
 export interface GetUsageForecastCommandInput extends GetUsageForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsageForecastCommand}.
  */
 export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use
  *       over the forecast time period that you select, based on your past usage. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsageForecastCommandInput - {@link GetUsageForecastCommandInput}
+ * @returns {@link GetUsageForecastCommandOutput}
  * @see {@link GetUsageForecastCommandInput} for command's `input` shape.
  * @see {@link GetUsageForecastCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetUsageForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsageForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetUsageForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsageForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUsageForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageForecastCommandOutput> {
     return deserializeAws_json1_1GetUsageForecastCommand(output, context);
   }

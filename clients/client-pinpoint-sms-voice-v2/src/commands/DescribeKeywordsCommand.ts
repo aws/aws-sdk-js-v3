@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeKeywordsCommand}.
  */
 export interface DescribeKeywordsCommandInput extends DescribeKeywordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeKeywordsCommand}.
  */
 export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified keywords or all keywords on your origination phone number or
  *             pool.</p>
  *         <p>A keyword is a word that you can search for on a particular phone number or pool. It
@@ -57,6 +62,8 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeywordsCommandInput - {@link DescribeKeywordsCommandInput}
+ * @returns {@link DescribeKeywordsCommandOutput}
  * @see {@link DescribeKeywordsCommandInput} for command's `input` shape.
  * @see {@link DescribeKeywordsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeKeywordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeywordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeKeywordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeKeywordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeKeywordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeywordsCommandOutput> {
     return deserializeAws_json1_0DescribeKeywordsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetComponentCommand}.
  */
 export interface GetComponentCommandInput extends GetComponentInput {}
 /**
+ * @public
+ *
  * The output of {@link GetComponentCommand}.
  */
 export interface GetComponentCommandOutput extends GetComponentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the component of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComponentCommandInput - {@link GetComponentCommandInput}
+ * @returns {@link GetComponentCommandOutput}
  * @see {@link GetComponentCommandInput} for command's `input` shape.
  * @see {@link GetComponentCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentCommandOutput> {
     return deserializeAws_restJson1GetComponentCommand(output, context);
   }

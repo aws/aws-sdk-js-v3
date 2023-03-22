@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDescribeMergeConflictsCommand}.
  */
 export interface BatchDescribeMergeConflictsCommandInput extends BatchDescribeMergeConflictsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDescribeMergeConflictsCommand}.
  */
 export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDescribeMergeConflictsCommandInput - {@link BatchDescribeMergeConflictsCommandInput}
+ * @returns {@link BatchDescribeMergeConflictsCommandOutput}
  * @see {@link BatchDescribeMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -139,6 +146,9 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDescribeMergeConflictsCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDescribeMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDescribeMergeConflictsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

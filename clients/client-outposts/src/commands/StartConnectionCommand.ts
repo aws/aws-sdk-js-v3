@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConnectionCommand}.
  */
 export interface StartConnectionCommandInput extends StartConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConnectionCommand}.
  */
 export interface StartConnectionCommandOutput extends StartConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>
  *       Amazon Web Services uses this action to install Outpost servers.</p>
@@ -56,6 +61,8 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConnectionCommandInput - {@link StartConnectionCommandInput}
+ * @returns {@link StartConnectionCommandOutput}
  * @see {@link StartConnectionCommandInput} for command's `input` shape.
  * @see {@link StartConnectionCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartConnectionCommandOutput> {
     return deserializeAws_restJson1StartConnectionCommand(output, context);
   }

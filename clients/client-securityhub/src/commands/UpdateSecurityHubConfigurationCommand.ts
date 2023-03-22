@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityHubConfigurationCommand}.
  */
 export interface UpdateSecurityHubConfigurationCommandInput extends UpdateSecurityHubConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityHubConfigurationCommand}.
  */
 export interface UpdateSecurityHubConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSecurityHubConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates configuration options for Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityHubConfigurationCommandInput - {@link UpdateSecurityHubConfigurationCommandInput}
+ * @returns {@link UpdateSecurityHubConfigurationCommandOutput}
  * @see {@link UpdateSecurityHubConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityHubConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityHubConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSecurityHubConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateSecurityHubConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

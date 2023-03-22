@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopCalculationExecutionCommand}.
  */
 export interface StopCalculationExecutionCommandInput extends StopCalculationExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCalculationExecutionCommand}.
  */
 export interface StopCalculationExecutionCommandOutput extends StopCalculationExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests the cancellation of a calculation. A <code>StopCalculationExecution</code>
  *             call on a calculation that is already in a terminal state (for example,
  *                 <code>STOPPED</code>, <code>FAILED</code>, or <code>COMPLETED</code>) succeeds but
@@ -55,6 +60,8 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCalculationExecutionCommandInput - {@link StopCalculationExecutionCommandInput}
+ * @returns {@link StopCalculationExecutionCommandOutput}
  * @see {@link StopCalculationExecutionCommandInput} for command's `input` shape.
  * @see {@link StopCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -89,6 +96,9 @@ export class StopCalculationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCalculationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StopCalculationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCalculationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopCalculationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCalculationExecutionCommandOutput> {
     return deserializeAws_json1_1StopCalculationExecutionCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRelationalDatabaseParametersCommand}.
  */
 export interface UpdateRelationalDatabaseParametersCommandInput extends UpdateRelationalDatabaseParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRelationalDatabaseParametersCommand}.
  */
 export interface UpdateRelationalDatabaseParametersCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>
  *          <p>Parameter updates don't cause outages; therefore, their application is not subject to the
  *       preferred maintenance window. However, there are two ways in which parameter updates are
@@ -57,6 +62,8 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRelationalDatabaseParametersCommandInput - {@link UpdateRelationalDatabaseParametersCommandInput}
+ * @returns {@link UpdateRelationalDatabaseParametersCommandOutput}
  * @see {@link UpdateRelationalDatabaseParametersCommandInput} for command's `input` shape.
  * @see {@link UpdateRelationalDatabaseParametersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -110,6 +117,9 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRelationalDatabaseParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,6 +159,9 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
@@ -156,6 +169,9 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     return serializeAws_json1_1UpdateRelationalDatabaseParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

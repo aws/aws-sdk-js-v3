@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListScheduledAuditsCommand}.
  */
 export interface ListScheduledAuditsCommandInput extends ListScheduledAuditsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListScheduledAuditsCommand}.
  */
 export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of your scheduled audits.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListScheduledAudits</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduledAuditsCommandInput - {@link ListScheduledAuditsCommandInput}
+ * @returns {@link ListScheduledAuditsCommandOutput}
  * @see {@link ListScheduledAuditsCommandInput} for command's `input` shape.
  * @see {@link ListScheduledAuditsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListScheduledAuditsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduledAuditsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListScheduledAuditsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduledAuditsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListScheduledAuditsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledAuditsCommandOutput> {
     return deserializeAws_restJson1ListScheduledAuditsCommand(output, context);
   }

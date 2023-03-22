@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLegalHoldCommand}.
  */
 export interface CreateLegalHoldCommandInput extends CreateLegalHoldInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLegalHoldCommand}.
  */
 export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action creates a legal hold on a recovery point (backup). A legal hold
  *          is a restraint on altering or deleting a backup until an authorized user cancels the
  *          legal hold. Any actions to delete or disassociate a recovery point will fail with
@@ -49,6 +54,8 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLegalHoldCommandInput - {@link CreateLegalHoldCommandInput}
+ * @returns {@link CreateLegalHoldCommandOutput}
  * @see {@link CreateLegalHoldCommandInput} for command's `input` shape.
  * @see {@link CreateLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLegalHoldCommandOutput> {
     return deserializeAws_restJson1CreateLegalHoldCommand(output, context);
   }

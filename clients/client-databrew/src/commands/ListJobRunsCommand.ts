@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobRunsCommand}.
  */
 export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobRunsCommand}.
  */
 export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the previous runs of a particular DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobRunsCommandInput - {@link ListJobRunsCommandInput}
+ * @returns {@link ListJobRunsCommandOutput}
  * @see {@link ListJobRunsCommandInput} for command's `input` shape.
  * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListJobRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListJobRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobRunsCommandOutput> {
     return deserializeAws_restJson1ListJobRunsCommand(output, context);
   }

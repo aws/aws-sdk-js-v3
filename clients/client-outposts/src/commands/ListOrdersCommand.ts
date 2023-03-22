@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrdersCommand}.
  */
 export interface ListOrdersCommandInput extends ListOrdersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOrdersCommand}.
  */
 export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Outpost orders for your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
+ * @returns {@link ListOrdersCommandOutput}
  * @see {@link ListOrdersCommandInput} for command's `input` shape.
  * @see {@link ListOrdersCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListOrdersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrdersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListOrdersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrdersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOrdersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrdersCommandOutput> {
     return deserializeAws_restJson1ListOrdersCommand(output, context);
   }

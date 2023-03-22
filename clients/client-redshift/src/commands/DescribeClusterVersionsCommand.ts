@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterVersionsCommand}.
  */
 export interface DescribeClusterVersionsCommandInput extends DescribeClusterVersionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterVersionsCommand}.
  */
 export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
  *             operation even before creating any clusters to learn more about the Amazon Redshift versions.
  *
@@ -51,6 +56,8 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterVersionsCommandInput - {@link DescribeClusterVersionsCommandInput}
+ * @returns {@link DescribeClusterVersionsCommandOutput}
  * @see {@link DescribeClusterVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterVersionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeClusterVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeClusterVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterVersionsCommandOutput> {
     return deserializeAws_queryDescribeClusterVersionsCommand(output, context);
   }

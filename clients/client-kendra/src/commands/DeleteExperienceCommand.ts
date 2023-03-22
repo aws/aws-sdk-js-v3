@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExperienceCommand}.
  */
 export interface DeleteExperienceCommandInput extends DeleteExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExperienceCommand}.
  */
 export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes your Amazon Kendra experience such as a search application. For more information on
  *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a search
  *                 experience with no code</a>.</p>
@@ -48,6 +53,8 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExperienceCommandInput - {@link DeleteExperienceCommandInput}
+ * @returns {@link DeleteExperienceCommandOutput}
  * @see {@link DeleteExperienceCommandInput} for command's `input` shape.
  * @see {@link DeleteExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperienceCommandOutput> {
     return deserializeAws_json1_1DeleteExperienceCommand(output, context);
   }

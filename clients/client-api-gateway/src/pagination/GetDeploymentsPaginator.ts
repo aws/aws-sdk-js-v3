@@ -10,7 +10,7 @@ import {
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetDeploymentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetDeployments(
   config: APIGatewayPaginationConfiguration,
   input: GetDeploymentsCommandInput,

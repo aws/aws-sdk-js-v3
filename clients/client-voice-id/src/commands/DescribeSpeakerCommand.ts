@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpeakerCommand}.
  */
 export interface DescribeSpeakerCommandInput extends DescribeSpeakerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpeakerCommand}.
  */
 export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified speaker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpeakerCommandInput - {@link DescribeSpeakerCommandInput}
+ * @returns {@link DescribeSpeakerCommandOutput}
  * @see {@link DescribeSpeakerCommandInput} for command's `input` shape.
  * @see {@link DescribeSpeakerCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeSpeakerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpeakerCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeSpeakerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpeakerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeSpeakerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpeakerCommandOutput> {
     return deserializeAws_json1_0DescribeSpeakerCommand(output, context);
   }

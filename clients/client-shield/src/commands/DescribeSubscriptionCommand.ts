@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSubscriptionCommand}.
  */
 export interface DescribeSubscriptionCommandInput extends DescribeSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSubscriptionCommand}.
  */
 export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about the Shield Advanced subscription for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubscriptionCommandInput - {@link DescribeSubscriptionCommandInput}
+ * @returns {@link DescribeSubscriptionCommandOutput}
  * @see {@link DescribeSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubscriptionCommandOutput> {
     return deserializeAws_json1_1DescribeSubscriptionCommand(output, context);
   }

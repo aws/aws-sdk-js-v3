@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCapacityProviderCommand}.
  */
 export interface UpdateCapacityProviderCommandInput extends UpdateCapacityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCapacityProviderCommand}.
  */
 export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters for a capacity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCapacityProviderCommandInput - {@link UpdateCapacityProviderCommandInput}
+ * @returns {@link UpdateCapacityProviderCommandOutput}
  * @see {@link UpdateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateCapacityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateCapacityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCapacityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCapacityProviderCommandOutput> {
     return deserializeAws_json1_1UpdateCapacityProviderCommand(output, context);
   }

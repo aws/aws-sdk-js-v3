@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationOverviewCommand}.
  */
 export interface DescribeOrganizationOverviewCommandInput extends DescribeOrganizationOverviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationOverviewCommand}.
  */
 export interface DescribeOrganizationOverviewCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOrganizationOverviewCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an overview of your organization's history based on the specified time range.
  * 			The overview includes the total reactive and proactive insights.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeOrganizationOverviewCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationOverviewCommandInput - {@link DescribeOrganizationOverviewCommandInput}
+ * @returns {@link DescribeOrganizationOverviewCommandOutput}
  * @see {@link DescribeOrganizationOverviewCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationOverviewCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeOrganizationOverviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationOverviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeOrganizationOverviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationOverviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeOrganizationOverviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

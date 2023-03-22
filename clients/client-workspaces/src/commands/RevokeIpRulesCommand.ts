@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeIpRulesCommand}.
  */
 export interface RevokeIpRulesCommandInput extends RevokeIpRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeIpRulesCommand}.
  */
 export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more rules from the specified IP access control group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeIpRulesCommandInput - {@link RevokeIpRulesCommandInput}
+ * @returns {@link RevokeIpRulesCommandOutput}
  * @see {@link RevokeIpRulesCommandInput} for command's `input` shape.
  * @see {@link RevokeIpRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -81,6 +88,9 @@ export class RevokeIpRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeIpRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class RevokeIpRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeIpRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokeIpRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeIpRulesCommandOutput> {
     return deserializeAws_json1_1RevokeIpRulesCommand(output, context);
   }

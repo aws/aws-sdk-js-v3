@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCertificateCommand}.
  */
 export interface GetCertificateCommandInput extends GetCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCertificateCommand}.
  */
 export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a certificate from your private CA or one that has been shared with you. The
  * 			ARN of the certificate is returned when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action. You
  * 			must specify both the ARN of your private CA and the ARN of the issued certificate when
@@ -53,6 +58,8 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCertificateCommandInput - {@link GetCertificateCommandInput}
+ * @returns {@link GetCertificateCommandOutput}
  * @see {@link GetCertificateCommandInput} for command's `input` shape.
  * @see {@link GetCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCertificateCommandOutput> {
     return deserializeAws_json1_1GetCertificateCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPackageVersionHistoryCommand}.
  */
 export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPackageVersionHistoryCommand}.
  */
 export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time
  *    and commit message. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
@@ -48,6 +53,8 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPackageVersionHistoryCommandInput - {@link GetPackageVersionHistoryCommandInput}
+ * @returns {@link GetPackageVersionHistoryCommandOutput}
  * @see {@link GetPackageVersionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionHistoryCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetPackageVersionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPackageVersionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetPackageVersionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPackageVersionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPackageVersionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionHistoryCommandOutput> {
     return deserializeAws_restJson1GetPackageVersionHistoryCommand(output, context);
   }

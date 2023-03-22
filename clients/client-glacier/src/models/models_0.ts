@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { GlacierServiceException as __BaseException } from "./GlacierServiceException";
 
 /**
+ * @public
  * <p>Provides options to abort a multipart upload identified by the upload ID.</p>
  *
  *          <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html">Abort Multipart
@@ -33,6 +34,7 @@ export interface AbortMultipartUploadInput {
 }
 
 /**
+ * @public
  * <p>Returned if a parameter of the request is incorrectly specified.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -64,6 +66,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if a required header or parameter is missing from the request.</p>
  */
 export class MissingParameterValueException extends __BaseException {
@@ -95,6 +98,7 @@ export class MissingParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
  *          exist.</p>
  */
@@ -127,6 +131,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if the service cannot complete the request.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -158,6 +163,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input values for <code>AbortVaultLock</code>.</p>
  */
 export interface AbortVaultLockInput {
@@ -176,6 +182,9 @@ export interface AbortVaultLockInput {
   vaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   AmazonCustomerByEmail = "AmazonCustomerByEmail",
   CanonicalUser = "CanonicalUser",
@@ -183,6 +192,7 @@ export enum Type {
 }
 
 /**
+ * @public
  * <p>Contains information about the grantee.</p>
  */
 export interface Grantee {
@@ -212,6 +222,9 @@ export interface Grantee {
   EmailAddress?: string;
 }
 
+/**
+ * @public
+ */
 export enum Permission {
   FULL_CONTROL = "FULL_CONTROL",
   READ = "READ",
@@ -221,6 +234,7 @@ export enum Permission {
 }
 
 /**
+ * @public
  * <p>Contains information about a grant.</p>
  */
 export interface Grant {
@@ -235,6 +249,9 @@ export interface Grant {
   Permission?: Permission | string;
 }
 
+/**
+ * @public
+ */
 export enum ActionCode {
   ArchiveRetrieval = "ArchiveRetrieval",
   InventoryRetrieval = "InventoryRetrieval",
@@ -242,6 +259,7 @@ export enum ActionCode {
 }
 
 /**
+ * @public
  * <p>The input values for <code>AddTagsToVault</code>.</p>
  */
 export interface AddTagsToVaultInput {
@@ -267,6 +285,7 @@ export interface AddTagsToVaultInput {
 }
 
 /**
+ * @public
  * <p>Returned if the request results in a vault or account limit being exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -298,6 +317,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  *          <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a>. For
  *          conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in
@@ -320,6 +340,9 @@ export interface ArchiveCreationOutput {
   archiveId?: string;
 }
 
+/**
+ * @public
+ */
 export enum CannedACL {
   AuthenticatedRead = "authenticated-read",
   AwsExecRead = "aws-exec-read",
@@ -331,6 +354,7 @@ export enum CannedACL {
 }
 
 /**
+ * @public
  * <p>Provides options to complete a multipart upload operation. This informs Amazon
  *          Glacier that all the archive parts have been uploaded and Amazon S3 Glacier (Glacier) can now assemble
  *          the archive from the uploaded parts. After assembling and saving the archive to the vault,
@@ -372,6 +396,7 @@ export interface CompleteMultipartUploadInput {
 }
 
 /**
+ * @public
  * <p>The input values for <code>CompleteVaultLock</code>.</p>
  */
 export interface CompleteVaultLockInput {
@@ -396,6 +421,7 @@ export interface CompleteVaultLockInput {
 }
 
 /**
+ * @public
  * <p>Provides options to create a vault.</p>
  */
 export interface CreateVaultInput {
@@ -415,6 +441,7 @@ export interface CreateVaultInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface CreateVaultOutput {
@@ -424,6 +451,9 @@ export interface CreateVaultOutput {
   location?: string;
 }
 
+/**
+ * @public
+ */
 export enum FileHeaderInfo {
   Ignore = "IGNORE",
   None = "NONE",
@@ -431,6 +461,7 @@ export enum FileHeaderInfo {
 }
 
 /**
+ * @public
  * <p>Contains information about the comma-separated value (CSV) file to select from.</p>
  */
 export interface CSVInput {
@@ -469,12 +500,16 @@ export interface CSVInput {
   QuoteCharacter?: string;
 }
 
+/**
+ * @public
+ */
 export enum QuoteFields {
   Always = "ALWAYS",
   AsNeeded = "ASNEEDED",
 }
 
 /**
+ * @public
  * <p>Contains information about the comma-separated value (CSV) file that the job results
  *             are stored in.</p>
  */
@@ -509,6 +544,7 @@ export interface CSVOutput {
 }
 
 /**
+ * @public
  * <p>Data retrieval policy rule.</p>
  */
 export interface DataRetrievalRule {
@@ -528,6 +564,7 @@ export interface DataRetrievalRule {
 }
 
 /**
+ * @public
  * <p>Data retrieval policy.</p>
  */
 export interface DataRetrievalPolicy {
@@ -539,6 +576,7 @@ export interface DataRetrievalPolicy {
 }
 
 /**
+ * @public
  * <p>Provides options for deleting an archive from an Amazon S3 Glacier vault.</p>
  */
 export interface DeleteArchiveInput {
@@ -563,6 +601,7 @@ export interface DeleteArchiveInput {
 }
 
 /**
+ * @public
  * <p>Provides options for deleting a vault from Amazon S3 Glacier.</p>
  */
 export interface DeleteVaultInput {
@@ -582,6 +621,7 @@ export interface DeleteVaultInput {
 }
 
 /**
+ * @public
  * <p>DeleteVaultAccessPolicy input.</p>
  */
 export interface DeleteVaultAccessPolicyInput {
@@ -601,6 +641,7 @@ export interface DeleteVaultAccessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Provides options for deleting a vault notification configuration from an Amazon
  *          Glacier vault.</p>
  */
@@ -621,6 +662,7 @@ export interface DeleteVaultNotificationsInput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving a job description.</p>
  */
 export interface DescribeJobInput {
@@ -645,6 +687,7 @@ export interface DescribeJobInput {
 }
 
 /**
+ * @public
  * <p>Describes the options for a range inventory retrieval job.</p>
  */
 export interface InventoryRetrievalJobDescription {
@@ -684,12 +727,16 @@ export interface InventoryRetrievalJobDescription {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionType {
   KMS = "aws:kms",
   S3 = "AES256",
 }
 
 /**
+ * @public
  * <p>Contains information about the encryption used to store the job results in Amazon S3. </p>
  */
 export interface Encryption {
@@ -713,6 +760,9 @@ export interface Encryption {
   KMSContext?: string;
 }
 
+/**
+ * @public
+ */
 export enum StorageClass {
   ReducedRedundancy = "REDUCED_REDUNDANCY",
   Standard = "STANDARD",
@@ -720,6 +770,7 @@ export enum StorageClass {
 }
 
 /**
+ * @public
  * <p>Contains information about the location in Amazon S3 where the select job results are stored.</p>
  */
 export interface S3Location {
@@ -765,6 +816,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Contains information about the location where the select job results are stored.</p>
  */
 export interface OutputLocation {
@@ -774,11 +826,15 @@ export interface OutputLocation {
   S3?: S3Location;
 }
 
+/**
+ * @public
+ */
 export enum ExpressionType {
   SQL = "SQL",
 }
 
 /**
+ * @public
  * <p>Describes how the archive is serialized.</p>
  */
 export interface InputSerialization {
@@ -789,6 +845,7 @@ export interface InputSerialization {
 }
 
 /**
+ * @public
  * <p>Describes how the select output is serialized.</p>
  */
 export interface OutputSerialization {
@@ -799,6 +856,7 @@ export interface OutputSerialization {
 }
 
 /**
+ * @public
  * <p>Contains information about the parameters used for a select.</p>
  */
 export interface SelectParameters {
@@ -823,6 +881,9 @@ export interface SelectParameters {
   OutputSerialization?: OutputSerialization;
 }
 
+/**
+ * @public
+ */
 export enum StatusCode {
   Failed = "Failed",
   InProgress = "InProgress",
@@ -830,6 +891,7 @@ export enum StatusCode {
 }
 
 /**
+ * @public
  * <p>Contains the description of an Amazon S3 Glacier job.</p>
  */
 export interface GlacierJobDescription {
@@ -987,6 +1049,7 @@ export interface GlacierJobDescription {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving metadata for a specific vault in Amazon
  *          Glacier.</p>
  */
@@ -1007,6 +1070,7 @@ export interface DescribeVaultInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface DescribeVaultOutput {
@@ -1050,6 +1114,7 @@ export interface DescribeVaultOutput {
 }
 
 /**
+ * @public
  * <p>Input for GetDataRetrievalPolicy.</p>
  */
 export interface GetDataRetrievalPolicyInput {
@@ -1064,6 +1129,7 @@ export interface GetDataRetrievalPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to the <code>GetDataRetrievalPolicy</code>
  *          request.</p>
  */
@@ -1075,6 +1141,7 @@ export interface GetDataRetrievalPolicyOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for downloading output of an Amazon S3 Glacier job.</p>
  */
 export interface GetJobOutputInput {
@@ -1139,6 +1206,7 @@ export interface GetJobOutputInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetJobOutputOutput {
@@ -1205,6 +1273,7 @@ export interface GetJobOutputOutput {
 }
 
 /**
+ * @public
  * <p>Input for GetVaultAccessPolicy.</p>
  */
 export interface GetVaultAccessPolicyInput {
@@ -1224,6 +1293,7 @@ export interface GetVaultAccessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the vault access policy.</p>
  */
 export interface VaultAccessPolicy {
@@ -1234,6 +1304,7 @@ export interface VaultAccessPolicy {
 }
 
 /**
+ * @public
  * <p>Output for GetVaultAccessPolicy.</p>
  */
 export interface GetVaultAccessPolicyOutput {
@@ -1244,6 +1315,7 @@ export interface GetVaultAccessPolicyOutput {
 }
 
 /**
+ * @public
  * <p>The input values for <code>GetVaultLock</code>.</p>
  */
 export interface GetVaultLockInput {
@@ -1263,6 +1335,7 @@ export interface GetVaultLockInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetVaultLockOutput {
@@ -1292,6 +1365,7 @@ export interface GetVaultLockOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving the notification configuration set on an Amazon
  *          Glacier vault.</p>
  */
@@ -1312,6 +1386,7 @@ export interface GetVaultNotificationsInput {
 }
 
 /**
+ * @public
  * <p>Represents a vault's notification configuration.</p>
  */
 export interface VaultNotificationConfig {
@@ -1329,6 +1404,7 @@ export interface VaultNotificationConfig {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetVaultNotificationsOutput {
@@ -1339,6 +1415,7 @@ export interface GetVaultNotificationsOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for specifying a range inventory retrieval job.</p>
  */
 export interface InventoryRetrievalJobInput {
@@ -1372,6 +1449,7 @@ export interface InventoryRetrievalJobInput {
 }
 
 /**
+ * @public
  * <p>Provides options for defining a job.</p>
  */
 export interface JobParameters {
@@ -1449,6 +1527,7 @@ export interface JobParameters {
 }
 
 /**
+ * @public
  * <p>Provides options for initiating an Amazon S3 Glacier job.</p>
  */
 export interface InitiateJobInput {
@@ -1473,6 +1552,7 @@ export interface InitiateJobInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateJobOutput {
@@ -1493,6 +1573,7 @@ export interface InitiateJobOutput {
 }
 
 /**
+ * @public
  * <p>Returned if there is insufficient capacity to process this expedited request. This
  *          error only applies to expedited retrievals and not to standard or bulk
  *          retrievals.</p>
@@ -1518,6 +1599,7 @@ export class InsufficientCapacityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
  *          limit. For more information about data retrieval policies,</p>
  */
@@ -1550,6 +1632,7 @@ export class PolicyEnforcedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides options for initiating a multipart upload to an Amazon S3 Glacier
  *          vault.</p>
  */
@@ -1584,6 +1667,7 @@ export interface InitiateMultipartUploadInput {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateMultipartUploadOutput {
@@ -1600,6 +1684,7 @@ export interface InitiateMultipartUploadOutput {
 }
 
 /**
+ * @public
  * <p>Contains the vault lock policy.</p>
  */
 export interface VaultLockPolicy {
@@ -1610,6 +1695,7 @@ export interface VaultLockPolicy {
 }
 
 /**
+ * @public
  * <p>The input values for <code>InitiateVaultLock</code>.</p>
  */
 export interface InitiateVaultLockInput {
@@ -1635,6 +1721,7 @@ export interface InitiateVaultLockInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateVaultLockOutput {
@@ -1645,6 +1732,7 @@ export interface InitiateVaultLockOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving a job list for an Amazon S3 Glacier vault.</p>
  */
 export interface ListJobsInput {
@@ -1691,6 +1779,7 @@ export interface ListJobsInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListJobsOutput {
@@ -1711,6 +1800,7 @@ export interface ListJobsOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving list of in-progress multipart uploads for an Amazon
  *          Glacier vault.</p>
  */
@@ -1745,6 +1835,7 @@ export interface ListMultipartUploadsInput {
 }
 
 /**
+ * @public
  * <p>A list of in-progress multipart uploads for a vault.</p>
  */
 export interface UploadListElement {
@@ -1778,6 +1869,7 @@ export interface UploadListElement {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListMultipartUploadsOutput {
@@ -1795,6 +1887,7 @@ export interface ListMultipartUploadsOutput {
 }
 
 /**
+ * @public
  * <p>Provides options for retrieving a list of parts of an archive that have been uploaded
  *          in a specific multipart upload.</p>
  */
@@ -1835,6 +1928,7 @@ export interface ListPartsInput {
 }
 
 /**
+ * @public
  * <p>A list of the part sizes of the multipart upload.</p>
  */
 export interface PartListElement {
@@ -1851,6 +1945,7 @@ export interface PartListElement {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListPartsOutput {
@@ -1897,6 +1992,9 @@ export interface ListPartsOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
@@ -1908,6 +2006,7 @@ export interface ListProvisionedCapacityInput {
 }
 
 /**
+ * @public
  * <p>The definition for a provisioned capacity unit.</p>
  */
 export interface ProvisionedCapacityDescription {
@@ -1927,6 +2026,9 @@ export interface ProvisionedCapacityDescription {
   ExpirationDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedCapacityOutput {
   /**
    * <p>The response body contains the following JSON fields.</p>
@@ -1935,6 +2037,7 @@ export interface ListProvisionedCapacityOutput {
 }
 
 /**
+ * @public
  * <p>The input value for <code>ListTagsForVaultInput</code>.</p>
  */
 export interface ListTagsForVaultInput {
@@ -1954,6 +2057,7 @@ export interface ListTagsForVaultInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListTagsForVaultOutput {
@@ -1964,6 +2068,7 @@ export interface ListTagsForVaultOutput {
 }
 
 /**
+ * @public
  * <p>Provides options to retrieve the vault list owned by the calling user's account. The
  *          list provides metadata information for each vault.</p>
  */
@@ -1992,6 +2097,7 @@ export interface ListVaultsInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListVaultsOutput {
@@ -2007,6 +2113,9 @@ export interface ListVaultsOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface PurchaseProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
@@ -2017,6 +2126,9 @@ export interface PurchaseProvisionedCapacityInput {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PurchaseProvisionedCapacityOutput {
   /**
    * <p>The ID that identifies the provisioned capacity unit.</p>
@@ -2025,6 +2137,7 @@ export interface PurchaseProvisionedCapacityOutput {
 }
 
 /**
+ * @public
  * <p>The input value for <code>RemoveTagsFromVaultInput</code>.</p>
  */
 export interface RemoveTagsFromVaultInput {
@@ -2049,6 +2162,7 @@ export interface RemoveTagsFromVaultInput {
 }
 
 /**
+ * @public
  * <p>SetDataRetrievalPolicy input.</p>
  */
 export interface SetDataRetrievalPolicyInput {
@@ -2068,6 +2182,7 @@ export interface SetDataRetrievalPolicyInput {
 }
 
 /**
+ * @public
  * <p>SetVaultAccessPolicy input.</p>
  */
 export interface SetVaultAccessPolicyInput {
@@ -2092,6 +2207,7 @@ export interface SetVaultAccessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Provides options to configure notifications that will be sent when specific events
  *          happen to a vault.</p>
  */
@@ -2117,6 +2233,7 @@ export interface SetVaultNotificationsInput {
 }
 
 /**
+ * @public
  * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
  *          upload.</p>
  */
@@ -2149,6 +2266,7 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides options to add an archive to a vault.</p>
  */
 export interface UploadArchiveInput {
@@ -2183,6 +2301,7 @@ export interface UploadArchiveInput {
 }
 
 /**
+ * @public
  * <p>Provides options to upload a part of an archive in a multipart upload
  *          operation.</p>
  */
@@ -2226,6 +2345,7 @@ export interface UploadMultipartPartInput {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface UploadMultipartPartOutput {

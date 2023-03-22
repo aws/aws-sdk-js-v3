@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnablePolicyTypeCommand}.
  */
 export interface EnablePolicyTypeCommandInput extends EnablePolicyTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnablePolicyTypeCommand}.
  */
 export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables a policy type in a root. After you enable a policy type in a root, you can
  *             attach policies of that type to the root, any organizational unit (OU), or account in
  *             that root. You can undo this by using the <a>DisablePolicyType</a>
@@ -56,6 +61,8 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param EnablePolicyTypeCommandInput - {@link EnablePolicyTypeCommandInput}
+ * @returns {@link EnablePolicyTypeCommandOutput}
  * @see {@link EnablePolicyTypeCommandInput} for command's `input` shape.
  * @see {@link EnablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -453,6 +460,9 @@ export class EnablePolicyTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnablePolicyTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -492,10 +502,16 @@ export class EnablePolicyTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnablePolicyTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnablePolicyTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnablePolicyTypeCommandOutput> {
     return deserializeAws_json1_1EnablePolicyTypeCommand(output, context);
   }

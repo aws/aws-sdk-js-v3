@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectVisibilityCommand}.
  */
 export interface UpdateProjectVisibilityCommandInput extends UpdateProjectVisibilityInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectVisibilityCommand}.
  */
 export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisibilityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the public visibility for a project. The project's build results, logs, and
  *       artifacts are available to the general public.  For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html">Public build
  *         projects</a> in the <i>CodeBuild User Guide</i>.</p>
@@ -83,6 +88,8 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectVisibilityCommandInput - {@link UpdateProjectVisibilityCommandInput}
+ * @returns {@link UpdateProjectVisibilityCommandOutput}
  * @see {@link UpdateProjectVisibilityCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectVisibilityCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -112,6 +119,9 @@ export class UpdateProjectVisibilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectVisibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class UpdateProjectVisibilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateProjectVisibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectVisibilityCommandOutput> {
     return deserializeAws_json1_1UpdateProjectVisibilityCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetMetricCommand}.
  */
 export interface DeleteFleetMetricCommandInput extends DeleteFleetMetricRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetMetricCommand}.
  */
 export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified fleet metric.
  *         Returns successfully with no error if the deletion is successful or you specify a fleet metric that doesn't exist.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteFleetMetric</a> action.</p>
@@ -43,6 +48,8 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetMetricCommandInput - {@link DeleteFleetMetricCommandInput}
+ * @returns {@link DeleteFleetMetricCommandOutput}
  * @see {@link DeleteFleetMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteFleetMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteFleetMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFleetMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetMetricCommandOutput> {
     return deserializeAws_restJson1DeleteFleetMetricCommand(output, context);
   }

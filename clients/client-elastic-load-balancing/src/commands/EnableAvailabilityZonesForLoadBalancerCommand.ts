@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAvailabilityZonesForLoadBalancerCommand}.
  */
 export interface EnableAvailabilityZonesForLoadBalancerCommandInput extends AddAvailabilityZonesInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableAvailabilityZonesForLoadBalancerCommand}.
  */
 export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
@@ -41,6 +45,7 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer
  *             in EC2-Classic or a default VPC.</p>
  *         <p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p>
@@ -57,6 +62,8 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAvailabilityZonesForLoadBalancerCommandInput - {@link EnableAvailabilityZonesForLoadBalancerCommandInput}
+ * @returns {@link EnableAvailabilityZonesForLoadBalancerCommandOutput}
  * @see {@link EnableAvailabilityZonesForLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link EnableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -105,6 +112,9 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAvailabilityZonesForLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableAvailabilityZonesForLoadBalancerCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     return serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

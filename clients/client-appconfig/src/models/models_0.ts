@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 
 /**
+ * @public
  * <p>An action defines the tasks that the extension performs during the AppConfig
  *          workflow. Each action includes an action point such as
  *             <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or
@@ -73,6 +74,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>An extension that was invoked as part of a deployment event.</p>
  */
 export interface ActionInvocation {
@@ -114,6 +116,9 @@ export interface ActionInvocation {
   InvocationId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ActionPoint {
   ON_DEPLOYMENT_BAKING = "ON_DEPLOYMENT_BAKING",
   ON_DEPLOYMENT_COMPLETE = "ON_DEPLOYMENT_COMPLETE",
@@ -124,6 +129,9 @@ export enum ActionPoint {
   PRE_START_DEPLOYMENT = "PRE_START_DEPLOYMENT",
 }
 
+/**
+ * @public
+ */
 export interface Application {
   /**
    * <p>The application ID.</p>
@@ -142,6 +150,7 @@ export interface Application {
 }
 
 /**
+ * @public
  * <p>Detailed information about the bad request exception error when creating a hosted
  *          configuration version.</p>
  */
@@ -176,11 +185,15 @@ export interface InvalidConfigurationDetail {
 }
 
 /**
+ * @public
  * <p>Detailed information about the input that failed to satisfy the constraints specified by
  *          a call.</p>
  */
 export type BadRequestDetails = BadRequestDetails.InvalidConfigurationMember | BadRequestDetails.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace BadRequestDetails {
   /**
    * <p>Detailed information about the bad request exception error when creating a hosted
@@ -207,11 +220,15 @@ export namespace BadRequestDetails {
   };
 }
 
+/**
+ * @public
+ */
 export enum BadRequestReason {
   INVALID_CONFIGURATION = "InvalidConfiguration",
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -240,6 +257,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>A name for the application.</p>
@@ -259,6 +279,7 @@ export interface CreateApplicationRequest {
 }
 
 /**
+ * @public
  * <p>There was an internal failure in the AppConfig service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -279,12 +300,16 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ValidatorType {
   JSON_SCHEMA = "JSON_SCHEMA",
   LAMBDA = "LAMBDA",
 }
 
 /**
+ * @public
  * <p>A validator provides a syntactic or semantic check to ensure the configuration that you
  *          want to deploy functions as intended. To validate your application configuration data, you
  *          provide a schema or an Amazon Web Services Lambda function that runs against the configuration. The
@@ -306,6 +331,9 @@ export interface Validator {
   Content: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfigurationProfile {
   /**
    * <p>The application ID.</p>
@@ -359,6 +387,9 @@ export interface ConfigurationProfile {
   Type?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfigurationProfileRequest {
   /**
    * <p>The application ID.</p>
@@ -444,6 +475,7 @@ export interface CreateConfigurationProfileRequest {
 }
 
 /**
+ * @public
  * <p>The requested resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -466,16 +498,25 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum GrowthType {
   EXPONENTIAL = "EXPONENTIAL",
   LINEAR = "LINEAR",
 }
 
+/**
+ * @public
+ */
 export enum ReplicateTo {
   NONE = "NONE",
   SSM_DOCUMENT = "SSM_DOCUMENT",
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentStrategyRequest {
   /**
    * <p>A name for the deployment strategy.</p>
@@ -554,6 +595,9 @@ export interface CreateDeploymentStrategyRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeploymentStrategy {
   /**
    * <p>The deployment strategy ID.</p>
@@ -599,6 +643,7 @@ export interface DeploymentStrategy {
 }
 
 /**
+ * @public
  * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
  */
 export interface Monitor {
@@ -614,6 +659,9 @@ export interface Monitor {
   AlarmRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentRequest {
   /**
    * <p>The application ID.</p>
@@ -642,6 +690,9 @@ export interface CreateEnvironmentRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentState {
   DEPLOYING = "DEPLOYING",
   READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
@@ -649,6 +700,9 @@ export enum EnvironmentState {
   ROLLING_BACK = "ROLLING_BACK",
 }
 
+/**
+ * @public
+ */
 export interface Environment {
   /**
    * <p>The application ID.</p>
@@ -685,6 +739,7 @@ export interface Environment {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -707,6 +762,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A value such as an Amazon Resource Name (ARN) or an Amazon Simple Notification Service topic entered
  *          in an extension when invoked. Parameter values are specified in an extension association.
  *          For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
@@ -725,6 +781,9 @@ export interface Parameter {
   Required?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateExtensionRequest {
   /**
    * <p>A name for the extension. Each extension name in your account must be unique. Extension
@@ -765,6 +824,9 @@ export interface CreateExtensionRequest {
   LatestVersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface Extension {
   /**
    * <p>The system-generated ID of the extension.</p>
@@ -806,6 +868,7 @@ export interface Extension {
 }
 
 /**
+ * @public
  * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -826,6 +889,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateExtensionAssociationRequest {
   /**
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
@@ -858,6 +924,9 @@ export interface CreateExtensionAssociationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ExtensionAssociation {
   /**
    * <p>The system-generated ID for the association.</p>
@@ -891,6 +960,9 @@ export interface ExtensionAssociation {
   ExtensionVersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateHostedConfigurationVersionRequest {
   /**
    * <p>The application ID.</p>
@@ -932,6 +1004,9 @@ export interface CreateHostedConfigurationVersionRequest {
   VersionLabel?: string;
 }
 
+/**
+ * @public
+ */
 export interface HostedConfigurationVersion {
   /**
    * <p>The application ID.</p>
@@ -970,11 +1045,15 @@ export interface HostedConfigurationVersion {
   VersionLabel?: string;
 }
 
+/**
+ * @public
+ */
 export enum BytesMeasure {
   KILOBYTES = "KILOBYTES",
 }
 
 /**
+ * @public
  * <p>The configuration size is too large.</p>
  */
 export class PayloadTooLargeException extends __BaseException {
@@ -1001,6 +1080,9 @@ export class PayloadTooLargeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The ID of the application to delete.</p>
@@ -1008,6 +1090,9 @@ export interface DeleteApplicationRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationProfileRequest {
   /**
    * <p>The application ID that includes the configuration profile you want to delete.</p>
@@ -1020,6 +1105,9 @@ export interface DeleteConfigurationProfileRequest {
   ConfigurationProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeploymentStrategyRequest {
   /**
    * <p>The ID of the deployment strategy you want to delete.</p>
@@ -1027,6 +1115,9 @@ export interface DeleteDeploymentStrategyRequest {
   DeploymentStrategyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentRequest {
   /**
    * <p>The application ID that includes the environment that you want to delete.</p>
@@ -1039,6 +1130,9 @@ export interface DeleteEnvironmentRequest {
   EnvironmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExtensionRequest {
   /**
    * <p>The name, ID, or Amazon Resource Name (ARN) of the extension you want to delete.</p>
@@ -1052,6 +1146,9 @@ export interface DeleteExtensionRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExtensionAssociationRequest {
   /**
    * <p>The ID of the extension association to delete.</p>
@@ -1059,6 +1156,9 @@ export interface DeleteExtensionAssociationRequest {
   ExtensionAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHostedConfigurationVersionRequest {
   /**
    * <p>The application ID.</p>
@@ -1076,6 +1176,9 @@ export interface DeleteHostedConfigurationVersionRequest {
   VersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationRequest {
   /**
    * <p>The ID of the application you want to get.</p>
@@ -1083,6 +1186,9 @@ export interface GetApplicationRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface Configuration {
   /**
    * <p>The content of the configuration or the configuration data.</p>
@@ -1108,6 +1214,9 @@ export interface Configuration {
   ContentType?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigurationRequest {
   /**
    * <p>The application to get. Specify either the application name or the application
@@ -1158,6 +1267,9 @@ export interface GetConfigurationRequest {
   ClientConfigurationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigurationProfileRequest {
   /**
    * <p>The ID of the application that includes the configuration profile you want to
@@ -1172,6 +1284,7 @@ export interface GetConfigurationProfileRequest {
 }
 
 /**
+ * @public
  * <p>An extension that was invoked during a deployment.</p>
  */
 export interface AppliedExtension {
@@ -1196,6 +1309,9 @@ export interface AppliedExtension {
   Parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentEventType {
   BAKE_TIME_STARTED = "BAKE_TIME_STARTED",
   DEPLOYMENT_COMPLETED = "DEPLOYMENT_COMPLETED",
@@ -1205,6 +1321,9 @@ export enum DeploymentEventType {
   ROLLBACK_STARTED = "ROLLBACK_STARTED",
 }
 
+/**
+ * @public
+ */
 export enum TriggeredBy {
   APPCONFIG = "APPCONFIG",
   CLOUDWATCH_ALARM = "CLOUDWATCH_ALARM",
@@ -1213,6 +1332,7 @@ export enum TriggeredBy {
 }
 
 /**
+ * @public
  * <p>An object that describes a deployment event.</p>
  */
 export interface DeploymentEvent {
@@ -1248,6 +1368,9 @@ export interface DeploymentEvent {
   OccurredAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentState {
   BAKING = "BAKING",
   COMPLETE = "COMPLETE",
@@ -1257,6 +1380,9 @@ export enum DeploymentState {
   VALIDATING = "VALIDATING",
 }
 
+/**
+ * @public
+ */
 export interface Deployment {
   /**
    * <p>The ID of the application that was deployed.</p>
@@ -1372,6 +1498,9 @@ export interface Deployment {
   KmsKeyIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentRequest {
   /**
    * <p>The ID of the application that includes the deployment you want to get. </p>
@@ -1389,6 +1518,9 @@ export interface GetDeploymentRequest {
   DeploymentNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentStrategyRequest {
   /**
    * <p>The ID of the deployment strategy to get.</p>
@@ -1396,6 +1528,9 @@ export interface GetDeploymentStrategyRequest {
   DeploymentStrategyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentRequest {
   /**
    * <p>The ID of the application that includes the environment you want to get.</p>
@@ -1408,6 +1543,9 @@ export interface GetEnvironmentRequest {
   EnvironmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExtensionRequest {
   /**
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
@@ -1421,6 +1559,9 @@ export interface GetExtensionRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetExtensionAssociationRequest {
   /**
    * <p>The extension association ID to get.</p>
@@ -1428,6 +1569,9 @@ export interface GetExtensionAssociationRequest {
   ExtensionAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetHostedConfigurationVersionRequest {
   /**
    * <p>The application ID.</p>
@@ -1445,6 +1589,9 @@ export interface GetHostedConfigurationVersionRequest {
   VersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface Applications {
   /**
    * <p>The elements from this collection.</p>
@@ -1458,6 +1605,9 @@ export interface Applications {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
@@ -1475,6 +1625,7 @@ export interface ListApplicationsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a configuration profile.</p>
  */
 export interface ConfigurationProfileSummary {
@@ -1519,6 +1670,9 @@ export interface ConfigurationProfileSummary {
   Type?: string;
 }
 
+/**
+ * @public
+ */
 export interface ConfigurationProfiles {
   /**
    * <p>The elements from this collection.</p>
@@ -1532,6 +1686,9 @@ export interface ConfigurationProfiles {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationProfilesRequest {
   /**
    * <p>The application ID.</p>
@@ -1557,6 +1714,7 @@ export interface ListConfigurationProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Information about the deployment.</p>
  */
 export interface DeploymentSummary {
@@ -1618,6 +1776,9 @@ export interface DeploymentSummary {
   CompletedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface Deployments {
   /**
    * <p>The elements from this collection.</p>
@@ -1631,6 +1792,9 @@ export interface Deployments {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentsRequest {
   /**
    * <p>The application ID.</p>
@@ -1657,6 +1821,9 @@ export interface ListDeploymentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeploymentStrategies {
   /**
    * <p>The elements from this collection.</p>
@@ -1670,6 +1837,9 @@ export interface DeploymentStrategies {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentStrategiesRequest {
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
@@ -1683,6 +1853,9 @@ export interface ListDeploymentStrategiesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface Environments {
   /**
    * <p>The elements from this collection.</p>
@@ -1696,6 +1869,9 @@ export interface Environments {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsRequest {
   /**
    * <p>The application ID.</p>
@@ -1715,6 +1891,7 @@ export interface ListEnvironmentsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an association between an extension and an AppConfig
  *          resource such as an application, environment, or configuration profile. Call
  *             <code>GetExtensionAssociation</code> to get more information about an
@@ -1740,6 +1917,9 @@ export interface ExtensionAssociationSummary {
   ResourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExtensionAssociations {
   /**
    * <p>The list of extension associations. Each item represents an extension association to an
@@ -1754,6 +1934,9 @@ export interface ExtensionAssociations {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExtensionAssociationsRequest {
   /**
    * <p>The ARN of an application, configuration profile, or environment.</p>
@@ -1784,6 +1967,7 @@ export interface ListExtensionAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an extension. Call <code>GetExtension</code> to get more information
  *          about an extension.</p>
  */
@@ -1814,6 +1998,9 @@ export interface ExtensionSummary {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface Extensions {
   /**
    * <p>The list of available extensions. The list includes Amazon Web Services authored and
@@ -1828,6 +2015,9 @@ export interface Extensions {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExtensionsRequest {
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
@@ -1847,6 +2037,7 @@ export interface ListExtensionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the configuration.</p>
  */
 export interface HostedConfigurationVersionSummary {
@@ -1882,6 +2073,9 @@ export interface HostedConfigurationVersionSummary {
   VersionLabel?: string;
 }
 
+/**
+ * @public
+ */
 export interface HostedConfigurationVersions {
   /**
    * <p>The elements from this collection.</p>
@@ -1895,6 +2089,9 @@ export interface HostedConfigurationVersions {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHostedConfigurationVersionsRequest {
   /**
    * <p>The application ID.</p>
@@ -1923,6 +2120,9 @@ export interface ListHostedConfigurationVersionsRequest {
   VersionLabel?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1930,6 +2130,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResourceTags {
   /**
    * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize
@@ -1939,6 +2142,9 @@ export interface ResourceTags {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartDeploymentRequest {
   /**
    * <p>The application ID.</p>
@@ -1982,6 +2188,9 @@ export interface StartDeploymentRequest {
   KmsKeyIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopDeploymentRequest {
   /**
    * <p>The application ID.</p>
@@ -1999,6 +2208,9 @@ export interface StopDeploymentRequest {
   DeploymentNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource for which to retrieve tags.</p>
@@ -2013,6 +2225,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource for which to remove tags.</p>
@@ -2025,6 +2240,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The application ID.</p>
@@ -2042,6 +2260,9 @@ export interface UpdateApplicationRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationProfileRequest {
   /**
    * <p>The application ID.</p>
@@ -2075,6 +2296,9 @@ export interface UpdateConfigurationProfileRequest {
   Validators?: Validator[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeploymentStrategyRequest {
   /**
    * <p>The deployment strategy ID.</p>
@@ -2136,6 +2360,9 @@ export interface UpdateDeploymentStrategyRequest {
   GrowthType?: GrowthType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentRequest {
   /**
    * <p>The application ID.</p>
@@ -2163,6 +2390,9 @@ export interface UpdateEnvironmentRequest {
   Monitors?: Monitor[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateExtensionRequest {
   /**
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
@@ -2190,6 +2420,9 @@ export interface UpdateExtensionRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExtensionAssociationRequest {
   /**
    * <p>The system-generated ID for the association.</p>
@@ -2202,6 +2435,9 @@ export interface UpdateExtensionAssociationRequest {
   Parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ValidateConfigurationRequest {
   /**
    * <p>The application ID.</p>

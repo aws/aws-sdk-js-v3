@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessorCommand}.
  */
 export interface DeleteAccessorCommandInput extends DeleteAccessorInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessorCommand}.
  */
 export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes including, the
  *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
@@ -56,6 +61,8 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessorCommandInput - {@link DeleteAccessorCommandInput}
+ * @returns {@link DeleteAccessorCommandOutput}
  * @see {@link DeleteAccessorCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteAccessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteAccessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessorCommandOutput> {
     return deserializeAws_restJson1DeleteAccessorCommand(output, context);
   }

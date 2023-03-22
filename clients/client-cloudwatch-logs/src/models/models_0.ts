@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchLogsServiceException";
 
+/**
+ * @public
+ */
 export interface AssociateKmsKeyRequest {
   /**
    * <p>The name of the log group.</p>
@@ -18,6 +21,7 @@ export interface AssociateKmsKeyRequest {
 }
 
 /**
+ * @public
  * <p>A parameter is specified incorrectly.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -37,6 +41,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Multiple concurrent requests to update the same resource were in conflict.</p>
  */
 export class OperationAbortedException extends __BaseException {
@@ -56,6 +61,7 @@ export class OperationAbortedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -75,6 +81,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service cannot complete the request.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -93,6 +100,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelExportTaskRequest {
   /**
    * <p>The ID of the export task.</p>
@@ -101,6 +111,7 @@ export interface CancelExportTaskRequest {
 }
 
 /**
+ * @public
  * <p>The operation is not valid on the specified resource.</p>
  */
 export class InvalidOperationException extends __BaseException {
@@ -119,6 +130,9 @@ export class InvalidOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateExportTaskRequest {
   /**
    * <p>The name of the export task.</p>
@@ -163,6 +177,9 @@ export interface CreateExportTaskRequest {
   destinationPrefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateExportTaskResponse {
   /**
    * <p>The ID of the export task.</p>
@@ -171,6 +188,7 @@ export interface CreateExportTaskResponse {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of resources that can be created.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -190,6 +208,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -208,6 +227,9 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateLogGroupRequest {
   /**
    * <p>The name of the log group.</p>
@@ -234,6 +256,9 @@ export interface CreateLogGroupRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateLogStreamRequest {
   /**
    * <p>The name of the log group.</p>
@@ -247,6 +272,7 @@ export interface CreateLogStreamRequest {
 }
 
 /**
+ * @public
  * <p>The event was already logged.</p>
  *          <important>
  *             <p>
@@ -274,6 +300,9 @@ export class DataAlreadyAcceptedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DataProtectionStatus {
   ACTIVATED = "ACTIVATED",
   ARCHIVED = "ARCHIVED",
@@ -281,6 +310,9 @@ export enum DataProtectionStatus {
   DISABLED = "DISABLED",
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataProtectionPolicyRequest {
   /**
    * <p>The name or ARN of the log group that you want to delete the data protection policy for.</p>
@@ -288,6 +320,9 @@ export interface DeleteDataProtectionPolicyRequest {
   logGroupIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDestinationRequest {
   /**
    * <p>The name of the destination.</p>
@@ -295,6 +330,9 @@ export interface DeleteDestinationRequest {
   destinationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLogGroupRequest {
   /**
    * <p>The name of the log group.</p>
@@ -302,6 +340,9 @@ export interface DeleteLogGroupRequest {
   logGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLogStreamRequest {
   /**
    * <p>The name of the log group.</p>
@@ -314,6 +355,9 @@ export interface DeleteLogStreamRequest {
   logStreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMetricFilterRequest {
   /**
    * <p>The name of the log group.</p>
@@ -326,6 +370,9 @@ export interface DeleteMetricFilterRequest {
   filterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueryDefinitionRequest {
   /**
    * <p>The ID of the query definition that you want to delete. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the
@@ -334,6 +381,9 @@ export interface DeleteQueryDefinitionRequest {
   queryDefinitionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueryDefinitionResponse {
   /**
    * <p>A value of TRUE indicates that the operation succeeded. FALSE indicates that the operation
@@ -342,6 +392,9 @@ export interface DeleteQueryDefinitionResponse {
   success?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The name of the policy to be revoked. This parameter is required.</p>
@@ -349,6 +402,9 @@ export interface DeleteResourcePolicyRequest {
   policyName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRetentionPolicyRequest {
   /**
    * <p>The name of the log group.</p>
@@ -356,6 +412,9 @@ export interface DeleteRetentionPolicyRequest {
   logGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubscriptionFilterRequest {
   /**
    * <p>The name of the log group.</p>
@@ -368,6 +427,9 @@ export interface DeleteSubscriptionFilterRequest {
   filterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDestinationsRequest {
   /**
    * <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
@@ -387,6 +449,7 @@ export interface DescribeDestinationsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a cross-account destination that receives subscription log events.</p>
  */
 export interface Destination {
@@ -424,6 +487,9 @@ export interface Destination {
   creationTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDestinationsResponse {
   /**
    * <p>The destinations.</p>
@@ -436,6 +502,9 @@ export interface DescribeDestinationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExportTaskStatusCode {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -445,6 +514,9 @@ export enum ExportTaskStatusCode {
   RUNNING = "RUNNING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportTasksRequest {
   /**
    * <p>The ID of the export task. Specifying a task ID filters the results to one or zero
@@ -469,6 +541,7 @@ export interface DescribeExportTasksRequest {
 }
 
 /**
+ * @public
  * <p>Represents the status of an export task.</p>
  */
 export interface ExportTaskExecutionInfo {
@@ -486,6 +559,7 @@ export interface ExportTaskExecutionInfo {
 }
 
 /**
+ * @public
  * <p>Represents the status of an export task.</p>
  */
 export interface ExportTaskStatus {
@@ -501,6 +575,7 @@ export interface ExportTaskStatus {
 }
 
 /**
+ * @public
  * <p>Represents an export task.</p>
  */
 export interface ExportTask {
@@ -552,6 +627,9 @@ export interface ExportTask {
   executionInfo?: ExportTaskExecutionInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportTasksResponse {
   /**
    * <p>The export tasks.</p>
@@ -564,6 +642,9 @@ export interface DescribeExportTasksResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLogGroupsRequest {
   /**
    * <p>When <code>includeLinkedAccounts</code> is set to <code>True</code>, use this parameter to
@@ -626,6 +707,7 @@ export interface DescribeLogGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a log group.</p>
  */
 export interface LogGroup {
@@ -675,6 +757,9 @@ export interface LogGroup {
   dataProtectionStatus?: DataProtectionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLogGroupsResponse {
   /**
    * <p>The log groups.</p>
@@ -689,11 +774,17 @@ export interface DescribeLogGroupsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OrderBy {
   LastEventTime = "LastEventTime",
   LogStreamName = "LogStreamName",
 }
 
+/**
+ * @public
+ */
 export interface DescribeLogStreamsRequest {
   /**
    * <p>The name of the log group.</p>
@@ -758,6 +849,7 @@ export interface DescribeLogStreamsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a log stream, which is a sequence of log events from
  *       a single emitter of logs.</p>
  */
@@ -823,6 +915,9 @@ export interface LogStream {
   storedBytes?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLogStreamsResponse {
   /**
    * <p>The log streams.</p>
@@ -835,6 +930,9 @@ export interface DescribeLogStreamsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMetricFiltersRequest {
   /**
    * <p>The name of the log group.</p>
@@ -870,6 +968,9 @@ export interface DescribeMetricFiltersRequest {
   metricNamespace?: string;
 }
 
+/**
+ * @public
+ */
 export enum StandardUnit {
   Bits = "Bits",
   BitsSecond = "Bits/Second",
@@ -901,6 +1002,7 @@ export enum StandardUnit {
 }
 
 /**
+ * @public
  * <p>Indicates how to transform ingested log events to metric data in a CloudWatch
  *       metric.</p>
  */
@@ -956,6 +1058,7 @@ export interface MetricTransformation {
 }
 
 /**
+ * @public
  * <p>Metric filters express how CloudWatch Logs would extract metric observations
  *       from ingested log events and transform them into metric data in a CloudWatch metric.</p>
  */
@@ -989,6 +1092,9 @@ export interface MetricFilter {
   logGroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMetricFiltersResponse {
   /**
    * <p>The metric filters.</p>
@@ -1001,6 +1107,9 @@ export interface DescribeMetricFiltersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum QueryStatus {
   Cancelled = "Cancelled",
   Complete = "Complete",
@@ -1011,6 +1120,9 @@ export enum QueryStatus {
   Unknown = "Unknown",
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueriesRequest {
   /**
    * <p>Limits the returned queries to only those for the specified log group.</p>
@@ -1035,6 +1147,7 @@ export interface DescribeQueriesRequest {
 }
 
 /**
+ * @public
  * <p>Information about one CloudWatch Logs Insights query that matches the request in a <code>DescribeQueries</code> operation. </p>
  */
 export interface QueryInfo {
@@ -1065,6 +1178,9 @@ export interface QueryInfo {
   logGroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueriesResponse {
   /**
    * <p>The list of queries that match the request.</p>
@@ -1077,6 +1193,9 @@ export interface DescribeQueriesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueryDefinitionsRequest {
   /**
    * <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
@@ -1095,6 +1214,7 @@ export interface DescribeQueryDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains details about a saved CloudWatch Logs Insights query definition.</p>
  */
 export interface QueryDefinition {
@@ -1125,6 +1245,9 @@ export interface QueryDefinition {
   logGroupNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueryDefinitionsResponse {
   /**
    * <p>The list of query definitions that match your request.</p>
@@ -1137,6 +1260,9 @@ export interface DescribeQueryDefinitionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePoliciesRequest {
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -1150,6 +1276,7 @@ export interface DescribeResourcePoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A policy enabling one or more entities to put logs to a log group in this account.</p>
  */
 export interface ResourcePolicy {
@@ -1170,6 +1297,9 @@ export interface ResourcePolicy {
   lastUpdatedTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePoliciesResponse {
   /**
    * <p>The resource policies that exist in this account.</p>
@@ -1182,6 +1312,9 @@ export interface DescribeResourcePoliciesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscriptionFiltersRequest {
   /**
    * <p>The name of the log group.</p>
@@ -1204,12 +1337,16 @@ export interface DescribeSubscriptionFiltersRequest {
   limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum Distribution {
   ByLogStream = "ByLogStream",
   Random = "Random",
 }
 
 /**
+ * @public
  * <p>Represents a subscription filter.</p>
  */
 export interface SubscriptionFilter {
@@ -1253,6 +1390,9 @@ export interface SubscriptionFilter {
   creationTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscriptionFiltersResponse {
   /**
    * <p>The subscription filters.</p>
@@ -1265,6 +1405,9 @@ export interface DescribeSubscriptionFiltersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateKmsKeyRequest {
   /**
    * <p>The name of the log group.</p>
@@ -1273,6 +1416,7 @@ export interface DisassociateKmsKeyRequest {
 }
 
 /**
+ * @public
  * <p>Represents a matched event.</p>
  */
 export interface FilteredLogEvent {
@@ -1304,6 +1448,9 @@ export interface FilteredLogEvent {
   eventId?: string;
 }
 
+/**
+ * @public
+ */
 export interface FilterLogEventsRequest {
   /**
    * <p>The name of the log group to search.</p>
@@ -1397,6 +1544,7 @@ export interface FilterLogEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the search status of a log stream.</p>
  */
 export interface SearchedLogStream {
@@ -1411,6 +1559,9 @@ export interface SearchedLogStream {
   searchedCompletely?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface FilterLogEventsResponse {
   /**
    * <p>The matched events.</p>
@@ -1431,6 +1582,9 @@ export interface FilterLogEventsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDataProtectionPolicyRequest {
   /**
    * <p>The name or ARN of the log group that contains the data protection policy that you want to see.</p>
@@ -1438,6 +1592,9 @@ export interface GetDataProtectionPolicyRequest {
   logGroupIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataProtectionPolicyResponse {
   /**
    * <p>The log group name or ARN that you specified in your request.</p>
@@ -1455,6 +1612,9 @@ export interface GetDataProtectionPolicyResponse {
   lastUpdatedTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetLogEventsRequest {
   /**
    * <p>The name of the log group.</p>
@@ -1528,6 +1688,7 @@ export interface GetLogEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a log event.</p>
  */
 export interface OutputLogEvent {
@@ -1549,6 +1710,9 @@ export interface OutputLogEvent {
   ingestionTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetLogEventsResponse {
   /**
    * <p>The events.</p>
@@ -1570,6 +1734,9 @@ export interface GetLogEventsResponse {
   nextBackwardToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLogGroupFieldsRequest {
   /**
    * <p>The name of the log group to search.</p>
@@ -1605,6 +1772,7 @@ export interface GetLogGroupFieldsRequest {
 }
 
 /**
+ * @public
  * <p>The fields contained in log events found by a <code>GetLogGroupFields</code> operation,
  *       along with the percentage of queried log events in which each field appears.</p>
  */
@@ -1620,6 +1788,9 @@ export interface LogGroupField {
   percent?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetLogGroupFieldsResponse {
   /**
    * <p>The array of fields found in the query. Each object in the array contains the name of the
@@ -1629,6 +1800,9 @@ export interface GetLogGroupFieldsResponse {
   logGroupFields?: LogGroupField[];
 }
 
+/**
+ * @public
+ */
 export interface GetLogRecordRequest {
   /**
    * <p>The pointer corresponding to the log event record you want to retrieve. You get this from
@@ -1647,6 +1821,9 @@ export interface GetLogRecordRequest {
   unmask?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetLogRecordResponse {
   /**
    * <p>The requested log event, as a JSON string.</p>
@@ -1654,6 +1831,9 @@ export interface GetLogRecordResponse {
   logRecord?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryResultsRequest {
   /**
    * <p>The ID number of the query.</p>
@@ -1662,6 +1842,7 @@ export interface GetQueryResultsRequest {
 }
 
 /**
+ * @public
  * <p>Contains one field from one log event returned by a CloudWatch Logs Insights query, along with the value of that field.</p>
  *          <p>For more information about the fields that are
  *       generated by CloudWatch logs, see
@@ -1680,6 +1861,7 @@ export interface ResultField {
 }
 
 /**
+ * @public
  * <p>Contains the number of log events scanned by the query, the number of log events that matched the
  *       query criteria, and the total number of bytes in the log events that were scanned.</p>
  */
@@ -1700,6 +1882,9 @@ export interface QueryStatistics {
   bytesScanned?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryResultsResponse {
   /**
    * <p>The log events that matched the query criteria during the most recent time it ran.</p>
@@ -1727,6 +1912,7 @@ export interface GetQueryResultsResponse {
 }
 
 /**
+ * @public
  * <p>Represents a log event, which is a record of activity that was recorded
  *       by the application or resource being monitored.</p>
  */
@@ -1744,6 +1930,7 @@ export interface InputLogEvent {
 }
 
 /**
+ * @public
  * <p>The sequence token is not valid. You can get the correct sequence token in
  *       the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
  *     message. </p>
@@ -1772,6 +1959,9 @@ export class InvalidSequenceTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the  resource that you want to view tags for.</p>
@@ -1789,6 +1979,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags associated with the requested resource.></p>
@@ -1796,6 +1989,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsLogGroupRequest {
   /**
    * <p>The name of the log group.</p>
@@ -1803,6 +1999,9 @@ export interface ListTagsLogGroupRequest {
   logGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsLogGroupResponse {
   /**
    * <p>The tags for the log group.</p>
@@ -1810,6 +2009,9 @@ export interface ListTagsLogGroupResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutDataProtectionPolicyRequest {
   /**
    * <p>Specify either the log group name or log group ARN.</p>
@@ -1839,8 +2041,8 @@ export interface PutDataProtectionPolicyRequest {
    *                <p>The <code>Operation</code> property with the <code>Deidentify</code> action is what actually masks the
    *         data, and it must
    *         contain the <code>
-   *           "MaskConfig": {}</code> object. The <code>
-   *             "MaskConfig": {}</code> object must be empty.</p>
+   *           "MaskConfig": \{\}</code> object. The <code>
+   *             "MaskConfig": \{\}</code> object must be empty.</p>
    *             </li>
    *          </ul>
    *          <p>For an example data protection policy, see the <b>Examples</b> section on this page.</p>
@@ -1851,6 +2053,9 @@ export interface PutDataProtectionPolicyRequest {
   policyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDataProtectionPolicyResponse {
   /**
    * <p>The log group name or ARN that you specified in your request.</p>
@@ -1868,6 +2073,9 @@ export interface PutDataProtectionPolicyResponse {
   lastUpdatedTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface PutDestinationRequest {
   /**
    * <p>A name for the destination.</p>
@@ -1894,6 +2102,9 @@ export interface PutDestinationRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutDestinationResponse {
   /**
    * <p>The destination.</p>
@@ -1901,6 +2112,9 @@ export interface PutDestinationResponse {
   destination?: Destination;
 }
 
+/**
+ * @public
+ */
 export interface PutDestinationPolicyRequest {
   /**
    * <p>A name for an existing destination.</p>
@@ -1929,6 +2143,9 @@ export interface PutDestinationPolicyRequest {
   forceUpdate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutLogEventsRequest {
   /**
    * <p>The name of the log group.</p>
@@ -1959,6 +2176,7 @@ export interface PutLogEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the rejected events.</p>
  */
 export interface RejectedLogEventsInfo {
@@ -1978,6 +2196,9 @@ export interface RejectedLogEventsInfo {
   expiredLogEventEndIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface PutLogEventsResponse {
   /**
    * <p>The next sequence token.</p>
@@ -2000,6 +2221,7 @@ export interface PutLogEventsResponse {
 }
 
 /**
+ * @public
  * <p>The most likely cause is an Amazon Web Services access key ID or secret key that's not
  *       valid.</p>
  */
@@ -2019,6 +2241,9 @@ export class UnrecognizedClientException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutMetricFilterRequest {
   /**
    * <p>The name of the log group.</p>
@@ -2041,6 +2266,9 @@ export interface PutMetricFilterRequest {
   metricTransformations: MetricTransformation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutQueryDefinitionRequest {
   /**
    * <p>A name for the query definition. If you are saving numerous query definitions, we
@@ -2073,6 +2301,9 @@ export interface PutQueryDefinitionRequest {
   queryString: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutQueryDefinitionResponse {
   /**
    * <p>The ID of the query definition.</p>
@@ -2080,6 +2311,9 @@ export interface PutQueryDefinitionResponse {
   queryDefinitionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>Name of the new policy. This parameter is required.</p>
@@ -2101,35 +2335,38 @@ export interface PutResourcePolicyRequest {
    *       that call.</p>
    *          <p></p>
    *          <p>
-   *             <code>{
+   *             <code>\{
    *     "Version": "2012-10-17",
    *     "Statement": [
-   *         {
+   *         \{
    *            "Sid": "Route53LogsToCloudWatchLogs",
    *            "Effect": "Allow",
-   *            "Principal": {
+   *            "Principal": \{
    *                "Service": [
    *                    "route53.amazonaws.com"
    *                 ]
-   *             },
+   *             \},
    *            "Action": "logs:PutLogEvents",
    *            "Resource": "logArn",
-   *            "Condition": {
-   *                "ArnLike": {
+   *            "Condition": \{
+   *                "ArnLike": \{
    *                    "aws:SourceArn": "myRoute53ResourceArn"
-   *                 },
-   *                "StringEquals": {
+   *                 \},
+   *                "StringEquals": \{
    *                    "aws:SourceAccount": "myAwsAccountId"
-   *                }
-   *             }
-   *         }
+   *                \}
+   *             \}
+   *         \}
    *       ]
-   * }</code>
+   * \}</code>
    *          </p>
    */
   policyDocument?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>The new policy.</p>
@@ -2137,6 +2374,9 @@ export interface PutResourcePolicyResponse {
   resourcePolicy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface PutRetentionPolicyRequest {
   /**
    * <p>The name of the log group.</p>
@@ -2151,6 +2391,9 @@ export interface PutRetentionPolicyRequest {
   retentionInDays: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutSubscriptionFilterRequest {
   /**
    * <p>The name of the log group.</p>
@@ -2212,6 +2455,7 @@ export interface PutSubscriptionFilterRequest {
 }
 
 /**
+ * @public
  * <p>Reserved.</p>
  */
 export interface QueryCompileErrorLocation {
@@ -2227,6 +2471,7 @@ export interface QueryCompileErrorLocation {
 }
 
 /**
+ * @public
  * <p>Reserved.</p>
  */
 export interface QueryCompileError {
@@ -2242,6 +2487,7 @@ export interface QueryCompileError {
 }
 
 /**
+ * @public
  * <p>The query string is not valid. Details about this error are displayed in a
  *       <code>QueryCompileError</code> object. For more information, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>.</p>
@@ -2270,6 +2516,9 @@ export class MalformedQueryException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartQueryRequest {
   /**
    * <p>The log group on which to perform the query.</p>
@@ -2333,6 +2582,9 @@ export interface StartQueryRequest {
   limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartQueryResponse {
   /**
    * <p>The unique ID of the query. </p>
@@ -2340,6 +2592,9 @@ export interface StartQueryResponse {
   queryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopQueryRequest {
   /**
    * <p>The ID number of the query to stop. To find this ID number, use
@@ -2348,6 +2603,9 @@ export interface StopQueryRequest {
   queryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopQueryResponse {
   /**
    * <p>This is true if the query was stopped by the <code>StopQuery</code> operation.</p>
@@ -2355,6 +2613,9 @@ export interface StopQueryResponse {
   success?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface TagLogGroupRequest {
   /**
    * <p>The name of the log group.</p>
@@ -2367,6 +2628,9 @@ export interface TagLogGroupRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the  resource that you're adding tags to.</p>
@@ -2390,6 +2654,7 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>A resource can have no more than 50 tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -2414,6 +2679,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TestMetricFilterRequest {
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -2429,6 +2697,7 @@ export interface TestMetricFilterRequest {
 }
 
 /**
+ * @public
  * <p>Represents a matched event.</p>
  */
 export interface MetricFilterMatchRecord {
@@ -2448,6 +2717,9 @@ export interface MetricFilterMatchRecord {
   extractedValues?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TestMetricFilterResponse {
   /**
    * <p>The matched events.</p>
@@ -2455,6 +2727,9 @@ export interface TestMetricFilterResponse {
   matches?: MetricFilterMatchRecord[];
 }
 
+/**
+ * @public
+ */
 export interface UntagLogGroupRequest {
   /**
    * <p>The name of the log group.</p>
@@ -2467,6 +2742,9 @@ export interface UntagLogGroupRequest {
   tags: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p>

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotificationRuleCommand}.
  */
 export interface DeleteNotificationRuleCommandInput extends DeleteNotificationRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotificationRuleCommand}.
  */
 export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a notification rule for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationRuleCommandInput - {@link DeleteNotificationRuleCommandInput}
+ * @returns {@link DeleteNotificationRuleCommandOutput}
  * @see {@link DeleteNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteNotificationRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteNotificationRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteNotificationRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotificationRuleCommandOutput> {
     return deserializeAws_restJson1DeleteNotificationRuleCommand(output, context);
   }

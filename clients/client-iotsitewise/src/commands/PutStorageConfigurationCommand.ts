@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutStorageConfigurationCommand}.
  */
 export interface PutStorageConfigurationCommandInput extends PutStorageConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutStorageConfigurationCommand}.
  */
 export interface PutStorageConfigurationCommandOutput extends PutStorageConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures storage settings for IoT SiteWise.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * const response = await client.send(command);
  * ```
  *
+ * @param PutStorageConfigurationCommandInput - {@link PutStorageConfigurationCommandInput}
+ * @returns {@link PutStorageConfigurationCommandOutput}
  * @see {@link PutStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -98,6 +105,9 @@ export class PutStorageConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutStorageConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class PutStorageConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutStorageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutStorageConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStorageConfigurationCommandOutput> {
     return deserializeAws_restJson1PutStorageConfigurationCommand(output, context);
   }

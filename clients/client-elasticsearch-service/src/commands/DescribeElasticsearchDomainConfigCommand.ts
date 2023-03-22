@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticsearchDomainConfigCommand}.
  */
 export interface DescribeElasticsearchDomainConfigCommandInput extends DescribeElasticsearchDomainConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticsearchDomainConfigCommand}.
  */
 export interface DescribeElasticsearchDomainConfigCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticsearchDomainConfigCommandInput - {@link DescribeElasticsearchDomainConfigCommandInput}
+ * @returns {@link DescribeElasticsearchDomainConfigCommandOutput}
  * @see {@link DescribeElasticsearchDomainConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchDomainConfigCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticsearchDomainConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeElasticsearchDomainConfigCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     return serializeAws_restJson1DescribeElasticsearchDomainConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

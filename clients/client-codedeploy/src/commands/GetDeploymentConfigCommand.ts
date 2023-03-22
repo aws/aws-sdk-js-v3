@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentConfigCommand}.
  */
 export interface GetDeploymentConfigCommandInput extends GetDeploymentConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentConfigCommand}.
  */
 export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a deployment configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentConfigCommandInput - {@link GetDeploymentConfigCommandInput}
+ * @returns {@link GetDeploymentConfigCommandOutput}
  * @see {@link GetDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetDeploymentConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetDeploymentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeploymentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentConfigCommandOutput> {
     return deserializeAws_json1_1GetDeploymentConfigCommand(output, context);
   }

@@ -102,6 +102,7 @@ import {
 import { ConnectCasesClient } from "./ConnectCasesClient";
 
 /**
+ * @public
  * <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
  *       multiple interactions, follow-up tasks, and teams in your contact center. A case represents a
  *       customer issue. It records the issue, the steps and interactions taken to resolve the issue,
@@ -110,6 +111,7 @@ import { ConnectCasesClient } from "./ConnectCasesClient";
  */
 export class ConnectCases extends ConnectCasesClient {
   /**
+   * @public
    * <p>Returns the description for the list of fields in the request parameters. </p>
    */
   public batchGetField(
@@ -142,6 +144,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates and updates a set of field options for a single select field in a Cases
    *       domain.</p>
    */
@@ -175,6 +178,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
    *       as an array id/value pairs with a declared data types.</p>
    *          <note>
@@ -221,6 +225,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a domain, which is a container for all case data, such as cases, fields, templates
    *       and layouts. Each Amazon Connect instance can be associated with only one Cases
    *       domain.</p>
@@ -259,6 +264,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a field in the Cases domain. This field is used to define the case object
    *       model (that is, defines what data can be captured on cases) in a Cases domain. </p>
    */
@@ -286,6 +292,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a layout in the Cases domain. Layouts define the following configuration in
    *       the top section and More Info tab of the Cases user interface:</p>
    *          <ul>
@@ -328,6 +335,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a related item (comments, tasks, and contacts) and associates it with a
    *       case.</p>
    *          <note>
@@ -368,6 +376,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a template in the Cases domain. This template is used to define the case object
    *       model (that is, to define what data can be captured on cases) in a Cases domain. A template
    *       must have a unique name within a domain, and it must reference existing field IDs and layout
@@ -405,6 +414,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Deletes a domain.</p>
    */
   public deleteDomain(
@@ -434,6 +444,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific case if it exists. </p>
    */
   public getCase(args: GetCaseCommandInput, options?: __HttpHandlerOptions): Promise<GetCaseCommandOutput>;
@@ -460,6 +471,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns the case event publishing configuration.</p>
    */
   public getCaseEventConfiguration(
@@ -492,6 +504,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific domain if it exists. </p>
    */
   public getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
@@ -518,6 +531,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns the details for the requested layout.</p>
    */
   public getLayout(args: GetLayoutCommandInput, options?: __HttpHandlerOptions): Promise<GetLayoutCommandOutput>;
@@ -544,6 +558,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns the details for the requested template. </p>
    */
   public getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
@@ -570,6 +585,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists cases for a given contact.</p>
    */
   public listCasesForContact(
@@ -602,6 +618,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all cases domains in the Amazon Web Services account. Each list item is a condensed
    *       summary object of the domain.</p>
    */
@@ -629,6 +646,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the field options for a field identifier in the domain. </p>
    */
   public listFieldOptions(
@@ -661,6 +679,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all fields in a Cases domain.</p>
    */
   public listFields(args: ListFieldsCommandInput, options?: __HttpHandlerOptions): Promise<ListFieldsCommandOutput>;
@@ -687,6 +706,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all layouts in the given cases domain. Each list item is a condensed summary object
    *       of the layout.</p>
    */
@@ -714,6 +734,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists tags for a resource.</p>
    */
   public listTagsForResource(
@@ -746,6 +767,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the templates in a Cases domain. Each list item is a condensed summary
    *       object of the template. </p>
    */
@@ -779,6 +801,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>API for adding case event publishing configuration</p>
    */
   public putCaseEventConfiguration(
@@ -811,6 +834,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Searches for cases within their associated Cases domain. Search results are returned
    *       as a paginated list of abridged case documents.</p>
    *          <note>
@@ -843,6 +867,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Searches for related items that are associated with a case.</p>
    *          <note>
    *             <p>If no filters are provided, this returns all related items associated with a
@@ -879,6 +904,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -905,6 +931,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Untags a resource.</p>
    */
   public untagResource(
@@ -937,6 +964,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the values of fields on a case. Fields to be updated are received as an array of
    *       id/value pairs identical to the <code>CreateCase</code> input .</p>
    *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
@@ -966,6 +994,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the properties of an existing field. </p>
    */
   public updateField(args: UpdateFieldCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFieldCommandOutput>;
@@ -992,6 +1021,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the attributes of an existing layout.</p>
    *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
    *       HTTP body.</p>
@@ -1029,6 +1059,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the attributes of an existing template. The template attributes that can be
    *       modified include <code>name</code>, <code>description</code>,
    *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At

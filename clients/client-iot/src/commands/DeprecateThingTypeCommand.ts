@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateThingTypeCommand}.
  */
 export interface DeprecateThingTypeCommandInput extends DeprecateThingTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateThingTypeCommand}.
  */
 export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates a thing type. You can not associate new things with deprecated thing
  * 			type.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeprecateThingType</a> action.</p>
@@ -48,6 +53,8 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateThingTypeCommandInput - {@link DeprecateThingTypeCommandInput}
+ * @returns {@link DeprecateThingTypeCommandOutput}
  * @see {@link DeprecateThingTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeprecateThingTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateThingTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeprecateThingTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeprecateThingTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateThingTypeCommandOutput> {
     return deserializeAws_restJson1DeprecateThingTypeCommand(output, context);
   }

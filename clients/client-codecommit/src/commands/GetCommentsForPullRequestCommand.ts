@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCommentsForPullRequestCommand}.
  */
 export interface GetCommentsForPullRequestCommandInput extends GetCommentsForPullRequestInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCommentsForPullRequestCommand}.
  */
 export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPullRequestOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns comments made on a pull request.</p>
  *         <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -50,6 +55,8 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCommentsForPullRequestCommandInput - {@link GetCommentsForPullRequestCommandInput}
+ * @returns {@link GetCommentsForPullRequestCommandOutput}
  * @see {@link GetCommentsForPullRequestCommandInput} for command's `input` shape.
  * @see {@link GetCommentsForPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -130,6 +137,9 @@ export class GetCommentsForPullRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCommentsForPullRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class GetCommentsForPullRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCommentsForPullRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCommentsForPullRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

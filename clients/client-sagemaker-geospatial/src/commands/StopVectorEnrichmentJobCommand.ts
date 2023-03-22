@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopVectorEnrichmentJobCommand}.
  */
 export interface StopVectorEnrichmentJobCommandInput extends StopVectorEnrichmentJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StopVectorEnrichmentJobCommand}.
  */
 export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the  Vector Enrichment job for a given job ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * const response = await client.send(command);
  * ```
  *
+ * @param StopVectorEnrichmentJobCommandInput - {@link StopVectorEnrichmentJobCommandInput}
+ * @returns {@link StopVectorEnrichmentJobCommandOutput}
  * @see {@link StopVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link StopVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -91,6 +98,9 @@ export class StopVectorEnrichmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopVectorEnrichmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StopVectorEnrichmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopVectorEnrichmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopVectorEnrichmentJobCommandOutput> {
     return deserializeAws_restJson1StopVectorEnrichmentJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFiltersCommand}.
  */
 export interface ListFiltersCommandInput extends ListFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFiltersCommand}.
  */
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of the current filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFiltersCommandInput - {@link ListFiltersCommandInput}
+ * @returns {@link ListFiltersCommandOutput}
  * @see {@link ListFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFiltersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFiltersCommandOutput> {
     return deserializeAws_restJson1ListFiltersCommand(output, context);
   }

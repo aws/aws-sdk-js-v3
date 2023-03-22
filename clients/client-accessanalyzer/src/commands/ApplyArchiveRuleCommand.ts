@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ApplyArchiveRuleCommand}.
  */
 export interface ApplyArchiveRuleCommandInput extends ApplyArchiveRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ApplyArchiveRuleCommand}.
  */
 export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retroactively applies the archive rule to existing findings that meet the archive rule
  *          criteria.</p>
  * @example
@@ -42,6 +47,8 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplyArchiveRuleCommandInput - {@link ApplyArchiveRuleCommandInput}
+ * @returns {@link ApplyArchiveRuleCommandOutput}
  * @see {@link ApplyArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link ApplyArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ApplyArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplyArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ApplyArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplyArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ApplyArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApplyArchiveRuleCommandOutput> {
     return deserializeAws_restJson1ApplyArchiveRuleCommand(output, context);
   }

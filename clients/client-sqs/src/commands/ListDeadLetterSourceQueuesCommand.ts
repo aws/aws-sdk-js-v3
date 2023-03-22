@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeadLetterSourceQueuesCommand}.
  */
 export interface ListDeadLetterSourceQueuesCommandInput extends ListDeadLetterSourceQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeadLetterSourceQueuesCommand}.
  */
 export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterSourceQueuesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
  *          <p> The <code>ListDeadLetterSourceQueues</code> methods supports
  *           pagination. Set parameter <code>MaxResults</code> in the request to specify the maximum number of
@@ -56,6 +61,8 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeadLetterSourceQueuesCommandInput - {@link ListDeadLetterSourceQueuesCommandInput}
+ * @returns {@link ListDeadLetterSourceQueuesCommandOutput}
  * @see {@link ListDeadLetterSourceQueuesCommandInput} for command's `input` shape.
  * @see {@link ListDeadLetterSourceQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeadLetterSourceQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeadLetterSourceQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListDeadLetterSourceQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

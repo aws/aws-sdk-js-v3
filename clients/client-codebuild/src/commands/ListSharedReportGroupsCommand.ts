@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSharedReportGroupsCommand}.
  */
 export interface ListSharedReportGroupsCommandInput extends ListSharedReportGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSharedReportGroupsCommand}.
  */
 export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
  *         </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSharedReportGroupsCommandInput - {@link ListSharedReportGroupsCommandInput}
+ * @returns {@link ListSharedReportGroupsCommandOutput}
  * @see {@link ListSharedReportGroupsCommandInput} for command's `input` shape.
  * @see {@link ListSharedReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListSharedReportGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSharedReportGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListSharedReportGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSharedReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSharedReportGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedReportGroupsCommandOutput> {
     return deserializeAws_json1_1ListSharedReportGroupsCommand(output, context);
   }

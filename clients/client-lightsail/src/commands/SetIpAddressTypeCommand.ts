@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetIpAddressTypeCommand}.
  */
 export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetIpAddressTypeCommand}.
  */
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the IP address type for an Amazon Lightsail resource.</p>
  *          <p>Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
  *       specified resource. Alternately, you can use this action to disable dual-stack, and enable
@@ -49,6 +54,8 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIpAddressTypeCommandInput - {@link SetIpAddressTypeCommandInput}
+ * @returns {@link SetIpAddressTypeCommandOutput}
  * @see {@link SetIpAddressTypeCommandInput} for command's `input` shape.
  * @see {@link SetIpAddressTypeCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class SetIpAddressTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIpAddressTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class SetIpAddressTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIpAddressTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetIpAddressTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetIpAddressTypeCommandOutput> {
     return deserializeAws_json1_1SetIpAddressTypeCommand(output, context);
   }

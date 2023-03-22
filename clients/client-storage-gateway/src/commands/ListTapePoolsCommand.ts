@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTapePoolsCommand}.
  */
 export interface ListTapePoolsCommandInput extends ListTapePoolsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTapePoolsCommand}.
  */
 export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more
  *          custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
  *          the operation lists all custom tape pools.</p>
@@ -54,6 +59,8 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTapePoolsCommandInput - {@link ListTapePoolsCommandInput}
+ * @returns {@link ListTapePoolsCommandOutput}
  * @see {@link ListTapePoolsCommandInput} for command's `input` shape.
  * @see {@link ListTapePoolsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTapePoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTapePoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListTapePoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTapePoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTapePoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapePoolsCommandOutput> {
     return deserializeAws_json1_1ListTapePoolsCommand(output, context);
   }

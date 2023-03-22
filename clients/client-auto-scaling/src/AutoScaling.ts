@@ -317,6 +317,7 @@ import {
 } from "./commands/UpdateAutoScalingGroupCommand";
 
 /**
+ * @public
  * <fullname>Amazon EC2 Auto Scaling</fullname>
  *          <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances
  *             based on user-defined scaling policies, scheduled actions, and health checks.</p>
@@ -324,6 +325,7 @@ import {
  */
 export class AutoScaling extends AutoScalingClient {
   /**
+   * @public
    * <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p>
    *          <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the
    *             number of instances being attached. If the number of instances being attached plus the
@@ -365,6 +367,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>To attach an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.</p>
    *          </note>
@@ -408,6 +411,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
    *          <p>This operation is used with the following load balancer types: </p>
    *          <ul>
@@ -461,6 +465,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
    *             Do not use this API for production workloads. This API is also subject to change.</b>
@@ -501,6 +506,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
    */
   public batchDeleteScheduledAction(
@@ -533,6 +539,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
    */
   public batchPutScheduledUpdateGroupAction(
@@ -565,6 +572,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
    *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
    *             occurs.</p>
@@ -604,6 +612,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Completes the lifecycle action for the specified token or instance with the specified
    *             result.</p>
    *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
@@ -673,6 +682,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
    *          </p>
@@ -722,6 +732,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates a launch configuration.</p>
    *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
    *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
@@ -766,6 +777,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates tags for the specified Auto Scaling group.</p>
    *          <p>When you specify a tag with a key that already exists, the operation overwrites the
    *             previous tag definition, and you do not get an error message.</p>
@@ -802,6 +814,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Auto Scaling group.</p>
    *          <p>If the group has instances or scaling activities in progress, you must specify the
    *             option to force the deletion in order for it to succeed. The force delete operation will
@@ -848,6 +861,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified launch configuration.</p>
    *          <p>The launch configuration must not be attached to an Auto Scaling group. When this call
    *             completes, the launch configuration is no longer available for use.</p>
@@ -882,6 +896,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified lifecycle hook.</p>
    *          <p>If there are any outstanding lifecycle actions, they are completed first
    *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
@@ -917,6 +932,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified notification.</p>
    */
   public deleteNotificationConfiguration(
@@ -949,6 +965,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified scaling policy.</p>
    *          <p>Deleting either a step scaling policy or a simple scaling policy deletes the
    *             underlying alarm action, but does not delete the alarm, even if it no longer has an
@@ -983,6 +1000,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified scheduled action.</p>
    */
   public deleteScheduledAction(
@@ -1015,6 +1033,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified tags.</p>
    */
   public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
@@ -1041,6 +1060,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the warm pool for the specified Auto Scaling group.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
    *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -1075,6 +1095,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
    *          <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum
    *             number of Auto Scaling groups and launch configurations that you can create in a given Region.
@@ -1111,6 +1132,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the available adjustment types for step scaling and simple scaling
    *             policies.</p>
    *          <p>The following adjustment types are supported:</p>
@@ -1162,6 +1184,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
    *          <p>If you specify Auto Scaling group names, the output includes information for only the
    *             specified Auto Scaling groups. If you specify filters, the output includes information for only
@@ -1200,6 +1223,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the Auto Scaling instances in the account and Region.</p>
    */
   public describeAutoScalingInstances(
@@ -1232,6 +1256,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>
    */
   public describeAutoScalingNotificationTypes(
@@ -1264,6 +1289,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
    *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
@@ -1305,6 +1331,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the launch configurations in the account and Region.</p>
    */
   public describeLaunchConfigurations(
@@ -1337,6 +1364,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the lifecycle hooks for the specified Auto Scaling group.</p>
    */
   public describeLifecycleHooks(
@@ -1369,6 +1397,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the available types of lifecycle hooks.</p>
    *          <p>The following hook types are supported:</p>
    *          <ul>
@@ -1414,6 +1443,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
    *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
    *                 <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
@@ -1468,6 +1498,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
    *          <p>To determine the attachment status of the target group, use the <code>State</code>
    *             element in the response. When you attach a target group to an Auto Scaling group, the initial
@@ -1524,6 +1555,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
    */
   public describeMetricCollectionTypes(
@@ -1556,6 +1588,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the Amazon SNS notifications that are configured for one or more
    *             Auto Scaling groups.</p>
    */
@@ -1589,6 +1622,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the scaling policies in the account and Region.</p>
    */
   public describePolicies(
@@ -1621,6 +1655,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the scaling activities in the account and Region.</p>
    *          <p>When scaling events occur, you see a record of the scaling activity in the scaling
    *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
@@ -1661,6 +1696,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
    *             and <a>SuspendProcesses</a> APIs.</p>
    */
@@ -1694,6 +1730,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the scheduled actions that haven't run or that have not reached
    *             their end time.</p>
    *          <p>To describe the scaling activities for scheduled actions that have already run, call
@@ -1729,6 +1766,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified tags.</p>
    *          <p>You can use filters to limit the results. For example, you can query for the tags for
    *             a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at
@@ -1766,6 +1804,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with
    *                 Amazon EC2 Auto Scaling termination policies</a> in the
@@ -1801,6 +1840,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
    *             Do not use this API for production workloads. This API is also subject to change.</b>
@@ -1837,6 +1877,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a warm pool and its instances.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
    *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -1871,6 +1912,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more instances from the specified Auto Scaling group.</p>
    *          <p>After the instances are detached, you can manage them independent of the Auto Scaling
    *             group.</p>
@@ -1912,6 +1954,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
    *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
    *             Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
@@ -1949,6 +1992,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
    *          <p>When you detach a target group, it enters the <code>Removing</code> state while
    *             deregistering the instances in the group. When all instances are deregistered, then you
@@ -1990,6 +2034,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
    *             Do not use this API for production workloads. This API is also subject to change.</b>
@@ -2026,6 +2071,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Disables group metrics collection for the specified Auto Scaling group.</p>
    */
   public disableMetricsCollection(
@@ -2058,6 +2104,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Enables group metrics collection for the specified Auto Scaling group.</p>
    *          <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
    *             threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch
@@ -2095,6 +2142,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Moves the specified instances into the standby state.</p>
    *          <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can
    *             enter standby as long as the desired capacity of the Auto Scaling group after the instances are
@@ -2133,6 +2181,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Executes the specified policy. This can be useful for testing the design of your
    *             scaling policy.</p>
    */
@@ -2166,6 +2215,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Moves the specified instances out of the standby state.</p>
    *          <p>After you put the instances back in service, the desired capacity is
    *             incremented.</p>
@@ -2197,6 +2247,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the forecast data for a predictive scaling policy.</p>
    *          <p>Load forecasts are predictions of the hourly load values using historical load data
    *             from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as
@@ -2237,6 +2288,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
    *          <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance
    *             lifecycle, and then perform a custom action on instances when the corresponding
@@ -2311,6 +2363,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Configures an Auto Scaling group to send notifications when specified events take place.
    *             Subscribers to the specified topic can have messages delivered to an endpoint such as a
    *             web server or an email address.</p>
@@ -2351,6 +2404,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to
    *             scale an Auto Scaling group based on configurable metrics. If no policies are defined, the
    *             dynamic scaling and predictive scaling features are not used. </p>
@@ -2392,6 +2446,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -2430,6 +2485,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of
    *             pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your
    *             application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
@@ -2465,6 +2521,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Records a heartbeat for the lifecycle action associated with the specified token or
    *             instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a> API call.</p>
    *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
@@ -2533,6 +2590,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Resumes the specified suspended auto scaling processes, or all suspended process, for
    *             the specified Auto Scaling group.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
@@ -2568,6 +2626,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Cancels an instance refresh that is in progress and rolls back any changes that it
    *             made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh.
    *             This restores your Auto Scaling group to the configuration that it was using before the start of
@@ -2622,6 +2681,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Sets the size of the specified Auto Scaling group.</p>
    *          <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
    *             that is lower than the current size of the group, the Auto Scaling group uses its termination
@@ -2659,6 +2719,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Sets the health status of the specified instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
    *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -2693,6 +2754,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Updates the instance protection settings of the specified instances. This operation
    *             cannot be called on instances in a warm pool.</p>
    *          <p>For more information about preventing instances that are part of an Auto Scaling group from
@@ -2732,6 +2794,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs a rolling
    *             update of instances in an Auto Scaling group. Instances are terminated first and then replaced,
    *             which temporarily reduces the capacity available within your Auto Scaling group.</p>
@@ -2787,6 +2850,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Suspends the specified auto scaling processes, or all processes, for the specified
    *             Auto Scaling group.</p>
    *          <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
@@ -2825,6 +2889,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>Terminates the specified instance and optionally adjusts the desired group size. This
    *             operation cannot be called on instances in a warm pool.</p>
    *          <p>This call simply makes a termination request. The instance is not terminated
@@ -2868,6 +2933,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
    *          </p>

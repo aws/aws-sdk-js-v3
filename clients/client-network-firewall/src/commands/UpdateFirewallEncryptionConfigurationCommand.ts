@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
 export interface UpdateFirewallEncryptionConfigurationCommandInput
   extends UpdateFirewallEncryptionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
 export interface UpdateFirewallEncryptionConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A complex type that contains settings for encryption of your firewall resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallEncryptionConfigurationCommandInput - {@link UpdateFirewallEncryptionConfigurationCommandInput}
+ * @returns {@link UpdateFirewallEncryptionConfigurationCommandOutput}
  * @see {@link UpdateFirewallEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallEncryptionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallEncryptionConfigurationCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
     return serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

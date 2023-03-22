@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSetCommand}.
  */
 export interface CreateDataSetCommandInput extends CreateDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSetCommand}.
  */
 export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSetCommandInput - {@link CreateDataSetCommandInput}
+ * @returns {@link CreateDataSetCommandOutput}
  * @see {@link CreateDataSetCommandInput} for command's `input` shape.
  * @see {@link CreateDataSetCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSetCommandOutput> {
     return deserializeAws_restJson1CreateDataSetCommand(output, context);
   }

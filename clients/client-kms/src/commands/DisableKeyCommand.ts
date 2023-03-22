@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableKeyCommand}.
  */
 export interface DisableKeyCommandInput extends DisableKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableKeyCommand}.
  */
 export interface DisableKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
  *       key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
  *          <p>For more information about how key state affects the use of a KMS key, see
@@ -55,6 +60,8 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableKeyCommandInput - {@link DisableKeyCommandInput}
+ * @returns {@link DisableKeyCommandOutput}
  * @see {@link DisableKeyCommandInput} for command's `input` shape.
  * @see {@link DisableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -123,6 +130,9 @@ export class DisableKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class DisableKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableKeyCommandOutput> {
     return deserializeAws_json1_1DisableKeyCommand(output, context);
   }

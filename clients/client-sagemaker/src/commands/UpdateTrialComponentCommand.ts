@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrialComponentCommand}.
  */
 export interface UpdateTrialComponentCommandInput extends UpdateTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrialComponentCommand}.
  */
 export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates one or more properties of a trial component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrialComponentCommandInput - {@link UpdateTrialComponentCommandInput}
+ * @returns {@link UpdateTrialComponentCommandOutput}
  * @see {@link UpdateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrialComponentCommandOutput> {
     return deserializeAws_json1_1UpdateTrialComponentCommand(output, context);
   }

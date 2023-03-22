@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetExecutionHistoryCommand}.
  */
 export interface GetExecutionHistoryCommandInput extends GetExecutionHistoryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetExecutionHistoryCommand}.
  */
 export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the history of the specified execution as a list of events. By default, the
  *       results are returned in ascending order of the <code>timeStamp</code> of the events. Use the
  *         <code>reverseOrder</code> parameter to get the latest events first.</p>
@@ -51,6 +56,8 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExecutionHistoryCommandInput - {@link GetExecutionHistoryCommandInput}
+ * @returns {@link GetExecutionHistoryCommandOutput}
  * @see {@link GetExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetExecutionHistoryCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetExecutionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExecutionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetExecutionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExecutionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetExecutionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExecutionHistoryCommandOutput> {
     return deserializeAws_json1_0GetExecutionHistoryCommand(output, context);
   }

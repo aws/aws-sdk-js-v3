@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrainingJobCommand}.
  */
 export interface CreateTrainingJobCommandInput extends CreateTrainingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrainingJobCommand}.
  */
 export interface CreateTrainingJobCommandOutput extends CreateTrainingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a model training job. After training completes, SageMaker saves the resulting
  *             model artifacts to an Amazon S3 location that you specify. </p>
  *          <p>If you choose to host your model using SageMaker hosting services, you can use the
@@ -123,6 +128,8 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrainingJobCommandInput - {@link CreateTrainingJobCommandInput}
+ * @returns {@link CreateTrainingJobCommandOutput}
  * @see {@link CreateTrainingJobCommandInput} for command's `input` shape.
  * @see {@link CreateTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -156,6 +163,9 @@ export class CreateTrainingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,10 +205,16 @@ export class CreateTrainingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTrainingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrainingJobCommandOutput> {
     return deserializeAws_json1_1CreateTrainingJobCommand(output, context);
   }

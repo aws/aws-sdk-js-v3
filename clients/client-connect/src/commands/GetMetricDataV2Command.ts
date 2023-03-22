@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricDataV2Command}.
  */
 export interface GetMetricDataV2CommandInput extends GetMetricDataV2Request {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricDataV2Command}.
  */
 export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets metric data from the specified Amazon Connect instance. </p>
  *          <p>
  *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous
@@ -57,6 +62,8 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricDataV2CommandInput - {@link GetMetricDataV2CommandInput}
+ * @returns {@link GetMetricDataV2CommandOutput}
  * @see {@link GetMetricDataV2CommandInput} for command's `input` shape.
  * @see {@link GetMetricDataV2CommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetMetricDataV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricDataV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetMetricDataV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricDataV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMetricDataV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataV2CommandOutput> {
     return deserializeAws_restJson1GetMetricDataV2Command(output, context);
   }

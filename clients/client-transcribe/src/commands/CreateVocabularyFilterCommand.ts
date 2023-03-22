@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVocabularyFilterCommand}.
  */
 export interface CreateVocabularyFilterCommandInput extends CreateVocabularyFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVocabularyFilterCommand}.
  */
 export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom vocabulary filter.</p>
  *          <p>You can use custom vocabulary filters to mask, delete, or flag specific words from
  *             your transcript. Custom vocabulary filters are commonly used to mask profanity in
@@ -55,6 +60,8 @@ export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFil
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVocabularyFilterCommandInput - {@link CreateVocabularyFilterCommandInput}
+ * @returns {@link CreateVocabularyFilterCommandOutput}
  * @see {@link CreateVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVocabularyFilterCommandOutput> {
     return deserializeAws_json1_1CreateVocabularyFilterCommand(output, context);
   }

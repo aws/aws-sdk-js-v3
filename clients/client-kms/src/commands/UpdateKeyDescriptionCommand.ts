@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateKeyDescriptionCommand}.
  */
 export interface UpdateKeyDescriptionCommandInput extends UpdateKeyDescriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateKeyDescriptionCommand}.
  */
 export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of a KMS key. To see the description of a KMS key, use <a>DescribeKey</a>. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -62,6 +67,8 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateKeyDescriptionCommandInput - {@link UpdateKeyDescriptionCommandInput}
+ * @returns {@link UpdateKeyDescriptionCommandOutput}
  * @see {@link UpdateKeyDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyDescriptionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -131,6 +138,9 @@ export class UpdateKeyDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateKeyDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class UpdateKeyDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateKeyDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateKeyDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyDescriptionCommandOutput> {
     return deserializeAws_json1_1UpdateKeyDescriptionCommand(output, context);
   }

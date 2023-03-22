@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDistributionWithStagingConfigCommand}.
  */
 export interface UpdateDistributionWithStagingConfigCommandInput extends UpdateDistributionWithStagingConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDistributionWithStagingConfigCommand}.
  */
 export interface UpdateDistributionWithStagingConfigCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the staging distribution's configuration to its corresponding primary
  * 			distribution. The primary distribution retains its <code>Aliases</code> (also known as
  * 			alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value,
@@ -57,6 +62,8 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDistributionWithStagingConfigCommandInput - {@link UpdateDistributionWithStagingConfigCommandInput}
+ * @returns {@link UpdateDistributionWithStagingConfigCommandOutput}
  * @see {@link UpdateDistributionWithStagingConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionWithStagingConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -294,6 +301,9 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDistributionWithStagingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -333,6 +343,9 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDistributionWithStagingConfigCommandInput,
     context: __SerdeContext
@@ -340,6 +353,9 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
     return serializeAws_restXmlUpdateDistributionWithStagingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

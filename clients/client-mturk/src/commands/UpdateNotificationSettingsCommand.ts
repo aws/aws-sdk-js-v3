@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotificationSettingsCommand}.
  */
 export interface UpdateNotificationSettingsCommandInput extends UpdateNotificationSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotificationSettingsCommand}.
  */
 export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificationSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>UpdateNotificationSettings</code> operation creates, updates,
  *             disables or re-enables notifications for a HIT type.
@@ -57,6 +62,8 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotificationSettingsCommandInput - {@link UpdateNotificationSettingsCommandInput}
+ * @returns {@link UpdateNotificationSettingsCommandOutput}
  * @see {@link UpdateNotificationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationSettingsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateNotificationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotificationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateNotificationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNotificationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNotificationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import { deserializeAws_restXmlListPartsCommand, serializeAws_restXmlListPartsCo
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListPartsCommand}.
  */
 export interface ListPartsCommandInput extends ListPartsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPartsCommand}.
  */
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the parts that have been uploaded for a specific multipart upload. This operation
  *          must include the upload ID, which you obtain by sending the initiate multipart upload
  *          request (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>).
@@ -93,6 +98,8 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartsCommandInput - {@link ListPartsCommandInput}
+ * @returns {@link ListPartsCommandOutput}
  * @see {@link ListPartsCommandInput} for command's `input` shape.
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -158,6 +165,9 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartsCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListPartsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartsCommandOutput> {
     return deserializeAws_restXmlListPartsCommand(output, context);
   }

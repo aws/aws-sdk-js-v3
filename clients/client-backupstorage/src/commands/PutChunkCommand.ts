@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutChunkCommand}.
  */
-type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
+export type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
   /**
    * For *`PutChunkInput["Data"]`*, see {@link PutChunkInput.Data}.
    */
@@ -39,11 +41,14 @@ type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
  */
 export interface PutChunkCommandInput extends PutChunkCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutChunkCommand}.
  */
 export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Upload chunk.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +60,8 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param PutChunkCommandInput - {@link PutChunkCommandInput}
+ * @returns {@link PutChunkCommandOutput}
  * @see {@link PutChunkCommandInput} for command's `input` shape.
  * @see {@link PutChunkCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -102,6 +109,9 @@ export class PutChunkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutChunkCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class PutChunkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutChunkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutChunkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutChunkCommandOutput> {
     return deserializeAws_restJson1PutChunkCommand(output, context);
   }

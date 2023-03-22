@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateProjectAssetsCommand}.
  */
 export interface BatchDisassociateProjectAssetsCommandInput extends BatchDisassociateProjectAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateProjectAssetsCommand}.
  */
 export interface BatchDisassociateProjectAssetsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchDisassociateProjectAssetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchDisassociateProjectAssetsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateProjectAssetsCommandInput - {@link BatchDisassociateProjectAssetsCommandInput}
+ * @returns {@link BatchDisassociateProjectAssetsCommandOutput}
  * @see {@link BatchDisassociateProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateProjectAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateProjectAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateProjectAssetsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     return serializeAws_restJson1BatchDisassociateProjectAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

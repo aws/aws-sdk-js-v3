@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGeofenceCollectionCommand}.
  */
 export interface UpdateGeofenceCollectionCommandInput extends UpdateGeofenceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGeofenceCollectionCommand}.
  */
 export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given geofence collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCol
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGeofenceCollectionCommandInput - {@link UpdateGeofenceCollectionCommandInput}
+ * @returns {@link UpdateGeofenceCollectionCommandOutput}
  * @see {@link UpdateGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateGeofenceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGeofenceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateGeofenceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGeofenceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGeofenceCollectionCommandOutput> {
     return deserializeAws_restJson1UpdateGeofenceCollectionCommand(output, context);
   }

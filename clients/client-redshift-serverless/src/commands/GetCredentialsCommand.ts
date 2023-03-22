@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCredentialsCommand}.
  */
 export interface GetCredentialsCommandInput extends GetCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCredentialsCommand}.
  */
 export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a database user name and temporary password with
  *          temporary authorization to log in to Amazon Redshift Serverless.</p>
  *          <p>By default, the temporary credentials expire in 900 seconds.
@@ -60,6 +65,8 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCredentialsCommandInput - {@link GetCredentialsCommandInput}
+ * @returns {@link GetCredentialsCommandOutput}
  * @see {@link GetCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetCredentialsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCredentialsCommandOutput> {
     return deserializeAws_json1_1GetCredentialsCommand(output, context);
   }

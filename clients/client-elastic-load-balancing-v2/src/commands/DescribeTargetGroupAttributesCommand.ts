@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTargetGroupAttributesCommand}.
  */
 export interface DescribeTargetGroupAttributesCommandInput extends DescribeTargetGroupAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTargetGroupAttributesCommand}.
  */
 export interface DescribeTargetGroupAttributesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeTargetGroupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the attributes for the specified target group.</p>
  *          <p>For more information, see the following:</p>
  *          <ul>
@@ -73,6 +78,8 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTargetGroupAttributesCommandInput - {@link DescribeTargetGroupAttributesCommandInput}
+ * @returns {@link DescribeTargetGroupAttributesCommandOutput}
  * @see {@link DescribeTargetGroupAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -132,6 +139,9 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTargetGroupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTargetGroupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTargetGroupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

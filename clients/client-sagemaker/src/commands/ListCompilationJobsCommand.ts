@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCompilationJobsCommand}.
  */
 export interface ListCompilationJobsCommandInput extends ListCompilationJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCompilationJobsCommand}.
  */
 export interface ListCompilationJobsCommandOutput extends ListCompilationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists model compilation jobs that satisfy various filters.</p>
  *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
  *             information about a particular model compilation job you have created, use <a>DescribeCompilationJob</a>.</p>
@@ -48,6 +53,8 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCompilationJobsCommandInput - {@link ListCompilationJobsCommandInput}
+ * @returns {@link ListCompilationJobsCommandOutput}
  * @see {@link ListCompilationJobsCommandInput} for command's `input` shape.
  * @see {@link ListCompilationJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListCompilationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCompilationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListCompilationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCompilationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCompilationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCompilationJobsCommandOutput> {
     return deserializeAws_json1_1ListCompilationJobsCommand(output, context);
   }

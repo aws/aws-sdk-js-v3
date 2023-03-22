@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePortfolioCommand}.
  */
 export interface UpdatePortfolioCommandInput extends UpdatePortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePortfolioCommand}.
  */
 export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified portfolio.</p>
  *          <p>You cannot update a product that was shared with you.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePortfolioCommandInput - {@link UpdatePortfolioCommandInput}
+ * @returns {@link UpdatePortfolioCommandOutput}
  * @see {@link UpdatePortfolioCommandInput} for command's `input` shape.
  * @see {@link UpdatePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdatePortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdatePortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortfolioCommandOutput> {
     return deserializeAws_json1_1UpdatePortfolioCommand(output, context);
   }

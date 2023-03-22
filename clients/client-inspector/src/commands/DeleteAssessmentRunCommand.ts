@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentRunCommand}.
  */
 export interface DeleteAssessmentRunCommandInput extends DeleteAssessmentRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentRunCommand}.
  */
 export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the assessment run that is specified by the ARN of the assessment
  *          run.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentRunCommandInput - {@link DeleteAssessmentRunCommandInput}
+ * @returns {@link DeleteAssessmentRunCommandOutput}
  * @see {@link DeleteAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentRunCommandOutput> {
     return deserializeAws_json1_1DeleteAssessmentRunCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAgentStatusesCommand}.
  */
 export interface ListAgentStatusesCommandInput extends ListAgentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAgentStatusesCommand}.
  */
 export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists agent statuses.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAgentStatusesCommandInput - {@link ListAgentStatusesCommandInput}
+ * @returns {@link ListAgentStatusesCommandOutput}
  * @see {@link ListAgentStatusesCommandInput} for command's `input` shape.
  * @see {@link ListAgentStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListAgentStatusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAgentStatusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListAgentStatusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAgentStatusesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAgentStatusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgentStatusesCommandOutput> {
     return deserializeAws_restJson1ListAgentStatusesCommand(output, context);
   }

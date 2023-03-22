@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpenWorkflowExecutionsCommand}.
  */
 export interface ListOpenWorkflowExecutionsCommandInput extends ListOpenWorkflowExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOpenWorkflowExecutionsCommand}.
  */
 export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecutionInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of open workflow executions in the specified domain that meet the
  *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -93,6 +98,8 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpenWorkflowExecutionsCommandInput - {@link ListOpenWorkflowExecutionsCommandInput}
+ * @returns {@link ListOpenWorkflowExecutionsCommandOutput}
  * @see {@link ListOpenWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListOpenWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -122,6 +129,9 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpenWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpenWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListOpenWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

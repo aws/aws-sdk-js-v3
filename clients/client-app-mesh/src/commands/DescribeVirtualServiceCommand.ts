@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualServiceCommand}.
  */
 export interface DescribeVirtualServiceCommandInput extends DescribeVirtualServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualServiceCommand}.
  */
 export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing virtual service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServ
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualServiceCommandInput - {@link DescribeVirtualServiceCommandInput}
+ * @returns {@link DescribeVirtualServiceCommandOutput}
  * @see {@link DescribeVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeVirtualServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeVirtualServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVirtualServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualServiceCommandOutput> {
     return deserializeAws_restJson1DescribeVirtualServiceCommand(output, context);
   }

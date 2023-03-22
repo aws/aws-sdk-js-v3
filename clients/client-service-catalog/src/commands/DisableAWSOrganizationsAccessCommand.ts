@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAWSOrganizationsAccessCommand}.
  */
 export interface DisableAWSOrganizationsAccessCommandInput extends DisableAWSOrganizationsAccessInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableAWSOrganizationsAccessCommand}.
  */
 export interface DisableAWSOrganizationsAccessCommandOutput
@@ -37,6 +41,7 @@ export interface DisableAWSOrganizationsAccessCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disable portfolio sharing through the Organizations service. This command will not
  *          delete your current shares, but prevents you from creating new shares throughout your
  *          organization. Current shares are not kept in sync with your organization structure if the structure
@@ -60,6 +65,8 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAWSOrganizationsAccessCommandInput - {@link DisableAWSOrganizationsAccessCommandInput}
+ * @returns {@link DisableAWSOrganizationsAccessCommandOutput}
  * @see {@link DisableAWSOrganizationsAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -93,6 +100,9 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAWSOrganizationsAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAWSOrganizationsAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableAWSOrganizationsAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

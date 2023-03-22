@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCodeRepositoryCommand}.
  */
 export interface DeleteCodeRepositoryCommandInput extends DeleteCodeRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCodeRepositoryCommand}.
  */
 export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Git repository from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCodeRepositoryCommandInput - {@link DeleteCodeRepositoryCommandInput}
+ * @returns {@link DeleteCodeRepositoryCommandOutput}
  * @see {@link DeleteCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -64,6 +71,9 @@ export class DeleteCodeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class DeleteCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCodeRepositoryCommandOutput> {
     return deserializeAws_json1_1DeleteCodeRepositoryCommand(output, context);
   }

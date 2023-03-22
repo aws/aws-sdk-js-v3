@@ -219,11 +219,13 @@ import {
 import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
 
 /**
+ * @public
  * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
  *          from your application.</p>
  */
 export class AppSync extends AppSyncClient {
   /**
+   * @public
    * <p>Maps an endpoint to your custom domain.</p>
    */
   public associateApi(
@@ -253,6 +255,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a cache for the GraphQL API.</p>
    */
   public createApiCache(
@@ -285,6 +288,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a unique key that you can distribute to clients who invoke your API.</p>
    */
   public createApiKey(
@@ -314,6 +318,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>DataSource</code> object.</p>
    */
   public createDataSource(
@@ -346,6 +351,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom <code>DomainName</code> object.</p>
    */
   public createDomainName(
@@ -378,6 +384,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>Function</code> object.</p>
    *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver logic.</p>
    */
@@ -411,6 +418,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>GraphqlApi</code> object.</p>
    */
   public createGraphqlApi(
@@ -443,6 +451,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>Resolver</code> object.</p>
    *          <p>A resolver converts incoming requests into a format that a data source can understand, and converts the data
    *          source's responses into GraphQL.</p>
@@ -477,6 +486,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>Type</code> object.</p>
    */
   public createType(args: CreateTypeCommandInput, options?: __HttpHandlerOptions): Promise<CreateTypeCommandOutput>;
@@ -503,6 +513,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes an <code>ApiCache</code> object.</p>
    */
   public deleteApiCache(
@@ -535,6 +546,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes an API key.</p>
    */
   public deleteApiKey(
@@ -564,6 +576,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <code>DataSource</code> object.</p>
    */
   public deleteDataSource(
@@ -596,6 +609,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom <code>DomainName</code> object.</p>
    */
   public deleteDomainName(
@@ -628,6 +642,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <code>Function</code>.</p>
    */
   public deleteFunction(
@@ -660,6 +675,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <code>GraphqlApi</code> object.</p>
    */
   public deleteGraphqlApi(
@@ -692,6 +708,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <code>Resolver</code> object.</p>
    */
   public deleteResolver(
@@ -724,6 +741,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <code>Type</code> object.</p>
    */
   public deleteType(args: DeleteTypeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTypeCommandOutput>;
@@ -750,6 +768,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Removes an <code>ApiAssociation</code> object from a custom domain.</p>
    */
   public disassociateApi(
@@ -782,6 +801,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Evaluates the given code and returns the response. The code definition requirements depend on the specified
    *          runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the request and response functions. The request
    *          function takes the incoming request after a GraphQL operation is parsed and converts it into a request
@@ -815,6 +835,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
    *          template.</p>
    *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
@@ -852,6 +873,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Flushes an <code>ApiCache</code> object.</p>
    */
   public flushApiCache(
@@ -884,6 +906,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an <code>ApiAssociation</code> object.</p>
    */
   public getApiAssociation(
@@ -916,6 +939,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an <code>ApiCache</code> object.</p>
    */
   public getApiCache(args: GetApiCacheCommandInput, options?: __HttpHandlerOptions): Promise<GetApiCacheCommandOutput>;
@@ -942,6 +966,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a <code>DataSource</code> object.</p>
    */
   public getDataSource(
@@ -974,6 +999,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a custom <code>DomainName</code> object.</p>
    */
   public getDomainName(
@@ -1006,6 +1032,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Get a <code>Function</code>.</p>
    */
   public getFunction(args: GetFunctionCommandInput, options?: __HttpHandlerOptions): Promise<GetFunctionCommandOutput>;
@@ -1032,6 +1059,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a <code>GraphqlApi</code> object.</p>
    */
   public getGraphqlApi(
@@ -1064,6 +1092,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the introspection schema for a GraphQL API.</p>
    */
   public getIntrospectionSchema(
@@ -1096,6 +1125,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a <code>Resolver</code> object.</p>
    */
   public getResolver(args: GetResolverCommandInput, options?: __HttpHandlerOptions): Promise<GetResolverCommandOutput>;
@@ -1122,6 +1152,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current status of a schema creation operation.</p>
    */
   public getSchemaCreationStatus(
@@ -1154,6 +1185,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a <code>Type</code> object.</p>
    */
   public getType(args: GetTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetTypeCommandOutput>;
@@ -1180,6 +1212,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Lists the API keys for a given API.</p>
    *          <note>
    *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
@@ -1211,6 +1244,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Lists the data sources for a given API.</p>
    */
   public listDataSources(
@@ -1243,6 +1277,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Lists multiple custom domain names.</p>
    */
   public listDomainNames(
@@ -1275,6 +1310,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>List multiple functions.</p>
    */
   public listFunctions(
@@ -1307,6 +1343,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Lists your GraphQL APIs.</p>
    */
   public listGraphqlApis(
@@ -1339,6 +1376,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Lists the resolvers for a given API and type.</p>
    */
   public listResolvers(
@@ -1371,6 +1409,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>List the resolvers that are associated with a specific function.</p>
    */
   public listResolversByFunction(
@@ -1403,6 +1442,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for a resource.</p>
    */
   public listTagsForResource(
@@ -1435,6 +1475,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Lists the types for a given API.</p>
    */
   public listTypes(args: ListTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListTypesCommandOutput>;
@@ -1461,6 +1502,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Adds a new schema to your GraphQL API.</p>
    *          <p>This operation is asynchronous. Use  to determine when it has
    *          completed.</p>
@@ -1495,6 +1537,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Tags a resource with user-supplied tags.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1521,6 +1564,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Untags a resource.</p>
    */
   public untagResource(
@@ -1553,6 +1597,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates the cache for the GraphQL API.</p>
    */
   public updateApiCache(
@@ -1585,6 +1630,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates an API key. You can update the key as long as it's not deleted.</p>
    */
   public updateApiKey(
@@ -1614,6 +1660,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates a <code>DataSource</code> object.</p>
    */
   public updateDataSource(
@@ -1646,6 +1693,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates a custom <code>DomainName</code> object.</p>
    */
   public updateDomainName(
@@ -1678,6 +1726,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates a <code>Function</code> object.</p>
    */
   public updateFunction(
@@ -1710,6 +1759,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates a <code>GraphqlApi</code> object.</p>
    */
   public updateGraphqlApi(
@@ -1742,6 +1792,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates a <code>Resolver</code> object.</p>
    */
   public updateResolver(
@@ -1774,6 +1825,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * @public
    * <p>Updates a <code>Type</code> object.</p>
    */
   public updateType(args: UpdateTypeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTypeCommandOutput>;

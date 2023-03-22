@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLabelCommand}.
  */
 export interface CreateLabelCommandInput extends CreateLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLabelCommand}.
  */
 export interface CreateLabelCommandOutput extends CreateLabelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Creates a label for an event.
  * </p>
@@ -48,6 +53,8 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLabelCommandInput - {@link CreateLabelCommandInput}
+ * @returns {@link CreateLabelCommandOutput}
  * @see {@link CreateLabelCommandInput} for command's `input` shape.
  * @see {@link CreateLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelCommandOutput> {
     return deserializeAws_json1_0CreateLabelCommand(output, context);
   }

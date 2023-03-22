@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceInventoryCommand}.
  */
 export interface ListResourceInventoryCommandInput extends ListResourceInventoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceInventoryCommand}.
  */
 export interface ListResourceInventoryCommandOutput extends ListResourceInventoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists resources managed using Systems Manager inventory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceInventoryCommandInput - {@link ListResourceInventoryCommandInput}
+ * @returns {@link ListResourceInventoryCommandOutput}
  * @see {@link ListResourceInventoryCommandInput} for command's `input` shape.
  * @see {@link ListResourceInventoryCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListResourceInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListResourceInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourceInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceInventoryCommandOutput> {
     return deserializeAws_json1_1ListResourceInventoryCommand(output, context);
   }

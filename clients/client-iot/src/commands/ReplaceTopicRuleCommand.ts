@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceTopicRuleCommand}.
  */
 export interface ReplaceTopicRuleCommandInput extends ReplaceTopicRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceTopicRuleCommand}.
  */
 export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
  *          is an administrator-level action. Any user who has permission to create rules will be able
  *          to access data processed by the rule.</p>
@@ -44,6 +49,8 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceTopicRuleCommandInput - {@link ReplaceTopicRuleCommandInput}
+ * @returns {@link ReplaceTopicRuleCommandOutput}
  * @see {@link ReplaceTopicRuleCommandInput} for command's `input` shape.
  * @see {@link ReplaceTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class ReplaceTopicRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceTopicRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ReplaceTopicRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReplaceTopicRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceTopicRuleCommandOutput> {
     return deserializeAws_restJson1ReplaceTopicRuleCommand(output, context);
   }

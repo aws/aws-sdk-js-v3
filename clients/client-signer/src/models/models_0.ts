@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SignerServiceException as __BaseException } from "./SignerServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AddProfilePermissionRequest {
   /**
    * <p>The human-readable name of the signing profile.</p>
@@ -57,6 +61,9 @@ export interface AddProfilePermissionRequest {
   statementId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddProfilePermissionResponse {
   /**
    * <p>A unique identifier for the current profile revision.</p>
@@ -65,6 +72,7 @@ export interface AddProfilePermissionResponse {
 }
 
 /**
+ * @public
  * <p>The resource encountered a conflicting state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -86,6 +94,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -107,6 +116,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -128,6 +138,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is making a request that exceeds service limits.</p>
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -149,6 +160,7 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  */
@@ -171,6 +183,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You signing certificate could not be validated.</p>
  */
 export class ValidationException extends __BaseException {
@@ -192,6 +205,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request contains invalid parameters for the ARN or tags. This exception also
  * 			occurs when you call a tagging API on a cancelled signing profile.</p>
  */
@@ -213,6 +227,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelSigningProfileRequest {
   /**
    * <p>The name of the signing profile to be canceled.</p>
@@ -220,8 +237,14 @@ export interface CancelSigningProfileRequest {
   profileName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type Category = "AWSIoT";
 
+/**
+ * @public
+ */
 export interface DescribeSigningJobRequest {
   /**
    * <p>The ID of the signing job on input.</p>
@@ -229,11 +252,18 @@ export interface DescribeSigningJobRequest {
   jobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type EncryptionAlgorithm = "ECDSA" | "RSA";
 
+/**
+ * @public
+ */
 export type HashAlgorithm = "SHA1" | "SHA256";
 
 /**
+ * @public
  * <p>A signing configuration that overrides the default encryption or hash algorithm of a
  * 			signing job.</p>
  */
@@ -251,9 +281,13 @@ export interface SigningConfigurationOverrides {
   hashAlgorithm?: HashAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export type ImageFormat = "JSON" | "JSONDetached" | "JSONEmbedded";
 
 /**
+ * @public
  * <p>Any overrides that are applied to the signing configuration of a code signing
  * 			platform.</p>
  */
@@ -276,6 +310,7 @@ export interface SigningPlatformOverrides {
 }
 
 /**
+ * @public
  * <p>Revocation information for a signing job.</p>
  */
 export interface SigningJobRevocationRecord {
@@ -296,6 +331,7 @@ export interface SigningJobRevocationRecord {
 }
 
 /**
+ * @public
  * <p>The S3 bucket name and key where code signing saved your signed code image.</p>
  */
 export interface S3SignedObject {
@@ -311,6 +347,7 @@ export interface S3SignedObject {
 }
 
 /**
+ * @public
  * <p>Points to an <code>S3SignedObject</code> object that contains information about your
  * 			signed code image.</p>
  */
@@ -322,6 +359,7 @@ export interface SignedObject {
 }
 
 /**
+ * @public
  * <p>The ACM certificate that is used to sign your code.</p>
  */
 export interface SigningMaterial {
@@ -333,6 +371,7 @@ export interface SigningMaterial {
 }
 
 /**
+ * @public
  * <p>Information about the S3 bucket where you saved your unsigned code.</p>
  */
 export interface S3Source {
@@ -353,6 +392,7 @@ export interface S3Source {
 }
 
 /**
+ * @public
  * <p>An <code>S3Source</code> object that contains information about the S3 bucket where
  * 			you saved your unsigned code.</p>
  */
@@ -363,8 +403,14 @@ export interface Source {
   s3?: S3Source;
 }
 
+/**
+ * @public
+ */
 export type SigningStatus = "Failed" | "InProgress" | "Succeeded";
 
+/**
+ * @public
+ */
 export interface DescribeSigningJobResponse {
   /**
    * <p>The ID of the signing job on output.</p>
@@ -466,6 +512,7 @@ export interface DescribeSigningJobResponse {
 }
 
 /**
+ * @public
  * <p>The name and prefix of the S3 bucket where code signing saves your signed objects.</p>
  */
 export interface S3Destination {
@@ -482,6 +529,7 @@ export interface S3Destination {
 }
 
 /**
+ * @public
  * <p>Points to an <code>S3Destination</code> object that contains information about your S3
  * 			bucket.</p>
  */
@@ -493,6 +541,7 @@ export interface Destination {
 }
 
 /**
+ * @public
  * <p>The encryption algorithm options that are available to a code signing job.</p>
  */
 export interface EncryptionAlgorithmOptions {
@@ -507,6 +556,9 @@ export interface EncryptionAlgorithmOptions {
   defaultValue: EncryptionAlgorithm | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSigningPlatformRequest {
   /**
    * <p>The ID of the target signing platform.</p>
@@ -515,6 +567,7 @@ export interface GetSigningPlatformRequest {
 }
 
 /**
+ * @public
  * <p>The hash algorithms that are available to a code signing job.</p>
  */
 export interface HashAlgorithmOptions {
@@ -530,6 +583,7 @@ export interface HashAlgorithmOptions {
 }
 
 /**
+ * @public
  * <p>The configuration of a code signing operation.</p>
  */
 export interface SigningConfiguration {
@@ -545,6 +599,7 @@ export interface SigningConfiguration {
 }
 
 /**
+ * @public
  * <p>The image format of a code signing platform or profile.</p>
  */
 export interface SigningImageFormat {
@@ -559,6 +614,9 @@ export interface SigningImageFormat {
   defaultFormat: ImageFormat | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSigningPlatformResponse {
   /**
    * <p>The ID of the target signing platform.</p>
@@ -608,6 +666,9 @@ export interface GetSigningPlatformResponse {
   revocationSupported?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetSigningProfileRequest {
   /**
    * <p>The name of the target signing profile.</p>
@@ -621,6 +682,7 @@ export interface GetSigningProfileRequest {
 }
 
 /**
+ * @public
  * <p>Revocation information for a signing profile.</p>
  */
 export interface SigningProfileRevocationRecord {
@@ -640,9 +702,13 @@ export interface SigningProfileRevocationRecord {
   revokedBy?: string;
 }
 
+/**
+ * @public
+ */
 export type ValidityType = "DAYS" | "MONTHS" | "YEARS";
 
 /**
+ * @public
  * <p>The validity period for a signing job.</p>
  */
 export interface SignatureValidityPeriod {
@@ -658,8 +724,14 @@ export interface SignatureValidityPeriod {
   type?: ValidityType | string;
 }
 
+/**
+ * @public
+ */
 export type SigningProfileStatus = "Active" | "Canceled" | "Revoked";
 
+/**
+ * @public
+ */
 export interface GetSigningProfileResponse {
   /**
    * <p>The name of the target signing profile.</p>
@@ -735,6 +807,9 @@ export interface GetSigningProfileResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListProfilePermissionsRequest {
   /**
    * <p>Name of the signing profile containing the cross-account permissions.</p>
@@ -748,6 +823,7 @@ export interface ListProfilePermissionsRequest {
 }
 
 /**
+ * @public
  * <p>A cross-account permission for a signing profile.</p>
  */
 export interface Permission {
@@ -772,6 +848,9 @@ export interface Permission {
   profileVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProfilePermissionsResponse {
   /**
    * <p>The identifier for the current revision of profile permissions.</p>
@@ -794,6 +873,9 @@ export interface ListProfilePermissionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSigningJobsRequest {
   /**
    * <p>A status value with which to filter your results.</p>
@@ -852,6 +934,7 @@ export interface ListSigningJobsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a signing job.</p>
  */
 export interface SigningJob {
@@ -929,6 +1012,9 @@ export interface SigningJob {
   jobInvoker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSigningJobsResponse {
   /**
    * <p>A list of your signing jobs.</p>
@@ -941,6 +1027,9 @@ export interface ListSigningJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSigningPlatformsRequest {
   /**
    * <p>The category type of a signing platform.</p>
@@ -971,6 +1060,7 @@ export interface ListSigningPlatformsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the signing configurations and parameters that are used to
  * 			perform a code signing job.</p>
  */
@@ -1022,6 +1112,9 @@ export interface SigningPlatform {
   revocationSupported?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListSigningPlatformsResponse {
   /**
    * <p>A list of all platforms that match the request parameters.</p>
@@ -1034,6 +1127,9 @@ export interface ListSigningPlatformsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSigningProfilesRequest {
   /**
    * <p>Designates whether to include profiles with the status of
@@ -1067,6 +1163,7 @@ export interface ListSigningProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the ACM certificates and code signing configuration parameters
  * 			that can be used by a given code signing user.</p>
  */
@@ -1127,6 +1224,9 @@ export interface SigningProfile {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListSigningProfilesResponse {
   /**
    * <p>A list of profiles that are available in the AWS account. This includes profiles with
@@ -1141,6 +1241,9 @@ export interface ListSigningProfilesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
@@ -1148,6 +1251,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags associated with the signing profile.</p>
@@ -1156,6 +1262,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The signing profile was not found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1176,6 +1283,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutSigningProfileRequest {
   /**
    * <p>The name of the signing profile to be created.</p>
@@ -1218,6 +1328,9 @@ export interface PutSigningProfileRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutSigningProfileResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the signing profile created.</p>
@@ -1235,6 +1348,9 @@ export interface PutSigningProfileResponse {
   profileVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveProfilePermissionRequest {
   /**
    * <p>A human-readable name for the signing profile with permissions to be removed.</p>
@@ -1252,6 +1368,9 @@ export interface RemoveProfilePermissionRequest {
   statementId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveProfilePermissionResponse {
   /**
    * <p>An identifier for the current revision of the profile permissions.</p>
@@ -1259,6 +1378,9 @@ export interface RemoveProfilePermissionResponse {
   revisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RevokeSignatureRequest {
   /**
    * <p>ID of the signing job to be revoked.</p>
@@ -1276,6 +1398,9 @@ export interface RevokeSignatureRequest {
   reason: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeSigningProfileRequest {
   /**
    * <p>The name of the signing profile to be revoked.</p>
@@ -1300,6 +1425,9 @@ export interface RevokeSigningProfileRequest {
   effectiveTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSigningJobRequest {
   /**
    * <p>The S3 bucket that contains the object to sign or a BLOB that contains your raw
@@ -1330,6 +1458,9 @@ export interface StartSigningJobRequest {
   profileOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartSigningJobResponse {
   /**
    * <p>The ID of your signing job.</p>
@@ -1343,6 +1474,7 @@ export interface StartSigningJobResponse {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The request was denied due to request throttling.</p>
@@ -1366,6 +1498,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
@@ -1378,8 +1513,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
@@ -1392,6 +1533,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

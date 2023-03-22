@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInternetGatewayCommand}.
  */
 export interface DeleteInternetGatewayCommandInput extends DeleteInternetGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInternetGatewayCommand}.
  */
 export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified internet gateway. You must detach the internet gateway from the
  * 			VPC before you can delete it.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInternetGatewayCommandInput - {@link DeleteInternetGatewayCommandInput}
+ * @returns {@link DeleteInternetGatewayCommandOutput}
  * @see {@link DeleteInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteInternetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInternetGatewayCommandOutput> {
     return deserializeAws_ec2DeleteInternetGatewayCommand(output, context);
   }

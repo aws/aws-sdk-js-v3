@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudiosCommand}.
  */
 export interface ListStudiosCommandInput extends ListStudiosRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStudiosCommand}.
  */
 export interface ListStudiosCommandOutput extends ListStudiosResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List studios in your Amazon Web Services accounts in the requested Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStudiosCommandOutput extends ListStudiosResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudiosCommandInput - {@link ListStudiosCommandInput}
+ * @returns {@link ListStudiosCommandOutput}
  * @see {@link ListStudiosCommandInput} for command's `input` shape.
  * @see {@link ListStudiosCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListStudiosCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudiosCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListStudiosCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudiosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStudiosCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudiosCommandOutput> {
     return deserializeAws_restJson1ListStudiosCommand(output, context);
   }

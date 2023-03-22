@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBucketCommand}.
  */
 export interface UpdateBucketCommandInput extends UpdateBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBucketCommand}.
  */
 export interface UpdateBucketCommandOutput extends UpdateBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Amazon Lightsail bucket.</p>
  *          <p>Use this action to update the configuration of an existing bucket, such as versioning,
  *       public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
@@ -48,6 +53,8 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBucketCommandInput - {@link UpdateBucketCommandInput}
+ * @returns {@link UpdateBucketCommandOutput}
  * @see {@link UpdateBucketCommandInput} for command's `input` shape.
  * @see {@link UpdateBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBucketCommandOutput> {
     return deserializeAws_json1_1UpdateBucketCommand(output, context);
   }

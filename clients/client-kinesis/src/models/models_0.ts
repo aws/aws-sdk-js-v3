@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KinesisServiceException as __BaseException } from "./KinesisServiceException";
 
 /**
+ * @public
  * <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  */
@@ -24,6 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>AddTagsToStream</code>.</p>
  */
 export interface AddTagsToStreamInput {
@@ -44,6 +46,7 @@ export interface AddTagsToStreamInput {
 }
 
 /**
+ * @public
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
  */
@@ -64,6 +67,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *             stream requests exceeds the maximum number allowed. </p>
  */
@@ -84,6 +88,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is not available for this operation. For successful operation, the
  *             resource must be in the <code>ACTIVE</code> state.</p>
  */
@@ -104,6 +109,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  */
@@ -124,6 +130,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The range of possible hash key values for the shard, which is a set of ordered
  *             contiguous positive integers.</p>
  */
@@ -140,6 +147,7 @@ export interface HashKeyRange {
 }
 
 /**
+ * @public
  * <p>Output parameter of the GetRecords API. The existing child shard of the current
  *             shard.</p>
  */
@@ -161,6 +169,9 @@ export interface ChildShard {
   HashKeyRange: HashKeyRange | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConsumerStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -168,6 +179,7 @@ export enum ConsumerStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents the details of the consumer you registered. This type of
  *             object is returned by <a>RegisterStreamConsumer</a>.</p>
  */
@@ -200,6 +212,7 @@ export interface Consumer {
 }
 
 /**
+ * @public
  * <p>An object that represents the details of a registered consumer. This type of object is
  *             returned by <a>DescribeStreamConsumer</a>.</p>
  */
@@ -236,12 +249,16 @@ export interface ConsumerDescription {
   StreamARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StreamMode {
   ON_DEMAND = "ON_DEMAND",
   PROVISIONED = "PROVISIONED",
 }
 
 /**
+ * @public
  * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
  *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
  */
@@ -254,6 +271,7 @@ export interface StreamModeDetails {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>CreateStream</code>.</p>
  */
 export interface CreateStreamInput {
@@ -282,6 +300,7 @@ export interface CreateStreamInput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <a>DecreaseStreamRetentionPeriod</a>.</p>
  */
 export interface DecreaseStreamRetentionPeriodInput {
@@ -303,6 +322,7 @@ export interface DecreaseStreamRetentionPeriodInput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <a>DeleteStream</a>.</p>
  */
 export interface DeleteStreamInput {
@@ -324,6 +344,9 @@ export interface DeleteStreamInput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterStreamConsumerInput {
   /**
    * <p>The ARN of the Kinesis data stream that the consumer is registered with. For more
@@ -347,8 +370,14 @@ export interface DeregisterStreamConsumerInput {
   ConsumerARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLimitsInput {}
 
+/**
+ * @public
+ */
 export interface DescribeLimitsOutput {
   /**
    * <p>The maximum number of shards.</p>
@@ -372,6 +401,7 @@ export interface DescribeLimitsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>DescribeStream</code>.</p>
  */
 export interface DescribeStreamInput {
@@ -402,11 +432,17 @@ export interface DescribeStreamInput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionType {
   KMS = "KMS",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum MetricsName {
   ALL = "ALL",
   INCOMING_BYTES = "IncomingBytes",
@@ -419,6 +455,7 @@ export enum MetricsName {
 }
 
 /**
+ * @public
  * <p>Represents enhanced metrics types.</p>
  */
 export interface EnhancedMetrics {
@@ -476,6 +513,7 @@ export interface EnhancedMetrics {
 }
 
 /**
+ * @public
  * <p>The range of possible sequence numbers for the shard.</p>
  */
 export interface SequenceNumberRange {
@@ -492,6 +530,7 @@ export interface SequenceNumberRange {
 }
 
 /**
+ * @public
  * <p>A uniquely identified group of data records in a Kinesis data stream.</p>
  */
 export interface Shard {
@@ -522,6 +561,9 @@ export interface Shard {
   SequenceNumberRange: SequenceNumberRange | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StreamStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -530,6 +572,7 @@ export enum StreamStatus {
 }
 
 /**
+ * @public
  * <p>Represents the output for <a>DescribeStream</a>.</p>
  */
 export interface StreamDescription {
@@ -661,6 +704,7 @@ export interface StreamDescription {
 }
 
 /**
+ * @public
  * <p>Represents the output for <code>DescribeStream</code>.</p>
  */
 export interface DescribeStreamOutput {
@@ -672,6 +716,9 @@ export interface DescribeStreamOutput {
   StreamDescription: StreamDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamConsumerInput {
   /**
    * <p>The ARN of the Kinesis data stream that the consumer is registered with. For more
@@ -691,6 +738,9 @@ export interface DescribeStreamConsumerInput {
   ConsumerARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamConsumerOutput {
   /**
    * <p>An object that represents the details of the consumer.</p>
@@ -698,6 +748,9 @@ export interface DescribeStreamConsumerOutput {
   ConsumerDescription: ConsumerDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamSummaryInput {
   /**
    * <p>The name of the stream to describe.</p>
@@ -711,6 +764,7 @@ export interface DescribeStreamSummaryInput {
 }
 
 /**
+ * @public
  * <p>Represents the output for <a>DescribeStreamSummary</a>
  *          </p>
  */
@@ -840,6 +894,9 @@ export interface StreamDescriptionSummary {
   ConsumerCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamSummaryOutput {
   /**
    * <p>A <a>StreamDescriptionSummary</a> containing information about the
@@ -849,6 +906,7 @@ export interface DescribeStreamSummaryOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <a>DisableEnhancedMonitoring</a>.</p>
  */
 export interface DisableEnhancedMonitoringInput {
@@ -916,6 +974,7 @@ export interface DisableEnhancedMonitoringInput {
 }
 
 /**
+ * @public
  * <p>Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.</p>
  */
 export interface EnhancedMonitoringOutput {
@@ -943,6 +1002,7 @@ export interface EnhancedMonitoringOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <a>EnableEnhancedMonitoring</a>.</p>
  */
 export interface EnableEnhancedMonitoringInput {
@@ -1010,6 +1070,7 @@ export interface EnableEnhancedMonitoringInput {
 }
 
 /**
+ * @public
  * <p>The provided iterator exceeds the maximum age allowed.</p>
  */
 export class ExpiredIteratorException extends __BaseException {
@@ -1029,6 +1090,7 @@ export class ExpiredIteratorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pagination token passed to the operation is expired.</p>
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -1048,6 +1110,7 @@ export class ExpiredNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input for <a>GetRecords</a>.</p>
  */
 export interface GetRecordsInput {
@@ -1072,6 +1135,7 @@ export interface GetRecordsInput {
 }
 
 /**
+ * @public
  * <p>The unit of data of the Kinesis data stream, which is composed of a sequence number, a
  *             partition key, and a data blob.</p>
  */
@@ -1118,6 +1182,7 @@ export interface _Record {
 }
 
 /**
+ * @public
  * <p>Represents the output for <a>GetRecords</a>.</p>
  */
 export interface GetRecordsOutput {
@@ -1149,6 +1214,7 @@ export interface GetRecordsOutput {
 }
 
 /**
+ * @public
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  */
@@ -1169,6 +1235,7 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
@@ -1189,6 +1256,7 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the state of the specified resource isn't valid for
  *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
  *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
@@ -1211,6 +1279,7 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
@@ -1231,6 +1300,7 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
  */
 export class KMSOptInRequired extends __BaseException {
@@ -1250,6 +1320,7 @@ export class KMSOptInRequired extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling. For more information about
  *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
  *             the <i>Amazon Web Services Key Management Service Developer
@@ -1272,6 +1343,7 @@ export class KMSThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request rate for the stream is too high, or the requested data is too large for
  *             the available throughput. Reduce the frequency or size of your requests. For more
  *             information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the
@@ -1294,6 +1366,9 @@ export class ProvisionedThroughputExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ShardIteratorType {
   AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
   AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
@@ -1303,6 +1378,7 @@ export enum ShardIteratorType {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>GetShardIterator</code>.</p>
  */
 export interface GetShardIteratorInput {
@@ -1371,6 +1447,7 @@ export interface GetShardIteratorInput {
 }
 
 /**
+ * @public
  * <p>Represents the output for <code>GetShardIterator</code>.</p>
  */
 export interface GetShardIteratorOutput {
@@ -1383,6 +1460,7 @@ export interface GetShardIteratorOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <a>IncreaseStreamRetentionPeriod</a>.</p>
  */
 export interface IncreaseStreamRetentionPeriodInput {
@@ -1404,6 +1482,7 @@ export interface IncreaseStreamRetentionPeriodInput {
 }
 
 /**
+ * @public
  * <p>The processing of the request failed because of an unknown error, exception, or
  *             failure.</p>
  */
@@ -1423,6 +1502,9 @@ export class InternalFailureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ShardFilterType {
   AFTER_SHARD_ID = "AFTER_SHARD_ID",
   AT_LATEST = "AT_LATEST",
@@ -1433,6 +1515,7 @@ export enum ShardFilterType {
 }
 
 /**
+ * @public
  * <p>The request parameter used to filter out the response of the <code>ListShards</code>
  *             API.</p>
  */
@@ -1498,6 +1581,9 @@ export interface ShardFilter {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListShardsInput {
   /**
    * <p>The name of the data stream whose shards you want to list. </p>
@@ -1590,6 +1676,9 @@ export interface ListShardsInput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListShardsOutput {
   /**
    * <p>An array of JSON objects. Each object represents one shard and specifies the IDs of
@@ -1617,6 +1706,9 @@ export interface ListShardsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamConsumersInput {
   /**
    * <p>The ARN of the Kinesis data stream for which you want to list the registered
@@ -1669,6 +1761,9 @@ export interface ListStreamConsumersInput {
   StreamCreationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamConsumersOutput {
   /**
    * <p>An array of JSON objects. Each object represents one registered consumer.</p>
@@ -1696,6 +1791,7 @@ export interface ListStreamConsumersOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>ListStreams</code>.</p>
  */
 export interface ListStreamsInput {
@@ -1717,6 +1813,7 @@ export interface ListStreamsInput {
 }
 
 /**
+ * @public
  * <p>The summary of a stream.</p>
  */
 export interface StreamSummary {
@@ -1748,6 +1845,7 @@ export interface StreamSummary {
 }
 
 /**
+ * @public
  * <p>Represents the output for <code>ListStreams</code>.</p>
  */
 export interface ListStreamsOutput {
@@ -1774,6 +1872,7 @@ export interface ListStreamsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>ListTagsForStream</code>.</p>
  */
 export interface ListTagsForStreamInput {
@@ -1804,6 +1903,7 @@ export interface ListTagsForStreamInput {
 }
 
 /**
+ * @public
  * <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
  */
 export interface Tag {
@@ -1822,6 +1922,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Represents the output for <code>ListTagsForStream</code>.</p>
  */
 export interface ListTagsForStreamOutput {
@@ -1840,6 +1941,7 @@ export interface ListTagsForStreamOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>MergeShards</code>.</p>
  */
 export interface MergeShardsInput {
@@ -1865,6 +1967,7 @@ export interface MergeShardsInput {
 }
 
 /**
+ * @public
  * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
  *             capacity mode. This API is only supported for data streams with the provisioned capacity
  *             mode. </p>
@@ -1886,6 +1989,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>PutRecord</code>.</p>
  */
 export interface PutRecordInput {
@@ -1935,6 +2039,7 @@ export interface PutRecordInput {
 }
 
 /**
+ * @public
  * <p>Represents the output for <code>PutRecord</code>.</p>
  */
 export interface PutRecordOutput {
@@ -1969,6 +2074,7 @@ export interface PutRecordOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output for <code>PutRecords</code>.</p>
  */
 export interface PutRecordsRequestEntry {
@@ -1999,6 +2105,7 @@ export interface PutRecordsRequestEntry {
 }
 
 /**
+ * @public
  * <p>A <code>PutRecords</code> request.</p>
  */
 export interface PutRecordsInput {
@@ -2019,6 +2126,7 @@ export interface PutRecordsInput {
 }
 
 /**
+ * @public
  * <p>Represents the result of an individual record from a <code>PutRecords</code> request.
  *             A record that is successfully added to a stream includes <code>SequenceNumber</code> and
  *                 <code>ShardId</code> in the result. A record that fails to be added to the stream
@@ -2053,6 +2161,7 @@ export interface PutRecordsResultEntry {
 }
 
 /**
+ * @public
  * <p>
  *             <code>PutRecords</code> results.</p>
  */
@@ -2089,6 +2198,9 @@ export interface PutRecordsOutput {
   EncryptionType?: EncryptionType | string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterStreamConsumerInput {
   /**
    * <p>The ARN of the Kinesis data stream that you want to register the consumer with. For
@@ -2104,6 +2216,9 @@ export interface RegisterStreamConsumerInput {
   ConsumerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterStreamConsumerOutput {
   /**
    * <p>An object that represents the details of the consumer you registered. When you
@@ -2113,6 +2228,7 @@ export interface RegisterStreamConsumerOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>RemoveTagsFromStream</code>.</p>
  */
 export interface RemoveTagsFromStreamInput {
@@ -2133,6 +2249,7 @@ export interface RemoveTagsFromStreamInput {
 }
 
 /**
+ * @public
  * <p>Represents the input for <code>SplitShard</code>.</p>
  */
 export interface SplitShardInput {
@@ -2163,6 +2280,9 @@ export interface SplitShardInput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamEncryptionInput {
   /**
    * <p>The name of the stream for which to start encrypting records.</p>
@@ -2215,6 +2335,9 @@ export interface StartStreamEncryptionInput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamEncryptionInput {
   /**
    * <p>The name of the stream on which to stop encrypting records.</p>
@@ -2268,6 +2391,7 @@ export interface StopStreamEncryptionInput {
 }
 
 /**
+ * @public
  * <p>The starting position in the data stream from which to start streaming.</p>
  */
 export interface StartingPosition {
@@ -2310,6 +2434,9 @@ export interface StartingPosition {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface SubscribeToShardInput {
   /**
    * <p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>
@@ -2329,6 +2456,7 @@ export interface SubscribeToShardInput {
 }
 
 /**
+ * @public
  * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events
  *             of this type over an HTTP/2 connection to your consumer.</p>
  */
@@ -2361,6 +2489,7 @@ export interface SubscribeToShardEvent {
 }
 
 /**
+ * @public
  * <p>This is a tagged union for all of the types of events an enhanced fan-out consumer can
  *             receive over HTTP/2 after a call to <a>SubscribeToShard</a>.</p>
  */
@@ -2377,6 +2506,9 @@ export type SubscribeToShardEventStream =
   | SubscribeToShardEventStream.SubscribeToShardEventMember
   | SubscribeToShardEventStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SubscribeToShardEventStream {
   /**
    * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events
@@ -2609,6 +2741,9 @@ export namespace SubscribeToShardEventStream {
   };
 }
 
+/**
+ * @public
+ */
 export interface SubscribeToShardOutput {
   /**
    * <p>The event stream that your consumer can use to read records from the shard.</p>
@@ -2616,10 +2751,16 @@ export interface SubscribeToShardOutput {
   EventStream: AsyncIterable<SubscribeToShardEventStream> | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ScalingType {
   UNIFORM_SCALING = "UNIFORM_SCALING",
 }
 
+/**
+ * @public
+ */
 export interface UpdateShardCountInput {
   /**
    * <p>The name of the stream.</p>
@@ -2661,6 +2802,9 @@ export interface UpdateShardCountInput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateShardCountOutput {
   /**
    * <p>The name of the stream.</p>
@@ -2683,6 +2827,9 @@ export interface UpdateShardCountOutput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamModeInput {
   /**
    * <p> Specifies the ARN of the data stream whose capacity mode you want to update. </p>

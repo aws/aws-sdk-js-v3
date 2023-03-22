@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartLendingAnalysisCommand}.
  */
 export interface StartLendingAnalysisCommandInput extends StartLendingAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartLendingAnalysisCommand}.
  */
 export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the classification and analysis of an input document.
  *     <code>StartLendingAnalysis</code> initiates the classification and analysis of a packet of
  *    lending documents. <code>StartLendingAnalysis</code> operates on a document file located in an
@@ -76,6 +81,8 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLendingAnalysisCommandInput - {@link StartLendingAnalysisCommandInput}
+ * @returns {@link StartLendingAnalysisCommandOutput}
  * @see {@link StartLendingAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartLendingAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -155,6 +162,9 @@ export class StartLendingAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLendingAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -194,10 +204,16 @@ export class StartLendingAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLendingAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartLendingAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLendingAnalysisCommandOutput> {
     return deserializeAws_json1_1StartLendingAnalysisCommand(output, context);
   }

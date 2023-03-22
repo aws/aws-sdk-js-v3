@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlatformBranchesCommand}.
  */
 export interface ListPlatformBranchesCommandInput extends ListPlatformBranchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlatformBranchesCommand}.
  */
 export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the platform branches available for your account in an AWS Region. Provides
  *       summary information about each platform branch.</p>
  *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -49,6 +54,8 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlatformBranchesCommandInput - {@link ListPlatformBranchesCommandInput}
+ * @returns {@link ListPlatformBranchesCommandOutput}
  * @see {@link ListPlatformBranchesCommandInput} for command's `input` shape.
  * @see {@link ListPlatformBranchesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListPlatformBranchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlatformBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListPlatformBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlatformBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPlatformBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformBranchesCommandOutput> {
     return deserializeAws_queryListPlatformBranchesCommand(output, context);
   }

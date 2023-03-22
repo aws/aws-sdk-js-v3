@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBatchInferenceJobCommand}.
  */
 export interface DescribeBatchInferenceJobCommandInput extends DescribeBatchInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBatchInferenceJobCommand}.
  */
 export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
  *       status, input and output configurations, and the ARN of the solution version used to generate
  *       the recommendations.</p>
@@ -48,6 +53,8 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBatchInferenceJobCommandInput - {@link DescribeBatchInferenceJobCommandInput}
+ * @returns {@link DescribeBatchInferenceJobCommandOutput}
  * @see {@link DescribeBatchInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBatchInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBatchInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBatchInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

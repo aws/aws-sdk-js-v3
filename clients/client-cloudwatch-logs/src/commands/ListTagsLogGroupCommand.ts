@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsLogGroupCommand}.
  */
 export interface ListTagsLogGroupCommandInput extends ListTagsLogGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsLogGroupCommand}.
  */
 export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -52,6 +57,8 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsLogGroupCommandInput - {@link ListTagsLogGroupCommandInput}
+ * @returns {@link ListTagsLogGroupCommandOutput}
  * @see {@link ListTagsLogGroupCommandInput} for command's `input` shape.
  * @see {@link ListTagsLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListTagsLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListTagsLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsLogGroupCommandOutput> {
     return deserializeAws_json1_1ListTagsLogGroupCommand(output, context);
   }

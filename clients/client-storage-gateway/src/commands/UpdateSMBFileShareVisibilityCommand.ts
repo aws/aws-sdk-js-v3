@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSMBFileShareVisibilityCommand}.
  */
 export interface UpdateSMBFileShareVisibilityCommandInput extends UpdateSMBFileShareVisibilityInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSMBFileShareVisibilityCommand}.
  */
 export interface UpdateSMBFileShareVisibilityCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Controls whether the shares on an S3 File Gateway are visible in a net view or browse
  *          list. The operation is only supported for S3 File Gateways.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSMBFileShareVisibilityCommandInput - {@link UpdateSMBFileShareVisibilityCommandInput}
+ * @returns {@link UpdateSMBFileShareVisibilityCommandOutput}
  * @see {@link UpdateSMBFileShareVisibilityCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBFileShareVisibilityCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSMBFileShareVisibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSMBFileShareVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSMBFileShareVisibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

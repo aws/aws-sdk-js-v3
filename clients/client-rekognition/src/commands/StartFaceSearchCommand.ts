@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartFaceSearchCommand}.
  */
 export interface StartFaceSearchCommandInput extends StartFaceSearchRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFaceSearchCommand}.
  */
 export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>
  *          <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *       and the filename of the video. <code>StartFaceSearch</code>
@@ -56,6 +61,8 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFaceSearchCommandInput - {@link StartFaceSearchCommandInput}
+ * @returns {@link StartFaceSearchCommandOutput}
  * @see {@link StartFaceSearchCommandInput} for command's `input` shape.
  * @see {@link StartFaceSearchCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -115,6 +122,9 @@ export class StartFaceSearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFaceSearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class StartFaceSearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFaceSearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartFaceSearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFaceSearchCommandOutput> {
     return deserializeAws_json1_1StartFaceSearchCommand(output, context);
   }

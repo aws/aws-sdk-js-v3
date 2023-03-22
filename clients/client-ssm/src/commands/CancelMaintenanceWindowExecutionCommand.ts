@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelMaintenanceWindowExecutionCommand}.
  */
 export interface CancelMaintenanceWindowExecutionCommandInput extends CancelMaintenanceWindowExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelMaintenanceWindowExecutionCommand}.
  */
 export interface CancelMaintenanceWindowExecutionCommandOutput
@@ -37,6 +41,7 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
  *    the window that haven't already starting running. Tasks already in progress will continue to
  *    completion.</p>
@@ -50,6 +55,8 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelMaintenanceWindowExecutionCommandInput - {@link CancelMaintenanceWindowExecutionCommandInput}
+ * @returns {@link CancelMaintenanceWindowExecutionCommandOutput}
  * @see {@link CancelMaintenanceWindowExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelMaintenanceWindowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -82,6 +89,9 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelMaintenanceWindowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelMaintenanceWindowExecutionCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     return serializeAws_json1_1CancelMaintenanceWindowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

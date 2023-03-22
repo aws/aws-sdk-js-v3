@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamKeysCommand}.
  */
 export interface ListStreamKeysCommandInput extends ListStreamKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamKeysCommand}.
  */
 export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about stream keys for the specified channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamKeysCommandInput - {@link ListStreamKeysCommandInput}
+ * @returns {@link ListStreamKeysCommandOutput}
  * @see {@link ListStreamKeysCommandInput} for command's `input` shape.
  * @see {@link ListStreamKeysCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListStreamKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListStreamKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStreamKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamKeysCommandOutput> {
     return deserializeAws_restJson1ListStreamKeysCommand(output, context);
   }

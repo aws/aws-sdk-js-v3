@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNamespaceCommand}.
  */
 export interface DescribeNamespaceCommandInput extends DescribeNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNamespaceCommand}.
  */
 export interface DescribeNamespaceCommandOutput extends DescribeNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNamespaceCommandInput - {@link DescribeNamespaceCommandInput}
+ * @returns {@link DescribeNamespaceCommandOutput}
  * @see {@link DescribeNamespaceCommandInput} for command's `input` shape.
  * @see {@link DescribeNamespaceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNamespaceCommandOutput> {
     return deserializeAws_restJson1DescribeNamespaceCommand(output, context);
   }

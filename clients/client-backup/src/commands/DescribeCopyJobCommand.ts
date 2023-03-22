@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCopyJobCommand}.
  */
 export interface DescribeCopyJobCommandInput extends DescribeCopyJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCopyJobCommand}.
  */
 export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata associated with creating a copy of a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCopyJobCommandInput - {@link DescribeCopyJobCommandInput}
+ * @returns {@link DescribeCopyJobCommandOutput}
  * @see {@link DescribeCopyJobCommandInput} for command's `input` shape.
  * @see {@link DescribeCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeCopyJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCopyJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeCopyJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCopyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeCopyJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCopyJobCommandOutput> {
     return deserializeAws_restJson1DescribeCopyJobCommand(output, context);
   }

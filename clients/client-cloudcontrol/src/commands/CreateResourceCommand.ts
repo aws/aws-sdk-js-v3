@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceCommand}.
  */
 export interface CreateResourceCommandInput extends CreateResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceCommand}.
  */
 export interface CreateResourceCommandOutput extends CreateResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified resource. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html">Creating a
  *         resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>After you have initiated a resource creation request, you can monitor the progress of your
@@ -50,6 +55,8 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceCommandInput - {@link CreateResourceCommandInput}
+ * @returns {@link CreateResourceCommandOutput}
  * @see {@link CreateResourceCommandInput} for command's `input` shape.
  * @see {@link CreateResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -146,6 +153,9 @@ export class CreateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class CreateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceCommandOutput> {
     return deserializeAws_json1_0CreateResourceCommand(output, context);
   }

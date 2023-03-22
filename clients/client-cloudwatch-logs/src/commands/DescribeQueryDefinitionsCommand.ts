@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQueryDefinitionsCommand}.
  */
 export interface DescribeQueryDefinitionsCommandInput extends DescribeQueryDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQueryDefinitionsCommand}.
  */
 export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>
  *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
  *       query definitions that have names that start with a certain string.</p>
@@ -48,6 +53,8 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueryDefinitionsCommandInput - {@link DescribeQueryDefinitionsCommandInput}
+ * @returns {@link DescribeQueryDefinitionsCommandOutput}
  * @see {@link DescribeQueryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueryDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueryDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeQueryDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueryDefinitionsCommandOutput> {
     return deserializeAws_json1_1DescribeQueryDefinitionsCommand(output, context);
   }

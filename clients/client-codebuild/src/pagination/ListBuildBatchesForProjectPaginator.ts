@@ -10,7 +10,7 @@ import {
 import { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeBuildClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBuildBatchesForProjectCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBuildBatchesForProject(
   config: CodeBuildPaginationConfiguration,
   input: ListBuildBatchesForProjectCommandInput,

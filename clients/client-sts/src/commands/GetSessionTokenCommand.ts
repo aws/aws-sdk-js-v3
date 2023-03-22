@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionTokenCommand}.
  */
 export interface GetSessionTokenCommandInput extends GetSessionTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionTokenCommand}.
  */
 export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user. The
  *          credentials consist of an access key ID, a secret access key, and a security token.
  *          Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect
@@ -105,6 +110,8 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionTokenCommandInput - {@link GetSessionTokenCommandInput}
+ * @returns {@link GetSessionTokenCommandOutput}
  * @see {@link GetSessionTokenCommandInput} for command's `input` shape.
  * @see {@link GetSessionTokenCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -159,6 +166,9 @@ export class GetSessionTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,10 +209,16 @@ export class GetSessionTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSessionTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionTokenCommandOutput> {
     return deserializeAws_queryGetSessionTokenCommand(output, context);
   }

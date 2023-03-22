@@ -3,12 +3,18 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ServiceCatalogServiceException as __BaseException } from "./ServiceCatalogServiceException";
 
+/**
+ * @public
+ */
 export enum PortfolioShareType {
   AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
   AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
   IMPORTED = "IMPORTED",
 }
 
+/**
+ * @public
+ */
 export interface AcceptPortfolioShareInput {
   /**
    * <p>The language code.</p>
@@ -57,9 +63,13 @@ export interface AcceptPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptPortfolioShareOutput {}
 
 /**
+ * @public
  * <p>One or more parameters provided to the operation are not valid.</p>
  */
 export class InvalidParametersException extends __BaseException {
@@ -81,6 +91,7 @@ export class InvalidParametersException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The current limits of the service would have been exceeded by this operation. Decrease your
  *          resource use or increase your service limits and retry the operation.</p>
  */
@@ -103,6 +114,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -123,6 +135,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccessLevelFilterKey {
   ACCOUNT = "Account",
   ROLE = "Role",
@@ -130,6 +145,7 @@ export enum AccessLevelFilterKey {
 }
 
 /**
+ * @public
  * <p>The access level to use to filter results.</p>
  */
 export interface AccessLevelFilter {
@@ -158,6 +174,9 @@ export interface AccessLevelFilter {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export enum AccessStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -165,6 +184,7 @@ export enum AccessStatus {
 }
 
 /**
+ * @public
  * <p>Information about a tag. A tag is a key-value pair. Tags are propagated
  *          to the resources created when provisioning a product.</p>
  */
@@ -180,6 +200,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateBudgetWithResourceInput {
   /**
    * <p>The name of the budget you want to associate.</p>
@@ -192,9 +215,13 @@ export interface AssociateBudgetWithResourceInput {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateBudgetWithResourceOutput {}
 
 /**
+ * @public
  * <p>The specified resource is a duplicate.</p>
  */
 export class DuplicateResourceException extends __BaseException {
@@ -215,11 +242,17 @@ export class DuplicateResourceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum PrincipalType {
   IAM = "IAM",
   IAM_PATTERN = "IAM_PATTERN",
 }
 
+/**
+ * @public
+ */
 export interface AssociatePrincipalWithPortfolioInput {
   /**
    * <p>The language code.</p>
@@ -261,8 +294,14 @@ export interface AssociatePrincipalWithPortfolioInput {
   PrincipalType: PrincipalType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePrincipalWithPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface AssociateProductWithPortfolioInput {
   /**
    * <p>The language code.</p>
@@ -299,8 +338,14 @@ export interface AssociateProductWithPortfolioInput {
   SourcePortfolioId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateProductWithPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface AssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
@@ -337,8 +382,14 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateServiceActionWithProvisioningArtifactOutput {}
 
+/**
+ * @public
+ */
 export interface AssociateTagOptionWithResourceInput {
   /**
    * <p>The resource identifier.</p>
@@ -351,9 +402,13 @@ export interface AssociateTagOptionWithResourceInput {
   TagOptionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTagOptionWithResourceOutput {}
 
 /**
+ * @public
  * <p>An attempt was made to modify a resource that is in a state that is not valid.
  *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
  */
@@ -376,6 +431,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An operation requiring TagOptions failed because the TagOptions migration process has
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
@@ -399,6 +455,7 @@ export class TagOptionNotMigratedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
  */
 export interface ServiceActionAssociation {
@@ -418,6 +475,9 @@ export interface ServiceActionAssociation {
   ProvisioningArtifactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
@@ -444,6 +504,9 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export enum ServiceActionAssociationErrorCode {
   DuplicateResourceException = "DUPLICATE_RESOURCE",
   InternalFailure = "INTERNAL_FAILURE",
@@ -453,6 +516,7 @@ export enum ServiceActionAssociationErrorCode {
 }
 
 /**
+ * @public
  * <p>An object containing information about the error, along with identifying information about the self-service action and its associations.</p>
  */
 export interface FailedServiceActionAssociation {
@@ -482,6 +546,9 @@ export interface FailedServiceActionAssociation {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
@@ -489,6 +556,9 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   /**
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
@@ -515,6 +585,9 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
@@ -522,14 +595,23 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
+/**
+ * @public
+ */
 export enum CopyOption {
   CopyTags = "CopyTags",
 }
 
+/**
+ * @public
+ */
 export enum ProvisioningArtifactPropertyName {
   Id = "Id",
 }
 
+/**
+ * @public
+ */
 export interface CopyProductInput {
   /**
    * <p>The language code.</p>
@@ -584,6 +666,9 @@ export interface CopyProductInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyProductOutput {
   /**
    * <p>The token to use to track the progress of the operation.</p>
@@ -591,6 +676,9 @@ export interface CopyProductOutput {
   CopyProductToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConstraintInput {
   /**
    * <p>The language code.</p>
@@ -629,11 +717,11 @@ export interface CreateConstraintInput {
    *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
    *                <p>Specify the <code>RoleArn</code> property as follows:</p>
    *                <p>
-   *                   <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code>
+   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
    *                </p>
    *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
    *                <p>
-   *                   <code>{"LocalRoleName": "SCBasicLaunchRole"}</code>
+   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
    *                </p>
    *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
    *                account-agnostic so the administrator can create fewer resources per shared account.</p>
@@ -647,14 +735,14 @@ export interface CreateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
    *                <p>
-   *                   <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code>
+   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
    *                </p>
    *             </dd>
    *             <dt>RESOURCE_UPDATE</dt>
    *             <dd>
    *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code>
+   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
    *                </p>
    *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
    *             </dd>
@@ -662,7 +750,7 @@ export interface CreateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>Parameters</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code>
+   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
@@ -722,6 +810,7 @@ export interface CreateConstraintInput {
 }
 
 /**
+ * @public
  * <p>Information about a constraint.</p>
  */
 export interface ConstraintDetail {
@@ -776,12 +865,18 @@ export interface ConstraintDetail {
   PortfolioId?: string;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
   FAILED = "FAILED",
 }
 
+/**
+ * @public
+ */
 export interface CreateConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -799,6 +894,9 @@ export interface CreateConstraintOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioInput {
   /**
    * <p>The language code.</p>
@@ -847,6 +945,7 @@ export interface CreatePortfolioInput {
 }
 
 /**
+ * @public
  * <p>Information about a portfolio.</p>
  */
 export interface PortfolioDetail {
@@ -881,6 +980,9 @@ export interface PortfolioDetail {
   ProviderName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -893,6 +995,9 @@ export interface CreatePortfolioOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum OrganizationNodeType {
   ACCOUNT = "ACCOUNT",
   ORGANIZATION = "ORGANIZATION",
@@ -900,6 +1005,7 @@ export enum OrganizationNodeType {
 }
 
 /**
+ * @public
  * <p>Information about the organization node.</p>
  */
 export interface OrganizationNode {
@@ -914,6 +1020,9 @@ export interface OrganizationNode {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioShareInput {
   /**
    * <p>The language code.</p>
@@ -969,6 +1078,9 @@ export interface CreatePortfolioShareInput {
   SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioShareOutput {
   /**
    * <p>The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.</p>
@@ -977,6 +1089,7 @@ export interface CreatePortfolioShareOutput {
 }
 
 /**
+ * @public
  * <p>The operation is not supported.</p>
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -997,11 +1110,17 @@ export class OperationNotSupportedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ProductType {
   CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
   MARKETPLACE = "MARKETPLACE",
 }
 
+/**
+ * @public
+ */
 export enum ProvisioningArtifactType {
   CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
   MARKETPLACE_AMI = "MARKETPLACE_AMI",
@@ -1009,6 +1128,7 @@ export enum ProvisioningArtifactType {
 }
 
 /**
+ * @public
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactProperties {
@@ -1064,6 +1184,7 @@ export interface ProvisioningArtifactProperties {
 }
 
 /**
+ * @public
  * <p>The subtype containing details about the Codestar connection <code>Type</code>. </p>
  */
 export interface CodeStarParameters {
@@ -1091,6 +1212,7 @@ export interface CodeStarParameters {
 }
 
 /**
+ * @public
  * <p>Provides connection details.</p>
  */
 export interface SourceConnectionParameters {
@@ -1100,11 +1222,15 @@ export interface SourceConnectionParameters {
   CodeStar?: CodeStarParameters;
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   CODESTAR = "CODESTAR",
 }
 
 /**
+ * @public
  * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
  *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
  *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
@@ -1123,6 +1249,9 @@ export interface SourceConnection {
   ConnectionParameters: SourceConnectionParameters | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateProductInput {
   /**
    * <p>The language code.</p>
@@ -1222,6 +1351,7 @@ export interface CreateProductInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a product view.</p>
  */
 export interface ProductViewSummary {
@@ -1288,12 +1418,16 @@ export interface ProductViewSummary {
   SupportUrl?: string;
 }
 
+/**
+ * @public
+ */
 export enum LastSyncStatus {
   FAILED = "FAILED",
   SUCCEEDED = "SUCCEEDED",
 }
 
 /**
+ * @public
  * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
  *          <ul>
  *             <li>
@@ -1351,6 +1485,7 @@ export interface LastSync {
 }
 
 /**
+ * @public
  * <p>Provides details about the configured <code>SourceConnection</code>. </p>
  */
 export interface SourceConnectionDetail {
@@ -1398,6 +1533,7 @@ export interface SourceConnectionDetail {
 }
 
 /**
+ * @public
  * <p>Information about a product view.</p>
  */
 export interface ProductViewDetail {
@@ -1445,12 +1581,16 @@ export interface ProductViewDetail {
   SourceConnection?: SourceConnectionDetail;
 }
 
+/**
+ * @public
+ */
 export enum ProvisioningArtifactGuidance {
   DEFAULT = "DEFAULT",
   DEPRECATED = "DEPRECATED",
 }
 
 /**
+ * @public
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactDetail {
@@ -1515,6 +1655,9 @@ export interface ProvisioningArtifactDetail {
   SourceRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProductOutput {
   /**
    * <p>Information about the product view.</p>
@@ -1532,11 +1675,15 @@ export interface CreateProductOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ProvisionedProductPlanType {
   CLOUDFORMATION = "CLOUDFORMATION",
 }
 
 /**
+ * @public
  * <p>The parameter key-value pair used to update a provisioned product.</p>
  */
 export interface UpdateProvisioningParameter {
@@ -1556,6 +1703,9 @@ export interface UpdateProvisioningParameter {
   UsePreviousValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
@@ -1634,6 +1784,9 @@ export interface CreateProvisionedProductPlanInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisionedProductPlanOutput {
   /**
    * <p>The name of the plan.</p>
@@ -1661,6 +1814,9 @@ export interface CreateProvisionedProductPlanOutput {
   ProvisioningArtifactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
@@ -1698,6 +1854,9 @@ export interface CreateProvisioningArtifactInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -1725,6 +1884,9 @@ export interface CreateProvisioningArtifactOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export enum ServiceActionDefinitionKey {
   AssumeRole = "AssumeRole",
   Name = "Name",
@@ -1732,10 +1894,16 @@ export enum ServiceActionDefinitionKey {
   Version = "Version",
 }
 
+/**
+ * @public
+ */
 export enum ServiceActionDefinitionType {
   SsmAutomation = "SSM_AUTOMATION",
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceActionInput {
   /**
    * <p>The self-service action name.</p>
@@ -1768,7 +1936,7 @@ export interface CreateServiceActionInput {
    *             <dt>Parameters</dt>
    *             <dd>
    *                <p>The list of parameters in JSON format.</p>
-   *                <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
+   *                <p>For example: <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"\}]</code> or <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"\}]</code>.</p>
    *             </dd>
    *          </dl>
    */
@@ -1806,6 +1974,7 @@ export interface CreateServiceActionInput {
 }
 
 /**
+ * @public
  * <p>Detailed information about the self-service action.</p>
  */
 export interface ServiceActionSummary {
@@ -1831,6 +2000,7 @@ export interface ServiceActionSummary {
 }
 
 /**
+ * @public
  * <p>An object containing detailed information about the self-service action.</p>
  */
 export interface ServiceActionDetail {
@@ -1845,6 +2015,9 @@ export interface ServiceActionDetail {
   Definition?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceActionOutput {
   /**
    * <p>An object containing information about the self-service action.</p>
@@ -1852,6 +2025,9 @@ export interface CreateServiceActionOutput {
   ServiceActionDetail?: ServiceActionDetail;
 }
 
+/**
+ * @public
+ */
 export interface CreateTagOptionInput {
   /**
    * <p>The TagOption key.</p>
@@ -1865,6 +2041,7 @@ export interface CreateTagOptionInput {
 }
 
 /**
+ * @public
  * <p>Information about a TagOption.</p>
  */
 export interface TagOptionDetail {
@@ -1894,6 +2071,9 @@ export interface TagOptionDetail {
   Owner?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
@@ -1901,6 +2081,9 @@ export interface CreateTagOptionOutput {
   TagOptionDetail?: TagOptionDetail;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConstraintInput {
   /**
    * <p>The language code.</p>
@@ -1927,8 +2110,14 @@ export interface DeleteConstraintInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConstraintOutput {}
 
+/**
+ * @public
+ */
 export interface DeletePortfolioInput {
   /**
    * <p>The language code.</p>
@@ -1955,9 +2144,13 @@ export interface DeletePortfolioInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePortfolioOutput {}
 
 /**
+ * @public
  * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1978,6 +2171,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeletePortfolioShareInput {
   /**
    * <p>The language code.</p>
@@ -2014,6 +2210,9 @@ export interface DeletePortfolioShareInput {
   OrganizationNode?: OrganizationNode;
 }
 
+/**
+ * @public
+ */
 export interface DeletePortfolioShareOutput {
   /**
    * <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
@@ -2021,6 +2220,9 @@ export interface DeletePortfolioShareOutput {
   PortfolioShareToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProductInput {
   /**
    * <p>The language code.</p>
@@ -2047,8 +2249,14 @@ export interface DeleteProductInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProductOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
@@ -2081,8 +2289,14 @@ export interface DeleteProvisionedProductPlanInput {
   IgnoreErrors?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProvisionedProductPlanOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
@@ -2114,8 +2328,14 @@ export interface DeleteProvisioningArtifactInput {
   ProvisioningArtifactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProvisioningArtifactOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteServiceActionInput {
   /**
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
@@ -2142,8 +2362,14 @@ export interface DeleteServiceActionInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceActionOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -2151,8 +2377,14 @@ export interface DeleteTagOptionInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagOptionOutput {}
 
+/**
+ * @public
+ */
 export interface DescribeConstraintInput {
   /**
    * <p>The language code.</p>
@@ -2179,6 +2411,9 @@ export interface DescribeConstraintInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -2196,6 +2431,9 @@ export interface DescribeConstraintOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCopyProductStatusInput {
   /**
    * <p>The language code.</p>
@@ -2222,12 +2460,18 @@ export interface DescribeCopyProductStatusInput {
   CopyProductToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CopyProductStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeCopyProductStatusOutput {
   /**
    * <p>The status of the copy product operation.</p>
@@ -2245,6 +2489,9 @@ export interface DescribeCopyProductStatusOutput {
   StatusDetail?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioInput {
   /**
    * <p>The language code.</p>
@@ -2272,6 +2519,7 @@ export interface DescribePortfolioInput {
 }
 
 /**
+ * @public
  * <p>Information about a budget.</p>
  */
 export interface BudgetDetail {
@@ -2281,6 +2529,9 @@ export interface BudgetDetail {
   BudgetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -2303,6 +2554,9 @@ export interface DescribePortfolioOutput {
   Budgets?: BudgetDetail[];
 }
 
+/**
+ * @public
+ */
 export enum DescribePortfolioShareType {
   ACCOUNT = "ACCOUNT",
   ORGANIZATION = "ORGANIZATION",
@@ -2310,6 +2564,9 @@ export enum DescribePortfolioShareType {
   ORGANIZATION_MEMBER_ACCOUNT = "ORGANIZATION_MEMBER_ACCOUNT",
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioSharesInput {
   /**
    * <p>The unique identifier of the portfolio for which shares will be retrieved.</p>
@@ -2337,6 +2594,7 @@ export interface DescribePortfolioSharesInput {
 }
 
 /**
+ * @public
  * <p>Information about the portfolio share.</p>
  */
 export interface PortfolioShareDetail {
@@ -2371,6 +2629,9 @@ export interface PortfolioShareDetail {
   SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioSharesOutput {
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -2383,6 +2644,9 @@ export interface DescribePortfolioSharesOutput {
   PortfolioShareDetails?: PortfolioShareDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioShareStatusInput {
   /**
    * <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
@@ -2391,6 +2655,7 @@ export interface DescribePortfolioShareStatusInput {
 }
 
 /**
+ * @public
  * <p>Errors that occurred during the portfolio share operation.</p>
  */
 export interface ShareError {
@@ -2411,6 +2676,7 @@ export interface ShareError {
 }
 
 /**
+ * @public
  * <p>Information about the portfolio share operation.</p>
  */
 export interface ShareDetails {
@@ -2425,6 +2691,9 @@ export interface ShareDetails {
   ShareErrors?: ShareError[];
 }
 
+/**
+ * @public
+ */
 export enum ShareStatus {
   COMPLETED = "COMPLETED",
   COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
@@ -2433,6 +2702,9 @@ export enum ShareStatus {
   NOT_STARTED = "NOT_STARTED",
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioShareStatusOutput {
   /**
    * <p>The token for the portfolio share operation. For example, <code>share-6v24abcdefghi</code>.</p>
@@ -2460,6 +2732,9 @@ export interface DescribePortfolioShareStatusOutput {
   ShareDetails?: ShareDetails;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductInput {
   /**
    * <p>The language code.</p>
@@ -2492,6 +2767,7 @@ export interface DescribeProductInput {
 }
 
 /**
+ * @public
  * <p>A launch path object.</p>
  */
 export interface LaunchPath {
@@ -2507,6 +2783,7 @@ export interface LaunchPath {
 }
 
 /**
+ * @public
  * <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
  */
 export interface ProvisioningArtifact {
@@ -2536,6 +2813,9 @@ export interface ProvisioningArtifact {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductOutput {
   /**
    * <p>Summary information about the product view.</p>
@@ -2558,6 +2838,9 @@ export interface DescribeProductOutput {
   LaunchPaths?: LaunchPath[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductAsAdminInput {
   /**
    * <p>The language code.</p>
@@ -2600,6 +2883,7 @@ export interface DescribeProductAsAdminInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactSummary {
@@ -2629,6 +2913,9 @@ export interface ProvisioningArtifactSummary {
   ProvisioningArtifactMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductAsAdminOutput {
   /**
    * <p>Information about the product view.</p>
@@ -2656,6 +2943,9 @@ export interface DescribeProductAsAdminOutput {
   Budgets?: BudgetDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductViewInput {
   /**
    * <p>The language code.</p>
@@ -2682,6 +2972,9 @@ export interface DescribeProductViewInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductViewOutput {
   /**
    * <p>Summary information about the product.</p>
@@ -2695,6 +2988,7 @@ export interface DescribeProductViewOutput {
 }
 
 /**
+ * @public
  * DescribeProvisionedProductAPI input structure.
  *
  *         AcceptLanguage - [Optional]
@@ -2740,6 +3034,7 @@ export interface DescribeProvisionedProductInput {
 }
 
 /**
+ * @public
  * <p>Information about a CloudWatch dashboard.</p>
  */
 export interface CloudWatchDashboard {
@@ -2749,6 +3044,9 @@ export interface CloudWatchDashboard {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProvisionedProductStatus {
   AVAILABLE = "AVAILABLE",
   ERROR = "ERROR",
@@ -2758,6 +3056,7 @@ export enum ProvisionedProductStatus {
 }
 
 /**
+ * @public
  * <p>Information about a provisioned product.</p>
  */
 export interface ProvisionedProductDetail {
@@ -2905,6 +3204,9 @@ export interface ProvisionedProductDetail {
   LaunchRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductOutput {
   /**
    * <p>Information about the provisioned product.</p>
@@ -2917,6 +3219,9 @@ export interface DescribeProvisionedProductOutput {
   CloudWatchDashboards?: CloudWatchDashboard[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
@@ -2953,6 +3258,9 @@ export interface DescribeProvisionedProductPlanInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProvisionedProductPlanStatus {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -2963,6 +3271,7 @@ export enum ProvisionedProductPlanStatus {
 }
 
 /**
+ * @public
  * <p>Information about a plan.</p>
  */
 export interface ProvisionedProductPlanDetails {
@@ -3046,17 +3355,26 @@ export interface ProvisionedProductPlanDetails {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum ChangeAction {
   ADD = "ADD",
   MODIFY = "MODIFY",
   REMOVE = "REMOVE",
 }
 
+/**
+ * @public
+ */
 export enum EvaluationType {
   DYNAMIC = "DYNAMIC",
   STATIC = "STATIC",
 }
 
+/**
+ * @public
+ */
 export enum ResourceAttribute {
   CREATIONPOLICY = "CREATIONPOLICY",
   DELETIONPOLICY = "DELETIONPOLICY",
@@ -3066,6 +3384,9 @@ export enum ResourceAttribute {
   UPDATEPOLICY = "UPDATEPOLICY",
 }
 
+/**
+ * @public
+ */
 export enum RequiresRecreation {
   ALWAYS = "ALWAYS",
   CONDITIONALLY = "CONDITIONALLY",
@@ -3073,6 +3394,7 @@ export enum RequiresRecreation {
 }
 
 /**
+ * @public
  * <p>Information about a change to a resource attribute.</p>
  */
 export interface ResourceTargetDefinition {
@@ -3095,6 +3417,7 @@ export interface ResourceTargetDefinition {
 }
 
 /**
+ * @public
  * <p>Information about a change to a resource attribute.</p>
  */
 export interface ResourceChangeDetail {
@@ -3115,6 +3438,9 @@ export interface ResourceChangeDetail {
   CausingEntity?: string;
 }
 
+/**
+ * @public
+ */
 export enum Replacement {
   CONDITIONAL = "CONDITIONAL",
   FALSE = "FALSE",
@@ -3122,6 +3448,7 @@ export enum Replacement {
 }
 
 /**
+ * @public
  * <p>Information about a resource change that will occur when a plan is executed.</p>
  */
 export interface ResourceChange {
@@ -3162,6 +3489,9 @@ export interface ResourceChange {
   Details?: ResourceChangeDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductPlanOutput {
   /**
    * <p>Information about the plan.</p>
@@ -3179,6 +3509,9 @@ export interface DescribeProvisionedProductPlanOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
@@ -3225,6 +3558,9 @@ export interface DescribeProvisioningArtifactInput {
   Verbose?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -3242,6 +3578,9 @@ export interface DescribeProvisioningArtifactOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningParametersInput {
   /**
    * <p>The language code.</p>
@@ -3296,6 +3635,7 @@ export interface DescribeProvisioningParametersInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a constraint.</p>
  */
 export interface ConstraintSummary {
@@ -3331,6 +3671,7 @@ export interface ConstraintSummary {
 }
 
 /**
+ * @public
  * <p>Provisioning artifact output.</p>
  */
 export interface ProvisioningArtifactOutput {
@@ -3346,6 +3687,7 @@ export interface ProvisioningArtifactOutput {
 }
 
 /**
+ * @public
  * <p>The constraints that the administrator has put on the parameter.</p>
  */
 export interface ParameterConstraints {
@@ -3393,6 +3735,7 @@ export interface ParameterConstraints {
 }
 
 /**
+ * @public
  * <p>Information about a parameter used to provision a product.</p>
  */
 export interface ProvisioningArtifactParameter {
@@ -3429,6 +3772,7 @@ export interface ProvisioningArtifactParameter {
 }
 
 /**
+ * @public
  * <p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p>
  *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>CloudFormation User Guide</i>.</p>
  */
@@ -3447,6 +3791,7 @@ export interface ProvisioningArtifactPreferences {
 }
 
 /**
+ * @public
  * <p>Summary information about a TagOption.</p>
  */
 export interface TagOptionSummary {
@@ -3462,6 +3807,7 @@ export interface TagOptionSummary {
 }
 
 /**
+ * @public
  * <p>Additional information provided by the administrator.</p>
  */
 export interface UsageInstruction {
@@ -3476,6 +3822,9 @@ export interface UsageInstruction {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningParametersOutput {
   /**
    * <p>Information about the parameters used to provision the product.</p>
@@ -3516,6 +3865,9 @@ export interface DescribeProvisioningParametersOutput {
   ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecordInput {
   /**
    * <p>The language code.</p>
@@ -3554,6 +3906,7 @@ export interface DescribeRecordInput {
 }
 
 /**
+ * @public
  * <p>The error code and description resulting from an operation.</p>
  */
 export interface RecordError {
@@ -3569,6 +3922,7 @@ export interface RecordError {
 }
 
 /**
+ * @public
  * <p>Information about a tag, which is a key-value pair.</p>
  */
 export interface RecordTag {
@@ -3583,6 +3937,9 @@ export interface RecordTag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export enum RecordStatus {
   CREATED = "CREATED",
   FAILED = "FAILED",
@@ -3592,6 +3949,7 @@ export enum RecordStatus {
 }
 
 /**
+ * @public
  * <p>Information about a request operation.</p>
  */
 export interface RecordDetail {
@@ -3708,6 +4066,7 @@ export interface RecordDetail {
 }
 
 /**
+ * @public
  * <p>The output for the product created as the result of a request. For example, the output for
  *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
  */
@@ -3728,6 +4087,9 @@ export interface RecordOutput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecordOutput {
   /**
    * <p>Information about the product.</p>
@@ -3746,6 +4108,9 @@ export interface DescribeRecordOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionInput {
   /**
    * <p>The self-service action identifier.</p>
@@ -3772,6 +4137,9 @@ export interface DescribeServiceActionInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionOutput {
   /**
    * <p>Detailed information about the self-service action.</p>
@@ -3779,6 +4147,9 @@ export interface DescribeServiceActionOutput {
   ServiceActionDetail?: ServiceActionDetail;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionExecutionParametersInput {
   /**
    * <p>The identifier of the provisioned product.</p>
@@ -3811,6 +4182,7 @@ export interface DescribeServiceActionExecutionParametersInput {
 }
 
 /**
+ * @public
  * <p>Details of an execution parameter value that is passed to a self-service action when executed on a provisioned product.</p>
  */
 export interface ExecutionParameter {
@@ -3830,6 +4202,9 @@ export interface ExecutionParameter {
   DefaultValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionExecutionParametersOutput {
   /**
    * <p>The parameters of the self-service action.</p>
@@ -3837,6 +4212,9 @@ export interface DescribeServiceActionExecutionParametersOutput {
   ServiceActionParameters?: ExecutionParameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -3844,6 +4222,9 @@ export interface DescribeTagOptionInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
@@ -3851,10 +4232,19 @@ export interface DescribeTagOptionOutput {
   TagOptionDetail?: TagOptionDetail;
 }
 
+/**
+ * @public
+ */
 export interface DisableAWSOrganizationsAccessInput {}
 
+/**
+ * @public
+ */
 export interface DisableAWSOrganizationsAccessOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateBudgetFromResourceInput {
   /**
    * <p>The name of the budget you want to disassociate.</p>
@@ -3867,8 +4257,14 @@ export interface DisassociateBudgetFromResourceInput {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateBudgetFromResourceOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociatePrincipalFromPortfolioInput {
   /**
    * <p>The language code.</p>
@@ -3907,8 +4303,14 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PrincipalType?: PrincipalType | string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePrincipalFromPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateProductFromPortfolioInput {
   /**
    * <p>The language code.</p>
@@ -3940,8 +4342,14 @@ export interface DisassociateProductFromPortfolioInput {
   PortfolioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateProductFromPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateServiceActionFromProvisioningArtifactInput {
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
@@ -3978,8 +4386,14 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateServiceActionFromProvisioningArtifactOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateTagOptionFromResourceInput {
   /**
    * <p>The resource identifier.</p>
@@ -3992,12 +4406,24 @@ export interface DisassociateTagOptionFromResourceInput {
   TagOptionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTagOptionFromResourceOutput {}
 
+/**
+ * @public
+ */
 export interface EnableAWSOrganizationsAccessInput {}
 
+/**
+ * @public
+ */
 export interface EnableAWSOrganizationsAccessOutput {}
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
@@ -4030,6 +4456,9 @@ export interface ExecuteProvisionedProductPlanInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductPlanOutput {
   /**
    * <p>Information about the result of provisioning the product.</p>
@@ -4037,6 +4466,9 @@ export interface ExecuteProvisionedProductPlanOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductServiceActionInput {
   /**
    * <p>The identifier of the provisioned product.</p>
@@ -4080,6 +4512,9 @@ export interface ExecuteProvisionedProductServiceActionInput {
   Parameters?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductServiceActionOutput {
   /**
    * <p>An object containing detailed information about the result of provisioning the product.</p>
@@ -4087,8 +4522,14 @@ export interface ExecuteProvisionedProductServiceActionOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetAWSOrganizationsAccessStatusInput {}
 
+/**
+ * @public
+ */
 export interface GetAWSOrganizationsAccessStatusOutput {
   /**
    * <p>The status of the portfolio share feature.</p>
@@ -4096,6 +4537,9 @@ export interface GetAWSOrganizationsAccessStatusOutput {
   AccessStatus?: AccessStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetProvisionedProductOutputsInput {
   /**
    * <p>The language code.</p>
@@ -4142,6 +4586,9 @@ export interface GetProvisionedProductOutputsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetProvisionedProductOutputsOutput {
   /**
    * <p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
@@ -4155,6 +4602,9 @@ export interface GetProvisionedProductOutputsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAsProvisionedProductInput {
   /**
    * <p>The language code.</p>
@@ -4203,6 +4653,9 @@ export interface ImportAsProvisionedProductInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAsProvisionedProductOutput {
   /**
    * <p>Information about a request operation.</p>
@@ -4210,6 +4663,9 @@ export interface ImportAsProvisionedProductOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface ListAcceptedPortfolioSharesInput {
   /**
    * <p>The language code.</p>
@@ -4261,6 +4717,9 @@ export interface ListAcceptedPortfolioSharesInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAcceptedPortfolioSharesOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -4273,6 +4732,9 @@ export interface ListAcceptedPortfolioSharesOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBudgetsForResourceInput {
   /**
    * <p>The language code.</p>
@@ -4309,6 +4771,9 @@ export interface ListBudgetsForResourceInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBudgetsForResourceOutput {
   /**
    * <p>Information about the associated budgets.</p>
@@ -4321,6 +4786,9 @@ export interface ListBudgetsForResourceOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConstraintsForPortfolioInput {
   /**
    * <p>The language code.</p>
@@ -4362,6 +4830,9 @@ export interface ListConstraintsForPortfolioInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConstraintsForPortfolioOutput {
   /**
    * <p>Information about the constraints.</p>
@@ -4374,6 +4845,9 @@ export interface ListConstraintsForPortfolioOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchPathsInput {
   /**
    * <p>The language code.</p>
@@ -4411,6 +4885,7 @@ export interface ListLaunchPathsInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a product path for a user.</p>
  */
 export interface LaunchPathSummary {
@@ -4435,6 +4910,9 @@ export interface LaunchPathSummary {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchPathsOutput {
   /**
    * <p>Information about the launch path.</p>
@@ -4447,6 +4925,9 @@ export interface ListLaunchPathsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationPortfolioAccessInput {
   /**
    * <p>The language code.</p>
@@ -4502,6 +4983,9 @@ export interface ListOrganizationPortfolioAccessInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationPortfolioAccessOutput {
   /**
    * <p>Displays information about the organization nodes.</p>
@@ -4514,6 +4998,9 @@ export interface ListOrganizationPortfolioAccessOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfolioAccessInput {
   /**
    * <p>The language code.</p>
@@ -4555,6 +5042,9 @@ export interface ListPortfolioAccessInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfolioAccessOutput {
   /**
    * <p>Information about the Amazon Web Services accounts with access to the portfolio.</p>
@@ -4567,6 +5057,9 @@ export interface ListPortfolioAccessOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosInput {
   /**
    * <p>The language code.</p>
@@ -4598,6 +5091,9 @@ export interface ListPortfoliosInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -4610,6 +5106,9 @@ export interface ListPortfoliosOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosForProductInput {
   /**
    * <p>The language code.</p>
@@ -4646,6 +5145,9 @@ export interface ListPortfoliosForProductInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosForProductOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -4658,6 +5160,9 @@ export interface ListPortfoliosForProductOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPrincipalsForPortfolioInput {
   /**
    * <p>The language code.</p>
@@ -4695,6 +5200,7 @@ export interface ListPrincipalsForPortfolioInput {
 }
 
 /**
+ * @public
  * <p>Information about a principal.</p>
  */
 export interface Principal {
@@ -4711,6 +5217,9 @@ export interface Principal {
   PrincipalType?: PrincipalType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPrincipalsForPortfolioOutput {
   /**
    * <p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>
@@ -4723,6 +5232,9 @@ export interface ListPrincipalsForPortfolioOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedProductPlansInput {
   /**
    * <p>The language code.</p>
@@ -4765,6 +5277,7 @@ export interface ListProvisionedProductPlansInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a plan.</p>
  */
 export interface ProvisionedProductPlanSummary {
@@ -4799,6 +5312,9 @@ export interface ProvisionedProductPlanSummary {
   ProvisioningArtifactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedProductPlansOutput {
   /**
    * <p>Information about the plans.</p>
@@ -4811,6 +5327,9 @@ export interface ListProvisionedProductPlansOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsInput {
   /**
    * <p>The language code.</p>
@@ -4837,6 +5356,9 @@ export interface ListProvisioningArtifactsInput {
   ProductId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsOutput {
   /**
    * <p>Information about the provisioning artifacts.</p>
@@ -4849,6 +5371,9 @@ export interface ListProvisioningArtifactsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsForServiceActionInput {
   /**
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
@@ -4886,6 +5411,7 @@ export interface ListProvisioningArtifactsForServiceActionInput {
 }
 
 /**
+ * @public
  * <p>An object that contains summary information about a product view and a provisioning artifact.</p>
  */
 export interface ProvisioningArtifactView {
@@ -4900,6 +5426,9 @@ export interface ProvisioningArtifactView {
   ProvisioningArtifact?: ProvisioningArtifact;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsForServiceActionOutput {
   /**
    * <p>An array of objects with information about product views and provisioning artifacts.</p>
@@ -4913,6 +5442,7 @@ export interface ListProvisioningArtifactsForServiceActionOutput {
 }
 
 /**
+ * @public
  * <p>The search filter to use when listing history records.</p>
  */
 export interface ListRecordHistorySearchFilter {
@@ -4937,6 +5467,9 @@ export interface ListRecordHistorySearchFilter {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecordHistoryInput {
   /**
    * <p>The language code.</p>
@@ -4978,6 +5511,9 @@ export interface ListRecordHistoryInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecordHistoryOutput {
   /**
    * <p>The records, in reverse chronological order.</p>
@@ -4990,6 +5526,9 @@ export interface ListRecordHistoryOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesForTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -5025,6 +5564,7 @@ export interface ListResourcesForTagOptionInput {
 }
 
 /**
+ * @public
  * <p>Information about a resource.</p>
  */
 export interface ResourceDetail {
@@ -5054,6 +5594,9 @@ export interface ResourceDetail {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesForTagOptionOutput {
   /**
    * <p>Information about the resources.</p>
@@ -5066,6 +5609,9 @@ export interface ListResourcesForTagOptionOutput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsInput {
   /**
    * <p>The language code.</p>
@@ -5097,6 +5643,9 @@ export interface ListServiceActionsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsOutput {
   /**
    * <p>An object containing information about the service actions associated with the provisioning artifact.</p>
@@ -5109,6 +5658,9 @@ export interface ListServiceActionsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsForProvisioningArtifactInput {
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
@@ -5150,6 +5702,9 @@ export interface ListServiceActionsForProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsForProvisioningArtifactOutput {
   /**
    * <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
@@ -5162,6 +5717,9 @@ export interface ListServiceActionsForProvisioningArtifactOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesForProvisionedProductInput {
   /**
    * <p>The language code.</p>
@@ -5198,6 +5756,9 @@ export interface ListStackInstancesForProvisionedProductInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export enum StackInstanceStatus {
   CURRENT = "CURRENT",
   INOPERABLE = "INOPERABLE",
@@ -5205,6 +5766,7 @@ export enum StackInstanceStatus {
 }
 
 /**
+ * @public
  * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
  */
 export interface StackInstance {
@@ -5240,6 +5802,9 @@ export interface StackInstance {
   StackInstanceStatus?: StackInstanceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesForProvisionedProductOutput {
   /**
    * <p>List of stack instances.</p>
@@ -5253,6 +5818,7 @@ export interface ListStackInstancesForProvisionedProductOutput {
 }
 
 /**
+ * @public
  * <p>Filters to use when listing TagOptions.</p>
  */
 export interface ListTagOptionsFilters {
@@ -5272,6 +5838,9 @@ export interface ListTagOptionsFilters {
   Active?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListTagOptionsInput {
   /**
    * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
@@ -5289,6 +5858,9 @@ export interface ListTagOptionsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagOptionsOutput {
   /**
    * <p>Information about the TagOptions.</p>
@@ -5302,6 +5874,7 @@ export interface ListTagOptionsOutput {
 }
 
 /**
+ * @public
  * <p>Information about a parameter used to provision a product.</p>
  */
 export interface ProvisioningParameter {
@@ -5317,6 +5890,7 @@ export interface ProvisioningParameter {
 }
 
 /**
+ * @public
  * <p>The user-defined preferences that will be applied when updating a provisioned
  *          product. Not all preferences are applicable to all provisioned product type</p>
  *          <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
@@ -5379,6 +5953,9 @@ export interface ProvisioningPreferences {
   StackSetMaxConcurrencyPercentage?: number;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionProductInput {
   /**
    * <p>The language code.</p>
@@ -5465,6 +6042,9 @@ export interface ProvisionProductInput {
   ProvisionToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionProductOutput {
   /**
    * <p>Information about the result of provisioning the product.</p>
@@ -5472,6 +6052,9 @@ export interface ProvisionProductOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface RejectPortfolioShareInput {
   /**
    * <p>The language code.</p>
@@ -5520,8 +6103,14 @@ export interface RejectPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface RejectPortfolioShareOutput {}
 
+/**
+ * @public
+ */
 export interface ScanProvisionedProductsInput {
   /**
    * <p>The language code.</p>
@@ -5558,6 +6147,9 @@ export interface ScanProvisionedProductsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ScanProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
@@ -5570,6 +6162,9 @@ export interface ScanProvisionedProductsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProductViewFilterBy {
   FullTextSearch = "FullTextSearch",
   Owner = "Owner",
@@ -5577,17 +6172,26 @@ export enum ProductViewFilterBy {
   SourceProductId = "SourceProductId",
 }
 
+/**
+ * @public
+ */
 export enum ProductViewSortBy {
   CreationDate = "CreationDate",
   Title = "Title",
   VersionCount = "VersionCount",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface SearchProductsInput {
   /**
    * <p>The language code.</p>
@@ -5636,6 +6240,7 @@ export interface SearchProductsInput {
 }
 
 /**
+ * @public
  * <p>A single product view aggregation value/count pair, containing metadata about each
  *          product to which the calling user has access.</p>
  */
@@ -5651,6 +6256,9 @@ export interface ProductViewAggregationValue {
   ApproximateCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchProductsOutput {
   /**
    * <p>Information about the product views.</p>
@@ -5668,10 +6276,16 @@ export interface SearchProductsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProductSource {
   ACCOUNT = "ACCOUNT",
 }
 
+/**
+ * @public
+ */
 export interface SearchProductsAsAdminInput {
   /**
    * <p>The language code.</p>
@@ -5729,6 +6343,9 @@ export interface SearchProductsAsAdminInput {
   ProductSource?: ProductSource | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchProductsAsAdminOutput {
   /**
    * <p>Information about the product views.</p>
@@ -5741,10 +6358,16 @@ export interface SearchProductsAsAdminOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProvisionedProductViewFilterBy {
   SearchQuery = "SearchQuery",
 }
 
+/**
+ * @public
+ */
 export interface SearchProvisionedProductsInput {
   /**
    * <p>The language code.</p>
@@ -5806,6 +6429,7 @@ export interface SearchProvisionedProductsInput {
 }
 
 /**
+ * @public
  * <p>Information about a provisioned product.</p>
  */
 export interface ProvisionedProductAttribute {
@@ -5978,6 +6602,9 @@ export interface ProvisionedProductAttribute {
   UserArnSession?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
@@ -5995,6 +6622,9 @@ export interface SearchProvisionedProductsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TerminateProvisionedProductInput {
   /**
    * <p>The name of the provisioned product. You cannot specify both
@@ -6050,6 +6680,9 @@ export interface TerminateProvisionedProductInput {
   RetainPhysicalResources?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface TerminateProvisionedProductOutput {
   /**
    * <p>Information about the result of this request.</p>
@@ -6057,6 +6690,9 @@ export interface TerminateProvisionedProductOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConstraintInput {
   /**
    * <p>The language code.</p>
@@ -6095,11 +6731,11 @@ export interface UpdateConstraintInput {
    *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
    *                <p>Specify the <code>RoleArn</code> property as follows:</p>
    *                <p>
-   *                   <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code>
+   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
    *                </p>
    *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
    *                <p>
-   *                   <code>{"LocalRoleName": "SCBasicLaunchRole"}</code>
+   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
    *                </p>
    *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
    *                   account-agnostic so the administrator can create fewer resources per shared account.</p>
@@ -6113,14 +6749,14 @@ export interface UpdateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
    *                <p>
-   *                   <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code>
+   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
    *                </p>
    *             </dd>
    *             <dt>RESOURCE_UPDATE</dt>
    *             <dd>
    *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code>
+   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
    *                </p>
    *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
    *             </dd>
@@ -6128,7 +6764,7 @@ export interface UpdateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>Parameters</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code>
+   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
@@ -6144,6 +6780,9 @@ export interface UpdateConstraintInput {
   Parameters?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -6161,6 +6800,9 @@ export interface UpdateConstraintOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioInput {
   /**
    * <p>The language code.</p>
@@ -6212,6 +6854,9 @@ export interface UpdatePortfolioInput {
   RemoveTags?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -6224,6 +6869,9 @@ export interface UpdatePortfolioOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioShareInput {
   /**
    * <p>The language code.</p>
@@ -6272,6 +6920,9 @@ export interface UpdatePortfolioShareInput {
   SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioShareOutput {
   /**
    * <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or  organizational type sharing.</p>
@@ -6286,6 +6937,9 @@ export interface UpdatePortfolioShareOutput {
   Status?: ShareStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProductInput {
   /**
    * <p>The language code.</p>
@@ -6376,6 +7030,9 @@ export interface UpdateProductInput {
   SourceConnection?: SourceConnection;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProductOutput {
   /**
    * <p>Information about the product view.</p>
@@ -6388,6 +7045,9 @@ export interface UpdateProductOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum StackSetOperationType {
   CREATE = "CREATE",
   DELETE = "DELETE",
@@ -6395,6 +7055,7 @@ export enum StackSetOperationType {
 }
 
 /**
+ * @public
  * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
  */
 export interface UpdateProvisioningPreferences {
@@ -6468,6 +7129,9 @@ export interface UpdateProvisioningPreferences {
   StackSetOperationType?: StackSetOperationType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductInput {
   /**
    * <p>The language code.</p>
@@ -6551,6 +7215,9 @@ export interface UpdateProvisionedProductInput {
   UpdateToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductOutput {
   /**
    * <p>Information about the result of the request.</p>
@@ -6558,11 +7225,17 @@ export interface UpdateProvisionedProductOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export enum PropertyKey {
   LaunchRole = "LAUNCH_ROLE",
   Owner = "OWNER",
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductPropertiesInput {
   /**
    * <p>The language code.</p>
@@ -6618,6 +7291,9 @@ export interface UpdateProvisionedProductPropertiesInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductPropertiesOutput {
   /**
    * <p>The provisioned product identifier.</p>
@@ -6640,6 +7316,9 @@ export interface UpdateProvisionedProductPropertiesOutput {
   Status?: RecordStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
@@ -6696,6 +7375,9 @@ export interface UpdateProvisioningArtifactInput {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -6713,6 +7395,9 @@ export interface UpdateProvisioningArtifactOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceActionInput {
   /**
    * <p>The self-service action identifier.</p>
@@ -6754,6 +7439,9 @@ export interface UpdateServiceActionInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceActionOutput {
   /**
    * <p>Detailed information about the self-service action.</p>
@@ -6761,6 +7449,9 @@ export interface UpdateServiceActionOutput {
   ServiceActionDetail?: ServiceActionDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -6778,6 +7469,9 @@ export interface UpdateTagOptionInput {
   Active?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>

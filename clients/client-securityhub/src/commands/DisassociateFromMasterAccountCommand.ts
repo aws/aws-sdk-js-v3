@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFromMasterAccountCommand}.
  */
 export interface DisassociateFromMasterAccountCommandInput extends DisassociateFromMasterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFromMasterAccountCommand}.
  */
 export interface DisassociateFromMasterAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateFromMasterAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p>
@@ -56,6 +61,8 @@ export interface DisassociateFromMasterAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromMasterAccountCommandInput - {@link DisassociateFromMasterAccountCommandInput}
+ * @returns {@link DisassociateFromMasterAccountCommandOutput}
  * @see {@link DisassociateFromMasterAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromMasterAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -96,6 +103,9 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromMasterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFromMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateFromMasterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

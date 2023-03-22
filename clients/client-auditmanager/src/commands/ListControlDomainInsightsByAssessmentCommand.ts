@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlDomainInsightsByAssessmentCommand}.
  */
 export interface ListControlDomainInsightsByAssessmentCommandInput
   extends ListControlDomainInsightsByAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlDomainInsightsByAssessmentCommand}.
  */
 export interface ListControlDomainInsightsByAssessmentCommandOutput
@@ -38,6 +42,7 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists analytics data for control domains within a specified active assessment.</p>
  *          <note>
  *             <p>A control domain is listed only if at least one of the controls within that domain
@@ -55,6 +60,8 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlDomainInsightsByAssessmentCommandInput - {@link ListControlDomainInsightsByAssessmentCommandInput}
+ * @returns {@link ListControlDomainInsightsByAssessmentCommandOutput}
  * @see {@link ListControlDomainInsightsByAssessmentCommandInput} for command's `input` shape.
  * @see {@link ListControlDomainInsightsByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListControlDomainInsightsByAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlDomainInsightsByAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class ListControlDomainInsightsByAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListControlDomainInsightsByAssessmentCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class ListControlDomainInsightsByAssessmentCommand extends $Command<
     return serializeAws_restJson1ListControlDomainInsightsByAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

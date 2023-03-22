@@ -204,6 +204,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateBrowserSettingsCommandInput
   | AssociateNetworkSettingsCommandInput
@@ -257,6 +260,9 @@ export type ServiceInputTypes =
   | UpdateUserAccessLoggingSettingsCommandInput
   | UpdateUserSettingsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateBrowserSettingsCommandOutput
   | AssociateNetworkSettingsCommandOutput
@@ -310,6 +316,9 @@ export type ServiceOutputTypes =
   | UpdateUserAccessLoggingSettingsCommandOutput
   | UpdateUserSettingsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -317,7 +326,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -426,11 +435,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type WorkSpacesWebClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -441,10 +453,15 @@ type WorkSpacesWebClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of WorkSpacesWebClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of WorkSpacesWebClient class constructor that set the region, credentials and other options.
  */
 export interface WorkSpacesWebClientConfig extends WorkSpacesWebClientConfigType {}
 
+/**
+ * @public
+ */
 type WorkSpacesWebClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -455,11 +472,14 @@ type WorkSpacesWebClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of WorkSpacesWebClient class. This is resolved and normalized from the {@link WorkSpacesWebClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of WorkSpacesWebClient class. This is resolved and normalized from the {@link WorkSpacesWebClientConfig | constructor configuration interface}.
  */
 export interface WorkSpacesWebClientResolvedConfig extends WorkSpacesWebClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate
  *          secure, web-based workloads. WorkSpaces Web makes it easy for customers to safely provide
  *          their employees with access to internal websites and SaaS web applications without the

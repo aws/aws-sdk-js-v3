@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
 export interface GetEvidenceFoldersByAssessmentControlCommandInput
   extends GetEvidenceFoldersByAssessmentControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
 export interface GetEvidenceFoldersByAssessmentControlCommandOutput
@@ -38,6 +42,7 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of evidence folders that are associated with a specified control in an
  *             Audit Manager assessment. </p>
  * @example
@@ -50,6 +55,8 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvidenceFoldersByAssessmentControlCommandInput - {@link GetEvidenceFoldersByAssessmentControlCommandInput}
+ * @returns {@link GetEvidenceFoldersByAssessmentControlCommandOutput}
  * @see {@link GetEvidenceFoldersByAssessmentControlCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceFoldersByAssessmentControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvidenceFoldersByAssessmentControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEvidenceFoldersByAssessmentControlCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     return serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

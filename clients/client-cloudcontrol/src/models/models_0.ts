@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CloudControlServiceException as __BaseException } from "./CloudControlServiceException";
 
 /**
+ * @public
  * <p>The resource with the name requested already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -24,6 +25,9 @@ export class AlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelResourceRequestInput {
   /**
    * <p>The <code>RequestToken</code> of the <code>ProgressEvent</code> object returned by the
@@ -32,6 +36,9 @@ export interface CancelResourceRequestInput {
   RequestToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HandlerErrorCode {
   ACCESS_DENIED = "AccessDenied",
   ALREADY_EXISTS = "AlreadyExists",
@@ -50,12 +57,18 @@ export enum HandlerErrorCode {
   THROTTLING = "Throttling",
 }
 
+/**
+ * @public
+ */
 export enum Operation {
   CREATE = "CREATE",
   DELETE = "DELETE",
   UPDATE = "UPDATE",
 }
 
+/**
+ * @public
+ */
 export enum OperationStatus {
   CANCEL_COMPLETE = "CANCEL_COMPLETE",
   CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS",
@@ -66,6 +79,7 @@ export enum OperationStatus {
 }
 
 /**
+ * @public
  * <p>Represents the current status of a resource operation request. For more information, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html">Managing resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -159,6 +173,9 @@ export interface ProgressEvent {
   RetryAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CancelResourceRequestOutput {
   /**
    * <p>Represents the current status of a resource operation request. For more information, see
@@ -169,6 +186,7 @@ export interface CancelResourceRequestOutput {
 }
 
 /**
+ * @public
  * <p>The resource is currently being modified by another operation.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -190,6 +208,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource operation with the specified request token can't be found.</p>
  */
 export class RequestTokenNotFoundException extends __BaseException {
@@ -211,6 +230,7 @@ export class RequestTokenNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified client token has already been used in another resource request.</p>
  *          <p>It's best practice for client tokens to be unique for each resource operation request.
  *       However, client token expire after 36 hours.</p>
@@ -234,6 +254,7 @@ export class ClientTokenConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another resource operation is currently being performed on this resource.</p>
  */
 export class ConcurrentOperationException extends __BaseException {
@@ -254,6 +275,9 @@ export class ConcurrentOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceInput {
   /**
    * <p>The name of the resource type.</p>
@@ -306,6 +330,9 @@ export interface CreateResourceInput {
   DesiredState: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceOutput {
   /**
    * <p>Represents the current status of the resource creation request.</p>
@@ -317,6 +344,7 @@ export interface CreateResourceOutput {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that the downstream service generated an error that
  *       doesn't map to any other handler error code.</p>
  */
@@ -339,6 +367,7 @@ export class GeneralServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has failed without a returning a more specific error code. This can
  *       include timeouts.</p>
  */
@@ -361,6 +390,7 @@ export class HandlerFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that an unexpected error occurred within the resource
  *       handler.</p>
  */
@@ -383,6 +413,7 @@ export class HandlerInternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that the credentials provided by the user are
  *       invalid.</p>
  */
@@ -405,6 +436,7 @@ export class InvalidCredentialsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that invalid input from the user has generated a generic
  *       exception.</p>
  */
@@ -427,6 +459,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that the request couldn't be completed due to networking
  *       issues, such as a failure to receive a response from the server.</p>
  */
@@ -449,6 +482,7 @@ export class NetworkFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that the downstream resource failed to complete all of
  *       its ready-state checks.</p>
  */
@@ -471,6 +505,7 @@ export class NotStabilizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more properties included in this resource operation are defined as create-only, and
  *       therefore can't be updated.</p>
  */
@@ -493,6 +528,7 @@ export class NotUpdatableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration
  *       error. This includes issues such as the resource handler returning an invalid response, or
  *       timing out.</p>
@@ -516,6 +552,7 @@ export class PrivateTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is
  *       currently undergoing an operation and can't be acted upon until that operation is
  *       finished.</p>
@@ -539,6 +576,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource with the specified identifier can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -560,6 +598,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that the downstream service returned an internal error,
  *       typically with a <code>5XX HTTP</code> status code.</p>
  */
@@ -582,6 +621,7 @@ export class ServiceInternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource handler has returned that a non-transient resource limit was reached on the
  *       service side.</p>
  */
@@ -604,6 +644,7 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -625,6 +666,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  */
 export class TypeNotFoundException extends __BaseException {
@@ -646,6 +688,7 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't support this resource operation.</p>
  */
 export class UnsupportedActionException extends __BaseException {
@@ -666,6 +709,9 @@ export class UnsupportedActionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceInput {
   /**
    * <p>The name of the resource type.</p>
@@ -703,6 +749,9 @@ export interface DeleteResourceInput {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceOutput {
   /**
    * <p>Represents the current status of the resource deletion request.</p>
@@ -713,6 +762,9 @@ export interface DeleteResourceOutput {
   ProgressEvent?: ProgressEvent;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceInput {
   /**
    * <p>The name of the resource type.</p>
@@ -743,6 +795,7 @@ export interface GetResourceInput {
 }
 
 /**
+ * @public
  * <p>Represents information about a provisioned resource.</p>
  */
 export interface ResourceDescription {
@@ -759,6 +812,9 @@ export interface ResourceDescription {
   Properties?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceOutput {
   /**
    * <p>The name of the resource type.</p>
@@ -771,6 +827,9 @@ export interface GetResourceOutput {
   ResourceDescription?: ResourceDescription;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceRequestStatusInput {
   /**
    * <p>A unique token used to track the progress of the resource operation request.</p>
@@ -780,6 +839,9 @@ export interface GetResourceRequestStatusInput {
   RequestToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceRequestStatusOutput {
   /**
    * <p>Represents the current status of the resource operation request.</p>
@@ -788,6 +850,7 @@ export interface GetResourceRequestStatusOutput {
 }
 
 /**
+ * @public
  * <p>The filter criteria to use in determining the requests returned.</p>
  */
 export interface ResourceRequestStatusFilter {
@@ -829,6 +892,9 @@ export interface ResourceRequestStatusFilter {
   OperationStatuses?: (OperationStatus | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListResourceRequestsInput {
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -850,6 +916,9 @@ export interface ListResourceRequestsInput {
   ResourceRequestStatusFilter?: ResourceRequestStatusFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceRequestsOutput {
   /**
    * <p>The requests that match the specified filter criteria.</p>
@@ -862,6 +931,9 @@ export interface ListResourceRequestsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesInput {
   /**
    * <p>The name of the resource type.</p>
@@ -898,6 +970,9 @@ export interface ListResourcesInput {
   ResourceModel?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesOutput {
   /**
    * <p>The name of the resource type.</p>
@@ -916,6 +991,9 @@ export interface ListResourcesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceInput {
   /**
    * <p>The name of the resource type.</p>
@@ -960,6 +1038,9 @@ export interface UpdateResourceInput {
   PatchDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceOutput {
   /**
    * <p>Represents the current status of the resource update request.</p>

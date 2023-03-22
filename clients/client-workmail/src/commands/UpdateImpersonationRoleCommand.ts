@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateImpersonationRoleCommand}.
  */
 export interface UpdateImpersonationRoleCommandInput extends UpdateImpersonationRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateImpersonationRoleCommand}.
  */
 export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonationRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an impersonation role for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImpersonationRoleCommandInput - {@link UpdateImpersonationRoleCommandInput}
+ * @returns {@link UpdateImpersonationRoleCommandOutput}
  * @see {@link UpdateImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateImpersonationRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateImpersonationRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateImpersonationRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImpersonationRoleCommandOutput> {
     return deserializeAws_json1_1UpdateImpersonationRoleCommand(output, context);
   }

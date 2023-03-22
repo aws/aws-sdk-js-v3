@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImageBuildVersionsCommand}.
  */
 export interface ListImageBuildVersionsCommandInput extends ListImageBuildVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImageBuildVersionsCommand}.
  */
 export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of image build versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImageBuildVersionsCommandInput - {@link ListImageBuildVersionsCommandInput}
+ * @returns {@link ListImageBuildVersionsCommandOutput}
  * @see {@link ListImageBuildVersionsCommandInput} for command's `input` shape.
  * @see {@link ListImageBuildVersionsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListImageBuildVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImageBuildVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListImageBuildVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImageBuildVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListImageBuildVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageBuildVersionsCommandOutput> {
     return deserializeAws_restJson1ListImageBuildVersionsCommand(output, context);
   }

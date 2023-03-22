@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UploadSigningCertificateCommand}.
  */
 export interface UploadSigningCertificateCommandInput extends UploadSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UploadSigningCertificateCommand}.
  */
 export interface UploadSigningCertificateCommandOutput extends UploadSigningCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an X.509 signing certificate and associates it with the specified IAM user.
  *             Some Amazon Web Services services require you to use certificates to validate requests that are signed
  *             with a corresponding private key. When you upload the certificate, its default status is
@@ -65,6 +70,8 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadSigningCertificateCommandInput - {@link UploadSigningCertificateCommandInput}
+ * @returns {@link UploadSigningCertificateCommandOutput}
  * @see {@link UploadSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link UploadSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -138,6 +145,9 @@ export class UploadSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,10 +187,16 @@ export class UploadSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUploadSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadSigningCertificateCommandOutput> {
     return deserializeAws_queryUploadSigningCertificateCommand(output, context);
   }

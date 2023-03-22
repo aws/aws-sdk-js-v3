@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVerifiedAccessInstancesCommand}.
  */
 export interface DescribeVerifiedAccessInstancesCommandInput extends DescribeVerifiedAccessInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVerifiedAccessInstancesCommand}.
  */
 export interface DescribeVerifiedAccessInstancesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe Verified Access instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVerifiedAccessInstancesCommandInput - {@link DescribeVerifiedAccessInstancesCommandInput}
+ * @returns {@link DescribeVerifiedAccessInstancesCommandOutput}
  * @see {@link DescribeVerifiedAccessInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVerifiedAccessInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVerifiedAccessInstancesCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
     return serializeAws_ec2DescribeVerifiedAccessInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

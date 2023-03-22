@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceMetadataCommand}.
  */
 export interface UpdateDeviceMetadataCommandInput extends UpdateDeviceMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceMetadataCommand}.
  */
 export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a device's metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceMetadataCommandInput - {@link UpdateDeviceMetadataCommandInput}
+ * @returns {@link UpdateDeviceMetadataCommandOutput}
  * @see {@link UpdateDeviceMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceMetadataCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateDeviceMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateDeviceMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDeviceMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceMetadataCommandOutput> {
     return deserializeAws_restJson1UpdateDeviceMetadataCommand(output, context);
   }

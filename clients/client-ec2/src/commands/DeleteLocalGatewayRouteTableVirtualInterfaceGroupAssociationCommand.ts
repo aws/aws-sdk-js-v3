@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a local gateway route table virtual interface group association.
  *       </p>
@@ -51,6 +56,8 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput - {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput}
+ * @returns {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput}
  * @see {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     return serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

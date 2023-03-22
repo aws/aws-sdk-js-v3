@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCarrierGatewayCommand}.
  */
 export interface CreateCarrierGatewayCommandInput extends CreateCarrierGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCarrierGatewayCommand}.
  */
 export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCarrierGatewayCommandInput - {@link CreateCarrierGatewayCommandInput}
+ * @returns {@link CreateCarrierGatewayCommandOutput}
  * @see {@link CreateCarrierGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateCarrierGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class CreateCarrierGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCarrierGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreateCarrierGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCarrierGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateCarrierGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCarrierGatewayCommandOutput> {
     return deserializeAws_ec2CreateCarrierGatewayCommand(output, context);
   }

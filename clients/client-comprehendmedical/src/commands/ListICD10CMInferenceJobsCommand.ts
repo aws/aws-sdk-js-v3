@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListICD10CMInferenceJobsCommand}.
  */
 export interface ListICD10CMInferenceJobsCommandInput extends ListICD10CMInferenceJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListICD10CMInferenceJobsCommand}.
  */
 export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInfere
  * const response = await client.send(command);
  * ```
  *
+ * @param ListICD10CMInferenceJobsCommandInput - {@link ListICD10CMInferenceJobsCommandInput}
+ * @returns {@link ListICD10CMInferenceJobsCommandOutput}
  * @see {@link ListICD10CMInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListICD10CMInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListICD10CMInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListICD10CMInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListICD10CMInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListICD10CMInferenceJobsCommandOutput> {
     return deserializeAws_json1_1ListICD10CMInferenceJobsCommand(output, context);
   }

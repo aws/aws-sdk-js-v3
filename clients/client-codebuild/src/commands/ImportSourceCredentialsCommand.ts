@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportSourceCredentialsCommand}.
  */
 export interface ImportSourceCredentialsCommandInput extends ImportSourceCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportSourceCredentialsCommand}.
  */
 export interface ImportSourceCredentialsCommandOutput extends ImportSourceCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Imports the source repository credentials for an CodeBuild project that has its
  *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportSourceCredentialsCommandInput - {@link ImportSourceCredentialsCommandInput}
+ * @returns {@link ImportSourceCredentialsCommandOutput}
  * @see {@link ImportSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link ImportSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -80,6 +87,9 @@ export class ImportSourceCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportSourceCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ImportSourceCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportSourceCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportSourceCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSourceCredentialsCommandOutput> {
     return deserializeAws_json1_1ImportSourceCredentialsCommand(output, context);
   }

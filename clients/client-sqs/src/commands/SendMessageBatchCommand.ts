@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendMessageBatchCommand}.
  */
 export interface SendMessageBatchCommandInput extends SendMessageBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendMessageBatchCommand}.
  */
 export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delivers up to ten messages to the specified queue. This is a batch version of <code>
  *                <a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p>
  *          <p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
@@ -65,6 +70,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param SendMessageBatchCommandInput - {@link SendMessageBatchCommandInput}
+ * @returns {@link SendMessageBatchCommandOutput}
  * @see {@link SendMessageBatchCommandInput} for command's `input` shape.
  * @see {@link SendMessageBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -106,6 +113,9 @@ export class SendMessageBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendMessageBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class SendMessageBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendMessageBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageBatchCommandOutput> {
     return deserializeAws_querySendMessageBatchCommand(output, context);
   }

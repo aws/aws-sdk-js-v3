@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackSummaryCommand}.
  */
 export interface DescribeStackSummaryCommandInput extends DescribeStackSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackSummaryCommand}.
  */
 export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the number of layers and apps in a specified stack, and the number of instances in
  *       each state, such as <code>running_setup</code> or <code>online</code>.</p>
  *          <p>
@@ -52,6 +57,8 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackSummaryCommandInput - {@link DescribeStackSummaryCommandInput}
+ * @returns {@link DescribeStackSummaryCommandOutput}
  * @see {@link DescribeStackSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSummaryCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeStackSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeStackSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStackSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackSummaryCommandOutput> {
     return deserializeAws_json1_1DescribeStackSummaryCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSpeakerCommand}.
  */
 export interface DeleteSpeakerCommandInput extends DeleteSpeakerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSpeakerCommand}.
  */
 export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified speaker from Voice ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSpeakerCommandInput - {@link DeleteSpeakerCommandInput}
+ * @returns {@link DeleteSpeakerCommandOutput}
  * @see {@link DeleteSpeakerCommandInput} for command's `input` shape.
  * @see {@link DeleteSpeakerCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteSpeakerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSpeakerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteSpeakerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSpeakerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteSpeakerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSpeakerCommandOutput> {
     return deserializeAws_json1_0DeleteSpeakerCommand(output, context);
   }

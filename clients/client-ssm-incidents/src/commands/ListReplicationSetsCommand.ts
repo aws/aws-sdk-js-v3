@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListReplicationSetsCommand}.
  */
 export interface ListReplicationSetsCommandInput extends ListReplicationSetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReplicationSetsCommand}.
  */
 export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details about the replication set configured in your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReplicationSetsCommandInput - {@link ListReplicationSetsCommandInput}
+ * @returns {@link ListReplicationSetsCommandOutput}
  * @see {@link ListReplicationSetsCommandInput} for command's `input` shape.
  * @see {@link ListReplicationSetsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListReplicationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReplicationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListReplicationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReplicationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListReplicationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReplicationSetsCommandOutput> {
     return deserializeAws_restJson1ListReplicationSetsCommand(output, context);
   }

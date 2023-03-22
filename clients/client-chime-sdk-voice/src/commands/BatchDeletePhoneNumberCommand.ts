@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeletePhoneNumberCommand}.
  */
 export interface BatchDeletePhoneNumberCommandInput extends BatchDeletePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeletePhoneNumberCommand}.
  */
 export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNumberResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeletePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeletePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeletePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeletePhoneNumberCommandOutput> {
     return deserializeAws_restJson1BatchDeletePhoneNumberCommand(output, context);
   }

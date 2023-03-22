@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReceiptFilterCommand}.
  */
 export interface CreateReceiptFilterCommandInput extends CreateReceiptFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReceiptFilterCommand}.
  */
 export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new IP address filter.</p>
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -48,6 +53,8 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReceiptFilterCommandInput - {@link CreateReceiptFilterCommandInput}
+ * @returns {@link CreateReceiptFilterCommandOutput}
  * @see {@link CreateReceiptFilterCommandInput} for command's `input` shape.
  * @see {@link CreateReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateReceiptFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReceiptFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateReceiptFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReceiptFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateReceiptFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReceiptFilterCommandOutput> {
     return deserializeAws_queryCreateReceiptFilterCommand(output, context);
   }

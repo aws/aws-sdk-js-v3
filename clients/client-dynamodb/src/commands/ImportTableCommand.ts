@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ImportTableCommand}.
  */
 export interface ImportTableCommandInput extends ImportTableInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportTableCommand}.
  */
 export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Imports table data from an S3 bucket. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportTableCommandInput - {@link ImportTableCommandInput}
+ * @returns {@link ImportTableCommandOutput}
  * @see {@link ImportTableCommandInput} for command's `input` shape.
  * @see {@link ImportTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -94,6 +101,9 @@ export class ImportTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ImportTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ImportTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportTableCommandOutput> {
     return deserializeAws_json1_0ImportTableCommand(output, context);
   }

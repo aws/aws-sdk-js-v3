@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptMatchCommand}.
  */
 export interface AcceptMatchCommandInput extends AcceptMatchInput {}
 /**
+ * @public
+ *
  * The output of {@link AcceptMatchCommand}.
  */
 export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
  *             matchmaking configuration may require player acceptance; if so, then matches built with
  *             that configuration cannot be completed unless all players accept the proposed match
@@ -74,6 +79,8 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptMatchCommandInput - {@link AcceptMatchCommandInput}
+ * @returns {@link AcceptMatchCommandOutput}
  * @see {@link AcceptMatchCommandInput} for command's `input` shape.
  * @see {@link AcceptMatchCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -111,6 +118,9 @@ export class AcceptMatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptMatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class AcceptMatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptMatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptMatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptMatchCommandOutput> {
     return deserializeAws_json1_1AcceptMatchCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateElasticIpCommand}.
  */
 export interface AssociateElasticIpCommandInput extends AssociateElasticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateElasticIpCommand}.
  */
 export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one of the stack's registered Elastic IP addresses with a specified instance. The
  *       address must first be registered with the stack by calling <a>RegisterElasticIp</a>. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
@@ -49,6 +54,8 @@ export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateElasticIpCommandInput - {@link AssociateElasticIpCommandInput}
+ * @returns {@link AssociateElasticIpCommandOutput}
  * @see {@link AssociateElasticIpCommandInput} for command's `input` shape.
  * @see {@link AssociateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +85,9 @@ export class AssociateElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class AssociateElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateElasticIpCommandOutput> {
     return deserializeAws_json1_1AssociateElasticIpCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBlockPublicAccessConfigurationCommand}.
  */
 export interface PutBlockPublicAccessConfigurationCommandInput extends PutBlockPublicAccessConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBlockPublicAccessConfigurationCommand}.
  */
 export interface PutBlockPublicAccessConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an Amazon EMR block public access configuration for your
  *             Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
  *             Public Access for Amazon EMR</a> in the <i>Amazon EMR
@@ -51,6 +56,8 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBlockPublicAccessConfigurationCommandInput - {@link PutBlockPublicAccessConfigurationCommandInput}
+ * @returns {@link PutBlockPublicAccessConfigurationCommandOutput}
  * @see {@link PutBlockPublicAccessConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBlockPublicAccessConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBlockPublicAccessConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     return serializeAws_json1_1PutBlockPublicAccessConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

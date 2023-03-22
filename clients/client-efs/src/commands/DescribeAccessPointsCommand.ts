@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccessPointsCommand}.
  */
 export interface DescribeAccessPointsCommandInput extends DescribeAccessPointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccessPointsCommand}.
  */
 export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.
  *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
  *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
@@ -49,6 +54,8 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccessPointsCommandInput - {@link DescribeAccessPointsCommandInput}
+ * @returns {@link DescribeAccessPointsCommandOutput}
  * @see {@link DescribeAccessPointsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAccessPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccessPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAccessPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccessPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAccessPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessPointsCommandOutput> {
     return deserializeAws_restJson1DescribeAccessPointsCommand(output, context);
   }

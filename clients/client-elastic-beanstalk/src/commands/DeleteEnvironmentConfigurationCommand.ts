@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEnvironmentConfigurationCommand}.
  */
 export interface DeleteEnvironmentConfigurationCommandInput extends DeleteEnvironmentConfigurationMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEnvironmentConfigurationCommand}.
  */
 export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the draft configuration associated with the running environment.</p>
  *          <p>Updating a running environment with any configuration changes creates a draft
  *       configuration set. You can get the draft configuration using <a>DescribeConfigurationSettings</a> while the update is in progress or if the update
@@ -49,6 +54,8 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentConfigurationCommandInput - {@link DeleteEnvironmentConfigurationCommandInput}
+ * @returns {@link DeleteEnvironmentConfigurationCommandOutput}
  * @see {@link DeleteEnvironmentConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEnvironmentConfigurationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     return serializeAws_queryDeleteEnvironmentConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

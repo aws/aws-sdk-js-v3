@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFilterCommand}.
  */
 export interface DeleteFilterCommandInput extends DeleteFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFilterCommand}.
  */
 export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a filter resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFilterCommandInput - {@link DeleteFilterCommandInput}
+ * @returns {@link DeleteFilterCommandOutput}
  * @see {@link DeleteFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFilterCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFilterCommandOutput> {
     return deserializeAws_restJson1DeleteFilterCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrustCommand}.
  */
 export interface DeleteTrustCommandInput extends DeleteTrustRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrustCommand}.
  */
 export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing trust relationship between your Managed Microsoft AD directory and an external
  *       domain.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrustCommandInput - {@link DeleteTrustCommandInput}
+ * @returns {@link DeleteTrustCommandOutput}
  * @see {@link DeleteTrustCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteTrustCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrustCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteTrustCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTrustCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustCommandOutput> {
     return deserializeAws_json1_1DeleteTrustCommand(output, context);
   }

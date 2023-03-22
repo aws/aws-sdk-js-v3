@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishSchemaCommand}.
  */
 export interface PublishSchemaCommandInput extends PublishSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishSchemaCommand}.
  */
 export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes a development schema with a major version and a recommended minor version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishSchemaCommandInput - {@link PublishSchemaCommandInput}
+ * @returns {@link PublishSchemaCommandOutput}
  * @see {@link PublishSchemaCommandInput} for command's `input` shape.
  * @see {@link PublishSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +101,9 @@ export class PublishSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class PublishSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishSchemaCommandOutput> {
     return deserializeAws_restJson1PublishSchemaCommand(output, context);
   }

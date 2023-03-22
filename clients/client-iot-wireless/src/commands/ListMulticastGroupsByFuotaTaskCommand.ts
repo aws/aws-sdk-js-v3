@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMulticastGroupsByFuotaTaskCommand}.
  */
 export interface ListMulticastGroupsByFuotaTaskCommandInput extends ListMulticastGroupsByFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMulticastGroupsByFuotaTaskCommand}.
  */
 export interface ListMulticastGroupsByFuotaTaskCommandOutput
@@ -37,6 +41,7 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all multicast groups associated with a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMulticastGroupsByFuotaTaskCommandInput - {@link ListMulticastGroupsByFuotaTaskCommandInput}
+ * @returns {@link ListMulticastGroupsByFuotaTaskCommandOutput}
  * @see {@link ListMulticastGroupsByFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link ListMulticastGroupsByFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMulticastGroupsByFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListMulticastGroupsByFuotaTaskCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command<
     return serializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

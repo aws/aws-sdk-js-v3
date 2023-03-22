@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MediaPackageServiceException as __BaseException } from "./MediaPackageServiceException";
 
+/**
+ * @public
+ */
 export enum __AdTriggersElement {
   BREAK = "BREAK",
   DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT",
@@ -14,11 +17,15 @@ export enum __AdTriggersElement {
   SPLICE_INSERT = "SPLICE_INSERT",
 }
 
+/**
+ * @public
+ */
 export enum __PeriodTriggersElement {
   ADS = "ADS",
 }
 
 /**
+ * @public
  * Configure egress access logging.
  */
 export interface EgressAccessLogs {
@@ -29,6 +36,7 @@ export interface EgressAccessLogs {
 }
 
 /**
+ * @public
  * An endpoint for ingesting source content for a Channel.
  */
 export interface IngestEndpoint {
@@ -54,6 +62,7 @@ export interface IngestEndpoint {
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) ingest resource configuration.
  */
 export interface HlsIngest {
@@ -64,6 +73,7 @@ export interface HlsIngest {
 }
 
 /**
+ * @public
  * Configure ingress access logging.
  */
 export interface IngressAccessLogs {
@@ -74,6 +84,7 @@ export interface IngressAccessLogs {
 }
 
 /**
+ * @public
  * A Channel resource configuration.
  */
 export interface Channel {
@@ -119,6 +130,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * Configuration parameters for where in an S3 bucket to place the harvested content
  */
 export interface S3Destination {
@@ -138,6 +150,9 @@ export interface S3Destination {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -145,6 +160,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * A HarvestJob resource configuration
  */
 export interface HarvestJob {
@@ -198,6 +214,9 @@ export interface HarvestJob {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export enum AdMarkers {
   DATERANGE = "DATERANGE",
   NONE = "NONE",
@@ -205,6 +224,9 @@ export enum AdMarkers {
   SCTE35_ENHANCED = "SCTE35_ENHANCED",
 }
 
+/**
+ * @public
+ */
 export enum AdsOnDeliveryRestrictions {
   BOTH = "BOTH",
   NONE = "NONE",
@@ -212,6 +234,9 @@ export enum AdsOnDeliveryRestrictions {
   UNRESTRICTED = "UNRESTRICTED",
 }
 
+/**
+ * @public
+ */
 export enum PlaylistType {
   EVENT = "EVENT",
   NONE = "NONE",
@@ -219,6 +244,7 @@ export enum PlaylistType {
 }
 
 /**
+ * @public
  * A HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifest {
@@ -301,6 +327,7 @@ export interface HlsManifest {
 }
 
 /**
+ * @public
  * A HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifestCreateOrUpdateParameters {
@@ -378,6 +405,7 @@ export interface HlsManifestCreateOrUpdateParameters {
 }
 
 /**
+ * @public
  * CDN Authorization credentials
  */
 export interface Authorization {
@@ -392,11 +420,17 @@ export interface Authorization {
   SecretsRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CmafEncryptionMethod {
   AES_CTR = "AES_CTR",
   SAMPLE_AES = "SAMPLE_AES",
 }
 
+/**
+ * @public
+ */
 export enum PresetSpeke20Audio {
   PRESET_AUDIO_1 = "PRESET-AUDIO-1",
   PRESET_AUDIO_2 = "PRESET-AUDIO-2",
@@ -405,6 +439,9 @@ export enum PresetSpeke20Audio {
   UNENCRYPTED = "UNENCRYPTED",
 }
 
+/**
+ * @public
+ */
 export enum PresetSpeke20Video {
   PRESET_VIDEO_1 = "PRESET-VIDEO-1",
   PRESET_VIDEO_2 = "PRESET-VIDEO-2",
@@ -419,6 +456,7 @@ export enum PresetSpeke20Video {
 }
 
 /**
+ * @public
  * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
  * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
  * To configure the encryption contract, specify which audio and video encryption presets to use.
@@ -439,6 +477,7 @@ export interface EncryptionContractConfiguration {
 }
 
 /**
+ * @public
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
  */
 export interface SpekeKeyProvider {
@@ -482,6 +521,7 @@ export interface SpekeKeyProvider {
 }
 
 /**
+ * @public
  * A Common Media Application Format (CMAF) encryption configuration.
  */
 export interface CmafEncryption {
@@ -506,6 +546,9 @@ export interface CmafEncryption {
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StreamOrder {
   ORIGINAL = "ORIGINAL",
   VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
@@ -513,6 +556,7 @@ export enum StreamOrder {
 }
 
 /**
+ * @public
  * A StreamSelection configuration.
  */
 export interface StreamSelection {
@@ -533,6 +577,7 @@ export interface StreamSelection {
 }
 
 /**
+ * @public
  * A Common Media Application Format (CMAF) packaging configuration.
  */
 export interface CmafPackage {
@@ -564,6 +609,7 @@ export interface CmafPackage {
 }
 
 /**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
 export interface DashEncryption {
@@ -578,11 +624,17 @@ export interface DashEncryption {
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ManifestLayout {
   COMPACT = "COMPACT",
   FULL = "FULL",
 }
 
+/**
+ * @public
+ */
 export enum Profile {
   DVB_DASH_2014 = "DVB_DASH_2014",
   HBBTV_1_5 = "HBBTV_1_5",
@@ -590,12 +642,18 @@ export enum Profile {
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum SegmentTemplateFormat {
   NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
   NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
   TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE",
 }
 
+/**
+ * @public
+ */
 export enum UtcTiming {
   HTTP_HEAD = "HTTP-HEAD",
   HTTP_ISO = "HTTP-ISO",
@@ -604,6 +662,7 @@ export enum UtcTiming {
 }
 
 /**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
  */
 export interface DashPackage {
@@ -701,12 +760,16 @@ export interface DashPackage {
   UtcTimingUri?: string;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionMethod {
   AES_128 = "AES_128",
   SAMPLE_AES = "SAMPLE_AES",
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) encryption configuration.
  */
 export interface HlsEncryption {
@@ -738,6 +801,7 @@ export interface HlsEncryption {
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) packaging configuration.
  */
 export interface HlsPackage {
@@ -831,6 +895,7 @@ export interface HlsPackage {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
 export interface MssEncryption {
@@ -841,6 +906,7 @@ export interface MssEncryption {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) packaging configuration.
  */
 export interface MssPackage {
@@ -865,12 +931,16 @@ export interface MssPackage {
   StreamSelection?: StreamSelection;
 }
 
+/**
+ * @public
+ */
 export enum Origination {
   ALLOW = "ALLOW",
   DENY = "DENY",
 }
 
 /**
+ * @public
  * An OriginEndpoint resource configuration.
  */
 export interface OriginEndpoint {
@@ -965,6 +1035,7 @@ export interface OriginEndpoint {
 }
 
 /**
+ * @public
  * A Common Media Application Format (CMAF) packaging configuration.
  */
 export interface CmafPackageCreateOrUpdateParameters {
@@ -996,6 +1067,7 @@ export interface CmafPackageCreateOrUpdateParameters {
 }
 
 /**
+ * @public
  * the option to configure log subscription.
  */
 export interface ConfigureLogsRequest {
@@ -1015,6 +1087,9 @@ export interface ConfigureLogsRequest {
   IngressAccessLogs?: IngressAccessLogs;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureLogsResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1058,6 +1133,7 @@ export interface ConfigureLogsResponse {
 }
 
 /**
+ * @public
  * The client is not authorized to access the requested resource.
  */
 export class ForbiddenException extends __BaseException {
@@ -1079,6 +1155,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class InternalServerErrorException extends __BaseException {
@@ -1100,6 +1177,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * The requested resource does not exist.
  */
 export class NotFoundException extends __BaseException {
@@ -1121,6 +1199,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1142,6 +1221,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * The client has exceeded their resource or throttling limits.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1163,6 +1243,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * The parameters sent in the request are not valid.
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -1184,6 +1265,7 @@ export class UnprocessableEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * A new Channel configuration.
  */
 export interface CreateChannelRequest {
@@ -1204,6 +1286,9 @@ export interface CreateChannelRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1247,6 +1332,7 @@ export interface CreateChannelResponse {
 }
 
 /**
+ * @public
  * Configuration parameters used to create a new HarvestJob.
  */
 export interface CreateHarvestJobRequest {
@@ -1278,6 +1364,9 @@ export interface CreateHarvestJobRequest {
   StartTime: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateHarvestJobResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
@@ -1330,6 +1419,7 @@ export interface CreateHarvestJobResponse {
 }
 
 /**
+ * @public
  * Configuration parameters used to create a new OriginEndpoint.
  */
 export interface CreateOriginEndpointRequest {
@@ -1410,6 +1500,9 @@ export interface CreateOriginEndpointRequest {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateOriginEndpointResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -1501,6 +1594,9 @@ export interface CreateOriginEndpointResponse {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * The ID of the Channel to delete.
@@ -1508,8 +1604,14 @@ export interface DeleteChannelRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteOriginEndpointRequest {
   /**
    * The ID of the OriginEndpoint to delete.
@@ -1517,8 +1619,14 @@ export interface DeleteOriginEndpointRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOriginEndpointResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeChannelRequest {
   /**
    * The ID of a Channel.
@@ -1526,6 +1634,9 @@ export interface DescribeChannelRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1568,6 +1679,9 @@ export interface DescribeChannelResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHarvestJobRequest {
   /**
    * The ID of the HarvestJob.
@@ -1575,6 +1689,9 @@ export interface DescribeHarvestJobRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHarvestJobResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
@@ -1626,6 +1743,9 @@ export interface DescribeHarvestJobResponse {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOriginEndpointRequest {
   /**
    * The ID of the OriginEndpoint.
@@ -1633,6 +1753,9 @@ export interface DescribeOriginEndpointRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOriginEndpointResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -1724,6 +1847,9 @@ export interface DescribeOriginEndpointResponse {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1736,6 +1862,9 @@ export interface ListChannelsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsResponse {
   /**
    * A list of Channel records.
@@ -1748,6 +1877,9 @@ export interface ListChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHarvestJobsRequest {
   /**
    * When specified, the request will return only HarvestJobs associated with the given Channel ID.
@@ -1770,6 +1902,9 @@ export interface ListHarvestJobsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHarvestJobsResponse {
   /**
    * A list of HarvestJob records.
@@ -1782,6 +1917,9 @@ export interface ListHarvestJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOriginEndpointsRequest {
   /**
    * When specified, the request will return only OriginEndpoints associated with the given Channel ID.
@@ -1799,6 +1937,9 @@ export interface ListOriginEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOriginEndpointsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1811,14 +1952,23 @@ export interface ListOriginEndpointsResponse {
   OriginEndpoints?: OriginEndpoint[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RotateChannelCredentialsRequest {
   /**
    * The ID of the channel to update.
@@ -1826,6 +1976,9 @@ export interface RotateChannelCredentialsRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RotateChannelCredentialsResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1868,6 +2021,9 @@ export interface RotateChannelCredentialsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RotateIngestEndpointCredentialsRequest {
   /**
    * The ID of the channel the IngestEndpoint is on.
@@ -1880,6 +2036,9 @@ export interface RotateIngestEndpointCredentialsRequest {
   IngestEndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RotateIngestEndpointCredentialsResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1922,11 +2081,17 @@ export interface RotateIngestEndpointCredentialsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   ResourceArn: string | undefined;
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   ResourceArn: string | undefined;
   /**
@@ -1936,6 +2101,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * Configuration parameters used to update the Channel.
  */
 export interface UpdateChannelRequest {
@@ -1950,6 +2116,9 @@ export interface UpdateChannelRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1993,6 +2162,7 @@ export interface UpdateChannelResponse {
 }
 
 /**
+ * @public
  * Configuration parameters used to update an existing OriginEndpoint.
  */
 export interface UpdateOriginEndpointRequest {
@@ -2061,6 +2231,9 @@ export interface UpdateOriginEndpointRequest {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateOriginEndpointResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.

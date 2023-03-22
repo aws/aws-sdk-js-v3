@@ -73,18 +73,27 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteReportDefinitionCommandInput
   | DescribeReportDefinitionsCommandInput
   | ModifyReportDefinitionCommandInput
   | PutReportDefinitionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteReportDefinitionCommandOutput
   | DescribeReportDefinitionsCommandOutput
   | ModifyReportDefinitionCommandOutput
   | PutReportDefinitionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -92,7 +101,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -201,11 +210,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CostAndUsageReportServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -216,10 +228,15 @@ type CostAndUsageReportServiceClientConfigType = Partial<__SmithyConfiguration<_
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CostAndUsageReportServiceClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CostAndUsageReportServiceClient class constructor that set the region, credentials and other options.
  */
 export interface CostAndUsageReportServiceClientConfig extends CostAndUsageReportServiceClientConfigType {}
 
+/**
+ * @public
+ */
 type CostAndUsageReportServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -230,12 +247,15 @@ type CostAndUsageReportServiceClientResolvedConfigType = __SmithyResolvedConfigu
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CostAndUsageReportServiceClient class. This is resolved and normalized from the {@link CostAndUsageReportServiceClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CostAndUsageReportServiceClient class. This is resolved and normalized from the {@link CostAndUsageReportServiceClientConfig | constructor configuration interface}.
  */
 export interface CostAndUsageReportServiceClientResolvedConfig
   extends CostAndUsageReportServiceClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
  *         AWS Cost and Usage report definitions.</p>
  *          <p>AWS Cost and Usage reports track the monthly AWS costs and usage

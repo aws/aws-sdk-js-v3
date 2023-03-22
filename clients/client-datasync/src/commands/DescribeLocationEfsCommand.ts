@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationEfsCommand}.
  */
 export interface DescribeLocationEfsCommandInput extends DescribeLocationEfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationEfsCommand}.
  */
 export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about your DataSync location for an Amazon EFS file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationEfsCommandInput - {@link DescribeLocationEfsCommandInput}
+ * @returns {@link DescribeLocationEfsCommandOutput}
  * @see {@link DescribeLocationEfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationEfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeLocationEfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationEfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeLocationEfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationEfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationEfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationEfsCommandOutput> {
     return deserializeAws_json1_1DescribeLocationEfsCommand(output, context);
   }

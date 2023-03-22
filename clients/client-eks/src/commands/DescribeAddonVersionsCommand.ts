@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddonVersionsCommand}.
  */
 export interface DescribeAddonVersionsCommandInput extends DescribeAddonVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddonVersionsCommand}.
  */
 export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the versions for an add-on. Information such as the Kubernetes versions that you
  *             can use the add-on with, the <code>owner</code>, <code>publisher</code>, and the
  *                 <code>type</code> of the add-on are returned. </p>
@@ -48,6 +53,8 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddonVersionsCommandInput - {@link DescribeAddonVersionsCommandInput}
+ * @returns {@link DescribeAddonVersionsCommandOutput}
  * @see {@link DescribeAddonVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAddonVersionsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeAddonVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddonVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeAddonVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddonVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAddonVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddonVersionsCommandOutput> {
     return deserializeAws_restJson1DescribeAddonVersionsCommand(output, context);
   }

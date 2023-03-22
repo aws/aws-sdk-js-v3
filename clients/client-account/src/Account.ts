@@ -45,10 +45,12 @@ import {
 } from "./commands/PutContactInformationCommand";
 
 /**
+ * @public
  * <p>Operations for Amazon Web Services Account Management</p>
  */
 export class Account extends AccountClient {
   /**
+   * @public
    * <p>Deletes the specified alternate contact from an Amazon Web Services account.</p>
    *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
    *                 updating the alternate contacts</a>.</p>
@@ -89,6 +91,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Disables (opts-out) a particular Region for an account.</p>
    */
   public disableRegion(
@@ -121,6 +124,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Enables (opts-in) a particular Region for an account.</p>
    */
   public enableRegion(
@@ -150,6 +154,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p>
    *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
    *                 updating the alternate contacts</a>.</p>
@@ -190,6 +195,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the primary contact information of an Amazon Web Services account.</p>
    *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
    *                 the primary and alternate contact information</a>.</p>
@@ -224,6 +230,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the opt-in status of a particular Region.</p>
    */
   public getRegionOptStatus(
@@ -256,6 +263,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Lists all the Regions for a given account and their respective opt-in statuses.
    *             Optionally, this list can be filtered by the <code>region-opt-status-contains</code>
    *             parameter. </p>
@@ -284,6 +292,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p>
    *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
    *                 updating the alternate contacts</a>.</p>
@@ -324,6 +333,7 @@ export class Account extends AccountClient {
   }
 
   /**
+   * @public
    * <p>Updates the primary contact information of an Amazon Web Services account.</p>
    *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
    *             the primary and alternate contact information</a>.</p>

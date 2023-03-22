@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDefaultPatchBaselineCommand}.
  */
 export interface RegisterDefaultPatchBaselineCommandInput extends RegisterDefaultPatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDefaultPatchBaselineCommand}.
  */
 export interface RegisterDefaultPatchBaselineCommandOutput
@@ -37,6 +41,7 @@ export interface RegisterDefaultPatchBaselineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the default patch baseline for the relevant operating system.</p>
  *          <p>To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline
  *    Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
@@ -52,6 +57,8 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDefaultPatchBaselineCommandInput - {@link RegisterDefaultPatchBaselineCommandInput}
+ * @returns {@link RegisterDefaultPatchBaselineCommandOutput}
  * @see {@link RegisterDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link RegisterDefaultPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -87,6 +94,9 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDefaultPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDefaultPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterDefaultPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

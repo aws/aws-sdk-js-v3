@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddAssociationCommand}.
  */
 export interface AddAssociationCommandInput extends AddAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddAssociationCommand}.
  */
 export interface AddAssociationCommandOutput extends AddAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <i>association</i> between the source and the destination. A
  *         source can be associated with multiple destinations, and a destination can be associated
  *         with multiple sources. An association is a lineage tracking entity. For more information, see
@@ -50,6 +55,8 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param AddAssociationCommandInput - {@link AddAssociationCommandInput}
+ * @returns {@link AddAssociationCommandOutput}
  * @see {@link AddAssociationCommandInput} for command's `input` shape.
  * @see {@link AddAssociationCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class AddAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AddAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAssociationCommandOutput> {
     return deserializeAws_json1_1AddAssociationCommand(output, context);
   }

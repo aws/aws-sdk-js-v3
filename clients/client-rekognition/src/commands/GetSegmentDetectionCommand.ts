@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSegmentDetectionCommand}.
  */
 export interface GetSegmentDetectionCommandInput extends GetSegmentDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSegmentDetectionCommand}.
  */
 export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p>
  *          <p>Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by
  *       calling <a>StartSegmentDetection</a> which returns a job identifier (<code>JobId</code>).
@@ -67,6 +72,8 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentDetectionCommandInput - {@link GetSegmentDetectionCommandInput}
+ * @returns {@link GetSegmentDetectionCommandOutput}
  * @see {@link GetSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link GetSegmentDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -113,6 +120,9 @@ export class GetSegmentDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class GetSegmentDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSegmentDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentDetectionCommandOutput> {
     return deserializeAws_json1_1GetSegmentDetectionCommand(output, context);
   }

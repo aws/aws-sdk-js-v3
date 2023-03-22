@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHarvestJobCommand}.
  */
 export interface CreateHarvestJobCommandInput extends CreateHarvestJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHarvestJobCommand}.
  */
 export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a new HarvestJob record.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHarvestJobCommandInput - {@link CreateHarvestJobCommandInput}
+ * @returns {@link CreateHarvestJobCommandOutput}
  * @see {@link CreateHarvestJobCommandInput} for command's `input` shape.
  * @see {@link CreateHarvestJobCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateHarvestJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHarvestJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateHarvestJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHarvestJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateHarvestJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHarvestJobCommandOutput> {
     return deserializeAws_restJson1CreateHarvestJobCommand(output, context);
   }

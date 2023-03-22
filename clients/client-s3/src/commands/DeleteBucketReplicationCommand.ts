@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketReplicationCommand}.
  */
 export interface DeleteBucketReplicationCommandInput extends DeleteBucketReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketReplicationCommand}.
  */
 export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes the replication configuration from the bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutReplicationConfiguration</code> action. The bucket owner has these
@@ -64,6 +69,8 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketReplicationCommandInput - {@link DeleteBucketReplicationCommandInput}
+ * @returns {@link DeleteBucketReplicationCommandOutput}
  * @see {@link DeleteBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -104,6 +111,9 @@ export class DeleteBucketReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteBucketReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketReplicationCommandOutput> {
     return deserializeAws_restXmlDeleteBucketReplicationCommand(output, context);
   }

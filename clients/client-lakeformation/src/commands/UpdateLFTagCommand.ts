@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLFTagCommand}.
  */
 export interface UpdateLFTagCommandInput extends UpdateLFTagRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLFTagCommand}.
  */
 export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the list of possible values for the specified LF-tag key. If the LF-tag does not exist, the operation throws an EntityNotFoundException. The values in the delete key values will be deleted from list of possible values. If any value in the delete key values is attached to a resource, then API errors out with a 400 Exception - "Update not allowed". Untag the attribute before deleting the LF-tag key's value. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLFTagCommandInput - {@link UpdateLFTagCommandInput}
+ * @returns {@link UpdateLFTagCommandOutput}
  * @see {@link UpdateLFTagCommandInput} for command's `input` shape.
  * @see {@link UpdateLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateLFTagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLFTagCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateLFTagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLFTagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLFTagCommandOutput> {
     return deserializeAws_restJson1UpdateLFTagCommand(output, context);
   }

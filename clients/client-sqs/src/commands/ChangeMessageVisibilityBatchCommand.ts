@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ChangeMessageVisibilityBatchCommand}.
  */
 export interface ChangeMessageVisibilityBatchCommandInput extends ChangeMessageVisibilityBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangeMessageVisibilityBatchCommand}.
  */
 export interface ChangeMessageVisibilityBatchCommandOutput
@@ -37,6 +41,7 @@ export interface ChangeMessageVisibilityBatchCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the visibility timeout of multiple messages. This is a batch version of <code>
  *                <a>ChangeMessageVisibility</a>.</code> The result of the action on each message is reported individually in the response.
  *           You can send up to 10 <code>
@@ -62,6 +67,8 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeMessageVisibilityBatchCommandInput - {@link ChangeMessageVisibilityBatchCommandInput}
+ * @returns {@link ChangeMessageVisibilityBatchCommandOutput}
  * @see {@link ChangeMessageVisibilityBatchCommandInput} for command's `input` shape.
  * @see {@link ChangeMessageVisibilityBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -97,6 +104,9 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeMessageVisibilityBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeMessageVisibilityBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryChangeMessageVisibilityBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

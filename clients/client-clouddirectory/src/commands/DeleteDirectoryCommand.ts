@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme
  *         caution
  *         when deleting directories.</p>
@@ -48,6 +53,8 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
+ * @returns {@link DeleteDirectoryCommandOutput}
  * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDirectoryCommandOutput> {
     return deserializeAws_restJson1DeleteDirectoryCommand(output, context);
   }

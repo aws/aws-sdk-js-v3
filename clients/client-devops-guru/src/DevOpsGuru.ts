@@ -151,6 +151,7 @@ import {
 import { DevOpsGuruClient } from "./DevOpsGuruClient";
 
 /**
+ * @public
  * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in
  * 			business critical operational applications. You specify the Amazon Web Services resources that you
  * 			want DevOps Guru to cover, then the Amazon CloudWatch metrics and Amazon Web Services CloudTrail events related to those
@@ -166,6 +167,7 @@ import { DevOpsGuruClient } from "./DevOpsGuruClient";
  */
 export class DevOpsGuru extends DevOpsGuruClient {
   /**
+   * @public
    * <p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you
    * 			about important DevOps Guru events, such as when an insight is generated. </p>
    *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
@@ -207,6 +209,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Deletes the insight along with the associated anomalies, events and recommendations.</p>
    */
   public deleteInsight(
@@ -239,6 +242,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns the number of open reactive insights, the number of open proactive insights,
    * 			and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the
    * 			health of operations in your Amazon Web Services account. </p>
@@ -273,6 +277,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> For the time range passed in, returns the number of open reactive insight that were
    * 			created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all
    * 			closed reactive insights. </p>
@@ -307,6 +312,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns details about an anomaly that you specify using its ID. </p>
    */
   public describeAnomaly(
@@ -339,6 +345,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Returns the integration status of services that are integrated with DevOps Guru as Consumer
    * 			via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru
    * 			Profiler, which can produce proactive recommendations which can be stored and viewed in
@@ -374,6 +381,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns the most recent feedback submitted in the current Amazon Web Services account and Region.
    * 		</p>
    */
@@ -407,6 +415,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns details about an insight that you specify using its ID. </p>
    */
   public describeInsight(
@@ -439,6 +448,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Returns active insights, predictive insights, and resource hours analyzed in last
    * 			hour.</p>
    */
@@ -472,6 +482,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Returns an overview of your organization's history based on the specified time range.
    * 			The overview includes the total reactive and proactive insights.</p>
    */
@@ -505,6 +516,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Provides an overview of your system's health. If additional member accounts are part
    * 			of your organization, you can filter those accounts using the <code>AccountIds</code>
    * 			field.</p>
@@ -541,6 +553,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)
    * 			for all closed insights in resource collections in your account. You specify the type of
    * 			Amazon Web Services resources collection. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
@@ -577,6 +590,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns the integration status of services that are integrated with DevOps Guru.
    * 			The one service that can be integrated with DevOps Guru
    *       	is Amazon Web Services Systems Manager, which can be used to create an OpsItem for each generated insight. </p>
@@ -611,6 +625,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web Services resources.
    * 			For more information,
    * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -647,6 +662,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns lists Amazon Web Services resources that are of the specified resource collection type.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -682,6 +698,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of the anomalies that belong to an insight that you specify using its
    * 			ID. </p>
    */
@@ -715,6 +732,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>
    * 			Returns the list of log groups that contain log anomalies.
    * 		</p>
@@ -749,6 +767,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of the events emitted by the resources that are evaluated by DevOps Guru.
    * 			You can use filters to specify which events are returned. </p>
    */
@@ -776,6 +795,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
    * 			returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>, or
    * 				<code>ANY</code>). </p>
@@ -807,6 +827,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>
    * 			Returns the list of all log groups that are being monitored and tagged by DevOps Guru.
    * 		</p>
@@ -841,6 +862,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of notification channels configured for DevOps Guru. Each notification
    * 			channel is used to notify you when DevOps Guru generates an insight that contains information
    * 			about how to improve your operations. The one
@@ -876,6 +898,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of insights associated with the account or OU Id.</p>
    */
   public listOrganizationInsights(
@@ -908,6 +931,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of a specified insight's recommendations. Each recommendation includes
    * 			a list of related metrics and a list of related events. </p>
    */
@@ -941,6 +965,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Collects customer feedback about the specified insight. </p>
    */
   public putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
@@ -967,6 +992,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Removes a notification channel from DevOps Guru. A notification channel is used to notify
    * 			you when DevOps Guru generates an insight that contains information about how to improve your
    * 			operations. </p>
@@ -1001,6 +1027,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
    * 			returned by their start time, one or more statuses (<code>ONGOING</code> or <code>CLOSED</code>), one or more severities
    * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
@@ -1039,6 +1066,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of insights in your organization. You can specify which insights are
    * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
    * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
@@ -1078,6 +1106,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Starts the creation of an estimate of the monthly cost to analyze your Amazon Web Services
    * 			resources.</p>
    */
@@ -1111,6 +1140,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p>Enables or disables integration with a service that can be integrated with DevOps Guru. The
    * 			one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which
    * 			can produce proactive recommendations which can be stored and viewed in DevOps Guru.</p>
@@ -1145,6 +1175,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Updates the collection of resources that DevOps Guru analyzes.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -1181,6 +1212,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * @public
    * <p> Enables or disables integration with a service that can be integrated with DevOps Guru. The
    * 			one service that can be integrated with DevOps Guru is Amazon Web Services Systems Manager, which can be used to create
    * 			an OpsItem for each generated insight. </p>

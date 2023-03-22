@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricStreamsCommand}.
  */
 export interface ListMetricStreamsCommandInput extends ListMetricStreamsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricStreamsCommand}.
  */
 export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of metric streams in this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricStreamsCommandInput - {@link ListMetricStreamsCommandInput}
+ * @returns {@link ListMetricStreamsCommandOutput}
  * @see {@link ListMetricStreamsCommandInput} for command's `input` shape.
  * @see {@link ListMetricStreamsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListMetricStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListMetricStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListMetricStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricStreamsCommandOutput> {
     return deserializeAws_queryListMetricStreamsCommand(output, context);
   }

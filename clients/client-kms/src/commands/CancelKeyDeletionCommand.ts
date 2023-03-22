@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelKeyDeletionCommand}.
  */
 export interface CancelKeyDeletionCommandInput extends CancelKeyDeletionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelKeyDeletionCommand}.
  */
 export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the deletion of a KMS key. When this operation succeeds, the key state of the KMS
  *       key is <code>Disabled</code>. To enable the KMS key, use <a>EnableKey</a>. </p>
  *          <p>For more information about scheduling and canceling deletion of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the
@@ -58,6 +63,8 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelKeyDeletionCommandInput - {@link CancelKeyDeletionCommandInput}
+ * @returns {@link CancelKeyDeletionCommandOutput}
  * @see {@link CancelKeyDeletionCommandInput} for command's `input` shape.
  * @see {@link CancelKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -131,6 +138,9 @@ export class CancelKeyDeletionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelKeyDeletionCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class CancelKeyDeletionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelKeyDeletionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelKeyDeletionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelKeyDeletionCommandOutput> {
     return deserializeAws_json1_1CancelKeyDeletionCommand(output, context);
   }

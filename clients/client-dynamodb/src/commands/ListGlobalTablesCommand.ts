@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListGlobalTablesCommand}.
  */
 export interface ListGlobalTablesCommandInput extends ListGlobalTablesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGlobalTablesCommand}.
  */
 export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all global tables that have a replica in the specified Region.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -58,6 +63,8 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGlobalTablesCommandInput - {@link ListGlobalTablesCommandInput}
+ * @returns {@link ListGlobalTablesCommandOutput}
  * @see {@link ListGlobalTablesCommandInput} for command's `input` shape.
  * @see {@link ListGlobalTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListGlobalTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGlobalTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListGlobalTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGlobalTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListGlobalTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGlobalTablesCommandOutput> {
     return deserializeAws_json1_0ListGlobalTablesCommand(output, context);
   }

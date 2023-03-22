@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomRoutingAcceleratorCommand}.
  */
 export interface UpdateCustomRoutingAcceleratorCommandInput extends UpdateCustomRoutingAcceleratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomRoutingAcceleratorCommand}.
  */
 export interface UpdateCustomRoutingAcceleratorCommandOutput
@@ -41,6 +45,7 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomRoutingAcceleratorCommandInput - {@link UpdateCustomRoutingAcceleratorCommandInput}
+ * @returns {@link UpdateCustomRoutingAcceleratorCommandOutput}
  * @see {@link UpdateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomRoutingAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command<
     return serializeAws_json1_1UpdateCustomRoutingAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

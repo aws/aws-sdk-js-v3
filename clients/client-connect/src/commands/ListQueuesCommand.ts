@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandInput extends ListQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
  *          <p>If you do not specify a <code>QueueTypes</code>
  *    parameter, both standard and agent queues are returned. This might cause an unexpected truncation
@@ -52,6 +57,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
+ * @returns {@link ListQueuesCommandOutput}
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuesCommandOutput> {
     return deserializeAws_restJson1ListQueuesCommand(output, context);
   }

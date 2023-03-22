@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainNameCommand}.
  */
 export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainNameCommand}.
  */
 export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes information about the DomainName resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainNameCommandInput - {@link UpdateDomainNameCommandInput}
+ * @returns {@link UpdateDomainNameCommandOutput}
  * @see {@link UpdateDomainNameCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameCommandOutput> {
     return deserializeAws_restJson1UpdateDomainNameCommand(output, context);
   }

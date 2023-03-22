@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCanaryCommand}.
  */
 export interface CreateCanaryCommandInput extends CreateCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCanaryCommand}.
  */
 export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a canary. Canaries are scripts that monitor your endpoints and APIs from the
  *          outside-in. Canaries help you check the availability and latency of your web services and
  *          troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and
@@ -59,6 +64,8 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCanaryCommandInput - {@link CreateCanaryCommandInput}
+ * @returns {@link CreateCanaryCommandOutput}
  * @see {@link CreateCanaryCommandInput} for command's `input` shape.
  * @see {@link CreateCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCanaryCommandOutput> {
     return deserializeAws_restJson1CreateCanaryCommand(output, context);
   }

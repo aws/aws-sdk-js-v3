@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCasesForContactCommand}.
  */
 export interface ListCasesForContactCommandInput extends ListCasesForContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCasesForContactCommand}.
  */
 export interface ListCasesForContactCommandOutput extends ListCasesForContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists cases for a given contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCasesForContactCommandOutput extends ListCasesForContactRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCasesForContactCommandInput - {@link ListCasesForContactCommandInput}
+ * @returns {@link ListCasesForContactCommandOutput}
  * @see {@link ListCasesForContactCommandInput} for command's `input` shape.
  * @see {@link ListCasesForContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListCasesForContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCasesForContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListCasesForContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCasesForContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCasesForContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCasesForContactCommandOutput> {
     return deserializeAws_restJson1ListCasesForContactCommand(output, context);
   }

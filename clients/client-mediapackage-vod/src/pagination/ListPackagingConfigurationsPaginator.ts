@@ -10,7 +10,7 @@ import { MediaPackageVodClient } from "../MediaPackageVodClient";
 import { MediaPackageVodPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaPackageVodClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPackagingConfigurationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPackagingConfigurations(
   config: MediaPackageVodPaginationConfiguration,
   input: ListPackagingConfigurationsCommandInput,

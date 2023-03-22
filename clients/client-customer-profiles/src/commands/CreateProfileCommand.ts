@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProfileCommand}.
  */
 export interface CreateProfileCommandInput extends CreateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProfileCommand}.
  */
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a standard profile.</p>
  *          <p>A standard profile represents the following attributes for a customer profile in a
  *          domain.</p>
@@ -48,6 +53,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
+ * @returns {@link CreateProfileCommandOutput}
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileCommandOutput> {
     return deserializeAws_restJson1CreateProfileCommand(output, context);
   }

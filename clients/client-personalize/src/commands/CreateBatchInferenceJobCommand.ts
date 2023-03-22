@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchInferenceJobCommand}.
  */
 export interface CreateBatchInferenceJobCommandInput extends CreateBatchInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchInferenceJobCommand}.
  */
 export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
  *       input file must be in JSON format. For more information, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating a batch inference job</a>.
@@ -49,6 +54,8 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchInferenceJobCommandInput - {@link CreateBatchInferenceJobCommandInput}
+ * @returns {@link CreateBatchInferenceJobCommandOutput}
  * @see {@link CreateBatchInferenceJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateBatchInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateBatchInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBatchInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchInferenceJobCommandOutput> {
     return deserializeAws_json1_1CreateBatchInferenceJobCommand(output, context);
   }

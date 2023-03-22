@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectCertificateTransferCommand}.
  */
 export interface RejectCertificateTransferCommandInput extends RejectCertificateTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectCertificateTransferCommand}.
  */
 export interface RejectCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a pending certificate transfer. After IoT rejects a certificate transfer,
  *          the certificate status changes from <b>PENDING_TRANSFER</b> to
  *             <b>INACTIVE</b>.</p>
@@ -51,6 +56,8 @@ export interface RejectCertificateTransferCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectCertificateTransferCommandInput - {@link RejectCertificateTransferCommandInput}
+ * @returns {@link RejectCertificateTransferCommandOutput}
  * @see {@link RejectCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link RejectCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -96,6 +103,9 @@ export class RejectCertificateTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectCertificateTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class RejectCertificateTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectCertificateTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RejectCertificateTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

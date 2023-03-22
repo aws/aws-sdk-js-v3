@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelFlowCommand}.
  */
 export interface DescribeChannelFlowCommandInput extends DescribeChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelFlowCommand}.
  */
 export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelFlowCommandInput - {@link DescribeChannelFlowCommandInput}
+ * @returns {@link DescribeChannelFlowCommandOutput}
  * @see {@link DescribeChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelFlowCommandOutput> {
     return deserializeAws_restJson1DescribeChannelFlowCommand(output, context);
   }

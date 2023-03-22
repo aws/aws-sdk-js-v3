@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentVersionsCommand}.
  */
 export interface ListComponentVersionsCommandInput extends ListComponentVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentVersionsCommand}.
  */
 export interface ListComponentVersionsCommandOutput extends ListComponentVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentVersionsCommandInput - {@link ListComponentVersionsCommandInput}
+ * @returns {@link ListComponentVersionsCommandOutput}
  * @see {@link ListComponentVersionsCommandInput} for command's `input` shape.
  * @see {@link ListComponentVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -86,6 +93,9 @@ export class ListComponentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListComponentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListComponentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentVersionsCommandOutput> {
     return deserializeAws_restJson1ListComponentVersionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostedZoneCountCommand}.
  */
 export interface GetHostedZoneCountCommandInput extends GetHostedZoneCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostedZoneCountCommand}.
  */
 export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the number of hosted zones that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostedZoneCountCommandInput - {@link GetHostedZoneCountCommandInput}
+ * @returns {@link GetHostedZoneCountCommandOutput}
  * @see {@link GetHostedZoneCountCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetHostedZoneCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostedZoneCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetHostedZoneCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostedZoneCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHostedZoneCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostedZoneCountCommandOutput> {
     return deserializeAws_restXmlGetHostedZoneCountCommand(output, context);
   }

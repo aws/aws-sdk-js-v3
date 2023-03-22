@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMissionProfileCommand}.
  */
 export interface GetMissionProfileCommandInput extends GetMissionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMissionProfileCommand}.
  */
 export interface GetMissionProfileCommandOutput extends GetMissionProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a mission profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMissionProfileCommandInput - {@link GetMissionProfileCommandInput}
+ * @returns {@link GetMissionProfileCommandOutput}
  * @see {@link GetMissionProfileCommandInput} for command's `input` shape.
  * @see {@link GetMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetMissionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMissionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetMissionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMissionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMissionProfileCommandOutput> {
     return deserializeAws_restJson1GetMissionProfileCommand(output, context);
   }

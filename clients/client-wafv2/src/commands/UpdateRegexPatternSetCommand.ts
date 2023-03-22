@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRegexPatternSetCommand}.
  */
 export interface UpdateRegexPatternSetCommandInput extends UpdateRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRegexPatternSetCommand}.
  */
 export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified <a>RegexPatternSet</a>.</p>
  *          <note>
  *             <p>This operation completely replaces the mutable specifications that you already have for the regex pattern set with the ones that you provide to this call. </p>
@@ -63,6 +68,8 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
+ * @returns {@link UpdateRegexPatternSetCommandOutput}
  * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -135,6 +142,9 @@ export class UpdateRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class UpdateRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexPatternSetCommandOutput> {
     return deserializeAws_json1_1UpdateRegexPatternSetCommand(output, context);
   }

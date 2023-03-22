@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link CloneReceiptRuleSetCommand}.
  */
 export interface CloneReceiptRuleSetCommandInput extends CloneReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloneReceiptRuleSetCommand}.
  */
 export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
  *             configurations are copied to the new receipt rule set and are completely independent of
  *             the source rule set.</p>
@@ -51,6 +56,8 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CloneReceiptRuleSetCommandInput - {@link CloneReceiptRuleSetCommandInput}
+ * @returns {@link CloneReceiptRuleSetCommandOutput}
  * @see {@link CloneReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link CloneReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -97,6 +104,9 @@ export class CloneReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloneReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CloneReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloneReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCloneReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneReceiptRuleSetCommandOutput> {
     return deserializeAws_queryCloneReceiptRuleSetCommand(output, context);
   }

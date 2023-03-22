@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterInstancesFromLoadBalancerCommand}.
  */
 export interface DeregisterInstancesFromLoadBalancerCommandInput extends DeregisterEndPointsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterInstancesFromLoadBalancerCommand}.
  */
 export interface DeregisterInstancesFromLoadBalancerCommandOutput extends DeregisterEndPointsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p>
  *
  *         <p>You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered from the load balancer.</p>
@@ -55,6 +60,8 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterInstancesFromLoadBalancerCommandInput - {@link DeregisterInstancesFromLoadBalancerCommandInput}
+ * @returns {@link DeregisterInstancesFromLoadBalancerCommandOutput}
  * @see {@link DeregisterInstancesFromLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -112,6 +119,9 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterInstancesFromLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterInstancesFromLoadBalancerCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     return serializeAws_queryDeregisterInstancesFromLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

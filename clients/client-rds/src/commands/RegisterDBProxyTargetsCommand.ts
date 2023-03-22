@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDBProxyTargetsCommand}.
  */
 export interface RegisterDBProxyTargetsCommandInput extends RegisterDBProxyTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDBProxyTargetsCommand}.
  */
 export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDBProxyTargetsCommandInput - {@link RegisterDBProxyTargetsCommandInput}
+ * @returns {@link RegisterDBProxyTargetsCommandOutput}
  * @see {@link RegisterDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -100,6 +107,9 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDBProxyTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRegisterDBProxyTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDBProxyTargetsCommandOutput> {
     return deserializeAws_queryRegisterDBProxyTargetsCommand(output, context);
   }

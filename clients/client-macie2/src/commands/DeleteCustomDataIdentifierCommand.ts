@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomDataIdentifierCommand}.
  */
 export interface DeleteCustomDataIdentifierCommandInput extends DeleteCustomDataIdentifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomDataIdentifierCommand}.
  */
 export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Soft deletes a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomDataIdentifierCommandInput - {@link DeleteCustomDataIdentifierCommandInput}
+ * @returns {@link DeleteCustomDataIdentifierCommandOutput}
  * @see {@link DeleteCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomDataIdentifierCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomDataIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomDataIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCustomDataIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

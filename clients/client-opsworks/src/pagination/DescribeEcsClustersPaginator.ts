@@ -10,7 +10,7 @@ import { OpsWorksClient } from "../OpsWorksClient";
 import { OpsWorksPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpsWorksClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeEcsClustersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeEcsClusters(
   config: OpsWorksPaginationConfiguration,
   input: DescribeEcsClustersCommandInput,

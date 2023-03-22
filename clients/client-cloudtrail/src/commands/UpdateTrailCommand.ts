@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrailCommand}.
  */
 export interface UpdateTrailCommandInput extends UpdateTrailRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrailCommand}.
  */
 export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates trail settings that control what events you are logging, and how to handle log
  *          files. Changes to a trail do not require stopping the CloudTrail service. Use this
  *          action to designate an existing bucket for log delivery. If the existing bucket has
@@ -51,6 +56,8 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrailCommandInput - {@link UpdateTrailCommandInput}
+ * @returns {@link UpdateTrailCommandOutput}
  * @see {@link UpdateTrailCommandInput} for command's `input` shape.
  * @see {@link UpdateTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -250,6 +257,9 @@ export class UpdateTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -287,10 +297,16 @@ export class UpdateTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrailCommandOutput> {
     return deserializeAws_json1_1UpdateTrailCommand(output, context);
   }

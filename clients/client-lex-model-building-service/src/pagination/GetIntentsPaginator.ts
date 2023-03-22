@@ -6,7 +6,7 @@ import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient"
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LexModelBuildingServiceClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetIntentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetIntents(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetIntentsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInAppTemplateCommand}.
  */
 export interface DeleteInAppTemplateCommandInput extends DeleteInAppTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInAppTemplateCommand}.
  */
 export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages sent using the in-app message channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInAppTemplateCommandInput - {@link DeleteInAppTemplateCommandInput}
+ * @returns {@link DeleteInAppTemplateCommandOutput}
  * @see {@link DeleteInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteInAppTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInAppTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteInAppTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteInAppTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInAppTemplateCommandOutput> {
     return deserializeAws_restJson1DeleteInAppTemplateCommand(output, context);
   }

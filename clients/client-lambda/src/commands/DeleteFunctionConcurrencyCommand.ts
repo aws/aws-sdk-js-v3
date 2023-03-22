@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionConcurrencyCommand}.
  */
 export interface DeleteFunctionConcurrencyCommandInput extends DeleteFunctionConcurrencyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionConcurrencyCommand}.
  */
 export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a concurrent execution limit from a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionConcurrencyCommandInput - {@link DeleteFunctionConcurrencyCommandInput}
+ * @returns {@link DeleteFunctionConcurrencyCommandOutput}
  * @see {@link DeleteFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFunctionConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

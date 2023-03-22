@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachInstancesCommand}.
  */
 export interface DetachInstancesCommandInput extends DetachInstancesQuery {}
 /**
+ * @public
+ *
  * The output of {@link DetachInstancesCommand}.
  */
 export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more instances from the specified Auto Scaling group.</p>
  *          <p>After the instances are detached, you can manage them independent of the Auto Scaling
  *             group.</p>
@@ -55,6 +60,8 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachInstancesCommandInput - {@link DetachInstancesCommandInput}
+ * @returns {@link DetachInstancesCommandOutput}
  * @see {@link DetachInstancesCommandInput} for command's `input` shape.
  * @see {@link DetachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -113,6 +120,9 @@ export class DetachInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DetachInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachInstancesCommandOutput> {
     return deserializeAws_queryDetachInstancesCommand(output, context);
   }

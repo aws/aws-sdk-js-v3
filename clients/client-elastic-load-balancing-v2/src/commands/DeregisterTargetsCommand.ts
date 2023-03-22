@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTargetsCommand}.
  */
 export interface DeregisterTargetsCommandInput extends DeregisterTargetsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTargetsCommand}.
  */
 export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified targets from the specified target group. After the targets are
  *       deregistered, they no longer receive traffic from the load balancer.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
+ * @returns {@link DeregisterTargetsCommandOutput}
  * @see {@link DeregisterTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -97,6 +104,9 @@ export class DeregisterTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeregisterTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeregisterTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTargetsCommandOutput> {
     return deserializeAws_queryDeregisterTargetsCommand(output, context);
   }

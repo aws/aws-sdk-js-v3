@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInsightCommand}.
  */
 export interface DescribeInsightCommandInput extends DescribeInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInsightCommand}.
  */
 export interface DescribeInsightCommandOutput extends DescribeInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns details about an insight that you specify using its ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInsightCommandInput - {@link DescribeInsightCommandInput}
+ * @returns {@link DescribeInsightCommandOutput}
  * @see {@link DescribeInsightCommandInput} for command's `input` shape.
  * @see {@link DescribeInsightCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInsightCommandOutput> {
     return deserializeAws_restJson1DescribeInsightCommand(output, context);
   }

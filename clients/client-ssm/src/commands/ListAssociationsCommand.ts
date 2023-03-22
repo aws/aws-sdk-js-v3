@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociationsCommand}.
  */
 export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociationsCommand}.
  */
 export interface ListAssociationsCommandOutput extends ListAssociationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
  *    can limit the results to a specific State Manager association document or managed node by
  *    specifying a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
@@ -48,6 +53,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociationsCommandInput - {@link ListAssociationsCommandInput}
+ * @returns {@link ListAssociationsCommandOutput}
  * @see {@link ListAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociationsCommandOutput> {
     return deserializeAws_json1_1ListAssociationsCommand(output, context);
   }

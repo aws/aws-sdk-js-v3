@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopInstanceCommand}.
  */
 export interface StopInstanceCommandInput extends StopInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInstanceCommand}.
  */
 export interface StopInstanceCommandOutput extends StopInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specific Amazon Lightsail instance that is currently running.</p>
  *          <note>
  *             <p>When you start a stopped instance, Lightsail assigns a new public IP address to the
@@ -54,6 +59,8 @@ export interface StopInstanceCommandOutput extends StopInstanceResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInstanceCommandInput - {@link StopInstanceCommandInput}
+ * @returns {@link StopInstanceCommandOutput}
  * @see {@link StopInstanceCommandInput} for command's `input` shape.
  * @see {@link StopInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -107,6 +114,9 @@ export class StopInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class StopInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInstanceCommandOutput> {
     return deserializeAws_json1_1StopInstanceCommand(output, context);
   }

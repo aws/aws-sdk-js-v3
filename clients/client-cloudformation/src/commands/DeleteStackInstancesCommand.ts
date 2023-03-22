@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStackInstancesCommand}.
  */
 export interface DeleteStackInstancesCommandInput extends DeleteStackInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStackInstancesCommand}.
  */
 export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes stack instances for the specified accounts, in the specified Amazon Web Services Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStackInstancesCommandInput - {@link DeleteStackInstancesCommandInput}
+ * @returns {@link DeleteStackInstancesCommandOutput}
  * @see {@link DeleteStackInstancesCommandInput} for command's `input` shape.
  * @see {@link DeleteStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteStackInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStackInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteStackInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStackInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteStackInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackInstancesCommandOutput> {
     return deserializeAws_queryDeleteStackInstancesCommand(output, context);
   }

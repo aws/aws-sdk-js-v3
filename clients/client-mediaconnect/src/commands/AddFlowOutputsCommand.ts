@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddFlowOutputsCommand}.
  */
 export interface AddFlowOutputsCommandInput extends AddFlowOutputsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddFlowOutputsCommand}.
  */
 export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Adds outputs to an existing flow. You can create up to 50 outputs per flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFlowOutputsCommandInput - {@link AddFlowOutputsCommandInput}
+ * @returns {@link AddFlowOutputsCommandOutput}
  * @see {@link AddFlowOutputsCommandInput} for command's `input` shape.
  * @see {@link AddFlowOutputsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class AddFlowOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFlowOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class AddFlowOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFlowOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddFlowOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowOutputsCommandOutput> {
     return deserializeAws_restJson1AddFlowOutputsCommand(output, context);
   }

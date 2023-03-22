@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventTypesCommand}.
  */
 export interface DescribeEventTypesCommandInput extends DescribeEventTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventTypesCommand}.
  */
 export interface DescribeEventTypesCommandOutput extends DescribeEventTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the event types that meet the specified filter criteria. You can use this API
  *          operation to find information about the Health event, such as the category, Amazon Web Services
  *          service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
@@ -53,6 +58,8 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventTypesCommandInput - {@link DescribeEventTypesCommandInput}
+ * @returns {@link DescribeEventTypesCommandOutput}
  * @see {@link DescribeEventTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTypesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeEventTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeEventTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTypesCommandOutput> {
     return deserializeAws_json1_1DescribeEventTypesCommand(output, context);
   }

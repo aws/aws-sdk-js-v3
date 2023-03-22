@@ -6,7 +6,7 @@ import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LakeFormationClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListLFTagsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListLFTags(
   config: LakeFormationPaginationConfiguration,
   input: ListLFTagsCommandInput,

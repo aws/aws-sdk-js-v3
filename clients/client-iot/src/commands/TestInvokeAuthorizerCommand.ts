@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestInvokeAuthorizerCommand}.
  */
 export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestInvokeAuthorizerCommand}.
  */
 export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
  *          this to test and debug the custom authorization behavior of devices that connect to the IoT
  *          device gateway.</p>
@@ -49,6 +54,8 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * const response = await client.send(command);
  * ```
  *
+ * @param TestInvokeAuthorizerCommandInput - {@link TestInvokeAuthorizerCommandInput}
+ * @returns {@link TestInvokeAuthorizerCommandOutput}
  * @see {@link TestInvokeAuthorizerCommandInput} for command's `input` shape.
  * @see {@link TestInvokeAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -93,6 +100,9 @@ export class TestInvokeAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestInvokeAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class TestInvokeAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestInvokeAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestInvokeAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeAuthorizerCommandOutput> {
     return deserializeAws_restJson1TestInvokeAuthorizerCommand(output, context);
   }

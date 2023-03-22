@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLDAPSSettingsCommand}.
  */
 export interface DescribeLDAPSSettingsCommandInput extends DescribeLDAPSSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLDAPSSettingsCommand}.
  */
 export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of LDAP security for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLDAPSSettingsCommandInput - {@link DescribeLDAPSSettingsCommandInput}
+ * @returns {@link DescribeLDAPSSettingsCommandOutput}
  * @see {@link DescribeLDAPSSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeLDAPSSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeLDAPSSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLDAPSSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeLDAPSSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLDAPSSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLDAPSSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLDAPSSettingsCommandOutput> {
     return deserializeAws_json1_1DescribeLDAPSSettingsCommand(output, context);
   }

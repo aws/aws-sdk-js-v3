@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTeamMembersCommand}.
  */
 export interface ListTeamMembersCommandInput extends ListTeamMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTeamMembersCommand}.
  */
 export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all team members associated with a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTeamMembersCommandInput - {@link ListTeamMembersCommandInput}
+ * @returns {@link ListTeamMembersCommandOutput}
  * @see {@link ListTeamMembersCommandInput} for command's `input` shape.
  * @see {@link ListTeamMembersCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListTeamMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTeamMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListTeamMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTeamMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTeamMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTeamMembersCommandOutput> {
     return deserializeAws_json1_1ListTeamMembersCommand(output, context);
   }

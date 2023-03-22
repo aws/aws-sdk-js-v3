@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSourceServersCommand}.
  */
 export interface AssociateSourceServersCommandInput extends AssociateSourceServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSourceServersCommand}.
  */
 export interface AssociateSourceServersCommandOutput extends AssociateSourceServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate source servers to application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateSourceServersCommandOutput extends AssociateSourceServ
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSourceServersCommandInput - {@link AssociateSourceServersCommandInput}
+ * @returns {@link AssociateSourceServersCommandOutput}
  * @see {@link AssociateSourceServersCommandInput} for command's `input` shape.
  * @see {@link AssociateSourceServersCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class AssociateSourceServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSourceServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class AssociateSourceServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateSourceServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSourceServersCommandOutput> {
     return deserializeAws_restJson1AssociateSourceServersCommand(output, context);
   }

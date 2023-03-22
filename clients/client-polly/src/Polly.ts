@@ -41,6 +41,7 @@ import {
 import { PollyClient } from "./PollyClient";
 
 /**
+ * @public
  * <p>Amazon Polly is a web service that makes it easy to synthesize speech from
  *       text.</p>
  *          <p>The Amazon Polly service provides API operations for synthesizing
@@ -50,6 +51,7 @@ import { PollyClient } from "./PollyClient";
  */
 export class Polly extends PollyClient {
   /**
+   * @public
    * <p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for
    *       speech synthesis, nor is it possible to retrieve it using either the
    *         <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
@@ -85,6 +87,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of voices that are available for use when
    *       requesting speech synthesis. Each voice speaks a specified language, is
    *       either male or female, and is identified by an ID, which is the ASCII
@@ -132,6 +135,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Returns the content of the specified pronunciation lexicon stored
    *       in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
    */
@@ -159,6 +163,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID.
    *       This object contains information about the given speech synthesis task,
    *       including the status of the task, and a link to the S3 bucket containing
@@ -194,6 +199,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
    */
   public listLexicons(
@@ -223,6 +229,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of SpeechSynthesisTask objects ordered by their
    *       creation date. This operation can filter the tasks by their status, for
    *       example, allowing users to list only tasks that are completed.</p>
@@ -257,6 +264,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Stores a pronunciation lexicon in an Amazon Web Services Region. If
    *       a lexicon with the same name already exists in the region, it is
    *       overwritten by the new lexicon. Lexicon operations have eventual
@@ -288,6 +296,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Allows the creation of an asynchronous synthesis task, by starting a
    *       new <code>SpeechSynthesisTask</code>. This operation requires all the
    *       standard information needed for speech synthesis, plus the name of an
@@ -329,6 +338,7 @@ export class Polly extends PollyClient {
   }
 
   /**
+   * @public
    * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
    *       SSML input must be valid, well-formed SSML. Some alphabets might not be
    *       available with all the voices (for example, Cyrillic might not be read at

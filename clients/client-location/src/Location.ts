@@ -234,10 +234,12 @@ import {
 import { LocationClient } from "./LocationClient";
 
 /**
+ * @public
  * <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
  */
 export class Location extends LocationClient {
   /**
+   * @public
    * <p>Creates an association between a geofence collection and a tracker resource. This
    *             allows the tracker resource to communicate location data to the linked geofence
    *             collection. </p>
@@ -276,6 +278,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes the position history of one or more devices from a tracker resource.</p>
    */
   public batchDeleteDevicePositionHistory(
@@ -308,6 +311,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a batch of geofences from a geofence collection.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently.</p>
@@ -343,6 +347,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Evaluates device positions against the geofence geometries from a given geofence
    *             collection.</p>
    *          <p>This operation always returns an empty response because geofences are asynchronously
@@ -403,6 +408,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists the latest device positions for requested devices.</p>
    */
   public batchGetDevicePosition(
@@ -435,6 +441,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>A batch request for storing geofence geometries into a given geofence collection, or
    *             updates the geometry of an existing geofence if a geofence ID is included in the request.</p>
    */
@@ -468,6 +475,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location
    *            uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30
    *            days.</p>
@@ -484,7 +492,7 @@ export class Location extends LocationClient {
    *                 updates from a device have a horizontal accuracy of 5 m and 10 m, the second update
    *                 is neither stored or evaluated if the device has moved less than 15 m. If
    *                 <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location
-   *                 uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on
+   *                 uses the default value <code>\{ "Horizontal": 0\}</code> when accuracy is not provided on
    *                 a <code>DevicePositionUpdate</code>.</p>
    *          </note>
    */
@@ -518,6 +526,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>
    *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
    *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that
@@ -583,6 +592,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>
    *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route
    *                 matrix</a> given the following required parameters:
@@ -656,6 +666,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Creates a geofence collection, which manages and stores geofences.</p>
    */
   public createGeofenceCollection(
@@ -688,6 +699,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Creates an API key resource in your Amazon Web Services account, which lets you grant
    *                 <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key
    *             bearer.</p>
@@ -721,6 +733,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different
    *             styles sourced from global location data providers.</p>
    *          <note>
@@ -754,6 +767,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
    *             geocode addresses and other text queries by using the
    *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
@@ -796,6 +810,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Creates a route calculator resource in your Amazon Web Services account.</p>
    *          <p>You can send requests to a route calculator resource to estimate travel time,
    *             distance, and get directions. A route calculator sources traffic and road network data
@@ -837,6 +852,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and
    *             historical location of devices.</p>
    */
@@ -870,6 +886,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a geofence collection from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently. If the geofence collection is the
@@ -906,6 +923,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified API key. The API key must have been deactivated more than
    *             90 days previously.</p>
    */
@@ -933,6 +951,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a map resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently. If the map is being used in an application,
@@ -963,6 +982,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a place index resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently.</p>
@@ -998,6 +1018,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a route calculator resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently.</p>
@@ -1033,6 +1054,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a tracker resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
@@ -1070,6 +1092,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the geofence collection details.</p>
    */
   public describeGeofenceCollection(
@@ -1102,6 +1125,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the API key resource details.</p>
    *          <important>
    *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -1133,6 +1157,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the map resource details.</p>
    */
   public describeMap(args: DescribeMapCommandInput, options?: __HttpHandlerOptions): Promise<DescribeMapCommandOutput>;
@@ -1159,6 +1184,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the place index resource details.</p>
    */
   public describePlaceIndex(
@@ -1191,6 +1217,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the route calculator resource details.</p>
    */
   public describeRouteCalculator(
@@ -1223,6 +1250,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the tracker resource details.</p>
    */
   public describeTracker(
@@ -1255,6 +1283,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Removes the association between a tracker resource and a geofence collection.</p>
    *          <note>
    *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
@@ -1291,6 +1320,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a device's most recent position according to its sample time.</p>
    *          <note>
    *             <p>Device positions are deleted after 30 days.</p>
@@ -1326,6 +1356,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the device position history from a tracker resource within a specified range
    *             of time.</p>
    *          <note>
@@ -1362,6 +1393,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the geofence details from a geofence collection.</p>
    */
   public getGeofence(args: GetGeofenceCommandInput, options?: __HttpHandlerOptions): Promise<GetGeofenceCommandOutput>;
@@ -1388,6 +1420,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves glyphs used to display labels on a map.</p>
    */
   public getMapGlyphs(
@@ -1417,6 +1450,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a PNG
    *             image paired with a JSON document describing the offsets of individual icons that will
    *             be displayed on a rendered map.</p>
@@ -1451,6 +1485,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the map style descriptor from a map resource. </p>
    *          <p>The style descriptor contains speciﬁcations on how features render on a map. For
    *             example, what data to display, what order to display the data in, and the style for the
@@ -1486,6 +1521,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a vector data tile from the map resource. Map tiles are used by clients to
    *             render a map. they're addressed using a grid arrangement with an X coordinate, Y
    *             coordinate, and Z (zoom) level. </p>
@@ -1517,6 +1553,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
    *             operations.</p>
    *          <note>
@@ -1559,6 +1596,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>A batch request to retrieve all device positions.</p>
    */
   public listDevicePositions(
@@ -1591,6 +1629,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists geofence collections in your Amazon Web Services account.</p>
    */
   public listGeofenceCollections(
@@ -1623,6 +1662,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists geofences stored in a given geofence collection.</p>
    */
   public listGeofences(
@@ -1655,6 +1695,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists API key resources in your Amazon Web Services account.</p>
    *          <important>
    *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -1686,6 +1727,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists map resources in your Amazon Web Services account.</p>
    */
   public listMaps(args: ListMapsCommandInput, options?: __HttpHandlerOptions): Promise<ListMapsCommandOutput>;
@@ -1712,6 +1754,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists place index resources in your Amazon Web Services account.</p>
    */
   public listPlaceIndexes(
@@ -1744,6 +1787,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists route calculator resources in your Amazon Web Services account.</p>
    */
   public listRouteCalculators(
@@ -1776,6 +1820,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>
    */
   public listTagsForResource(
@@ -1808,6 +1853,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists geofence collections currently associated to the given tracker resource.</p>
    */
   public listTrackerConsumers(
@@ -1840,6 +1886,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Lists tracker resources in your Amazon Web Services account.</p>
    */
   public listTrackers(
@@ -1869,6 +1916,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Stores a geofence geometry in a given geofence collection, or updates the geometry of
    *             an existing geofence if a geofence ID is included in the request. </p>
    */
@@ -1896,6 +1944,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to
    *             search for Places or points of interest near a given position.</p>
    */
@@ -1929,6 +1978,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Generates suggestions for addresses and points of interest based on partial or
    *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
    *             fuzzy matching.</p>
@@ -1972,6 +2022,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
    *             search for Places or points of interest. </p>
    *          <p>Optional parameters let you narrow your search results by bounding box or country, or
@@ -2013,6 +2064,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service
    *             resource.</p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to
@@ -2049,6 +2101,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified Amazon Location resource.</p>
    */
   public untagResource(
@@ -2081,6 +2134,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified properties of a given geofence collection.</p>
    */
   public updateGeofenceCollection(
@@ -2113,6 +2167,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified properties of a given API key resource.</p>
    *          <important>
    *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -2144,6 +2199,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified properties of a given map resource.</p>
    */
   public updateMap(args: UpdateMapCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMapCommandOutput>;
@@ -2170,6 +2226,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified properties of a given place index resource.</p>
    */
   public updatePlaceIndex(
@@ -2202,6 +2259,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified properties for a given route calculator resource.</p>
    */
   public updateRouteCalculator(
@@ -2234,6 +2292,7 @@ export class Location extends LocationClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified properties of a given tracker resource.</p>
    */
   public updateTracker(

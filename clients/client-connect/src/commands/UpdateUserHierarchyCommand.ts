@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserHierarchyCommand}.
  */
 export interface UpdateUserHierarchyCommandInput extends UpdateUserHierarchyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserHierarchyCommand}.
  */
 export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the specified hierarchy group to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserHierarchyCommandInput - {@link UpdateUserHierarchyCommandInput}
+ * @returns {@link UpdateUserHierarchyCommandOutput}
  * @see {@link UpdateUserHierarchyCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateUserHierarchyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserHierarchyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateUserHierarchyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserHierarchyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateUserHierarchyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserHierarchyCommandOutput> {
     return deserializeAws_restJson1UpdateUserHierarchyCommand(output, context);
   }

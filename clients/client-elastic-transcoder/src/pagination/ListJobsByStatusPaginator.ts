@@ -10,7 +10,7 @@ import { ElasticTranscoderClient } from "../ElasticTranscoderClient";
 import { ElasticTranscoderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticTranscoderClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJobsByStatusCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListJobsByStatus(
   config: ElasticTranscoderPaginationConfiguration,
   input: ListJobsByStatusCommandInput,

@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLensShareCommand}.
  */
 export interface DeleteLensShareCommandInput extends DeleteLensShareInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLensShareCommand}.
  */
 export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a lens share.</p>
  *         <p>After the lens share is deleted,  Amazon Web Services accounts, IAM users, organizations,
  *             and organizational units (OUs)
@@ -55,6 +60,8 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLensShareCommandInput - {@link DeleteLensShareCommandInput}
+ * @returns {@link DeleteLensShareCommandOutput}
  * @see {@link DeleteLensShareCommandInput} for command's `input` shape.
  * @see {@link DeleteLensShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteLensShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLensShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteLensShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLensShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLensShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLensShareCommandOutput> {
     return deserializeAws_restJson1DeleteLensShareCommand(output, context);
   }

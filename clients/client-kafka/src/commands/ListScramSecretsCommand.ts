@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListScramSecretsCommand}.
  */
 export interface ListScramSecretsCommandInput extends ListScramSecretsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListScramSecretsCommand}.
  */
 export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScramSecretsCommandInput - {@link ListScramSecretsCommandInput}
+ * @returns {@link ListScramSecretsCommandOutput}
  * @see {@link ListScramSecretsCommandInput} for command's `input` shape.
  * @see {@link ListScramSecretsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListScramSecretsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScramSecretsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListScramSecretsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScramSecretsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListScramSecretsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScramSecretsCommandOutput> {
     return deserializeAws_restJson1ListScramSecretsCommand(output, context);
   }

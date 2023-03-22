@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>Function</code> object.</p>
  *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver logic.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionCommandInput - {@link CreateFunctionCommandInput}
+ * @returns {@link CreateFunctionCommandOutput}
  * @see {@link CreateFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
     return deserializeAws_restJson1CreateFunctionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateSolNetworkInstanceCommand}.
  */
 export interface TerminateSolNetworkInstanceCommandInput extends TerminateSolNetworkInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link TerminateSolNetworkInstanceCommand}.
  */
 export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  *          <p>You must terminate a network instance before you can delete it.</p>
@@ -48,6 +53,8 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateSolNetworkInstanceCommandInput - {@link TerminateSolNetworkInstanceCommandInput}
+ * @returns {@link TerminateSolNetworkInstanceCommandOutput}
  * @see {@link TerminateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link TerminateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -89,6 +96,9 @@ export class TerminateSolNetworkInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateSolNetworkInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class TerminateSolNetworkInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TerminateSolNetworkInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

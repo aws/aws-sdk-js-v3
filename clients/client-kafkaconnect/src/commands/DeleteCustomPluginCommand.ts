@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomPluginCommand}.
  */
 export interface DeleteCustomPluginCommandInput extends DeleteCustomPluginRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomPluginCommand}.
  */
 export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom plugin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomPluginCommandInput - {@link DeleteCustomPluginCommandInput}
+ * @returns {@link DeleteCustomPluginCommandOutput}
  * @see {@link DeleteCustomPluginCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomPluginCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteCustomPluginCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomPluginCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteCustomPluginCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomPluginCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCustomPluginCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomPluginCommandOutput> {
     return deserializeAws_restJson1DeleteCustomPluginCommand(output, context);
   }

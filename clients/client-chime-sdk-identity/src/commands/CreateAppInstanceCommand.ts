@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppInstanceCommand}.
  */
 export interface CreateAppInstanceCommandInput extends CreateAppInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppInstanceCommand}.
  */
 export interface CreateAppInstanceCommandOutput extends CreateAppInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
  *          Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
  *          idempotency behavior as described in the AWS API Standard.</p>
@@ -49,6 +54,8 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppInstanceCommandInput - {@link CreateAppInstanceCommandInput}
+ * @returns {@link CreateAppInstanceCommandOutput}
  * @see {@link CreateAppInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateAppInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateAppInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAppInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppInstanceCommandOutput> {
     return deserializeAws_restJson1CreateAppInstanceCommand(output, context);
   }

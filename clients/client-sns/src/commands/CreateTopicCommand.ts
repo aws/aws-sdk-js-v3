@@ -23,15 +23,20 @@ import { deserializeAws_queryCreateTopicCommand, serializeAws_queryCreateTopicCo
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTopicCommand}.
  */
 export interface CreateTopicCommandInput extends CreateTopicInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTopicCommand}.
  */
 export interface CreateTopicCommandOutput extends CreateTopicResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a topic to which notifications can be published. Users can create at most
  *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">Creating an Amazon SNS
  *                 topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is
@@ -47,6 +52,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTopicCommandInput - {@link CreateTopicCommandInput}
+ * @returns {@link CreateTopicCommandOutput}
  * @see {@link CreateTopicCommandInput} for command's `input` shape.
  * @see {@link CreateTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateTopicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateTopicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateTopicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTopicCommandOutput> {
     return deserializeAws_queryCreateTopicCommand(output, context);
   }

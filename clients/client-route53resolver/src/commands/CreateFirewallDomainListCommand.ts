@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFirewallDomainListCommand}.
  */
 export interface CreateFirewallDomainListCommandInput extends CreateFirewallDomainListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFirewallDomainListCommand}.
  */
 export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDomainListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty firewall domain list for use in DNS Firewall rules. You can populate the domains for the new list with a file, using <a>ImportFirewallDomains</a>, or with domain strings, using <a>UpdateFirewallDomains</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallDomainListCommandInput - {@link CreateFirewallDomainListCommandInput}
+ * @returns {@link CreateFirewallDomainListCommandOutput}
  * @see {@link CreateFirewallDomainListCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallDomainListCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateFirewallDomainListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallDomainListCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateFirewallDomainListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallDomainListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFirewallDomainListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallDomainListCommandOutput> {
     return deserializeAws_json1_1CreateFirewallDomainListCommand(output, context);
   }

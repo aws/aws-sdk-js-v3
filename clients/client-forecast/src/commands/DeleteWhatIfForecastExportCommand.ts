@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWhatIfForecastExportCommand}.
  */
 export interface DeleteWhatIfForecastExportCommandInput extends DeleteWhatIfForecastExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWhatIfForecastExportCommand}.
  */
 export interface DeleteWhatIfForecastExportCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a what-if forecast export created using the <a>CreateWhatIfForecastExport</a>
  *       operation. You can delete only what-if forecast exports that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfForecastExport</a> operation. </p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteWhatIfForecastExportCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWhatIfForecastExportCommandInput - {@link DeleteWhatIfForecastExportCommandInput}
+ * @returns {@link DeleteWhatIfForecastExportCommandOutput}
  * @see {@link DeleteWhatIfForecastExportCommandInput} for command's `input` shape.
  * @see {@link DeleteWhatIfForecastExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWhatIfForecastExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWhatIfForecastExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

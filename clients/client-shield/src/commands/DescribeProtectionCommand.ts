@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProtectionCommand}.
  */
 export interface DescribeProtectionCommandInput extends DescribeProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProtectionCommand}.
  */
 export interface DescribeProtectionCommandOutput extends DescribeProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the details of a <a>Protection</a> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeProtectionCommandOutput extends DescribeProtectionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProtectionCommandInput - {@link DescribeProtectionCommandInput}
+ * @returns {@link DescribeProtectionCommandOutput}
  * @see {@link DescribeProtectionCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProtectionCommandOutput> {
     return deserializeAws_json1_1DescribeProtectionCommand(output, context);
   }

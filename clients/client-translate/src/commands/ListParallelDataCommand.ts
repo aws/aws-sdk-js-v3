@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListParallelDataCommand}.
  */
 export interface ListParallelDataCommandInput extends ListParallelDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListParallelDataCommand}.
  */
 export interface ListParallelDataCommandOutput extends ListParallelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of your parallel data resources in Amazon Translate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListParallelDataCommandOutput extends ListParallelDataResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListParallelDataCommandInput - {@link ListParallelDataCommandInput}
+ * @returns {@link ListParallelDataCommandOutput}
  * @see {@link ListParallelDataCommandInput} for command's `input` shape.
  * @see {@link ListParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListParallelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListParallelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListParallelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListParallelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListParallelDataCommandOutput> {
     return deserializeAws_json1_1ListParallelDataCommand(output, context);
   }

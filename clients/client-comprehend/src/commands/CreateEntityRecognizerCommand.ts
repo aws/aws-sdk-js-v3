@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEntityRecognizerCommand}.
  */
 export interface CreateEntityRecognizerCommandInput extends CreateEntityRecognizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEntityRecognizerCommand}.
  */
 export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecognizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an entity recognizer using submitted files. After your
  *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
  *         <code>DescribeEntityRecognizer</code> API. </p>
@@ -48,6 +53,8 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEntityRecognizerCommandInput - {@link CreateEntityRecognizerCommandInput}
+ * @returns {@link CreateEntityRecognizerCommandOutput}
  * @see {@link CreateEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link CreateEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateEntityRecognizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntityRecognizerCommandOutput> {
     return deserializeAws_json1_1CreateEntityRecognizerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInvalidationCommand}.
  */
 export interface CreateInvalidationCommandInput extends CreateInvalidationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInvalidationCommand}.
  */
 export interface CreateInvalidationCommandOutput extends CreateInvalidationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new invalidation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInvalidationCommandInput - {@link CreateInvalidationCommandInput}
+ * @returns {@link CreateInvalidationCommandOutput}
  * @see {@link CreateInvalidationCommandInput} for command's `input` shape.
  * @see {@link CreateInvalidationCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateInvalidationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInvalidationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateInvalidationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInvalidationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateInvalidationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInvalidationCommandOutput> {
     return deserializeAws_restXmlCreateInvalidationCommand(output, context);
   }

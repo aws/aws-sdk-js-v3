@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutUserPolicyCommand}.
  */
 export interface PutUserPolicyCommandInput extends PutUserPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutUserPolicyCommand}.
  */
 export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             user.</p>
  *          <p>An IAM user can also have a managed policy attached to it. To attach a managed
@@ -55,6 +60,8 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutUserPolicyCommandInput - {@link PutUserPolicyCommandInput}
+ * @returns {@link PutUserPolicyCommandOutput}
  * @see {@link PutUserPolicyCommandInput} for command's `input` shape.
  * @see {@link PutUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -107,6 +114,9 @@ export class PutUserPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutUserPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class PutUserPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutUserPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutUserPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUserPolicyCommandOutput> {
     return deserializeAws_queryPutUserPolicyCommand(output, context);
   }

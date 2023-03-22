@@ -44,10 +44,12 @@ import {
 import { PinpointSMSVoiceClient } from "./PinpointSMSVoiceClient";
 
 /**
+ * @public
  * Pinpoint SMS and Voice Messaging public facing APIs
  */
 export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   /**
+   * @public
    * Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.
    */
   public createConfigurationSet(
@@ -80,6 +82,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
+   * @public
    * Create a new event destination in a configuration set.
    */
   public createConfigurationSetEventDestination(
@@ -114,6 +117,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
+   * @public
    * Deletes an existing configuration set.
    */
   public deleteConfigurationSet(
@@ -146,6 +150,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
+   * @public
    * Deletes an event destination in a configuration set.
    */
   public deleteConfigurationSetEventDestination(
@@ -180,6 +185,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
+   * @public
    * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
    */
   public getConfigurationSetEventDestinations(
@@ -212,6 +218,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
+   * @public
    * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
    */
   public listConfigurationSets(
@@ -244,6 +251,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
+   * @public
    * Create a new voice message and send it to a recipient's phone number.
    */
   public sendVoiceMessage(
@@ -276,6 +284,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
+   * @public
    * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.
    */
   public updateConfigurationSetEventDestination(

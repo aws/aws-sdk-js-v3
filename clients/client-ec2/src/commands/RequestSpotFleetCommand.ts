@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RequestSpotFleetCommand}.
  */
 export interface RequestSpotFleetCommandInput extends RequestSpotFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestSpotFleetCommand}.
  */
 export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Spot Fleet request.</p>
  *          <p>The Spot Fleet request specifies the total target capacity and the On-Demand target
  *             capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand
@@ -72,6 +77,8 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestSpotFleetCommandInput - {@link RequestSpotFleetCommandInput}
+ * @returns {@link RequestSpotFleetCommandOutput}
  * @see {@link RequestSpotFleetCommandInput} for command's `input` shape.
  * @see {@link RequestSpotFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -247,6 +254,9 @@ export class RequestSpotFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestSpotFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -286,10 +296,16 @@ export class RequestSpotFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestSpotFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RequestSpotFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestSpotFleetCommandOutput> {
     return deserializeAws_ec2RequestSpotFleetCommand(output, context);
   }

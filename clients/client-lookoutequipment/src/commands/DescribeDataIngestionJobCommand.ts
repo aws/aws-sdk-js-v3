@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataIngestionJobCommand}.
  */
 export interface DescribeDataIngestionJobCommandInput extends DescribeDataIngestionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataIngestionJobCommand}.
  */
 export interface DescribeDataIngestionJobCommandOutput extends DescribeDataIngestionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information on a specific data ingestion job such as creation time, dataset
  *          ARN, and status.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataIngestionJobCommandInput - {@link DescribeDataIngestionJobCommandInput}
+ * @returns {@link DescribeDataIngestionJobCommandOutput}
  * @see {@link DescribeDataIngestionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDataIngestionJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeDataIngestionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataIngestionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeDataIngestionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataIngestionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeDataIngestionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataIngestionJobCommandOutput> {
     return deserializeAws_json1_0DescribeDataIngestionJobCommand(output, context);
   }

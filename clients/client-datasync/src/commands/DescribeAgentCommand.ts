@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAgentCommand}.
  */
 export interface DescribeAgentCommandInput extends DescribeAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAgentCommand}.
  */
 export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about an DataSync agent, such as its name, endpoint type, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgentCommandInput - {@link DescribeAgentCommandInput}
+ * @returns {@link DescribeAgentCommandOutput}
  * @see {@link DescribeAgentCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentCommandOutput> {
     return deserializeAws_json1_1DescribeAgentCommand(output, context);
   }

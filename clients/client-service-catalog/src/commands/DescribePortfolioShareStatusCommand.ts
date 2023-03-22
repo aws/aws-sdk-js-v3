@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortfolioShareStatusCommand}.
  */
 export interface DescribePortfolioShareStatusCommandInput extends DescribePortfolioShareStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortfolioShareStatusCommand}.
  */
 export interface DescribePortfolioShareStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribePortfolioShareStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of the specified portfolio share operation. This API can only be called
  *          by the management account in the organization or by a delegated admin.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribePortfolioShareStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortfolioShareStatusCommandInput - {@link DescribePortfolioShareStatusCommandInput}
+ * @returns {@link DescribePortfolioShareStatusCommandOutput}
  * @see {@link DescribePortfolioShareStatusCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioShareStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortfolioShareStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortfolioShareStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePortfolioShareStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

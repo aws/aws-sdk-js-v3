@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWhatIfAnalysisCommand}.
  */
 export interface DeleteWhatIfAnalysisCommandInput extends DeleteWhatIfAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWhatIfAnalysisCommand}.
  */
 export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a what-if analysis created using the <a>CreateWhatIfAnalysis</a>
  *       operation. You can delete only what-if analyses that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfAnalysis</a> operation. </p>
  *          <p>You can't delete a what-if analysis while any of its forecasts are being exported.</p>
@@ -43,6 +48,8 @@ export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWhatIfAnalysisCommandInput - {@link DeleteWhatIfAnalysisCommandInput}
+ * @returns {@link DeleteWhatIfAnalysisCommandOutput}
  * @see {@link DeleteWhatIfAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteWhatIfAnalysisCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteWhatIfAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWhatIfAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteWhatIfAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWhatIfAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWhatIfAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWhatIfAnalysisCommandOutput> {
     return deserializeAws_json1_1DeleteWhatIfAnalysisCommand(output, context);
   }

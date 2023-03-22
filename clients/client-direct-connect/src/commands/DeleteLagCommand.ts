@@ -18,15 +18,20 @@ import { DeleteLagRequest, DeleteLagRequestFilterSensitiveLog, Lag, LagFilterSen
 import { deserializeAws_json1_1DeleteLagCommand, serializeAws_json1_1DeleteLagCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLagCommand}.
  */
 export interface DeleteLagCommandInput extends DeleteLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLagCommand}.
  */
 export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active
  *       virtual interfaces or hosted connections.</p>
  * @example
@@ -39,6 +44,8 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLagCommandInput - {@link DeleteLagCommandInput}
+ * @returns {@link DeleteLagCommandOutput}
  * @see {@link DeleteLagCommandInput} for command's `input` shape.
  * @see {@link DeleteLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -68,6 +75,9 @@ export class DeleteLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class DeleteLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLagCommandOutput> {
     return deserializeAws_json1_1DeleteLagCommand(output, context);
   }

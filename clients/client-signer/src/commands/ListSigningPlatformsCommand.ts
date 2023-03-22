@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSigningPlatformsCommand}.
  */
 export interface ListSigningPlatformsCommandInput extends ListSigningPlatformsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSigningPlatformsCommand}.
  */
 export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all signing platforms available in code signing that match the request parameters. If
  * 			additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use
  * 			this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining
@@ -52,6 +57,8 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSigningPlatformsCommandInput - {@link ListSigningPlatformsCommandInput}
+ * @returns {@link ListSigningPlatformsCommandOutput}
  * @see {@link ListSigningPlatformsCommandInput} for command's `input` shape.
  * @see {@link ListSigningPlatformsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListSigningPlatformsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningPlatformsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListSigningPlatformsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningPlatformsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSigningPlatformsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningPlatformsCommandOutput> {
     return deserializeAws_restJson1ListSigningPlatformsCommand(output, context);
   }

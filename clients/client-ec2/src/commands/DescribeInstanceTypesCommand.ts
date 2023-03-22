@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceTypesCommand}.
  */
 export interface DescribeInstanceTypesCommandInput extends DescribeInstanceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceTypesCommand}.
  */
 export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of the instance types that are offered in a location. The results can be filtered by the
  *    attributes of the instance types.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceTypesCommandInput - {@link DescribeInstanceTypesCommandInput}
+ * @returns {@link DescribeInstanceTypesCommandOutput}
  * @see {@link DescribeInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeInstanceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeInstanceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstanceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceTypesCommandOutput> {
     return deserializeAws_ec2DescribeInstanceTypesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectKeyPhrasesCommand}.
  */
 export interface DetectKeyPhrasesCommandInput extends DetectKeyPhrasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectKeyPhrasesCommand}.
  */
 export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects the key noun phrases found in the text. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectKeyPhrasesCommandInput - {@link DetectKeyPhrasesCommandInput}
+ * @returns {@link DetectKeyPhrasesCommandOutput}
  * @see {@link DetectKeyPhrasesCommandInput} for command's `input` shape.
  * @see {@link DetectKeyPhrasesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -85,6 +92,9 @@ export class DetectKeyPhrasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectKeyPhrasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DetectKeyPhrasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectKeyPhrasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectKeyPhrasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectKeyPhrasesCommandOutput> {
     return deserializeAws_json1_1DetectKeyPhrasesCommand(output, context);
   }

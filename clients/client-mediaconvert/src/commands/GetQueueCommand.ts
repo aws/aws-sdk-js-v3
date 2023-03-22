@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueueCommand}.
  */
 export interface GetQueueCommandInput extends GetQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueueCommand}.
  */
 export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve the JSON for a specific queue.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueueCommandInput - {@link GetQueueCommandInput}
+ * @returns {@link GetQueueCommandOutput}
  * @see {@link GetQueueCommandInput} for command's `input` shape.
  * @see {@link GetQueueCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueCommandOutput> {
     return deserializeAws_restJson1GetQueueCommand(output, context);
   }

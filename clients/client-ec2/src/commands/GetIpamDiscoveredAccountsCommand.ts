@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamDiscoveredAccountsCommand}.
  */
 export interface GetIpamDiscoveredAccountsCommandInput extends GetIpamDiscoveredAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamDiscoveredAccountsCommand}.
  */
 export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscoveredAccountsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamDiscoveredAccountsCommandInput - {@link GetIpamDiscoveredAccountsCommandInput}
+ * @returns {@link GetIpamDiscoveredAccountsCommandOutput}
  * @see {@link GetIpamDiscoveredAccountsCommandInput} for command's `input` shape.
  * @see {@link GetIpamDiscoveredAccountsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetIpamDiscoveredAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamDiscoveredAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetIpamDiscoveredAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIpamDiscoveredAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetIpamDiscoveredAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

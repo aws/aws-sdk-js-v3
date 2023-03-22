@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterStreamConsumerCommand}.
  */
 export interface DeregisterStreamConsumerCommandInput extends DeregisterStreamConsumerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterStreamConsumerCommand}.
  */
 export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
  *             the data stream and the name you gave the consumer when you registered it. You may also
  *             provide all three parameters, as long as they don't conflict with each other. If you
@@ -48,6 +53,8 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterStreamConsumerCommandInput - {@link DeregisterStreamConsumerCommandInput}
+ * @returns {@link DeregisterStreamConsumerCommandOutput}
  * @see {@link DeregisterStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link DeregisterStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeregisterStreamConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeregisterStreamConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterStreamConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterStreamConsumerCommandOutput> {
     return deserializeAws_json1_1DeregisterStreamConsumerCommand(output, context);
   }

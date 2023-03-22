@@ -27,11 +27,15 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointConfigurationForObjectLambdaCommand}.
  */
 export interface GetAccessPointConfigurationForObjectLambdaCommandInput
   extends GetAccessPointConfigurationForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointConfigurationForObjectLambdaCommand}.
  */
 export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
@@ -39,6 +43,7 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *             <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
@@ -59,6 +64,8 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointConfigurationForObjectLambdaCommandInput - {@link GetAccessPointConfigurationForObjectLambdaCommandInput}
+ * @returns {@link GetAccessPointConfigurationForObjectLambdaCommandOutput}
  * @see {@link GetAccessPointConfigurationForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointConfigurationForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccessPointConfigurationForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

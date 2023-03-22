@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInferenceRecommendationsJobCommand}.
  */
 export interface CreateInferenceRecommendationsJobCommandInput extends CreateInferenceRecommendationsJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInferenceRecommendationsJobCommand}.
  */
 export interface CreateInferenceRecommendationsJobCommandOutput
@@ -37,6 +41,7 @@ export interface CreateInferenceRecommendationsJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a recommendation job. You can create either an instance
  *           recommendation or load test job.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInferenceRecommendationsJobCommandInput - {@link CreateInferenceRecommendationsJobCommandInput}
+ * @returns {@link CreateInferenceRecommendationsJobCommandOutput}
  * @see {@link CreateInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link CreateInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateInferenceRecommendationsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInferenceRecommendationsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class CreateInferenceRecommendationsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class CreateInferenceRecommendationsJobCommand extends $Command<
     return serializeAws_json1_1CreateInferenceRecommendationsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStagingAccountsCommand}.
  */
 export interface ListStagingAccountsCommandInput extends ListStagingAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStagingAccountsCommand}.
  */
 export interface ListStagingAccountsCommandOutput extends ListStagingAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of staging accounts for existing extended source servers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStagingAccountsCommandInput - {@link ListStagingAccountsCommandInput}
+ * @returns {@link ListStagingAccountsCommandOutput}
  * @see {@link ListStagingAccountsCommandInput} for command's `input` shape.
  * @see {@link ListStagingAccountsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListStagingAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStagingAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListStagingAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStagingAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStagingAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStagingAccountsCommandOutput> {
     return deserializeAws_restJson1ListStagingAccountsCommand(output, context);
   }

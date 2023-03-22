@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTransactionsCommand}.
  */
 export interface ListTransactionsCommandInput extends ListTransactionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTransactionsCommand}.
  */
 export interface ListTransactionsCommandOutput extends ListTransactionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about transactions and their status. To prevent the response from growing indefinitely, only uncommitted transactions and those available for time-travel queries are returned.</p>
  *          <p>This operation can help you identify uncommitted transactions or to get information about transactions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListTransactionsCommandOutput extends ListTransactionsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTransactionsCommandInput - {@link ListTransactionsCommandInput}
+ * @returns {@link ListTransactionsCommandOutput}
  * @see {@link ListTransactionsCommandInput} for command's `input` shape.
  * @see {@link ListTransactionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListTransactionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTransactionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListTransactionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTransactionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTransactionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTransactionsCommandOutput> {
     return deserializeAws_restJson1ListTransactionsCommand(output, context);
   }

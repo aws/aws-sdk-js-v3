@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLabelCommand}.
  */
 export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLabelCommand}.
  */
 export interface DeleteLabelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Deletes a label.
  * </p>
@@ -43,6 +48,8 @@ export interface DeleteLabelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLabelCommandInput - {@link DeleteLabelCommandInput}
+ * @returns {@link DeleteLabelCommandOutput}
  * @see {@link DeleteLabelCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelCommandOutput> {
     return deserializeAws_json1_0DeleteLabelCommand(output, context);
   }

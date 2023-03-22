@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetInstanceProtectionCommand}.
  */
 export interface SetInstanceProtectionCommandInput extends SetInstanceProtectionQuery {}
 /**
+ * @public
+ *
  * The output of {@link SetInstanceProtectionCommand}.
  */
 export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectionAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the instance protection settings of the specified instances. This operation
  *             cannot be called on instances in a warm pool.</p>
  *          <p>For more information about preventing instances that are part of an Auto Scaling group from
@@ -53,6 +58,8 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * const response = await client.send(command);
  * ```
  *
+ * @param SetInstanceProtectionCommandInput - {@link SetInstanceProtectionCommandInput}
+ * @returns {@link SetInstanceProtectionCommandOutput}
  * @see {@link SetInstanceProtectionCommandInput} for command's `input` shape.
  * @see {@link SetInstanceProtectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -116,6 +123,9 @@ export class SetInstanceProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetInstanceProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class SetInstanceProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetInstanceProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetInstanceProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetInstanceProtectionCommandOutput> {
     return deserializeAws_querySetInstanceProtectionCommand(output, context);
   }

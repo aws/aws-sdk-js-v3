@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFeedbackCommand}.
  */
 export interface GetFeedbackCommandInput extends GetFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFeedbackCommand}.
  */
 export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get feedback for an anomaly group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFeedbackCommandInput - {@link GetFeedbackCommandInput}
+ * @returns {@link GetFeedbackCommandOutput}
  * @see {@link GetFeedbackCommandInput} for command's `input` shape.
  * @see {@link GetFeedbackCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFeedbackCommandOutput> {
     return deserializeAws_restJson1GetFeedbackCommand(output, context);
   }

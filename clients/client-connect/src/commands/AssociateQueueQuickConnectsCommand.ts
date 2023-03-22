@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateQueueQuickConnectsCommand}.
  */
 export interface AssociateQueueQuickConnectsCommandInput extends AssociateQueueQuickConnectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateQueueQuickConnectsCommand}.
  */
 export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a set of quick connects with a queue.</p>
  * @example
@@ -45,6 +50,8 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateQueueQuickConnectsCommandInput - {@link AssociateQueueQuickConnectsCommandInput}
+ * @returns {@link AssociateQueueQuickConnectsCommandOutput}
  * @see {@link AssociateQueueQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link AssociateQueueQuickConnectsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateQueueQuickConnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateQueueQuickConnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateQueueQuickConnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

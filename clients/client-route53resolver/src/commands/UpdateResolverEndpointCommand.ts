@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResolverEndpointCommand}.
  */
 export interface UpdateResolverEndpointCommandInput extends UpdateResolverEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResolverEndpointCommand}.
  */
 export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
  * 			You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResolverEndpointCommandInput - {@link UpdateResolverEndpointCommandInput}
+ * @returns {@link UpdateResolverEndpointCommandOutput}
  * @see {@link UpdateResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateResolverEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverEndpointCommandOutput> {
     return deserializeAws_json1_1UpdateResolverEndpointCommand(output, context);
   }

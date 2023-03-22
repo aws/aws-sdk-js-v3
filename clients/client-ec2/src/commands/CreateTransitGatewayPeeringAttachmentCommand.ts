@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayPeeringAttachmentCommand}.
  */
 export interface CreateTransitGatewayPeeringAttachmentCommandInput
   extends CreateTransitGatewayPeeringAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayPeeringAttachmentCommand}.
  */
 export interface CreateTransitGatewayPeeringAttachmentCommandOutput
@@ -38,6 +42,7 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a transit gateway peering attachment between the specified transit gateway
  *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
  *             your account or a different Amazon Web Services account.</p>
@@ -53,6 +58,8 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayPeeringAttachmentCommandInput - {@link CreateTransitGatewayPeeringAttachmentCommandInput}
+ * @returns {@link CreateTransitGatewayPeeringAttachmentCommandOutput}
  * @see {@link CreateTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +125,9 @@ export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
@@ -122,6 +135,9 @@ export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
     return serializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

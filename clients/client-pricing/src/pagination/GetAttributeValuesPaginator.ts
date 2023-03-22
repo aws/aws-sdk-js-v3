@@ -10,7 +10,7 @@ import { PricingClient } from "../PricingClient";
 import { PricingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PricingClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetAttributeValuesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetAttributeValues(
   config: PricingPaginationConfiguration,
   input: GetAttributeValuesCommandInput,

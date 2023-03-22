@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisVideoMediaServiceException";
 
 /**
+ * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client calls. Try making the call later.</p>
  */
@@ -27,6 +28,7 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client connections.</p>
  */
@@ -48,6 +50,9 @@ export class ConnectionLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum StartSelectorType {
   CONTINUATION_TOKEN = "CONTINUATION_TOKEN",
   EARLIEST = "EARLIEST",
@@ -58,6 +63,7 @@ export enum StartSelectorType {
 }
 
 /**
+ * @public
  * <p>Identifies the chunk on the Kinesis video stream where you want the
  *         <code>GetMedia</code> API to start returning media data. You have the following options to
  *       identify the starting chunk: </p>
@@ -131,6 +137,9 @@ export interface StartSelector {
   ContinuationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaInput {
   /**
    * <p>The Kinesis video stream name from where you want to get the media content. If you
@@ -151,6 +160,9 @@ export interface GetMediaInput {
   StartSelector: StartSelector | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaOutput {
   /**
    * <p>The content type of the requested media.</p>
@@ -231,6 +243,7 @@ export interface GetMediaOutput {
 }
 
 /**
+ * @public
  * <p>The value for this input parameter is invalid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -252,6 +265,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
  *       such an exception, the user must call <code>GetDataEndpoint</code> with
  *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
@@ -276,6 +290,7 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *       stream, or the token has expired.</p>
  */
@@ -298,6 +313,7 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Status Code: 404, The stream with the given name does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {

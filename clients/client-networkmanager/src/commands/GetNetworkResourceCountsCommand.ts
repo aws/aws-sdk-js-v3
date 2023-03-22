@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkResourceCountsCommand}.
  */
 export interface GetNetworkResourceCountsCommandInput extends GetNetworkResourceCountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkResourceCountsCommand}.
  */
 export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourceCountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the count of network resources, by resource type, for the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkResourceCountsCommandInput - {@link GetNetworkResourceCountsCommandInput}
+ * @returns {@link GetNetworkResourceCountsCommandOutput}
  * @see {@link GetNetworkResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceCountsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetNetworkResourceCountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkResourceCountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetNetworkResourceCountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkResourceCountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetNetworkResourceCountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkResourceCountsCommandOutput> {
     return deserializeAws_restJson1GetNetworkResourceCountsCommand(output, context);
   }

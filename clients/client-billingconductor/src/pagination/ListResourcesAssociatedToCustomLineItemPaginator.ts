@@ -10,7 +10,7 @@ import {
 import { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BillingconductorClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourcesAssociatedToCustomLineItemCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListResourcesAssociatedToCustomLineItem(
   config: BillingconductorPaginationConfiguration,
   input: ListResourcesAssociatedToCustomLineItemCommandInput,

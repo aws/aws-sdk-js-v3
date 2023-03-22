@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAdvisorLsaAnalysisCommand}.
  */
 export interface DescribeFleetAdvisorLsaAnalysisCommandInput extends DescribeFleetAdvisorLsaAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAdvisorLsaAnalysisCommand}.
  */
 export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
  *             Advisor collectors. </p>
  * @example
@@ -53,6 +58,8 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorLsaAnalysisCommandInput - {@link DescribeFleetAdvisorLsaAnalysisCommandInput}
+ * @returns {@link DescribeFleetAdvisorLsaAnalysisCommandOutput}
  * @see {@link DescribeFleetAdvisorLsaAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorLsaAnalysisCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorLsaAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetAdvisorLsaAnalysisCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<
     return serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

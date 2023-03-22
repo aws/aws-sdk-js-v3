@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationS3Command}.
  */
 export interface DescribeLocationS3CommandInput extends DescribeLocationS3Request {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationS3Command}.
  */
 export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationS3CommandInput - {@link DescribeLocationS3CommandInput}
+ * @returns {@link DescribeLocationS3CommandOutput}
  * @see {@link DescribeLocationS3CommandInput} for command's `input` shape.
  * @see {@link DescribeLocationS3CommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeLocationS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeLocationS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationS3CommandOutput> {
     return deserializeAws_json1_1DescribeLocationS3Command(output, context);
   }

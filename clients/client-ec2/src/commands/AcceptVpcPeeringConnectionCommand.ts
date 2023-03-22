@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptVpcPeeringConnectionCommand}.
  */
 export interface AcceptVpcPeeringConnectionCommandInput extends AcceptVpcPeeringConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptVpcPeeringConnectionCommand}.
  */
 export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must
  *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
  *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
@@ -51,6 +56,8 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptVpcPeeringConnectionCommandInput - {@link AcceptVpcPeeringConnectionCommandInput}
+ * @returns {@link AcceptVpcPeeringConnectionCommandOutput}
  * @see {@link AcceptVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AcceptVpcPeeringConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

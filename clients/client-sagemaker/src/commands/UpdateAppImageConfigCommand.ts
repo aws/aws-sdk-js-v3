@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppImageConfigCommand}.
  */
 export interface UpdateAppImageConfigCommandInput extends UpdateAppImageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppImageConfigCommand}.
  */
 export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of an AppImageConfig.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppImageConfigCommandInput - {@link UpdateAppImageConfigCommandInput}
+ * @returns {@link UpdateAppImageConfigCommandOutput}
  * @see {@link UpdateAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateAppImageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppImageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class UpdateAppImageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAppImageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppImageConfigCommandOutput> {
     return deserializeAws_json1_1UpdateAppImageConfigCommand(output, context);
   }

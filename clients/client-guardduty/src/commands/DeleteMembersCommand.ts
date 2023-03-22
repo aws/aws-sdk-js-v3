@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMembersCommand}.
  */
 export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMembersCommand}.
  */
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
  *       the account IDs.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
+ * @returns {@link DeleteMembersCommandOutput}
  * @see {@link DeleteMembersCommandInput} for command's `input` shape.
  * @see {@link DeleteMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMembersCommandOutput> {
     return deserializeAws_restJson1DeleteMembersCommand(output, context);
   }

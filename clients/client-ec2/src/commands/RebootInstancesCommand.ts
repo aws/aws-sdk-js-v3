@@ -18,15 +18,20 @@ import { RebootInstancesRequest, RebootInstancesRequestFilterSensitiveLog } from
 import { deserializeAws_ec2RebootInstancesCommand, serializeAws_ec2RebootInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RebootInstancesCommand}.
  */
 export interface RebootInstancesCommandInput extends RebootInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootInstancesCommand}.
  */
 export interface RebootInstancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a reboot of the specified instances. This operation is asynchronous; it only
  *             queues a request to reboot the specified instances. The operation succeeds if the
  *             instances are valid and belong to you. Requests to reboot terminated instances are
@@ -45,6 +50,8 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootInstancesCommandInput - {@link RebootInstancesCommandInput}
+ * @returns {@link RebootInstancesCommandOutput}
  * @see {@link RebootInstancesCommandInput} for command's `input` shape.
  * @see {@link RebootInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -81,6 +88,9 @@ export class RebootInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RebootInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RebootInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInstancesCommandOutput> {
     return deserializeAws_ec2RebootInstancesCommand(output, context);
   }

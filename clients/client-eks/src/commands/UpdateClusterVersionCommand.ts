@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterVersionCommand}.
  */
 export interface UpdateClusterVersionCommandInput extends UpdateClusterVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterVersionCommand}.
  */
 export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your
  *             cluster continues to function during the update. The response output includes an update
  *             ID that you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
@@ -55,6 +60,8 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterVersionCommandInput - {@link UpdateClusterVersionCommandInput}
+ * @returns {@link UpdateClusterVersionCommandOutput}
  * @see {@link UpdateClusterVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterVersionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateClusterVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateClusterVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateClusterVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterVersionCommandOutput> {
     return deserializeAws_restJson1UpdateClusterVersionCommand(output, context);
   }

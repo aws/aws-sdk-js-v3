@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDiscoveredResourceCommand}.
  */
 export interface AssociateDiscoveredResourceCommandInput extends AssociateDiscoveredResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDiscoveredResourceCommand}.
  */
 export interface AssociateDiscoveredResourceCommandOutput extends AssociateDiscoveredResourceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a discovered resource ID from Application Discovery Service with a migration
  *          task.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDiscoveredResourceCommandInput - {@link AssociateDiscoveredResourceCommandInput}
+ * @returns {@link AssociateDiscoveredResourceCommandOutput}
  * @see {@link AssociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateDiscoveredResourceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -109,6 +116,9 @@ export class AssociateDiscoveredResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDiscoveredResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class AssociateDiscoveredResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDiscoveredResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateDiscoveredResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -10,7 +10,7 @@ import { MacieClient } from "../MacieClient";
 import { MaciePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MacieClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListS3ResourcesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListS3Resources(
   config: MaciePaginationConfiguration,
   input: ListS3ResourcesCommandInput,

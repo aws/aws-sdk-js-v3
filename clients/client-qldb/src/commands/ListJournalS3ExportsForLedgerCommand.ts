@@ -26,10 +26,14 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListJournalS3ExportsForLedgerCommand}.
  */
 export interface ListJournalS3ExportsForLedgerCommandInput extends ListJournalS3ExportsForLedgerRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJournalS3ExportsForLedgerCommand}.
  */
 export interface ListJournalS3ExportsForLedgerCommandOutput
@@ -37,6 +41,7 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of journal export job descriptions for a specified ledger.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
@@ -53,6 +58,8 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJournalS3ExportsForLedgerCommandInput - {@link ListJournalS3ExportsForLedgerCommandInput}
+ * @returns {@link ListJournalS3ExportsForLedgerCommandOutput}
  * @see {@link ListJournalS3ExportsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalS3ExportsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJournalS3ExportsForLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJournalS3ExportsForLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJournalS3ExportsForLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

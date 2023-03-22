@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationSetsCommand}.
  */
 export interface ListConfigurationSetsCommandInput extends ListConfigurationSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationSetsCommand}.
  */
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
+ * @returns {@link ListConfigurationSetsCommandOutput}
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListConfigurationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListConfigurationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListConfigurationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
     return deserializeAws_restJson1ListConfigurationSetsCommand(output, context);
   }

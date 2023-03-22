@@ -21,15 +21,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBSecurityGroupCommand}.
  */
 export interface DeleteDBSecurityGroupCommandInput extends DeleteDBSecurityGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBSecurityGroupCommand}.
  */
 export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a DB security group.</p>
  *          <p>The specified DB security group must not be associated with any DB instances.</p>
  *          <note>
@@ -49,6 +54,8 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBSecurityGroupCommandInput - {@link DeleteDBSecurityGroupCommandInput}
+ * @returns {@link DeleteDBSecurityGroupCommandOutput}
  * @see {@link DeleteDBSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteDBSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteDBSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSecurityGroupCommandOutput> {
     return deserializeAws_queryDeleteDBSecurityGroupCommand(output, context);
   }

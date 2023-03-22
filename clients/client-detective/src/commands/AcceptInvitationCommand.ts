@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptInvitationCommand}.
  */
 export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts an invitation for the member account to contribute data to a behavior graph.
  *          This operation can only be called by an invited member account. </p>
  *          <p>The request provides the ARN of behavior graph.</p>
@@ -44,6 +49,8 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
+ * @returns {@link AcceptInvitationCommandOutput}
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -83,6 +90,9 @@ export class AcceptInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class AcceptInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AcceptInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInvitationCommandOutput> {
     return deserializeAws_restJson1AcceptInvitationCommand(output, context);
   }

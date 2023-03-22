@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVerifiedAccessTrustProviderCommand}.
  */
 export interface DeleteVerifiedAccessTrustProviderCommandInput extends DeleteVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVerifiedAccessTrustProviderCommand}.
  */
 export interface DeleteVerifiedAccessTrustProviderCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Amazon Web Services Verified Access trust provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedAccessTrustProviderCommandInput - {@link DeleteVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link DeleteVerifiedAccessTrustProviderCommandOutput}
  * @see {@link DeleteVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
     return serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

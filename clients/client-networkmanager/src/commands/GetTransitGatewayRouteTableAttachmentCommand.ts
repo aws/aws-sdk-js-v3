@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayRouteTableAttachmentCommand}.
  */
 export interface GetTransitGatewayRouteTableAttachmentCommandInput
   extends GetTransitGatewayRouteTableAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayRouteTableAttachmentCommand}.
  */
 export interface GetTransitGatewayRouteTableAttachmentCommandOutput
@@ -38,6 +42,7 @@ export interface GetTransitGatewayRouteTableAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a transit gateway route table attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetTransitGatewayRouteTableAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayRouteTableAttachmentCommandInput - {@link GetTransitGatewayRouteTableAttachmentCommandInput}
+ * @returns {@link GetTransitGatewayRouteTableAttachmentCommandOutput}
  * @see {@link GetTransitGatewayRouteTableAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRouteTableAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayRouteTableAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayRouteTableAttachmentCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
     return serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

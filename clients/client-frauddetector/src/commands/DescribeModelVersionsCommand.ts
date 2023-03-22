@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelVersionsCommand}.
  */
 export interface DescribeModelVersionsCommandInput extends DescribeModelVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelVersionsCommand}.
  */
 export interface DescribeModelVersionsCommandOutput extends DescribeModelVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelVersionsCommandInput - {@link DescribeModelVersionsCommandInput}
+ * @returns {@link DescribeModelVersionsCommandOutput}
  * @see {@link DescribeModelVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeModelVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeModelVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeModelVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelVersionsCommandOutput> {
     return deserializeAws_json1_1DescribeModelVersionsCommand(output, context);
   }

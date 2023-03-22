@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConditionalForwarderCommand}.
  */
 export interface UpdateConditionalForwarderCommandInput extends UpdateConditionalForwarderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConditionalForwarderCommand}.
  */
 export interface UpdateConditionalForwarderCommandOutput extends UpdateConditionalForwarderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a conditional forwarder that has been set up for your Amazon Web Services
  *       directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConditionalForwarderCommandInput - {@link UpdateConditionalForwarderCommandInput}
+ * @returns {@link UpdateConditionalForwarderCommandOutput}
  * @see {@link UpdateConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link UpdateConditionalForwarderCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateConditionalForwarderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConditionalForwarderCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateConditionalForwarderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConditionalForwarderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateConditionalForwarderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

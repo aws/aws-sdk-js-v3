@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMergeCommitCommand}.
  */
 export interface GetMergeCommitCommandInput extends GetMergeCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMergeCommitCommand}.
  */
 export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specified merge commit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMergeCommitCommandInput - {@link GetMergeCommitCommandInput}
+ * @returns {@link GetMergeCommitCommandOutput}
  * @see {@link GetMergeCommitCommandInput} for command's `input` shape.
  * @see {@link GetMergeCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -114,6 +121,9 @@ export class GetMergeCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMergeCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class GetMergeCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMergeCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMergeCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeCommitCommandOutput> {
     return deserializeAws_json1_1GetMergeCommitCommand(output, context);
   }

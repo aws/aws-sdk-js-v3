@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartChatContactCommand}.
  */
 export interface StartChatContactCommandInput extends StartChatContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartChatContactCommand}.
  */
 export interface StartChatContactCommandOutput extends StartChatContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token
  *    required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
  *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
@@ -66,6 +71,8 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartChatContactCommandInput - {@link StartChatContactCommandInput}
+ * @returns {@link StartChatContactCommandOutput}
  * @see {@link StartChatContactCommandInput} for command's `input` shape.
  * @see {@link StartChatContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -104,6 +111,9 @@ export class StartChatContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartChatContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class StartChatContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartChatContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartChatContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChatContactCommandOutput> {
     return deserializeAws_restJson1StartChatContactCommand(output, context);
   }

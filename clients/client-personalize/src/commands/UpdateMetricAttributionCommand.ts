@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMetricAttributionCommand}.
  */
 export interface UpdateMetricAttributionCommandInput extends UpdateMetricAttributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMetricAttributionCommand}.
  */
 export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMetricAttributionCommandInput - {@link UpdateMetricAttributionCommandInput}
+ * @returns {@link UpdateMetricAttributionCommandOutput}
  * @see {@link UpdateMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link UpdateMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateMetricAttributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMetricAttributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateMetricAttributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMetricAttributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMetricAttributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMetricAttributionCommandOutput> {
     return deserializeAws_json1_1UpdateMetricAttributionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterComputeCommand}.
  */
 export interface RegisterComputeCommandInput extends RegisterComputeInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterComputeCommand}.
  */
 export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers your compute resources in a fleet you previously created. After you register
  *             a compute to your fleet, you can monitor and manage your compute using GameLift. The
  *             operation returns the compute resource containing SDK endpoint you can use to connect
@@ -66,6 +71,8 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterComputeCommandInput - {@link RegisterComputeCommandInput}
+ * @returns {@link RegisterComputeCommandOutput}
  * @see {@link RegisterComputeCommandInput} for command's `input` shape.
  * @see {@link RegisterComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -106,6 +113,9 @@ export class RegisterComputeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterComputeCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class RegisterComputeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterComputeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterComputeCommandOutput> {
     return deserializeAws_json1_1RegisterComputeCommand(output, context);
   }

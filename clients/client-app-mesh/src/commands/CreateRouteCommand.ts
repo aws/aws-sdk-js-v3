@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandInput extends CreateRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteCommand}.
  */
 export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route that is associated with a virtual router.</p>
  *          <p> You can route several different protocols and define a retry policy for a route.
  *          Traffic can be routed to one or more virtual nodes.</p>
@@ -49,6 +54,8 @@ export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
+ * @returns {@link CreateRouteCommandOutput}
  * @see {@link CreateRouteCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCommandOutput> {
     return deserializeAws_restJson1CreateRouteCommand(output, context);
   }

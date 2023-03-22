@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateArtifactCommand}.
  */
 export interface CreateArtifactCommandInput extends CreateArtifactRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateArtifactCommand}.
  */
 export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that
  *         represents a URI addressable object or data. Some examples are the S3 URI of a dataset and
  *         the ECR registry path of an image. For more information, see
@@ -50,6 +55,8 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateArtifactCommandInput - {@link CreateArtifactCommandInput}
+ * @returns {@link CreateArtifactCommandOutput}
  * @see {@link CreateArtifactCommandInput} for command's `input` shape.
  * @see {@link CreateArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateArtifactCommandOutput> {
     return deserializeAws_json1_1CreateArtifactCommand(output, context);
   }

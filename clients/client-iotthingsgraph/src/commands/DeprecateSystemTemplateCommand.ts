@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateSystemTemplateCommand}.
  */
 export interface DeprecateSystemTemplateCommandInput extends DeprecateSystemTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateSystemTemplateCommand}.
  */
 export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecates the specified system.</p>
@@ -48,6 +53,8 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateSystemTemplateCommandInput - {@link DeprecateSystemTemplateCommandInput}
+ * @returns {@link DeprecateSystemTemplateCommandOutput}
  * @see {@link DeprecateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link DeprecateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeprecateSystemTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateSystemTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeprecateSystemTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeprecateSystemTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateSystemTemplateCommandOutput> {
     return deserializeAws_json1_1DeprecateSystemTemplateCommand(output, context);
   }

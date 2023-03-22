@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkCommand}.
  */
 export interface GetNetworkCommandInput extends GetNetworkInput {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkCommand}.
  */
 export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about a network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -51,6 +56,8 @@ export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkCommandInput - {@link GetNetworkCommandInput}
+ * @returns {@link GetNetworkCommandOutput}
  * @see {@link GetNetworkCommandInput} for command's `input` shape.
  * @see {@link GetNetworkCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkCommandOutput> {
     return deserializeAws_restJson1GetNetworkCommand(output, context);
   }

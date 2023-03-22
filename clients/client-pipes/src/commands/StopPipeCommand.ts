@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopPipeCommand}.
  */
 export interface StopPipeCommandInput extends StopPipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopPipeCommand}.
  */
 export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stop an existing pipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPipeCommandInput - {@link StopPipeCommandInput}
+ * @returns {@link StopPipeCommandOutput}
  * @see {@link StopPipeCommandInput} for command's `input` shape.
  * @see {@link StopPipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
@@ -80,6 +87,9 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopPipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipeCommandOutput> {
     return deserializeAws_restJson1StopPipeCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourcePermissionsCommand}.
  */
 export interface DescribeResourcePermissionsCommandInput extends DescribeResourcePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourcePermissionsCommand}.
  */
 export interface DescribeResourcePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeResourcePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions of a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeResourcePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePermissionsCommandInput - {@link DescribeResourcePermissionsCommandInput}
+ * @returns {@link DescribeResourcePermissionsCommandOutput}
  * @see {@link DescribeResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeResourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeResourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeResourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

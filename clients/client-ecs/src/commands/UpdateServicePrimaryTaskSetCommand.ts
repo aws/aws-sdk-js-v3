@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServicePrimaryTaskSetCommand}.
  */
 export interface UpdateServicePrimaryTaskSetCommandInput extends UpdateServicePrimaryTaskSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServicePrimaryTaskSetCommand}.
  */
 export interface UpdateServicePrimaryTaskSetCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies which task set in a service is the primary task set. Any parameters that are
  * 			updated on the primary task set in a service will transition to the service. This is
  * 			used when a service uses the <code>EXTERNAL</code> deployment controller type. For more
@@ -52,6 +57,8 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServicePrimaryTaskSetCommandInput - {@link UpdateServicePrimaryTaskSetCommandInput}
+ * @returns {@link UpdateServicePrimaryTaskSetCommandOutput}
  * @see {@link UpdateServicePrimaryTaskSetCommandInput} for command's `input` shape.
  * @see {@link UpdateServicePrimaryTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -108,6 +115,9 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServicePrimaryTaskSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServicePrimaryTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateServicePrimaryTaskSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

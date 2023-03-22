@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNodegroupsCommand}.
  */
 export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNodegroupsCommand}.
  */
 export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon EKS managed node groups associated with the specified cluster
  *             in your Amazon Web Services account in the specified Region. Self-managed node groups are
  *             not listed.</p>
@@ -48,6 +53,8 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNodegroupsCommandInput - {@link ListNodegroupsCommandInput}
+ * @returns {@link ListNodegroupsCommandOutput}
  * @see {@link ListNodegroupsCommandInput} for command's `input` shape.
  * @see {@link ListNodegroupsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListNodegroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNodegroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListNodegroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNodegroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNodegroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNodegroupsCommandOutput> {
     return deserializeAws_restJson1ListNodegroupsCommand(output, context);
   }

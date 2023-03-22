@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForDomainCommand}.
  */
 export interface ListTagsForDomainCommandInput extends ListTagsForDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForDomainCommand}.
  */
 export interface ListTagsForDomainCommandOutput extends ListTagsForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns all of the tags that are associated with the specified
  * 			domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
@@ -49,6 +54,8 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForDomainCommandInput - {@link ListTagsForDomainCommandInput}
+ * @returns {@link ListTagsForDomainCommandOutput}
  * @see {@link ListTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link ListTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTagsForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListTagsForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForDomainCommandOutput> {
     return deserializeAws_json1_1ListTagsForDomainCommand(output, context);
   }

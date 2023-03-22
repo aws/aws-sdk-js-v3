@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamPoolAllocationsCommand}.
  */
 export interface GetIpamPoolAllocationsCommandInput extends GetIpamPoolAllocationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamPoolAllocationsCommand}.
  */
 export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
  *          <note>
  *             <p>If you use this action after <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">AllocateIpamPoolCidr</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>, note that all EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual consistency</a> model.</p>
@@ -49,6 +54,8 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamPoolAllocationsCommandInput - {@link GetIpamPoolAllocationsCommandInput}
+ * @returns {@link GetIpamPoolAllocationsCommandOutput}
  * @see {@link GetIpamPoolAllocationsCommandInput} for command's `input` shape.
  * @see {@link GetIpamPoolAllocationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetIpamPoolAllocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamPoolAllocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetIpamPoolAllocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIpamPoolAllocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetIpamPoolAllocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIpamPoolAllocationsCommandOutput> {
     return deserializeAws_ec2GetIpamPoolAllocationsCommand(output, context);
   }

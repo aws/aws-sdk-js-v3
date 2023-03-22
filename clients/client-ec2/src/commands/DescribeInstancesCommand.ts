@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancesCommand}.
  */
 export interface DescribeInstancesCommandInput extends DescribeInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancesCommand}.
  */
 export interface DescribeInstancesCommandOutput extends DescribeInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified instances or all instances.</p>
  *          <p>If you specify instance IDs, the output includes information for only the specified
  *             instances. If you specify filters, the output includes information for only those
@@ -57,6 +62,8 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancesCommandInput - {@link DescribeInstancesCommandInput}
+ * @returns {@link DescribeInstancesCommandOutput}
  * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -129,6 +136,9 @@ export class DescribeInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class DescribeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesCommandOutput> {
     return deserializeAws_ec2DescribeInstancesCommand(output, context);
   }

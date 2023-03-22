@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExecutorsCommand}.
  */
 export interface ListExecutorsCommandInput extends ListExecutorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExecutorsCommand}.
  */
 export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists, in descending order, the executors that have been submitted to a session. Newer
  *             executors are listed first; older executors are listed later. The result can be
  *             optionally filtered by state.</p>
@@ -48,6 +53,8 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExecutorsCommandInput - {@link ListExecutorsCommandInput}
+ * @returns {@link ListExecutorsCommandOutput}
  * @see {@link ListExecutorsCommandInput} for command's `input` shape.
  * @see {@link ListExecutorsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListExecutorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExecutorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListExecutorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExecutorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExecutorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutorsCommandOutput> {
     return deserializeAws_json1_1ListExecutorsCommand(output, context);
   }

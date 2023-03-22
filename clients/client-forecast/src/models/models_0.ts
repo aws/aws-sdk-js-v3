@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ForecastServiceException as __BaseException } from "./ForecastServiceException";
 
+/**
+ * @public
+ */
 export enum Operation {
   ADD = "ADD",
   DIVIDE = "DIVIDE",
@@ -11,6 +14,7 @@ export enum Operation {
 }
 
 /**
+ * @public
  * <p>Defines the modifications that you are making to an attribute for a what-if forecast. For example, you can use this operation to create a what-if forecast that investigates a 10% off sale on all shoes. To do this, you specify <code>"AttributeName": "shoes"</code>, <code>"Operation": "MULTIPLY"</code>, and <code>"Value": "0.90"</code>. Pair this operation with the <a>TimeSeriesCondition</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define a subset of attribute items that are modified.</p>
  */
 export interface Action {
@@ -49,6 +53,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>Describes an additional dataset. This object is part of the <a>DataConfig</a> object. Forecast supports the Weather Index and Holidays additional datasets.</p>
  *          <p>
  *             <b>Weather Index</b>
@@ -293,20 +298,21 @@ export interface AdditionalDataset {
 }
 
 /**
+ * @public
  * <p>Provides information about the method used to transform attributes.</p>
  *          <p>The following is an example using the RETAIL domain:</p>
  *          <p>
- *             <code>{</code>
+ *             <code>\{</code>
  *          </p>
  *          <p>
  *             <code>"AttributeName": "demand",</code>
  *          </p>
  *          <p>
- *             <code>"Transformations": {"aggregation": "sum", "middlefill": "zero", "backfill":
- *                 "zero"}</code>
+ *             <code>"Transformations": \{"aggregation": "sum", "middlefill": "zero", "backfill":
+ *                 "zero"\}</code>
  *          </p>
  *          <p>
- *             <code>}</code>
+ *             <code>\}</code>
  *          </p>
  */
 export interface AttributeConfig {
@@ -386,6 +392,7 @@ export interface AttributeConfig {
 }
 
 /**
+ * @public
  * <p>The data configuration for your dataset group and any additional datasets.</p>
  */
 export interface DataConfig {
@@ -406,6 +413,7 @@ export interface DataConfig {
 }
 
 /**
+ * @public
  * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
  *       access the key. You can specify this optional object in the
  *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
@@ -425,6 +433,7 @@ export interface EncryptionConfig {
 }
 
 /**
+ * @public
  * <p>The configuration details for the predictor monitor.</p>
  */
 export interface MonitorConfig {
@@ -434,6 +443,9 @@ export interface MonitorConfig {
   MonitorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OptimizationMetric {
   AverageWeightedQuantileLoss = "AverageWeightedQuantileLoss",
   MAPE = "MAPE",
@@ -443,6 +455,7 @@ export enum OptimizationMetric {
 }
 
 /**
+ * @public
  * <p>The optional metadata that you apply to a resource to help you categorize and organize
  *       them. Each tag consists of a key and an optional value, both of which you define.</p>
  *          <p>The following basic restrictions apply to tags:</p>
@@ -493,6 +506,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DayOfWeek {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -503,6 +519,9 @@ export enum DayOfWeek {
   WEDNESDAY = "WEDNESDAY",
 }
 
+/**
+ * @public
+ */
 export enum Month {
   APRIL = "APRIL",
   AUGUST = "AUGUST",
@@ -519,6 +538,7 @@ export enum Month {
 }
 
 /**
+ * @public
  * <p>The time boundary Forecast uses to align and aggregate your data to match your forecast frequency. Provide the unit of time and the time boundary as a key value pair. If you
  *             don't provide a time boundary, Forecast uses a set of <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#default-time-boundaries">Default Time Boundaries</a>.
  *         </p>
@@ -551,6 +571,9 @@ export interface TimeAlignmentBoundary {
   Hour?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoPredictorRequest {
   /**
    * <p>A unique name for the predictor</p>
@@ -702,6 +725,9 @@ export interface CreateAutoPredictorRequest {
   TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoPredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
@@ -710,6 +736,7 @@ export interface CreateAutoPredictorResponse {
 }
 
 /**
+ * @public
  * <p>We can't process the request because it includes an invalid value or a value that exceeds
  *       the valid range.</p>
  */
@@ -732,6 +759,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of resources per account has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -753,6 +781,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is already a resource with this name. Try again with a different name.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -774,6 +803,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -795,6 +825,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  */
@@ -816,12 +847,18 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DatasetType {
   ITEM_METADATA = "ITEM_METADATA",
   RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
   TARGET_TIME_SERIES = "TARGET_TIME_SERIES",
 }
 
+/**
+ * @public
+ */
 export enum Domain {
   CUSTOM = "CUSTOM",
   EC2_CAPACITY = "EC2_CAPACITY",
@@ -832,6 +869,9 @@ export enum Domain {
   WORK_FORCE = "WORK_FORCE",
 }
 
+/**
+ * @public
+ */
 export enum AttributeType {
   FLOAT = "float",
   GEOLOCATION = "geolocation",
@@ -841,6 +881,7 @@ export enum AttributeType {
 }
 
 /**
+ * @public
  * <p>An attribute of a schema, which defines a dataset field. A schema attribute is required
  *       for every field in a dataset. The <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_Schema.html">Schema</a> object contains an array of
  *         <code>SchemaAttribute</code> objects.</p>
@@ -859,6 +900,7 @@ export interface SchemaAttribute {
 }
 
 /**
+ * @public
  * <p>Defines the fields of a dataset.</p>
  */
 export interface Schema {
@@ -868,6 +910,9 @@ export interface Schema {
   Attributes?: SchemaAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>A name for the dataset.</p>
@@ -975,6 +1020,9 @@ export interface CreateDatasetRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -982,6 +1030,9 @@ export interface CreateDatasetResponse {
   DatasetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetGroupRequest {
   /**
    * <p>A name for the dataset group.</p>
@@ -1048,6 +1099,9 @@ export interface CreateDatasetGroupRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetGroupResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
@@ -1056,6 +1110,7 @@ export interface CreateDatasetGroupResponse {
 }
 
 /**
+ * @public
  * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an Identity and Access Management (IAM) role that
  *       Amazon Forecast can assume to access the file(s). Optionally, includes an Key Management Service (KMS) key. This
  *       object is part of the <a>DataSource</a> object that is submitted in the <a>CreateDatasetImportJob</a> request, and part of the <a>DataDestination</a> object.</p>
@@ -1082,6 +1137,7 @@ export interface S3Config {
 }
 
 /**
+ * @public
  * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
  *       access the data and, optionally, an Key Management Service (KMS) key.</p>
  */
@@ -1093,11 +1149,17 @@ export interface DataSource {
   S3Config: S3Config | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImportMode {
   FULL = "FULL",
   INCREMENTAL = "INCREMENTAL",
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetImportJobRequest {
   /**
    * <p>The name for the dataset import job. We recommend including the current timestamp in the
@@ -1225,6 +1287,9 @@ export interface CreateDatasetImportJobRequest {
   ImportMode?: ImportMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetImportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
@@ -1232,17 +1297,24 @@ export interface CreateDatasetImportJobResponse {
   DatasetImportJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum TimePointGranularity {
   ALL = "ALL",
   SPECIFIC = "SPECIFIC",
 }
 
+/**
+ * @public
+ */
 export enum TimeSeriesGranularity {
   ALL = "ALL",
   SPECIFIC = "SPECIFIC",
 }
 
 /**
+ * @public
  * <p>The ExplainabilityConfig data type defines the number of time series and time points
  *             included in <a>CreateExplainability</a>.</p>
  *          <p>If you provide a predictor ARN for <code>ResourceArn</code>, you must set both
@@ -1273,6 +1345,9 @@ export interface ExplainabilityConfig {
   TimePointGranularity: TimePointGranularity | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityRequest {
   /**
    * <p>A unique name for the Explainability.</p>
@@ -1360,6 +1435,9 @@ export interface CreateExplainabilityRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
@@ -1368,6 +1446,7 @@ export interface CreateExplainabilityResponse {
 }
 
 /**
+ * @public
  * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
  *       to access the location, and an Key Management Service (KMS) key (optional). </p>
  */
@@ -1379,6 +1458,9 @@ export interface DataDestination {
   S3Config: S3Config | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityExportRequest {
   /**
    * <p>A unique name for the Explainability export.</p>
@@ -1438,6 +1520,9 @@ export interface CreateExplainabilityExportRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the export.</p>
@@ -1446,6 +1531,7 @@ export interface CreateExplainabilityExportResponse {
 }
 
 /**
+ * @public
  * <p>Details about the import file that contains the time series for which you want to create forecasts.</p>
  */
 export interface TimeSeriesIdentifiers {
@@ -1467,6 +1553,7 @@ export interface TimeSeriesIdentifiers {
 }
 
 /**
+ * @public
  * <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p>
  *          <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p>
  *          <ul>
@@ -1494,6 +1581,9 @@ export interface TimeSeriesSelector {
   TimeSeriesIdentifiers?: TimeSeriesIdentifiers;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastRequest {
   /**
    * <p>A name for the forecast.</p>
@@ -1581,6 +1671,9 @@ export interface CreateForecastRequest {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
@@ -1588,6 +1681,9 @@ export interface CreateForecastResponse {
   ForecastArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastExportJobRequest {
   /**
    * <p>The name for the forecast export job.</p>
@@ -1654,6 +1750,9 @@ export interface CreateForecastExportJobRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the export job.</p>
@@ -1661,6 +1760,9 @@ export interface CreateForecastExportJobResponse {
   ForecastExportJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitorRequest {
   /**
    * <p>The name of the monitor resource.</p>
@@ -1678,6 +1780,9 @@ export interface CreateMonitorRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
@@ -1685,12 +1790,16 @@ export interface CreateMonitorResponse {
   MonitorArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum AutoMLOverrideStrategy {
   AccuracyOptimized = "AccuracyOptimized",
   LatencyOptimized = "LatencyOptimized",
 }
 
 /**
+ * @public
  * <p>Parameters that define how to split a dataset into training data and testing data, and the
  *       number of iterations to perform. These parameters are specified in the predefined algorithms
  *       but you can override them in the <a>CreatePredictor</a> request.</p>
@@ -1715,27 +1824,31 @@ export interface EvaluationParameters {
   BackTestWindowOffset?: number;
 }
 
+/**
+ * @public
+ */
 export enum FeaturizationMethodName {
   filling = "filling",
 }
 
 /**
+ * @public
  * <p>Provides information about the method that featurizes (transforms) a dataset field. The
  *       method is part of the <code>FeaturizationPipeline</code> of the <a>Featurization</a> object. </p>
  *          <p>The following is an example of how you specify a <code>FeaturizationMethod</code>
  *       object.</p>
  *          <p>
- *             <code>{</code>
+ *             <code>\{</code>
  *          </p>
  *          <p>
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
  *          <p>
- *             <code>"FeaturizationMethodParameters": {"aggregation": "sum", "middlefill": "zero",
- *         "backfill": "zero"}</code>
+ *             <code>"FeaturizationMethodParameters": \{"aggregation": "sum", "middlefill": "zero",
+ *         "backfill": "zero"\}</code>
  *          </p>
  *          <p>
- *             <code>}</code>
+ *             <code>\}</code>
  *          </p>
  */
 export interface FeaturizationMethod {
@@ -1808,6 +1921,7 @@ export interface FeaturizationMethod {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>AttributeConfig</a>.</p>
@@ -1816,26 +1930,26 @@ export interface FeaturizationMethod {
  *       part of the <a>FeaturizationConfig</a> object.</p>
  *          <p>For example:</p>
  *          <p>
- *             <code>{</code>
+ *             <code>\{</code>
  *          </p>
  *          <p>
  *             <code>"AttributeName": "demand",</code>
  *          </p>
  *          <p>
- *             <code>FeaturizationPipeline [ {</code>
+ *             <code>FeaturizationPipeline [ \{</code>
  *          </p>
  *          <p>
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
  *          <p>
- *             <code>"FeaturizationMethodParameters": {"aggregation": "avg", "backfill":
- *       "nan"}</code>
+ *             <code>"FeaturizationMethodParameters": \{"aggregation": "avg", "backfill":
+ *       "nan"\}</code>
  *          </p>
  *          <p>
- *             <code>} ]</code>
+ *             <code>\} ]</code>
  *          </p>
  *          <p>
- *             <code>}</code>
+ *             <code>\}</code>
  *          </p>
  */
 export interface Featurization {
@@ -1856,6 +1970,7 @@ export interface Featurization {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>AttributeConfig</a>.</p>
@@ -1927,6 +2042,7 @@ export interface FeaturizationConfig {
 }
 
 /**
+ * @public
  * <p>Specifies a categorical hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
@@ -1942,6 +2058,9 @@ export interface CategoricalParameterRange {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ScalingType {
   Auto = "Auto",
   Linear = "Linear",
@@ -1950,6 +2069,7 @@ export enum ScalingType {
 }
 
 /**
+ * @public
  * <p>Specifies a continuous hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
@@ -2004,6 +2124,7 @@ export interface ContinuousParameterRange {
 }
 
 /**
+ * @public
  * <p>Specifies an integer hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
@@ -2057,6 +2178,7 @@ export interface IntegerParameterRange {
 }
 
 /**
+ * @public
  * <p>Specifies the categorical, continuous, and integer hyperparameters, and their ranges of
  *       tunable values. The range of tunable values determines which values that a hyperparameter
  *       tuning job can choose for the specified hyperparameter. This object is part of the
@@ -2080,6 +2202,7 @@ export interface ParameterRanges {
 }
 
 /**
+ * @public
  * <p>Configuration information for a hyperparameter tuning job. You specify this object in
  *       the <a>CreatePredictor</a> request.</p>
  *          <p>A <i>hyperparameter</i> is a parameter that governs the model training process. You set
@@ -2098,6 +2221,7 @@ export interface HyperParameterTuningJobConfig {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>AdditionalDataset</a>.</p>
@@ -2343,6 +2467,7 @@ export interface SupplementaryFeature {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>DataConfig</a>.</p>
@@ -2364,6 +2489,9 @@ export interface InputDataConfig {
   SupplementaryFeatures?: SupplementaryFeature[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorRequest {
   /**
    * <p>A name for the predictor.</p>
@@ -2561,6 +2689,9 @@ export interface CreatePredictorRequest {
   OptimizationMetric?: OptimizationMetric | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
@@ -2568,6 +2699,9 @@ export interface CreatePredictorResponse {
   PredictorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorBacktestExportJobRequest {
   /**
    * <p>The name for the backtest export job.</p>
@@ -2627,6 +2761,9 @@ export interface CreatePredictorBacktestExportJobRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorBacktestExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job that you want to
@@ -2635,6 +2772,9 @@ export interface CreatePredictorBacktestExportJobResponse {
   PredictorBacktestExportJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfAnalysisRequest {
   /**
    * <p>The name of the what-if analysis. Each name must be unique.</p>
@@ -2676,6 +2816,9 @@ export interface CreateWhatIfAnalysisRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfAnalysisResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
@@ -2684,6 +2827,7 @@ export interface CreateWhatIfAnalysisResponse {
 }
 
 /**
+ * @public
  * <p>A replacement dataset is a modified version of the baseline related time series that contains only the values
  *       that you want to include in a what-if forecast. The replacement dataset must contain the forecast dimensions and
  *       item identifiers in the baseline related time series as well as at least 1 changed time series. This dataset is
@@ -2714,6 +2858,9 @@ export interface TimeSeriesReplacementsDataSource {
   TimestampFormat?: string;
 }
 
+/**
+ * @public
+ */
 export enum Condition {
   EQUALS = "EQUALS",
   GREATER_THAN = "GREATER_THAN",
@@ -2722,6 +2869,7 @@ export enum Condition {
 }
 
 /**
+ * @public
  * <p>Creates a subset of items within an attribute that are modified. For example, you can use this operation to create a subset of items that cost $5 or less. To do this, you specify <code>"AttributeName": "price"</code>, <code>"AttributeValue": "5"</code>, and <code>"Condition": "LESS_THAN"</code>. Pair this operation with the <a>Action</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define how the attribute is modified.</p>
  */
 export interface TimeSeriesCondition {
@@ -2743,6 +2891,7 @@ export interface TimeSeriesCondition {
 }
 
 /**
+ * @public
  * <p>A transformation function is a pair of operations that select and modify the rows in a related time series. You select the rows that you want with a condition operation and you modify the rows with a transformation operation. All conditions are joined with an AND operation, meaning that all conditions must be true for the transformation to be applied. Transformations are applied in the order that they are listed.</p>
  */
 export interface TimeSeriesTransformation {
@@ -2758,6 +2907,9 @@ export interface TimeSeriesTransformation {
   TimeSeriesConditions?: TimeSeriesCondition[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastRequest {
   /**
    * <p>The name of the what-if forecast. Names must be unique within each what-if analysis.</p>
@@ -2792,6 +2944,9 @@ export interface CreateWhatIfForecastRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
@@ -2799,6 +2954,9 @@ export interface CreateWhatIfForecastResponse {
   WhatIfForecastArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastExportRequest {
   /**
    * <p>The name of the what-if forecast to export.</p>
@@ -2830,6 +2988,9 @@ export interface CreateWhatIfForecastExportRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
@@ -2837,6 +2998,9 @@ export interface CreateWhatIfForecastExportResponse {
   WhatIfForecastExportArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
@@ -2844,6 +3008,9 @@ export interface DeleteDatasetRequest {
   DatasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group to delete.</p>
@@ -2851,6 +3018,9 @@ export interface DeleteDatasetGroupRequest {
   DatasetGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetImportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job to delete.</p>
@@ -2858,6 +3028,9 @@ export interface DeleteDatasetImportJobRequest {
   DatasetImportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExplainabilityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability resource to delete.</p>
@@ -2865,6 +3038,9 @@ export interface DeleteExplainabilityRequest {
   ExplainabilityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExplainabilityExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export to delete. </p>
@@ -2872,6 +3048,9 @@ export interface DeleteExplainabilityExportRequest {
   ExplainabilityExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast to delete.</p>
@@ -2879,6 +3058,9 @@ export interface DeleteForecastRequest {
   ForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteForecastExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job to delete.</p>
@@ -2886,6 +3068,9 @@ export interface DeleteForecastExportJobRequest {
   ForecastExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to delete.</p>
@@ -2893,6 +3078,9 @@ export interface DeleteMonitorRequest {
   MonitorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to delete.</p>
@@ -2900,6 +3088,9 @@ export interface DeletePredictorRequest {
   PredictorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePredictorBacktestExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job to delete.</p>
@@ -2907,6 +3098,9 @@ export interface DeletePredictorBacktestExportJobRequest {
   PredictorBacktestExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceTreeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the parent resource to delete. All child resources
@@ -2915,6 +3109,9 @@ export interface DeleteResourceTreeRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWhatIfAnalysisRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis that you want to delete.</p>
@@ -2922,6 +3119,9 @@ export interface DeleteWhatIfAnalysisRequest {
   WhatIfAnalysisArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWhatIfForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast that you want to delete.</p>
@@ -2929,6 +3129,9 @@ export interface DeleteWhatIfForecastRequest {
   WhatIfForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWhatIfForecastExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export that you want to delete.</p>
@@ -2936,6 +3139,9 @@ export interface DeleteWhatIfForecastExportRequest {
   WhatIfForecastExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoPredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
@@ -2944,6 +3150,7 @@ export interface DescribeAutoPredictorRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the Explainability resource.</p>
  */
 export interface ExplainabilityInfo {
@@ -2983,6 +3190,7 @@ export interface ExplainabilityInfo {
 }
 
 /**
+ * @public
  * <p>Provides information about the monitor resource.</p>
  */
 export interface MonitorInfo {
@@ -3024,12 +3232,16 @@ export interface MonitorInfo {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export enum State {
   Active = "Active",
   Deleted = "Deleted",
 }
 
 /**
+ * @public
  * <p>Provides a summary of the reference predictor used when retraining or upgrading a
  *             predictor.</p>
  */
@@ -3045,6 +3257,9 @@ export interface ReferencePredictorSummary {
   State?: State | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoPredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor</p>
@@ -3201,6 +3416,9 @@ export interface DescribeAutoPredictorResponse {
   TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -3208,6 +3426,9 @@ export interface DescribeDatasetRequest {
   DatasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -3303,6 +3524,9 @@ export interface DescribeDatasetResponse {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
@@ -3310,6 +3534,9 @@ export interface DescribeDatasetGroupRequest {
   DatasetGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetGroupResponse {
   /**
    * <p>The name of the dataset group.</p>
@@ -3381,6 +3608,9 @@ export interface DescribeDatasetGroupResponse {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetImportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
@@ -3389,6 +3619,7 @@ export interface DescribeDatasetImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides statistics for each data field imported into to an Amazon Forecast dataset with
  *       the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> operation.</p>
  */
@@ -3462,6 +3693,9 @@ export interface Statistics {
   CountNanLong?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetImportJobResponse {
   /**
    * <p>The name of the dataset import job.</p>
@@ -3615,6 +3849,9 @@ export interface DescribeDatasetImportJobResponse {
   ImportMode?: ImportMode | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explaianability to describe.</p>
@@ -3622,6 +3859,9 @@ export interface DescribeExplainabilityRequest {
   ExplainabilityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
@@ -3748,6 +3988,9 @@ export interface DescribeExplainabilityResponse {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
@@ -3755,6 +3998,9 @@ export interface DescribeExplainabilityExportRequest {
   ExplainabilityExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
@@ -3851,6 +4097,9 @@ export interface DescribeExplainabilityExportResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
@@ -3858,6 +4107,9 @@ export interface DescribeForecastRequest {
   ForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastResponse {
   /**
    * <p>The forecast ARN as specified in the request.</p>
@@ -3966,6 +4218,9 @@ export interface DescribeForecastResponse {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
@@ -3973,6 +4228,9 @@ export interface DescribeForecastExportJobRequest {
   ForecastExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastExportJobResponse {
   /**
    * <p>The ARN of the forecast export job.</p>
@@ -4071,6 +4329,9 @@ export interface DescribeForecastExportJobResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMonitorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to describe.</p>
@@ -4079,6 +4340,7 @@ export interface DescribeMonitorRequest {
 }
 
 /**
+ * @public
  * <p>An individual metric that you can use for comparison as you evaluate your monitoring results.</p>
  */
 export interface BaselineMetric {
@@ -4094,6 +4356,7 @@ export interface BaselineMetric {
 }
 
 /**
+ * @public
  * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
  */
 export interface PredictorBaseline {
@@ -4105,6 +4368,7 @@ export interface PredictorBaseline {
 }
 
 /**
+ * @public
  * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
  */
 export interface Baseline {
@@ -4115,6 +4379,9 @@ export interface Baseline {
   PredictorBaseline?: PredictorBaseline;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMonitorResponse {
   /**
    * <p>The name of the monitor.</p>
@@ -4172,6 +4439,9 @@ export interface DescribeMonitorResponse {
   EstimatedEvaluationTimeRemainingInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor that you want information about.</p>
@@ -4180,6 +4450,7 @@ export interface DescribePredictorRequest {
 }
 
 /**
+ * @public
  * <p>The status, start time, and end time of a backtest, as well as a failure reason if
  *       applicable.</p>
  */
@@ -4223,6 +4494,7 @@ export interface TestWindowSummary {
 }
 
 /**
+ * @public
  * <p>The algorithm used to perform a backtest and the status of those tests.</p>
  */
 export interface PredictorExecution {
@@ -4240,6 +4512,7 @@ export interface PredictorExecution {
 }
 
 /**
+ * @public
  * <p>Contains details on the backtests performed to evaluate the accuracy of the predictor. The
  *       tests are returned in descending order of accuracy, with the most accurate backtest appearing
  *       first. You specify the number of backtests to perform when you call the  operation.</p>
@@ -4253,6 +4526,9 @@ export interface PredictorExecutionDetails {
   PredictorExecutions?: PredictorExecution[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorResponse {
   /**
    * <p>The ARN of the predictor.</p>
@@ -4444,6 +4720,9 @@ export interface DescribePredictorResponse {
   OptimizationMetric?: OptimizationMetric | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorBacktestExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
@@ -4451,6 +4730,9 @@ export interface DescribePredictorBacktestExportJobRequest {
   PredictorBacktestExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorBacktestExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
@@ -4547,6 +4829,9 @@ export interface DescribePredictorBacktestExportJobResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfAnalysisRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis that you are interested in.</p>
@@ -4554,6 +4839,9 @@ export interface DescribeWhatIfAnalysisRequest {
   WhatIfAnalysisArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfAnalysisResponse {
   /**
    * <p>The name of the what-if analysis.</p>
@@ -4670,6 +4958,9 @@ export interface DescribeWhatIfAnalysisResponse {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast that you are interested in.</p>
@@ -4677,6 +4968,9 @@ export interface DescribeWhatIfForecastRequest {
   WhatIfForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastResponse {
   /**
    * <p>The name of the what-if forecast.</p>
@@ -4787,6 +5081,9 @@ export interface DescribeWhatIfForecastResponse {
   ForecastTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export that you are interested in.</p>
@@ -4794,6 +5091,9 @@ export interface DescribeWhatIfForecastExportRequest {
   WhatIfForecastExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export.</p>
@@ -4899,6 +5199,9 @@ export interface DescribeWhatIfForecastExportResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccuracyMetricsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to get metrics for.</p>
@@ -4906,12 +5209,16 @@ export interface GetAccuracyMetricsRequest {
   PredictorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EvaluationType {
   COMPUTED = "COMPUTED",
   SUMMARY = "SUMMARY",
 }
 
 /**
+ * @public
  * <p> Provides detailed error metrics to evaluate the performance of a predictor. This object
  *       is part of the <a>Metrics</a> object. </p>
  */
@@ -4943,6 +5250,7 @@ export interface ErrorMetric {
 }
 
 /**
+ * @public
  * <p>The weighted loss value for a quantile. This object is part of the <a>Metrics</a> object.</p>
  */
 export interface WeightedQuantileLoss {
@@ -4961,6 +5269,7 @@ export interface WeightedQuantileLoss {
 }
 
 /**
+ * @public
  * <p>Provides metrics that are used to evaluate the performance of a predictor. This object is
  *       part of the <a>WindowSummary</a> object.</p>
  */
@@ -4992,6 +5301,7 @@ export interface Metrics {
 }
 
 /**
+ * @public
  * <p>The metrics for a time range within the evaluation portion of a dataset. This object is
  *       part of the <a>EvaluationResult</a> object.</p>
  *          <p>The <code>TestWindowStart</code> and <code>TestWindowEnd</code> parameters are determined
@@ -5035,6 +5345,7 @@ export interface WindowSummary {
 }
 
 /**
+ * @public
  * <p>The results of evaluating an algorithm. Returned as part of the <a>GetAccuracyMetrics</a> response.</p>
  */
 export interface EvaluationResult {
@@ -5051,6 +5362,9 @@ export interface EvaluationResult {
   TestWindows?: WindowSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetAccuracyMetricsResponse {
   /**
    * <p>An array of results from evaluating the predictor.</p>
@@ -5081,6 +5395,7 @@ export interface GetAccuracyMetricsResponse {
 }
 
 /**
+ * @public
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -5101,6 +5416,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetGroupsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5116,6 +5434,7 @@ export interface ListDatasetGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the dataset group properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a> operation. To
  *       get the complete set of properties, call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
  *       operation, and provide the <code>DatasetGroupArn</code>.</p>
@@ -5144,6 +5463,9 @@ export interface DatasetGroupSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetGroupsResponse {
   /**
    * <p>An array of objects that summarize each dataset group's properties.</p>
@@ -5157,12 +5479,16 @@ export interface ListDatasetGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FilterConditionString {
   IS = "IS",
   IS_NOT = "IS_NOT",
 }
 
 /**
+ * @public
  * <p>Describes a filter for choosing a subset of objects. Each filter consists of a
  *       condition and a match statement. The condition is either <code>IS</code> or
  *       <code>IS_NOT</code>, which specifies whether to include or exclude
@@ -5187,6 +5513,9 @@ export interface Filter {
   Condition: FilterConditionString | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetImportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5228,13 +5557,14 @@ export interface ListDatasetImportJobsRequest {
    *          <p>For example, to list all dataset import jobs whose status is ACTIVE, you specify the
    *       following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "Status", "Value": "ACTIVE" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the dataset import job properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a> operation. To get the complete set of properties, call the
  *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a> operation, and provide the
  *         <code>DatasetImportJobArn</code>.</p>
@@ -5331,6 +5661,9 @@ export interface DatasetImportJobSummary {
   ImportMode?: ImportMode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetImportJobsResponse {
   /**
    * <p>An array of objects that summarize each dataset import job's properties.</p>
@@ -5344,6 +5677,9 @@ export interface ListDatasetImportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5359,6 +5695,7 @@ export interface ListDatasetsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the dataset properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html">ListDatasets</a> operation. To get the
  *       complete set of properties, call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation, and
  *       provide the <code>DatasetArn</code>.</p>
@@ -5399,6 +5736,9 @@ export interface DatasetSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsResponse {
   /**
    * <p>An array of objects that summarize each dataset's properties.</p>
@@ -5412,6 +5752,9 @@ export interface ListDatasetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilitiesRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5454,6 +5797,7 @@ export interface ListExplainabilitiesRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the Explainability properties used in the <a>ListExplainabilities</a> operation. To get a complete set of properties,
  *             call the <a>DescribeExplainability</a> operation, and provide the listed
  *                 <code>ExplainabilityArn</code>.</p>
@@ -5551,6 +5895,9 @@ export interface ExplainabilitySummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilitiesResponse {
   /**
    * <p>An array of objects that summarize the properties of each Explainability
@@ -5565,6 +5912,9 @@ export interface ListExplainabilitiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilityExportsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5607,6 +5957,7 @@ export interface ListExplainabilityExportsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the Explainability export properties used in the <a>ListExplainabilityExports</a> operation. To get a complete set of
  *             properties, call the <a>DescribeExplainabilityExport</a> operation, and
  *             provide the <code>ExplainabilityExportArn</code>.</p>
@@ -5698,6 +6049,9 @@ export interface ExplainabilityExportSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilityExportsResponse {
   /**
    * <p>An array of objects that summarize the properties of each Explainability
@@ -5712,6 +6066,9 @@ export interface ListExplainabilityExportsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastExportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5754,14 +6111,15 @@ export interface ListForecastExportJobsRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *         <i>electricityforecast</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "ForecastArn", "Value":
-   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityforecast" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "ForecastArn", "Value":
+   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityforecast" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the forecast export job properties used in the <a>ListForecastExportJobs</a> operation. To get the complete set of properties, call
  *       the <a>DescribeForecastExportJob</a> operation, and provide the listed
  *         <code>ForecastExportJobArn</code>.</p>
@@ -5854,6 +6212,9 @@ export interface ForecastExportJobSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastExportJobsResponse {
   /**
    * <p>An array of objects that summarize each export job's properties.</p>
@@ -5867,6 +6228,9 @@ export interface ListForecastExportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5907,7 +6271,7 @@ export interface ListForecastsRequest {
    *          </ul>
    *          <p>For example, to list all forecasts whose status is not ACTIVE, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS_NOT", "Key": "Status", "Value": "ACTIVE" }
+   *             <code>"Filters": [ \{ "Condition": "IS_NOT", "Key": "Status", "Value": "ACTIVE" \}
    *       ]</code>
    *          </p>
    */
@@ -5915,6 +6279,7 @@ export interface ListForecastsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the forecast properties used in the <a>ListForecasts</a>
  *       operation. To get the complete set of properties, call the <a>DescribeForecast</a>
  *       operation, and provide the <code>ForecastArn</code> that is listed in the summary.</p>
@@ -6018,6 +6383,9 @@ export interface ForecastSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastsResponse {
   /**
    * <p>An array of objects that summarize each forecast's properties.</p>
@@ -6031,6 +6399,9 @@ export interface ListForecastsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorEvaluationsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6075,13 +6446,14 @@ export interface ListMonitorEvaluationsRequest {
    *          </ul>
    *          <p>For example, to list only successful monitor evaluations, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>An individual metric Forecast calculated when monitoring predictor usage. You can compare the value for this metric to the metric's value in the <a>Baseline</a> to see how your predictor's performance is changing.</p>
  *          <p>For more information about metrics generated by Forecast see <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Evaluating Predictor Accuracy</a>
  *          </p>
@@ -6099,6 +6471,7 @@ export interface MetricResult {
 }
 
 /**
+ * @public
  * <p>The source of the data the monitor used during the evaluation.</p>
  */
 export interface MonitorDataSource {
@@ -6119,6 +6492,7 @@ export interface MonitorDataSource {
 }
 
 /**
+ * @public
  * <p>Provides details about a predictor event, such as a retraining.</p>
  */
 export interface PredictorEvent {
@@ -6134,6 +6508,7 @@ export interface PredictorEvent {
 }
 
 /**
+ * @public
  * <p>Describes the results of a monitor evaluation.</p>
  */
 export interface PredictorMonitorEvaluation {
@@ -6193,6 +6568,9 @@ export interface PredictorMonitorEvaluation {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorEvaluationsResponse {
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -6207,6 +6585,9 @@ export interface ListMonitorEvaluationsResponse {
   PredictorMonitorEvaluations?: PredictorMonitorEvaluation[];
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6246,13 +6627,14 @@ export interface ListMonitorsRequest {
    *          </ul>
    *          <p>For example, to list all monitors who's status is ACTIVE, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "Status", "Value": "ACTIVE" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the monitor properties used in the <a>ListMonitors</a> operation. To get a complete set of properties,
  *          call the <a>DescribeMonitor</a> operation, and provide the listed
  *          <code>MonitorArn</code>.</p>
@@ -6336,6 +6718,9 @@ export interface MonitorSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsResponse {
   /**
    * <p>An array of objects that summarize each monitor's properties.</p>
@@ -6349,6 +6734,9 @@ export interface ListMonitorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorBacktestExportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6393,6 +6781,7 @@ export interface ListPredictorBacktestExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the predictor backtest export job properties used in the <a>ListPredictorBacktestExportJobs</a> operation. To get a complete set of
  *             properties, call the <a>DescribePredictorBacktestExportJob</a> operation, and
  *             provide the listed <code>PredictorBacktestExportJobArn</code>.</p>
@@ -6483,6 +6872,9 @@ export interface PredictorBacktestExportJobSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorBacktestExportJobsResponse {
   /**
    * <p>An array of objects that summarize the properties of each predictor backtest export
@@ -6497,6 +6889,9 @@ export interface ListPredictorBacktestExportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6537,7 +6932,7 @@ export interface ListPredictorsRequest {
    *          </ul>
    *          <p>For example, to list all predictors whose status is ACTIVE, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" }
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "Status", "Value": "ACTIVE" \}
    *       ]</code>
    *          </p>
    */
@@ -6545,6 +6940,7 @@ export interface ListPredictorsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the predictor properties that are used in the <a>ListPredictors</a> operation. To get the complete set of properties, call the <a>DescribePredictor</a> operation, and provide the listed
  *       <code>PredictorArn</code>.</p>
  */
@@ -6649,6 +7045,9 @@ export interface PredictorSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorsResponse {
   /**
    * <p>An array of objects that summarize each predictor's properties.</p>
@@ -6662,6 +7061,9 @@ export interface ListPredictorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
@@ -6670,6 +7072,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -6677,6 +7082,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfAnalysesRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6717,14 +7125,15 @@ export interface ListWhatIfAnalysesRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *         <i>electricityWhatIf</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value":
-   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIf" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value":
+   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIf" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the what-if analysis properties used in the <a>ListWhatIfAnalyses</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfAnalysis</a> operation, and provide the <code>WhatIfAnalysisArn</code> that is listed in the summary.</p>
  */
 export interface WhatIfAnalysisSummary {
@@ -6815,6 +7224,9 @@ export interface WhatIfAnalysisSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfAnalysesResponse {
   /**
    * <p>An array of <code>WhatIfAnalysisSummary</code> objects that describe the matched analyses.</p>
@@ -6827,6 +7239,9 @@ export interface ListWhatIfAnalysesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastExportsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
@@ -6867,14 +7282,15 @@ export interface ListWhatIfForecastExportsRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *       <i>electricityWIFExport</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfForecastExportArn", "Value":
-   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWIFExport" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "WhatIfForecastExportArn", "Value":
+   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWIFExport" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the what-if forecast export properties used in the <a>ListWhatIfForecastExports</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfForecastExport</a> operation, and provide the <code>WhatIfForecastExportArn</code> that is listed in the summary.</p>
  */
 export interface WhatIfForecastExportSummary {
@@ -6970,6 +7386,9 @@ export interface WhatIfForecastExportSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastExportsResponse {
   /**
    * <p>An array of <code>WhatIfForecastExports</code> objects that describe the matched forecast exports.</p>
@@ -6982,6 +7401,9 @@ export interface ListWhatIfForecastExportsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
@@ -7022,14 +7444,15 @@ export interface ListWhatIfForecastsRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *       <i>electricityWhatIfForecast</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfForecastArn", "Value":
-   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIfForecast" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "WhatIfForecastArn", "Value":
+   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIfForecast" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the what-if forecast properties used in the <a>ListWhatIfForecasts</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfForecast</a> operation, and provide the <code>WhatIfForecastArn</code> that is listed in the summary.</p>
  */
 export interface WhatIfForecastSummary {
@@ -7120,6 +7543,9 @@ export interface WhatIfForecastSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastsResponse {
   /**
    * <p>An array of <code>WhatIfForecasts</code> objects that describe the matched forecasts.</p>
@@ -7132,6 +7558,9 @@ export interface ListWhatIfForecastsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResumeResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to resume.</p>
@@ -7139,6 +7568,9 @@ export interface ResumeResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to stop. The supported ARNs
@@ -7150,6 +7582,9 @@ export interface StopResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
@@ -7196,8 +7631,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
@@ -7211,8 +7652,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatasetGroupRequest {
   /**
    * <p>The ARN of the dataset group.</p>
@@ -7226,6 +7673,9 @@ export interface UpdateDatasetGroupRequest {
   DatasetArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatasetGroupResponse {}
 
 /**

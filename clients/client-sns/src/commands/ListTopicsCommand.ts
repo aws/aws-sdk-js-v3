@@ -23,15 +23,20 @@ import { deserializeAws_queryListTopicsCommand, serializeAws_queryListTopicsComm
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTopicsCommand}.
  */
 export interface ListTopicsCommandInput extends ListTopicsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTopicsCommand}.
  */
 export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the requester's topics. Each call returns a limited list of topics,
  *             up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the
  *                 <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
@@ -47,6 +52,8 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTopicsCommandInput - {@link ListTopicsCommandInput}
+ * @returns {@link ListTopicsCommandOutput}
  * @see {@link ListTopicsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListTopicsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTopicsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListTopicsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTopicsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListTopicsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTopicsCommandOutput> {
     return deserializeAws_queryListTopicsCommand(output, context);
   }

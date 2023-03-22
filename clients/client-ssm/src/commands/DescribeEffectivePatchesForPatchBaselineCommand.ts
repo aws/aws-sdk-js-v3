@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEffectivePatchesForPatchBaselineCommand}.
  */
 export interface DescribeEffectivePatchesForPatchBaselineCommandInput
   extends DescribeEffectivePatchesForPatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEffectivePatchesForPatchBaselineCommand}.
  */
 export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
  *    patch baseline. Applies to patch baselines for Windows only.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEffectivePatchesForPatchBaselineCommandInput - {@link DescribeEffectivePatchesForPatchBaselineCommandInput}
+ * @returns {@link DescribeEffectivePatchesForPatchBaselineCommandOutput}
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEffectivePatchesForPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEffectivePatchesForPatchBaselineCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     return serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

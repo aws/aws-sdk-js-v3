@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceInformationCommand}.
  */
 export interface DescribeInstanceInformationCommandInput extends DescribeInstanceInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceInformationCommand}.
  */
 export interface DescribeInstanceInformationCommandOutput extends DescribeInstanceInformationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your managed nodes, including information about the operating
  *    system platform, the version of SSM Agent installed on the managed node, node status, and so
  *    on.</p>
@@ -56,6 +61,8 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceInformationCommandInput - {@link DescribeInstanceInformationCommandInput}
+ * @returns {@link DescribeInstanceInformationCommandOutput}
  * @see {@link DescribeInstanceInformationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceInformationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeInstanceInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DescribeInstanceInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInstanceInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

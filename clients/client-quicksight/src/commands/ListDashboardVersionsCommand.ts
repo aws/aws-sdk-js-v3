@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDashboardVersionsCommand}.
  */
 export interface ListDashboardVersionsCommandInput extends ListDashboardVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDashboardVersionsCommand}.
  */
 export interface ListDashboardVersionsCommandOutput extends ListDashboardVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions of the dashboards in the Amazon QuickSight subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDashboardVersionsCommandInput - {@link ListDashboardVersionsCommandInput}
+ * @returns {@link ListDashboardVersionsCommandOutput}
  * @see {@link ListDashboardVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardVersionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListDashboardVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDashboardVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListDashboardVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDashboardVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDashboardVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardVersionsCommandOutput> {
     return deserializeAws_restJson1ListDashboardVersionsCommand(output, context);
   }

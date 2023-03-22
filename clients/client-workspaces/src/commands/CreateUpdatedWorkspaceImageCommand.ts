@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUpdatedWorkspaceImageCommand}.
  */
 export interface CreateUpdatedWorkspaceImageCommandInput extends CreateUpdatedWorkspaceImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUpdatedWorkspaceImageCommand}.
  */
 export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new updated WorkSpace image based on the specified source image. The new
  *          updated WorkSpace image has the latest drivers and other updates required by the
  *          Amazon WorkSpaces components.</p>
@@ -67,6 +72,8 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUpdatedWorkspaceImageCommandInput - {@link CreateUpdatedWorkspaceImageCommandInput}
+ * @returns {@link CreateUpdatedWorkspaceImageCommandOutput}
  * @see {@link CreateUpdatedWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CreateUpdatedWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -111,6 +118,9 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUpdatedWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUpdatedWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUpdatedWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

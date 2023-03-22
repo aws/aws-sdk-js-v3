@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateInstanceStorageConfigCommand}.
  */
 export interface AssociateInstanceStorageConfigCommandInput extends AssociateInstanceStorageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateInstanceStorageConfigCommand}.
  */
 export interface AssociateInstanceStorageConfigCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateInstanceStorageConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a storage resource type for the first time. You can only associate one type of
  *    storage configuration in a single call. This means, for example, that you can't define an
@@ -54,6 +59,8 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateInstanceStorageConfigCommandInput - {@link AssociateInstanceStorageConfigCommandInput}
+ * @returns {@link AssociateInstanceStorageConfigCommandOutput}
  * @see {@link AssociateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +102,9 @@ export class AssociateInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class AssociateInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateInstanceStorageConfigCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class AssociateInstanceStorageConfigCommand extends $Command<
     return serializeAws_restJson1AssociateInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

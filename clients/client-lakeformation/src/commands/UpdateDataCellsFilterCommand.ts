@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataCellsFilterCommand}.
  */
 export interface UpdateDataCellsFilterCommandInput extends UpdateDataCellsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataCellsFilterCommand}.
  */
 export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a data cell filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataCellsFilterCommandInput - {@link UpdateDataCellsFilterCommandInput}
+ * @returns {@link UpdateDataCellsFilterCommandOutput}
  * @see {@link UpdateDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataCellsFilterCommandOutput> {
     return deserializeAws_restJson1UpdateDataCellsFilterCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceMetadataOptionsCommand}.
  */
 export interface ModifyInstanceMetadataOptionsCommandInput extends ModifyInstanceMetadataOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceMetadataOptionsCommand}.
  */
 export interface ModifyInstanceMetadataOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the instance metadata parameters on a running or stopped instance. When you
  *             modify the parameters on a stopped instance, they are applied when the instance is
  *             started. When you modify the parameters on a running instance, the API responds with a
@@ -54,6 +59,8 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceMetadataOptionsCommandInput - {@link ModifyInstanceMetadataOptionsCommandInput}
+ * @returns {@link ModifyInstanceMetadataOptionsCommandOutput}
  * @see {@link ModifyInstanceMetadataOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceMetadataOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceMetadataOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstanceMetadataOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

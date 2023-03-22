@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ShutdownGatewayCommand}.
  */
 export interface ShutdownGatewayCommandInput extends ShutdownGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link ShutdownGatewayCommand}.
  */
 export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource
  *          Name (ARN) of the gateway in the body of your request.</p>
  *
@@ -69,6 +74,8 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ShutdownGatewayCommandInput - {@link ShutdownGatewayCommandInput}
+ * @returns {@link ShutdownGatewayCommandOutput}
  * @see {@link ShutdownGatewayCommandInput} for command's `input` shape.
  * @see {@link ShutdownGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -116,6 +123,9 @@ export class ShutdownGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ShutdownGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class ShutdownGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ShutdownGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ShutdownGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShutdownGatewayCommandOutput> {
     return deserializeAws_json1_1ShutdownGatewayCommand(output, context);
   }

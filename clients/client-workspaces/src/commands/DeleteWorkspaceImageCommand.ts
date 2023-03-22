@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkspaceImageCommand}.
  */
 export interface DeleteWorkspaceImageCommandInput extends DeleteWorkspaceImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkspaceImageCommand}.
  */
 export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified image from your account. To delete an image, you must first delete
  *          any bundles that are associated with the image and unshare the image if it is shared with
  *          other accounts. </p>
@@ -48,6 +53,8 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkspaceImageCommandInput - {@link DeleteWorkspaceImageCommandInput}
+ * @returns {@link DeleteWorkspaceImageCommandOutput}
  * @see {@link DeleteWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceImageCommandOutput> {
     return deserializeAws_json1_1DeleteWorkspaceImageCommand(output, context);
   }

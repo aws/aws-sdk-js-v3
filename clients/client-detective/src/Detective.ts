@@ -100,6 +100,7 @@ import {
 import { DetectiveClient } from "./DetectiveClient";
 
 /**
+ * @public
  * <p>Detective uses machine learning and purpose-built visualizations to help you to
  *          analyze and investigate security issues across your Amazon Web Services (Amazon Web Services) workloads. Detective automatically extracts time-based events such
  *          as login attempts, API calls, and network traffic from CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by
@@ -179,6 +180,7 @@ import { DetectiveClient } from "./DetectiveClient";
  */
 export class Detective extends DetectiveClient {
   /**
+   * @public
    * <p>Accepts an invitation for the member account to contribute data to a behavior graph.
    *          This operation can only be called by an invited member account. </p>
    *          <p>The request provides the ARN of behavior graph.</p>
@@ -214,6 +216,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Gets data source package information for the behavior graph.</p>
    */
   public batchGetGraphMemberDatasources(
@@ -246,6 +249,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Gets information on the data source package history for an account.</p>
    */
   public batchGetMembershipDatasources(
@@ -278,6 +282,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Creates a new behavior graph for the calling account, and sets that account as the
    *          administrator account. This operation is called by the account that is enabling Detective.</p>
    *          <p>Before you try to enable Detective, make sure that your account has been
@@ -319,6 +324,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>CreateMembers</code> is used to send invitations to accounts. For the organization
    *          behavior graph, the Detective administrator account uses
@@ -382,6 +388,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Disables the specified behavior graph and queues it to be deleted. This operation
    *          removes the behavior graph from each member account's list of behavior graphs.</p>
    *          <p>
@@ -412,6 +419,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified member accounts from the behavior graph. The removed accounts no
    *          longer contribute data to the behavior graph. This operation can only be called by the
    *          administrator account for the behavior graph.</p>
@@ -456,6 +464,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the configuration for the organization behavior graph.
    *          Currently indicates whether to automatically enable new organization accounts as member
    *          accounts.</p>
@@ -491,6 +500,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Removes the Detective administrator account in the current Region. Deletes the
    *          organization behavior graph.</p>
    *          <p>Can only be called by the organization management account.</p>
@@ -528,6 +538,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Removes the member account from the specified behavior graph. This operation can only be
    *          called by an invited member account that has the <code>ENABLED</code> status.</p>
    *          <p>
@@ -566,6 +577,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Designates the Detective administrator account for the organization in the
    *          current Region.</p>
    *          <p>If the account does not have Detective enabled, then enables Detective
@@ -609,6 +621,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Returns the membership details for specified member accounts for a behavior
    *          graph.</p>
    */
@@ -636,6 +649,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Lists data source packages in the behavior graph.</p>
    */
   public listDatasourcePackages(
@@ -668,6 +682,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of behavior graphs that the calling account is an administrator account
    *          of. This operation can only be called by an administrator account.</p>
    *          <p>Because an account can currently only be the administrator of one behavior graph within
@@ -697,6 +712,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of open and accepted behavior graph invitations for the member
    *          account. This operation can only be called by an invited member account.</p>
    *          <p>Open invitations are invitations that the member account has not responded to.</p>
@@ -734,6 +750,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of member accounts for a behavior graph.</p>
    *          <p>For invited accounts, the results do not include member accounts that were removed from
    *          the behavior graph.</p>
@@ -765,6 +782,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the Detective administrator account for an
    *          organization. Can only be called by the organization management account.</p>
    */
@@ -798,6 +816,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Returns the tag values that are assigned to a behavior graph.</p>
    */
   public listTagsForResource(
@@ -830,6 +849,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation
    *          must be called by an invited member account that has the <code>INVITED</code>
    *          status.</p>
@@ -868,6 +888,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Sends a request to enable data ingest for a member account that has a status of
    *             <code>ACCEPTED_BUT_DISABLED</code>.</p>
    *          <p>For valid member accounts, the status is updated as follows.</p>
@@ -912,6 +933,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Applies tag values to a behavior graph.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -938,6 +960,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a behavior graph.</p>
    */
   public untagResource(
@@ -970,6 +993,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Starts a data source packages for the behavior graph.</p>
    */
   public updateDatasourcePackages(
@@ -1002,6 +1026,7 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration for the Organizations integration in the current Region.
    *          Can only be called by the Detective administrator account for the
    *          organization.</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachLoadBalancersCommand}.
  */
 export interface AttachLoadBalancersCommandInput extends AttachLoadBalancersType {}
 /**
+ * @public
+ *
  * The output of {@link AttachLoadBalancersCommand}.
  */
 export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersResultType, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>To attach an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.</p>
  *          </note>
@@ -57,6 +62,8 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachLoadBalancersCommandInput - {@link AttachLoadBalancersCommandInput}
+ * @returns {@link AttachLoadBalancersCommandOutput}
  * @see {@link AttachLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -101,6 +108,9 @@ export class AttachLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class AttachLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachLoadBalancersCommandOutput> {
     return deserializeAws_queryAttachLoadBalancersCommand(output, context);
   }

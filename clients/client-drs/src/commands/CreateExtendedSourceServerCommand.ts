@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExtendedSourceServerCommand}.
  */
 export interface CreateExtendedSourceServerCommandInput extends CreateExtendedSourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExtendedSourceServerCommand}.
  */
 export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedSourceServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an extended source server in the target Account based on the source server in staging account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExtendedSourceServerCommandInput - {@link CreateExtendedSourceServerCommandInput}
+ * @returns {@link CreateExtendedSourceServerCommandOutput}
  * @see {@link CreateExtendedSourceServerCommandInput} for command's `input` shape.
  * @see {@link CreateExtendedSourceServerCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateExtendedSourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExtendedSourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateExtendedSourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExtendedSourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateExtendedSourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOTAUpdateCommand}.
  */
 export interface DeleteOTAUpdateCommandInput extends DeleteOTAUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOTAUpdateCommand}.
  */
 export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an OTA update.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteOTAUpdate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOTAUpdateCommandInput - {@link DeleteOTAUpdateCommandInput}
+ * @returns {@link DeleteOTAUpdateCommandOutput}
  * @see {@link DeleteOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link DeleteOTAUpdateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteOTAUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOTAUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteOTAUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOTAUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteOTAUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOTAUpdateCommandOutput> {
     return deserializeAws_restJson1DeleteOTAUpdateCommand(output, context);
   }

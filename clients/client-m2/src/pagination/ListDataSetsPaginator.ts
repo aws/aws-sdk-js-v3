@@ -10,7 +10,7 @@ import { M2Client } from "../M2Client";
 import { M2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: M2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataSetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDataSets(
   config: M2PaginationConfiguration,
   input: ListDataSetsCommandInput,

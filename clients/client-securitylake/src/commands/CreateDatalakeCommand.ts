@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatalakeCommand}.
  */
 export interface CreateDatalakeCommandInput extends CreateDatalakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatalakeCommand}.
  */
 export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You
  *          can enable Security Lake in Amazon Web Services Regions with customized settings before enabling
  *          log collection in Regions. You can either use the <code>enableAll</code> parameter to
@@ -61,6 +66,8 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeCommandInput - {@link CreateDatalakeCommandInput}
+ * @returns {@link CreateDatalakeCommandOutput}
  * @see {@link CreateDatalakeCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -113,6 +120,9 @@ export class CreateDatalakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class CreateDatalakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDatalakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeCommandOutput> {
     return deserializeAws_restJson1CreateDatalakeCommand(output, context);
   }

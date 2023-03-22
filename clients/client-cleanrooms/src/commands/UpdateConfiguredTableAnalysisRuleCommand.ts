@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfiguredTableAnalysisRuleCommand}.
  */
 export interface UpdateConfiguredTableAnalysisRuleCommandInput extends UpdateConfiguredTableAnalysisRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfiguredTableAnalysisRuleCommand}.
  */
 export interface UpdateConfiguredTableAnalysisRuleCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a configured table analysis rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfiguredTableAnalysisRuleCommandInput - {@link UpdateConfiguredTableAnalysisRuleCommandInput}
+ * @returns {@link UpdateConfiguredTableAnalysisRuleCommandOutput}
  * @see {@link UpdateConfiguredTableAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfiguredTableAnalysisRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfiguredTableAnalysisRuleCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
     return serializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

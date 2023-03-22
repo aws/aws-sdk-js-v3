@@ -209,6 +209,7 @@ import {
 import { DynamoDBClient } from "./DynamoDBClient";
 
 /**
+ * @public
  * <fullname>Amazon DynamoDB</fullname>
  *          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
  *             and predictable performance with seamless scalability. DynamoDB lets you
@@ -229,6 +230,7 @@ import { DynamoDBClient } from "./DynamoDBClient";
  */
 export class DynamoDB extends DynamoDBClient {
   /**
+   * @public
    * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
    *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
    *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
@@ -273,6 +275,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items
    *             from one or more tables. You identify requested items by primary key.</p>
    *          <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100
@@ -348,6 +351,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
    *             more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of
    *             data over the network, consisting of up to 25 item put or delete operations. While
@@ -461,6 +465,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a backup for an existing table.</p>
    *          <p> Each time you create an on-demand backup, the entire table data is backed up. There
    *             is no limit to the number of on-demand backups that can be taken. </p>
@@ -519,6 +524,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a global table from an existing table. A global table creates a replication
    *             relationship between two or more DynamoDB tables with the same table name in the
    *             provided Regions. </p>
@@ -613,6 +619,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>The <code>CreateTable</code> operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
    *             have two tables with same name if you create the tables in different Regions.</p>
    *          <p>
@@ -651,6 +658,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing backup of a table.</p>
    *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per
    *             second.</p>
@@ -682,6 +690,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single item in a table by primary key. You can perform a conditional delete
    *             operation that deletes the item if it exists, or if it has an expected attribute
    *             value.</p>
@@ -718,6 +727,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
    *                 <code>DeleteTable</code> request, the specified table is in the
    *                 <code>DELETING</code> state until DynamoDB completes the deletion. If the table is
@@ -766,6 +776,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing backup of a table.</p>
    *          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
    *             second.</p>
@@ -800,6 +811,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Checks the status of continuous backups and point in time recovery on the specified
    *             table. Continuous backups are <code>ENABLED</code> on all tables at table creation. If
    *             point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will be set to
@@ -843,6 +855,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about contributor insights for a given table or global secondary
    *             index.</p>
    */
@@ -876,6 +889,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns the regional endpoint information. This action must be included in your VPC
    *             endpoint policies, or access to the DescribeEndpoints API will be denied. For more information
    *             on policy permissions, please see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints">Internetwork traffic privacy</a>.</p>
@@ -910,6 +924,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing table export.</p>
    */
   public describeExport(
@@ -942,6 +957,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified global table.</p>
    *          <important>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -986,6 +1002,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Describes Region-specific settings for a global table.</p>
    *          <important>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -1030,6 +1047,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p> Represents the properties of the import. </p>
    */
   public describeImport(
@@ -1062,6 +1080,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the status of Kinesis streaming.</p>
    */
   public describeKinesisStreamingDestination(
@@ -1094,6 +1113,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in
    *             a Region, both for the Region as a whole and for any one DynamoDB table that you create
    *             there.</p>
@@ -1195,6 +1215,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the table, including the current status of the table, when
    *             it was created, the primary key schema, and any indexes on the table.</p>
    *          <important>
@@ -1241,6 +1262,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Describes auto scaling settings across replicas of the global table at once.</p>
    *          <important>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
@@ -1277,6 +1299,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
    */
   public describeTimeToLive(
@@ -1309,6 +1332,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
    *             without deleting either of the resources.</p>
    */
@@ -1342,6 +1366,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Starts table data replication to the specified Kinesis data stream at a timestamp
    *             chosen during the enable workflow. If this operation doesn't return results immediately,
    *             use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
@@ -1377,6 +1402,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>This operation allows you to perform reads and singleton writes on data stored in
    *             DynamoDB, using PartiQL.</p>
    *          <p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
@@ -1421,6 +1447,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>This operation allows you to perform transactional reads or writes on data stored in
    *             DynamoDB, using PartiQL.</p>
    *          <note>
@@ -1460,6 +1487,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Exports table data to an S3 bucket. The table must have point in time recovery
    *             enabled, and you can export data from any time within the point in time recovery
    *             window.</p>
@@ -1494,6 +1522,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the
    *             given primary key. If there is no matching item, <code>GetItem</code> does not return
    *             any data and there will be no <code>Item</code> element in the response.</p>
@@ -1527,6 +1556,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p> Imports table data from an S3 bucket. </p>
    */
   public importTable(args: ImportTableCommandInput, options?: __HttpHandlerOptions): Promise<ImportTableCommandOutput>;
@@ -1553,6 +1583,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>List backups associated with an Amazon Web Services account. To list backups for a
    *             given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
    *             paginated list of results with at most 1 MB worth of items in a page. You can also
@@ -1585,6 +1616,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary
    *             indexes.</p>
    */
@@ -1618,6 +1650,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Lists completed exports within the past 90 days.</p>
    */
   public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
@@ -1644,6 +1677,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Lists all global tables that have a replica in the specified Region.</p>
    *          <important>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -1688,6 +1722,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p> Lists completed imports within the past 90 days. </p>
    */
   public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
@@ -1714,6 +1749,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of table names associated with the current account and endpoint. The
    *             output from <code>ListTables</code> is paginated, with each page returning a maximum of
    *             100 table names.</p>
@@ -1742,6 +1778,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10
    *             times per second, per account.</p>
    *          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
@@ -1777,6 +1814,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new item, or replaces an old item with a new item. If an item that has the
    *             same primary key as the new item already exists in the specified table, the new item
    *             completely replaces the existing item. You can perform a conditional put operation (add
@@ -1824,6 +1862,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>You must provide the name of the partition key attribute and a single value for that
    *             attribute. <code>Query</code> returns all items with that partition key value.
    *             Optionally, you can provide a sort key attribute and use a comparison operator to refine
@@ -1900,6 +1939,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new table from an existing backup. Any number of users can execute up to 4
    *             concurrent restores (any type of restore) in a given account. </p>
    *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
@@ -1956,6 +1996,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Restores the specified table to the specified point in time within
    *                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
    *             You can restore your table to any point in time during the last 35 days. Any number of
@@ -2037,6 +2078,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>The <code>Scan</code> operation returns one or more items and item attributes by
    *             accessing every item in a table or a secondary index. To have DynamoDB return fewer
    *             items, you can provide a <code>FilterExpression</code> operation.</p>
@@ -2088,6 +2130,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Associate a set of tags with an Amazon DynamoDB resource. You can then activate these
    *             user-defined tags so that they appear on the Billing and Cost Management console for
    *             cost allocation tracking. You can call TagResource up to five times per second, per
@@ -2119,6 +2162,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
    *             multiple items from one or more tables (but not from indexes) in a single account and
@@ -2177,6 +2221,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100
    *             action requests. These actions can target items in different tables, but not in
@@ -2281,6 +2326,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Removes the association of tags from an Amazon DynamoDB resource. You can call
    *                 <code>UntagResource</code> up to five times per second, per account. </p>
    *          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
@@ -2316,6 +2362,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>UpdateContinuousBackups</code> enables or disables point in time recovery for
    *             the specified table. A successful <code>UpdateContinuousBackups</code> call returns the
@@ -2359,6 +2406,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Updates the status for contributor insights for a specific table or index. CloudWatch
    *             Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
    *             sort key of frequently accessed items and frequently throttled items in plaintext. If
@@ -2397,6 +2445,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Adds or removes replicas in the specified global table. The global table must already
    *             exist to be able to use this operation. Any replica to be added must be empty, have the
    *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
@@ -2471,6 +2520,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Updates settings for a global table.</p>
    *          <important>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -2515,6 +2565,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Edits an existing item's attributes, or adds a new item to the table if it does not
    *             already exist. You can put, delete, or add attribute values. You can also perform a
    *             conditional update on an existing item (insert a new attribute name-value pair if it
@@ -2547,6 +2598,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
    *             Streams settings for a given table.</p>
    *          <important>
@@ -2599,6 +2651,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>Updates auto scaling settings on your global tables at once.</p>
    *          <important>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
@@ -2636,6 +2689,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * @public
    * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
    *             the specified table. A successful <code>UpdateTimeToLive</code> call returns the current
    *                 <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to

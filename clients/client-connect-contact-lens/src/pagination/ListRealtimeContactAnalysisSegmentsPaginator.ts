@@ -10,7 +10,7 @@ import { ConnectContactLensClient } from "../ConnectContactLensClient";
 import { ConnectContactLensPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectContactLensClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRealtimeContactAnalysisSegmentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRealtimeContactAnalysisSegments(
   config: ConnectContactLensPaginationConfiguration,
   input: ListRealtimeContactAnalysisSegmentsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectivityInfoCommand}.
  */
 export interface GetConnectivityInfoCommandInput extends GetConnectivityInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectivityInfoCommand}.
  */
 export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves connectivity information for a Greengrass core device.</p>
  *          <p>Connectivity information includes endpoints and ports where client devices
  *       can connect to an MQTT broker on the core device. When a client device
@@ -52,6 +57,8 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectivityInfoCommandInput - {@link GetConnectivityInfoCommandInput}
+ * @returns {@link GetConnectivityInfoCommandOutput}
  * @see {@link GetConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link GetConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -82,6 +89,9 @@ export class GetConnectivityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectivityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetConnectivityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConnectivityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectivityInfoCommandOutput> {
     return deserializeAws_restJson1GetConnectivityInfoCommand(output, context);
   }

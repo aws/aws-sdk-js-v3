@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1UnpeerVpcCommand, serializeAws_json1_1UnpeerVpcCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnpeerVpcCommand}.
  */
 export interface UnpeerVpcCommandInput extends UnpeerVpcRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnpeerVpcCommand}.
  */
 export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unpeers the Lightsail VPC from the user's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UnpeerVpcCommandInput - {@link UnpeerVpcCommandInput}
+ * @returns {@link UnpeerVpcCommandOutput}
  * @see {@link UnpeerVpcCommandInput} for command's `input` shape.
  * @see {@link UnpeerVpcCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class UnpeerVpcCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnpeerVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UnpeerVpcCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnpeerVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnpeerVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnpeerVpcCommandOutput> {
     return deserializeAws_json1_1UnpeerVpcCommand(output, context);
   }

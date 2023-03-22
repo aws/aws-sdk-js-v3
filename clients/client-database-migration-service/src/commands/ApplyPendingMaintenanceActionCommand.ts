@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ApplyPendingMaintenanceActionCommand}.
  */
 export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingMaintenanceActionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ApplyPendingMaintenanceActionCommand}.
  */
 export interface ApplyPendingMaintenanceActionCommandOutput
@@ -41,6 +45,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
+ * @returns {@link ApplyPendingMaintenanceActionCommandOutput}
  * @see {@link ApplyPendingMaintenanceActionCommandInput} for command's `input` shape.
  * @see {@link ApplyPendingMaintenanceActionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplyPendingMaintenanceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplyPendingMaintenanceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ApplyPendingMaintenanceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

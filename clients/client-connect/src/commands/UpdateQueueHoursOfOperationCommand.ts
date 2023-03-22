@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQueueHoursOfOperationCommand}.
  */
 export interface UpdateQueueHoursOfOperationCommandInput extends UpdateQueueHoursOfOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQueueHoursOfOperationCommand}.
  */
 export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the hours of operation for the specified queue.</p>
  * @example
@@ -45,6 +50,8 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueHoursOfOperationCommandInput - {@link UpdateQueueHoursOfOperationCommandInput}
+ * @returns {@link UpdateQueueHoursOfOperationCommandOutput}
  * @see {@link UpdateQueueHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateQueueHoursOfOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueHoursOfOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateQueueHoursOfOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQueueHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateQueueHoursOfOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

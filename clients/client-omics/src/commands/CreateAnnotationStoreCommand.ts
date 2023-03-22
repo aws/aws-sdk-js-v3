@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAnnotationStoreCommand}.
  */
 export interface CreateAnnotationStoreCommandInput extends CreateAnnotationStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAnnotationStoreCommand}.
  */
 export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAnnotationStoreCommandInput - {@link CreateAnnotationStoreCommandInput}
+ * @returns {@link CreateAnnotationStoreCommandOutput}
  * @see {@link CreateAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link CreateAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateAnnotationStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAnnotationStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateAnnotationStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAnnotationStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnnotationStoreCommandOutput> {
     return deserializeAws_restJson1CreateAnnotationStoreCommand(output, context);
   }

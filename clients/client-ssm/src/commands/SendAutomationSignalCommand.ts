@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendAutomationSignalCommand}.
  */
 export interface SendAutomationSignalCommandInput extends SendAutomationSignalRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendAutomationSignalCommand}.
  */
 export interface SendAutomationSignalCommandOutput extends SendAutomationSignalResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a signal to an Automation execution to change the current behavior or status of the
  *    execution. </p>
  * @example
@@ -47,6 +52,8 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * const response = await client.send(command);
  * ```
  *
+ * @param SendAutomationSignalCommandInput - {@link SendAutomationSignalCommandInput}
+ * @returns {@link SendAutomationSignalCommandOutput}
  * @see {@link SendAutomationSignalCommandInput} for command's `input` shape.
  * @see {@link SendAutomationSignalCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -84,6 +91,9 @@ export class SendAutomationSignalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendAutomationSignalCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class SendAutomationSignalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendAutomationSignalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendAutomationSignalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAutomationSignalCommandOutput> {
     return deserializeAws_json1_1SendAutomationSignalCommand(output, context);
   }

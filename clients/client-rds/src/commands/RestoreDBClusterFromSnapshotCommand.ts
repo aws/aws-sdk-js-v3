@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
  *          <p>The target DB cluster is created from the source snapshot with a default
  *             configuration. If you don't specify a security group, the new DB cluster is
@@ -66,6 +71,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterFromSnapshotCommandInput - {@link RestoreDBClusterFromSnapshotCommandInput}
+ * @returns {@link RestoreDBClusterFromSnapshotCommandOutput}
  * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -172,6 +179,9 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,10 +221,16 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBClusterFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

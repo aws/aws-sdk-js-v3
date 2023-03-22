@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectDocumentTextCommand}.
  */
 export interface DetectDocumentTextCommandInput extends DetectDocumentTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectDocumentTextCommand}.
  */
 export interface DetectDocumentTextCommandOutput extends DetectDocumentTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
  *          words that make up a line of text. The input document must be in one of the following image
  *          formats:  JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the detected
@@ -57,6 +62,8 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectDocumentTextCommandInput - {@link DetectDocumentTextCommandInput}
+ * @returns {@link DetectDocumentTextCommandOutput}
  * @see {@link DetectDocumentTextCommandInput} for command's `input` shape.
  * @see {@link DetectDocumentTextCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -120,6 +127,9 @@ export class DetectDocumentTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectDocumentTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class DetectDocumentTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectDocumentTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectDocumentTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectDocumentTextCommandOutput> {
     return deserializeAws_json1_1DetectDocumentTextCommand(output, context);
   }

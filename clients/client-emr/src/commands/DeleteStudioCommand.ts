@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStudioCommand}.
  */
 export interface DeleteStudioCommandInput extends DeleteStudioInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStudioCommand}.
  */
 export interface DeleteStudioCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStudioCommandInput - {@link DeleteStudioCommandInput}
+ * @returns {@link DeleteStudioCommandOutput}
  * @see {@link DeleteStudioCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioCommandOutput> {
     return deserializeAws_json1_1DeleteStudioCommand(output, context);
   }

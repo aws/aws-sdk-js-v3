@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlatformApplicationCommand}.
  */
 export interface CreatePlatformApplicationCommandInput extends CreatePlatformApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlatformApplicationCommand}.
  */
 export interface CreatePlatformApplicationCommandOutput extends CreatePlatformApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a platform application object for one of the supported push notification
  *             services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile
  *             apps may register. You must specify <code>PlatformPrincipal</code> and
@@ -90,6 +95,8 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlatformApplicationCommandInput - {@link CreatePlatformApplicationCommandInput}
+ * @returns {@link CreatePlatformApplicationCommandOutput}
  * @see {@link CreatePlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -123,6 +130,9 @@ export class CreatePlatformApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlatformApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class CreatePlatformApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlatformApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreatePlatformApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

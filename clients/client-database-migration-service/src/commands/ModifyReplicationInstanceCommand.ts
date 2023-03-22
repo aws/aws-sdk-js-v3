@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationInstanceCommand}.
  */
 export interface ModifyReplicationInstanceCommandInput extends ModifyReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationInstanceCommand}.
  */
 export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the replication instance to apply new settings. You can change one or more
  *          parameters by specifying these parameters and the new values in the request.</p>
  *          <p>Some settings are applied during the maintenance window.</p>
@@ -53,6 +58,8 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationInstanceCommandInput - {@link ModifyReplicationInstanceCommandInput}
+ * @returns {@link ModifyReplicationInstanceCommandOutput}
  * @see {@link ModifyReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -172,6 +179,9 @@ export class ModifyReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,10 +221,16 @@ export class ModifyReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

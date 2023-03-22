@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHostKeyCommand}.
  */
 export interface UpdateHostKeyCommandInput extends UpdateHostKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHostKeyCommand}.
  */
 export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description for the host key that's specified by the <code>ServerId</code> and
  *         <code>HostKeyId</code> parameters.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHostKeyCommandInput - {@link UpdateHostKeyCommandInput}
+ * @returns {@link UpdateHostKeyCommandOutput}
  * @see {@link UpdateHostKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateHostKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHostKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateHostKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateHostKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostKeyCommandOutput> {
     return deserializeAws_json1_1UpdateHostKeyCommand(output, context);
   }

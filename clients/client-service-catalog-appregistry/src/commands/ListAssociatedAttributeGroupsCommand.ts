@@ -30,10 +30,14 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedAttributeGroupsCommand}.
  */
 export interface ListAssociatedAttributeGroupsCommandInput extends ListAssociatedAttributeGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedAttributeGroupsCommand}.
  */
 export interface ListAssociatedAttributeGroupsCommandOutput
@@ -41,6 +45,7 @@ export interface ListAssociatedAttributeGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListAssociatedAttributeGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedAttributeGroupsCommandInput - {@link ListAssociatedAttributeGroupsCommandInput}
+ * @returns {@link ListAssociatedAttributeGroupsCommandOutput}
  * @see {@link ListAssociatedAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAttributeGroupsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedAttributeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedAttributeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssociatedAttributeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

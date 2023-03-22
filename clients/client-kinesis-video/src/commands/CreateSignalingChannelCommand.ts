@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSignalingChannelCommand}.
  */
 export interface CreateSignalingChannelCommandInput extends CreateSignalingChannelInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSignalingChannelCommand}.
  */
 export interface CreateSignalingChannelCommandOutput extends CreateSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a signaling channel. </p>
  *          <p>
  *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
@@ -48,6 +53,8 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSignalingChannelCommandInput - {@link CreateSignalingChannelCommandInput}
+ * @returns {@link CreateSignalingChannelCommandOutput}
  * @see {@link CreateSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link CreateSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -109,6 +116,9 @@ export class CreateSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSignalingChannelCommandOutput> {
     return deserializeAws_restJson1CreateSignalingChannelCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectorCommand}.
  */
 export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectorCommand}.
  */
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some of the parameters for an existing connector. Provide the
  *         <code>ConnectorId</code> for the connector that you want to update, along with the new
  *       values for the parameters to update.</p>
@@ -48,6 +53,8 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
+ * @returns {@link UpdateConnectorCommandOutput}
  * @see {@link UpdateConnectorCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectorCommandOutput> {
     return deserializeAws_json1_1UpdateConnectorCommand(output, context);
   }

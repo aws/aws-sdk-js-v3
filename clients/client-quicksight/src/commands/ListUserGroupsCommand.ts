@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserGroupsCommand}.
  */
 export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserGroupsCommand}.
  */
 export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserGroupsCommandInput - {@link ListUserGroupsCommandInput}
+ * @returns {@link ListUserGroupsCommandOutput}
  * @see {@link ListUserGroupsCommandInput} for command's `input` shape.
  * @see {@link ListUserGroupsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListUserGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListUserGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListUserGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserGroupsCommandOutput> {
     return deserializeAws_restJson1ListUserGroupsCommand(output, context);
   }

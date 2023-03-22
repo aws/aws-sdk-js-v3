@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSimulationJobCommand}.
  */
 export interface CreateSimulationJobCommandInput extends CreateSimulationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSimulationJobCommand}.
  */
 export interface CreateSimulationJobCommandOutput extends CreateSimulationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a simulation job.</p>
  *          <note>
  *             <p>After 90 days, simulation jobs expire and will be deleted. They will no longer be
@@ -50,6 +55,8 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSimulationJobCommandInput - {@link CreateSimulationJobCommandInput}
+ * @returns {@link CreateSimulationJobCommandOutput}
  * @see {@link CreateSimulationJobCommandInput} for command's `input` shape.
  * @see {@link CreateSimulationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateSimulationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSimulationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateSimulationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSimulationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSimulationJobCommandOutput> {
     return deserializeAws_restJson1CreateSimulationJobCommand(output, context);
   }

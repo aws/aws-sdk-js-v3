@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWebhookCommand}.
  */
 export interface UpdateWebhookCommandInput extends UpdateWebhookRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWebhookCommand}.
  */
 export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a webhook. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWebhookCommandInput - {@link UpdateWebhookCommandInput}
+ * @returns {@link UpdateWebhookCommandOutput}
  * @see {@link UpdateWebhookCommandInput} for command's `input` shape.
  * @see {@link UpdateWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebhookCommandOutput> {
     return deserializeAws_restJson1UpdateWebhookCommand(output, context);
   }

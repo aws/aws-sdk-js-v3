@@ -110,6 +110,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchEvaluateFeatureCommandInput
   | CreateExperimentCommandInput
@@ -150,6 +153,9 @@ export type ServiceInputTypes =
   | UpdateProjectCommandInput
   | UpdateProjectDataDeliveryCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchEvaluateFeatureCommandOutput
   | CreateExperimentCommandOutput
@@ -190,6 +196,9 @@ export type ServiceOutputTypes =
   | UpdateProjectCommandOutput
   | UpdateProjectDataDeliveryCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -197,7 +206,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -306,11 +315,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type EvidentlyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -321,10 +333,15 @@ type EvidentlyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of EvidentlyClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of EvidentlyClient class constructor that set the region, credentials and other options.
  */
 export interface EvidentlyClientConfig extends EvidentlyClientConfigType {}
 
+/**
+ * @public
+ */
 type EvidentlyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -335,11 +352,14 @@ type EvidentlyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of EvidentlyClient class. This is resolved and normalized from the {@link EvidentlyClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of EvidentlyClient class. This is resolved and normalized from the {@link EvidentlyClientConfig | constructor configuration interface}.
  */
 export interface EvidentlyClientResolvedConfig extends EvidentlyClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving
  *       them to a specified percentage
  *       of your users while you roll out the feature. You can monitor the performance of the new feature

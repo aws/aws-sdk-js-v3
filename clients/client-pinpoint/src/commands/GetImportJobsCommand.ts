@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetImportJobsCommand}.
  */
 export interface GetImportJobsCommandInput extends GetImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImportJobsCommand}.
  */
 export interface GetImportJobsCommandOutput extends GetImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of all the import jobs for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetImportJobsCommandOutput extends GetImportJobsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportJobsCommandInput - {@link GetImportJobsCommandInput}
+ * @returns {@link GetImportJobsCommandOutput}
  * @see {@link GetImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportJobsCommandOutput> {
     return deserializeAws_restJson1GetImportJobsCommand(output, context);
   }

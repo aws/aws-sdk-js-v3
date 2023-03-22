@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddressesCommand}.
  */
 export interface DescribeAddressesCommandInput extends DescribeAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddressesCommand}.
  */
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>
  *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
  * 				For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -51,6 +56,8 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressesCommandInput - {@link DescribeAddressesCommandInput}
+ * @returns {@link DescribeAddressesCommandOutput}
  * @see {@link DescribeAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -167,6 +174,9 @@ export class DescribeAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -206,10 +216,16 @@ export class DescribeAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressesCommandOutput> {
     return deserializeAws_ec2DescribeAddressesCommand(output, context);
   }

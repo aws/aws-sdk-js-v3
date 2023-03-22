@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
 export interface GetSensitiveDataOccurrencesAvailabilityCommandInput
   extends GetSensitiveDataOccurrencesAvailabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
 export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
@@ -38,6 +42,7 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSensitiveDataOccurrencesAvailabilityCommandInput - {@link GetSensitiveDataOccurrencesAvailabilityCommandInput}
+ * @returns {@link GetSensitiveDataOccurrencesAvailabilityCommandOutput}
  * @see {@link GetSensitiveDataOccurrencesAvailabilityCommandInput} for command's `input` shape.
  * @see {@link GetSensitiveDataOccurrencesAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -84,6 +91,9 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSensitiveDataOccurrencesAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSensitiveDataOccurrencesAvailabilityCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
     return serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

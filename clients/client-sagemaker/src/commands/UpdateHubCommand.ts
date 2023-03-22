@@ -23,15 +23,20 @@ import { deserializeAws_json1_1UpdateHubCommand, serializeAws_json1_1UpdateHubCo
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHubCommand}.
  */
 export interface UpdateHubCommandInput extends UpdateHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHubCommand}.
  */
 export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -46,6 +51,8 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHubCommandInput - {@link UpdateHubCommandInput}
+ * @returns {@link UpdateHubCommandOutput}
  * @see {@link UpdateHubCommandInput} for command's `input` shape.
  * @see {@link UpdateHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class UpdateHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHubCommandOutput> {
     return deserializeAws_json1_1UpdateHubCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFunctionConfigurationCommand}.
  */
 export interface GetFunctionConfigurationCommandInput extends GetFunctionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFunctionConfigurationCommand}.
  */
 export interface GetFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that
  *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
  *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
@@ -48,6 +53,8 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionConfigurationCommandInput - {@link GetFunctionConfigurationCommandInput}
+ * @returns {@link GetFunctionConfigurationCommandOutput}
  * @see {@link GetFunctionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFunctionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetFunctionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetFunctionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFunctionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionConfigurationCommandOutput> {
     return deserializeAws_restJson1GetFunctionConfigurationCommand(output, context);
   }

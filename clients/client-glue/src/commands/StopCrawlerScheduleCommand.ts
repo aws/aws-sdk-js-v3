@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopCrawlerScheduleCommand}.
  */
 export interface StopCrawlerScheduleCommandInput extends StopCrawlerScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCrawlerScheduleCommand}.
  */
 export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the schedule state of the specified crawler to
  *       <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is
  *       already running.</p>
@@ -48,6 +53,8 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCrawlerScheduleCommandInput - {@link StopCrawlerScheduleCommandInput}
+ * @returns {@link StopCrawlerScheduleCommandOutput}
  * @see {@link StopCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link StopCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -83,6 +90,9 @@ export class StopCrawlerScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCrawlerScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StopCrawlerScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopCrawlerScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1StopCrawlerScheduleCommand(output, context);
   }

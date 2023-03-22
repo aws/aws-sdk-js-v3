@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportComponentCommand}.
  */
 export interface ImportComponentCommandInput extends ImportComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportComponentCommand}.
  */
 export interface ImportComponentCommandOutput extends ImportComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a component and transforms its data into a component document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportComponentCommandInput - {@link ImportComponentCommandInput}
+ * @returns {@link ImportComponentCommandOutput}
  * @see {@link ImportComponentCommandInput} for command's `input` shape.
  * @see {@link ImportComponentCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -104,6 +111,9 @@ export class ImportComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ImportComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportComponentCommandOutput> {
     return deserializeAws_restJson1ImportComponentCommand(output, context);
   }

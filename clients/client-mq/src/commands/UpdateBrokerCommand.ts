@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBrokerCommand}.
  */
 export interface UpdateBrokerCommandInput extends UpdateBrokerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBrokerCommand}.
  */
 export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a pending configuration change to a broker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBrokerCommandInput - {@link UpdateBrokerCommandInput}
+ * @returns {@link UpdateBrokerCommandOutput}
  * @see {@link UpdateBrokerCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateBrokerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBrokerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateBrokerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBrokerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBrokerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerCommandOutput> {
     return deserializeAws_restJson1UpdateBrokerCommand(output, context);
   }

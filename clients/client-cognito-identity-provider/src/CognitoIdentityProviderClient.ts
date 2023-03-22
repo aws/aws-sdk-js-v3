@@ -321,6 +321,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddCustomAttributesCommandInput
   | AdminAddUserToGroupCommandInput
@@ -424,6 +427,9 @@ export type ServiceInputTypes =
   | VerifySoftwareTokenCommandInput
   | VerifyUserAttributeCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddCustomAttributesCommandOutput
   | AdminAddUserToGroupCommandOutput
@@ -527,6 +533,9 @@ export type ServiceOutputTypes =
   | VerifySoftwareTokenCommandOutput
   | VerifyUserAttributeCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -534,7 +543,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -643,11 +652,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CognitoIdentityProviderClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -658,10 +670,15 @@ type CognitoIdentityProviderClientConfigType = Partial<__SmithyConfiguration<__H
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CognitoIdentityProviderClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CognitoIdentityProviderClient class constructor that set the region, credentials and other options.
  */
 export interface CognitoIdentityProviderClientConfig extends CognitoIdentityProviderClientConfigType {}
 
+/**
+ * @public
+ */
 type CognitoIdentityProviderClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -672,11 +689,14 @@ type CognitoIdentityProviderClientResolvedConfigType = __SmithyResolvedConfigura
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CognitoIdentityProviderClient class. This is resolved and normalized from the {@link CognitoIdentityProviderClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CognitoIdentityProviderClient class. This is resolved and normalized from the {@link CognitoIdentityProviderClientConfig | constructor configuration interface}.
  */
 export interface CognitoIdentityProviderClientResolvedConfig extends CognitoIdentityProviderClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Using the Amazon Cognito user pools API, you can create a user pool to manage directories and
  *             users. You can authenticate a user to obtain tokens related to user identity and access
  *             policies.</p>

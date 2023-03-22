@@ -22,15 +22,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInventoryCommand}.
  */
 export interface GetInventoryCommandInput extends GetInventoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInventoryCommand}.
  */
 export interface GetInventoryCommandOutput extends GetInventoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
  *    or <code>Terminated</code>.</p>
  * @example
@@ -43,6 +48,8 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInventoryCommandInput - {@link GetInventoryCommandInput}
+ * @returns {@link GetInventoryCommandOutput}
  * @see {@link GetInventoryCommandInput} for command's `input` shape.
  * @see {@link GetInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInventoryCommandOutput> {
     return deserializeAws_json1_1GetInventoryCommand(output, context);
   }

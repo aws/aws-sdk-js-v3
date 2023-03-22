@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChildrenCommand}.
  */
 export interface ListChildrenCommandInput extends ListChildrenRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChildrenCommand}.
  */
 export interface ListChildrenCommandOutput extends ListChildrenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the organizational units (OUs) or accounts that are contained in the
  *             specified parent OU or root. This operation, along with <a>ListParents</a>
  *             enables you to traverse the tree structure that makes up this root.</p>
@@ -58,6 +63,8 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChildrenCommandInput - {@link ListChildrenCommandInput}
+ * @returns {@link ListChildrenCommandOutput}
  * @see {@link ListChildrenCommandInput} for command's `input` shape.
  * @see {@link ListChildrenCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -236,6 +243,9 @@ export class ListChildrenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChildrenCommandInput) {
     // Start section: command_constructor
     super();
@@ -273,10 +283,16 @@ export class ListChildrenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChildrenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListChildrenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChildrenCommandOutput> {
     return deserializeAws_json1_1ListChildrenCommand(output, context);
   }

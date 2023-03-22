@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBInstanceAutomatedBackupsCommand}.
  */
 export interface DescribeDBInstanceAutomatedBackupsCommandInput extends DescribeDBInstanceAutomatedBackupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBInstanceAutomatedBackupsCommand}.
  */
 export interface DescribeDBInstanceAutomatedBackupsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays backups for both current and deleted
  *             instances. For example, use this operation to
  *             find details about automated backups for previously deleted instances. Current instances
@@ -54,6 +59,8 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBInstanceAutomatedBackupsCommandInput - {@link DescribeDBInstanceAutomatedBackupsCommandInput}
+ * @returns {@link DescribeDBInstanceAutomatedBackupsCommandOutput}
  * @see {@link DescribeDBInstanceAutomatedBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstanceAutomatedBackupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBInstanceAutomatedBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBInstanceAutomatedBackupsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     return serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

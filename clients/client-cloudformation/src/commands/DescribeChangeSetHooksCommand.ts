@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChangeSetHooksCommand}.
  */
 export interface DescribeChangeSetHooksCommandInput extends DescribeChangeSetHooksInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChangeSetHooksCommand}.
  */
 export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHooksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChangeSetHooksCommandInput - {@link DescribeChangeSetHooksCommandInput}
+ * @returns {@link DescribeChangeSetHooksCommandOutput}
  * @see {@link DescribeChangeSetHooksCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetHooksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeChangeSetHooksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChangeSetHooksCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeChangeSetHooksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChangeSetHooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeChangeSetHooksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChangeSetHooksCommandOutput> {
     return deserializeAws_queryDescribeChangeSetHooksCommand(output, context);
   }

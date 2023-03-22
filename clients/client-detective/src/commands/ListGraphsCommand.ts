@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGraphsCommand}.
  */
 export interface ListGraphsCommandInput extends ListGraphsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGraphsCommand}.
  */
 export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of behavior graphs that the calling account is an administrator account
  *          of. This operation can only be called by an administrator account.</p>
  *          <p>Because an account can currently only be the administrator of one behavior graph within
@@ -49,6 +54,8 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGraphsCommandInput - {@link ListGraphsCommandInput}
+ * @returns {@link ListGraphsCommandOutput}
  * @see {@link ListGraphsCommandInput} for command's `input` shape.
  * @see {@link ListGraphsCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListGraphsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGraphsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListGraphsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGraphsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGraphsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGraphsCommandOutput> {
     return deserializeAws_restJson1ListGraphsCommand(output, context);
   }

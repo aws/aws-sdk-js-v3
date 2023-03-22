@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyBackupAttributesCommand}.
  */
 export interface ModifyBackupAttributesCommandInput extends ModifyBackupAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyBackupAttributesCommand}.
  */
 export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies attributes for AWS CloudHSM backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyBackupAttributesCommandInput - {@link ModifyBackupAttributesCommandInput}
+ * @returns {@link ModifyBackupAttributesCommandOutput}
  * @see {@link ModifyBackupAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyBackupAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -87,6 +94,9 @@ export class ModifyBackupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyBackupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ModifyBackupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyBackupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyBackupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyBackupAttributesCommandOutput> {
     return deserializeAws_json1_1ModifyBackupAttributesCommand(output, context);
   }

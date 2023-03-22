@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReplicationJobCommand}.
  */
 export interface UpdateReplicationJobCommandInput extends UpdateReplicationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReplicationJobCommand}.
  */
 export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified settings for the specified replication job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReplicationJobCommandInput - {@link UpdateReplicationJobCommandInput}
+ * @returns {@link UpdateReplicationJobCommandOutput}
  * @see {@link UpdateReplicationJobCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateReplicationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReplicationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateReplicationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateReplicationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReplicationJobCommandOutput> {
     return deserializeAws_json1_1UpdateReplicationJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlarmCommand}.
  */
 export interface DescribeAlarmCommandInput extends DescribeAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlarmCommand}.
  */
 export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an alarm.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmCommandInput - {@link DescribeAlarmCommandInput}
+ * @returns {@link DescribeAlarmCommandOutput}
  * @see {@link DescribeAlarmCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmCommandOutput> {
     return deserializeAws_restJson1DescribeAlarmCommand(output, context);
   }

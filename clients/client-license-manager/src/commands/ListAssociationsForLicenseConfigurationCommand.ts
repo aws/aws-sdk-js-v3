@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociationsForLicenseConfigurationCommand}.
  */
 export interface ListAssociationsForLicenseConfigurationCommandInput
   extends ListAssociationsForLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociationsForLicenseConfigurationCommand}.
  */
 export interface ListAssociationsForLicenseConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource associations for the specified license configuration.</p>
  *          <p>Resource associations need not consume licenses from a license configuration.
  *          For example, an AMI or a stopped instance might not consume a license (depending on
@@ -52,6 +57,8 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociationsForLicenseConfigurationCommandInput - {@link ListAssociationsForLicenseConfigurationCommandInput}
+ * @returns {@link ListAssociationsForLicenseConfigurationCommandOutput}
  * @see {@link ListAssociationsForLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsForLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociationsForLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssociationsForLicenseConfigurationCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     return serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

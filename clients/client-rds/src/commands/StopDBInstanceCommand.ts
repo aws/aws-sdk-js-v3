@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopDBInstanceCommand}.
  */
 export interface StopDBInstanceCommandInput extends StopDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link StopDBInstanceCommand}.
  */
 export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
  *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
  *             necessary.</p>
@@ -57,6 +62,8 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBInstanceCommandInput - {@link StopDBInstanceCommandInput}
+ * @returns {@link StopDBInstanceCommandOutput}
  * @see {@link StopDBInstanceCommandInput} for command's `input` shape.
  * @see {@link StopDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -98,6 +105,9 @@ export class StopDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class StopDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBInstanceCommandOutput> {
     return deserializeAws_queryStopDBInstanceCommand(output, context);
   }

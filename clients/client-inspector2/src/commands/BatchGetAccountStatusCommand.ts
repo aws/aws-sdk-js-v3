@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetAccountStatusCommand}.
  */
 export interface BatchGetAccountStatusCommandInput extends BatchGetAccountStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetAccountStatusCommand}.
  */
 export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Amazon Inspector status of multiple Amazon Web Services accounts within your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAccountStatusCommandInput - {@link BatchGetAccountStatusCommandInput}
+ * @returns {@link BatchGetAccountStatusCommandOutput}
  * @see {@link BatchGetAccountStatusCommandInput} for command's `input` shape.
  * @see {@link BatchGetAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -85,6 +92,9 @@ export class BatchGetAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class BatchGetAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetAccountStatusCommandOutput> {
     return deserializeAws_restJson1BatchGetAccountStatusCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryCatalogDataCommand}.
  */
 export interface GetRepositoryCatalogDataCommandInput extends GetRepositoryCatalogDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryCatalogDataCommand}.
  */
 export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve catalog metadata for a repository in a public registry. This metadata is
  *          displayed publicly in the Amazon ECR Public Gallery.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryCatalogDataCommandInput - {@link GetRepositoryCatalogDataCommandInput}
+ * @returns {@link GetRepositoryCatalogDataCommandOutput}
  * @see {@link GetRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetRepositoryCatalogDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryCatalogDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetRepositoryCatalogDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryCatalogDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRepositoryCatalogDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryCatalogDataCommandOutput> {
     return deserializeAws_json1_1GetRepositoryCatalogDataCommand(output, context);
   }

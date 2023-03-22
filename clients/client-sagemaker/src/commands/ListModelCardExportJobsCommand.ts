@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelCardExportJobsCommand}.
  */
 export interface ListModelCardExportJobsCommandInput extends ListModelCardExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelCardExportJobsCommand}.
  */
 export interface ListModelCardExportJobsCommandOutput extends ListModelCardExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the export jobs for the Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelCardExportJobsCommandInput - {@link ListModelCardExportJobsCommandInput}
+ * @returns {@link ListModelCardExportJobsCommandOutput}
  * @see {@link ListModelCardExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardExportJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListModelCardExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelCardExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListModelCardExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelCardExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListModelCardExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelCardExportJobsCommandOutput> {
     return deserializeAws_json1_1ListModelCardExportJobsCommand(output, context);
   }

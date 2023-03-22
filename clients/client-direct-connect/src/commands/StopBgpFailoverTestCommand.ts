@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopBgpFailoverTestCommand}.
  */
 export interface StopBgpFailoverTestCommandInput extends StopBgpFailoverTestRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopBgpFailoverTestCommand}.
  */
 export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the virtual interface failover test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBgpFailoverTestCommandInput - {@link StopBgpFailoverTestCommandInput}
+ * @returns {@link StopBgpFailoverTestCommandOutput}
  * @see {@link StopBgpFailoverTestCommandInput} for command's `input` shape.
  * @see {@link StopBgpFailoverTestCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +82,9 @@ export class StopBgpFailoverTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBgpFailoverTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class StopBgpFailoverTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBgpFailoverTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopBgpFailoverTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBgpFailoverTestCommandOutput> {
     return deserializeAws_json1_1StopBgpFailoverTestCommand(output, context);
   }

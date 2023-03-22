@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExperienceEntitiesCommand}.
  */
 export interface ListExperienceEntitiesCommandInput extends ListExperienceEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExperienceEntitiesCommand}.
  */
 export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists users or groups in your IAM Identity Center identity source that are
  *             granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience
  *             such as a search application. For more information on creating a search
@@ -50,6 +55,8 @@ export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntit
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExperienceEntitiesCommandInput - {@link ListExperienceEntitiesCommandInput}
+ * @returns {@link ListExperienceEntitiesCommandOutput}
  * @see {@link ListExperienceEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListExperienceEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListExperienceEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExperienceEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListExperienceEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExperienceEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExperienceEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperienceEntitiesCommandOutput> {
     return deserializeAws_json1_1ListExperienceEntitiesCommand(output, context);
   }

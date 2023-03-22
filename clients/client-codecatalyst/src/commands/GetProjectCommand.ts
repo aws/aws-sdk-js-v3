@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProjectCommand}.
  */
 export interface GetProjectCommandInput extends GetProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProjectCommand}.
  */
 export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProjectCommandInput - {@link GetProjectCommandInput}
+ * @returns {@link GetProjectCommandOutput}
  * @see {@link GetProjectCommandInput} for command's `input` shape.
  * @see {@link GetProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProjectCommandOutput> {
     return deserializeAws_restJson1GetProjectCommand(output, context);
   }

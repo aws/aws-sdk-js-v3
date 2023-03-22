@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImagesCommand}.
  */
 export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImagesCommand}.
  */
 export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata that's related to the images in a repository in a public
  *          registry.</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
+ * @returns {@link DescribeImagesCommandOutput}
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagesCommandOutput> {
     return deserializeAws_json1_1DescribeImagesCommand(output, context);
   }

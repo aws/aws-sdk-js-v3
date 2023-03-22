@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBudgetActionCommand}.
  */
 export interface UpdateBudgetActionCommandInput extends UpdateBudgetActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBudgetActionCommand}.
  */
 export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Updates a budget action.
  *       </p>
@@ -48,6 +53,8 @@ export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBudgetActionCommandInput - {@link UpdateBudgetActionCommandInput}
+ * @returns {@link UpdateBudgetActionCommandOutput}
  * @see {@link UpdateBudgetActionCommandInput} for command's `input` shape.
  * @see {@link UpdateBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateBudgetActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBudgetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateBudgetActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBudgetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBudgetActionCommandOutput> {
     return deserializeAws_json1_1UpdateBudgetActionCommand(output, context);
   }

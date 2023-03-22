@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetadataCommand}.
  */
 export interface PutMetadataCommandInput extends PutMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMetadataCommand}.
  */
 export interface PutMetadataCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inserts metadata into the active stream of the specified channel. At most 5 requests per
  *       second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient
  *       for your needs, we recommend batching your data into a single PutMetadata call.) At most 155
@@ -45,6 +50,8 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetadataCommandInput - {@link PutMetadataCommandInput}
+ * @returns {@link PutMetadataCommandOutput}
  * @see {@link PutMetadataCommandInput} for command's `input` shape.
  * @see {@link PutMetadataCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -83,6 +90,9 @@ export class PutMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetadataCommandOutput> {
     return deserializeAws_restJson1PutMetadataCommand(output, context);
   }

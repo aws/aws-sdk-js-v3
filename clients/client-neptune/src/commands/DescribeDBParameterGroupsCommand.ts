@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBParameterGroupsCommand}.
  */
 export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParameterGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBParameterGroupsCommand}.
  */
 export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a
  *       <code>DBParameterGroupName</code> is specified, the list will contain only the description of
  *       the specified DB parameter group.</p>
@@ -48,6 +53,8 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBParameterGroupsCommandInput - {@link DescribeDBParameterGroupsCommandInput}
+ * @returns {@link DescribeDBParameterGroupsCommandOutput}
  * @see {@link DescribeDBParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

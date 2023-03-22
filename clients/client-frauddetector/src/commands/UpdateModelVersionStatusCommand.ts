@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelVersionStatusCommand}.
  */
 export interface UpdateModelVersionStatusCommandInput extends UpdateModelVersionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelVersionStatusCommand}.
  */
 export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersionStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a model version.</p>
  *          <p>You can perform the following status updates:</p>
  *          <ol>
@@ -58,6 +63,8 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelVersionStatusCommandInput - {@link UpdateModelVersionStatusCommandInput}
+ * @returns {@link UpdateModelVersionStatusCommandOutput}
  * @see {@link UpdateModelVersionStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateModelVersionStatusCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateModelVersionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelVersionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateModelVersionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelVersionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateModelVersionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelVersionStatusCommandOutput> {
     return deserializeAws_json1_1UpdateModelVersionStatusCommand(output, context);
   }

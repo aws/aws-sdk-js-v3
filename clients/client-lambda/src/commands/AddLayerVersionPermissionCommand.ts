@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddLayerVersionPermissionCommand}.
  */
 export interface AddLayerVersionPermissionCommandInput extends AddLayerVersionPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddLayerVersionPermissionCommand}.
  */
 export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. Use this action to grant layer
  *       usage permission to other accounts. You can grant permission to a single account, all accounts in an organization,
@@ -51,6 +56,8 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * const response = await client.send(command);
  * ```
  *
+ * @param AddLayerVersionPermissionCommandInput - {@link AddLayerVersionPermissionCommandInput}
+ * @returns {@link AddLayerVersionPermissionCommandOutput}
  * @see {@link AddLayerVersionPermissionCommandInput} for command's `input` shape.
  * @see {@link AddLayerVersionPermissionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -96,6 +103,9 @@ export class AddLayerVersionPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddLayerVersionPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AddLayerVersionPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddLayerVersionPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddLayerVersionPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

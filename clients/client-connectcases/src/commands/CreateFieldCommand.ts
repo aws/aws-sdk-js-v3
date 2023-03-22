@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFieldCommand}.
  */
 export interface CreateFieldCommandInput extends CreateFieldRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFieldCommand}.
  */
 export interface CreateFieldCommandOutput extends CreateFieldResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a field in the Cases domain. This field is used to define the case object
  *       model (that is, defines what data can be captured on cases) in a Cases domain. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFieldCommandInput - {@link CreateFieldCommandInput}
+ * @returns {@link CreateFieldCommandOutput}
  * @see {@link CreateFieldCommandInput} for command's `input` shape.
  * @see {@link CreateFieldCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateFieldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFieldCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateFieldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFieldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFieldCommandOutput> {
     return deserializeAws_restJson1CreateFieldCommand(output, context);
   }

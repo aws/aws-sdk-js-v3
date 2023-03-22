@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCostAndUsageWithResourcesCommand}.
  */
 export interface GetCostAndUsageWithResourcesCommandInput extends GetCostAndUsageWithResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCostAndUsageWithResourcesCommand}.
  */
 export interface GetCostAndUsageWithResourcesCommandOutput
@@ -37,6 +41,7 @@ export interface GetCostAndUsageWithResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves cost and usage metrics with resources for your account. You can specify which
  *       cost and usage-related metric, such as <code>BlendedCosts</code> or
  *       <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
@@ -59,6 +64,8 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCostAndUsageWithResourcesCommandInput - {@link GetCostAndUsageWithResourcesCommandInput}
+ * @returns {@link GetCostAndUsageWithResourcesCommandOutput}
  * @see {@link GetCostAndUsageWithResourcesCommandInput} for command's `input` shape.
  * @see {@link GetCostAndUsageWithResourcesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCostAndUsageWithResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCostAndUsageWithResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCostAndUsageWithResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

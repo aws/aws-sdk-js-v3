@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryCommand}.
  */
 export interface GetRepositoryCommandInput extends GetRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryCommand}.
  */
 export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detail data for a linked repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryCommandInput - {@link GetRepositoryCommandInput}
+ * @returns {@link GetRepositoryCommandOutput}
  * @see {@link GetRepositoryCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryCommandOutput> {
     return deserializeAws_json1_0GetRepositoryCommand(output, context);
   }

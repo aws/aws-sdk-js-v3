@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link IsVpcPeeredCommand}.
  */
 export interface IsVpcPeeredCommandInput extends IsVpcPeeredRequest {}
 /**
+ * @public
+ *
  * The output of {@link IsVpcPeeredCommand}.
  */
 export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param IsVpcPeeredCommandInput - {@link IsVpcPeeredCommandInput}
+ * @returns {@link IsVpcPeeredCommandOutput}
  * @see {@link IsVpcPeeredCommandInput} for command's `input` shape.
  * @see {@link IsVpcPeeredCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class IsVpcPeeredCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IsVpcPeeredCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class IsVpcPeeredCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IsVpcPeeredCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1IsVpcPeeredCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IsVpcPeeredCommandOutput> {
     return deserializeAws_json1_1IsVpcPeeredCommand(output, context);
   }

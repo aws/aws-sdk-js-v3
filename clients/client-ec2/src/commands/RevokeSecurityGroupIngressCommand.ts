@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeSecurityGroupIngressCommand}.
  */
 export interface RevokeSecurityGroupIngressCommandInput extends RevokeSecurityGroupIngressRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeSecurityGroupIngressCommand}.
  */
 export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified inbound (ingress) rules from a security group.</p>
  *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
  *            rule properties, the values that you specify (for example, ports) must match the existing rule's
@@ -60,6 +65,8 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSecurityGroupIngressCommandInput - {@link RevokeSecurityGroupIngressCommandInput}
+ * @returns {@link RevokeSecurityGroupIngressCommandOutput}
  * @see {@link RevokeSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -83,6 +90,9 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RevokeSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

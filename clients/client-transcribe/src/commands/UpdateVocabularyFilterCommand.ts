@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVocabularyFilterCommand}.
  */
 export interface UpdateVocabularyFilterCommandInput extends UpdateVocabularyFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVocabularyFilterCommand}.
  */
 export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing custom vocabulary filter with a new list of words. The new list
  *             you provide overwrites all previous entries; you cannot append new terms onto an
  *             existing custom vocabulary filter.</p>
@@ -48,6 +53,8 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVocabularyFilterCommandInput - {@link UpdateVocabularyFilterCommandInput}
+ * @returns {@link UpdateVocabularyFilterCommandOutput}
  * @see {@link UpdateVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVocabularyFilterCommandOutput> {
     return deserializeAws_json1_1UpdateVocabularyFilterCommand(output, context);
   }

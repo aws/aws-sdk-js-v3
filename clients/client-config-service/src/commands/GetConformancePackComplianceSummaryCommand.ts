@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConformancePackComplianceSummaryCommand}.
  */
 export interface GetConformancePackComplianceSummaryCommandInput extends GetConformancePackComplianceSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConformancePackComplianceSummaryCommand}.
  */
 export interface GetConformancePackComplianceSummaryCommandOutput
@@ -37,6 +41,7 @@ export interface GetConformancePackComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConformancePackComplianceSummaryCommandInput - {@link GetConformancePackComplianceSummaryCommandInput}
+ * @returns {@link GetConformancePackComplianceSummaryCommandOutput}
  * @see {@link GetConformancePackComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetConformancePackComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConformancePackComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetConformancePackComplianceSummaryCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
     return serializeAws_json1_1GetConformancePackComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

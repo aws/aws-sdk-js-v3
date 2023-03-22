@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataIntegrationsCommand}.
  */
 export interface ListDataIntegrationsCommandInput extends ListDataIntegrationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataIntegrationsCommand}.
  */
 export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of DataIntegrations in the account.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -51,6 +56,8 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataIntegrationsCommandInput - {@link ListDataIntegrationsCommandInput}
+ * @returns {@link ListDataIntegrationsCommandOutput}
  * @see {@link ListDataIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListDataIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListDataIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListDataIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataIntegrationsCommandOutput> {
     return deserializeAws_restJson1ListDataIntegrationsCommand(output, context);
   }

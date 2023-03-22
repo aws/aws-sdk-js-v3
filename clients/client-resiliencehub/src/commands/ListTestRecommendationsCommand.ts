@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTestRecommendationsCommand}.
  */
 export interface ListTestRecommendationsCommandInput extends ListTestRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTestRecommendationsCommand}.
  */
 export interface ListTestRecommendationsCommandOutput extends ListTestRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the test recommendations for the AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTestRecommendationsCommandInput - {@link ListTestRecommendationsCommandInput}
+ * @returns {@link ListTestRecommendationsCommandOutput}
  * @see {@link ListTestRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListTestRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListTestRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListTestRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTestRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestRecommendationsCommandOutput> {
     return deserializeAws_restJson1ListTestRecommendationsCommand(output, context);
   }

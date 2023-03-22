@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateJobFlowsCommand}.
  */
 export interface TerminateJobFlowsCommandInput extends TerminateJobFlowsInput {}
 /**
+ * @public
+ *
  * The output of {@link TerminateJobFlowsCommand}.
  */
 export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut
  *          down, any step not yet completed is canceled and the EC2 instances on which the cluster is
  *          running are stopped. Any log files not already saved are uploaded to Amazon S3 if a
@@ -48,6 +53,8 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateJobFlowsCommandInput - {@link TerminateJobFlowsCommandInput}
+ * @returns {@link TerminateJobFlowsCommandOutput}
  * @see {@link TerminateJobFlowsCommandInput} for command's `input` shape.
  * @see {@link TerminateJobFlowsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -75,6 +82,9 @@ export class TerminateJobFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateJobFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class TerminateJobFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateJobFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TerminateJobFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateJobFlowsCommandOutput> {
     return deserializeAws_json1_1TerminateJobFlowsCommand(output, context);
   }

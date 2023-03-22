@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListHubContentsCommand}.
  */
 export interface ListHubContentsCommandInput extends ListHubContentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHubContentsCommand}.
  */
 export interface ListHubContentsCommandOutput extends ListHubContentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the contents of a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -49,6 +54,8 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHubContentsCommandInput - {@link ListHubContentsCommandInput}
+ * @returns {@link ListHubContentsCommandOutput}
  * @see {@link ListHubContentsCommandInput} for command's `input` shape.
  * @see {@link ListHubContentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListHubContentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHubContentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListHubContentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHubContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHubContentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHubContentsCommandOutput> {
     return deserializeAws_json1_1ListHubContentsCommand(output, context);
   }

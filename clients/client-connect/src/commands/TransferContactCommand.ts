@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TransferContactCommand}.
  */
 export interface TransferContactCommandInput extends TransferContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link TransferContactCommand}.
  */
 export interface TransferContactCommandOutput extends TransferContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
  *    contact is created. You can transfer a contact to another queue by providing the flow which
  *    orchestrates the contact to the destination queue. This gives you more control over contact
@@ -69,6 +74,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param TransferContactCommandInput - {@link TransferContactCommandInput}
+ * @returns {@link TransferContactCommandOutput}
  * @see {@link TransferContactCommandInput} for command's `input` shape.
  * @see {@link TransferContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -113,6 +120,9 @@ export class TransferContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransferContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class TransferContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransferContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TransferContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferContactCommandOutput> {
     return deserializeAws_restJson1TransferContactCommand(output, context);
   }

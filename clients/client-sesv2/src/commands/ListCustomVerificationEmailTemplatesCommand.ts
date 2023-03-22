@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomVerificationEmailTemplatesCommand}.
  */
 export interface ListCustomVerificationEmailTemplatesCommandInput extends ListCustomVerificationEmailTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomVerificationEmailTemplatesCommand}.
  */
 export interface ListCustomVerificationEmailTemplatesCommandOutput
@@ -37,6 +41,7 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the existing custom verification email templates for your account in the current
  *                 Amazon Web Services Region.</p>
  *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
@@ -53,6 +58,8 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomVerificationEmailTemplatesCommandInput - {@link ListCustomVerificationEmailTemplatesCommandInput}
+ * @returns {@link ListCustomVerificationEmailTemplatesCommandOutput}
  * @see {@link ListCustomVerificationEmailTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListCustomVerificationEmailTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -82,6 +89,9 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomVerificationEmailTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCustomVerificationEmailTemplatesCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     return serializeAws_restJson1ListCustomVerificationEmailTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

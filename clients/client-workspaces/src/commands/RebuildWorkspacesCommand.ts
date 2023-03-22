@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link RebuildWorkspacesCommand}.
  */
 export interface RebuildWorkspacesCommandInput extends RebuildWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebuildWorkspacesCommand}.
  */
 export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rebuilds the specified WorkSpace.</p>
  *          <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,
  *             <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or
@@ -54,6 +59,8 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param RebuildWorkspacesCommandInput - {@link RebuildWorkspacesCommandInput}
+ * @returns {@link RebuildWorkspacesCommandOutput}
  * @see {@link RebuildWorkspacesCommandInput} for command's `input` shape.
  * @see {@link RebuildWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -80,6 +87,9 @@ export class RebuildWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebuildWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class RebuildWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebuildWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebuildWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebuildWorkspacesCommandOutput> {
     return deserializeAws_json1_1RebuildWorkspacesCommand(output, context);
   }

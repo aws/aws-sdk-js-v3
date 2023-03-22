@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcePolicyStatementCommand}.
  */
 export interface DeleteResourcePolicyStatementCommandInput extends DeleteResourcePolicyStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcePolicyStatementCommand}.
  */
 export interface DeleteResourcePolicyStatementCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteResourcePolicyStatementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a policy statement from a resource policy. If you delete the
  *          last statement from a policy, the policy is deleted. If you specify a
  *          statement ID that doesn't exist in the policy, or if the bot or bot
@@ -52,6 +57,8 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePolicyStatementCommandInput - {@link DeleteResourcePolicyStatementCommandInput}
+ * @returns {@link DeleteResourcePolicyStatementCommandOutput}
  * @see {@link DeleteResourcePolicyStatementCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyStatementCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteResourcePolicyStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

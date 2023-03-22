@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePartitionIndexCommand}.
  */
 export interface DeletePartitionIndexCommandInput extends DeletePartitionIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePartitionIndexCommand}.
  */
 export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified partition index from an existing table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePartitionIndexCommandInput - {@link DeletePartitionIndexCommandInput}
+ * @returns {@link DeletePartitionIndexCommandOutput}
  * @see {@link DeletePartitionIndexCommandInput} for command's `input` shape.
  * @see {@link DeletePartitionIndexCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeletePartitionIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartitionIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeletePartitionIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartitionIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePartitionIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartitionIndexCommandOutput> {
     return deserializeAws_json1_1DeletePartitionIndexCommand(output, context);
   }

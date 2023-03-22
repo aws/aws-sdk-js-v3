@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetParameterCommand}.
  */
 export interface GetParameterCommandInput extends GetParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetParameterCommand}.
  */
 export interface GetParameterCommandOutput extends GetParameterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a single parameter by specifying the parameter name.</p>
  *          <note>
  *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
@@ -49,6 +54,8 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetParameterCommandInput - {@link GetParameterCommandInput}
+ * @returns {@link GetParameterCommandOutput}
  * @see {@link GetParameterCommandInput} for command's `input` shape.
  * @see {@link GetParameterCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParameterCommandOutput> {
     return deserializeAws_json1_1GetParameterCommand(output, context);
   }

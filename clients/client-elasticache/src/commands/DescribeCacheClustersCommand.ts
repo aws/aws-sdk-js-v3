@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheClustersCommand}.
  */
 export interface DescribeCacheClustersCommandInput extends DescribeCacheClustersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheClustersCommand}.
  */
 export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all provisioned
  *             clusters if no cluster identifier is specified, or about a specific cache
  *             cluster if a cluster identifier is supplied.</p>
@@ -61,6 +66,8 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheClustersCommandInput - {@link DescribeCacheClustersCommandInput}
+ * @returns {@link DescribeCacheClustersCommandOutput}
  * @see {@link DescribeCacheClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheClustersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -135,6 +142,9 @@ export class DescribeCacheClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class DescribeCacheClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheClustersCommandOutput> {
     return deserializeAws_queryDescribeCacheClustersCommand(output, context);
   }

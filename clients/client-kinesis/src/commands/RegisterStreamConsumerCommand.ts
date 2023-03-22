@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterStreamConsumerCommand}.
  */
 export interface RegisterStreamConsumerCommandInput extends RegisterStreamConsumerInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterStreamConsumerCommand}.
  */
 export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsumerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a consumer with a Kinesis data stream. When you use this operation, the
  *             consumer you register can then call <a>SubscribeToShard</a> to receive data
  *             from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every
@@ -59,6 +64,8 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterStreamConsumerCommandInput - {@link RegisterStreamConsumerCommandInput}
+ * @returns {@link RegisterStreamConsumerCommandOutput}
  * @see {@link RegisterStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link RegisterStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -100,6 +107,9 @@ export class RegisterStreamConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class RegisterStreamConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterStreamConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterStreamConsumerCommandOutput> {
     return deserializeAws_json1_1RegisterStreamConsumerCommand(output, context);
   }

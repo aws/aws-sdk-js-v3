@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyEventSubscriptionCommand}.
  */
 export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyEventSubscriptionCommand}.
  */
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing Amazon DocumentDB event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
+ * @returns {@link ModifyEventSubscriptionCommandOutput}
  * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -87,6 +94,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
     return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
   }

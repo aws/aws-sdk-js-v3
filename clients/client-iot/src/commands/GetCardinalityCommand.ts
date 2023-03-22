@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCardinalityCommand}.
  */
 export interface GetCardinalityCommandInput extends GetCardinalityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCardinalityCommand}.
  */
 export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the approximate count of unique values that match the query.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetCardinality</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCardinalityCommandInput - {@link GetCardinalityCommandInput}
+ * @returns {@link GetCardinalityCommandOutput}
  * @see {@link GetCardinalityCommandInput} for command's `input` shape.
  * @see {@link GetCardinalityCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -97,6 +104,9 @@ export class GetCardinalityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCardinalityCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetCardinalityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCardinalityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCardinalityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCardinalityCommandOutput> {
     return deserializeAws_restJson1GetCardinalityCommand(output, context);
   }

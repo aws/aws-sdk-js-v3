@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApiDestinationCommand}.
  */
 export interface CreateApiDestinationCommandInput extends CreateApiDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApiDestinationCommand}.
  */
 export interface CreateApiDestinationCommandOutput extends CreateApiDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target
  *       for events.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiDestinationCommandInput - {@link CreateApiDestinationCommandInput}
+ * @returns {@link CreateApiDestinationCommandOutput}
  * @see {@link CreateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateApiDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateApiDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateApiDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiDestinationCommandOutput> {
     return deserializeAws_json1_1CreateApiDestinationCommand(output, context);
   }

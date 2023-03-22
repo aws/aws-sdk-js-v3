@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeBranchesBySquashCommand}.
  */
 export interface MergeBranchesBySquashCommandInput extends MergeBranchesBySquashInput {}
 /**
+ * @public
+ *
  * The output of {@link MergeBranchesBySquashCommand}.
  */
 export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquashOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two branches using the squash merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeBranchesBySquashCommandInput - {@link MergeBranchesBySquashCommandInput}
+ * @returns {@link MergeBranchesBySquashCommandOutput}
  * @see {@link MergeBranchesBySquashCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesBySquashCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -200,6 +207,9 @@ export class MergeBranchesBySquashCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeBranchesBySquashCommandInput) {
     // Start section: command_constructor
     super();
@@ -239,10 +249,16 @@ export class MergeBranchesBySquashCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeBranchesBySquashCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergeBranchesBySquashCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeBranchesBySquashCommandOutput> {
     return deserializeAws_json1_1MergeBranchesBySquashCommand(output, context);
   }

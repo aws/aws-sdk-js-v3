@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGatewayInformationCommand}.
  */
 export interface DescribeGatewayInformationCommandInput extends DescribeGatewayInformationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGatewayInformationCommand}.
  */
 export interface DescribeGatewayInformationCommandOutput extends DescribeGatewayInformationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about a gateway such as its name, network interfaces, configured time
  *          zone, and the state (whether the gateway is running or not). To specify which gateway to
  *          describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
@@ -48,6 +53,8 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGatewayInformationCommandInput - {@link DescribeGatewayInformationCommandInput}
+ * @returns {@link DescribeGatewayInformationCommandOutput}
  * @see {@link DescribeGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -107,6 +114,9 @@ export class DescribeGatewayInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGatewayInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DescribeGatewayInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGatewayInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

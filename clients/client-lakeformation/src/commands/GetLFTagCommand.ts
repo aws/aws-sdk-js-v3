@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLFTagCommand}.
  */
 export interface GetLFTagCommandInput extends GetLFTagRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLFTagCommand}.
  */
 export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an LF-tag definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLFTagCommandInput - {@link GetLFTagCommandInput}
+ * @returns {@link GetLFTagCommandOutput}
  * @see {@link GetLFTagCommandInput} for command's `input` shape.
  * @see {@link GetLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetLFTagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLFTagCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetLFTagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLFTagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLFTagCommandOutput> {
     return deserializeAws_restJson1GetLFTagCommand(output, context);
   }

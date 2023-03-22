@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeviceEc2InstancesCommand}.
  */
 export interface DescribeDeviceEc2InstancesCommandInput extends DescribeDeviceEc2Input {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeviceEc2InstancesCommand}.
  */
 export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceEc2Output, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the current state of the Amazon EC2 instances. The output is similar to
  *         <code>describeDevice</code>, but the results are sourced from the device cache in the
  *       Amazon Web Services Cloud and include a subset of the available fields. </p>
@@ -52,6 +57,8 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeviceEc2InstancesCommandInput - {@link DescribeDeviceEc2InstancesCommandInput}
+ * @returns {@link DescribeDeviceEc2InstancesCommandOutput}
  * @see {@link DescribeDeviceEc2InstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceEc2InstancesCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeDeviceEc2InstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeviceEc2InstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeDeviceEc2InstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeviceEc2InstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDeviceEc2InstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFargateProfileCommand}.
  */
 export interface CreateFargateProfileCommandInput extends CreateFargateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFargateProfileCommand}.
  */
 export interface CreateFargateProfileCommandOutput extends CreateFargateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Fargate profile for your Amazon EKS cluster. You
  *             must have at least one Fargate profile in a cluster to be able to run
  *             pods on Fargate.</p>
@@ -73,6 +78,8 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFargateProfileCommandInput - {@link CreateFargateProfileCommandInput}
+ * @returns {@link CreateFargateProfileCommandOutput}
  * @see {@link CreateFargateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -121,6 +128,9 @@ export class CreateFargateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFargateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class CreateFargateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFargateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFargateProfileCommandOutput> {
     return deserializeAws_restJson1CreateFargateProfileCommand(output, context);
   }

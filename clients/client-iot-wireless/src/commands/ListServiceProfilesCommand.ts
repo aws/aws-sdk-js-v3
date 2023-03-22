@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceProfilesCommand}.
  */
 export interface ListServiceProfilesCommandInput extends ListServiceProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceProfilesCommand}.
  */
 export interface ListServiceProfilesCommandOutput extends ListServiceProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the service profiles registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceProfilesCommandInput - {@link ListServiceProfilesCommandInput}
+ * @returns {@link ListServiceProfilesCommandOutput}
  * @see {@link ListServiceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListServiceProfilesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListServiceProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListServiceProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListServiceProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceProfilesCommandOutput> {
     return deserializeAws_restJson1ListServiceProfilesCommand(output, context);
   }

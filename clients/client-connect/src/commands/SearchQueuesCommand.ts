@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchQueuesCommand}.
  */
 export interface SearchQueuesCommandInput extends SearchQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchQueuesCommand}.
  */
 export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchQueuesCommandInput - {@link SearchQueuesCommandInput}
+ * @returns {@link SearchQueuesCommandOutput}
  * @see {@link SearchQueuesCommandInput} for command's `input` shape.
  * @see {@link SearchQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class SearchQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class SearchQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchQueuesCommandOutput> {
     return deserializeAws_restJson1SearchQueuesCommand(output, context);
   }

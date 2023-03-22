@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTopicRuleDestinationCommand}.
  */
 export interface UpdateTopicRuleDestinationCommandInput extends UpdateTopicRuleDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTopicRuleDestinationCommand}.
  */
 export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
  *          confirmation URL of the destination.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateTopicRuleDestination</a> action.</p>
@@ -48,6 +53,8 @@ export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRule
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTopicRuleDestinationCommandInput - {@link UpdateTopicRuleDestinationCommandInput}
+ * @returns {@link UpdateTopicRuleDestinationCommandOutput}
  * @see {@link UpdateTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

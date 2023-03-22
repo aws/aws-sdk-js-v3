@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReceiptRuleSetCommand}.
  */
 export interface CreateReceiptRuleSetCommandInput extends CreateReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReceiptRuleSetCommand}.
  */
 export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty receipt rule set.</p>
  *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReceiptRuleSetCommandInput - {@link CreateReceiptRuleSetCommandInput}
+ * @returns {@link CreateReceiptRuleSetCommandOutput}
  * @see {@link CreateReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link CreateReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReceiptRuleSetCommandOutput> {
     return deserializeAws_queryCreateReceiptRuleSetCommand(output, context);
   }

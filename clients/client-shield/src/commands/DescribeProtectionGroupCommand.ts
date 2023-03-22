@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProtectionGroupCommand}.
  */
 export interface DescribeProtectionGroupCommandInput extends DescribeProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProtectionGroupCommand}.
  */
 export interface DescribeProtectionGroupCommandOutput extends DescribeProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the specification for the specified protection group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeProtectionGroupCommandOutput extends DescribeProtection
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProtectionGroupCommandInput - {@link DescribeProtectionGroupCommandInput}
+ * @returns {@link DescribeProtectionGroupCommandOutput}
  * @see {@link DescribeProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProtectionGroupCommandOutput> {
     return deserializeAws_json1_1DescribeProtectionGroupCommand(output, context);
   }

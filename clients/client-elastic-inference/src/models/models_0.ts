@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ElasticInferenceServiceException as __BaseException } from "./ElasticInferenceServiceException";
 
 /**
+ * @public
  * <p>
  *             The memory information of an Elastic Inference Accelerator type.
  *         </p>
@@ -18,6 +19,7 @@ export interface MemoryInfo {
 }
 
 /**
+ * @public
  * <p>
  *             A throughput entry for an Elastic Inference Accelerator type.
  *         </p>
@@ -41,6 +43,7 @@ export interface KeyValuePair {
 }
 
 /**
+ * @public
  * <p>
  *             The details of an Elastic Inference Accelerator type.
  *         </p>
@@ -68,9 +71,13 @@ export interface AcceleratorType {
   throughputInfo?: KeyValuePair[];
 }
 
+/**
+ * @public
+ */
 export type LocationType = "availability-zone" | "availability-zone-id" | "region";
 
 /**
+ * @public
  * <p>
  *             The offering for an Elastic Inference Accelerator type.
  *         </p>
@@ -103,6 +110,7 @@ export interface AcceleratorTypeOffering {
 }
 
 /**
+ * @public
  * <p>
  *             Raised when a malformed input has been provided to the API.
  *         </p>
@@ -123,6 +131,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorOfferingsRequest {
   /**
    * <p>
@@ -142,6 +153,9 @@ export interface DescribeAcceleratorOfferingsRequest {
   acceleratorTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorOfferingsResponse {
   /**
    * <p>
@@ -152,6 +166,7 @@ export interface DescribeAcceleratorOfferingsResponse {
 }
 
 /**
+ * @public
  * <p>
  *             Raised when an unexpected error occurred during request processing.
  *         </p>
@@ -173,6 +188,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Raised when the requested resource cannot be found.
  *         </p>
@@ -194,6 +210,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             A filter expression for the Elastic Inference Accelerator list.
  *         </p>
@@ -216,6 +233,9 @@ export interface Filter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorsRequest {
   /**
    * <p>
@@ -251,6 +271,7 @@ export interface DescribeAcceleratorsRequest {
 }
 
 /**
+ * @public
  * <p>
  *             The health details of an Elastic Inference Accelerator.
  *         </p>
@@ -265,6 +286,7 @@ export interface ElasticInferenceAcceleratorHealth {
 }
 
 /**
+ * @public
  * <p>
  *             The details of an Elastic Inference Accelerator.
  *         </p>
@@ -306,6 +328,9 @@ export interface ElasticInferenceAccelerator {
   attachedResource?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorsResponse {
   /**
    * <p>
@@ -322,8 +347,14 @@ export interface DescribeAcceleratorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorTypesRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeAcceleratorTypesResponse {
   /**
    * <p>
@@ -333,6 +364,9 @@ export interface DescribeAcceleratorTypesResponse {
   acceleratorTypes?: AcceleratorType[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -342,6 +376,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>
@@ -351,6 +388,9 @@ export interface ListTagsForResourceResult {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>
@@ -367,8 +407,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>
@@ -385,6 +431,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
 /**

@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminUpdateDeviceStatusCommand}.
  */
 export interface AdminUpdateDeviceStatusCommandInput extends AdminUpdateDeviceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminUpdateDeviceStatusCommand}.
  */
 export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the device status as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -52,6 +57,8 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUpdateDeviceStatusCommandInput - {@link AdminUpdateDeviceStatusCommandInput}
+ * @returns {@link AdminUpdateDeviceStatusCommandOutput}
  * @see {@link AdminUpdateDeviceStatusCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateDeviceStatusCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -99,6 +106,9 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUpdateDeviceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUpdateDeviceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminUpdateDeviceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminUpdateDeviceStatusCommandOutput> {
     return deserializeAws_json1_1AdminUpdateDeviceStatusCommand(output, context);
   }

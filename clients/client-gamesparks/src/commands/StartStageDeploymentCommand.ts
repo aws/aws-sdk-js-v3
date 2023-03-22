@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStageDeploymentCommand}.
  */
 export interface StartStageDeploymentCommandInput extends StartStageDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStageDeploymentCommand}.
  */
 export interface StartStageDeploymentCommandOutput extends StartStageDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploys a snapshot to the stage and creates a new game runtime.</p>
  *          <p>
  *       After you call this operation, you can check the deployment status by using <code>GetStageDeployment</code>.
@@ -55,6 +60,8 @@ export interface StartStageDeploymentCommandOutput extends StartStageDeploymentR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStageDeploymentCommandInput - {@link StartStageDeploymentCommandInput}
+ * @returns {@link StartStageDeploymentCommandOutput}
  * @see {@link StartStageDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartStageDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartStageDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStageDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class StartStageDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStageDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartStageDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStageDeploymentCommandOutput> {
     return deserializeAws_restJson1StartStageDeploymentCommand(output, context);
   }

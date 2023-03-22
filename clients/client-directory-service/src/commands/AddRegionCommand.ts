@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1AddRegionCommand, serializeAws_json1_1AddRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddRegionCommand}.
  */
 export interface AddRegionCommandInput extends AddRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddRegionCommand}.
  */
 export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds two domain controllers in the specified Region for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param AddRegionCommandInput - {@link AddRegionCommandInput}
+ * @returns {@link AddRegionCommandOutput}
  * @see {@link AddRegionCommandInput} for command's `input` shape.
  * @see {@link AddRegionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -98,6 +105,9 @@ export class AddRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AddRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRegionCommandOutput> {
     return deserializeAws_json1_1AddRegionCommand(output, context);
   }

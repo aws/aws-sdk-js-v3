@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
 export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput
   extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
 export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
@@ -38,6 +42,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>After you generate a group or policy report using the
  *                 <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
  *                 <code>JobId</code> parameter in
@@ -74,6 +79,8 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceLastAccessedDetailsWithEntitiesCommandInput - {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput}
+ * @returns {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput}
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -146,6 +153,9 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceLastAccessedDetailsWithEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,6 +201,9 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     context: __SerdeContext
@@ -198,6 +211,9 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     return serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

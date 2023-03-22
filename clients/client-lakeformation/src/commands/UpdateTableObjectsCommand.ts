@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableObjectsCommand}.
  */
 export interface UpdateTableObjectsCommandInput extends UpdateTableObjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableObjectsCommand}.
  */
 export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the manifest of Amazon S3 objects that make up the specified governed table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableObjectsCommandInput - {@link UpdateTableObjectsCommandInput}
+ * @returns {@link UpdateTableObjectsCommandOutput}
  * @see {@link UpdateTableObjectsCommandInput} for command's `input` shape.
  * @see {@link UpdateTableObjectsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateTableObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateTableObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTableObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableObjectsCommandOutput> {
     return deserializeAws_restJson1UpdateTableObjectsCommand(output, context);
   }

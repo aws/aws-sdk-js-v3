@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLexiconCommand}.
  */
 export interface PutLexiconCommandInput extends PutLexiconInput {}
 /**
+ * @public
+ *
  * The output of {@link PutLexiconCommand}.
  */
 export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores a pronunciation lexicon in an Amazon Web Services Region. If
  *       a lexicon with the same name already exists in the region, it is
  *       overwritten by the new lexicon. Lexicon operations have eventual
@@ -51,6 +56,8 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLexiconCommandInput - {@link PutLexiconCommandInput}
+ * @returns {@link PutLexiconCommandOutput}
  * @see {@link PutLexiconCommandInput} for command's `input` shape.
  * @see {@link PutLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -113,6 +120,9 @@ export class PutLexiconCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLexiconCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class PutLexiconCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutLexiconCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLexiconCommandOutput> {
     return deserializeAws_restJson1PutLexiconCommand(output, context);
   }

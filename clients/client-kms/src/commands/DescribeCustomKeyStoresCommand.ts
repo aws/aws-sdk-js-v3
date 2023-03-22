@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomKeyStoresCommand}.
  */
 export interface DescribeCustomKeyStoresCommandInput extends DescribeCustomKeyStoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomKeyStoresCommand}.
  */
 export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and Region.</p>
  *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
@@ -104,6 +109,8 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomKeyStoresCommandInput - {@link DescribeCustomKeyStoresCommandInput}
+ * @returns {@link DescribeCustomKeyStoresCommandOutput}
  * @see {@link DescribeCustomKeyStoresCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomKeyStoresCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -240,6 +247,9 @@ export class DescribeCustomKeyStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomKeyStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -279,10 +289,16 @@ export class DescribeCustomKeyStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCustomKeyStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCustomKeyStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomKeyStoresCommandOutput> {
     return deserializeAws_json1_1DescribeCustomKeyStoresCommand(output, context);
   }

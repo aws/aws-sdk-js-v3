@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverConfigsCommand}.
  */
 export interface ListResolverConfigsCommandInput extends ListResolverConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverConfigsCommand}.
  */
 export interface ListResolverConfigsCommandOutput extends ListResolverConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Resolver configurations that you have defined.
  * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListResolverConfigsCommandOutput extends ListResolverConfigsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverConfigsCommandInput - {@link ListResolverConfigsCommandInput}
+ * @returns {@link ListResolverConfigsCommandOutput}
  * @see {@link ListResolverConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListResolverConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListResolverConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResolverConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolverConfigsCommandOutput> {
     return deserializeAws_json1_1ListResolverConfigsCommand(output, context);
   }

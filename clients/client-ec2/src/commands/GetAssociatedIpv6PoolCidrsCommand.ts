@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssociatedIpv6PoolCidrsCommand}.
  */
 export interface GetAssociatedIpv6PoolCidrsCommandInput extends GetAssociatedIpv6PoolCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssociatedIpv6PoolCidrsCommand}.
  */
 export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIpv6PoolCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociatedIpv6PoolCidrsCommandInput - {@link GetAssociatedIpv6PoolCidrsCommandInput}
+ * @returns {@link GetAssociatedIpv6PoolCidrsCommandOutput}
  * @see {@link GetAssociatedIpv6PoolCidrsCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedIpv6PoolCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedIpv6PoolCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

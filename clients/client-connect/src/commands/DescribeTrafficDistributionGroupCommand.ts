@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrafficDistributionGroupCommand}.
  */
 export interface DescribeTrafficDistributionGroupCommandInput extends DescribeTrafficDistributionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrafficDistributionGroupCommand}.
  */
 export interface DescribeTrafficDistributionGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details and status of a traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTrafficDistributionGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficDistributionGroupCommandInput - {@link DescribeTrafficDistributionGroupCommandInput}
+ * @returns {@link DescribeTrafficDistributionGroupCommandOutput}
  * @see {@link DescribeTrafficDistributionGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficDistributionGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeTrafficDistributionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficDistributionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeTrafficDistributionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrafficDistributionGroupCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeTrafficDistributionGroupCommand extends $Command<
     return serializeAws_restJson1DescribeTrafficDistributionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMatchmakingRuleSetsCommand}.
  */
 export interface DescribeMatchmakingRuleSetsCommandInput extends DescribeMatchmakingRuleSetsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMatchmakingRuleSetsCommand}.
  */
 export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchmakingRuleSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
  *             rule sets for the Region, or provide a list of one or more rule set names. When
  *             requesting multiple items, use the pagination parameters to retrieve results as a set of
@@ -60,6 +65,8 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMatchmakingRuleSetsCommandInput - {@link DescribeMatchmakingRuleSetsCommandInput}
+ * @returns {@link DescribeMatchmakingRuleSetsCommandOutput}
  * @see {@link DescribeMatchmakingRuleSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMatchmakingRuleSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMatchmakingRuleSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMatchmakingRuleSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

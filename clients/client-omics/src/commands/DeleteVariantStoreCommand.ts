@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVariantStoreCommand}.
  */
 export interface DeleteVariantStoreCommandInput extends DeleteVariantStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVariantStoreCommand}.
  */
 export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a variant store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVariantStoreCommandInput - {@link DeleteVariantStoreCommandInput}
+ * @returns {@link DeleteVariantStoreCommandOutput}
  * @see {@link DeleteVariantStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteVariantStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVariantStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteVariantStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVariantStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVariantStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVariantStoreCommandOutput> {
     return deserializeAws_restJson1DeleteVariantStoreCommand(output, context);
   }

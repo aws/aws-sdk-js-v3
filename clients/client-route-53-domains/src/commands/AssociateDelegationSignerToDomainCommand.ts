@@ -26,10 +26,14 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDelegationSignerToDomainCommand}.
  */
 export interface AssociateDelegationSignerToDomainCommandInput extends AssociateDelegationSignerToDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDelegationSignerToDomainCommand}.
  */
 export interface AssociateDelegationSignerToDomainCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateDelegationSignerToDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a delegation signer (DS) record in the registry zone for this domain
  * 			name.</p>
  *          <p>Note that creating DS record at the registry impacts DNSSEC validation of your DNS
@@ -55,6 +60,8 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDelegationSignerToDomainCommandInput - {@link AssociateDelegationSignerToDomainCommandInput}
+ * @returns {@link AssociateDelegationSignerToDomainCommandOutput}
  * @see {@link AssociateDelegationSignerToDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateDelegationSignerToDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -102,6 +109,9 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDelegationSignerToDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateDelegationSignerToDomainCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
     return serializeAws_json1_1AssociateDelegationSignerToDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourceSetCommand}.
  */
 export interface PutResourceSetCommandInput extends PutResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourceSetCommand}.
  */
 export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the resource set.</p>
  *          <p>An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourceSetCommandInput - {@link PutResourceSetCommandInput}
+ * @returns {@link PutResourceSetCommandOutput}
  * @see {@link PutResourceSetCommandInput} for command's `input` shape.
  * @see {@link PutResourceSetCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceSetCommandOutput> {
     return deserializeAws_json1_1PutResourceSetCommand(output, context);
   }

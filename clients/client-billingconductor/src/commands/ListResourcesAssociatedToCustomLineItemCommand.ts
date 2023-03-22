@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesAssociatedToCustomLineItemCommand}.
  */
 export interface ListResourcesAssociatedToCustomLineItemCommandInput
   extends ListResourcesAssociatedToCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesAssociatedToCustomLineItemCommand}.
  */
 export interface ListResourcesAssociatedToCustomLineItemCommandOutput
@@ -38,6 +42,7 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       List the resources that are associated to a custom line item.
  *     </p>
@@ -51,6 +56,8 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesAssociatedToCustomLineItemCommandInput - {@link ListResourcesAssociatedToCustomLineItemCommandInput}
+ * @returns {@link ListResourcesAssociatedToCustomLineItemCommandOutput}
  * @see {@link ListResourcesAssociatedToCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link ListResourcesAssociatedToCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesAssociatedToCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResourcesAssociatedToCustomLineItemCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
     return serializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

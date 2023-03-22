@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportKeyMaterialCommand}.
  */
 export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportKeyMaterialCommand}.
  */
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports key material into an existing symmetric encryption KMS key that was created
  *       without key material. After you successfully import key material into a KMS key, you can
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that KMS key, but you cannot import different
@@ -109,6 +114,8 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportKeyMaterialCommandInput - {@link ImportKeyMaterialCommandInput}
+ * @returns {@link ImportKeyMaterialCommandOutput}
  * @see {@link ImportKeyMaterialCommandInput} for command's `input` shape.
  * @see {@link ImportKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -204,6 +211,9 @@ export class ImportKeyMaterialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportKeyMaterialCommandInput) {
     // Start section: command_constructor
     super();
@@ -243,10 +253,16 @@ export class ImportKeyMaterialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportKeyMaterialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportKeyMaterialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyMaterialCommandOutput> {
     return deserializeAws_json1_1ImportKeyMaterialCommand(output, context);
   }

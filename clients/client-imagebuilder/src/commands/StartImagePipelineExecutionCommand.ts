@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImagePipelineExecutionCommand}.
  */
 export interface StartImagePipelineExecutionCommandInput extends StartImagePipelineExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImagePipelineExecutionCommand}.
  */
 export interface StartImagePipelineExecutionCommandOutput
@@ -37,6 +41,7 @@ export interface StartImagePipelineExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Manually triggers a pipeline to create an image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface StartImagePipelineExecutionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImagePipelineExecutionCommandInput - {@link StartImagePipelineExecutionCommandInput}
+ * @returns {@link StartImagePipelineExecutionCommandOutput}
  * @see {@link StartImagePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StartImagePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -102,6 +109,9 @@ export class StartImagePipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImagePipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class StartImagePipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImagePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartImagePipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

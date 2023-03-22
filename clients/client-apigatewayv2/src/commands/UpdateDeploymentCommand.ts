@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeploymentCommand}.
  */
 export interface UpdateDeploymentCommandInput extends UpdateDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeploymentCommand}.
  */
 export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeploymentCommandInput - {@link UpdateDeploymentCommandInput}
+ * @returns {@link UpdateDeploymentCommandOutput}
  * @see {@link UpdateDeploymentCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeploymentCommandOutput> {
     return deserializeAws_restJson1UpdateDeploymentCommand(output, context);
   }

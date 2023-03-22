@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDownloadUrlForLayerCommand}.
  */
 export interface GetDownloadUrlForLayerCommandInput extends GetDownloadUrlForLayerRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDownloadUrlForLayerCommand}.
  */
 export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLayerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can
  *             only get URLs for image layers that are referenced in an image.</p>
  *         <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
@@ -53,6 +58,8 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDownloadUrlForLayerCommandInput - {@link GetDownloadUrlForLayerCommandInput}
+ * @returns {@link GetDownloadUrlForLayerCommandOutput}
  * @see {@link GetDownloadUrlForLayerCommandInput} for command's `input` shape.
  * @see {@link GetDownloadUrlForLayerCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetDownloadUrlForLayerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDownloadUrlForLayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetDownloadUrlForLayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDownloadUrlForLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDownloadUrlForLayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDownloadUrlForLayerCommandOutput> {
     return deserializeAws_json1_1GetDownloadUrlForLayerCommand(output, context);
   }

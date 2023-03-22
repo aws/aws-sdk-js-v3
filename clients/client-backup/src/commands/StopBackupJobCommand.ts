@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopBackupJobCommand}.
  */
 export interface StopBackupJobCommandInput extends StopBackupJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StopBackupJobCommand}.
  */
 export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
  *          <p>This action is not supported for the following services:
  *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
@@ -45,6 +50,8 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBackupJobCommandInput - {@link StopBackupJobCommandInput}
+ * @returns {@link StopBackupJobCommandOutput}
  * @see {@link StopBackupJobCommandInput} for command's `input` shape.
  * @see {@link StopBackupJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopBackupJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBackupJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StopBackupJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopBackupJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBackupJobCommandOutput> {
     return deserializeAws_restJson1StopBackupJobCommand(output, context);
   }

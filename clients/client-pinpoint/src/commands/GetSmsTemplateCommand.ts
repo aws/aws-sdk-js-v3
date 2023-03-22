@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSmsTemplateCommand}.
  */
 export interface GetSmsTemplateCommandInput extends GetSmsTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSmsTemplateCommand}.
  */
 export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSmsTemplateCommandInput - {@link GetSmsTemplateCommandInput}
+ * @returns {@link GetSmsTemplateCommandOutput}
  * @see {@link GetSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link GetSmsTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetSmsTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSmsTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetSmsTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSmsTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSmsTemplateCommandOutput> {
     return deserializeAws_restJson1GetSmsTemplateCommand(output, context);
   }

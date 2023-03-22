@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLunaClientCommand}.
  */
 export interface DeleteLunaClientCommandInput extends DeleteLunaClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLunaClientCommand}.
  */
 export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -56,6 +61,8 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLunaClientCommandInput - {@link DeleteLunaClientCommandInput}
+ * @returns {@link DeleteLunaClientCommandOutput}
  * @see {@link DeleteLunaClientCommandInput} for command's `input` shape.
  * @see {@link DeleteLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteLunaClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLunaClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteLunaClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLunaClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLunaClientCommandOutput> {
     return deserializeAws_json1_1DeleteLunaClientCommand(output, context);
   }

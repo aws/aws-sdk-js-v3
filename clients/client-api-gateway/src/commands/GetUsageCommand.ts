@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsageCommand}.
  */
 export interface GetUsageCommandInput extends GetUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsageCommand}.
  */
 export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the usage data of a usage plan in a specified time interval.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsageCommandInput - {@link GetUsageCommandInput}
+ * @returns {@link GetUsageCommandOutput}
  * @see {@link GetUsageCommandInput} for command's `input` shape.
  * @see {@link GetUsageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageCommandOutput> {
     return deserializeAws_restJson1GetUsageCommand(output, context);
   }

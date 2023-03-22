@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMatchmakingConfigurationCommand}.
  */
 export interface CreateMatchmakingConfigurationCommandInput extends CreateMatchmakingConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMatchmakingConfigurationCommand}.
  */
 export interface CreateMatchmakingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
  *             FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking
  *             configuration sets out rules for matching players and forming teams. If you're also
@@ -73,6 +78,8 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMatchmakingConfigurationCommandInput - {@link CreateMatchmakingConfigurationCommandInput}
+ * @returns {@link CreateMatchmakingConfigurationCommandOutput}
  * @see {@link CreateMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMatchmakingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,6 +168,9 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateMatchmakingConfigurationCommandInput,
     context: __SerdeContext
@@ -165,6 +178,9 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     return serializeAws_json1_1CreateMatchmakingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

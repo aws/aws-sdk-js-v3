@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoreDefinitionVersionCommand}.
  */
 export interface GetCoreDefinitionVersionCommandInput extends GetCoreDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoreDefinitionVersionCommand}.
  */
 export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinitionVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a core definition version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreDefinitionVersionCommandInput - {@link GetCoreDefinitionVersionCommandInput}
+ * @returns {@link GetCoreDefinitionVersionCommandOutput}
  * @see {@link GetCoreDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetCoreDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetCoreDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetCoreDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCoreDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreDefinitionVersionCommandOutput> {
     return deserializeAws_restJson1GetCoreDefinitionVersionCommand(output, context);
   }

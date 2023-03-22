@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileShareCommand}.
  */
 export interface DeleteFileShareCommandInput extends DeleteFileShareInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileShareCommand}.
  */
 export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a file share from an S3 File Gateway. This operation is only supported for S3
  *          File Gateways.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileShareCommandInput - {@link DeleteFileShareCommandInput}
+ * @returns {@link DeleteFileShareCommandOutput}
  * @see {@link DeleteFileShareCommandInput} for command's `input` shape.
  * @see {@link DeleteFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileShareCommandOutput> {
     return deserializeAws_json1_1DeleteFileShareCommand(output, context);
   }

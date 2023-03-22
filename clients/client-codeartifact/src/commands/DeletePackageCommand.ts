@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePackageCommand}.
  */
 export interface DeletePackageCommandInput extends DeletePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePackageCommand}.
  */
 export interface DeletePackageCommandOutput extends DeletePackageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
  *      <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a> API.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
+ * @returns {@link DeletePackageCommandOutput}
  * @see {@link DeletePackageCommandInput} for command's `input` shape.
  * @see {@link DeletePackageCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeletePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeletePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackageCommandOutput> {
     return deserializeAws_restJson1DeletePackageCommand(output, context);
   }

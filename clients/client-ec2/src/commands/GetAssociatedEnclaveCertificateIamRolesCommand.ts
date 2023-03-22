@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
  */
 export interface GetAssociatedEnclaveCertificateIamRolesCommandInput
   extends GetAssociatedEnclaveCertificateIamRolesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
  */
 export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
@@ -38,6 +42,7 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate.
  * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate,
  * 			certificate chain, and encrypted private key bundle are stored, and the ARN of the KMS key
@@ -52,6 +57,8 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociatedEnclaveCertificateIamRolesCommandInput - {@link GetAssociatedEnclaveCertificateIamRolesCommandInput}
+ * @returns {@link GetAssociatedEnclaveCertificateIamRolesCommandOutput}
  * @see {@link GetAssociatedEnclaveCertificateIamRolesCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedEnclaveCertificateIamRolesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedEnclaveCertificateIamRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAssociatedEnclaveCertificateIamRolesCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<
     return serializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

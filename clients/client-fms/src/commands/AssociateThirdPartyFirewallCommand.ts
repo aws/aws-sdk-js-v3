@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateThirdPartyFirewallCommand}.
  */
 export interface AssociateThirdPartyFirewallCommandInput extends AssociateThirdPartyFirewallRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateThirdPartyFirewallCommand}.
  */
 export interface AssociateThirdPartyFirewallCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateThirdPartyFirewallCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the Firewall Manager policy administrator as a tenant administrator of a third-party firewall service. A tenant is an instance of the third-party firewall service that's associated with your Amazon Web Services customer account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateThirdPartyFirewallCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateThirdPartyFirewallCommandInput - {@link AssociateThirdPartyFirewallCommandInput}
+ * @returns {@link AssociateThirdPartyFirewallCommandOutput}
  * @see {@link AssociateThirdPartyFirewallCommandInput} for command's `input` shape.
  * @see {@link AssociateThirdPartyFirewallCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -88,6 +95,9 @@ export class AssociateThirdPartyFirewallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateThirdPartyFirewallCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class AssociateThirdPartyFirewallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateThirdPartyFirewallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateThirdPartyFirewallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

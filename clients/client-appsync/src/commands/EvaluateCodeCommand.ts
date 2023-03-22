@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EvaluateCodeCommand}.
  */
 export interface EvaluateCodeCommandInput extends EvaluateCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link EvaluateCodeCommand}.
  */
 export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates the given code and returns the response. The code definition requirements depend on the specified
  *          runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the request and response functions. The request
  *          function takes the incoming request after a GraphQL operation is parsed and converts it into a request
@@ -50,6 +55,8 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateCodeCommandInput - {@link EvaluateCodeCommandInput}
+ * @returns {@link EvaluateCodeCommandOutput}
  * @see {@link EvaluateCodeCommandInput} for command's `input` shape.
  * @see {@link EvaluateCodeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -83,6 +90,9 @@ export class EvaluateCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class EvaluateCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EvaluateCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateCodeCommandOutput> {
     return deserializeAws_restJson1EvaluateCodeCommand(output, context);
   }

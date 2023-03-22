@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegistryPolicyCommand}.
  */
 export interface GetRegistryPolicyCommandInput extends GetRegistryPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegistryPolicyCommand}.
  */
 export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the permissions policy for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistryPolicyCommandInput - {@link GetRegistryPolicyCommandInput}
+ * @returns {@link GetRegistryPolicyCommandOutput}
  * @see {@link GetRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRegistryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetRegistryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetRegistryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegistryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRegistryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistryPolicyCommandOutput> {
     return deserializeAws_json1_1GetRegistryPolicyCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attributes of a document. The user must have access to both
  *             the document and its parent folder, if applicable.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
+ * @returns {@link UpdateDocumentCommandOutput}
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
     return deserializeAws_restJson1UpdateDocumentCommand(output, context);
   }

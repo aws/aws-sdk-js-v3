@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBatchPredictionCommand}.
  */
 export interface GetBatchPredictionCommandInput extends GetBatchPredictionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBatchPredictionCommand}.
  */
 export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a
  *             <code>Batch Prediction</code> request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBatchPredictionCommandInput - {@link GetBatchPredictionCommandInput}
+ * @returns {@link GetBatchPredictionCommandOutput}
  * @see {@link GetBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link GetBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetBatchPredictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBatchPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetBatchPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBatchPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchPredictionCommandOutput> {
     return deserializeAws_json1_1GetBatchPredictionCommand(output, context);
   }

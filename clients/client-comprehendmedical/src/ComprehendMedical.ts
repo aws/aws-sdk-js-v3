@@ -126,11 +126,13 @@ import {
 import { ComprehendMedicalClient } from "./ComprehendMedicalClient";
 
 /**
+ * @public
  * <p> Comprehend Medical; extracts structured information from unstructured clinical text. Use these actions
  *       to gain insight in your documents. </p>
  */
 export class ComprehendMedical extends ComprehendMedicalClient {
   /**
+   * @public
    * <p>Gets the properties associated with a medical entities detection job. Use this operation
    *       to get the status of a detection job.</p>
    */
@@ -164,6 +166,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
    *       status of an inference job.</p>
    */
@@ -197,6 +200,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Gets the properties associated with a protected health information (PHI) detection job.
    *       Use this operation to get the status of a detection job.</p>
    */
@@ -230,6 +234,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the
    *       status of an inference job.</p>
    */
@@ -263,6 +268,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>
    *       Gets the properties associated with an InferSNOMEDCT job. Use this operation to get the status of an inference job.
    *     </p>
@@ -297,6 +303,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>
@@ -334,6 +341,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Inspects the clinical text for a variety of medical entities and returns specific
    *       information about them such as entity category, location, and confidence score on that
    *       information. Amazon Comprehend Medical only detects medical entities in English language
@@ -375,6 +383,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p> Inspects the clinical text for protected health information (PHI) entities and returns
    *       the entity category, location, and confidence score for each entity. Amazon Comprehend Medical
    *       only detects entities in English language texts.</p>
@@ -403,6 +412,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>InferICD10CM detects medical conditions as entities listed in a patient record and links
    *       those entities to normalized concept identifiers in the ICD-10-CM knowledge base from the
    *       Centers for Disease Control. Amazon Comprehend Medical only detects medical entities in
@@ -435,6 +445,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>InferRxNorm detects medications as entities listed in a patient record and links to the
    *       normalized concept identifiers in the RxNorm database from the National Library of Medicine.
    *       Amazon Comprehend Medical only detects medical entities in English language texts.  </p>
@@ -463,6 +474,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>
    *       InferSNOMEDCT detects possible medical concepts as entities and links them to codes from the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED-CT) ontology</p>
    */
@@ -496,6 +508,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of medical entity detection jobs that you have submitted.</p>
    */
   public listEntitiesDetectionV2Jobs(
@@ -528,6 +541,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
    */
   public listICD10CMInferenceJobs(
@@ -560,6 +574,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of protected health information (PHI) detection jobs that you have
    *       submitted.</p>
    */
@@ -593,6 +608,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>
    */
   public listRxNormInferenceJobs(
@@ -625,6 +641,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>
    *       Gets a list of InferSNOMEDCT jobs a user has submitted.
    *     </p>
@@ -659,6 +676,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the
    *         <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
    */
@@ -692,6 +710,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM
    *       ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a
    *       job.</p>
@@ -726,6 +745,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Starts an asynchronous job to detect protected health information (PHI). Use the
    *         <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
    */
@@ -759,6 +779,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm
    *       ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a
    *       job.</p>
@@ -793,6 +814,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>
    *       Starts an asynchronous job to detect medical concepts and link them to the SNOMED-CT ontology. Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
    *     </p>
@@ -827,6 +849,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Stops a medical entities detection job in progress.</p>
    */
   public stopEntitiesDetectionV2Job(
@@ -859,6 +882,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Stops an InferICD10CM inference job in progress.</p>
    */
   public stopICD10CMInferenceJob(
@@ -891,6 +915,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Stops a protected health information (PHI) detection job in progress.</p>
    */
   public stopPHIDetectionJob(
@@ -923,6 +948,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>Stops an InferRxNorm inference job in progress.</p>
    */
   public stopRxNormInferenceJob(
@@ -955,6 +981,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * @public
    * <p>
    *       Stops an InferSNOMEDCT inference job in progress.
    *     </p>

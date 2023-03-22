@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcknowledgeOrderReceiptCommand}.
  */
 export interface AcknowledgeOrderReceiptCommandInput extends AcknowledgeOrderReceiptRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcknowledgeOrderReceiptCommand}.
  */
 export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderReceiptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Acknowledges that the specified network order was received.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * const response = await client.send(command);
  * ```
  *
+ * @param AcknowledgeOrderReceiptCommandInput - {@link AcknowledgeOrderReceiptCommandInput}
+ * @returns {@link AcknowledgeOrderReceiptCommandOutput}
  * @see {@link AcknowledgeOrderReceiptCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeOrderReceiptCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +85,9 @@ export class AcknowledgeOrderReceiptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcknowledgeOrderReceiptCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class AcknowledgeOrderReceiptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcknowledgeOrderReceiptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AcknowledgeOrderReceiptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeOrderReceiptCommandOutput> {
     return deserializeAws_restJson1AcknowledgeOrderReceiptCommand(output, context);
   }

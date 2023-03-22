@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCaseCommand}.
  */
 export interface UpdateCaseCommandInput extends UpdateCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCaseCommand}.
  */
 export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the values of fields on a case. Fields to be updated are received as an array of
  *       id/value pairs identical to the <code>CreateCase</code> input .</p>
  *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
@@ -49,6 +54,8 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCaseCommandInput - {@link UpdateCaseCommandInput}
+ * @returns {@link UpdateCaseCommandOutput}
  * @see {@link UpdateCaseCommandInput} for command's `input` shape.
  * @see {@link UpdateCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCaseCommandOutput> {
     return deserializeAws_restJson1UpdateCaseCommand(output, context);
   }

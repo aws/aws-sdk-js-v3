@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGlobalNetworkCommand}.
  */
 export interface CreateGlobalNetworkCommandInput extends CreateGlobalNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGlobalNetworkCommand}.
  */
 export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalNetworkCommandInput - {@link CreateGlobalNetworkCommandInput}
+ * @returns {@link CreateGlobalNetworkCommandOutput}
  * @see {@link CreateGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateGlobalNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateGlobalNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGlobalNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalNetworkCommandOutput> {
     return deserializeAws_restJson1CreateGlobalNetworkCommand(output, context);
   }

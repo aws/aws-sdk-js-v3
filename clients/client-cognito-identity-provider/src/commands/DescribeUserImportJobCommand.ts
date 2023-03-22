@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserImportJobCommand}.
  */
 export interface DescribeUserImportJobCommandInput extends DescribeUserImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserImportJobCommand}.
  */
 export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the user import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserImportJobCommandInput - {@link DescribeUserImportJobCommandInput}
+ * @returns {@link DescribeUserImportJobCommandOutput}
  * @see {@link DescribeUserImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeUserImportJobCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeUserImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeUserImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserImportJobCommandOutput> {
     return deserializeAws_json1_1DescribeUserImportJobCommand(output, context);
   }

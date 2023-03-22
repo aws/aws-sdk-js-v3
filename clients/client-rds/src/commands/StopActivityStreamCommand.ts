@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopActivityStreamCommand}.
  */
 export interface StopActivityStreamCommandInput extends StopActivityStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopActivityStreamCommand}.
  */
 export interface StopActivityStreamCommandOutput extends StopActivityStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a database activity stream that was started using the Amazon Web Services console,
  *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
  *          <p>For more information, see
@@ -54,6 +59,8 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StopActivityStreamCommandInput - {@link StopActivityStreamCommandInput}
+ * @returns {@link StopActivityStreamCommandOutput}
  * @see {@link StopActivityStreamCommandInput} for command's `input` shape.
  * @see {@link StopActivityStreamCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -94,6 +101,9 @@ export class StopActivityStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopActivityStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class StopActivityStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopActivityStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopActivityStreamCommandOutput> {
     return deserializeAws_queryStopActivityStreamCommand(output, context);
   }

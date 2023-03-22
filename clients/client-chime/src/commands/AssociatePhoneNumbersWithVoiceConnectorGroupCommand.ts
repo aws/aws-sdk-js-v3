@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
   extends AssociatePhoneNumbersWithVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
@@ -38,6 +42,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput - {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput}
+ * @returns {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput}
  * @see {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -96,6 +103,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

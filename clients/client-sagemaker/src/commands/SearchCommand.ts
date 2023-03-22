@@ -19,15 +19,20 @@ import { deserializeAws_json1_1SearchCommand, serializeAws_json1_1SearchCommand 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchCommand}.
  */
 export interface SearchCommandInput extends SearchRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchCommand}.
  */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds SageMaker resources that match a search query. Matching resources are returned
  *       as a list of <code>SearchRecord</code> objects in the response. You can sort the search
  *       results by any resource property in a ascending or descending order.</p>
@@ -48,6 +53,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCommandInput - {@link SearchCommandInput}
+ * @returns {@link SearchCommandOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,10 +114,16 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
     return deserializeAws_json1_1SearchCommand(output, context);
   }

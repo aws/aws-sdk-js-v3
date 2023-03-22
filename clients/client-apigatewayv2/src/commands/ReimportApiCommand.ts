@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReimportApiCommand}.
  */
 export interface ReimportApiCommandInput extends ReimportApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReimportApiCommand}.
  */
 export interface ReimportApiCommandOutput extends ReimportApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts an Api resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ReimportApiCommandInput - {@link ReimportApiCommandInput}
+ * @returns {@link ReimportApiCommandOutput}
  * @see {@link ReimportApiCommandInput} for command's `input` shape.
  * @see {@link ReimportApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class ReimportApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReimportApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ReimportApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReimportApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReimportApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReimportApiCommandOutput> {
     return deserializeAws_restJson1ReimportApiCommand(output, context);
   }

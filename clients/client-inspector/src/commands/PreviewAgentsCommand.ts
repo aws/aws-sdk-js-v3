@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PreviewAgentsCommand}.
  */
 export interface PreviewAgentsCommandInput extends PreviewAgentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PreviewAgentsCommand}.
  */
 export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Previews the agents installed on the EC2 instances that are part of the specified
  *          assessment target.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param PreviewAgentsCommandInput - {@link PreviewAgentsCommandInput}
+ * @returns {@link PreviewAgentsCommandOutput}
  * @see {@link PreviewAgentsCommandInput} for command's `input` shape.
  * @see {@link PreviewAgentsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -110,6 +117,9 @@ export class PreviewAgentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PreviewAgentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class PreviewAgentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PreviewAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PreviewAgentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PreviewAgentsCommandOutput> {
     return deserializeAws_json1_1PreviewAgentsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelContactCommand}.
  */
 export interface CancelContactCommandInput extends CancelContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelContactCommand}.
  */
 export interface CancelContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a contact with a specified contact ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelContactCommandInput - {@link CancelContactCommandInput}
+ * @returns {@link CancelContactCommandOutput}
  * @see {@link CancelContactCommandInput} for command's `input` shape.
  * @see {@link CancelContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class CancelContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CancelContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelContactCommandOutput> {
     return deserializeAws_restJson1CancelContactCommand(output, context);
   }

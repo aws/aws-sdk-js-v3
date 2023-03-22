@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheParametersCommand}.
  */
 export interface DescribeCacheParametersCommandInput extends DescribeCacheParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheParametersCommand}.
  */
 export interface DescribeCacheParametersCommandOutput extends CacheParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a
  *             particular cache parameter group.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheParametersCommandInput - {@link DescribeCacheParametersCommandInput}
+ * @returns {@link DescribeCacheParametersCommandOutput}
  * @see {@link DescribeCacheParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheParametersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -482,6 +489,9 @@ export class DescribeCacheParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -521,10 +531,16 @@ export class DescribeCacheParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheParametersCommandOutput> {
     return deserializeAws_queryDescribeCacheParametersCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
 export interface DisassociateServiceActionFromProvisioningArtifactCommandInput
   extends DisassociateServiceActionFromProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
 export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateServiceActionFromProvisioningArtifactCommandInput - {@link DisassociateServiceActionFromProvisioningArtifactCommandInput}
+ * @returns {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput}
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceActionFromProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     return serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

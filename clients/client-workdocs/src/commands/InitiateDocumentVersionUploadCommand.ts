@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateDocumentVersionUploadCommand}.
  */
 export interface InitiateDocumentVersionUploadCommandInput extends InitiateDocumentVersionUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitiateDocumentVersionUploadCommand}.
  */
 export interface InitiateDocumentVersionUploadCommandOutput
@@ -37,6 +41,7 @@ export interface InitiateDocumentVersionUploadCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new document object and version object.</p>
  *          <p>The client specifies the parent folder ID and name of the document to upload. The
  *             ID is optionally specified when creating a new version of an existing document. This is
@@ -53,6 +58,8 @@ export interface InitiateDocumentVersionUploadCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateDocumentVersionUploadCommandInput - {@link InitiateDocumentVersionUploadCommandInput}
+ * @returns {@link InitiateDocumentVersionUploadCommandOutput}
  * @see {@link InitiateDocumentVersionUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateDocumentVersionUploadCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -121,6 +128,9 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateDocumentVersionUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateDocumentVersionUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InitiateDocumentVersionUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

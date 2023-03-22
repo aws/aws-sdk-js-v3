@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingProfileDefaultOutboundQueueCommand}.
  */
 export interface UpdateRoutingProfileDefaultOutboundQueueCommandInput
   extends UpdateRoutingProfileDefaultOutboundQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingProfileDefaultOutboundQueueCommand}.
  */
 export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the default outbound queue of a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingProfileDefaultOutboundQueueCommandInput - {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput}
+ * @returns {@link UpdateRoutingProfileDefaultOutboundQueueCommandOutput}
  * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingProfileDefaultOutboundQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
     return serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSipMediaApplicationCommand}.
  */
 export interface DeleteSipMediaApplicationCommandInput extends DeleteSipMediaApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSipMediaApplicationCommand}.
  */
 export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSipMediaApplicationCommandInput - {@link DeleteSipMediaApplicationCommandInput}
+ * @returns {@link DeleteSipMediaApplicationCommandOutput}
  * @see {@link DeleteSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

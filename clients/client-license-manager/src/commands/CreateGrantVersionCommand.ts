@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGrantVersionCommand}.
  */
 export interface CreateGrantVersionCommandInput extends CreateGrantVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGrantVersionCommand}.
  */
 export interface CreateGrantVersionCommandOutput extends CreateGrantVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGrantVersionCommandInput - {@link CreateGrantVersionCommandInput}
+ * @returns {@link CreateGrantVersionCommandOutput}
  * @see {@link CreateGrantVersionCommandInput} for command's `input` shape.
  * @see {@link CreateGrantVersionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateGrantVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGrantVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateGrantVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGrantVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGrantVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGrantVersionCommandOutput> {
     return deserializeAws_json1_1CreateGrantVersionCommand(output, context);
   }

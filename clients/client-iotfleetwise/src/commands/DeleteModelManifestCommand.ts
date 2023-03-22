@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelManifestCommand}.
  */
 export interface DeleteModelManifestCommandInput extends DeleteModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelManifestCommand}.
  */
 export interface DeleteModelManifestCommandOutput extends DeleteModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a vehicle model (model manifest).</p>
  *         <note>
  *             <p>If the vehicle model is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
@@ -50,6 +55,8 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelManifestCommandInput - {@link DeleteModelManifestCommandInput}
+ * @returns {@link DeleteModelManifestCommandOutput}
  * @see {@link DeleteModelManifestCommandInput} for command's `input` shape.
  * @see {@link DeleteModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelManifestCommandOutput> {
     return deserializeAws_json1_0DeleteModelManifestCommand(output, context);
   }

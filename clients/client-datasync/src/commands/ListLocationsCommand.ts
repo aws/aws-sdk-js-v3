@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLocationsCommand}.
  */
 export interface ListLocationsCommandInput extends ListLocationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLocationsCommand}.
  */
 export interface ListLocationsCommandOutput extends ListLocationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of source and destination locations.</p>
  *          <p>If you have more locations than are returned in a response (that is, the response
  *       returns only a truncated list of your agents), the response contains a token that you can
@@ -49,6 +54,8 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
+ * @returns {@link ListLocationsCommandOutput}
  * @see {@link ListLocationsCommandInput} for command's `input` shape.
  * @see {@link ListLocationsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocationsCommandOutput> {
     return deserializeAws_json1_1ListLocationsCommand(output, context);
   }

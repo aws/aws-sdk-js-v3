@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPortfoliosCommand}.
  */
 export interface ListPortfoliosCommandInput extends ListPortfoliosInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPortfoliosCommand}.
  */
 export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all portfolios in the catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortfoliosCommandInput - {@link ListPortfoliosCommandInput}
+ * @returns {@link ListPortfoliosCommandOutput}
  * @see {@link ListPortfoliosCommandInput} for command's `input` shape.
  * @see {@link ListPortfoliosCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListPortfoliosCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortfoliosCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListPortfoliosCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortfoliosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPortfoliosCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortfoliosCommandOutput> {
     return deserializeAws_json1_1ListPortfoliosCommand(output, context);
   }

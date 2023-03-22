@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePricingRuleCommand}.
  */
 export interface CreatePricingRuleCommandInput extends CreatePricingRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePricingRuleCommand}.
  */
 export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
  *     </p>
@@ -48,6 +53,8 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePricingRuleCommandInput - {@link CreatePricingRuleCommandInput}
+ * @returns {@link CreatePricingRuleCommandOutput}
  * @see {@link CreatePricingRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreatePricingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePricingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreatePricingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePricingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePricingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePricingRuleCommandOutput> {
     return deserializeAws_restJson1CreatePricingRuleCommand(output, context);
   }

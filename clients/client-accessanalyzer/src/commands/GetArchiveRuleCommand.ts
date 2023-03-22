@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetArchiveRuleCommand}.
  */
 export interface GetArchiveRuleCommandInput extends GetArchiveRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetArchiveRuleCommand}.
  */
 export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an archive rule.</p>
  *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetArchiveRuleCommandInput - {@link GetArchiveRuleCommandInput}
+ * @returns {@link GetArchiveRuleCommandOutput}
  * @see {@link GetArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link GetArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetArchiveRuleCommandOutput> {
     return deserializeAws_restJson1GetArchiveRuleCommand(output, context);
   }

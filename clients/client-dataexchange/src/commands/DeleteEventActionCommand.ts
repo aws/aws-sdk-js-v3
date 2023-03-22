@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventActionCommand}.
  */
 export interface DeleteEventActionCommandInput extends DeleteEventActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventActionCommand}.
  */
 export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventActionCommandInput - {@link DeleteEventActionCommandInput}
+ * @returns {@link DeleteEventActionCommandOutput}
  * @see {@link DeleteEventActionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteEventActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteEventActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEventActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventActionCommandOutput> {
     return deserializeAws_restJson1DeleteEventActionCommand(output, context);
   }

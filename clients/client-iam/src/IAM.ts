@@ -706,6 +706,7 @@ import {
 import { IAMClient } from "./IAMClient";
 
 /**
+ * @public
  * <fullname>Identity and Access Management</fullname>
  *          <p>Identity and Access Management (IAM) is a web service for securely controlling
  *       access to Amazon Web Services services. With IAM, you can centrally manage users, security credentials
@@ -714,6 +715,7 @@ import { IAMClient } from "./IAMClient";
  */
 export class IAM extends IAMClient {
   /**
+   * @public
    * <p>Adds a new client ID (also known as audience) to the list of client IDs already
    *             registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
    *          <p>This operation is idempotent; it does not fail or return an error if you add an
@@ -749,6 +751,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified IAM role to the specified instance profile. An instance profile
    *             can contain only one role, and this quota cannot be increased. You can remove the
    *             existing role and then add a different role to an instance profile. You must then wait
@@ -793,6 +796,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified user to the specified group.</p>
    */
   public addUserToGroup(
@@ -825,6 +829,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Attaches the specified managed policy to the specified IAM group.</p>
    *          <p>You use this operation to attach a managed policy to a group. To embed an inline
    *             policy in a group, use <a>PutGroupPolicy</a>.</p>
@@ -864,6 +869,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Attaches the specified managed policy to the specified IAM role. When you attach a
    *             managed policy to a role, the managed policy becomes part of the role's permission
    *             (access) policy.</p>
@@ -910,6 +916,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Attaches the specified managed policy to the specified user.</p>
    *          <p>You use this operation to attach a <i>managed</i> policy to a user. To
    *             embed an inline policy in a user, use <a>PutUserPolicy</a>.</p>
@@ -949,6 +956,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Changes the password of the IAM user who is calling this operation. This operation
    *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
    *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
@@ -988,6 +996,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p> Creates a new Amazon Web Services secret access key and corresponding Amazon Web Services access key ID for the
    *             specified user. The default status for new keys is <code>Active</code>.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
@@ -1033,6 +1042,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates an alias for your Amazon Web Services account. For information about using an Amazon Web Services account
    *             alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an
    *                 alias for your Amazon Web Services account ID</a> in the
@@ -1068,6 +1078,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new group.</p>
    *          <p> For information about the number of groups you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
    *                 quotas</a> in the <i>IAM User Guide</i>.</p>
@@ -1096,6 +1107,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p> Creates a new instance profile. For information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">Using
    *                 roles for applications on Amazon EC2</a> in the
    *                 <i>IAM User Guide</i>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#ec2-instance-profile">Instance profiles</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -1132,6 +1144,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a password for the specified IAM user. A password allows an IAM user to
    *             access Amazon Web Services services through the Amazon Web Services Management Console.</p>
    *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
@@ -1169,6 +1182,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
    *          <p>The OIDC provider that you create with this operation can be used as a principal in a
    *             role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and
@@ -1242,6 +1256,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new managed policy for your Amazon Web Services account.</p>
    *          <p>This operation creates a policy version with a version identifier of <code>v1</code>
    *             and sets v1 as the policy's default version. For more information about policy versions,
@@ -1281,6 +1296,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new version of the specified managed policy. To update a managed policy, you
    *             create a new policy version. A managed policy can have up to five versions. If the
    *             policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p>
@@ -1320,6 +1336,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new role for your Amazon Web Services account. For more information about roles, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
    *                 roles</a>. For information about quotas for role names and the number of roles
@@ -1350,6 +1367,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML
    *             2.0.</p>
    *          <p>The SAML provider resource that you create with this operation can be used as a
@@ -1399,6 +1417,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates an IAM role that is linked to a specific Amazon Web Services service. The service controls
    *             the attached policies and when the role can be deleted. This helps ensure that the
    *             service is not broken by an unexpectedly changed or deleted role, which could put your
@@ -1439,6 +1458,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Generates a set of credentials consisting of a user name and password that can be used
    *             to access the service specified in the request. These credentials are generated by
    *             IAM, and can be used only for the specified service. </p>
@@ -1481,6 +1501,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new IAM user for your Amazon Web Services account.</p>
    *          <p> For information about quotas for the number of IAM users you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
    *                 quotas</a> in the <i>IAM User Guide</i>.</p>
@@ -1509,6 +1530,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual
    *             MFA, use <a>EnableMFADevice</a> to attach the MFA device to an IAM user.
    *             For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
@@ -1553,6 +1575,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deactivates the specified MFA device and removes it from association with the user
    *             name for which it was originally enabled.</p>
    *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
@@ -1589,6 +1612,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the access key pair associated with the specified IAM user.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -1625,6 +1649,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p> Deletes the specified Amazon Web Services account alias. For information about using an Amazon Web Services
    *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your Amazon Web Services account ID</a> in the
    *                 <i>IAM User Guide</i>.</p>
@@ -1659,6 +1684,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the password policy for the Amazon Web Services account. There are no parameters.</p>
    */
   public deleteAccountPasswordPolicy(
@@ -1691,6 +1717,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified IAM group. The group must not contain any users or have any
    *             attached policies.</p>
    */
@@ -1718,6 +1745,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified inline policy that is embedded in the specified IAM
    *             group.</p>
    *          <p>A group can also have managed policies attached to it. To detach a managed policy from
@@ -1755,6 +1783,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified instance profile. The instance profile must not have an
    *             associated role.</p>
    *          <important>
@@ -1796,6 +1825,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
    *                 passwords for IAM users</a>.</p>
    *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
@@ -1840,6 +1870,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
    *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
    *             provider as a principal in their trust policies. Any attempt to assume a role that
@@ -1877,6 +1908,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified managed policy.</p>
    *          <p>Before you can delete a managed policy, you must first detach the policy from all
    *             users, groups, and roles that it is attached to. In addition, you must delete all the
@@ -1930,6 +1962,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified version from the specified managed policy.</p>
    *          <p>You cannot delete the default version from a policy using this operation. To delete
    *             the default version from a policy, use <a>DeletePolicy</a>. To find out which
@@ -1967,6 +2000,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified role. Unlike the Amazon Web Services Management Console, when you delete a role
    *             programmatically, you must delete the items attached to the role manually, or the
    *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli">Deleting an IAM role</a>. Before attempting to delete a role, remove the
@@ -2016,6 +2050,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the permissions boundary for the specified IAM role. </p>
    *          <important>
    *             <p>Deleting the permissions boundary for a role might increase its permissions. For
@@ -2053,6 +2088,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified inline policy that is embedded in the specified IAM
    *             role.</p>
    *          <p>A role can also have managed policies attached to it. To detach a managed policy from
@@ -2090,6 +2126,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a SAML provider resource in IAM.</p>
    *          <p>Deleting the provider resource from IAM does not update any roles that reference the
    *             SAML provider resource's ARN as a principal in their trust policies. Any attempt to
@@ -2128,6 +2165,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified server certificate.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
    *                 with server certificates</a> in the <i>IAM User Guide</i>. This
@@ -2174,6 +2212,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Submits a service-linked role deletion request and returns a
    *                 <code>DeletionTaskId</code>, which you can use to check the status of the deletion.
    *             Before you call this operation, confirm that the role has no active sessions and that
@@ -2222,6 +2261,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified service-specific credential.</p>
    */
   public deleteServiceSpecificCredential(
@@ -2254,6 +2294,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a signing certificate associated with the specified IAM user.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -2290,6 +2331,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified SSH public key.</p>
    *          <p>The SSH public key deleted by this operation is used only for authenticating the
    *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -2326,6 +2368,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified IAM user. Unlike the Amazon Web Services Management Console, when you delete a user
    *             programmatically, you must delete the items attached to the user manually, or the
    *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting an IAM
@@ -2384,6 +2427,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the permissions boundary for the specified IAM user.</p>
    *          <important>
    *             <p>Deleting the permissions boundary for a user might increase its permissions by
@@ -2421,6 +2465,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified inline policy that is embedded in the specified IAM
    *             user.</p>
    *          <p>A user can also have managed policies attached to it. To detach a managed policy from
@@ -2458,6 +2503,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a virtual MFA device.</p>
    *          <note>
    *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
@@ -2494,6 +2540,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified managed policy from the specified IAM group.</p>
    *          <p>A group can also have inline policies embedded with it. To delete an inline policy,
    *             use <a>DeleteGroupPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -2530,6 +2577,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified managed policy from the specified role.</p>
    *          <p>A role can also have inline policies embedded with it. To delete an inline policy, use
    *                 <a>DeleteRolePolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -2566,6 +2614,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified managed policy from the specified user.</p>
    *          <p>A user can also have inline policies embedded with it. To delete an inline policy, use
    *                 <a>DeleteUserPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -2602,6 +2651,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Enables the specified MFA device and associates it with the specified IAM user. When
    *             enabled, the MFA device is required for every subsequent login by the IAM user
    *             associated with the device.</p>
@@ -2636,6 +2686,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p> Generates a credential report for the Amazon Web Services account. For more information about the
    *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
    *             the <i>IAM User Guide</i>.</p>
@@ -2670,6 +2721,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Generates a report for service last accessed data for Organizations. You can generate a
    *             report for any entities (organization root, organizational unit, or account) or policies
    *             in your organization.</p>
@@ -2832,6 +2884,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Generates a report that includes details about when an IAM resource (user, group,
    *             role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
    *             usually appears within four hours. IAM reports activity for at least the last 400
@@ -2917,6 +2970,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about when the specified access key was last used. The
    *             information includes the date and time of last use, along with the Amazon Web Services service and
    *             Region that were specified in the last request made with that key.</p>
@@ -2951,6 +3005,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all IAM users, groups, roles, and policies in your Amazon Web Services
    *             account, including their relationships to one another. Use this operation to obtain a
    *             snapshot of the configuration of IAM permissions (users, groups, roles, and policies)
@@ -2996,6 +3051,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the password policy for the Amazon Web Services account. This tells you the complexity
    *             requirements and mandatory rotation periods for the IAM user passwords in your account.
    *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
@@ -3031,6 +3087,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
    *             account.</p>
    *          <p> For information about IAM quotas, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the
@@ -3066,6 +3123,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of all of the context keys referenced in the input policies. The policies
    *             are supplied as a list of one or more strings. To get the context keys from policies
    *             associated with an IAM user, group, or role, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
@@ -3107,6 +3165,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of all of the context keys referenced in all the IAM policies that are
    *             attached to the specified IAM entity. The entity can be an IAM user, group, or role.
    *             If you specify a user, then the request also includes all of the policies attached to
@@ -3152,6 +3211,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a credential report for the Amazon Web Services account. For more information about the
    *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
    *             the <i>IAM User Guide</i>.</p>
@@ -3186,6 +3246,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
    *             the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
    */
@@ -3213,6 +3274,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
    *             group.</p>
    *          <note>
@@ -3259,6 +3321,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about the specified instance profile, including the instance
    *             profile's path, GUID, ARN, and role. For more information about instance profiles, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
@@ -3294,6 +3357,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the user name for the specified IAM user. A login profile is created when
    *             you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist
    *             or does not have a password, the operation returns a 404 (<code>NoSuchEntity</code>)
@@ -3335,6 +3399,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
    *             in IAM.</p>
    */
@@ -3368,6 +3433,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the service last accessed data report for Organizations that was previously
    *             generated using the <code>
    *                <a>GenerateOrganizationsAccessReport</a>
@@ -3418,6 +3484,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified managed policy, including the policy's
    *             default version and the total number of IAM users, groups, and roles to which the
    *             policy is attached. To retrieve the list of the specific users, groups, and roles that
@@ -3453,6 +3520,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified version of the specified managed policy,
    *             including the policy document.</p>
    *          <note>
@@ -3500,6 +3568,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
    *             and the role's trust policy that grants permission to assume the role. For more
    *             information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>.</p>
@@ -3535,6 +3604,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified inline policy document that is embedded with the specified
    *             IAM role.</p>
    *          <note>
@@ -3583,6 +3653,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
    *             resource object was created or updated.</p>
    *          <note>
@@ -3619,6 +3690,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified server certificate stored in IAM.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
    *                 with server certificates</a> in the <i>IAM User Guide</i>. This
@@ -3655,6 +3727,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a service last accessed report that was created using the
    *                 <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
    *                 <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to
@@ -3738,6 +3811,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>After you generate a group or policy report using the
    *                 <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
    *                 <code>JobId</code> parameter in
@@ -3797,6 +3871,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the status of your service-linked role deletion. After you use <a>DeleteServiceLinkedRole</a> to submit a service-linked role for deletion,
    *             you can use the <code>DeletionTaskId</code> parameter in
    *                 <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion.
@@ -3833,6 +3908,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
    *          <p>The SSH public key retrieved by this operation is used only for authenticating the
    *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -3869,6 +3945,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified IAM user, including the user's creation
    *             date, path, unique ID, and ARN.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
@@ -3898,6 +3975,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
    *             user.</p>
    *          <note>
@@ -3944,6 +4022,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the access key IDs associated with the specified IAM user.
    *             If there is none, the operation returns an empty list.</p>
    *          <p>Although each user is limited to a small number of keys, you can still paginate the
@@ -3989,6 +4068,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the account alias associated with the Amazon Web Services account (Note: you can have only
    *             one). For information about using an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your
    *                 Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.</p>
@@ -4023,6 +4103,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists all managed policies that are attached to the specified IAM group.</p>
    *          <p>An IAM group can also have inline policies embedded with it. To list the inline
    *             policies for a group, use <a>ListGroupPolicies</a>. For information about
@@ -4064,6 +4145,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists all managed policies that are attached to the specified IAM role.</p>
    *          <p>An IAM role can also have inline policies embedded with it. To list the inline
    *             policies for a role, use <a>ListRolePolicies</a>. For information about
@@ -4105,6 +4187,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists all managed policies that are attached to the specified IAM user.</p>
    *          <p>An IAM user can also have inline policies embedded with it. To list the inline
    *             policies for a user, use <a>ListUserPolicies</a>. For information about
@@ -4146,6 +4229,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
    *             to.</p>
    *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
@@ -4185,6 +4269,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the names of the inline policies that are embedded in the specified IAM
    *             group.</p>
    *          <p>An IAM group can also have managed policies attached to it. To list the managed
@@ -4225,6 +4310,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the IAM groups that have the specified path prefix.</p>
    *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *             parameters.</p>
@@ -4253,6 +4339,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *             parameters.</p>
@@ -4287,6 +4374,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the instance profiles that have the specified path prefix. If there are none,
    *             the operation returns an empty list. For more information about instance profiles, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
@@ -4328,6 +4416,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the instance profiles that have the specified associated IAM role. If there
    *             are none, the operation returns an empty list. For more information about instance
    *             profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
@@ -4365,6 +4454,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified IAM instance profile. The returned list of tags is sorted by tag key.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -4399,6 +4489,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name,
    *             then this operation lists all the MFA devices associated with the specified user. If you
    *             do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services
@@ -4436,6 +4527,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified IAM virtual multi-factor authentication (MFA) device. The returned list of tags is
    *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -4470,6 +4562,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
    *             defined in the Amazon Web Services account.</p>
    *          <note>
@@ -4507,6 +4600,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible
    *       identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity
    *       federation</a>.</p>
@@ -4543,6 +4637,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists all the managed policies that are available in your Amazon Web Services account, including
    *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
    *          <p>You can filter the list of policies that is returned using the optional
@@ -4587,6 +4682,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to
    *             access each specified service.</p>
    *          <note>
@@ -4658,6 +4754,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified IAM customer managed policy.
    *       The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -4692,6 +4789,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists information about the versions of the specified managed policy, including the
    *             version that is currently set as the policy's default version.</p>
    *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
@@ -4727,6 +4825,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the names of the inline policies that are embedded in the specified IAM
    *             role.</p>
    *          <p>An IAM role can also have managed policies attached to it. To list the managed
@@ -4767,6 +4866,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
    *             operation returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with
    *                 roles</a>.</p>
@@ -4801,6 +4901,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified role. The returned list of tags is
    *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -4832,6 +4933,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the SAML provider resource objects defined in IAM in the account.
    *             IAM resource-listing operations return a subset of the available
    *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see <a>GetSAMLProvider</a>.</p>
@@ -4869,6 +4971,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified Security Assertion Markup Language
    *       (SAML) identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
    *       federation</a>.</p>
@@ -4905,6 +5008,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
    *             none exist, the operation returns an empty list.</p>
    *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
@@ -4948,6 +5052,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified IAM server certificate. The
    *       returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -4989,6 +5094,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the service-specific credentials associated with the
    *             specified IAM user. If none exists, the operation returns an empty list. The
    *             service-specific credentials returned by this operation are used only for authenticating
@@ -5026,6 +5132,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the signing certificates associated with the specified IAM
    *             user. If none exists, the operation returns an empty list.</p>
    *          <p>Although each user is limited to a small number of signing certificates, you can still
@@ -5067,6 +5174,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the SSH public keys associated with the specified IAM
    *             user. If none exists, the operation returns an empty list.</p>
    *          <p>The SSH public keys returned by this operation are used only for authenticating the
@@ -5106,6 +5214,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the names of the inline policies embedded in the specified IAM user.</p>
    *          <p>An IAM user can also have managed policies attached to it. To list the managed
    *             policies that are attached to a user, use <a>ListAttachedUserPolicies</a>.
@@ -5145,6 +5254,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
    *             specified, the operation returns all users in the Amazon Web Services account. If there are none, the
    *             operation returns an empty list.</p>
@@ -5179,6 +5289,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to the specified IAM user. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
    */
@@ -5209,6 +5320,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If
    *             you do not specify an assignment status, the operation returns a list of all virtual MFA
    *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
@@ -5250,6 +5362,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates an inline policy document that is embedded in the specified IAM
    *             group.</p>
    *          <p>A user can also have managed policies attached to it. To attach a managed policy to a
@@ -5296,6 +5409,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates the policy that is specified as the IAM role's permissions boundary.
    *             You can use an Amazon Web Services managed policy or a customer managed policy to set the boundary for
    *             a role. Use the boundary to control the maximum permissions that the role can have.
@@ -5339,6 +5453,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates an inline policy document that is embedded in the specified IAM
    *             role.</p>
    *          <p>When you embed an inline policy in a role, the inline policy is used as part of the
@@ -5390,6 +5505,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates the policy that is specified as the IAM user's permissions
    *             boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
    *             boundary for a user. Use the boundary to control the maximum permissions that the user
@@ -5432,6 +5548,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates an inline policy document that is embedded in the specified IAM
    *             user.</p>
    *          <p>An IAM user can also have a managed policy attached to it. To attach a managed
@@ -5478,6 +5595,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified client ID (also known as audience) from the list of client IDs
    *             registered for the specified IAM OpenID Connect (OIDC) provider resource
    *             object.</p>
@@ -5516,6 +5634,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified IAM role from the specified EC2 instance profile.</p>
    *          <important>
    *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you
@@ -5557,6 +5676,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified user from the specified group.</p>
    */
   public removeUserFromGroup(
@@ -5589,6 +5709,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Resets the password for a service-specific credential. The new password is Amazon Web Services
    *             generated and cryptographically strong. It cannot be configured by the user. Resetting
    *             the password immediately invalidates the previous password associated with this
@@ -5624,6 +5745,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Synchronizes the specified MFA device with its IAM resource object on the Amazon Web Services
    *             servers.</p>
    *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
@@ -5659,6 +5781,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Sets the specified version of the specified policy as the policy's default (operative)
    *             version.</p>
    *          <p>This operation affects all users, groups, and roles that the policy is attached to. To
@@ -5696,6 +5819,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Sets the specified version of the global endpoint token as the token version used for
    *             the Amazon Web Services account.</p>
    *          <p>By default, Security Token Service (STS) is available as a global service, and all STS requests
@@ -5746,6 +5870,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with
    *             a list of API operations and Amazon Web Services resources to determine the policies' effective
    *             permissions. The policies are provided as strings.</p>
@@ -5801,6 +5926,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
    *             API operations and Amazon Web Services resources to determine the policies' effective permissions. The
    *             entity can be an IAM user, group, or role. If you specify a user, then the simulation
@@ -5865,6 +5991,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an IAM instance profile. If a tag with the same key name
    *       already exists, then that tag is overwritten with the new value.</p>
    *          <p>Each tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
@@ -5932,6 +6059,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an IAM virtual multi-factor authentication (MFA) device. If
    *       a tag with the same key name already exists, then that tag is overwritten with the new
    *       value.</p>
@@ -5997,6 +6125,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider. For
    *       more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>. If
    *       a tag with the same key name already exists, then that tag is overwritten with the new
@@ -6066,6 +6195,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an IAM customer managed policy. If a tag with the same key
    *       name already exists, then that tag is overwritten with the new value.</p>
    *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -6127,6 +6257,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an IAM role. The role can be a regular role or a
    *       service-linked role. If a tag with the same key name already exists, then that tag is
    *       overwritten with the new value.</p>
@@ -6197,6 +6328,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider.
    *       For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation </a>.
    *       If a tag with the same key name already exists, then that tag is overwritten with the new
@@ -6266,6 +6398,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an IAM server certificate. If a tag with the same key name
    *       already exists, then that tag is overwritten with the new value.</p>
    *          <note>
@@ -6345,6 +6478,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,
    *       then that tag is overwritten with the new value.</p>
    *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -6414,6 +6548,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the IAM instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
    */
@@ -6447,6 +6582,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the IAM virtual multi-factor authentication (MFA)
    *       device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -6481,6 +6617,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified OpenID Connect (OIDC)-compatible identity
    *       provider in IAM. For more information about OIDC providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
@@ -6516,6 +6653,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the customer managed policy. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
    */
@@ -6543,6 +6681,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
    */
@@ -6570,6 +6709,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified Security Assertion Markup Language (SAML)
    *       identity provider in IAM. For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity
    *         federation</a>. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
@@ -6605,6 +6745,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the IAM server certificate.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -6646,6 +6787,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
    */
@@ -6673,6 +6815,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
    *             This operation can be used to disable a user's key as part of a key rotation
    *             workflow.</p>
@@ -6715,6 +6858,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Updates the password policy settings for the Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation does not support partial updates. No parameters are required, but
@@ -6757,6 +6901,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Updates the policy that grants an IAM entity permission to assume a role. This is
    *             typically referred to as the "role trust policy". For more information about roles, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using roles to
@@ -6792,6 +6937,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Updates the name and/or the path of the specified IAM group.</p>
    *          <important>
    *             <p> You should understand the implications of changing a group's path or name. For
@@ -6832,6 +6978,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services
    *             API, or the <b>Users</b> page in the IAM console to change
    *             the password for any IAM user. Use <a>ChangePassword</a> to change your own
@@ -6870,6 +7017,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
    *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
    *          <p>The list that you pass with this operation completely replaces the existing list of
@@ -6926,6 +7074,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Updates the description or maximum session duration setting of a role.</p>
    */
   public updateRole(args: UpdateRoleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoleCommandOutput>;
@@ -6952,6 +7101,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Use <a>UpdateRole</a> instead.</p>
    *          <p>Modifies only the description of a role. This operation performs the same function as
    *             the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
@@ -6986,6 +7136,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Updates the metadata document for an existing SAML provider resource object.</p>
    *          <note>
    *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
@@ -7021,6 +7172,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Updates the name and/or the path of the specified server certificate stored in
    *             IAM.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
@@ -7072,6 +7224,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Sets the status of a service-specific credential to <code>Active</code> or
    *                 <code>Inactive</code>. Service-specific credentials that are inactive cannot be used
    *             for authentication to the service. This operation can be used to disable a user's
@@ -7107,6 +7260,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Changes the status of the specified user signing certificate from active to disabled,
    *             or vice versa. This operation can be used to disable an IAM user's signing
    *             certificate as part of a certificate rotation work flow.</p>
@@ -7146,6 +7300,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public
    *             keys that are inactive cannot be used for authentication. This operation can be used to
    *             disable a user's SSH public key as part of a key rotation work flow.</p>
@@ -7184,6 +7339,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Updates the name and/or the path of the specified IAM user.</p>
    *          <important>
    *             <p> You should understand the implications of changing an IAM user's path or
@@ -7222,6 +7378,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Uploads a server certificate entity for the Amazon Web Services account. The server certificate
    *             entity includes a public key certificate, a private key, and an optional certificate
    *             chain, which should all be PEM-encoded.</p>
@@ -7277,6 +7434,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Uploads an X.509 signing certificate and associates it with the specified IAM user.
    *             Some Amazon Web Services services require you to use certificates to validate requests that are signed
    *             with a corresponding private key. When you upload the certificate, its default status is
@@ -7328,6 +7486,7 @@ export class IAM extends IAMClient {
   }
 
   /**
+   * @public
    * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
    *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
    *             associated IAM user to an CodeCommit repository. For more information about using SSH keys

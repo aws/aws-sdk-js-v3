@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageBuilderCommand}.
  */
 export interface CreateImageBuilderCommandInput extends CreateImageBuilderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageBuilderCommand}.
  */
 export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>
  *          <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageBuilderCommandInput - {@link CreateImageBuilderCommandInput}
+ * @returns {@link CreateImageBuilderCommandOutput}
  * @see {@link CreateImageBuilderCommandInput} for command's `input` shape.
  * @see {@link CreateImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateImageBuilderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageBuilderCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateImageBuilderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImageBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateImageBuilderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageBuilderCommandOutput> {
     return deserializeAws_json1_1CreateImageBuilderCommand(output, context);
   }

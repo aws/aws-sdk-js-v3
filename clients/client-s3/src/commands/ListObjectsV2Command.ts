@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectsV2Command}.
  */
 export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectsV2Command}.
  */
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use
  *          the request parameters as selection criteria to return a subset of the objects in a bucket. A
  *          <code>200 OK</code> response can contain valid or invalid XML. Make sure to design your
@@ -83,6 +88,8 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectsV2CommandInput - {@link ListObjectsV2CommandInput}
+ * @returns {@link ListObjectsV2CommandOutput}
  * @see {@link ListObjectsV2CommandInput} for command's `input` shape.
  * @see {@link ListObjectsV2CommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -153,6 +160,9 @@ export class ListObjectsV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectsV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -190,10 +200,16 @@ export class ListObjectsV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectsV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListObjectsV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsV2CommandOutput> {
     return deserializeAws_restXmlListObjectsV2Command(output, context);
   }

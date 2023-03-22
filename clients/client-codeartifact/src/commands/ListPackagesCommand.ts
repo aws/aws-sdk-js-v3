@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackagesCommand}.
  */
 export interface ListPackagesCommandInput extends ListPackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackagesCommand}.
  */
 export interface ListPackagesCommandOutput extends ListPackagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns a list of
  *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
@@ -50,6 +55,8 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackagesCommandInput - {@link ListPackagesCommandInput}
+ * @returns {@link ListPackagesCommandOutput}
  * @see {@link ListPackagesCommandInput} for command's `input` shape.
  * @see {@link ListPackagesCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackagesCommandOutput> {
     return deserializeAws_restJson1ListPackagesCommand(output, context);
   }

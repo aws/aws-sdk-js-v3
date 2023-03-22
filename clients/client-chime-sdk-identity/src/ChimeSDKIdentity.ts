@@ -120,6 +120,7 @@ import {
 } from "./commands/UpdateAppInstanceUserEndpointCommand";
 
 /**
+ * @public
  * <p>The Amazon Chime SDK Identity APIs in this section allow software developers to create
  *          and manage unique instances of their messaging applications. These APIs provide the
  *          overarching framework for creating and sending messages. For more information about the
@@ -127,6 +128,7 @@ import {
  */
 export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   /**
+   * @public
    * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
    *          Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
    *          idempotency behavior as described in the AWS API Standard.</p>
@@ -162,6 +164,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
    *          promoted user can perform the following actions. </p>
    *
@@ -210,6 +213,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a
    *          unique <code>appInstanceUserId</code> and <code>Name</code> for that user.</p>
    */
@@ -243,6 +247,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>
    */
   public deleteAppInstance(
@@ -275,6 +280,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action
    *          does not delete the user.</p>
    */
@@ -308,6 +314,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Deletes an <code>AppInstanceUser</code>.</p>
    */
   public deleteAppInstanceUser(
@@ -340,6 +347,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Deregisters an <code>AppInstanceUserEndpoint</code>.</p>
    */
   public deregisterAppInstanceUserEndpoint(
@@ -372,6 +380,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of an <code>AppInstance</code>.</p>
    */
   public describeAppInstance(
@@ -404,6 +413,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>
    */
   public describeAppInstanceAdmin(
@@ -436,6 +446,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
    */
   public describeAppInstanceUser(
@@ -468,6 +479,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
    */
   public describeAppInstanceUserEndpoint(
@@ -500,6 +512,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
    */
   public getAppInstanceRetentionSettings(
@@ -532,6 +545,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
    */
   public listAppInstanceAdmins(
@@ -564,6 +578,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS
    *          account.</p>
    */
@@ -597,6 +612,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
    */
   public listAppInstanceUserEndpoints(
@@ -629,6 +645,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>List all <code>AppInstanceUsers</code> created under a single
    *          <code>AppInstance</code>.</p>
    */
@@ -662,6 +679,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags applied to an Amazon Chime SDK identity resource.</p>
    */
   public listTagsForResource(
@@ -694,6 +712,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains
    *          data.</p>
    */
@@ -727,6 +746,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
    */
   public registerAppInstanceUserEndpoint(
@@ -759,6 +779,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Applies the specified tags to the specified Amazon Chime SDK identity resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -785,6 +806,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified Amazon Chime SDK identity resource.</p>
    */
   public untagResource(
@@ -817,6 +839,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Updates <code>AppInstance</code> metadata.</p>
    */
   public updateAppInstance(
@@ -849,6 +872,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and
    *          metadata.</p>
    */
@@ -882,6 +906,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
    */
   public updateAppInstanceUserEndpoint(

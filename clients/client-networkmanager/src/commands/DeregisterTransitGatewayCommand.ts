@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTransitGatewayCommand}.
  */
 export interface DeregisterTransitGatewayCommandInput extends DeregisterTransitGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTransitGatewayCommand}.
  */
 export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransitGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a transit gateway from your global network. This action does not delete
  *             your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTransitGatewayCommandInput - {@link DeregisterTransitGatewayCommandInput}
+ * @returns {@link DeregisterTransitGatewayCommandOutput}
  * @see {@link DeregisterTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link DeregisterTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeregisterTransitGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTransitGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeregisterTransitGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterTransitGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterTransitGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTransitGatewayCommandOutput> {
     return deserializeAws_restJson1DeregisterTransitGatewayCommand(output, context);
   }

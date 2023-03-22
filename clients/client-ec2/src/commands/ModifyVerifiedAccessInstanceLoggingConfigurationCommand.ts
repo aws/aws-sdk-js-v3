@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommand}.
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput
   extends ModifyVerifiedAccessInstanceLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommand}.
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput - {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput}
+ * @returns {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput}
  * @see {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
     return serializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

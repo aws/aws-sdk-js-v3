@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeInvitationCommand}.
  */
 export interface RevokeInvitationCommandInput extends RevokeInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeInvitationCommand}.
  */
 export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeInvitationCommandInput - {@link RevokeInvitationCommandInput}
+ * @returns {@link RevokeInvitationCommandOutput}
  * @see {@link RevokeInvitationCommandInput} for command's `input` shape.
  * @see {@link RevokeInvitationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class RevokeInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class RevokeInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokeInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeInvitationCommandOutput> {
     return deserializeAws_json1_1RevokeInvitationCommand(output, context);
   }

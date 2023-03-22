@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyUserGroupCommand}.
  */
 export interface ModifyUserGroupCommandInput extends ModifyUserGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyUserGroupCommand}.
  */
 export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the list of users that belong to the user group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyUserGroupCommandInput - {@link ModifyUserGroupCommandInput}
+ * @returns {@link ModifyUserGroupCommandOutput}
  * @see {@link ModifyUserGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -93,6 +100,9 @@ export class ModifyUserGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyUserGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ModifyUserGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyUserGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyUserGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyUserGroupCommandOutput> {
     return deserializeAws_queryModifyUserGroupCommand(output, context);
   }

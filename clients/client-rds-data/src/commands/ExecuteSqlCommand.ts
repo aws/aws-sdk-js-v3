@@ -26,15 +26,20 @@ import {
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteSqlCommand}.
  */
 export interface ExecuteSqlCommandInput extends ExecuteSqlRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteSqlCommand}.
  */
 export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Runs one or more SQL statements.</p>
@@ -52,6 +57,8 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteSqlCommandInput - {@link ExecuteSqlCommandInput}
+ * @returns {@link ExecuteSqlCommandOutput}
  * @see {@link ExecuteSqlCommandInput} for command's `input` shape.
  * @see {@link ExecuteSqlCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -91,6 +98,9 @@ export class ExecuteSqlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteSqlCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ExecuteSqlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteSqlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExecuteSqlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteSqlCommandOutput> {
     return deserializeAws_restJson1ExecuteSqlCommand(output, context);
   }

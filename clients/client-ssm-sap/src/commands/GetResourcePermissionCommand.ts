@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePermissionCommand}.
  */
 export interface GetResourcePermissionCommandInput extends GetResourcePermissionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePermissionCommand}.
  */
 export interface GetResourcePermissionCommandOutput extends GetResourcePermissionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets permissions associated with the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePermissionCommandInput - {@link GetResourcePermissionCommandInput}
+ * @returns {@link GetResourcePermissionCommandOutput}
  * @see {@link GetResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link GetResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetResourcePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePermissionCommandOutput> {
     return deserializeAws_restJson1GetResourcePermissionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledAuditCommand}.
  */
 export interface DescribeScheduledAuditCommandInput extends DescribeScheduledAuditRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledAuditCommand}.
  */
 export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAuditResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a scheduled audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeScheduledAudit</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledAuditCommandInput - {@link DescribeScheduledAuditCommandInput}
+ * @returns {@link DescribeScheduledAuditCommandOutput}
  * @see {@link DescribeScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledAuditCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeScheduledAuditCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledAuditCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeScheduledAuditCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledAuditCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeScheduledAuditCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledAuditCommandOutput> {
     return deserializeAws_restJson1DescribeScheduledAuditCommand(output, context);
   }

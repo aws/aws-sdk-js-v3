@@ -27,10 +27,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutStorageLensConfigurationTaggingCommand}.
  */
 export interface PutStorageLensConfigurationTaggingCommandInput extends PutStorageLensConfigurationTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutStorageLensConfigurationTaggingCommand}.
  */
 export interface PutStorageLensConfigurationTaggingCommandOutput
@@ -38,6 +42,7 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Put or replace tags on an existing Amazon S3 Storage Lens configuration. For more information
  *          about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage activity and usage with Amazon S3 Storage Lens </a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -57,6 +62,8 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutStorageLensConfigurationTaggingCommandInput - {@link PutStorageLensConfigurationTaggingCommandInput}
+ * @returns {@link PutStorageLensConfigurationTaggingCommandOutput}
  * @see {@link PutStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
  * @see {@link PutStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -83,6 +90,9 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutStorageLensConfigurationTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutStorageLensConfigurationTaggingCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
     return serializeAws_restXmlPutStorageLensConfigurationTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

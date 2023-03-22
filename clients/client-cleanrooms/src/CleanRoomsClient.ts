@@ -157,6 +157,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchGetSchemaCommandInput
   | CreateCollaborationCommandInput
@@ -196,6 +199,9 @@ export type ServiceInputTypes =
   | UpdateMembershipCommandInput
   | UpdateProtectedQueryCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchGetSchemaCommandOutput
   | CreateCollaborationCommandOutput
@@ -235,6 +241,9 @@ export type ServiceOutputTypes =
   | UpdateMembershipCommandOutput
   | UpdateProtectedQueryCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -242,7 +251,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -351,11 +360,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CleanRoomsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -366,10 +378,15 @@ type CleanRoomsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CleanRoomsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CleanRoomsClient class constructor that set the region, credentials and other options.
  */
 export interface CleanRoomsClientConfig extends CleanRoomsClientConfigType {}
 
+/**
+ * @public
+ */
 type CleanRoomsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -380,11 +397,14 @@ type CleanRoomsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CleanRoomsClient class. This is resolved and normalized from the {@link CleanRoomsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CleanRoomsClient class. This is resolved and normalized from the {@link CleanRoomsClientConfig | constructor configuration interface}.
  */
 export interface CleanRoomsClientResolvedConfig extends CleanRoomsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Welcome to the <i>AWS Clean Rooms API Reference</i>.</p>
  *          <p>AWS Clean Rooms is an AWS service that helps multiple parties to join their data
  *          together in a secure collaboration workspace. In the collaboration, members who can query

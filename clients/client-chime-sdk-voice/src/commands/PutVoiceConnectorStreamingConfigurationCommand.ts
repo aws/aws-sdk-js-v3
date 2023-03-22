@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface PutVoiceConnectorStreamingConfigurationCommandInput
   extends PutVoiceConnectorStreamingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface PutVoiceConnectorStreamingConfigurationCommandOutput
@@ -54,6 +58,9 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorStreamingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +106,9 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorStreamingConfigurationCommandInput,
     context: __SerdeContext
@@ -106,6 +116,9 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     return serializeAws_restJson1PutVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

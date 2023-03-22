@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTunnelsCommand}.
  */
 export interface ListTunnelsCommandInput extends ListTunnelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTunnelsCommand}.
  */
 export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
  * 			descending order, newer tunnels will be listed before older tunnels.</p>
  * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
@@ -52,6 +57,8 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTunnelsCommandInput - {@link ListTunnelsCommandInput}
+ * @returns {@link ListTunnelsCommandOutput}
  * @see {@link ListTunnelsCommandInput} for command's `input` shape.
  * @see {@link ListTunnelsCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListTunnelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTunnelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListTunnelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTunnelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTunnelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTunnelsCommandOutput> {
     return deserializeAws_json1_1ListTunnelsCommand(output, context);
   }

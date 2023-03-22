@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOutboundCrossClusterSearchConnectionsCommand}.
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsCommandInput
   extends DescribeOutboundCrossClusterSearchConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOutboundCrossClusterSearchConnectionsCommand}.
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOutboundCrossClusterSearchConnectionsCommandInput - {@link DescribeOutboundCrossClusterSearchConnectionsCommandInput}
+ * @returns {@link DescribeOutboundCrossClusterSearchConnectionsCommandOutput}
  * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOutboundCrossClusterSearchConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
     return serializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

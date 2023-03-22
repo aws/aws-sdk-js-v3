@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListServerCertificateTagsCommand}.
  */
 export interface ListServerCertificateTagsCommandInput extends ListServerCertificateTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServerCertificateTagsCommand}.
  */
 export interface ListServerCertificateTagsCommandOutput extends ListServerCertificateTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM server certificate. The
  *       returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -55,6 +60,8 @@ export interface ListServerCertificateTagsCommandOutput extends ListServerCertif
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServerCertificateTagsCommandInput - {@link ListServerCertificateTagsCommandInput}
+ * @returns {@link ListServerCertificateTagsCommandOutput}
  * @see {@link ListServerCertificateTagsCommandInput} for command's `input` shape.
  * @see {@link ListServerCertificateTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListServerCertificateTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServerCertificateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListServerCertificateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServerCertificateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListServerCertificateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

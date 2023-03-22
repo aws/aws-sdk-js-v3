@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link FailoverDBClusterCommand}.
  */
 export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link FailoverDBClusterCommand}.
  */
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Forces a failover for a DB cluster.</p>
  *          <p>A failover for a DB cluster promotes one of the Read Replicas (read-only instances) in the
  *       DB cluster to be the primary instance (the cluster writer).</p>
@@ -53,6 +58,8 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param FailoverDBClusterCommandInput - {@link FailoverDBClusterCommandInput}
+ * @returns {@link FailoverDBClusterCommandOutput}
  * @see {@link FailoverDBClusterCommandInput} for command's `input` shape.
  * @see {@link FailoverDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -86,6 +93,9 @@ export class FailoverDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FailoverDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class FailoverDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FailoverDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryFailoverDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverDBClusterCommandOutput> {
     return deserializeAws_queryFailoverDBClusterCommand(output, context);
   }

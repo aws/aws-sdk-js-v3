@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSinkCommand}.
  */
 export interface CreateSinkCommandInput extends CreateSinkInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSinkCommand}.
  */
 export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this to create a <i>sink</i> in the current account, so that it can be
  *             used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that
  *             represents an attachment point in a monitoring account. Source accounts can link to the sink
@@ -52,6 +57,8 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSinkCommandInput - {@link CreateSinkCommandInput}
+ * @returns {@link CreateSinkCommandOutput}
  * @see {@link CreateSinkCommandInput} for command's `input` shape.
  * @see {@link CreateSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateSinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateSinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSinkCommandOutput> {
     return deserializeAws_restJson1CreateSinkCommand(output, context);
   }

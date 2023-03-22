@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsCommand}.
  */
 export interface ListDistributionsCommandInput extends ListDistributionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsCommand}.
  */
 export interface ListDistributionsCommandOutput extends ListDistributionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List CloudFront distributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsCommandInput - {@link ListDistributionsCommandInput}
+ * @returns {@link ListDistributionsCommandOutput}
  * @see {@link ListDistributionsCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListDistributionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListDistributionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListDistributionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDistributionsCommandOutput> {
     return deserializeAws_restXmlListDistributionsCommand(output, context);
   }

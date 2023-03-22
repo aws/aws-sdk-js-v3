@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link SendBulkEmailCommand}.
  */
 export interface SendBulkEmailCommandInput extends SendBulkEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendBulkEmailCommand}.
  */
 export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message to multiple destinations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBulkEmailCommandInput - {@link SendBulkEmailCommandInput}
+ * @returns {@link SendBulkEmailCommandOutput}
  * @see {@link SendBulkEmailCommandInput} for command's `input` shape.
  * @see {@link SendBulkEmailCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -95,6 +102,9 @@ export class SendBulkEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBulkEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class SendBulkEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBulkEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendBulkEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBulkEmailCommandOutput> {
     return deserializeAws_restJson1SendBulkEmailCommand(output, context);
   }

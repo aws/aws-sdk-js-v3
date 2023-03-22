@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetachVolumeCommand}.
  */
 export interface DetachVolumeCommandInput extends DetachVolumeInput {}
 /**
+ * @public
+ *
  * The output of {@link DetachVolumeCommand}.
  */
 export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects a volume from an iSCSI connection and then detaches the volume from the
  *          specified gateway. Detaching and attaching a volume enables you to recover your data from
  *          one gateway to a different gateway without creating a snapshot. It also makes it easier to
@@ -50,6 +55,8 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachVolumeCommandInput - {@link DetachVolumeCommandInput}
+ * @returns {@link DetachVolumeCommandOutput}
  * @see {@link DetachVolumeCommandInput} for command's `input` shape.
  * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class DetachVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DetachVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetachVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachVolumeCommandOutput> {
     return deserializeAws_json1_1DetachVolumeCommand(output, context);
   }

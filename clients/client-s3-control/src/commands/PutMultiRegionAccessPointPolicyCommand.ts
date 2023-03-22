@@ -28,10 +28,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutMultiRegionAccessPointPolicyCommand}.
  */
 export interface PutMultiRegionAccessPointPolicyCommandInput extends PutMultiRegionAccessPointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMultiRegionAccessPointPolicyCommand}.
  */
 export interface PutMultiRegionAccessPointPolicyCommandOutput
@@ -39,6 +43,7 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an access control policy with the specified Multi-Region Access Point. Each Multi-Region Access Point can have only
  *          one policy, so a request made to this action replaces any existing policy that is
  *          associated with the specified Multi-Region Access Point.</p>
@@ -69,6 +74,8 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMultiRegionAccessPointPolicyCommandInput - {@link PutMultiRegionAccessPointPolicyCommandInput}
+ * @returns {@link PutMultiRegionAccessPointPolicyCommandOutput}
  * @see {@link PutMultiRegionAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link PutMultiRegionAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -95,6 +102,9 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMultiRegionAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutMultiRegionAccessPointPolicyCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
     return serializeAws_restXmlPutMultiRegionAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

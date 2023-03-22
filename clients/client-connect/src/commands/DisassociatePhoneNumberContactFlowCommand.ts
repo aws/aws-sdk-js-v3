@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePhoneNumberContactFlowCommand}.
  */
 export interface DisassociatePhoneNumberContactFlowCommandInput extends DisassociatePhoneNumberContactFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePhoneNumberContactFlowCommand}.
  */
 export interface DisassociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the flow association from a phone number claimed to your Amazon Connect
  *    instance.</p>
  *          <important>
@@ -54,6 +59,8 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePhoneNumberContactFlowCommandInput - {@link DisassociatePhoneNumberContactFlowCommandInput}
+ * @returns {@link DisassociatePhoneNumberContactFlowCommandOutput}
  * @see {@link DisassociatePhoneNumberContactFlowCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumberContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePhoneNumberContactFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePhoneNumberContactFlowCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
     return serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

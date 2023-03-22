@@ -64,10 +64,12 @@ import {
 import { KafkaConnectClient } from "./KafkaConnectClient";
 
 /**
+ * @public
  * <p/>
  */
 export class KafkaConnect extends KafkaConnectClient {
   /**
+   * @public
    * <p>Creates a connector using the specified properties.</p>
    */
   public createConnector(
@@ -100,6 +102,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom plugin using the specified properties.</p>
    */
   public createCustomPlugin(
@@ -132,6 +135,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a worker configuration using the specified properties.</p>
    */
   public createWorkerConfiguration(
@@ -164,6 +168,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified connector.</p>
    */
   public deleteConnector(
@@ -196,6 +201,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom plugin.</p>
    */
   public deleteCustomPlugin(
@@ -228,6 +234,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about the connector.</p>
    */
   public describeConnector(
@@ -260,6 +267,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>A summary description of the custom plugin.</p>
    */
   public describeCustomPlugin(
@@ -292,6 +300,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a worker configuration.</p>
    */
   public describeWorkerConfiguration(
@@ -324,6 +333,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the connectors in this account and Region. The list is limited to
    *          connectors whose name starts with the specified prefix. The response also includes a
    *          description of each of the listed connectors.</p>
@@ -358,6 +368,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all of the custom plugins in this account and Region.</p>
    */
   public listCustomPlugins(
@@ -390,6 +401,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all of the worker configurations in this account and Region.</p>
    */
   public listWorkerConfigurations(
@@ -422,6 +434,7 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified connector.</p>
    */
   public updateConnector(

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCollectionCommand}.
  */
 export interface DeleteCollectionCommandInput extends DeleteCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCollectionCommand}.
  */
 export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
+ * @returns {@link DeleteCollectionCommandOutput}
  * @see {@link DeleteCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCollectionCommandOutput> {
     return deserializeAws_json1_0DeleteCollectionCommand(output, context);
   }

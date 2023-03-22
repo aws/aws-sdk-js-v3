@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterIdentityProviderCommand}.
  */
 export interface RegisterIdentityProviderCommandInput extends RegisterIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterIdentityProviderCommand}.
  */
 export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an identity provider for user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterIdentityProviderCommandInput - {@link RegisterIdentityProviderCommandInput}
+ * @returns {@link RegisterIdentityProviderCommandOutput}
  * @see {@link RegisterIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link RegisterIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +102,9 @@ export class RegisterIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class RegisterIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterIdentityProviderCommandOutput> {
     return deserializeAws_restJson1RegisterIdentityProviderCommand(output, context);
   }

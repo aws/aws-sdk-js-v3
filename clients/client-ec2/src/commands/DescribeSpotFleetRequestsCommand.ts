@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotFleetRequestsCommand}.
  */
 export interface DescribeSpotFleetRequestsCommandInput extends DescribeSpotFleetRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotFleetRequestsCommand}.
  */
 export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFleetRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your Spot Fleet requests.</p>
  *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
  *             are terminated.</p>
@@ -48,6 +53,8 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotFleetRequestsCommandInput - {@link DescribeSpotFleetRequestsCommandInput}
+ * @returns {@link DescribeSpotFleetRequestsCommandOutput}
  * @see {@link DescribeSpotFleetRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -129,6 +136,9 @@ export class DescribeSpotFleetRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotFleetRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class DescribeSpotFleetRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpotFleetRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSpotFleetRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

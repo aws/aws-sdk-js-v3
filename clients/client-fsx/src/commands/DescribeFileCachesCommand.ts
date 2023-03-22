@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileCachesCommand}.
  */
 export interface DescribeFileCachesCommandInput extends DescribeFileCachesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileCachesCommand}.
  */
 export interface DescribeFileCachesCommandOutput extends DescribeFileCachesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon File Cache resource, if a
  *             <code>FileCacheIds</code> value is provided for that cache. Otherwise, it
  *             returns descriptions of all caches owned by your Amazon Web Services account in the
@@ -73,6 +78,8 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileCachesCommandInput - {@link DescribeFileCachesCommandInput}
+ * @returns {@link DescribeFileCachesCommandOutput}
  * @see {@link DescribeFileCachesCommandInput} for command's `input` shape.
  * @see {@link DescribeFileCachesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeFileCachesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileCachesCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DescribeFileCachesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileCachesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFileCachesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileCachesCommandOutput> {
     return deserializeAws_json1_1DescribeFileCachesCommand(output, context);
   }

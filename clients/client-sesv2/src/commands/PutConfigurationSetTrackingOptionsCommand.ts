@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetTrackingOptionsCommand}.
  */
 export interface PutConfigurationSetTrackingOptionsCommandInput extends PutConfigurationSetTrackingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetTrackingOptionsCommand}.
  */
 export interface PutConfigurationSetTrackingOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify a custom domain to use for open and click tracking elements in email that you
  *             send.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetTrackingOptionsCommandInput - {@link PutConfigurationSetTrackingOptionsCommandInput}
+ * @returns {@link PutConfigurationSetTrackingOptionsCommandOutput}
  * @see {@link PutConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     return serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

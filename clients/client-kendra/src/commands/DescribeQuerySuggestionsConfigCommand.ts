@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQuerySuggestionsConfigCommand}.
  */
 export interface DescribeQuerySuggestionsConfigCommandInput extends DescribeQuerySuggestionsConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQuerySuggestionsConfigCommand}.
  */
 export interface DescribeQuerySuggestionsConfigCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information on the settings of query suggestions for an index.</p>
  *          <p>This is used to check the current settings applied
  *             to query suggestions.</p>
@@ -53,6 +58,8 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQuerySuggestionsConfigCommandInput - {@link DescribeQuerySuggestionsConfigCommandInput}
+ * @returns {@link DescribeQuerySuggestionsConfigCommandOutput}
  * @see {@link DescribeQuerySuggestionsConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeQuerySuggestionsConfigCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQuerySuggestionsConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeQuerySuggestionsConfigCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     return serializeAws_json1_1DescribeQuerySuggestionsConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

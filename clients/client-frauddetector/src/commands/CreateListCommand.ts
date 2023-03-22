@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateListCommand}.
  */
 export interface CreateListCommandInput extends CreateListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateListCommand}.
  */
 export interface CreateListCommandOutput extends CreateListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Creates a list.
  *         </p>
@@ -50,6 +55,8 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateListCommandInput - {@link CreateListCommandInput}
+ * @returns {@link CreateListCommandOutput}
  * @see {@link CreateListCommandInput} for command's `input` shape.
  * @see {@link CreateListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateListCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListCommandOutput> {
     return deserializeAws_json1_1CreateListCommand(output, context);
   }

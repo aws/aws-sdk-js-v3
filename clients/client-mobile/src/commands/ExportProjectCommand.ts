@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportProjectCommand}.
  */
 export interface ExportProjectCommandInput extends ExportProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportProjectCommand}.
  */
 export interface ExportProjectCommandOutput extends ExportProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Exports project configuration to a snapshot which can be downloaded and shared.
  *             Note that mobile app push credentials are encrypted in exported projects, so they
@@ -50,6 +55,8 @@ export interface ExportProjectCommandOutput extends ExportProjectResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportProjectCommandInput - {@link ExportProjectCommandInput}
+ * @returns {@link ExportProjectCommandOutput}
  * @see {@link ExportProjectCommandInput} for command's `input` shape.
  * @see {@link ExportProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
@@ -107,6 +114,9 @@ export class ExportProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ExportProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportProjectCommandOutput> {
     return deserializeAws_restJson1ExportProjectCommand(output, context);
   }

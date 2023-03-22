@@ -23,15 +23,20 @@ import { deserializeAws_queryCreateQueueCommand, serializeAws_queryCreateQueueCo
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQueueCommand}.
  */
 export interface CreateQueueCommandInput extends CreateQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQueueCommand}.
  */
 export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in
  *             the request. Keep the following in mind:</p>
  *          <ul>
@@ -94,6 +99,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
+ * @returns {@link CreateQueueCommandOutput}
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -125,6 +132,9 @@ export class CreateQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class CreateQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueueCommandOutput> {
     return deserializeAws_queryCreateQueueCommand(output, context);
   }

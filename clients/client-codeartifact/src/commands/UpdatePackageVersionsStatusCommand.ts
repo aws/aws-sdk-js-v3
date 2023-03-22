@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePackageVersionsStatusCommand}.
  */
 export interface UpdatePackageVersionsStatusCommandInput extends UpdatePackageVersionsStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePackageVersionsStatusCommand}.
  */
 export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageVersionsStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>,
  *       you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>.
@@ -51,6 +56,8 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePackageVersionsStatusCommandInput - {@link UpdatePackageVersionsStatusCommandInput}
+ * @returns {@link UpdatePackageVersionsStatusCommandOutput}
  * @see {@link UpdatePackageVersionsStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePackageVersionsStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePackageVersionsStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePackageVersionsStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePackageVersionsStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

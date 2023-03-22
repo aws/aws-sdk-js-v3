@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightEventsCommand}.
  */
 export interface GetInsightEventsCommandInput extends GetInsightEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightEventsCommand}.
  */
 export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
  *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
  *          console.</p>
@@ -48,6 +53,8 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightEventsCommandInput - {@link GetInsightEventsCommandInput}
+ * @returns {@link GetInsightEventsCommandOutput}
  * @see {@link GetInsightEventsCommandInput} for command's `input` shape.
  * @see {@link GetInsightEventsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetInsightEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetInsightEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetInsightEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightEventsCommandOutput> {
     return deserializeAws_restJson1GetInsightEventsCommand(output, context);
   }

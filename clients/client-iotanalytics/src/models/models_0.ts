@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IoTAnalyticsServiceException as __BaseException } from "./IoTAnalyticsServiceException";
 
 /**
+ * @public
  * <p>An activity that adds other attributes based on existing attributes in the message.</p>
  */
 export interface AddAttributesActivity {
@@ -29,6 +30,7 @@ export interface AddAttributesActivity {
 }
 
 /**
+ * @public
  * <p>Information about a message.</p>
  */
 export interface Message {
@@ -46,6 +48,9 @@ export interface Message {
   payload: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutMessageRequest {
   /**
    * <p>The name of the channel where the messages are sent.</p>
@@ -53,8 +58,8 @@ export interface BatchPutMessageRequest {
   channelName: string | undefined;
 
   /**
-   * <p>The list of messages to be sent. Each message has the format: { "messageId": "string",
-   *          "payload": "string"}.</p>
+   * <p>The list of messages to be sent. Each message has the format: \{ "messageId": "string",
+   *          "payload": "string"\}.</p>
    *          <p>The field names of message payloads (data) that you send to IoT Analytics:</p>
    *         <ul>
    *             <li>
@@ -79,13 +84,14 @@ export interface BatchPutMessageRequest {
    *                duplicates.)</p>
    *             </li>
    *          </ul>
-   *          <p>For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29},
-   *  {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.  </p>
+   *          <p>For example, \{"temp_01": 29\} or \{"_temp_01": 29\} are valid, but \{"temp-01": 29\},
+   *  \{"01_temp": 29\} or \{"__temp_01": 29\} are invalid in message payloads.  </p>
    */
   messages: Message[] | undefined;
 }
 
 /**
+ * @public
  * <p>Contains informations about errors.</p>
  */
 export interface BatchPutMessageErrorEntry {
@@ -106,6 +112,9 @@ export interface BatchPutMessageErrorEntry {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutMessageResponse {
   /**
    * <p>A list of any errors encountered when sending the messages to the channel.</p>
@@ -114,6 +123,7 @@ export interface BatchPutMessageResponse {
 }
 
 /**
+ * @public
  * <p>There was an internal failure.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -133,6 +143,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -152,6 +163,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource with the specified name could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -171,6 +183,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -190,6 +203,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -208,6 +222,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelPipelineReprocessingRequest {
   /**
    * <p>The name of pipeline for which data reprocessing is canceled.</p>
@@ -221,9 +238,13 @@ export interface CancelPipelineReprocessingRequest {
   reprocessingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelPipelineReprocessingResponse {}
 
 /**
+ * @public
  * <p>Used to store channel data in an S3 bucket that you manage. If customer-managed storage is
  *       selected, the <code>retentionPeriod</code> parameter is ignored. You can't change the choice
  *       of S3 storage after the data store is created.</p>
@@ -249,12 +270,14 @@ export interface CustomerManagedChannelS3Storage {
 }
 
 /**
+ * @public
  * <p>Used to store channel data in an S3 bucket managed by IoT Analytics. You can't change the choice
  *       of S3 storage after the data store is created.</p>
  */
 export interface ServiceManagedChannelS3Storage {}
 
 /**
+ * @public
  * <p>Where channel data is stored. You may choose one of <code>serviceManagedS3</code>,
  *         <code>customerManagedS3</code> storage. If not specified, the default is
  *         <code>serviceManagedS3</code>. This can't be changed after creation of the channel.</p>
@@ -275,6 +298,7 @@ export interface ChannelStorage {
 }
 
 /**
+ * @public
  * <p>How long, in days, message data is kept.</p>
  */
 export interface RetentionPeriod {
@@ -291,6 +315,7 @@ export interface RetentionPeriod {
 }
 
 /**
+ * @public
  * <p>A set of key-value pairs that are used to manage the resource.</p>
  */
 export interface Tag {
@@ -305,6 +330,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -331,6 +359,9 @@ export interface CreateChannelRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * <p>The name of the channel.</p>
@@ -349,6 +380,7 @@ export interface CreateChannelResponse {
 }
 
 /**
+ * @public
  * <p>The command caused an internal limit to be exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -368,6 +400,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource with the same name already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -398,12 +431,16 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ComputeType {
   ACU_1 = "ACU_1",
   ACU_2 = "ACU_2",
 }
 
 /**
+ * @public
  * <p>The configuration of the resource used to execute the <code>containerAction</code>.</p>
  */
 export interface ResourceConfiguration {
@@ -422,6 +459,7 @@ export interface ResourceConfiguration {
 }
 
 /**
+ * @public
  * <p>The dataset whose latest contents are used as input to the notebook or application.</p>
  */
 export interface DatasetContentVersionValue {
@@ -433,6 +471,7 @@ export interface DatasetContentVersionValue {
 }
 
 /**
+ * @public
  * <p>The value of the variable as a structure that specifies an output file URI.</p>
  */
 export interface OutputFileUriValue {
@@ -444,6 +483,7 @@ export interface OutputFileUriValue {
 }
 
 /**
+ * @public
  * <p>An instance of a variable to be passed to the <code>containerAction</code> execution. Each
  *       variable must have a name and a value given by one of <code>stringValue</code>,
  *         <code>datasetContentVersionValue</code>, or <code>outputFileUriValue</code>.</p>
@@ -476,6 +516,7 @@ export interface Variable {
 }
 
 /**
+ * @public
  * <p>Information required to run the <code>containerAction</code> to produce dataset
  *       contents.</p>
  */
@@ -508,6 +549,7 @@ export interface ContainerDatasetAction {
 }
 
 /**
+ * @public
  * <p>Used to limit data to that which has arrived since the last execution of the
  *       action.</p>
  */
@@ -532,6 +574,7 @@ export interface DeltaTime {
 }
 
 /**
+ * @public
  * <p>Information that is used to filter message data, to segregate it according to the
  *       timeframe in which it arrives.</p>
  */
@@ -544,6 +587,7 @@ export interface QueryFilter {
 }
 
 /**
+ * @public
  * <p>The SQL query to modify the message.</p>
  */
 export interface SqlQueryDatasetAction {
@@ -559,6 +603,7 @@ export interface SqlQueryDatasetAction {
 }
 
 /**
+ * @public
  * <p>A <code>DatasetAction</code> object that specifies how dataset contents are automatically
  *       created.</p>
  */
@@ -583,6 +628,7 @@ export interface DatasetAction {
 }
 
 /**
+ * @public
  * <p>Configuration information for delivery of dataset contents to IoT Events.</p>
  */
 export interface IotEventsDestinationConfiguration {
@@ -599,6 +645,7 @@ export interface IotEventsDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration information for coordination with Glue, a fully managed extract, transform
  *       and load (ETL) service.</p>
  */
@@ -618,6 +665,7 @@ export interface GlueConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).</p>
  */
 export interface S3DestinationConfiguration {
@@ -632,23 +680,23 @@ export interface S3DestinationConfiguration {
    *          <p>You can create a unique key with the following options:</p>
    *          <ul>
    *             <li>
-   *                <p>Use <code>!{iotanalytics:scheduleTime}</code> to insert the time of a scheduled SQL
+   *                <p>Use <code>!\{iotanalytics:scheduleTime\}</code> to insert the time of a scheduled SQL
    *           query run.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>!{iotanalytics:versionId}</code> to insert a unique hash that identifies a
+   *                <p>Use <code>!\{iotanalytics:versionId\}</code> to insert a unique hash that identifies a
    *           dataset content.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>!{iotanalytics:creationTime}</code> to insert the creation time of a dataset
+   *                <p>Use <code>!\{iotanalytics:creationTime\}</code> to insert the creation time of a dataset
    *           content.</p>
    *             </li>
    *          </ul>
    *          <p>The following example creates a unique key for a CSV file:
-   *         <code>dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv</code>
+   *         <code>dataset/mydataset/!\{iotanalytics:scheduleTime\}/!\{iotanalytics:versionId\}.csv</code>
    *          </p>
    *          <note>
-   *             <p>If you don't use <code>!{iotanalytics:versionId}</code> to specify the key, you might
+   *             <p>If you don't use <code>!\{iotanalytics:versionId\}</code> to specify the key, you might
    *         get duplicate keys. For example, you might have two dataset contents with the same
    *           <code>scheduleTime</code> but different <code>versionId</code>s. This means that one
    *         dataset content overwrites the other. </p>
@@ -670,6 +718,7 @@ export interface S3DestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>The destination to which dataset contents are delivered.</p>
  */
 export interface DatasetContentDeliveryDestination {
@@ -685,6 +734,7 @@ export interface DatasetContentDeliveryDestination {
 }
 
 /**
+ * @public
  * <p>When dataset contents are created, they are delivered to destination specified
  *       here.</p>
  */
@@ -701,6 +751,7 @@ export interface DatasetContentDeliveryRule {
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration information of a delta time session
  *       window.</p>
  *          <p>
@@ -724,6 +775,7 @@ export interface DeltaTimeSessionWindowConfiguration {
 }
 
 /**
+ * @public
  * <p>The information needed to configure a delta time session window.</p>
  */
 export interface LateDataRuleConfiguration {
@@ -734,6 +786,7 @@ export interface LateDataRuleConfiguration {
 }
 
 /**
+ * @public
  * <p>A structure that contains the name and configuration information of a late data
  *       rule.</p>
  */
@@ -750,6 +803,7 @@ export interface LateDataRule {
 }
 
 /**
+ * @public
  * <p>Information about the dataset whose content generation triggers the new dataset content
  *       generation.</p>
  */
@@ -762,6 +816,7 @@ export interface TriggeringDataset {
 }
 
 /**
+ * @public
  * <p>The schedule for when to trigger an update.</p>
  */
 export interface Schedule {
@@ -774,6 +829,7 @@ export interface Schedule {
 }
 
 /**
+ * @public
  * <p>The <code>DatasetTrigger</code> that specifies when the dataset is automatically
  *       updated.</p>
  */
@@ -791,6 +847,7 @@ export interface DatasetTrigger {
 }
 
 /**
+ * @public
  * <p>Information about the versioning of dataset contents.</p>
  */
 export interface VersioningConfiguration {
@@ -806,6 +863,9 @@ export interface VersioningConfiguration {
   maxVersions?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>The name of the dataset.</p>
@@ -860,6 +920,9 @@ export interface CreateDatasetRequest {
   lateDataRules?: LateDataRule[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>The name of the dataset.</p>
@@ -877,6 +940,9 @@ export interface CreateDatasetResponse {
   retentionPeriod?: RetentionPeriod;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetContentRequest {
   /**
    * <p>The name of the dataset.</p>
@@ -890,6 +956,9 @@ export interface CreateDatasetContentRequest {
   versionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetContentResponse {
   /**
    * <p>The version ID of the dataset contents that are being created.</p>
@@ -898,6 +967,7 @@ export interface CreateDatasetContentResponse {
 }
 
 /**
+ * @public
  * <p> A partition dimension defined by an attribute. </p>
  */
 export interface Partition {
@@ -908,6 +978,7 @@ export interface Partition {
 }
 
 /**
+ * @public
  * <p> A partition dimension defined by a timestamp attribute. </p>
  */
 export interface TimestampPartition {
@@ -924,6 +995,7 @@ export interface TimestampPartition {
 }
 
 /**
+ * @public
  * <p> A single dimension to partition a data store. The dimension must be an
  *         <code>AttributePartition</code> or a <code>TimestampPartition</code>. </p>
  */
@@ -940,6 +1012,7 @@ export interface DatastorePartition {
 }
 
 /**
+ * @public
  * <p> Contains information about the partition dimensions in a data store. </p>
  */
 export interface DatastorePartitions {
@@ -950,6 +1023,7 @@ export interface DatastorePartitions {
 }
 
 /**
+ * @public
  * <p>S3-customer-managed; When you choose customer-managed storage, the <code>retentionPeriod</code> parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.  </p>
  */
 export interface CustomerManagedDatastoreS3Storage {
@@ -970,6 +1044,7 @@ export interface CustomerManagedDatastoreS3Storage {
 }
 
 /**
+ * @public
  * <p> Used to store data used by IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.   </p>
  */
 export interface IotSiteWiseCustomerManagedDatastoreS3Storage {
@@ -985,6 +1060,7 @@ export interface IotSiteWiseCustomerManagedDatastoreS3Storage {
 }
 
 /**
+ * @public
  * <p> Used to store data used by IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.   </p>
  */
 export interface DatastoreIotSiteWiseMultiLayerStorage {
@@ -995,11 +1071,13 @@ export interface DatastoreIotSiteWiseMultiLayerStorage {
 }
 
 /**
+ * @public
  * <p>Used to store data in an Amazon S3 bucket managed by IoT Analytics. You can't change the choice of Amazon S3 storage after your data store is created.  </p>
  */
 export interface ServiceManagedDatastoreS3Storage {}
 
 /**
+ * @public
  * <p>Where data in a data store is stored.. You can choose <code>serviceManagedS3</code> storage, <code>customerManagedS3</code> storage, or <code>iotSiteWiseMultiLayerStorage</code> storage. The default is <code>serviceManagedS3</code>. You can't change the choice of Amazon S3 storage after your data store is created. </p>
  */
 export type DatastoreStorage =
@@ -1008,6 +1086,9 @@ export type DatastoreStorage =
   | DatastoreStorage.ServiceManagedS3Member
   | DatastoreStorage.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DatastoreStorage {
   /**
    * <p>Used to store data in an Amazon S3 bucket managed by IoT Analytics. You can't change the choice of Amazon S3 storage after your data store is created.  </p>
@@ -1063,11 +1144,13 @@ export namespace DatastoreStorage {
 }
 
 /**
+ * @public
  * <p>Contains the configuration information of the JSON format.</p>
  */
 export interface JsonConfiguration {}
 
 /**
+ * @public
  * <p>Contains information about a column that stores your data.</p>
  */
 export interface Column {
@@ -1084,6 +1167,7 @@ export interface Column {
 }
 
 /**
+ * @public
  * <p>Information needed to define a schema.</p>
  */
 export interface SchemaDefinition {
@@ -1096,6 +1180,7 @@ export interface SchemaDefinition {
 }
 
 /**
+ * @public
  * <p>Contains the configuration information of the Parquet format.</p>
  */
 export interface ParquetConfiguration {
@@ -1106,6 +1191,7 @@ export interface ParquetConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the configuration information of file formats.  IoT Analytics data stores support JSON and <a href="https://parquet.apache.org/">Parquet</a>.</p>
  *          <p>The default file format is JSON. You can specify only one format.</p>
  *          <p>You can't change the file format after you create the data store.</p>
@@ -1122,6 +1208,9 @@ export interface FileFormatConfiguration {
   parquetConfiguration?: ParquetConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatastoreRequest {
   /**
    * <p>The name of the data store.</p>
@@ -1157,6 +1246,9 @@ export interface CreateDatastoreRequest {
   datastorePartitions?: DatastorePartitions;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatastoreResponse {
   /**
    * <p>The name of the data store.</p>
@@ -1175,6 +1267,7 @@ export interface CreateDatastoreResponse {
 }
 
 /**
+ * @public
  * <p>The activity that determines the source of the messages to be processed.</p>
  */
 export interface ChannelActivity {
@@ -1195,6 +1288,7 @@ export interface ChannelActivity {
 }
 
 /**
+ * @public
  * <p>The datastore activity that specifies where to store the processed data.</p>
  */
 export interface DatastoreActivity {
@@ -1210,6 +1304,7 @@ export interface DatastoreActivity {
 }
 
 /**
+ * @public
  * <p>An activity that adds data from the IoT device registry to your message.</p>
  */
 export interface DeviceRegistryEnrichActivity {
@@ -1240,6 +1335,7 @@ export interface DeviceRegistryEnrichActivity {
 }
 
 /**
+ * @public
  * <p>An activity that adds information from the IoT Device Shadow service to a
  *       message.</p>
  */
@@ -1271,6 +1367,7 @@ export interface DeviceShadowEnrichActivity {
 }
 
 /**
+ * @public
  * <p>An activity that filters a message based on its attributes.</p>
  */
 export interface FilterActivity {
@@ -1292,6 +1389,7 @@ export interface FilterActivity {
 }
 
 /**
+ * @public
  * <p>An activity that runs a Lambda function to modify the message.</p>
  */
 export interface LambdaActivity {
@@ -1319,6 +1417,7 @@ export interface LambdaActivity {
 }
 
 /**
+ * @public
  * <p>An activity that computes an arithmetic expression using the message's attributes.</p>
  */
 export interface MathActivity {
@@ -1345,6 +1444,7 @@ export interface MathActivity {
 }
 
 /**
+ * @public
  * <p>An activity that removes attributes from a message.</p>
  */
 export interface RemoveAttributesActivity {
@@ -1365,6 +1465,7 @@ export interface RemoveAttributesActivity {
 }
 
 /**
+ * @public
  * <p>Used to create a new message using only the specified attributes from the original
  *       message.</p>
  */
@@ -1386,6 +1487,7 @@ export interface SelectAttributesActivity {
 }
 
 /**
+ * @public
  * <p>An activity that performs a transformation on a message.</p>
  */
 export interface PipelineActivity {
@@ -1442,6 +1544,9 @@ export interface PipelineActivity {
   deviceShadowEnrich?: DeviceShadowEnrichActivity;
 }
 
+/**
+ * @public
+ */
 export interface CreatePipelineRequest {
   /**
    * <p>The name of the pipeline.</p>
@@ -1457,7 +1562,7 @@ export interface CreatePipelineRequest {
    *         <code>channel</code> and a <code>datastore</code> activity. Each entry in the list must
    *       contain only one activity. For example:</p>
    *          <p>
-   *             <code>pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ...
+   *             <code>pipelineActivities = [ \{ "channel": \{ ... \} \}, \{ "lambda": \{ ... \} \}, ...
    *       ]</code>
    *          </p>
    */
@@ -1469,6 +1574,9 @@ export interface CreatePipelineRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePipelineResponse {
   /**
    * <p>The name of the pipeline.</p>
@@ -1481,6 +1589,9 @@ export interface CreatePipelineResponse {
   pipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * <p>The name of the channel to delete.</p>
@@ -1488,6 +1599,9 @@ export interface DeleteChannelRequest {
   channelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetRequest {
   /**
    * <p>The name of the dataset to delete.</p>
@@ -1495,6 +1609,9 @@ export interface DeleteDatasetRequest {
   datasetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetContentRequest {
   /**
    * <p>The name of the dataset whose content is deleted.</p>
@@ -1509,6 +1626,9 @@ export interface DeleteDatasetContentRequest {
   versionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatastoreRequest {
   /**
    * <p>The name of the data store to delete.</p>
@@ -1516,6 +1636,9 @@ export interface DeleteDatastoreRequest {
   datastoreName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePipelineRequest {
   /**
    * <p>The name of the pipeline to delete.</p>
@@ -1523,6 +1646,9 @@ export interface DeletePipelineRequest {
   pipelineName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelRequest {
   /**
    * <p>The name of the channel whose information is retrieved.</p>
@@ -1536,6 +1662,9 @@ export interface DescribeChannelRequest {
   includeStatistics?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ChannelStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -1543,6 +1672,7 @@ export enum ChannelStatus {
 }
 
 /**
+ * @public
  * <p>A collection of data from an MQTT topic. Channels archive the raw, unprocessed messages
  *       before publishing the data to a pipeline.</p>
  */
@@ -1594,6 +1724,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * <p>The estimated size of the resource.</p>
  */
 export interface EstimatedResourceSize {
@@ -1609,6 +1740,7 @@ export interface EstimatedResourceSize {
 }
 
 /**
+ * @public
  * <p>Statistics information about the channel.</p>
  */
 export interface ChannelStatistics {
@@ -1618,6 +1750,9 @@ export interface ChannelStatistics {
   size?: EstimatedResourceSize;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelResponse {
   /**
    * <p>An object that contains information about the channel.</p>
@@ -1631,6 +1766,9 @@ export interface DescribeChannelResponse {
   statistics?: ChannelStatistics;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>The name of the dataset whose information is retrieved.</p>
@@ -1638,6 +1776,9 @@ export interface DescribeDatasetRequest {
   datasetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DatasetStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -1645,6 +1786,7 @@ export enum DatasetStatus {
 }
 
 /**
+ * @public
  * <p>Information about a dataset.</p>
  */
 export interface Dataset {
@@ -1712,6 +1854,9 @@ export interface Dataset {
   lateDataRules?: LateDataRule[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>An object that contains information about the dataset.</p>
@@ -1719,6 +1864,9 @@ export interface DescribeDatasetResponse {
   dataset?: Dataset;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatastoreRequest {
   /**
    * <p>The name of the data store</p>
@@ -1733,6 +1881,9 @@ export interface DescribeDatastoreRequest {
   includeStatistics?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DatastoreStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -1740,6 +1891,7 @@ export enum DatastoreStatus {
 }
 
 /**
+ * @public
  * <p>Information about a data store.</p>
  */
 export interface Datastore {
@@ -1814,6 +1966,7 @@ export interface Datastore {
 }
 
 /**
+ * @public
  * <p>Statistical information about the data store.</p>
  */
 export interface DatastoreStatistics {
@@ -1823,6 +1976,9 @@ export interface DatastoreStatistics {
   size?: EstimatedResourceSize;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatastoreResponse {
   /**
    * <p>Information about the data store.</p>
@@ -1836,13 +1992,20 @@ export interface DescribeDatastoreResponse {
   statistics?: DatastoreStatistics;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoggingOptionsRequest {}
 
+/**
+ * @public
+ */
 export enum LoggingLevel {
   ERROR = "ERROR",
 }
 
 /**
+ * @public
  * <p>Information about logging options.</p>
  */
 export interface LoggingOptions {
@@ -1862,6 +2025,9 @@ export interface LoggingOptions {
   enabled: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoggingOptionsResponse {
   /**
    * <p>The current settings of the IoT Analytics logging options.</p>
@@ -1869,6 +2035,9 @@ export interface DescribeLoggingOptionsResponse {
   loggingOptions?: LoggingOptions;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineRequest {
   /**
    * <p>The name of the pipeline whose information is retrieved.</p>
@@ -1876,6 +2045,9 @@ export interface DescribePipelineRequest {
   pipelineName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReprocessingStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -1884,6 +2056,7 @@ export enum ReprocessingStatus {
 }
 
 /**
+ * @public
  * <p>Information about pipeline reprocessing.</p>
  */
 export interface ReprocessingSummary {
@@ -1904,6 +2077,7 @@ export interface ReprocessingSummary {
 }
 
 /**
+ * @public
  * <p>Contains information about a pipeline.</p>
  */
 export interface Pipeline {
@@ -1938,6 +2112,9 @@ export interface Pipeline {
   lastUpdateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineResponse {
   /**
    * <p>A <code>Pipeline</code> object that contains information about the pipeline.</p>
@@ -1945,6 +2122,9 @@ export interface DescribePipelineResponse {
   pipeline?: Pipeline;
 }
 
+/**
+ * @public
+ */
 export interface GetDatasetContentRequest {
   /**
    * <p>The name of the dataset whose contents are retrieved.</p>
@@ -1960,6 +2140,7 @@ export interface GetDatasetContentRequest {
 }
 
 /**
+ * @public
  * <p>The reference to a dataset entry.</p>
  */
 export interface DatasetEntry {
@@ -1974,6 +2155,9 @@ export interface DatasetEntry {
   dataURI?: string;
 }
 
+/**
+ * @public
+ */
 export enum DatasetContentState {
   CREATING = "CREATING",
   FAILED = "FAILED",
@@ -1981,6 +2165,7 @@ export enum DatasetContentState {
 }
 
 /**
+ * @public
  * <p>The state of the dataset contents and the reason they are in this state.</p>
  */
 export interface DatasetContentStatus {
@@ -1996,6 +2181,9 @@ export interface DatasetContentStatus {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatasetContentResponse {
   /**
    * <p>A list of <code>DatasetEntry</code> objects.</p>
@@ -2013,6 +2201,9 @@ export interface GetDatasetContentResponse {
   status?: DatasetContentStatus;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -2027,6 +2218,7 @@ export interface ListChannelsRequest {
 }
 
 /**
+ * @public
  * <p>Used to store channel data in an S3 bucket that you manage.</p>
  */
 export interface CustomerManagedChannelS3StorageSummary {
@@ -2050,11 +2242,13 @@ export interface CustomerManagedChannelS3StorageSummary {
 }
 
 /**
+ * @public
  * <p>Used to store channel data in an S3 bucket managed by IoT Analytics.</p>
  */
 export interface ServiceManagedChannelS3StorageSummary {}
 
 /**
+ * @public
  * <p>Where channel data is stored.</p>
  */
 export interface ChannelStorageSummary {
@@ -2070,6 +2264,7 @@ export interface ChannelStorageSummary {
 }
 
 /**
+ * @public
  * <p>A summary of information about a channel.</p>
  */
 export interface ChannelSummary {
@@ -2106,6 +2301,9 @@ export interface ChannelSummary {
   lastMessageArrivalTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsResponse {
   /**
    * <p>A list of <code>ChannelSummary</code> objects.</p>
@@ -2119,6 +2317,9 @@ export interface ListChannelsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetContentsRequest {
   /**
    * <p>The name of the dataset whose contents information you want to list.</p>
@@ -2151,6 +2352,7 @@ export interface ListDatasetContentsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about dataset contents.</p>
  */
 export interface DatasetContentSummary {
@@ -2180,6 +2382,9 @@ export interface DatasetContentSummary {
   completionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetContentsResponse {
   /**
    * <p>Summary information about dataset contents that have been created.</p>
@@ -2193,6 +2398,9 @@ export interface ListDatasetContentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -2206,12 +2414,16 @@ export interface ListDatasetsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum DatasetActionType {
   CONTAINER = "CONTAINER",
   QUERY = "QUERY",
 }
 
 /**
+ * @public
  * <p>Information about the action that automatically creates the dataset's contents.</p>
  */
 export interface DatasetActionSummary {
@@ -2227,6 +2439,7 @@ export interface DatasetActionSummary {
 }
 
 /**
+ * @public
  * <p>A summary of information about a dataset.</p>
  */
 export interface DatasetSummary {
@@ -2263,6 +2476,9 @@ export interface DatasetSummary {
   actions?: DatasetActionSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsResponse {
   /**
    * <p>A list of <code>DatasetSummary</code> objects.</p>
@@ -2276,6 +2492,9 @@ export interface ListDatasetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatastoresRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -2290,6 +2509,7 @@ export interface ListDatastoresRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the data store that you manage.</p>
  */
 export interface CustomerManagedDatastoreS3StorageSummary {
@@ -2310,6 +2530,7 @@ export interface CustomerManagedDatastoreS3StorageSummary {
 }
 
 /**
+ * @public
  * <p> Contains information about the data store that you manage, which stores data used by IoT SiteWise. </p>
  */
 export interface IotSiteWiseCustomerManagedDatastoreS3StorageSummary {
@@ -2325,6 +2546,7 @@ export interface IotSiteWiseCustomerManagedDatastoreS3StorageSummary {
 }
 
 /**
+ * @public
  * <p> Contains information about the data store that you manage, which stores data used by IoT SiteWise. </p>
  */
 export interface DatastoreIotSiteWiseMultiLayerStorageSummary {
@@ -2335,11 +2557,13 @@ export interface DatastoreIotSiteWiseMultiLayerStorageSummary {
 }
 
 /**
+ * @public
  * <p>Contains information about the data store that is managed by IoT Analytics.</p>
  */
 export interface ServiceManagedDatastoreS3StorageSummary {}
 
 /**
+ * @public
  * <p>Contains information about your data store.</p>
  */
 export interface DatastoreStorageSummary {
@@ -2359,12 +2583,16 @@ export interface DatastoreStorageSummary {
   iotSiteWiseMultiLayerStorage?: DatastoreIotSiteWiseMultiLayerStorageSummary;
 }
 
+/**
+ * @public
+ */
 export enum FileFormatType {
   JSON = "JSON",
   PARQUET = "PARQUET",
 }
 
 /**
+ * @public
  * <p>A summary of information about a data store.</p>
  */
 export interface DatastoreSummary {
@@ -2411,6 +2639,9 @@ export interface DatastoreSummary {
   datastorePartitions?: DatastorePartitions;
 }
 
+/**
+ * @public
+ */
 export interface ListDatastoresResponse {
   /**
    * <p>A list of <code>DatastoreSummary</code> objects.</p>
@@ -2424,6 +2655,9 @@ export interface ListDatastoresResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelinesRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -2438,6 +2672,7 @@ export interface ListPipelinesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of information about a pipeline.</p>
  */
 export interface PipelineSummary {
@@ -2462,6 +2697,9 @@ export interface PipelineSummary {
   lastUpdateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelinesResponse {
   /**
    * <p>A list of <code>PipelineSummary</code> objects.</p>
@@ -2475,6 +2713,9 @@ export interface ListPipelinesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource whose tags you want to list.</p>
@@ -2482,6 +2723,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags (metadata) that you have assigned to the resource.</p>
@@ -2489,6 +2733,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingOptionsRequest {
   /**
    * <p>The new values of the IoT Analytics logging options.</p>
@@ -2496,6 +2743,9 @@ export interface PutLoggingOptionsRequest {
   loggingOptions: LoggingOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RunPipelineActivityRequest {
   /**
    * <p>The pipeline activity that is run. This must not be a channel activity or a data store
@@ -2512,6 +2762,9 @@ export interface RunPipelineActivityRequest {
   payloads: Uint8Array[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RunPipelineActivityResponse {
   /**
    * <p>The enriched or transformed sample message payloads as base64-encoded strings. (The
@@ -2526,6 +2779,9 @@ export interface RunPipelineActivityResponse {
   logResult?: string;
 }
 
+/**
+ * @public
+ */
 export interface SampleChannelDataRequest {
   /**
    * <p>The name of the channel whose message samples are retrieved.</p>
@@ -2549,6 +2805,9 @@ export interface SampleChannelDataRequest {
   endTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface SampleChannelDataResponse {
   /**
    * <p>The list of message samples. Each sample message is returned as a base64-encoded
@@ -2558,6 +2817,7 @@ export interface SampleChannelDataResponse {
 }
 
 /**
+ * @public
  * <p>Specifies one or more sets of channel messages.</p>
  */
 export interface ChannelMessages {
@@ -2572,6 +2832,9 @@ export interface ChannelMessages {
   s3Paths?: string[];
 }
 
+/**
+ * @public
+ */
 export interface StartPipelineReprocessingRequest {
   /**
    * <p>The name of the pipeline on which to start reprocessing.</p>
@@ -2600,6 +2863,9 @@ export interface StartPipelineReprocessingRequest {
   channelMessages?: ChannelMessages;
 }
 
+/**
+ * @public
+ */
 export interface StartPipelineReprocessingResponse {
   /**
    * <p>The ID of the pipeline reprocessing activity that was started.</p>
@@ -2607,6 +2873,9 @@ export interface StartPipelineReprocessingResponse {
   reprocessingId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource whose tags you want to modify.</p>
@@ -2619,8 +2888,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource whose tags you want to remove.</p>
@@ -2633,8 +2908,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateChannelRequest {
   /**
    * <p>The name of the channel to be updated.</p>
@@ -2656,6 +2937,9 @@ export interface UpdateChannelRequest {
   retentionPeriod?: RetentionPeriod;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatasetRequest {
   /**
    * <p>The name of the dataset to update.</p>
@@ -2699,6 +2983,9 @@ export interface UpdateDatasetRequest {
   lateDataRules?: LateDataRule[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatastoreRequest {
   /**
    * <p>The name of the data store to be updated.</p>
@@ -2724,6 +3011,9 @@ export interface UpdateDatastoreRequest {
   fileFormatConfiguration?: FileFormatConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipelineRequest {
   /**
    * <p>The name of the pipeline to update.</p>
@@ -2739,7 +3029,7 @@ export interface UpdatePipelineRequest {
    *         <code>channel</code> and a <code>datastore</code> activity. Each entry in the list must
    *       contain only one activity. For example:</p>
    *          <p>
-   *             <code>pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ...
+   *             <code>pipelineActivities = [ \{ "channel": \{ ... \} \}, \{ "lambda": \{ ... \} \}, ...
    *       ]</code>
    *          </p>
    */

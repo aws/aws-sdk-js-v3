@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableResourceDimensionsCommand}.
  */
 export interface ListAvailableResourceDimensionsCommandInput extends ListAvailableResourceDimensionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableResourceDimensionsCommand}.
  */
 export interface ListAvailableResourceDimensionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAvailableResourceDimensionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableResourceDimensionsCommandInput - {@link ListAvailableResourceDimensionsCommandInput}
+ * @returns {@link ListAvailableResourceDimensionsCommandOutput}
  * @see {@link ListAvailableResourceDimensionsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableResourceDimensionsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableResourceDimensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableResourceDimensionsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
     return serializeAws_json1_1ListAvailableResourceDimensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSlotCommand}.
  */
 export interface CreateSlotCommandInput extends CreateSlotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSlotCommand}.
  */
 export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a slot in an intent. A slot is a variable needed to fulfill
  *          an intent. For example, an <code>OrderPizza</code> intent might need
  *          slots for size, crust, and number of pizzas. For each slot, you define
@@ -50,6 +55,8 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSlotCommandInput - {@link CreateSlotCommandInput}
+ * @returns {@link CreateSlotCommandOutput}
  * @see {@link CreateSlotCommandInput} for command's `input` shape.
  * @see {@link CreateSlotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -98,6 +105,9 @@ export class CreateSlotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSlotCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateSlotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSlotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSlotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSlotCommandOutput> {
     return deserializeAws_restJson1CreateSlotCommand(output, context);
   }

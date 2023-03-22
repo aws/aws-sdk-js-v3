@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with
  *       that profile, such as display name and email address. It does not delete the history of that
  *       user, for example the history of commits made by that user.</p>
@@ -48,6 +53,8 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
+ * @returns {@link DeleteUserProfileCommandOutput}
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserProfileCommandOutput> {
     return deserializeAws_json1_1DeleteUserProfileCommand(output, context);
   }

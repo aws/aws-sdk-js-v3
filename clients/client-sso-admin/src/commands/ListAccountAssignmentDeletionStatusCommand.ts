@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountAssignmentDeletionStatusCommand}.
  */
 export interface ListAccountAssignmentDeletionStatusCommandInput extends ListAccountAssignmentDeletionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountAssignmentDeletionStatusCommand}.
  */
 export interface ListAccountAssignmentDeletionStatusCommandOutput
@@ -37,6 +41,7 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the status of the AWS account assignment deletion requests for a specified IAM Identity Center
  *       instance.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountAssignmentDeletionStatusCommandInput - {@link ListAccountAssignmentDeletionStatusCommandInput}
+ * @returns {@link ListAccountAssignmentDeletionStatusCommandOutput}
  * @see {@link ListAccountAssignmentDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssignmentDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountAssignmentDeletionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAccountAssignmentDeletionStatusCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
     return serializeAws_json1_1ListAccountAssignmentDeletionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

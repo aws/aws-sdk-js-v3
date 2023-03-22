@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface DeleteInstanceAccessControlAttributeConfigurationCommandInput
   extends DeleteInstanceAccessControlAttributeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
  *       instance and deletes all of the attribute mappings that have been configured. Once deleted,
  *       any attributes that are received from an identity source and any custom attributes you have
@@ -52,6 +57,8 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceAccessControlAttributeConfigurationCommandInput - {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput}
+ * @returns {@link DeleteInstanceAccessControlAttributeConfigurationCommandOutput}
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
     return serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

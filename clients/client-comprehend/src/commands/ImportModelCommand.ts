@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportModelCommand}.
  */
 export interface ImportModelCommandInput extends ImportModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportModelCommand}.
  */
 export interface ImportModelCommandOutput extends ImportModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom model that replicates a source custom model that you import. The
  *       source model can be in your AWS account or another one.</p>
  *          <p>If the source model is in another AWS account, then it must have a resource-based policy
@@ -51,6 +56,8 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportModelCommandInput - {@link ImportModelCommandInput}
+ * @returns {@link ImportModelCommandOutput}
  * @see {@link ImportModelCommandInput} for command's `input` shape.
  * @see {@link ImportModelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -107,6 +114,9 @@ export class ImportModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ImportModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportModelCommandOutput> {
     return deserializeAws_json1_1ImportModelCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandInput extends ListDevicesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all devices on your Amazon Web Services account that have Amazon Web Services Snow Device Management
  *       enabled in the Amazon Web Services Region where the command is run.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
+ * @returns {@link ListDevicesCommandOutput}
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicesCommandOutput> {
     return deserializeAws_restJson1ListDevicesCommand(output, context);
   }

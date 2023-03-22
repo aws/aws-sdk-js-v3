@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SSOAdminServiceException as __BaseException } from "./SSOAdminServiceException";
 
 /**
+ * @public
  * <p>The value used for mapping a specified attribute to an identity source. For more
  *       information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html">Attribute mappings</a>
  *       in the <i>IAM Identity Center User Guide</i>.</p>
@@ -16,6 +17,7 @@ export interface AccessControlAttributeValue {
 }
 
 /**
+ * @public
  * <p>These are IAM Identity Center identity store attributes that you can configure for use in
  *       attributes-based access control (ABAC). You can create permissions policies that determine who
  *       can access your AWS resources based upon the configured attribute values. When you enable
@@ -37,6 +39,7 @@ export interface AccessControlAttribute {
 }
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -57,12 +60,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum PrincipalType {
   GROUP = "GROUP",
   USER = "USER",
 }
 
 /**
+ * @public
  * <p>The assignment that indicates a principal's limited access to a specified AWS account
  *       with a specified permission set.</p>
  *          <note>
@@ -93,17 +100,24 @@ export interface AccountAssignment {
   PrincipalId?: string;
 }
 
+/**
+ * @public
+ */
 export enum StatusValues {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export enum TargetType {
   AWS_ACCOUNT = "AWS_ACCOUNT",
 }
 
 /**
+ * @public
  * <p>The status of the creation or deletion operation of an assignment that a principal needs
  *       to access an account.</p>
  */
@@ -157,6 +171,7 @@ export interface AccountAssignmentOperationStatus {
 }
 
 /**
+ * @public
  * <p>Provides information about the <a>AccountAssignment</a> creation
  *       request.</p>
  */
@@ -179,6 +194,7 @@ export interface AccountAssignmentOperationStatusMetadata {
 }
 
 /**
+ * @public
  * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
  */
 export interface CustomerManagedPolicyReference {
@@ -194,6 +210,9 @@ export interface CustomerManagedPolicyReference {
   Path?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
@@ -211,9 +230,13 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
 
 /**
+ * @public
  * <p>Occurs when a conflict with a previous successful write is detected. This generally occurs
  *       when the previous write did not have time to propagate to the host serving the current
  *       request. A retry (with appropriate backoff logic) is the recommended response to this
@@ -238,6 +261,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception, or failure with
  *       an internal server.</p>
  */
@@ -260,6 +284,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a requested resource is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -281,6 +306,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the principal has crossed the permitted number of resources that can be
  *       created.</p>
  */
@@ -303,6 +329,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the principal has crossed the throttling limits of the API
  *       operations.</p>
  */
@@ -325,6 +352,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because it contains a syntax error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -346,6 +374,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure that stores the details of the AWS managed policy.</p>
  */
 export interface AttachedManagedPolicy {
@@ -361,6 +390,9 @@ export interface AttachedManagedPolicy {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachManagedPolicyToPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -380,8 +412,14 @@ export interface AttachManagedPolicyToPermissionSetRequest {
   ManagedPolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachManagedPolicyToPermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface CreateAccountAssignmentRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -416,6 +454,9 @@ export interface CreateAccountAssignmentRequest {
   PrincipalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountAssignmentResponse {
   /**
    * <p>The status object for the account assignment creation operation.</p>
@@ -424,6 +465,7 @@ export interface CreateAccountAssignmentResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the attributes to add to your attribute-based access control (ABAC)
  *       configuration.</p>
  */
@@ -435,6 +477,9 @@ export interface InstanceAccessControlAttributeConfiguration {
   AccessControlAttributes: AccessControlAttribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -451,9 +496,13 @@ export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceAccessControlAttributeConfigurationResponse {}
 
 /**
+ * @public
  * <p>A set of key-value pairs that are used to manage the resource. Tags can only be applied to
  *       permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS
  *       accounts.</p>
@@ -470,6 +519,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePermissionSetRequest {
   /**
    * <p>The name of the <a>PermissionSet</a>.</p>
@@ -506,6 +558,7 @@ export interface CreatePermissionSetRequest {
 }
 
 /**
+ * @public
  * <p>An entity that contains IAM policies.</p>
  */
 export interface PermissionSet {
@@ -543,6 +596,9 @@ export interface PermissionSet {
   RelayState?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePermissionSetResponse {
   /**
    * <p>Defines the level of access on an AWS account.</p>
@@ -550,6 +606,9 @@ export interface CreatePermissionSetResponse {
   PermissionSet?: PermissionSet;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAssignmentRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -583,6 +642,9 @@ export interface DeleteAccountAssignmentRequest {
   PrincipalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAssignmentResponse {
   /**
    * <p>The status object for the account assignment deletion operation.</p>
@@ -590,6 +652,9 @@ export interface DeleteAccountAssignmentResponse {
   AccountAssignmentDeletionStatus?: AccountAssignmentOperationStatus;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInlinePolicyFromPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -603,8 +668,14 @@ export interface DeleteInlinePolicyFromPermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInlinePolicyFromPermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -612,8 +683,14 @@ export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceAccessControlAttributeConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
@@ -626,8 +703,14 @@ export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -641,8 +724,14 @@ export interface DeletePermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentCreationStatusRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -656,6 +745,9 @@ export interface DescribeAccountAssignmentCreationStatusRequest {
   AccountAssignmentCreationRequestId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentCreationStatusResponse {
   /**
    * <p>The status object for the account assignment creation operation.</p>
@@ -663,6 +755,9 @@ export interface DescribeAccountAssignmentCreationStatusResponse {
   AccountAssignmentCreationStatus?: AccountAssignmentOperationStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentDeletionStatusRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -676,6 +771,9 @@ export interface DescribeAccountAssignmentDeletionStatusRequest {
   AccountAssignmentDeletionRequestId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentDeletionStatusResponse {
   /**
    * <p>The status object for the account assignment deletion operation.</p>
@@ -683,6 +781,9 @@ export interface DescribeAccountAssignmentDeletionStatusResponse {
   AccountAssignmentDeletionStatus?: AccountAssignmentOperationStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -690,12 +791,18 @@ export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InstanceAccessControlAttributeConfigurationStatus {
   CREATION_FAILED = "CREATION_FAILED",
   CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
   /**
    * <p>The status of the attribute configuration process.</p>
@@ -714,6 +821,9 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
   InstanceAccessControlAttributeConfiguration?: InstanceAccessControlAttributeConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribePermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -727,6 +837,9 @@ export interface DescribePermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePermissionSetResponse {
   /**
    * <p>Describes the level of access on an AWS account.</p>
@@ -734,6 +847,9 @@ export interface DescribePermissionSetResponse {
   PermissionSet?: PermissionSet;
 }
 
+/**
+ * @public
+ */
 export interface DescribePermissionSetProvisioningStatusRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -749,6 +865,7 @@ export interface DescribePermissionSetProvisioningStatusRequest {
 }
 
 /**
+ * @public
  * <p>A structure that is used to provide the status of the provisioning operation for a
  *       specified permission set.</p>
  */
@@ -786,6 +903,9 @@ export interface PermissionSetProvisioningStatus {
   CreatedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePermissionSetProvisioningStatusResponse {
   /**
    * <p>The status object for the permission set provisioning operation.</p>
@@ -793,6 +913,9 @@ export interface DescribePermissionSetProvisioningStatusResponse {
   PermissionSetProvisioningStatus?: PermissionSetProvisioningStatus;
 }
 
+/**
+ * @public
+ */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
@@ -810,8 +933,14 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface DetachManagedPolicyFromPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -831,8 +960,14 @@ export interface DetachManagedPolicyFromPermissionSetRequest {
   ManagedPolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachManagedPolicyFromPermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface GetInlinePolicyForPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -846,6 +981,9 @@ export interface GetInlinePolicyForPermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInlinePolicyForPermissionSetResponse {
   /**
    * <p>The inline policy that is attached to the permission set.</p>
@@ -853,6 +991,9 @@ export interface GetInlinePolicyForPermissionSetResponse {
   InlinePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionsBoundaryForPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
@@ -866,6 +1007,7 @@ export interface GetPermissionsBoundaryForPermissionSetRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration of the AWS managed or customer managed policy that you want
  *       to set as a permissions boundary. Specify either <code>CustomerManagedPolicyReference</code>
  *       to use the name and path of a customer managed policy, or <code>ManagedPolicyArn</code> to use
@@ -892,6 +1034,9 @@ export interface PermissionsBoundary {
   ManagedPolicyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionsBoundaryForPermissionSetResponse {
   /**
    * <p>The permissions boundary attached to the specified permission set.</p>
@@ -900,6 +1045,7 @@ export interface GetPermissionsBoundaryForPermissionSetResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the IAM Identity Center instance.</p>
  */
 export interface InstanceMetadata {
@@ -916,6 +1062,7 @@ export interface InstanceMetadata {
 }
 
 /**
+ * @public
  * <p>Filters he operation status list based on the passed attribute value.</p>
  */
 export interface OperationStatusFilter {
@@ -925,6 +1072,9 @@ export interface OperationStatusFilter {
   Status?: StatusValues | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssignmentCreationStatusRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -948,6 +1098,9 @@ export interface ListAccountAssignmentCreationStatusRequest {
   Filter?: OperationStatusFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssignmentCreationStatusResponse {
   /**
    * <p>The status object for the account assignment creation operation.</p>
@@ -960,6 +1113,9 @@ export interface ListAccountAssignmentCreationStatusResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssignmentDeletionStatusRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -983,6 +1139,9 @@ export interface ListAccountAssignmentDeletionStatusRequest {
   Filter?: OperationStatusFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssignmentDeletionStatusResponse {
   /**
    * <p>The status object for the account assignment deletion operation.</p>
@@ -995,6 +1154,9 @@ export interface ListAccountAssignmentDeletionStatusResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssignmentsRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1023,6 +1185,9 @@ export interface ListAccountAssignmentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssignmentsResponse {
   /**
    * <p>The list of assignments that match the input AWS account and permission set.</p>
@@ -1035,11 +1200,17 @@ export interface ListAccountAssignmentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProvisioningStatus {
   LATEST_PERMISSION_SET_NOT_PROVISIONED = "LATEST_PERMISSION_SET_NOT_PROVISIONED",
   LATEST_PERMISSION_SET_PROVISIONED = "LATEST_PERMISSION_SET_PROVISIONED",
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsForProvisionedPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1069,6 +1240,9 @@ export interface ListAccountsForProvisionedPermissionSetRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsForProvisionedPermissionSetResponse {
   /**
    * <p>The list of AWS <code>AccountIds</code>.</p>
@@ -1081,6 +1255,9 @@ export interface ListAccountsForProvisionedPermissionSetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
@@ -1104,6 +1281,9 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomerManagedPolicyReferencesInPermissionSetResponse {
   /**
    * <p>Specifies the names and paths of the customer managed policies that you have attached to
@@ -1118,6 +1298,9 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstancesRequest {
   /**
    * <p>The maximum number of results to display for the instance.</p>
@@ -1130,6 +1313,9 @@ export interface ListInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstancesResponse {
   /**
    * <p>Lists the IAM Identity Center instances that the caller has access to.</p>
@@ -1142,6 +1328,9 @@ export interface ListInstancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedPoliciesInPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1166,6 +1355,9 @@ export interface ListManagedPoliciesInPermissionSetRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedPoliciesInPermissionSetResponse {
   /**
    * <p>An array of the <a>AttachedManagedPolicy</a> data type object.</p>
@@ -1178,6 +1370,9 @@ export interface ListManagedPoliciesInPermissionSetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionSetProvisioningStatusRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1202,6 +1397,7 @@ export interface ListPermissionSetProvisioningStatusRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the permission set provisioning status.</p>
  */
 export interface PermissionSetProvisioningStatusMetadata {
@@ -1222,6 +1418,9 @@ export interface PermissionSetProvisioningStatusMetadata {
   CreatedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionSetProvisioningStatusResponse {
   /**
    * <p>The status object for the permission set provisioning operation.</p>
@@ -1234,6 +1433,9 @@ export interface ListPermissionSetProvisioningStatusResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionSetsRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1252,6 +1454,9 @@ export interface ListPermissionSetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionSetsResponse {
   /**
    * <p>Defines the level of access on an AWS account.</p>
@@ -1264,6 +1469,9 @@ export interface ListPermissionSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionSetsProvisionedToAccountRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1292,6 +1500,9 @@ export interface ListPermissionSetsProvisionedToAccountRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionSetsProvisionedToAccountResponse {
   /**
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
@@ -1304,6 +1515,9 @@ export interface ListPermissionSetsProvisionedToAccountResponse {
   PermissionSets?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1322,6 +1536,9 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A set of key-value pairs that are used to manage the resource.</p>
@@ -1334,11 +1551,17 @@ export interface ListTagsForResourceResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProvisionTargetType {
   ALL_PROVISIONED_ACCOUNTS = "ALL_PROVISIONED_ACCOUNTS",
   AWS_ACCOUNT = "AWS_ACCOUNT",
 }
 
+/**
+ * @public
+ */
 export interface ProvisionPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1362,6 +1585,9 @@ export interface ProvisionPermissionSetRequest {
   TargetType: ProvisionTargetType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionPermissionSetResponse {
   /**
    * <p>The status object for the permission set provisioning operation.</p>
@@ -1369,6 +1595,9 @@ export interface ProvisionPermissionSetResponse {
   PermissionSetProvisioningStatus?: PermissionSetProvisioningStatus;
 }
 
+/**
+ * @public
+ */
 export interface PutInlinePolicyToPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1387,8 +1616,14 @@ export interface PutInlinePolicyToPermissionSetRequest {
   InlinePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutInlinePolicyToPermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface PutPermissionsBoundaryToPermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
@@ -1406,8 +1641,14 @@ export interface PutPermissionsBoundaryToPermissionSetRequest {
   PermissionsBoundary: PermissionsBoundary | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutPermissionsBoundaryToPermissionSetResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1426,8 +1667,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1446,8 +1693,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -1460,8 +1713,14 @@ export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdatePermissionSetRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1492,6 +1751,9 @@ export interface UpdatePermissionSetRequest {
   RelayState?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePermissionSetResponse {}
 
 /**

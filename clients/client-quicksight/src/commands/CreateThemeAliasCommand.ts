@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThemeAliasCommand}.
  */
 export interface CreateThemeAliasCommandInput extends CreateThemeAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThemeAliasCommand}.
  */
 export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a theme alias for a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThemeAliasCommandInput - {@link CreateThemeAliasCommandInput}
+ * @returns {@link CreateThemeAliasCommandOutput}
  * @see {@link CreateThemeAliasCommandInput} for command's `input` shape.
  * @see {@link CreateThemeAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateThemeAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThemeAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateThemeAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThemeAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateThemeAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThemeAliasCommandOutput> {
     return deserializeAws_restJson1CreateThemeAliasCommand(output, context);
   }

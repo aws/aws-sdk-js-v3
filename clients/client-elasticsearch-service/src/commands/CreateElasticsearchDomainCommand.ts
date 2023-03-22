@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateElasticsearchDomainCommand}.
  */
 export interface CreateElasticsearchDomainCommandInput extends CreateElasticsearchDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateElasticsearchDomainCommand}.
  */
 export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Elasticsearch domain. For more information,
  *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateElasticsearchDomainCommandInput - {@link CreateElasticsearchDomainCommandInput}
+ * @returns {@link CreateElasticsearchDomainCommandOutput}
  * @see {@link CreateElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link CreateElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateElasticsearchDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateElasticsearchDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateElasticsearchDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateElasticsearchDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

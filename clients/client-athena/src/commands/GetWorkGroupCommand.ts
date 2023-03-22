@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkGroupCommand}.
  */
 export interface GetWorkGroupCommandInput extends GetWorkGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkGroupCommand}.
  */
 export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the workgroup with the specified name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkGroupCommandInput - {@link GetWorkGroupCommandInput}
+ * @returns {@link GetWorkGroupCommandOutput}
  * @see {@link GetWorkGroupCommandInput} for command's `input` shape.
  * @see {@link GetWorkGroupCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetWorkGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetWorkGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetWorkGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkGroupCommandOutput> {
     return deserializeAws_json1_1GetWorkGroupCommand(output, context);
   }

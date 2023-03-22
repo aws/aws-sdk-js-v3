@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentTemplateVersionsCommand}.
  */
 export interface ListEnvironmentTemplateVersionsCommandInput extends ListEnvironmentTemplateVersionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentTemplateVersionsCommand}.
  */
 export interface ListEnvironmentTemplateVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List major or minor versions of an environment template with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentTemplateVersionsCommandInput - {@link ListEnvironmentTemplateVersionsCommandInput}
+ * @returns {@link ListEnvironmentTemplateVersionsCommandOutput}
  * @see {@link ListEnvironmentTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListEnvironmentTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListEnvironmentTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEnvironmentTemplateVersionsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListEnvironmentTemplateVersionsCommand extends $Command<
     return serializeAws_json1_0ListEnvironmentTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

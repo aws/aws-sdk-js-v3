@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIndexCommand}.
  */
 export interface CreateIndexCommandInput extends CreateIndexInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateIndexCommand}.
  */
 export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns on Amazon Web Services Resource Explorer in the Amazon Web Services Region in which you called this operation by creating
  *             an index. Resource Explorer begins discovering the resources in this Region and stores the details
  *             about the resources in the index so that they can be queried by using the <a>Search</a> operation. You can create only one index in a Region.</p>
@@ -100,6 +105,8 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
+ * @returns {@link CreateIndexCommandOutput}
  * @see {@link CreateIndexCommandInput} for command's `input` shape.
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -144,6 +151,9 @@ export class CreateIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class CreateIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIndexCommandOutput> {
     return deserializeAws_restJson1CreateIndexCommand(output, context);
   }

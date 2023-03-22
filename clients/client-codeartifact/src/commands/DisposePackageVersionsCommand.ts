@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisposePackageVersionsCommand}.
  */
 export interface DisposePackageVersionsCommandInput extends DisposePackageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisposePackageVersionsCommand}.
  */
 export interface DisposePackageVersionsCommandOutput extends DisposePackageVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
  *       A disposed package version cannot be restored in your repository because its assets are deleted.
@@ -57,6 +62,8 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * const response = await client.send(command);
  * ```
  *
+ * @param DisposePackageVersionsCommandInput - {@link DisposePackageVersionsCommandInput}
+ * @returns {@link DisposePackageVersionsCommandOutput}
  * @see {@link DisposePackageVersionsCommandInput} for command's `input` shape.
  * @see {@link DisposePackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -108,6 +115,9 @@ export class DisposePackageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisposePackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DisposePackageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisposePackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisposePackageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisposePackageVersionsCommandOutput> {
     return deserializeAws_restJson1DisposePackageVersionsCommand(output, context);
   }

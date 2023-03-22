@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataQualityRulesetCommand}.
  */
 export interface UpdateDataQualityRulesetCommandInput extends UpdateDataQualityRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataQualityRulesetCommand}.
  */
 export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified data quality ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataQualityRulesetCommandInput - {@link UpdateDataQualityRulesetCommandInput}
+ * @returns {@link UpdateDataQualityRulesetCommandOutput}
  * @see {@link UpdateDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateDataQualityRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataQualityRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateDataQualityRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataQualityRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDataQualityRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataQualityRulesetCommandOutput> {
     return deserializeAws_json1_1UpdateDataQualityRulesetCommand(output, context);
   }

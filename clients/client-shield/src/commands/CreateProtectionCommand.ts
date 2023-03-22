@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProtectionCommand}.
  */
 export interface CreateProtectionCommandInput extends CreateProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProtectionCommand}.
  */
 export interface CreateProtectionCommandOutput extends CreateProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Shield Advanced for a specific Amazon Web Services resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.</p>
  *          <p>You can add protection to only a single resource with each <code>CreateProtection</code> request. You can add protection to multiple resources
  *           at once through the Shield Advanced console at <a href="https://console.aws.amazon.com/wafv2/shieldv2#/">https://console.aws.amazon.com/wafv2/shieldv2#/</a>.
@@ -51,6 +56,8 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProtectionCommandInput - {@link CreateProtectionCommandInput}
+ * @returns {@link CreateProtectionCommandOutput}
  * @see {@link CreateProtectionCommandInput} for command's `input` shape.
  * @see {@link CreateProtectionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProtectionCommandOutput> {
     return deserializeAws_json1_1CreateProtectionCommand(output, context);
   }

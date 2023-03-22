@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttributeGroupsCommand}.
  */
 export interface ListAttributeGroupsCommandInput extends ListAttributeGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttributeGroupsCommand}.
  */
 export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all attribute groups which you have access to. Results are paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttributeGroupsCommandInput - {@link ListAttributeGroupsCommandInput}
+ * @returns {@link ListAttributeGroupsCommandOutput}
  * @see {@link ListAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAttributeGroupsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListAttributeGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttributeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListAttributeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttributeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAttributeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttributeGroupsCommandOutput> {
     return deserializeAws_restJson1ListAttributeGroupsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeysAndCertificateCommand}.
  */
 export interface CreateKeysAndCertificateCommandInput extends CreateKeysAndCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeysAndCertificateCommand}.
  */
 export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
  *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
  *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
@@ -52,6 +57,8 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeysAndCertificateCommandInput - {@link CreateKeysAndCertificateCommandInput}
+ * @returns {@link CreateKeysAndCertificateCommandOutput}
  * @see {@link CreateKeysAndCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateKeysAndCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateKeysAndCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeysAndCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateKeysAndCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeysAndCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateKeysAndCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeysAndCertificateCommandOutput> {
     return deserializeAws_restJson1CreateKeysAndCertificateCommand(output, context);
   }

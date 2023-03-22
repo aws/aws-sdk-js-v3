@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMobileDeviceAccessRuleCommand}.
  */
 export interface DeleteMobileDeviceAccessRuleCommandInput extends DeleteMobileDeviceAccessRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMobileDeviceAccessRuleCommand}.
  */
 export interface DeleteMobileDeviceAccessRuleCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a mobile device access rule for the specified WorkMail organization.</p>
  *          <note>
  *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -51,6 +56,8 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMobileDeviceAccessRuleCommandInput - {@link DeleteMobileDeviceAccessRuleCommandInput}
+ * @returns {@link DeleteMobileDeviceAccessRuleCommandOutput}
  * @see {@link DeleteMobileDeviceAccessRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteMobileDeviceAccessRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMobileDeviceAccessRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteMobileDeviceAccessRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMobileDeviceAccessRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMobileDeviceAccessRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

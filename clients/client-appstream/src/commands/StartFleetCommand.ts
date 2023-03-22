@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFleetCommand}.
  */
 export interface StartFleetCommandInput extends StartFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFleetCommand}.
  */
 export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFleetCommandInput - {@link StartFleetCommandInput}
+ * @returns {@link StartFleetCommandOutput}
  * @see {@link StartFleetCommandInput} for command's `input` shape.
  * @see {@link StartFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -93,6 +100,9 @@ export class StartFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetCommandOutput> {
     return deserializeAws_json1_1StartFleetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVaultCommand}.
  */
 export interface CreateVaultCommandInput extends CreateVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVaultCommand}.
  */
 export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation creates a new vault with the specified name. The name of the vault
  *          must be unique within a region for an AWS account. You can create up to 1,000 vaults per
  *          account. If you need to create more vaults, contact Amazon S3 Glacier.</p>
@@ -69,6 +74,8 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVaultCommandInput - {@link CreateVaultCommandInput}
+ * @returns {@link CreateVaultCommandOutput}
  * @see {@link CreateVaultCommandInput} for command's `input` shape.
  * @see {@link CreateVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -121,6 +128,9 @@ export class CreateVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class CreateVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVaultCommandOutput> {
     return deserializeAws_restJson1CreateVaultCommand(output, context);
   }

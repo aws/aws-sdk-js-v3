@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceCommand}.
  */
 export interface GetServiceCommandInput extends GetServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceCommand}.
  */
 export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceCommandInput - {@link GetServiceCommandInput}
+ * @returns {@link GetServiceCommandOutput}
  * @see {@link GetServiceCommandInput} for command's `input` shape.
  * @see {@link GetServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceCommandOutput> {
     return deserializeAws_json1_0GetServiceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEulaAcceptancesCommand}.
  */
 export interface ListEulaAcceptancesCommandInput extends ListEulaAcceptancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEulaAcceptancesCommand}.
  */
 export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List EULA acceptances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEulaAcceptancesCommandInput - {@link ListEulaAcceptancesCommandInput}
+ * @returns {@link ListEulaAcceptancesCommandOutput}
  * @see {@link ListEulaAcceptancesCommandInput} for command's `input` shape.
  * @see {@link ListEulaAcceptancesCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListEulaAcceptancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEulaAcceptancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListEulaAcceptancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEulaAcceptancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEulaAcceptancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEulaAcceptancesCommandOutput> {
     return deserializeAws_restJson1ListEulaAcceptancesCommand(output, context);
   }

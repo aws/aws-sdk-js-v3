@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGitHubAccountTokenNamesCommand}.
  */
 export interface ListGitHubAccountTokenNamesCommandInput extends ListGitHubAccountTokenNamesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGitHubAccountTokenNamesCommand}.
  */
 export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAccountTokenNamesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the names of stored connections to GitHub accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGitHubAccountTokenNamesCommandInput - {@link ListGitHubAccountTokenNamesCommandInput}
+ * @returns {@link ListGitHubAccountTokenNamesCommandOutput}
  * @see {@link ListGitHubAccountTokenNamesCommandInput} for command's `input` shape.
  * @see {@link ListGitHubAccountTokenNamesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListGitHubAccountTokenNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGitHubAccountTokenNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListGitHubAccountTokenNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGitHubAccountTokenNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGitHubAccountTokenNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

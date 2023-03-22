@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeListenerCertificatesCommand}.
  */
 export interface DescribeListenerCertificatesCommandInput extends DescribeListenerCertificatesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeListenerCertificatesCommand}.
  */
 export interface DescribeListenerCertificatesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeListenerCertificatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  *          <p>If the default certificate is also in the certificate list, it appears twice in the
@@ -59,6 +64,8 @@ export interface DescribeListenerCertificatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeListenerCertificatesCommandInput - {@link DescribeListenerCertificatesCommandInput}
+ * @returns {@link DescribeListenerCertificatesCommandOutput}
  * @see {@link DescribeListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeListenerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

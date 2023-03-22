@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBranchesCommand}.
  */
 export interface ListBranchesCommandInput extends ListBranchesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBranchesCommand}.
  */
 export interface ListBranchesCommandOutput extends ListBranchesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more branches in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBranchesCommandInput - {@link ListBranchesCommandInput}
+ * @returns {@link ListBranchesCommandOutput}
  * @see {@link ListBranchesCommandInput} for command's `input` shape.
  * @see {@link ListBranchesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListBranchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBranchesCommandOutput> {
     return deserializeAws_json1_1ListBranchesCommand(output, context);
   }

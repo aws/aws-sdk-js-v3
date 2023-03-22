@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
 export interface DescribeChannelMembershipForAppInstanceUserCommandInput
   extends DescribeChannelMembershipForAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
 export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the details of a channel based on the membership of the specified
  *             <code>AppInstanceUser</code>.</p>
  *
@@ -56,6 +61,8 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelMembershipForAppInstanceUserCommandInput - {@link DescribeChannelMembershipForAppInstanceUserCommandInput}
+ * @returns {@link DescribeChannelMembershipForAppInstanceUserCommandOutput}
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelMembershipForAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeChannelMembershipForAppInstanceUserCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     return serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

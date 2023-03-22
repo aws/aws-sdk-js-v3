@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAutomationExecutionCommand}.
  */
 export interface GetAutomationExecutionCommandInput extends GetAutomationExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAutomationExecutionCommand}.
  */
 export interface GetAutomationExecutionCommandOutput extends GetAutomationExecutionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed information about a particular Automation execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutomationExecutionCommandInput - {@link GetAutomationExecutionCommandInput}
+ * @returns {@link GetAutomationExecutionCommandOutput}
  * @see {@link GetAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link GetAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetAutomationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutomationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetAutomationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAutomationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAutomationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutomationExecutionCommandOutput> {
     return deserializeAws_json1_1GetAutomationExecutionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBrowserSettingsCommand}.
  */
 export interface DeleteBrowserSettingsCommandInput extends DeleteBrowserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBrowserSettingsCommand}.
  */
 export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBrowserSettingsCommandInput - {@link DeleteBrowserSettingsCommandInput}
+ * @returns {@link DeleteBrowserSettingsCommandOutput}
  * @see {@link DeleteBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBrowserSettingsCommandOutput> {
     return deserializeAws_restJson1DeleteBrowserSettingsCommand(output, context);
   }

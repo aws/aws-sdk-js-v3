@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationComponentDetailsCommand}.
  */
 export interface GetApplicationComponentDetailsCommandInput extends GetApplicationComponentDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationComponentDetailsCommand}.
  */
 export interface GetApplicationComponentDetailsCommandOutput
@@ -41,6 +45,7 @@ export interface GetApplicationComponentDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves details about an application component. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface GetApplicationComponentDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationComponentDetailsCommandInput - {@link GetApplicationComponentDetailsCommandInput}
+ * @returns {@link GetApplicationComponentDetailsCommandOutput}
  * @see {@link GetApplicationComponentDetailsCommandInput} for command's `input` shape.
  * @see {@link GetApplicationComponentDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetApplicationComponentDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationComponentDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class GetApplicationComponentDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetApplicationComponentDetailsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class GetApplicationComponentDetailsCommand extends $Command<
     return serializeAws_restJson1GetApplicationComponentDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

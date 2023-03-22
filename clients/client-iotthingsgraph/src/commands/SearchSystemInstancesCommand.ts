@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSystemInstancesCommand}.
  */
 export interface SearchSystemInstancesCommandInput extends SearchSystemInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSystemInstancesCommand}.
  */
 export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for system instances in the user's account.</p>
@@ -48,6 +53,8 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSystemInstancesCommandInput - {@link SearchSystemInstancesCommandInput}
+ * @returns {@link SearchSystemInstancesCommandOutput}
  * @see {@link SearchSystemInstancesCommandInput} for command's `input` shape.
  * @see {@link SearchSystemInstancesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -80,6 +87,9 @@ export class SearchSystemInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSystemInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class SearchSystemInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSystemInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchSystemInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSystemInstancesCommandOutput> {
     return deserializeAws_json1_1SearchSystemInstancesCommand(output, context);
   }

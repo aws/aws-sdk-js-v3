@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRecommendationReportGenerationCommand}.
  */
 export interface StartRecommendationReportGenerationCommandInput extends StartRecommendationReportGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRecommendationReportGenerationCommand}.
  */
 export interface StartRecommendationReportGenerationCommandOutput
@@ -41,6 +45,7 @@ export interface StartRecommendationReportGenerationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts generating a recommendation report. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface StartRecommendationReportGenerationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRecommendationReportGenerationCommandInput - {@link StartRecommendationReportGenerationCommandInput}
+ * @returns {@link StartRecommendationReportGenerationCommandOutput}
  * @see {@link StartRecommendationReportGenerationCommandInput} for command's `input` shape.
  * @see {@link StartRecommendationReportGenerationCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -92,6 +99,9 @@ export class StartRecommendationReportGenerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRecommendationReportGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class StartRecommendationReportGenerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartRecommendationReportGenerationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class StartRecommendationReportGenerationCommand extends $Command<
     return serializeAws_restJson1StartRecommendationReportGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

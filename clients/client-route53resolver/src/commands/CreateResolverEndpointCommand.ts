@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResolverEndpointCommand}.
  */
 export interface CreateResolverEndpointCommandInput extends CreateResolverEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResolverEndpointCommand}.
  */
 export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>
  *          <ul>
  *             <li>
@@ -56,6 +61,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResolverEndpointCommandInput - {@link CreateResolverEndpointCommandInput}
+ * @returns {@link CreateResolverEndpointCommandOutput}
  * @see {@link CreateResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreateResolverEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResolverEndpointCommandOutput> {
     return deserializeAws_json1_1CreateResolverEndpointCommand(output, context);
   }

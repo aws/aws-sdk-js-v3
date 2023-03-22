@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventSelectorsCommand}.
  */
 export interface PutEventSelectorsCommandInput extends PutEventSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventSelectorsCommand}.
  */
 export interface PutEventSelectorsCommandOutput extends PutEventSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures an event selector or advanced event selectors for your trail. Use event
  *          selectors or advanced event selectors to specify management and data event settings for
  *          your trail. By default, trails created without specific event selectors are configured to
@@ -88,6 +93,8 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventSelectorsCommandInput - {@link PutEventSelectorsCommandInput}
+ * @returns {@link PutEventSelectorsCommandOutput}
  * @see {@link PutEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link PutEventSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -205,6 +212,9 @@ export class PutEventSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -244,10 +254,16 @@ export class PutEventSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutEventSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventSelectorsCommandOutput> {
     return deserializeAws_json1_1PutEventSelectorsCommand(output, context);
   }

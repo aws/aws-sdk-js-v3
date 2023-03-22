@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentDefaultVersionCommand}.
  */
 export interface UpdateDocumentDefaultVersionCommandInput extends UpdateDocumentDefaultVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentDefaultVersionCommand}.
  */
 export interface UpdateDocumentDefaultVersionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDocumentDefaultVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the default version of a document. </p>
  *          <note>
  *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
@@ -53,6 +58,8 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentDefaultVersionCommandInput - {@link UpdateDocumentDefaultVersionCommandInput}
+ * @returns {@link UpdateDocumentDefaultVersionCommandOutput}
  * @see {@link UpdateDocumentDefaultVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentDefaultVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentDefaultVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentDefaultVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDocumentDefaultVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

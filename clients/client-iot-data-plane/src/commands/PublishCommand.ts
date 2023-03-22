@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishCommand}.
  */
 export interface PublishCommandInput extends PublishRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishCommand}.
  */
 export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes an MQTT message.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p>
  *          <p>For more information about MQTT messages, see
@@ -47,6 +52,8 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishCommandInput - {@link PublishCommandInput}
+ * @returns {@link PublishCommandOutput}
  * @see {@link PublishCommandInput} for command's `input` shape.
  * @see {@link PublishCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -85,6 +92,9 @@ export class PublishCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class PublishCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
     return deserializeAws_restJson1PublishCommand(output, context);
   }

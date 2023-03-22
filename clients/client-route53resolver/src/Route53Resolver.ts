@@ -315,6 +315,7 @@ import {
 import { Route53ResolverClient } from "./Route53ResolverClient";
 
 /**
+ * @public
  * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC
  * 			from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names
  * 			such as domain names for EC2 instances or Elastic Load Balancing load balancers.
@@ -345,6 +346,7 @@ import { Route53ResolverClient } from "./Route53ResolverClient";
  */
 export class Route53Resolver extends Route53ResolverClient {
   /**
+   * @public
    * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>
    */
   public associateFirewallRuleGroup(
@@ -377,6 +379,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,
    * 			submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p>
    *          <p>To remove an IP address from an endpoint, see
@@ -413,6 +416,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs
    * 			that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one <code>AssociateResolverQueryLogConfig</code>
    * 			request for each VPC.</p>
@@ -453,6 +457,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries
    * 			for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the
    * 			IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see
@@ -488,6 +493,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty firewall domain list for use in DNS Firewall rules. You can populate the domains for the new list with a file, using <a>ImportFirewallDomains</a>, or with domain strings, using <a>UpdateFirewallDomains</a>. </p>
    */
   public createFirewallDomainList(
@@ -520,6 +526,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
    */
   public createFirewallRule(
@@ -552,6 +559,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group
    *            by calling <a>CreateFirewallRule</a>. </p>
    */
@@ -585,6 +593,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>
    *          <ul>
    *             <li>
@@ -627,6 +636,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
    * 			Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p>
    *          <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see
@@ -665,6 +675,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through,
    * 			one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
    */
@@ -698,6 +709,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified domain list. </p>
    */
   public deleteFirewallDomainList(
@@ -730,6 +742,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified firewall rule.</p>
    */
   public deleteFirewallRule(
@@ -762,6 +775,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified firewall rule group. </p>
    */
   public deleteFirewallRuleGroup(
@@ -794,6 +808,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
    * 			Resolver endpoint:</p>
    *          <ul>
@@ -838,6 +853,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are
    * 			associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and
    * 			the other accounts have associated VPCs with the shared configuration.</p>
@@ -878,6 +894,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you
    * 			associated the Resolver rule with. For more information, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>.</p>
@@ -912,6 +929,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering from the VPC. </p>
    */
   public disassociateFirewallRuleGroup(
@@ -944,6 +962,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
    * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
    *          <p>To add an IP address to an endpoint, see
@@ -982,6 +1001,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a VPC from a query logging configuration.</p>
    *          <note>
    *             <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
@@ -1028,6 +1048,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
    *          <important>
    *             <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
@@ -1064,6 +1085,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a
    * 			single VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
    */
@@ -1097,6 +1119,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified firewall domain list.</p>
    */
   public getFirewallDomainList(
@@ -1129,6 +1152,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified firewall rule group. </p>
    */
   public getFirewallRuleGroup(
@@ -1161,6 +1185,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a firewall rule group association, which enables DNS filtering for a VPC with one rule group. A VPC can have more than one firewall rule group association, and a rule group can be associated with more than one VPC.</p>
    */
   public getFirewallRuleGroupAssociation(
@@ -1193,6 +1218,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing the
    *        	specified rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). </p>
    */
@@ -1226,6 +1252,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC from
    * 				Amazon Virtual Private Cloud.</p>
    */
@@ -1259,6 +1286,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets DNSSEC validation information for a specified resource.</p>
    */
   public getResolverDnssecConfig(
@@ -1291,6 +1319,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified Resolver endpoint, such as whether it's an inbound or an outbound Resolver endpoint, and the
    * 			current status of the endpoint.</p>
    */
@@ -1324,6 +1353,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration
    * 			is logging queries for and the location that logs are sent to. </p>
    */
@@ -1357,6 +1387,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC
    * 			with a query logging configuration, Resolver logs DNS queries that originate in that VPC.</p>
    */
@@ -1390,6 +1421,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
    * 			operations and resources that you want to allow another Amazon Web Services account to be able to use.</p>
    */
@@ -1423,6 +1455,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the
    * 			outbound Resolver endpoint that the rule is associated with.</p>
    */
@@ -1456,6 +1489,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>. </p>
    */
@@ -1489,6 +1523,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the Resolver rule policy for a specified rule. A Resolver rule policy includes the rule that you want to share
    * 			with another account, the account that you want to share the rule with, and the Resolver operations that you want to allow the account to use. </p>
    */
@@ -1522,6 +1557,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>
    *          <p>Each domain specification in your domain list must satisfy the following
    * 	requirements: </p>
@@ -1569,6 +1605,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. </p>
    *          <p>A single call might return only a partial list of the configurations. For information, see <code>MaxResults</code>. </p>
    */
@@ -1602,6 +1639,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling <a>ListFirewallDomains</a>. </p>
    *          <p>A single call to this list operation might return only a partial list of the domain lists. For information, see <code>MaxResults</code>. </p>
    */
@@ -1635,6 +1673,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the domains that you have defined for the specified firewall domain list.  </p>
    *          <p>A single call might return only a partial list of the domains. For information, see <code>MaxResults</code>. </p>
    */
@@ -1668,6 +1707,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group. </p>
    *          <p>A single call might return only a partial list of the associations. For information, see <code>MaxResults</code>. </p>
    */
@@ -1701,6 +1741,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the minimal high-level information for the rule groups that you have defined.  </p>
    *          <p>A single call might return only a partial list of the rule groups. For information, see <code>MaxResults</code>. </p>
    */
@@ -1734,6 +1775,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
    *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
    */
@@ -1767,6 +1809,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the Resolver configurations that you have defined.
    * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
    */
@@ -1800,6 +1843,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Lists the configurations for DNSSEC validation that are associated with the current Amazon Web Services account.</p>
    */
   public listResolverDnssecConfigs(
@@ -1832,6 +1876,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
    */
   public listResolverEndpointIpAddresses(
@@ -1864,6 +1909,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Lists all the Resolver endpoints that were created using the current Amazon Web Services account.</p>
    */
   public listResolverEndpoints(
@@ -1896,6 +1942,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
    */
   public listResolverQueryLogConfigAssociations(
@@ -1930,6 +1977,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
    * 			DNS query logs and specifies the VPCs that you want to log queries for.</p>
    */
@@ -1963,6 +2011,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.</p>
    */
   public listResolverRuleAssociations(
@@ -1995,6 +2044,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Lists the Resolver rules that were created using the current Amazon Web Services account.</p>
    */
   public listResolverRules(
@@ -2027,6 +2077,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that you associated with the specified resource.</p>
    */
   public listTagsForResource(
@@ -2059,6 +2110,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing the rule
    * 			group. You can use the policy to share the rule group using Resource Access Manager
    * 			(RAM). </p>
@@ -2093,6 +2145,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,
    * 			and the operations that you want the account to be able to perform on the configuration.</p>
    */
@@ -2126,6 +2179,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Specifies an Amazon Web Services rule that you want to share with another account, the account that you want to share the rule with,
    * 			and the operations that you want the account to be able to perform on the rule.</p>
    */
@@ -2159,6 +2213,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to a specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2185,6 +2240,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a specified resource.</p>
    */
   public untagResource(
@@ -2217,6 +2273,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single
    * 			VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
    */
@@ -2250,6 +2307,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Updates the firewall domain list from an array of domain specifications. </p>
    */
   public updateFirewallDomains(
@@ -2282,6 +2340,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified firewall rule. </p>
    */
   public updateFirewallRule(
@@ -2314,6 +2373,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
    */
   public updateFirewallRuleGroupAssociation(
@@ -2346,6 +2406,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
    * 				Amazon Virtual Private Cloud.</p>
    */
@@ -2379,6 +2440,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing DNSSEC validation configuration. If there is no existing DNSSEC validation configuration, one is created.</p>
    */
   public updateResolverDnssecConfig(
@@ -2411,6 +2473,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
    * 			You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
    */
@@ -2444,6 +2507,7 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * @public
    * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.
    * 			If you don't specify a parameter, it retains its current value.</p>
    */

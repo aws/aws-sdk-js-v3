@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMapCommand}.
  */
 export interface UpdateMapCommandInput extends UpdateMapRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMapCommand}.
  */
 export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given map resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMapCommandInput - {@link UpdateMapCommandInput}
+ * @returns {@link UpdateMapCommandOutput}
  * @see {@link UpdateMapCommandInput} for command's `input` shape.
  * @see {@link UpdateMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMapCommandOutput> {
     return deserializeAws_restJson1UpdateMapCommand(output, context);
   }

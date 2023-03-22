@@ -18,15 +18,20 @@ import { TagPolicyRequest, TagPolicyRequestFilterSensitiveLog } from "../models/
 import { deserializeAws_queryTagPolicyCommand, serializeAws_queryTagPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagPolicyCommand}.
  */
 export interface TagPolicyCommandInput extends TagPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagPolicyCommand}.
  */
 export interface TagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM customer managed policy. If a tag with the same key
  *       name already exists, then that tag is overwritten with the new value.</p>
  *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -73,6 +78,8 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagPolicyCommandInput - {@link TagPolicyCommandInput}
+ * @returns {@link TagPolicyCommandOutput}
  * @see {@link TagPolicyCommandInput} for command's `input` shape.
  * @see {@link TagPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -112,6 +119,9 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagPolicyCommandOutput> {
     return deserializeAws_queryTagPolicyCommand(output, context);
   }

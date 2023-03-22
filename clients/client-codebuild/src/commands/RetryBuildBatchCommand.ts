@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RetryBuildBatchCommand}.
  */
 export interface RetryBuildBatchCommandInput extends RetryBuildBatchInput {}
 /**
+ * @public
+ *
  * The output of {@link RetryBuildBatchCommand}.
  */
 export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryBuildBatchCommandInput - {@link RetryBuildBatchCommandInput}
+ * @returns {@link RetryBuildBatchCommandOutput}
  * @see {@link RetryBuildBatchCommandInput} for command's `input` shape.
  * @see {@link RetryBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +82,9 @@ export class RetryBuildBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryBuildBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class RetryBuildBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetryBuildBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryBuildBatchCommandOutput> {
     return deserializeAws_json1_1RetryBuildBatchCommand(output, context);
   }

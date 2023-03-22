@@ -10,7 +10,7 @@ import { IoTDataPlaneClient } from "../IoTDataPlaneClient";
 import { IoTDataPlanePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTDataPlaneClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRetainedMessagesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRetainedMessages(
   config: IoTDataPlanePaginationConfiguration,
   input: ListRetainedMessagesCommandInput,

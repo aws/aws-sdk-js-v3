@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSMSSandboxPhoneNumbersCommand}.
  */
 export interface ListSMSSandboxPhoneNumbersCommandInput extends ListSMSSandboxPhoneNumbersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSMSSandboxPhoneNumbersCommand}.
  */
 export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxPhoneNumbersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the calling Amazon Web Services account's current verified and pending destination phone
  *             numbers in the SMS sandbox.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -55,6 +60,8 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSMSSandboxPhoneNumbersCommandInput - {@link ListSMSSandboxPhoneNumbersCommandInput}
+ * @returns {@link ListSMSSandboxPhoneNumbersCommandOutput}
  * @see {@link ListSMSSandboxPhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link ListSMSSandboxPhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListSMSSandboxPhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSMSSandboxPhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListSMSSandboxPhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSMSSandboxPhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSMSSandboxPhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

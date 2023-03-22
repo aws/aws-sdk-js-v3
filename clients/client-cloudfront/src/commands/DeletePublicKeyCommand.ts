@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePublicKeyCommand}.
  */
 export interface DeletePublicKeyCommandInput extends DeletePublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePublicKeyCommand}.
  */
 export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a public key you previously added to CloudFront.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePublicKeyCommandInput - {@link DeletePublicKeyCommandInput}
+ * @returns {@link DeletePublicKeyCommandOutput}
  * @see {@link DeletePublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeletePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeletePublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeletePublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeletePublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicKeyCommandOutput> {
     return deserializeAws_restXmlDeletePublicKeyCommand(output, context);
   }

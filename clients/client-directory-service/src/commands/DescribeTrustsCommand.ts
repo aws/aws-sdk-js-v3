@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrustsCommand}.
  */
 export interface DescribeTrustsCommandInput extends DescribeTrustsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrustsCommand}.
  */
 export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains information about the trust relationships for this account.</p>
  *          <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request
  *       describes all the trust relationships belonging to the account.</p>
@@ -48,6 +53,8 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustsCommandInput - {@link DescribeTrustsCommandInput}
+ * @returns {@link DescribeTrustsCommandOutput}
  * @see {@link DescribeTrustsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeTrustsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeTrustsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrustsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTrustsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrustsCommandOutput> {
     return deserializeAws_json1_1DescribeTrustsCommand(output, context);
   }

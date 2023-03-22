@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetVdmOptionsCommand}.
  */
 export interface PutConfigurationSetVdmOptionsCommandInput extends PutConfigurationSetVdmOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetVdmOptionsCommand}.
  */
 export interface PutConfigurationSetVdmOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify VDM preferences for email that you send using the configuration set.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetVdmOptionsCommandInput - {@link PutConfigurationSetVdmOptionsCommandInput}
+ * @returns {@link PutConfigurationSetVdmOptionsCommandOutput}
  * @see {@link PutConfigurationSetVdmOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetVdmOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetVdmOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigurationSetVdmOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutConfigurationSetVdmOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

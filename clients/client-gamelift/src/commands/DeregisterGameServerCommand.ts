@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterGameServerCommand}.
  */
 export interface DeregisterGameServerCommandInput extends DeregisterGameServerInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterGameServerCommand}.
  */
 export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -56,6 +61,8 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterGameServerCommandInput - {@link DeregisterGameServerCommandInput}
+ * @returns {@link DeregisterGameServerCommandOutput}
  * @see {@link DeregisterGameServerCommandInput} for command's `input` shape.
  * @see {@link DeregisterGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeregisterGameServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterGameServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeregisterGameServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterGameServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterGameServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterGameServerCommandOutput> {
     return deserializeAws_json1_1DeregisterGameServerCommand(output, context);
   }

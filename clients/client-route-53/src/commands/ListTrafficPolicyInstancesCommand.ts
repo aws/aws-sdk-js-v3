@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrafficPolicyInstancesCommand}.
  */
 export interface ListTrafficPolicyInstancesCommandInput extends ListTrafficPolicyInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrafficPolicyInstancesCommand}.
  */
 export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPolicyInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the traffic policy instances that you created by using the
  * 			current Amazon Web Services account.</p>
  *          <note>
@@ -56,6 +61,8 @@ export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPoli
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficPolicyInstancesCommandInput - {@link ListTrafficPolicyInstancesCommandInput}
+ * @returns {@link ListTrafficPolicyInstancesCommandOutput}
  * @see {@link ListTrafficPolicyInstancesCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -85,6 +92,9 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPolicyInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrafficPolicyInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListTrafficPolicyInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

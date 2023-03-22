@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagDeliveryStreamCommand}.
  */
 export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagDeliveryStreamCommand}.
  */
 export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
  *          can't recover them after this operation successfully completes.</p>
  *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
@@ -49,6 +54,8 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagDeliveryStreamCommandInput - {@link UntagDeliveryStreamCommandInput}
+ * @returns {@link UntagDeliveryStreamCommandOutput}
  * @see {@link UntagDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link UntagDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -84,6 +91,9 @@ export class UntagDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UntagDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1UntagDeliveryStreamCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicePipelineProvisionedResourcesCommand}.
  */
 export interface ListServicePipelineProvisionedResourcesCommandInput
   extends ListServicePipelineProvisionedResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServicePipelineProvisionedResourcesCommand}.
  */
 export interface ListServicePipelineProvisionedResourcesCommandOutput
@@ -38,6 +42,7 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List provisioned resources for a service and pipeline with details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicePipelineProvisionedResourcesCommandInput - {@link ListServicePipelineProvisionedResourcesCommandInput}
+ * @returns {@link ListServicePipelineProvisionedResourcesCommandOutput}
  * @see {@link ListServicePipelineProvisionedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListServicePipelineProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListServicePipelineProvisionedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicePipelineProvisionedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class ListServicePipelineProvisionedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServicePipelineProvisionedResourcesCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class ListServicePipelineProvisionedResourcesCommand extends $Command<
     return serializeAws_json1_0ListServicePipelineProvisionedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

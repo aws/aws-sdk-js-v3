@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectorProfileCommand}.
  */
 export interface CreateConnectorProfileCommandInput extends CreateConnectorProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectorProfileCommand}.
  */
 export interface CreateConnectorProfileCommandOutput extends CreateConnectorProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new connector profile associated with your Amazon Web Services account. There is
  *       a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
  *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow
@@ -50,6 +55,8 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectorProfileCommandInput - {@link CreateConnectorProfileCommandInput}
+ * @returns {@link CreateConnectorProfileCommandOutput}
  * @see {@link CreateConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorProfileCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateConnectorProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectorProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateConnectorProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectorProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConnectorProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectorProfileCommandOutput> {
     return deserializeAws_restJson1CreateConnectorProfileCommand(output, context);
   }

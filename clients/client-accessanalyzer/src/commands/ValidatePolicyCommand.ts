@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidatePolicyCommand}.
  */
 export interface ValidatePolicyCommandInput extends ValidatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidatePolicyCommand}.
  */
 export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests the validation of a policy and returns a list of findings. The findings help
  *          you identify issues and provide actionable recommendations to resolve the issue and enable
  *          you to author functional policies that meet security best practices. </p>
@@ -48,6 +53,8 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidatePolicyCommandInput - {@link ValidatePolicyCommandInput}
+ * @returns {@link ValidatePolicyCommandOutput}
  * @see {@link ValidatePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidatePolicyCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -83,6 +90,9 @@ export class ValidatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ValidatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ValidatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidatePolicyCommandOutput> {
     return deserializeAws_restJson1ValidatePolicyCommand(output, context);
   }

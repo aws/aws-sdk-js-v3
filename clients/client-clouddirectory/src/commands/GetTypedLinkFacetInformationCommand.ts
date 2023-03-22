@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTypedLinkFacetInformationCommand}.
  */
 export interface GetTypedLinkFacetInformationCommandInput extends GetTypedLinkFacetInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTypedLinkFacetInformationCommand}.
  */
 export interface GetTypedLinkFacetInformationCommandOutput
@@ -37,6 +41,7 @@ export interface GetTypedLinkFacetInformationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetTypedLinkFacetInformationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTypedLinkFacetInformationCommandInput - {@link GetTypedLinkFacetInformationCommandInput}
+ * @returns {@link GetTypedLinkFacetInformationCommandOutput}
  * @see {@link GetTypedLinkFacetInformationCommandInput} for command's `input` shape.
  * @see {@link GetTypedLinkFacetInformationCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTypedLinkFacetInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTypedLinkFacetInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTypedLinkFacetInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

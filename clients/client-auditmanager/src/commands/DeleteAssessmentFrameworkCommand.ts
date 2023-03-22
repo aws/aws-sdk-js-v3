@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentFrameworkCommand}.
  */
 export interface DeleteAssessmentFrameworkCommandInput extends DeleteAssessmentFrameworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentFrameworkCommand}.
  */
 export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessment
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentFrameworkCommandInput - {@link DeleteAssessmentFrameworkCommandInput}
+ * @returns {@link DeleteAssessmentFrameworkCommandOutput}
  * @see {@link DeleteAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteAssessmentFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteAssessmentFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAssessmentFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

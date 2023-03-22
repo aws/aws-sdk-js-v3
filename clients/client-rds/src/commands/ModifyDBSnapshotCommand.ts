@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBSnapshotCommand}.
  */
 export interface ModifyDBSnapshotCommandInput extends ModifyDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBSnapshotCommand}.
  */
 export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
  *             or unencrypted, but not shared or public.
  *
@@ -51,6 +56,8 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBSnapshotCommandInput - {@link ModifyDBSnapshotCommandInput}
+ * @returns {@link ModifyDBSnapshotCommandOutput}
  * @see {@link ModifyDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -78,6 +85,9 @@ export class ModifyDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ModifyDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSnapshotCommandOutput> {
     return deserializeAws_queryModifyDBSnapshotCommand(output, context);
   }

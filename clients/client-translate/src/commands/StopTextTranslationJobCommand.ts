@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopTextTranslationJobCommand}.
  */
 export interface StopTextTranslationJobCommandInput extends StopTextTranslationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTextTranslationJobCommand}.
  */
 export interface StopTextTranslationJobCommandOutput extends StopTextTranslationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an asynchronous batch translation job that is in progress.</p>
  *          <p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped,
@@ -52,6 +57,8 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTextTranslationJobCommandInput - {@link StopTextTranslationJobCommandInput}
+ * @returns {@link StopTextTranslationJobCommandOutput}
  * @see {@link StopTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link StopTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -87,6 +94,9 @@ export class StopTextTranslationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTextTranslationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StopTextTranslationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTextTranslationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopTextTranslationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTextTranslationJobCommandOutput> {
     return deserializeAws_json1_1StopTextTranslationJobCommand(output, context);
   }

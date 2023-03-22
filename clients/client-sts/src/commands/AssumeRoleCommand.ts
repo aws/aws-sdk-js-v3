@@ -24,15 +24,20 @@ import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleComm
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeRoleCommand}.
  */
 export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeRoleCommand}.
  */
 export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
  *          resources. These temporary credentials consist of an access key ID, a secret access key,
  *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
@@ -112,7 +117,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          assume the role is denied. The condition in a trust policy that tests for MFA
  *          authentication might look like the following example.</p>
  *          <p>
- *             <code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code>
+ *             <code>"Condition": \{"Bool": \{"aws:MultiFactorAuthPresent": true\}\}</code>
  *          </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring MFA-Protected API Access</a>
  *          in the <i>IAM User Guide</i> guide.</p>
@@ -131,6 +136,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeRoleCommandInput - {@link AssumeRoleCommandInput}
+ * @returns {@link AssumeRoleCommandOutput}
  * @see {@link AssumeRoleCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -228,6 +235,9 @@ export class AssumeRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -266,10 +276,16 @@ export class AssumeRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAssumeRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleCommandOutput> {
     return deserializeAws_queryAssumeRoleCommand(output, context);
   }

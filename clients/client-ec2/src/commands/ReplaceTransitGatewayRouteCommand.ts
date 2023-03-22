@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceTransitGatewayRouteCommand}.
  */
 export interface ReplaceTransitGatewayRouteCommandInput extends ReplaceTransitGatewayRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceTransitGatewayRouteCommand}.
  */
 export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the specified route in the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceTransitGatewayRouteCommandInput - {@link ReplaceTransitGatewayRouteCommandInput}
+ * @returns {@link ReplaceTransitGatewayRouteCommandOutput}
  * @see {@link ReplaceTransitGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link ReplaceTransitGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceTransitGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceTransitGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceTransitGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelVersionCommand}.
  */
 export interface UpdateModelVersionCommandInput extends UpdateModelVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelVersionCommand}.
  */
 export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelVersionCommandInput - {@link UpdateModelVersionCommandInput}
+ * @returns {@link UpdateModelVersionCommandOutput}
  * @see {@link UpdateModelVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateModelVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateModelVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateModelVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelVersionCommandOutput> {
     return deserializeAws_json1_1UpdateModelVersionCommand(output, context);
   }

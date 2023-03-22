@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateLensesCommand}.
  */
 export interface AssociateLensesCommandInput extends AssociateLensesInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateLensesCommand}.
  */
 export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a lens to a workload.</p>
  *         <p>Up to 10 lenses can be associated with a workload in a single API operation. A
  *         maximum of 20 lenses can be associated with a workload.</p>
@@ -51,6 +56,8 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLensesCommandInput - {@link AssociateLensesCommandInput}
+ * @returns {@link AssociateLensesCommandOutput}
  * @see {@link AssociateLensesCommandInput} for command's `input` shape.
  * @see {@link AssociateLensesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -92,6 +99,9 @@ export class AssociateLensesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class AssociateLensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateLensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLensesCommandOutput> {
     return deserializeAws_restJson1AssociateLensesCommand(output, context);
   }

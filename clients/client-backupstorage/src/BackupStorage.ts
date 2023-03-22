@@ -25,10 +25,12 @@ import { PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from 
 import { StartObjectCommand, StartObjectCommandInput, StartObjectCommandOutput } from "./commands/StartObjectCommand";
 
 /**
+ * @public
  * The frontend service for Cryo Storage.
  */
 export class BackupStorage extends BackupStorageClient {
   /**
+   * @public
    * Delete Object from the incremental base Backup.
    */
   public deleteObject(
@@ -58,6 +60,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * Gets the specified object's chunk.
    */
   public getChunk(args: GetChunkCommandInput, options?: __HttpHandlerOptions): Promise<GetChunkCommandOutput>;
@@ -84,6 +87,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * Get metadata associated with an Object.
    */
   public getObjectMetadata(
@@ -116,6 +120,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * List chunks in a given Object
    */
   public listChunks(args: ListChunksCommandInput, options?: __HttpHandlerOptions): Promise<ListChunksCommandOutput>;
@@ -142,6 +147,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * List all Objects in a given Backup.
    */
   public listObjects(args: ListObjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListObjectsCommandOutput>;
@@ -168,6 +174,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * Complete upload
    */
   public notifyObjectComplete(
@@ -200,6 +207,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * Upload chunk.
    */
   public putChunk(args: PutChunkCommandInput, options?: __HttpHandlerOptions): Promise<PutChunkCommandOutput>;
@@ -226,6 +234,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * Upload object that can store object metadata String and data blob in single API call using inline chunk field.
    */
   public putObject(args: PutObjectCommandInput, options?: __HttpHandlerOptions): Promise<PutObjectCommandOutput>;
@@ -252,6 +261,7 @@ export class BackupStorage extends BackupStorageClient {
   }
 
   /**
+   * @public
    * Start upload containing one or many chunks.
    */
   public startObject(args: StartObjectCommandInput, options?: __HttpHandlerOptions): Promise<StartObjectCommandOutput>;

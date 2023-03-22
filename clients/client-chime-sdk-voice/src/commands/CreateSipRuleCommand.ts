@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSipRuleCommand}.
  */
 export interface CreateSipRuleCommandInput extends CreateSipRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSipRuleCommand}.
  */
 export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class CreateSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,10 +95,16 @@ export class CreateSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSipRuleCommandOutput> {
     return deserializeAws_restJson1CreateSipRuleCommand(output, context);
   }

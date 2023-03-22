@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBatchSegmentJobCommand}.
  */
 export interface DescribeBatchSegmentJobCommandInput extends DescribeBatchSegmentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBatchSegmentJobCommand}.
  */
 export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegmentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties of a batch segment job including name, Amazon Resource Name (ARN),
  *       status, input and output configurations, and the ARN of the solution version used to generate
  *       segments.</p>
@@ -48,6 +53,8 @@ export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegme
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBatchSegmentJobCommandInput - {@link DescribeBatchSegmentJobCommandInput}
+ * @returns {@link DescribeBatchSegmentJobCommandOutput}
  * @see {@link DescribeBatchSegmentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchSegmentJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeBatchSegmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBatchSegmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeBatchSegmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBatchSegmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBatchSegmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBatchSegmentJobCommandOutput> {
     return deserializeAws_json1_1DescribeBatchSegmentJobCommand(output, context);
   }

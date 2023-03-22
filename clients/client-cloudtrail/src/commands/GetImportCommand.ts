@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetImportCommand, serializeAws_json1_1GetImportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetImportCommand}.
  */
 export interface GetImportCommandInput extends GetImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImportCommand}.
  */
 export interface GetImportCommandOutput extends GetImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about a specific import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportCommandInput - {@link GetImportCommandInput}
+ * @returns {@link GetImportCommandOutput}
  * @see {@link GetImportCommandInput} for command's `input` shape.
  * @see {@link GetImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportCommandOutput> {
     return deserializeAws_json1_1GetImportCommand(output, context);
   }

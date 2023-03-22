@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AppIntegrationsServiceException as __BaseException } from "./AppIntegrationsServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration for what files should be pulled from the source.</p>
  */
 export interface FileConfiguration {
@@ -40,6 +42,7 @@ export interface FileConfiguration {
 }
 
 /**
+ * @public
  * <p>The name of the data and how often it should be pulled from the source.</p>
  */
 export interface ScheduleConfiguration {
@@ -60,6 +63,9 @@ export interface ScheduleConfiguration {
   ScheduleExpression: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataIntegrationRequest {
   /**
    * <p>The name of the DataIntegration.</p>
@@ -87,7 +93,7 @@ export interface CreateDataIntegrationRequest {
   ScheduleConfig: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -110,6 +116,9 @@ export interface CreateDataIntegrationRequest {
   ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataIntegrationResponse {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -147,7 +156,7 @@ export interface CreateDataIntegrationResponse {
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -171,6 +180,7 @@ export interface CreateDataIntegrationResponse {
 }
 
 /**
+ * @public
  * <p>A resource with the specified name already exists.</p>
  */
 export class DuplicateResourceException extends __BaseException {
@@ -192,6 +202,7 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request processing failed due to an error or failure with the service.</p>
  */
 export class InternalServiceError extends __BaseException {
@@ -213,6 +224,7 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid. </p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -234,6 +246,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The allowed quota for the resource has been exceeded.</p>
  */
 export class ResourceQuotaExceededException extends __BaseException {
@@ -255,6 +268,7 @@ export class ResourceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The throttling limit has been exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -276,6 +290,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The event filter.</p>
  */
 export interface EventFilter {
@@ -285,6 +300,9 @@ export interface EventFilter {
   Source: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventIntegrationRequest {
   /**
    * <p>The name of the event integration.</p>
@@ -315,11 +333,14 @@ export interface CreateEventIntegrationRequest {
   ClientToken?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventIntegrationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the event integration. </p>
@@ -327,6 +348,9 @@ export interface CreateEventIntegrationResponse {
   EventIntegrationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataIntegrationRequest {
   /**
    * <p>A unique identifier for the DataIntegration.</p>
@@ -334,9 +358,13 @@ export interface DeleteDataIntegrationRequest {
   DataIntegrationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataIntegrationResponse {}
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -357,6 +385,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventIntegrationRequest {
   /**
    * <p>The name of the event integration.</p>
@@ -364,8 +395,14 @@ export interface DeleteEventIntegrationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventIntegrationResponse {}
 
+/**
+ * @public
+ */
 export interface GetDataIntegrationRequest {
   /**
    * <p>A unique identifier.</p>
@@ -373,6 +410,9 @@ export interface GetDataIntegrationRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataIntegrationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the DataIntegration.</p>
@@ -410,7 +450,7 @@ export interface GetDataIntegrationResponse {
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -425,6 +465,9 @@ export interface GetDataIntegrationResponse {
   ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
+/**
+ * @public
+ */
 export interface GetEventIntegrationRequest {
   /**
    * <p>The name of the event integration. </p>
@@ -432,6 +475,9 @@ export interface GetEventIntegrationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventIntegrationResponse {
   /**
    * <p>The name of the event integration. </p>
@@ -459,11 +505,14 @@ export interface GetEventIntegrationResponse {
   EventFilter?: EventFilter;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationAssociationsRequest {
   /**
    * <p>A unique identifier for the DataIntegration.</p>
@@ -483,6 +532,7 @@ export interface ListDataIntegrationAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the DataIntegration association.</p>
  */
 export interface DataIntegrationAssociationSummary {
@@ -503,6 +553,9 @@ export interface DataIntegrationAssociationSummary {
   ClientId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationAssociationsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) and unique ID of the DataIntegration association.</p>
@@ -515,6 +568,9 @@ export interface ListDataIntegrationAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -529,6 +585,7 @@ export interface ListDataIntegrationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the DataIntegration.</p>
  */
 export interface DataIntegrationSummary {
@@ -548,6 +605,9 @@ export interface DataIntegrationSummary {
   SourceURI?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationsResponse {
   /**
    * <p>The DataIntegrations associated with this account.</p>
@@ -560,6 +620,9 @@ export interface ListDataIntegrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationAssociationsRequest {
   /**
    * <p>The name of the event integration. </p>
@@ -579,6 +642,7 @@ export interface ListEventIntegrationAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>The event integration association.</p>
  */
 export interface EventIntegrationAssociation {
@@ -613,6 +677,9 @@ export interface EventIntegrationAssociation {
   ClientAssociationMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationAssociationsResponse {
   /**
    * <p>The event integration associations.</p>
@@ -625,6 +692,9 @@ export interface ListEventIntegrationAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -639,6 +709,7 @@ export interface ListEventIntegrationsRequest {
 }
 
 /**
+ * @public
  * <p>The event integration.</p>
  */
 export interface EventIntegration {
@@ -668,11 +739,14 @@ export interface EventIntegration {
   EventBridgeBus?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationsResponse {
   /**
    * <p>The event integrations.</p>
@@ -685,6 +759,9 @@ export interface ListEventIntegrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. </p>
@@ -692,6 +769,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
@@ -699,6 +779,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -706,13 +789,19 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -725,8 +814,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDataIntegrationRequest {
   /**
    * <p>A unique identifier for the DataIntegration.</p>
@@ -744,8 +839,14 @@ export interface UpdateDataIntegrationRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataIntegrationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateEventIntegrationRequest {
   /**
    * <p>The name of the event integration.</p>
@@ -758,6 +859,9 @@ export interface UpdateEventIntegrationRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventIntegrationResponse {}
 
 /**

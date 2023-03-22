@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecoveryInstancesCommand}.
  */
 export interface DescribeRecoveryInstancesCommandInput extends DescribeRecoveryInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecoveryInstancesCommand}.
  */
 export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecoveryInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Recovery Instances or multiple Recovery Instances by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecoveryInstancesCommandInput - {@link DescribeRecoveryInstancesCommandInput}
+ * @returns {@link DescribeRecoveryInstancesCommandOutput}
  * @see {@link DescribeRecoveryInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoveryInstancesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeRecoveryInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecoveryInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeRecoveryInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecoveryInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRecoveryInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

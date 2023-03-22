@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledInstanceAvailabilityCommand}.
  */
 export interface DescribeScheduledInstanceAvailabilityCommandInput
   extends DescribeScheduledInstanceAvailabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledInstanceAvailabilityCommand}.
  */
 export interface DescribeScheduledInstanceAvailabilityCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds available schedules that meet the specified criteria.</p>
  *          <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
  *          <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
@@ -52,6 +57,8 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledInstanceAvailabilityCommandInput - {@link DescribeScheduledInstanceAvailabilityCommandInput}
+ * @returns {@link DescribeScheduledInstanceAvailabilityCommandOutput}
  * @see {@link DescribeScheduledInstanceAvailabilityCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledInstanceAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -124,6 +131,9 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledInstanceAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,6 +173,9 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeScheduledInstanceAvailabilityCommandInput,
     context: __SerdeContext
@@ -170,6 +183,9 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     return serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

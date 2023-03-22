@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationNfsCommand}.
  */
 export interface CreateLocationNfsCommandInput extends CreateLocationNfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationNfsCommand}.
  */
 export interface CreateLocationNfsCommandOutput extends CreateLocationNfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a file system on a Network File System (NFS) server that can be read from or
  *       written to.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationNfsCommandInput - {@link CreateLocationNfsCommandInput}
+ * @returns {@link CreateLocationNfsCommandOutput}
  * @see {@link CreateLocationNfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationNfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateLocationNfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationNfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateLocationNfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationNfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationNfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationNfsCommandOutput> {
     return deserializeAws_json1_1CreateLocationNfsCommand(output, context);
   }

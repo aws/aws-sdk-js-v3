@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWebACLsCommand}.
  */
 export interface ListWebACLsCommandInput extends ListWebACLsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWebACLsCommand}.
  */
 export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebACLsCommandInput - {@link ListWebACLsCommandInput}
+ * @returns {@link ListWebACLsCommandOutput}
  * @see {@link ListWebACLsCommandInput} for command's `input` shape.
  * @see {@link ListWebACLsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -104,6 +111,9 @@ export class ListWebACLsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebACLsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListWebACLsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWebACLsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWebACLsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWebACLsCommandOutput> {
     return deserializeAws_json1_1ListWebACLsCommand(output, context);
   }

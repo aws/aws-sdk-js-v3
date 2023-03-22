@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetPlatformApplicationAttributesCommand}.
  */
 export interface SetPlatformApplicationAttributesCommandInput extends SetPlatformApplicationAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetPlatformApplicationAttributesCommand}.
  */
 export interface SetPlatformApplicationAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the attributes of the platform application object for the supported push
  *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring
@@ -48,6 +53,8 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param SetPlatformApplicationAttributesCommandInput - {@link SetPlatformApplicationAttributesCommandInput}
+ * @returns {@link SetPlatformApplicationAttributesCommandOutput}
  * @see {@link SetPlatformApplicationAttributesCommandInput} for command's `input` shape.
  * @see {@link SetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -84,6 +91,9 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetPlatformApplicationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetPlatformApplicationAttributesCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     return serializeAws_querySetPlatformApplicationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

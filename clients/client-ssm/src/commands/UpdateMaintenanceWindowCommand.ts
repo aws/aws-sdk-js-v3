@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMaintenanceWindowCommand}.
  */
 export interface UpdateMaintenanceWindowCommandInput extends UpdateMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMaintenanceWindowCommand}.
  */
 export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
  *          <note>
  *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -54,6 +59,8 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMaintenanceWindowCommandInput - {@link UpdateMaintenanceWindowCommandInput}
+ * @returns {@link UpdateMaintenanceWindowCommandOutput}
  * @see {@link UpdateMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMaintenanceWindowCommandOutput> {
     return deserializeAws_json1_1UpdateMaintenanceWindowCommand(output, context);
   }

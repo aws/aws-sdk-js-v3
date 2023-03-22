@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreWorkspaceCommand}.
  */
 export interface RestoreWorkspaceCommandInput extends RestoreWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreWorkspaceCommand}.
  */
 export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores the specified WorkSpace to its last known healthy state.</p>
  *          <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,
  *             <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p>
@@ -53,6 +58,8 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreWorkspaceCommandInput - {@link RestoreWorkspaceCommandInput}
+ * @returns {@link RestoreWorkspaceCommandOutput}
  * @see {@link RestoreWorkspaceCommandInput} for command's `input` shape.
  * @see {@link RestoreWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -88,6 +95,9 @@ export class RestoreWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class RestoreWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreWorkspaceCommandOutput> {
     return deserializeAws_json1_1RestoreWorkspaceCommand(output, context);
   }

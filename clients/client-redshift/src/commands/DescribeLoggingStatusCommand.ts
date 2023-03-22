@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoggingStatusCommand}.
  */
 export interface DescribeLoggingStatusCommandInput extends DescribeLoggingStatusMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoggingStatusCommand}.
  */
 export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes whether information, such as queries and connection attempts, is being
  *             logged for the specified Amazon Redshift cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoggingStatusCommandInput - {@link DescribeLoggingStatusCommandInput}
+ * @returns {@link DescribeLoggingStatusCommandOutput}
  * @see {@link DescribeLoggingStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeLoggingStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoggingStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeLoggingStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoggingStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLoggingStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingStatusCommandOutput> {
     return deserializeAws_queryDescribeLoggingStatusCommand(output, context);
   }

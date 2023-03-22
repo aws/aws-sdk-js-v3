@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListExperimentsCommand}.
  */
 export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExperimentsCommand}.
  */
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the experiments in your account. The list can be filtered to show only
  *       experiments that were created in a specific time range. The list can be sorted by experiment
  *       name or creation time.</p>
@@ -48,6 +53,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExperimentsCommandInput - {@link ListExperimentsCommandInput}
+ * @returns {@link ListExperimentsCommandOutput}
  * @see {@link ListExperimentsCommandInput} for command's `input` shape.
  * @see {@link ListExperimentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListExperimentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExperimentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListExperimentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExperimentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExperimentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperimentsCommandOutput> {
     return deserializeAws_json1_1ListExperimentsCommand(output, context);
   }

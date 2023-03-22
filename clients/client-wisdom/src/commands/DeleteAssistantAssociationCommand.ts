@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssistantAssociationCommand}.
  */
 export interface DeleteAssistantAssociationCommandInput extends DeleteAssistantAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssistantAssociationCommand}.
  */
 export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistantAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an assistant association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssistantAssociationCommandInput - {@link DeleteAssistantAssociationCommandInput}
+ * @returns {@link DeleteAssistantAssociationCommandOutput}
  * @see {@link DeleteAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteAssistantAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssistantAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteAssistantAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAssistantAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

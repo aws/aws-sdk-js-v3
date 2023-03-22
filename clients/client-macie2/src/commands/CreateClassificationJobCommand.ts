@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClassificationJobCommand}.
  */
 export interface CreateClassificationJobCommandInput extends CreateClassificationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClassificationJobCommand}.
  */
 export interface CreateClassificationJobCommandOutput extends CreateClassificationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and defines the settings for a classification job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClassificationJobCommandInput - {@link CreateClassificationJobCommandInput}
+ * @returns {@link CreateClassificationJobCommandOutput}
  * @see {@link CreateClassificationJobCommandInput} for command's `input` shape.
  * @see {@link CreateClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreateClassificationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClassificationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateClassificationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClassificationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateClassificationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClassificationJobCommandOutput> {
     return deserializeAws_restJson1CreateClassificationJobCommand(output, context);
   }

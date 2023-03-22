@@ -21,10 +21,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSipRuleCommand}.
  */
 export interface DeleteSipRuleCommandInput extends DeleteSipRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSipRuleCommand}.
  */
 export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
@@ -46,6 +50,9 @@ export class DeleteSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,10 +90,16 @@ export class DeleteSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSipRuleCommandOutput> {
     return deserializeAws_restJson1DeleteSipRuleCommand(output, context);
   }

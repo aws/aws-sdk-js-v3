@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamCommand}.
  */
 export interface GetStreamCommandInput extends GetStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamCommand}.
  */
 export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the active (live) stream on a specified channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamCommandInput - {@link GetStreamCommandInput}
+ * @returns {@link GetStreamCommandOutput}
  * @see {@link GetStreamCommandInput} for command's `input` shape.
  * @see {@link GetStreamCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamCommandOutput> {
     return deserializeAws_restJson1GetStreamCommand(output, context);
   }

@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetReusableDelegationSetCommand}.
  */
 export interface GetReusableDelegationSetCommandInput extends GetReusableDelegationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReusableDelegationSetCommand}.
  */
 export interface GetReusableDelegationSetCommandOutput extends GetReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a specified reusable delegation set, including the four
  * 			name servers that are assigned to the delegation set.</p>
  * @example
@@ -48,6 +53,8 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReusableDelegationSetCommandInput - {@link GetReusableDelegationSetCommandInput}
+ * @returns {@link GetReusableDelegationSetCommandOutput}
  * @see {@link GetReusableDelegationSetCommandInput} for command's `input` shape.
  * @see {@link GetReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -80,6 +87,9 @@ export class GetReusableDelegationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReusableDelegationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetReusableDelegationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReusableDelegationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetReusableDelegationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReusableDelegationSetCommandOutput> {
     return deserializeAws_restXmlGetReusableDelegationSetCommand(output, context);
   }

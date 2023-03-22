@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataRetrievalPolicyCommand}.
  */
 export interface GetDataRetrievalPolicyCommandInput extends GetDataRetrievalPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDataRetrievalPolicyCommand}.
  */
 export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns the current data retrieval policy for the account and region
  *          specified in the GET request. For more information about data retrieval policies, see
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html">Amazon Glacier Data Retrieval Policies</a>.</p>
@@ -48,6 +53,8 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataRetrievalPolicyCommandInput - {@link GetDataRetrievalPolicyCommandInput}
+ * @returns {@link GetDataRetrievalPolicyCommandOutput}
  * @see {@link GetDataRetrievalPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataRetrievalPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -103,6 +110,9 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataRetrievalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataRetrievalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataRetrievalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataRetrievalPolicyCommandOutput> {
     return deserializeAws_restJson1GetDataRetrievalPolicyCommand(output, context);
   }

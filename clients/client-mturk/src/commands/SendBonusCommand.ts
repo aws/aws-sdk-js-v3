@@ -23,15 +23,20 @@ import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import { deserializeAws_json1_1SendBonusCommand, serializeAws_json1_1SendBonusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendBonusCommand}.
  */
 export interface SendBonusCommandInput extends SendBonusRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendBonusCommand}.
  */
 export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>SendBonus</code>
@@ -56,6 +61,8 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBonusCommandInput - {@link SendBonusCommandInput}
+ * @returns {@link SendBonusCommandOutput}
  * @see {@link SendBonusCommandInput} for command's `input` shape.
  * @see {@link SendBonusCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -85,6 +92,9 @@ export class SendBonusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBonusCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class SendBonusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBonusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendBonusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBonusCommandOutput> {
     return deserializeAws_json1_1SendBonusCommand(output, context);
   }

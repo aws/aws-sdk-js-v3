@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TimestreamQueryServiceException as __BaseException } from "./TimestreamQueryServiceException";
 
 /**
+ * @public
  * <p> You are not authorized to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelQueryRequest {
   /**
    * <p> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned as
@@ -32,6 +36,9 @@ export interface CancelQueryRequest {
   QueryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelQueryResponse {
   /**
    * <p> A <code>CancellationMessage</code> is returned when a <code>CancelQuery</code>
@@ -41,6 +48,7 @@ export interface CancelQueryResponse {
 }
 
 /**
+ * @public
  * <p>
  *             Timestream was unable to fully process this request because of an internal
  *             server error. </p>
@@ -64,6 +72,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested endpoint was not valid.</p>
  */
 export class InvalidEndpointException extends __BaseException {
@@ -85,6 +94,7 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -106,6 +116,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Invalid or malformed request. </p>
  */
 export class ValidationException extends __BaseException {
@@ -126,6 +137,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ScalarType {
   BIGINT = "BIGINT",
   BOOLEAN = "BOOLEAN",
@@ -141,6 +155,7 @@ export enum ScalarType {
 }
 
 /**
+ * @public
  * <p> Unable to poll results for a cancelled query. </p>
  */
 export class ConflictException extends __BaseException {
@@ -161,12 +176,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum S3EncryptionOption {
   SSE_KMS = "SSE_KMS",
   SSE_S3 = "SSE_S3",
 }
 
 /**
+ * @public
  * <p>Details on S3 location for error reports that result from running a query. </p>
  */
 export interface S3Configuration {
@@ -189,6 +208,7 @@ export interface S3Configuration {
 }
 
 /**
+ * @public
  * <p>Configuration required for error reporting.</p>
  */
 export interface ErrorReportConfiguration {
@@ -199,6 +219,7 @@ export interface ErrorReportConfiguration {
 }
 
 /**
+ * @public
  * <p>Details on SNS that are required to send the notification.</p>
  */
 export interface SnsConfiguration {
@@ -209,6 +230,7 @@ export interface SnsConfiguration {
 }
 
 /**
+ * @public
  * <p>Notification configuration for a scheduled query. A notification is sent by
  *             Timestream when a scheduled query is created, its state is updated or when it is deleted. </p>
  */
@@ -220,6 +242,7 @@ export interface NotificationConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration of the schedule of the query.</p>
  */
 export interface ScheduleConfiguration {
@@ -231,6 +254,7 @@ export interface ScheduleConfiguration {
 }
 
 /**
+ * @public
  * <p>A tag is a label that you assign to a Timestream database and/or table. Each tag
  *             consists of a key and an optional value, both of which you define. Tags enable you to
  *             categorize databases and/or tables, for example, by purpose, owner, or environment.
@@ -248,11 +272,15 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DimensionValueType {
   VARCHAR = "VARCHAR",
 }
 
 /**
+ * @public
  * <p>This type is used to map column(s) from the query result to a dimension in the
  *             destination table.</p>
  */
@@ -268,6 +296,9 @@ export interface DimensionMapping {
   DimensionValueType: DimensionValueType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MeasureValueType {
   BIGINT = "BIGINT",
   BOOLEAN = "BOOLEAN",
@@ -276,6 +307,9 @@ export enum MeasureValueType {
   VARCHAR = "VARCHAR",
 }
 
+/**
+ * @public
+ */
 export enum ScalarMeasureValueType {
   BIGINT = "BIGINT",
   BOOLEAN = "BOOLEAN",
@@ -285,6 +319,7 @@ export enum ScalarMeasureValueType {
 }
 
 /**
+ * @public
  * <p>Attribute mapping for MULTI value measures.</p>
  */
 export interface MultiMeasureAttributeMapping {
@@ -306,6 +341,7 @@ export interface MultiMeasureAttributeMapping {
 }
 
 /**
+ * @public
  * <p>MixedMeasureMappings are mappings that can be used to ingest data into a mixture of
  *             narrow and multi measures in the derived table.</p>
  */
@@ -342,6 +378,7 @@ export interface MixedMeasureMapping {
 }
 
 /**
+ * @public
  * <p>Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided.
  *             MultiMeasureMappings can be used to ingest data as multi measures in the derived
  *             table.</p>
@@ -362,6 +399,7 @@ export interface MultiMeasureMappings {
 }
 
 /**
+ * @public
  * <p> Configuration to write data into Timestream database and table. This configuration
  *             allows the user to map the query result select columns into the destination table
  *             columns. </p>
@@ -407,6 +445,7 @@ export interface TimestreamConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration used for writing the output of a query.</p>
  */
 export interface TargetConfiguration {
@@ -416,6 +455,9 @@ export interface TargetConfiguration {
   TimestreamConfiguration: TimestreamConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduledQueryRequest {
   /**
    * <p>Name of the scheduled query.</p>
@@ -492,6 +534,9 @@ export interface CreateScheduledQueryRequest {
   ErrorReportConfiguration: ErrorReportConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduledQueryResponse {
   /**
    * <p>ARN for the created scheduled query.</p>
@@ -500,6 +545,7 @@ export interface CreateScheduledQueryResponse {
 }
 
 /**
+ * @public
  * <p>You have exceeded the service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -520,6 +566,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledQueryRequest {
   /**
    * <p>The ARN of the scheduled query. </p>
@@ -528,6 +577,7 @@ export interface DeleteScheduledQueryRequest {
 }
 
 /**
+ * @public
  * <p>The requested resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -553,9 +603,13 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsRequest {}
 
 /**
+ * @public
  * <p>Represents an available endpoint against which to make API calls against, as well as
  *             the TTL for that endpoint.</p>
  */
@@ -571,6 +625,9 @@ export interface Endpoint {
   CachePeriodInMinutes: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsResponse {
   /**
    * <p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code>
@@ -579,6 +636,9 @@ export interface DescribeEndpointsResponse {
   Endpoints: Endpoint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduledQueryRequest {
   /**
    * <p>The ARN of the scheduled query.</p>
@@ -587,6 +647,7 @@ export interface DescribeScheduledQueryRequest {
 }
 
 /**
+ * @public
  * <p> S3 report location for the scheduled query run.</p>
  */
 export interface S3ReportLocation {
@@ -602,6 +663,7 @@ export interface S3ReportLocation {
 }
 
 /**
+ * @public
  * <p>This contains the location of the error report for a single scheduled query call.
  *         </p>
  */
@@ -613,6 +675,7 @@ export interface ErrorReportLocation {
 }
 
 /**
+ * @public
  * <p>Statistics for a single scheduled query run.</p>
  */
 export interface ExecutionStats {
@@ -643,6 +706,9 @@ export interface ExecutionStats {
   QueryResultRows?: number;
 }
 
+/**
+ * @public
+ */
 export enum ScheduledQueryRunStatus {
   AUTO_TRIGGER_FAILURE = "AUTO_TRIGGER_FAILURE",
   AUTO_TRIGGER_SUCCESS = "AUTO_TRIGGER_SUCCESS",
@@ -651,6 +717,7 @@ export enum ScheduledQueryRunStatus {
 }
 
 /**
+ * @public
  * <p>Run summary for the scheduled query</p>
  */
 export interface ScheduledQueryRunSummary {
@@ -687,12 +754,16 @@ export interface ScheduledQueryRunSummary {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export enum ScheduledQueryState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Structure that describes scheduled query.</p>
  */
 export interface ScheduledQueryDescription {
@@ -772,6 +843,9 @@ export interface ScheduledQueryDescription {
   RecentlyFailedRuns?: ScheduledQueryRunSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduledQueryResponse {
   /**
    * <p>The scheduled query.</p>
@@ -779,6 +853,9 @@ export interface DescribeScheduledQueryResponse {
   ScheduledQuery: ScheduledQueryDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteScheduledQueryRequest {
   /**
    * <p>ARN of the scheduled query.</p>
@@ -796,6 +873,9 @@ export interface ExecuteScheduledQueryRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScheduledQueriesRequest {
   /**
    * <p>The maximum number of items to return in the output. If the total number of items
@@ -812,6 +892,7 @@ export interface ListScheduledQueriesRequest {
 }
 
 /**
+ * @public
  * <p>Destination for scheduled query.</p>
  */
 export interface TimestreamDestination {
@@ -827,6 +908,7 @@ export interface TimestreamDestination {
 }
 
 /**
+ * @public
  * <p>Destination details to write data for a target data source. Current supported data
  *             source is Timestream.</p>
  */
@@ -838,6 +920,7 @@ export interface TargetDestination {
 }
 
 /**
+ * @public
  * <p>Scheduled Query</p>
  */
 export interface ScheduledQuery {
@@ -887,6 +970,9 @@ export interface ScheduledQuery {
   LastRunStatus?: ScheduledQueryRunStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListScheduledQueriesResponse {
   /**
    * <p>A list of scheduled queries.</p>
@@ -900,6 +986,9 @@ export interface ListScheduledQueriesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Timestream resource with tags to be listed. This value is an Amazon Resource Name
@@ -918,6 +1007,9 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags currently associated with the Timestream resource. </p>
@@ -931,6 +1023,9 @@ export interface ListTagsForResourceResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PrepareQueryRequest {
   /**
    * <p>The Timestream query string that you want to use as a prepared statement. Parameter
@@ -948,6 +1043,7 @@ export interface PrepareQueryRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Timestream was unable to run the query successfully. </p>
  */
@@ -969,6 +1065,9 @@ export class QueryExecutionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface QueryRequest {
   /**
    * <p> The query to be run by Timestream. </p>
@@ -1075,6 +1174,7 @@ export interface QueryRequest {
 }
 
 /**
+ * @public
  * <p>Information about the status of the query, including progress and bytes
  *             scanned.</p>
  */
@@ -1099,6 +1199,9 @@ export interface QueryStatus {
   CumulativeBytesMetered?: number;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Identifies the Timestream resource to which tags should be added. This value is an
@@ -1112,8 +1215,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Timestream resource that the tags will be removed from. This value is an Amazon
@@ -1128,8 +1237,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateScheduledQueryRequest {
   /**
    * <p>ARN of the scheuled query.</p>
@@ -1143,6 +1258,7 @@ export interface UpdateScheduledQueryRequest {
 }
 
 /**
+ * @public
  * <p> Contains the metadata for query results such as the column names, data types, and
  *             other attributes. </p>
  */
@@ -1162,6 +1278,7 @@ export interface ColumnInfo {
 }
 
 /**
+ * @public
  * <p>Contains the data type of a column in a query result set. The data type can be scalar
  *             or complex. The supported scalar data types are integers, Boolean, string, double,
  *             timestamp, date, time, and intervals. The supported complex data types are arrays, rows,
@@ -1191,6 +1308,7 @@ export interface Type {
 }
 
 /**
+ * @public
  * <p> Datum represents a single data point in a query result. </p>
  */
 export interface Datum {
@@ -1222,6 +1340,7 @@ export interface Datum {
 }
 
 /**
+ * @public
  * <p>Mapping for named parameters.</p>
  */
 export interface ParameterMapping {
@@ -1240,6 +1359,7 @@ export interface ParameterMapping {
 }
 
 /**
+ * @public
  * <p>Details of the column that is returned by the query. </p>
  */
 export interface SelectColumn {
@@ -1273,6 +1393,7 @@ export interface SelectColumn {
 }
 
 /**
+ * @public
  * <p>The timeseries data type represents the values of a measure over time. A time series
  *             is an array of rows of timestamps and measure values, with rows sorted in ascending
  *             order of time. A TimeSeriesDataPoint is a single data point in the time series. It
@@ -1291,6 +1412,7 @@ export interface TimeSeriesDataPoint {
 }
 
 /**
+ * @public
  * <p>Represents a single row in the query results.</p>
  */
 export interface Row {
@@ -1300,6 +1422,9 @@ export interface Row {
   Data: Datum[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface QueryResponse {
   /**
    * <p> A unique ID for the given query. </p>
@@ -1329,6 +1454,9 @@ export interface QueryResponse {
   QueryStatus?: QueryStatus;
 }
 
+/**
+ * @public
+ */
 export interface PrepareQueryResponse {
   /**
    * <p>The query string that you want prepare.</p>

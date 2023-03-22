@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelQueryCommand}.
  */
 export interface CancelQueryCommandInput extends CancelQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelQueryCommand}.
  */
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a query if the query is not in a terminated state, such as
  *             <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
  *             <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
@@ -51,6 +56,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
+ * @returns {@link CancelQueryCommandOutput}
  * @see {@link CancelQueryCommandInput} for command's `input` shape.
  * @see {@link CancelQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -110,6 +117,9 @@ export class CancelQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class CancelQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelQueryCommandOutput> {
     return deserializeAws_json1_1CancelQueryCommand(output, context);
   }

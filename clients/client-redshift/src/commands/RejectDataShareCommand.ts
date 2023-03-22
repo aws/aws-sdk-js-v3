@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectDataShareCommand}.
  */
 export interface RejectDataShareCommandInput extends RejectDataShareMessage {}
 /**
+ * @public
+ *
  * The output of {@link RejectDataShareCommand}.
  */
 export interface RejectDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
+ * @public
  * <p>From a datashare consumer account, rejects the specified datashare.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectDataShareCommandInput - {@link RejectDataShareCommandInput}
+ * @returns {@link RejectDataShareCommandOutput}
  * @see {@link RejectDataShareCommandInput} for command's `input` shape.
  * @see {@link RejectDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -68,6 +75,9 @@ export class RejectDataShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectDataShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class RejectDataShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRejectDataShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectDataShareCommandOutput> {
     return deserializeAws_queryRejectDataShareCommand(output, context);
   }

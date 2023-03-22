@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableReplicaAutoScalingCommand}.
  */
 export interface UpdateTableReplicaAutoScalingCommandInput extends UpdateTableReplicaAutoScalingInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableReplicaAutoScalingCommand}.
  */
 export interface UpdateTableReplicaAutoScalingCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates auto scaling settings on your global tables at once.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
@@ -53,6 +58,8 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableReplicaAutoScalingCommandInput - {@link UpdateTableReplicaAutoScalingCommandInput}
+ * @returns {@link UpdateTableReplicaAutoScalingCommandOutput}
  * @see {@link UpdateTableReplicaAutoScalingCommandInput} for command's `input` shape.
  * @see {@link UpdateTableReplicaAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -101,6 +108,9 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableReplicaAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableReplicaAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateTableReplicaAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

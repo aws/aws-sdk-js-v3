@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeploymentJobCommand}.
  */
 export interface DescribeDeploymentJobCommandInput extends DescribeDeploymentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeploymentJobCommand}.
  */
 export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes a deployment job.</p>
@@ -51,6 +56,8 @@ export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeploymentJobCommandInput - {@link DescribeDeploymentJobCommandInput}
+ * @returns {@link DescribeDeploymentJobCommandOutput}
  * @see {@link DescribeDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeDeploymentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeploymentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeDeploymentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDeploymentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeploymentJobCommandOutput> {
     return deserializeAws_restJson1DescribeDeploymentJobCommand(output, context);
   }

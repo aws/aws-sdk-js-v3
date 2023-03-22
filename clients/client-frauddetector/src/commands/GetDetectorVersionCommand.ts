@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDetectorVersionCommand}.
  */
 export interface GetDetectorVersionCommandInput extends GetDetectorVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDetectorVersionCommand}.
  */
 export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a particular detector version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDetectorVersionCommandInput - {@link GetDetectorVersionCommandInput}
+ * @returns {@link GetDetectorVersionCommandOutput}
  * @see {@link GetDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link GetDetectorVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetDetectorVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDetectorVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetDetectorVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDetectorVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDetectorVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDetectorVersionCommandOutput> {
     return deserializeAws_json1_1GetDetectorVersionCommand(output, context);
   }

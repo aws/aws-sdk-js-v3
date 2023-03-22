@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicesByNamespaceCommand}.
  */
 export interface ListServicesByNamespaceCommandInput extends ListServicesByNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServicesByNamespaceCommand}.
  */
 export interface ListServicesByNamespaceCommandOutput extends ListServicesByNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists all of the services that are associated with a Cloud Map
  * 			namespace. This list might include services in different clusters. In contrast,
  * 				<code>ListServices</code> can only list services in one cluster at a time. If you
@@ -50,6 +55,8 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicesByNamespaceCommandInput - {@link ListServicesByNamespaceCommandInput}
+ * @returns {@link ListServicesByNamespaceCommandOutput}
  * @see {@link ListServicesByNamespaceCommandInput} for command's `input` shape.
  * @see {@link ListServicesByNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListServicesByNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicesByNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListServicesByNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicesByNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServicesByNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesByNamespaceCommandOutput> {
     return deserializeAws_json1_1ListServicesByNamespaceCommand(output, context);
   }

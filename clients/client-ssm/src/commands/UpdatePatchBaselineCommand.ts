@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePatchBaselineCommand}.
  */
 export interface UpdatePatchBaselineCommandInput extends UpdatePatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePatchBaselineCommand}.
  */
 export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing patch baseline. Fields not specified in the request are left
  *    unchanged.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePatchBaselineCommandInput - {@link UpdatePatchBaselineCommandInput}
+ * @returns {@link UpdatePatchBaselineCommandOutput}
  * @see {@link UpdatePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link UpdatePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdatePatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdatePatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePatchBaselineCommandOutput> {
     return deserializeAws_json1_1UpdatePatchBaselineCommand(output, context);
   }

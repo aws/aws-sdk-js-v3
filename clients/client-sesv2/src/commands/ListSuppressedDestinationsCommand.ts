@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuppressedDestinationsCommand}.
  */
 export interface ListSuppressedDestinationsCommandInput extends ListSuppressedDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuppressedDestinationsCommand}.
  */
 export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of email addresses that are on the suppression list for your
  *             account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuppressedDestinationsCommandInput - {@link ListSuppressedDestinationsCommandInput}
+ * @returns {@link ListSuppressedDestinationsCommandOutput}
  * @see {@link ListSuppressedDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListSuppressedDestinationsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +86,9 @@ export class ListSuppressedDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuppressedDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListSuppressedDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSuppressedDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSuppressedDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

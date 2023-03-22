@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLinkCommand}.
  */
 export interface CreateLinkCommandInput extends CreateLinkInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLinkCommand}.
  */
 export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a link between a source account and a sink that you have created in a monitoring account.</p>
  *         <p>Before you create a link, you must create a sink in the monitoring account and create a
  *             sink policy in that account. The sink policy must permit the source account to link to it. You
@@ -55,6 +60,8 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
+ * @returns {@link CreateLinkCommandOutput}
  * @see {@link CreateLinkCommandInput} for command's `input` shape.
  * @see {@link CreateLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLinkCommandOutput> {
     return deserializeAws_restJson1CreateLinkCommand(output, context);
   }

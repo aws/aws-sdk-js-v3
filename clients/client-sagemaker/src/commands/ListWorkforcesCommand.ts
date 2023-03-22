@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkforcesCommand}.
  */
 export interface ListWorkforcesCommandInput extends ListWorkforcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkforcesCommand}.
  */
 export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to list all private and vendor workforces in an Amazon Web Services Region. Note that you can only
  *            have one private workforce per Amazon Web Services Region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkforcesCommandInput - {@link ListWorkforcesCommandInput}
+ * @returns {@link ListWorkforcesCommandOutput}
  * @see {@link ListWorkforcesCommandInput} for command's `input` shape.
  * @see {@link ListWorkforcesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class ListWorkforcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkforcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListWorkforcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkforcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWorkforcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkforcesCommandOutput> {
     return deserializeAws_json1_1ListWorkforcesCommand(output, context);
   }

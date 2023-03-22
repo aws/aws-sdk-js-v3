@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ForecastqueryServiceException as __BaseException } from "./ForecastqueryServiceException";
 
 /**
+ * @public
  * <p>The value is invalid or is too long.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -25,6 +26,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -46,6 +48,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -66,6 +69,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface QueryForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
@@ -89,7 +95,7 @@ export interface QueryForecastRequest {
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
    *       following:</p>
    *          <p>
-   *             <code>{"item_id" : "client_21"}</code>
+   *             <code>\{"item_id" : "client_21"\}</code>
    *          </p>
    *
    *
@@ -106,6 +112,7 @@ export interface QueryForecastRequest {
 }
 
 /**
+ * @public
  * <p>The forecast value for a specific date. Part of the <a>Forecast</a>
  *       object.</p>
  */
@@ -122,6 +129,7 @@ export interface DataPoint {
 }
 
 /**
+ * @public
  * <p>Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.</p>
  */
 export interface Forecast {
@@ -146,6 +154,9 @@ export interface Forecast {
   Predictions?: Record<string, DataPoint[]>;
 }
 
+/**
+ * @public
+ */
 export interface QueryForecastResponse {
   /**
    * <p>The forecast.</p>
@@ -154,6 +165,7 @@ export interface QueryForecastResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -175,6 +187,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find that resource. Check the information that you've provided and try
  *       again.</p>
  */
@@ -196,6 +209,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface QueryWhatIfForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast to query.</p>
@@ -219,7 +235,7 @@ export interface QueryWhatIfForecastRequest {
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
    *       following:</p>
    *          <p>
-   *             <code>{"item_id" : "client_21"}</code>
+   *             <code>\{"item_id" : "client_21"\}</code>
    *          </p>
    *          <p>To get the full what-if forecast, use the <a href="https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateWhatIfForecastExport.html">CreateForecastExportJob</a> operation.</p>
    */
@@ -233,6 +249,9 @@ export interface QueryWhatIfForecastRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface QueryWhatIfForecastResponse {
   /**
    * <p>Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.</p>

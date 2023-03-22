@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPipelineExecutionStepsCommand}.
  */
 export interface ListPipelineExecutionStepsCommandInput extends ListPipelineExecutionStepsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPipelineExecutionStepsCommand}.
  */
 export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExecutionStepsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of <code>PipeLineExecutionStep</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelineExecutionStepsCommandInput - {@link ListPipelineExecutionStepsCommandInput}
+ * @returns {@link ListPipelineExecutionStepsCommandOutput}
  * @see {@link ListPipelineExecutionStepsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineExecutionStepsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListPipelineExecutionStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelineExecutionStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListPipelineExecutionStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelineExecutionStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPipelineExecutionStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomMetricCommand}.
  */
 export interface CreateCustomMetricCommandInput extends CreateCustomMetricRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomMetricCommand}.
  */
 export interface CreateCustomMetricCommandOutput extends CreateCustomMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Use this API to define a
  *       Custom
  *       Metric
@@ -50,6 +55,8 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomMetricCommandInput - {@link CreateCustomMetricCommandInput}
+ * @returns {@link CreateCustomMetricCommandOutput}
  * @see {@link CreateCustomMetricCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateCustomMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateCustomMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCustomMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomMetricCommandOutput> {
     return deserializeAws_restJson1CreateCustomMetricCommand(output, context);
   }

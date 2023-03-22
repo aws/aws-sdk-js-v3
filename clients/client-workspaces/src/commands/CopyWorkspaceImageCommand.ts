@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyWorkspaceImageCommand}.
  */
 export interface CopyWorkspaceImageCommandInput extends CopyWorkspaceImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyWorkspaceImageCommand}.
  */
 export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified image from the specified Region to the current Region. For more
  *          information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html"> Copy a Custom WorkSpaces
  *             Image</a>.</p>
@@ -55,6 +60,8 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyWorkspaceImageCommandInput - {@link CopyWorkspaceImageCommandInput}
+ * @returns {@link CopyWorkspaceImageCommandOutput}
  * @see {@link CopyWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CopyWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -99,6 +106,9 @@ export class CopyWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CopyWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CopyWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyWorkspaceImageCommandOutput> {
     return deserializeAws_json1_1CopyWorkspaceImageCommand(output, context);
   }

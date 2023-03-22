@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRealtimeEndpointCommand}.
  */
 export interface CreateRealtimeEndpointCommandInput extends CreateRealtimeEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateRealtimeEndpointCommand}.
  */
 export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRealtimeEndpointCommandInput - {@link CreateRealtimeEndpointCommandInput}
+ * @returns {@link CreateRealtimeEndpointCommandOutput}
  * @see {@link CreateRealtimeEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateRealtimeEndpointCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateRealtimeEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRealtimeEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CreateRealtimeEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRealtimeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRealtimeEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRealtimeEndpointCommandOutput> {
     return deserializeAws_json1_1CreateRealtimeEndpointCommand(output, context);
   }

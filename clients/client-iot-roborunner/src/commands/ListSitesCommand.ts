@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSitesCommand}.
  */
 export interface ListSitesCommandInput extends ListSitesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSitesCommand}.
  */
 export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to list sites
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSitesCommandInput - {@link ListSitesCommandInput}
+ * @returns {@link ListSitesCommandOutput}
  * @see {@link ListSitesCommandInput} for command's `input` shape.
  * @see {@link ListSitesCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListSitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSitesCommandOutput> {
     return deserializeAws_restJson1ListSitesCommand(output, context);
   }

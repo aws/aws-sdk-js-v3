@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketEncryptionCommand}.
  */
 export interface DeleteBucketEncryptionCommandInput extends DeleteBucketEncryptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketEncryptionCommand}.
  */
 export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the DELETE action removes default encryption from the bucket.
  *          For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -63,6 +68,8 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketEncryptionCommandInput - {@link DeleteBucketEncryptionCommandInput}
+ * @returns {@link DeleteBucketEncryptionCommandOutput}
  * @see {@link DeleteBucketEncryptionCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteBucketEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteBucketEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketEncryptionCommandOutput> {
     return deserializeAws_restXmlDeleteBucketEncryptionCommand(output, context);
   }

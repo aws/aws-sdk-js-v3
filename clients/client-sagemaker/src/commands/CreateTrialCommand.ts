@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrialCommand}.
  */
 export interface CreateTrialCommandInput extends CreateTrialRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrialCommand}.
  */
 export interface CreateTrialCommandOutput extends CreateTrialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an SageMaker <i>trial</i>. A trial is a set of steps called
  *         <i>trial components</i> that produce a machine learning model. A trial is part
  *       of a single SageMaker <i>experiment</i>.</p>
@@ -56,6 +61,8 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrialCommandInput - {@link CreateTrialCommandInput}
+ * @returns {@link CreateTrialCommandOutput}
  * @see {@link CreateTrialCommandInput} for command's `input` shape.
  * @see {@link CreateTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateTrialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrialCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateTrialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTrialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrialCommandOutput> {
     return deserializeAws_json1_1CreateTrialCommand(output, context);
   }

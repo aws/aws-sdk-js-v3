@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePermissionSetCommand}.
  */
 export interface DeletePermissionSetCommandInput extends DeletePermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePermissionSetCommand}.
  */
 export interface DeletePermissionSetCommandOutput extends DeletePermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionSetCommandInput - {@link DeletePermissionSetCommandInput}
+ * @returns {@link DeletePermissionSetCommandOutput}
  * @see {@link DeletePermissionSetCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeletePermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeletePermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionSetCommandOutput> {
     return deserializeAws_json1_1DeletePermissionSetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudioLifecycleConfigsCommand}.
  */
 export interface ListStudioLifecycleConfigsCommandInput extends ListStudioLifecycleConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStudioLifecycleConfigsCommand}.
  */
 export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifecycleConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioLifecycleConfigsCommandInput - {@link ListStudioLifecycleConfigsCommandInput}
+ * @returns {@link ListStudioLifecycleConfigsCommandOutput}
  * @see {@link ListStudioLifecycleConfigsCommandInput} for command's `input` shape.
  * @see {@link ListStudioLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioLifecycleConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioLifecycleConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStudioLifecycleConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

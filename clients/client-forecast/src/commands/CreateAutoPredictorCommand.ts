@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAutoPredictorCommand}.
  */
 export interface CreateAutoPredictorCommandInput extends CreateAutoPredictorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAutoPredictorCommand}.
  */
 export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Forecast predictor.</p>
  *          <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
  *             optimal combination of algorithms to each time series in your datasets. You can use
@@ -94,6 +99,8 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAutoPredictorCommandInput - {@link CreateAutoPredictorCommandInput}
+ * @returns {@link CreateAutoPredictorCommandOutput}
  * @see {@link CreateAutoPredictorCommandInput} for command's `input` shape.
  * @see {@link CreateAutoPredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -134,6 +141,9 @@ export class CreateAutoPredictorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAutoPredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class CreateAutoPredictorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAutoPredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAutoPredictorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoPredictorCommandOutput> {
     return deserializeAws_json1_1CreateAutoPredictorCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterToWorkMailCommand}.
  */
 export interface RegisterToWorkMailCommandInput extends RegisterToWorkMailRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterToWorkMailCommand}.
  */
 export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an existing and disabled user, group, or resource for WorkMail use by
  *          associating a mailbox and calendaring capabilities. It performs no change if the user,
  *          group, or resource is enabled and fails if the user, group, or resource is deleted. This
@@ -52,6 +57,8 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterToWorkMailCommandInput - {@link RegisterToWorkMailCommandInput}
+ * @returns {@link RegisterToWorkMailCommandOutput}
  * @see {@link RegisterToWorkMailCommandInput} for command's `input` shape.
  * @see {@link RegisterToWorkMailCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -115,6 +122,9 @@ export class RegisterToWorkMailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterToWorkMailCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class RegisterToWorkMailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterToWorkMailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterToWorkMailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterToWorkMailCommandOutput> {
     return deserializeAws_json1_1RegisterToWorkMailCommand(output, context);
   }

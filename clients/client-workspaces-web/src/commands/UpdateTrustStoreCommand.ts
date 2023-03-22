@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrustStoreCommand}.
  */
 export interface UpdateTrustStoreCommandInput extends UpdateTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrustStoreCommand}.
  */
 export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrustStoreCommandInput - {@link UpdateTrustStoreCommandInput}
+ * @returns {@link UpdateTrustStoreCommandOutput}
  * @see {@link UpdateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrustStoreCommandOutput> {
     return deserializeAws_restJson1UpdateTrustStoreCommand(output, context);
   }

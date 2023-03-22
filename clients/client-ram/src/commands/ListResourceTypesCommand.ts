@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceTypesCommand}.
  */
 export interface ListResourceTypesCommandInput extends ListResourceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceTypesCommand}.
  */
 export interface ListResourceTypesCommandOutput extends ListResourceTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource types that can be shared by RAM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceTypesCommandInput - {@link ListResourceTypesCommandInput}
+ * @returns {@link ListResourceTypesCommandOutput}
  * @see {@link ListResourceTypesCommandInput} for command's `input` shape.
  * @see {@link ListResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceTypesCommandOutput> {
     return deserializeAws_restJson1ListResourceTypesCommand(output, context);
   }

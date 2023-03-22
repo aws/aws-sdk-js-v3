@@ -10,7 +10,7 @@ import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListProjectsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListProjects(
   config: SageMakerPaginationConfiguration,
   input: ListProjectsCommandInput,

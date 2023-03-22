@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MarketplaceCommerceAnalyticsServiceException as __BaseException } from "./MarketplaceCommerceAnalyticsServiceException";
 
+/**
+ * @public
+ */
 export enum DataSetType {
   CUSTOMER_PROFILE_BY_GEOGRAPHY = "customer_profile_by_geography",
   CUSTOMER_PROFILE_BY_INDUSTRY = "customer_profile_by_industry",
@@ -32,6 +35,7 @@ export enum DataSetType {
 }
 
 /**
+ * @public
  * Container for the parameters to the GenerateDataSet operation.
  */
 export interface GenerateDataSetRequest {
@@ -188,6 +192,7 @@ export interface GenerateDataSetRequest {
 }
 
 /**
+ * @public
  * Container for the result of the GenerateDataSet operation.
  */
 export interface GenerateDataSetResult {
@@ -199,6 +204,7 @@ export interface GenerateDataSetResult {
 }
 
 /**
+ * @public
  * This exception is thrown when an internal service error occurs.
  */
 export class MarketplaceCommerceAnalyticsException extends __BaseException {
@@ -217,9 +223,13 @@ export class MarketplaceCommerceAnalyticsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data";
 
 /**
+ * @public
  * Container for the parameters to the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportRequest {
@@ -278,6 +288,7 @@ export interface StartSupportDataExportRequest {
 }
 
 /**
+ * @public
  * Container for the result of the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportResult {

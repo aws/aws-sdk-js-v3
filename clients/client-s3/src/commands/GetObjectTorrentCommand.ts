@@ -29,10 +29,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectTorrentCommand}.
  */
 export interface GetObjectTorrentCommandInput extends GetObjectTorrentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectTorrentCommand}.
  */
 export interface GetObjectTorrentCommandOutput
@@ -40,6 +44,7 @@ export interface GetObjectTorrentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
  *          distributing large files. For more information about BitTorrent, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Using BitTorrent with Amazon S3</a>.</p>
  *          <note>
@@ -67,6 +72,8 @@ export interface GetObjectTorrentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectTorrentCommandInput - {@link GetObjectTorrentCommandInput}
+ * @returns {@link GetObjectTorrentCommandOutput}
  * @see {@link GetObjectTorrentCommandInput} for command's `input` shape.
  * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -108,6 +115,9 @@ export class GetObjectTorrentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectTorrentCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class GetObjectTorrentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectTorrentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectTorrentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

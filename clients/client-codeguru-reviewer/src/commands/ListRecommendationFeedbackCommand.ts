@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationFeedbackCommand}.
  */
 export interface ListRecommendationFeedbackCommandInput extends ListRecommendationFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationFeedbackCommand}.
  */
 export interface ListRecommendationFeedbackCommandOutput extends ListRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a> objects that contain customer recommendation
  *          feedback for all CodeGuru Reviewer users.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationFeedbackCommandInput - {@link ListRecommendationFeedbackCommandInput}
+ * @returns {@link ListRecommendationFeedbackCommandOutput}
  * @see {@link ListRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListRecommendationFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListRecommendationFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecommendationFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -5,6 +5,7 @@ import { DocumentType as __DocumentType } from "@aws-sdk/types";
 import { IoTTwinMakerServiceException as __BaseException } from "./IoTTwinMakerServiceException";
 
 /**
+ * @public
  * <p>Access is denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that uniquely identifies an entity property.</p>
  */
 export interface EntityPropertyReference {
@@ -49,6 +51,7 @@ export interface EntityPropertyReference {
 }
 
 /**
+ * @public
  * <p>A value that associates a component and an entity.</p>
  */
 export interface RelationshipValue {
@@ -64,6 +67,7 @@ export interface RelationshipValue {
 }
 
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -83,6 +87,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource wasn't found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -102,6 +107,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate exceeds the limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -121,6 +127,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Failed</p>
  */
 export class ValidationException extends __BaseException {
@@ -140,6 +147,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A conflict occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -159,6 +167,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda function.</p>
  */
 export interface LambdaFunction {
@@ -169,6 +178,7 @@ export interface LambdaFunction {
 }
 
 /**
+ * @public
  * <p>The data connector.</p>
  */
 export interface DataConnector {
@@ -183,12 +193,16 @@ export interface DataConnector {
   isNative?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum Scope {
   ENTITY = "ENTITY",
   WORKSPACE = "WORKSPACE",
 }
 
 /**
+ * @public
  * <p>The function request body.</p>
  */
 export interface FunctionRequest {
@@ -209,6 +223,7 @@ export interface FunctionRequest {
 }
 
 /**
+ * @public
  * <p>An object that specifies a relationship with another component type.</p>
  */
 export interface Relationship {
@@ -223,6 +238,9 @@ export interface Relationship {
   relationshipType?: string;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   BOOLEAN = "BOOLEAN",
   DOUBLE = "DOUBLE",
@@ -234,11 +252,15 @@ export enum Type {
   STRING = "STRING",
 }
 
+/**
+ * @public
+ */
 export enum GroupType {
   TABULAR = "TABULAR",
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface PropertyGroupRequest {
@@ -253,6 +275,9 @@ export interface PropertyGroupRequest {
   propertyNames?: string[];
 }
 
+/**
+ * @public
+ */
 export enum State {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -261,6 +286,9 @@ export enum State {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentTypeResponse {
   /**
    * <p>The ARN of the component type.</p>
@@ -279,6 +307,7 @@ export interface CreateComponentTypeResponse {
 }
 
 /**
+ * @public
  * <p>The service quota was exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -297,12 +326,18 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum PropertyUpdateType {
   CREATE = "CREATE",
   DELETE = "DELETE",
   UPDATE = "UPDATE",
 }
 
+/**
+ * @public
+ */
 export enum PropertyGroupUpdateType {
   CREATE = "CREATE",
   DELETE = "DELETE",
@@ -310,6 +345,7 @@ export enum PropertyGroupUpdateType {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface ComponentPropertyGroupRequest {
@@ -329,6 +365,9 @@ export interface ComponentPropertyGroupRequest {
   updateType?: PropertyGroupUpdateType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEntityResponse {
   /**
    * <p>The ID of the entity.</p>
@@ -351,6 +390,9 @@ export interface CreateEntityResponse {
   state: State | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSceneRequest {
   /**
    * <p>The ID of the workspace that contains the scene.</p>
@@ -383,6 +425,9 @@ export interface CreateSceneRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSceneResponse {
   /**
    * <p>The ARN of the scene.</p>
@@ -395,6 +440,9 @@ export interface CreateSceneResponse {
   creationDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSyncJobRequest {
   /**
    * <p>The workspace Id.</p>
@@ -421,6 +469,9 @@ export interface CreateSyncJobRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum SyncJobState {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -429,6 +480,9 @@ export enum SyncJobState {
   INITIALIZING = "INITIALIZING",
 }
 
+/**
+ * @public
+ */
 export interface CreateSyncJobResponse {
   /**
    * <p>The SyncJob ARN.</p>
@@ -446,6 +500,9 @@ export interface CreateSyncJobResponse {
   state: SyncJobState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkspaceRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -473,6 +530,9 @@ export interface CreateWorkspaceRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkspaceResponse {
   /**
    * <p>The ARN of the workspace.</p>
@@ -485,6 +545,9 @@ export interface CreateWorkspaceResponse {
   creationDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentTypeRequest {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -497,6 +560,9 @@ export interface DeleteComponentTypeRequest {
   componentTypeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentTypeResponse {
   /**
    * <p>The current state of the component type to be deleted.</p>
@@ -504,6 +570,9 @@ export interface DeleteComponentTypeResponse {
   state: State | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEntityRequest {
   /**
    * <p>The ID of the workspace that contains the entity to delete.</p>
@@ -521,6 +590,9 @@ export interface DeleteEntityRequest {
   isRecursive?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEntityResponse {
   /**
    * <p>The current state of the deleted entity.</p>
@@ -528,6 +600,9 @@ export interface DeleteEntityResponse {
   state: State | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSceneRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -540,8 +615,14 @@ export interface DeleteSceneRequest {
   sceneId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSceneResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSyncJobRequest {
   /**
    * <p>The workspace Id.</p>
@@ -557,6 +638,9 @@ export interface DeleteSyncJobRequest {
   syncSource: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSyncJobResponse {
   /**
    * <p>The SyncJob response state.</p>
@@ -564,6 +648,9 @@ export interface DeleteSyncJobResponse {
   state: SyncJobState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkspaceRequest {
   /**
    * <p>The ID of the workspace to delete.</p>
@@ -571,8 +658,14 @@ export interface DeleteWorkspaceRequest {
   workspaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkspaceResponse {}
 
+/**
+ * @public
+ */
 export interface ExecuteQueryRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -596,6 +689,9 @@ export interface ExecuteQueryRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ColumnType {
   EDGE = "EDGE",
   NODE = "NODE",
@@ -603,6 +699,7 @@ export enum ColumnType {
 }
 
 /**
+ * @public
  * <p>A description of the column in the query results.</p>
  */
 export interface ColumnDescription {
@@ -618,6 +715,7 @@ export interface ColumnDescription {
 }
 
 /**
+ * @public
  * <p>Represents a single row in the query results.</p>
  */
 export interface Row {
@@ -627,6 +725,9 @@ export interface Row {
   rowData?: __DocumentType[];
 }
 
+/**
+ * @public
+ */
 export interface ExecuteQueryResponse {
   /**
    * <p>A list of ColumnDescription objects.</p>
@@ -645,6 +746,7 @@ export interface ExecuteQueryResponse {
 }
 
 /**
+ * @public
  * <p>The query timeout exception.</p>
  */
 export class QueryTimeoutException extends __BaseException {
@@ -664,6 +766,9 @@ export class QueryTimeoutException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetComponentTypeRequest {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -677,6 +782,7 @@ export interface GetComponentTypeRequest {
 }
 
 /**
+ * @public
  * <p>The function response.</p>
  */
 export interface FunctionResponse {
@@ -702,6 +808,7 @@ export interface FunctionResponse {
 }
 
 /**
+ * @public
  * <p>The property group response</p>
  */
 export interface PropertyGroupResponse {
@@ -721,6 +828,9 @@ export interface PropertyGroupResponse {
   isInherited: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
   SYNC_CREATING_ERROR = "SYNC_CREATING_ERROR",
@@ -730,6 +840,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>The error details.</p>
  */
 export interface ErrorDetails {
@@ -745,6 +856,7 @@ export interface ErrorDetails {
 }
 
 /**
+ * @public
  * <p>An object that represents the status of an entity, component, component type, or workspace.</p>
  */
 export interface Status {
@@ -759,6 +871,9 @@ export interface Status {
   error?: ErrorDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetEntityRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -772,6 +887,7 @@ export interface GetEntityRequest {
 }
 
 /**
+ * @public
  * <p>The component property group response.</p>
  */
 export interface ComponentPropertyGroupResponse {
@@ -791,8 +907,14 @@ export interface ComponentPropertyGroupResponse {
   isInherited: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPricingPlanRequest {}
 
+/**
+ * @public
+ */
 export enum PricingTier {
   TIER_1 = "TIER_1",
   TIER_2 = "TIER_2",
@@ -801,6 +923,7 @@ export enum PricingTier {
 }
 
 /**
+ * @public
  * <p>Information about pricing bundle.</p>
  */
 export interface BundleInformation {
@@ -815,12 +938,18 @@ export interface BundleInformation {
   pricingTier?: PricingTier | string;
 }
 
+/**
+ * @public
+ */
 export enum PricingMode {
   BASIC = "BASIC",
   STANDARD = "STANDARD",
   TIERED_BUNDLE = "TIERED_BUNDLE",
 }
 
+/**
+ * @public
+ */
 export enum UpdateReason {
   DEFAULT = "DEFAULT",
   ENTITY_COUNT_UPDATE = "ENTITY_COUNT_UPDATE",
@@ -830,6 +959,7 @@ export enum UpdateReason {
 }
 
 /**
+ * @public
  * <p>The pricing plan.</p>
  */
 export interface PricingPlan {
@@ -864,6 +994,9 @@ export interface PricingPlan {
   updateReason: UpdateReason | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPricingPlanResponse {
   /**
    * <p>The chosen pricing plan for the current billing cycle.</p>
@@ -877,6 +1010,7 @@ export interface GetPricingPlanResponse {
 }
 
 /**
+ * @public
  * <p>The connector failed.</p>
  */
 export class ConnectorFailureException extends __BaseException {
@@ -896,6 +1030,7 @@ export class ConnectorFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The connector timed out.</p>
  */
 export class ConnectorTimeoutException extends __BaseException {
@@ -914,12 +1049,16 @@ export class ConnectorTimeoutException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Order {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
 /**
+ * @public
  * <p>Filter criteria that orders the return output. It can be sorted in ascending or descending order.</p>
  */
 export interface OrderBy {
@@ -934,11 +1073,15 @@ export interface OrderBy {
   propertyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InterpolationType {
   LINEAR = "LINEAR",
 }
 
 /**
+ * @public
  * <p>An object that specifies how to interpolate data in a list.</p>
  */
 export interface InterpolationParameters {
@@ -953,11 +1096,17 @@ export interface InterpolationParameters {
   intervalInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export enum OrderByTime {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface GetSceneRequest {
   /**
    * <p>The ID of the workspace that contains the scene.</p>
@@ -970,6 +1119,9 @@ export interface GetSceneRequest {
   sceneId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSceneResponse {
   /**
    * <p>The ID of the workspace that contains the scene.</p>
@@ -1012,6 +1164,9 @@ export interface GetSceneResponse {
   capabilities?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetSyncJobRequest {
   /**
    * <p>The sync soucre.</p>
@@ -1028,6 +1183,7 @@ export interface GetSyncJobRequest {
 }
 
 /**
+ * @public
  * <p>The SyncJob status.</p>
  */
 export interface SyncJobStatus {
@@ -1042,6 +1198,9 @@ export interface SyncJobStatus {
   error?: ErrorDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetSyncJobResponse {
   /**
    * <p>The sync job ARN.</p>
@@ -1082,6 +1241,9 @@ export interface GetSyncJobResponse {
   updateDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkspaceRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -1089,6 +1251,9 @@ export interface GetWorkspaceRequest {
   workspaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkspaceResponse {
   /**
    * <p>The ID of the workspace.</p>
@@ -1127,6 +1292,7 @@ export interface GetWorkspaceResponse {
 }
 
 /**
+ * @public
  * <p>An object that filters items in a list of component types.</p>
  *          <note>
  *             <p>Only one object is accepted as a valid input.</p>
@@ -1138,6 +1304,9 @@ export type ListComponentTypesFilter =
   | ListComponentTypesFilter.NamespaceMember
   | ListComponentTypesFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListComponentTypesFilter {
   /**
    * <p>The component type that the component types in the list extend.</p>
@@ -1191,6 +1360,9 @@ export namespace ListComponentTypesFilter {
   };
 }
 
+/**
+ * @public
+ */
 export interface ListComponentTypesRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -1215,6 +1387,7 @@ export interface ListComponentTypesRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a component type.</p>
  */
 export interface ComponentTypeSummary {
@@ -1254,6 +1427,9 @@ export interface ComponentTypeSummary {
   componentTypeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentTypesResponse {
   /**
    * <p>The ID of the workspace.</p>
@@ -1277,6 +1453,7 @@ export interface ListComponentTypesResponse {
 }
 
 /**
+ * @public
  * <p>An object that filters items in a list of entities.</p>
  */
 export type ListEntitiesFilter =
@@ -1285,6 +1462,9 @@ export type ListEntitiesFilter =
   | ListEntitiesFilter.ParentEntityIdMember
   | ListEntitiesFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListEntitiesFilter {
   /**
    * <p>The parent of the entities in the list.</p>
@@ -1338,6 +1518,9 @@ export namespace ListEntitiesFilter {
   };
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -1365,6 +1548,7 @@ export interface ListEntitiesRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about an entity.</p>
  */
 export interface EntitySummary {
@@ -1414,6 +1598,9 @@ export interface EntitySummary {
   updateDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesResponse {
   /**
    * <p>A list of objects that contain information about the entities.</p>
@@ -1426,6 +1613,9 @@ export interface ListEntitiesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScenesRequest {
   /**
    * <p>The ID of the workspace that contains the scenes.</p>
@@ -1444,6 +1634,7 @@ export interface ListScenesRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a scene.</p>
  */
 export interface SceneSummary {
@@ -1478,6 +1669,9 @@ export interface SceneSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScenesResponse {
   /**
    * <p>A list of objects that contain information about the scenes.</p>
@@ -1490,6 +1684,9 @@ export interface ListScenesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSyncJobsRequest {
   /**
    * <p>The ID of the workspace that contains the sync job.</p>
@@ -1509,6 +1706,7 @@ export interface ListSyncJobsRequest {
 }
 
 /**
+ * @public
  * <p>The SyncJob summary.</p>
  */
 export interface SyncJobSummary {
@@ -1543,6 +1741,9 @@ export interface SyncJobSummary {
   updateDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSyncJobsResponse {
   /**
    * <p>The listed SyncJob summaries.</p>
@@ -1555,11 +1756,17 @@ export interface ListSyncJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SyncResourceType {
   COMPONENT_TYPE = "COMPONENT_TYPE",
   ENTITY = "ENTITY",
 }
 
+/**
+ * @public
+ */
 export enum SyncResourceState {
   DELETED = "DELETED",
   ERROR = "ERROR",
@@ -1569,6 +1776,7 @@ export enum SyncResourceState {
 }
 
 /**
+ * @public
  * <p>The sync resource filter.</p>
  */
 export type SyncResourceFilter =
@@ -1578,6 +1786,9 @@ export type SyncResourceFilter =
   | SyncResourceFilter.StateMember
   | SyncResourceFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SyncResourceFilter {
   /**
    * <p>The sync resource filter's state.</p>
@@ -1648,6 +1859,9 @@ export namespace SyncResourceFilter {
   };
 }
 
+/**
+ * @public
+ */
 export interface ListSyncResourcesRequest {
   /**
    * <p>The ID of the workspace that contains the sync job.</p>
@@ -1680,6 +1894,7 @@ export interface ListSyncResourcesRequest {
 }
 
 /**
+ * @public
  * <p>The sync resource status.</p>
  */
 export interface SyncResourceStatus {
@@ -1695,6 +1910,7 @@ export interface SyncResourceStatus {
 }
 
 /**
+ * @public
  * <p>The sync resource summary.</p>
  */
 export interface SyncResourceSummary {
@@ -1724,6 +1940,9 @@ export interface SyncResourceSummary {
   updateDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSyncResourcesResponse {
   /**
    * <p>The sync resources.</p>
@@ -1736,6 +1955,9 @@ export interface ListSyncResourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1754,6 +1976,9 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Metadata that you can use to manage a resource.</p>
@@ -1766,6 +1991,9 @@ export interface ListTagsForResourceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkspacesRequest {
   /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
@@ -1780,6 +2008,7 @@ export interface ListWorkspacesRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a workspace.</p>
  */
 export interface WorkspaceSummary {
@@ -1809,6 +2038,9 @@ export interface WorkspaceSummary {
   updateDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkspacesResponse {
   /**
    * <p>A list of objects that contain information about the workspaces.</p>
@@ -1821,6 +2053,9 @@ export interface ListWorkspacesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1833,9 +2068,13 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The number of tags exceeds the limit.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -1854,6 +2093,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1866,8 +2108,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateComponentTypeResponse {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -1890,18 +2138,25 @@ export interface UpdateComponentTypeResponse {
   state: State | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ComponentUpdateType {
   CREATE = "CREATE",
   DELETE = "DELETE",
   UPDATE = "UPDATE",
 }
 
+/**
+ * @public
+ */
 export enum ParentEntityUpdateType {
   DELETE = "DELETE",
   UPDATE = "UPDATE",
 }
 
 /**
+ * @public
  * <p>The parent entity update request.</p>
  */
 export interface ParentEntityUpdateRequest {
@@ -1916,6 +2171,9 @@ export interface ParentEntityUpdateRequest {
   parentEntityId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEntityResponse {
   /**
    * <p>The date and time when the entity was last updated.</p>
@@ -1928,6 +2186,9 @@ export interface UpdateEntityResponse {
   state: State | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePricingPlanRequest {
   /**
    * <p>The pricing mode.</p>
@@ -1940,6 +2201,9 @@ export interface UpdatePricingPlanRequest {
   bundleNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdatePricingPlanResponse {
   /**
    * <p>Update the current pricing plan.</p>
@@ -1952,6 +2216,9 @@ export interface UpdatePricingPlanResponse {
   pendingPricingPlan?: PricingPlan;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSceneRequest {
   /**
    * <p>The ID of the workspace that contains the scene.</p>
@@ -1979,6 +2246,9 @@ export interface UpdateSceneRequest {
   capabilities?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSceneResponse {
   /**
    * <p>The date and time when the scene was last updated.</p>
@@ -1986,6 +2256,9 @@ export interface UpdateSceneResponse {
   updateDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkspaceRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -2003,6 +2276,9 @@ export interface UpdateWorkspaceRequest {
   role?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkspaceResponse {
   /**
    * <p>The date and time of the current update.</p>
@@ -2011,6 +2287,7 @@ export interface UpdateWorkspaceResponse {
 }
 
 /**
+ * @public
  * <p>An object that specifies a value for a property.</p>
  */
 export interface DataValue {
@@ -2061,6 +2338,7 @@ export interface DataValue {
 }
 
 /**
+ * @public
  * <p>An object that filters items returned by a property request.</p>
  */
 export interface PropertyFilter {
@@ -2081,6 +2359,7 @@ export interface PropertyFilter {
 }
 
 /**
+ * @public
  * <p>The latest value of the property.</p>
  */
 export interface PropertyLatestValue {
@@ -2096,6 +2375,7 @@ export interface PropertyLatestValue {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a value for a time series property.</p>
  */
 export interface PropertyValue {
@@ -2160,6 +2440,7 @@ export interface PropertyValue {
 }
 
 /**
+ * @public
  * <p>An object that specifies the data type of a property.</p>
  */
 export interface DataType {
@@ -2189,6 +2470,9 @@ export interface DataType {
   relationship?: Relationship;
 }
 
+/**
+ * @public
+ */
 export interface GetPropertyValueHistoryRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -2269,6 +2553,7 @@ export interface GetPropertyValueHistoryRequest {
 }
 
 /**
+ * @public
  * <p>An object that specifies information about time series property values. This object is used  and consumed by the <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html">BatchPutPropertyValues</a> action.</p>
  */
 export interface PropertyValueEntry {
@@ -2284,6 +2569,7 @@ export interface PropertyValueEntry {
 }
 
 /**
+ * @public
  * <p>The history of values for a time series property.</p>
  */
 export interface PropertyValueHistory {
@@ -2299,6 +2585,7 @@ export interface PropertyValueHistory {
 }
 
 /**
+ * @public
  * <p>The tabular conditions.</p>
  */
 export interface TabularConditions {
@@ -2310,13 +2597,14 @@ export interface TabularConditions {
   /**
    * <p>You can filter the request using various logical operators and a key-value format. For example:</p>
    *          <p>
-   *             <code>{"key": "serverType", "value": "webServer"}</code>
+   *             <code>\{"key": "serverType", "value": "webServer"\}</code>
    *          </p>
    */
   propertyFilters?: PropertyFilter[];
 }
 
 /**
+ * @public
  * <p>An error returned by the <code>BatchPutProperty</code> action.</p>
  */
 export interface BatchPutPropertyError {
@@ -2336,6 +2624,9 @@ export interface BatchPutPropertyError {
   entry: PropertyValueEntry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPropertyValueRequest {
   /**
    * <p>The name of the component whose property values the operation returns.</p>
@@ -2384,6 +2675,9 @@ export interface GetPropertyValueRequest {
   tabularConditions?: TabularConditions;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutPropertyValuesRequest {
   /**
    * <p>The ID of the workspace that contains the properties to set.</p>
@@ -2397,6 +2691,9 @@ export interface BatchPutPropertyValuesRequest {
   entries: PropertyValueEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPropertyValueHistoryResponse {
   /**
    * <p>An object that maps strings to the property definitions in the component type. Each string
@@ -2411,6 +2708,7 @@ export interface GetPropertyValueHistoryResponse {
 }
 
 /**
+ * @public
  * <p>An object that contains information about errors returned by the <code>BatchPutProperty</code> action.</p>
  */
 export interface BatchPutPropertyErrorEntry {
@@ -2422,6 +2720,7 @@ export interface BatchPutPropertyErrorEntry {
 }
 
 /**
+ * @public
  * <p>An object that sets information about a property.</p>
  */
 export interface PropertyDefinitionRequest {
@@ -2468,6 +2767,7 @@ export interface PropertyDefinitionRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains response data from a property definition request.</p>
  */
 export interface PropertyDefinitionResponse {
@@ -2527,6 +2827,9 @@ export interface PropertyDefinitionResponse {
   displayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutPropertyValuesResponse {
   /**
    * <p>Entries that caused errors in the batch put operation.</p>
@@ -2534,6 +2837,9 @@ export interface BatchPutPropertyValuesResponse {
   errorEntries: BatchPutPropertyErrorEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPropertyValueResponse {
   /**
    * <p>An object that maps strings to the properties and latest property values in the response. Each string
@@ -2552,6 +2858,9 @@ export interface GetPropertyValueResponse {
   tabularPropertyValues?: Record<string, DataValue>[][];
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentTypeRequest {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -2607,6 +2916,9 @@ export interface CreateComponentTypeRequest {
   componentTypeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentTypeResponse {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -2694,6 +3006,9 @@ export interface GetComponentTypeResponse {
   componentTypeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentTypeRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -2745,6 +3060,7 @@ export interface UpdateComponentTypeRequest {
 }
 
 /**
+ * @public
  * <p>An object that sets information about a property.</p>
  */
 export interface PropertyRequest {
@@ -2765,6 +3081,7 @@ export interface PropertyRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a property response.</p>
  */
 export interface PropertyResponse {
@@ -2780,6 +3097,7 @@ export interface PropertyResponse {
 }
 
 /**
+ * @public
  * <p>An object that sets information about a component type create or update request.</p>
  */
 export interface ComponentRequest {
@@ -2806,6 +3124,7 @@ export interface ComponentRequest {
 }
 
 /**
+ * @public
  * <p>An object that returns information about a component type create or update request.</p>
  */
 export interface ComponentResponse {
@@ -2852,6 +3171,7 @@ export interface ComponentResponse {
 }
 
 /**
+ * @public
  * <p>The component update request.</p>
  */
 export interface ComponentUpdateRequest {
@@ -2882,6 +3202,9 @@ export interface ComponentUpdateRequest {
   propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
 }
 
+/**
+ * @public
+ */
 export interface CreateEntityRequest {
   /**
    * <p>The ID of the workspace that contains the entity.</p>
@@ -2920,6 +3243,9 @@ export interface CreateEntityRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetEntityResponse {
   /**
    * <p>The ID of the entity.</p>
@@ -2983,6 +3309,9 @@ export interface GetEntityResponse {
   syncSource?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEntityRequest {
   /**
    * <p>The ID of the workspace that contains the entity.</p>

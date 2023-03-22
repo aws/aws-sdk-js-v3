@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallDomainListCommand}.
  */
 export interface DeleteFirewallDomainListCommandInput extends DeleteFirewallDomainListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallDomainListCommand}.
  */
 export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDomainListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified domain list. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallDomainListCommandInput - {@link DeleteFirewallDomainListCommandInput}
+ * @returns {@link DeleteFirewallDomainListCommandOutput}
  * @see {@link DeleteFirewallDomainListCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallDomainListCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteFirewallDomainListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallDomainListCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteFirewallDomainListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallDomainListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFirewallDomainListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallDomainListCommandOutput> {
     return deserializeAws_json1_1DeleteFirewallDomainListCommand(output, context);
   }

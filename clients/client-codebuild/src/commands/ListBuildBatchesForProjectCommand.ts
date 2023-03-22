@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuildBatchesForProjectCommand}.
  */
 export interface ListBuildBatchesForProjectCommandInput extends ListBuildBatchesForProjectInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBuildBatchesForProjectCommand}.
  */
 export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatchesForProjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the identifiers of the build batches for a specific project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildBatchesForProjectCommandInput - {@link ListBuildBatchesForProjectCommandInput}
+ * @returns {@link ListBuildBatchesForProjectCommandOutput}
  * @see {@link ListBuildBatchesForProjectCommandInput} for command's `input` shape.
  * @see {@link ListBuildBatchesForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildBatchesForProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildBatchesForProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBuildBatchesForProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

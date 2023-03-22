@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAcceleratorAttributesCommand}.
  */
 export interface UpdateAcceleratorAttributesCommandInput extends UpdateAcceleratorAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAcceleratorAttributesCommand}.
  */
 export interface UpdateAcceleratorAttributesCommandOutput
@@ -41,6 +45,7 @@ export interface UpdateAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the attributes for an accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface UpdateAcceleratorAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAcceleratorAttributesCommandInput - {@link UpdateAcceleratorAttributesCommandInput}
+ * @returns {@link UpdateAcceleratorAttributesCommandOutput}
  * @see {@link UpdateAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateAcceleratorAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAcceleratorAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateAcceleratorAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAcceleratorAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAcceleratorAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

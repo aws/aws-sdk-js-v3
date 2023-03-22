@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandInput extends GetAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the Amazon Macie administrator account for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
+ * @returns {@link GetAdministratorAccountCommandOutput}
  * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class GetAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdministratorAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
     return deserializeAws_restJson1GetAdministratorAccountCommand(output, context);
   }

@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveClientIDFromOpenIDConnectProviderCommand}.
  */
 export interface RemoveClientIDFromOpenIDConnectProviderCommandInput
   extends RemoveClientIDFromOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveClientIDFromOpenIDConnectProviderCommand}.
  */
 export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified client ID (also known as audience) from the list of client IDs
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource
  *             object.</p>
@@ -49,6 +54,8 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveClientIDFromOpenIDConnectProviderCommandInput - {@link RemoveClientIDFromOpenIDConnectProviderCommandInput}
+ * @returns {@link RemoveClientIDFromOpenIDConnectProviderCommandOutput}
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveClientIDFromOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     return serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

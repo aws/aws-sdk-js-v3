@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyManagedPrefixListCommand}.
  */
 export interface ModifyManagedPrefixListCommandInput extends ModifyManagedPrefixListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyManagedPrefixListCommand}.
  */
 export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefixListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified managed prefix list.</p>
  *          <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
  *             Changing the name of the prefix list does not affect the version.</p>
@@ -50,6 +55,8 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyManagedPrefixListCommandInput - {@link ModifyManagedPrefixListCommandInput}
+ * @returns {@link ModifyManagedPrefixListCommandOutput}
  * @see {@link ModifyManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link ModifyManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ModifyManagedPrefixListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyManagedPrefixListCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ModifyManagedPrefixListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyManagedPrefixListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyManagedPrefixListCommandOutput> {
     return deserializeAws_ec2ModifyManagedPrefixListCommand(output, context);
   }

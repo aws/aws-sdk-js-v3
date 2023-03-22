@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateServiceRoleFromAccountCommand}.
  */
 export interface DisassociateServiceRoleFromAccountCommandInput extends DisassociateServiceRoleFromAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateServiceRoleFromAccountCommand}.
  */
 export interface DisassociateServiceRoleFromAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Disassociates the service role from your account. Without a service role, deployments will not work.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
+ * @returns {@link DisassociateServiceRoleFromAccountCommandOutput}
  * @see {@link DisassociateServiceRoleFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceRoleFromAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceRoleFromAccountCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     return serializeAws_restJson1DisassociateServiceRoleFromAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

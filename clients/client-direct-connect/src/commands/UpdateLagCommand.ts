@@ -18,15 +18,20 @@ import { Lag, LagFilterSensitiveLog, UpdateLagRequest, UpdateLagRequestFilterSen
 import { deserializeAws_json1_1UpdateLagCommand, serializeAws_json1_1UpdateLagCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLagCommand}.
  */
 export interface UpdateLagCommandInput extends UpdateLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLagCommand}.
  */
 export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
  *          <p>You can update the following LAG attributes:</p>
  *          <ul>
@@ -60,6 +65,8 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLagCommandInput - {@link UpdateLagCommandInput}
+ * @returns {@link UpdateLagCommandOutput}
  * @see {@link UpdateLagCommandInput} for command's `input` shape.
  * @see {@link UpdateLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLagCommandOutput> {
     return deserializeAws_json1_1UpdateLagCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBillingGroupCommand}.
  */
 export interface DescribeBillingGroupCommandInput extends DescribeBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBillingGroupCommand}.
  */
 export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBillingGroupCommandInput - {@link DescribeBillingGroupCommandInput}
+ * @returns {@link DescribeBillingGroupCommandOutput}
  * @see {@link DescribeBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBillingGroupCommandOutput> {
     return deserializeAws_restJson1DescribeBillingGroupCommand(output, context);
   }

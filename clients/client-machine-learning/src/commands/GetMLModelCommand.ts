@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMLModelCommand}.
  */
 export interface GetMLModelCommandInput extends GetMLModelInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMLModelCommand}.
  */
 export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
  *         <p>
  *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
@@ -48,6 +53,8 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMLModelCommandInput - {@link GetMLModelCommandInput}
+ * @returns {@link GetMLModelCommandOutput}
  * @see {@link GetMLModelCommandInput} for command's `input` shape.
  * @see {@link GetMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLModelCommandOutput> {
     return deserializeAws_json1_1GetMLModelCommand(output, context);
   }

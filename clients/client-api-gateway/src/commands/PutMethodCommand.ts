@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMethodCommand}.
  */
 export interface PutMethodCommandInput extends PutMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMethodCommand}.
  */
 export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add a method to an existing Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMethodCommandInput - {@link PutMethodCommandInput}
+ * @returns {@link PutMethodCommandOutput}
  * @see {@link PutMethodCommandInput} for command's `input` shape.
  * @see {@link PutMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMethodCommandOutput> {
     return deserializeAws_restJson1PutMethodCommand(output, context);
   }

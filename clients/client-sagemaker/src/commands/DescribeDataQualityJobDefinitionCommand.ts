@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataQualityJobDefinitionCommand}.
  */
 export interface DescribeDataQualityJobDefinitionCommandInput extends DescribeDataQualityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataQualityJobDefinitionCommand}.
  */
 export interface DescribeDataQualityJobDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDataQualityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a data quality monitoring job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeDataQualityJobDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataQualityJobDefinitionCommandInput - {@link DescribeDataQualityJobDefinitionCommandInput}
+ * @returns {@link DescribeDataQualityJobDefinitionCommandOutput}
  * @see {@link DescribeDataQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeDataQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDataQualityJobDefinitionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command<
     return serializeAws_json1_1DescribeDataQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

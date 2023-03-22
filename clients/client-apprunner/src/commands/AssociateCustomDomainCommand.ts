@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateCustomDomainCommand}.
  */
 export interface AssociateCustomDomainCommandInput extends AssociateCustomDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateCustomDomainCommand}.
  */
 export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate your own domain name with the App Runner subdomain URL of your App Runner service.</p>
  *          <p>After you call <code>AssociateCustomDomain</code> and receive a successful response, use the information in the <a>CustomDomain</a> record
  *       that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or
@@ -50,6 +55,8 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateCustomDomainCommandInput - {@link AssociateCustomDomainCommandInput}
+ * @returns {@link AssociateCustomDomainCommandOutput}
  * @see {@link AssociateCustomDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateCustomDomainCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateCustomDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateCustomDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AssociateCustomDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateCustomDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0AssociateCustomDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCustomDomainCommandOutput> {
     return deserializeAws_json1_0AssociateCustomDomainCommand(output, context);
   }

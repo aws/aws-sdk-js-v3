@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListTypeRegistrationsCommand}.
  */
 export interface ListTypeRegistrationsCommandInput extends ListTypeRegistrationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTypeRegistrationsCommand}.
  */
 export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistrationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of registration tokens for the specified extension(s).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTypeRegistrationsCommandInput - {@link ListTypeRegistrationsCommandInput}
+ * @returns {@link ListTypeRegistrationsCommandOutput}
  * @see {@link ListTypeRegistrationsCommandInput} for command's `input` shape.
  * @see {@link ListTypeRegistrationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListTypeRegistrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTypeRegistrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListTypeRegistrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTypeRegistrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListTypeRegistrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypeRegistrationsCommandOutput> {
     return deserializeAws_queryListTypeRegistrationsCommand(output, context);
   }

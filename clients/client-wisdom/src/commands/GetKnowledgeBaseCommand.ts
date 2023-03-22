@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetKnowledgeBaseCommand}.
  */
 export interface GetKnowledgeBaseCommandInput extends GetKnowledgeBaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKnowledgeBaseCommand}.
  */
 export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKnowledgeBaseCommandInput - {@link GetKnowledgeBaseCommandInput}
+ * @returns {@link GetKnowledgeBaseCommandOutput}
  * @see {@link GetKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link GetKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetKnowledgeBaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKnowledgeBaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetKnowledgeBaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKnowledgeBaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetKnowledgeBaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKnowledgeBaseCommandOutput> {
     return deserializeAws_restJson1GetKnowledgeBaseCommand(output, context);
   }

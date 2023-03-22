@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokePermissionsCommand}.
  */
 export interface RevokePermissionsCommandInput extends RevokePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokePermissionsCommand}.
  */
 export interface RevokePermissionsCommandOutput extends RevokePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokePermissionsCommandInput - {@link RevokePermissionsCommandInput}
+ * @returns {@link RevokePermissionsCommandOutput}
  * @see {@link RevokePermissionsCommandInput} for command's `input` shape.
  * @see {@link RevokePermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class RevokePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class RevokePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RevokePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokePermissionsCommandOutput> {
     return deserializeAws_restJson1RevokePermissionsCommand(output, context);
   }

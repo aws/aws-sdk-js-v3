@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInferenceSchedulerCommand}.
  */
 export interface CreateInferenceSchedulerCommandInput extends CreateInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInferenceSchedulerCommand}.
  */
 export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a scheduled inference. Scheduling an inference is setting up a continuous
  *          real-time inference plan to analyze new measurement data. When setting up the schedule, you
  *          provide an S3 bucket location for the input data, assign it a delimiter between separate
@@ -50,6 +55,8 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInferenceSchedulerCommandInput - {@link CreateInferenceSchedulerCommandInput}
+ * @returns {@link CreateInferenceSchedulerCommandOutput}
  * @see {@link CreateInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link CreateInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInferenceSchedulerCommandOutput> {
     return deserializeAws_json1_0CreateInferenceSchedulerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpsItemEventsCommand}.
  */
 export interface ListOpsItemEventsCommandInput extends ListOpsItemEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpsItemEventsCommand}.
  */
 export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
  *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpsItemEventsCommandInput - {@link ListOpsItemEventsCommandInput}
+ * @returns {@link ListOpsItemEventsCommandOutput}
  * @see {@link ListOpsItemEventsCommandInput} for command's `input` shape.
  * @see {@link ListOpsItemEventsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListOpsItemEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpsItemEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListOpsItemEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpsItemEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOpsItemEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpsItemEventsCommandOutput> {
     return deserializeAws_json1_1ListOpsItemEventsCommand(output, context);
   }

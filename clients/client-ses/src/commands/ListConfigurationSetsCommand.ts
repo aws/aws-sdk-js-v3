@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationSetsCommand}.
  */
 export interface ListConfigurationSetsCommandInput extends ListConfigurationSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationSetsCommand}.
  */
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of the configuration sets associated with your Amazon SES account in the
  *             current AWS Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
  *                 Guide.</i>
@@ -55,6 +60,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
+ * @returns {@link ListConfigurationSetsCommandOutput}
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListConfigurationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListConfigurationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListConfigurationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
     return deserializeAws_queryListConfigurationSetsCommand(output, context);
   }

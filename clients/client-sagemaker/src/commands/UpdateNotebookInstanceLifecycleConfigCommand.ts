@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface UpdateNotebookInstanceLifecycleConfigCommandInput extends UpdateNotebookInstanceLifecycleConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a notebook instance lifecycle configuration created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotebookInstanceLifecycleConfigCommandInput - {@link UpdateNotebookInstanceLifecycleConfigCommandInput}
+ * @returns {@link UpdateNotebookInstanceLifecycleConfigCommandOutput}
  * @see {@link UpdateNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     return serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

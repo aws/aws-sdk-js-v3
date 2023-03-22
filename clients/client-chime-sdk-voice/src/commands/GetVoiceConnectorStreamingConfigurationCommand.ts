@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface GetVoiceConnectorStreamingConfigurationCommandInput
   extends GetVoiceConnectorStreamingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface GetVoiceConnectorStreamingConfigurationCommandOutput
@@ -54,6 +58,9 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorStreamingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +106,9 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVoiceConnectorStreamingConfigurationCommandInput,
     context: __SerdeContext
@@ -106,6 +116,9 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     return serializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

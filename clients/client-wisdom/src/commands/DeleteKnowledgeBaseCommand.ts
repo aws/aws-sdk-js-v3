@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKnowledgeBaseCommand}.
  */
 export interface DeleteKnowledgeBaseCommandInput extends DeleteKnowledgeBaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKnowledgeBaseCommand}.
  */
 export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the knowledge base.</p>
  *          <note>
  *             <p>When you use this API to delete an external knowledge base such as Salesforce or
@@ -54,6 +59,8 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKnowledgeBaseCommandInput - {@link DeleteKnowledgeBaseCommandInput}
+ * @returns {@link DeleteKnowledgeBaseCommandOutput}
  * @see {@link DeleteKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link DeleteKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteKnowledgeBaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKnowledgeBaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteKnowledgeBaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKnowledgeBaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteKnowledgeBaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKnowledgeBaseCommandOutput> {
     return deserializeAws_restJson1DeleteKnowledgeBaseCommand(output, context);
   }

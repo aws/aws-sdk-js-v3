@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateParallelDataCommand}.
  */
 export interface CreateParallelDataCommandInput extends CreateParallelDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateParallelDataCommand}.
  */
 export interface CreateParallelDataCommandOutput extends CreateParallelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a parallel data resource in Amazon Translate by importing an input file from
  *       Amazon S3. Parallel data files contain examples that show how you want segments of text to be
  *       translated. By adding parallel data, you can influence the style, tone, and word choice in
@@ -49,6 +54,8 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateParallelDataCommandInput - {@link CreateParallelDataCommandInput}
+ * @returns {@link CreateParallelDataCommandOutput}
  * @see {@link CreateParallelDataCommandInput} for command's `input` shape.
  * @see {@link CreateParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateParallelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateParallelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateParallelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateParallelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParallelDataCommandOutput> {
     return deserializeAws_json1_1CreateParallelDataCommand(output, context);
   }

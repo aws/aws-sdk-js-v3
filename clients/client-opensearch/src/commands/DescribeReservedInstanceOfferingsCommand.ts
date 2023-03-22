@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstanceOfferingsCommand}.
  */
 export interface DescribeReservedInstanceOfferingsCommandInput extends DescribeReservedInstanceOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstanceOfferingsCommand}.
  */
 export interface DescribeReservedInstanceOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeReservedInstanceOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given
  *    Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch Service</a>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeReservedInstanceOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstanceOfferingsCommandInput - {@link DescribeReservedInstanceOfferingsCommandInput}
+ * @returns {@link DescribeReservedInstanceOfferingsCommandOutput}
  * @see {@link DescribeReservedInstanceOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstanceOfferingsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstanceOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedInstanceOfferingsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     return serializeAws_restJson1DescribeReservedInstanceOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

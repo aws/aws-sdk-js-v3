@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetFileCommand, serializeAws_json1_1GetFileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFileCommand}.
  */
 export interface GetFileCommandInput extends GetFileInput {}
 /**
+ * @public
+ *
  * The output of {@link GetFileCommand}.
  */
 export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFileCommandInput - {@link GetFileCommandInput}
+ * @returns {@link GetFileCommandOutput}
  * @see {@link GetFileCommandInput} for command's `input` shape.
  * @see {@link GetFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -116,6 +123,9 @@ export class GetFileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFileCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class GetFileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileCommandOutput> {
     return deserializeAws_json1_1GetFileCommand(output, context);
   }

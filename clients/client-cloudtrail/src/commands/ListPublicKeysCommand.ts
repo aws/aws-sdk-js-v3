@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPublicKeysCommand}.
  */
 export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPublicKeysCommand}.
  */
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all public keys whose private keys were used to sign the digest files within the
  *          specified time range. The public key is needed to validate digest files that were signed
  *          with its corresponding private key.</p>
@@ -54,6 +59,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
+ * @returns {@link ListPublicKeysCommandOutput}
  * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListPublicKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPublicKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListPublicKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPublicKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPublicKeysCommandOutput> {
     return deserializeAws_json1_1ListPublicKeysCommand(output, context);
   }

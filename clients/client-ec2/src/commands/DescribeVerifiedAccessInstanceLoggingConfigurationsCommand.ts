@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput
   extends DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput - {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput}
+ * @returns {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput}
  * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
     return serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

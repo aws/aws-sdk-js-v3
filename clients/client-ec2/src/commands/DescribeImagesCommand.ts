@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DescribeImagesCommand, serializeAws_ec2DescribeImagesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImagesCommand}.
  */
 export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImagesCommand}.
  */
 export interface DescribeImagesCommandOutput extends DescribeImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p>
  *          <p>The images available to you include public images, private images that you own, and private images owned by other
  *        Amazon Web Services accounts for which you have explicit launch permissions.</p>
@@ -49,6 +54,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
+ * @returns {@link DescribeImagesCommandOutput}
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -118,6 +125,9 @@ export class DescribeImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class DescribeImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagesCommandOutput> {
     return deserializeAws_ec2DescribeImagesCommand(output, context);
   }

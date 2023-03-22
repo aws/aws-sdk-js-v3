@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GrantPermissionsCommand}.
  */
 export interface GrantPermissionsCommandInput extends GrantPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GrantPermissionsCommand}.
  */
 export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
  *          <p>For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GrantPermissionsCommandInput - {@link GrantPermissionsCommandInput}
+ * @returns {@link GrantPermissionsCommandOutput}
  * @see {@link GrantPermissionsCommandInput} for command's `input` shape.
  * @see {@link GrantPermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -79,6 +86,9 @@ export class GrantPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GrantPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GrantPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GrantPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GrantPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantPermissionsCommandOutput> {
     return deserializeAws_restJson1GrantPermissionsCommand(output, context);
   }

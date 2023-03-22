@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainDeliverabilityCampaignsCommand}.
  */
 export interface ListDomainDeliverabilityCampaignsCommandInput extends ListDomainDeliverabilityCampaignsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainDeliverabilityCampaignsCommand}.
  */
 export interface ListDomainDeliverabilityCampaignsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
  *             email during a specified time range. This data is available for a domain only if you
  *             enabled the Deliverability dashboard (<code>PutDeliverabilityDashboardOption</code> operation)
@@ -51,6 +56,8 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainDeliverabilityCampaignsCommandInput - {@link ListDomainDeliverabilityCampaignsCommandInput}
+ * @returns {@link ListDomainDeliverabilityCampaignsCommandOutput}
  * @see {@link ListDomainDeliverabilityCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListDomainDeliverabilityCampaignsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainDeliverabilityCampaignsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDomainDeliverabilityCampaignsCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     return serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAllowListCommand}.
  */
 export interface CreateAllowListCommandInput extends CreateAllowListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAllowListCommand}.
  */
 export interface CreateAllowListCommandOutput extends CreateAllowListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and defines the settings for an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAllowListCommandOutput extends CreateAllowListResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAllowListCommandInput - {@link CreateAllowListCommandInput}
+ * @returns {@link CreateAllowListCommandOutput}
  * @see {@link CreateAllowListCommandInput} for command's `input` shape.
  * @see {@link CreateAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreateAllowListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAllowListCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateAllowListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAllowListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAllowListCommandOutput> {
     return deserializeAws_restJson1CreateAllowListCommand(output, context);
   }

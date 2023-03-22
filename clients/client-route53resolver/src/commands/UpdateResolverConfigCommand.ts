@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResolverConfigCommand}.
  */
 export interface UpdateResolverConfigCommandInput extends UpdateResolverConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResolverConfigCommand}.
  */
 export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
  * 				Amazon Virtual Private Cloud.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResolverConfigCommandInput - {@link UpdateResolverConfigCommandInput}
+ * @returns {@link UpdateResolverConfigCommandOutput}
  * @see {@link UpdateResolverConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateResolverConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResolverConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateResolverConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResolverConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResolverConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverConfigCommandOutput> {
     return deserializeAws_json1_1UpdateResolverConfigCommand(output, context);
   }

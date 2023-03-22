@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchJobDefinitionsCommand}.
  */
 export interface ListBatchJobDefinitionsCommandInput extends ListBatchJobDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchJobDefinitionsCommand}.
  */
 export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the available batch job definitions based on the batch job resources uploaded
  *          during the application creation. You can use the batch job definitions in the list to start
  *          a batch job.</p>
@@ -48,6 +53,8 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchJobDefinitionsCommandInput - {@link ListBatchJobDefinitionsCommandInput}
+ * @returns {@link ListBatchJobDefinitionsCommandOutput}
  * @see {@link ListBatchJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListBatchJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -86,6 +93,9 @@ export class ListBatchJobDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchJobDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListBatchJobDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBatchJobDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchJobDefinitionsCommandOutput> {
     return deserializeAws_restJson1ListBatchJobDefinitionsCommand(output, context);
   }

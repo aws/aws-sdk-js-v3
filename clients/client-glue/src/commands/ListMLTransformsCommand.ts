@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMLTransformsCommand}.
  */
 export interface ListMLTransformsCommandInput extends ListMLTransformsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMLTransformsCommand}.
  */
 export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a sortable, filterable list of existing Glue machine learning transforms in this Amazon Web Services account,
  *        or the resources with the specified tag. This operation takes the optional <code>Tags</code> field, which you can use as
  *        a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag
@@ -50,6 +55,8 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMLTransformsCommandInput - {@link ListMLTransformsCommandInput}
+ * @returns {@link ListMLTransformsCommandOutput}
  * @see {@link ListMLTransformsCommandInput} for command's `input` shape.
  * @see {@link ListMLTransformsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListMLTransformsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMLTransformsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListMLTransformsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMLTransformsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMLTransformsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMLTransformsCommandOutput> {
     return deserializeAws_json1_1ListMLTransformsCommand(output, context);
   }

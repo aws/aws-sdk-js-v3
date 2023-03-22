@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportCertificateCommand}.
  */
 export interface ExportCertificateCommandInput extends ExportCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportCertificateCommand}.
  */
 export interface ExportCertificateCommandOutput extends ExportCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a private certificate issued by a private certificate authority (CA) for use
  *       anywhere. The exported file contains the certificate, the certificate chain, and the encrypted
  *       private 2048-bit RSA key associated with the public key that is embedded in the certificate.
@@ -52,6 +57,8 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportCertificateCommandInput - {@link ExportCertificateCommandInput}
+ * @returns {@link ExportCertificateCommandOutput}
  * @see {@link ExportCertificateCommandInput} for command's `input` shape.
  * @see {@link ExportCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -86,6 +93,9 @@ export class ExportCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ExportCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExportCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportCertificateCommandOutput> {
     return deserializeAws_json1_1ExportCertificateCommand(output, context);
   }

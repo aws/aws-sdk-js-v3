@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGameServerGroupsCommand}.
  */
 export interface ListGameServerGroupsCommandInput extends ListGameServerGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGameServerGroupsCommand}.
  */
 export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists a game server groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGameServerGroupsCommandInput - {@link ListGameServerGroupsCommandInput}
+ * @returns {@link ListGameServerGroupsCommandOutput}
  * @see {@link ListGameServerGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGameServerGroupsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListGameServerGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGameServerGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListGameServerGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGameServerGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGameServerGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGameServerGroupsCommandOutput> {
     return deserializeAws_json1_1ListGameServerGroupsCommand(output, context);
   }

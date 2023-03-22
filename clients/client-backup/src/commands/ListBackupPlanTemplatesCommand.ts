@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupPlanTemplatesCommand}.
  */
 export interface ListBackupPlanTemplatesCommandInput extends ListBackupPlanTemplatesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupPlanTemplatesCommand}.
  */
 export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
  *          and the creation and deletion dates.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupPlanTemplatesCommandInput - {@link ListBackupPlanTemplatesCommandInput}
+ * @returns {@link ListBackupPlanTemplatesCommandOutput}
  * @see {@link ListBackupPlanTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListBackupPlanTemplatesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListBackupPlanTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupPlanTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListBackupPlanTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupPlanTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBackupPlanTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupPlanTemplatesCommandOutput> {
     return deserializeAws_restJson1ListBackupPlanTemplatesCommand(output, context);
   }

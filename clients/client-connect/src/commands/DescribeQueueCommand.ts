@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQueueCommand}.
  */
 export interface DescribeQueueCommandInput extends DescribeQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQueueCommand}.
  */
 export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified queue.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueueCommandInput - {@link DescribeQueueCommandInput}
+ * @returns {@link DescribeQueueCommandOutput}
  * @see {@link DescribeQueueCommandInput} for command's `input` shape.
  * @see {@link DescribeQueueCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueueCommandOutput> {
     return deserializeAws_restJson1DescribeQueueCommand(output, context);
   }

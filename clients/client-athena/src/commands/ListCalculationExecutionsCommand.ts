@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCalculationExecutionsCommand}.
  */
 export interface ListCalculationExecutionsCommandInput extends ListCalculationExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCalculationExecutionsCommand}.
  */
 export interface ListCalculationExecutionsCommandOutput extends ListCalculationExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the calculations that have been submitted to a session in descending order.
  *             Newer calculations are listed first; older calculations are listed later.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCalculationExecutionsCommandInput - {@link ListCalculationExecutionsCommandInput}
+ * @returns {@link ListCalculationExecutionsCommandOutput}
  * @see {@link ListCalculationExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListCalculationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListCalculationExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCalculationExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListCalculationExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCalculationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCalculationExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserRoutingProfileCommand}.
  */
 export interface UpdateUserRoutingProfileCommandInput extends UpdateUserRoutingProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserRoutingProfileCommand}.
  */
 export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the specified routing profile to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserRoutingProfileCommandInput - {@link UpdateUserRoutingProfileCommandInput}
+ * @returns {@link UpdateUserRoutingProfileCommandOutput}
  * @see {@link UpdateUserRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserRoutingProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserRoutingProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateUserRoutingProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserRoutingProfileCommandOutput> {
     return deserializeAws_restJson1UpdateUserRoutingProfileCommand(output, context);
   }

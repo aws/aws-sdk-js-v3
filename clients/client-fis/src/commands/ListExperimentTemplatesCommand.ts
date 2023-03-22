@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExperimentTemplatesCommand}.
  */
 export interface ListExperimentTemplatesCommandInput extends ListExperimentTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExperimentTemplatesCommand}.
  */
 export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your experiment templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExperimentTemplatesCommandInput - {@link ListExperimentTemplatesCommandInput}
+ * @returns {@link ListExperimentTemplatesCommandOutput}
  * @see {@link ListExperimentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListExperimentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListExperimentTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExperimentTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListExperimentTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExperimentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListExperimentTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperimentTemplatesCommandOutput> {
     return deserializeAws_restJson1ListExperimentTemplatesCommand(output, context);
   }

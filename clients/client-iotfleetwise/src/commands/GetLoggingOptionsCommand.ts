@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoggingOptionsCommand}.
  */
 export interface GetLoggingOptionsCommandInput extends GetLoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoggingOptionsCommand}.
  */
 export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggingOptionsCommandInput - {@link GetLoggingOptionsCommandInput}
+ * @returns {@link GetLoggingOptionsCommandOutput}
  * @see {@link GetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetLoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingOptionsCommandOutput> {
     return deserializeAws_json1_0GetLoggingOptionsCommand(output, context);
   }

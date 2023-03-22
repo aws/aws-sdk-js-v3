@@ -23,15 +23,20 @@ import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import { deserializeAws_json1_1CreateHITCommand, serializeAws_json1_1CreateHITCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHITCommand}.
  */
 export interface CreateHITCommandInput extends CreateHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHITCommand}.
  */
 export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateHIT</code> operation creates a new Human Intelligence Task (HIT).
  *             The new HIT is made available for Workers to find and accept on the Amazon Mechanical
  *             Turk website. </p>
@@ -59,6 +64,8 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHITCommandInput - {@link CreateHITCommandInput}
+ * @returns {@link CreateHITCommandOutput}
  * @see {@link CreateHITCommandInput} for command's `input` shape.
  * @see {@link CreateHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITCommandOutput> {
     return deserializeAws_json1_1CreateHITCommand(output, context);
   }

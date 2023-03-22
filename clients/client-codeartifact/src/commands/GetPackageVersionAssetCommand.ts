@@ -29,10 +29,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPackageVersionAssetCommand}.
  */
 export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPackageVersionAssetCommand}.
  */
 export interface GetPackageVersionAssetCommandOutput
@@ -40,6 +44,7 @@ export interface GetPackageVersionAssetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns an asset (or file) that is in a package. For example, for a Maven package version, use
  *       <code>GetPackageVersionAsset</code> to download a <code>JAR</code> file, a <code>POM</code> file,
@@ -55,6 +60,8 @@ export interface GetPackageVersionAssetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPackageVersionAssetCommandInput - {@link GetPackageVersionAssetCommandInput}
+ * @returns {@link GetPackageVersionAssetCommandOutput}
  * @see {@link GetPackageVersionAssetCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionAssetCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -106,6 +113,9 @@ export class GetPackageVersionAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPackageVersionAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class GetPackageVersionAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPackageVersionAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPackageVersionAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

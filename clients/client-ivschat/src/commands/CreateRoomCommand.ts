@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandInput extends CreateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a room that allows clients to connect and pass messages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
+ * @returns {@link CreateRoomCommandOutput}
  * @see {@link CreateRoomCommandInput} for command's `input` shape.
  * @see {@link CreateRoomCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoomCommandOutput> {
     return deserializeAws_restJson1CreateRoomCommand(output, context);
   }

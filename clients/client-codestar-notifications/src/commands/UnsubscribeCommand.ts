@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UnsubscribeCommand}.
  */
 export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnsubscribeCommand}.
  */
 export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an association between a notification rule and an Chatbot topic so that
  *             subscribers to that topic stop receiving notifications when the events described in the
  *             rule are triggered.</p>
@@ -52,6 +57,8 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UnsubscribeCommandInput - {@link UnsubscribeCommandInput}
+ * @returns {@link UnsubscribeCommandOutput}
  * @see {@link UnsubscribeCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -78,6 +85,9 @@ export class UnsubscribeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnsubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UnsubscribeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnsubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnsubscribeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeCommandOutput> {
     return deserializeAws_restJson1UnsubscribeCommand(output, context);
   }

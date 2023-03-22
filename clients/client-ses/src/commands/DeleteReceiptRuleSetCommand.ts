@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReceiptRuleSetCommand}.
  */
 export interface DeleteReceiptRuleSetCommandInput extends DeleteReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReceiptRuleSetCommand}.
  */
 export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified receipt rule set and all of the receipt rules it
  *             contains.</p>
  *         <note>
@@ -52,6 +57,8 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReceiptRuleSetCommandInput - {@link DeleteReceiptRuleSetCommandInput}
+ * @returns {@link DeleteReceiptRuleSetCommandOutput}
  * @see {@link DeleteReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link DeleteReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptRuleSetCommandOutput> {
     return deserializeAws_queryDeleteReceiptRuleSetCommand(output, context);
   }

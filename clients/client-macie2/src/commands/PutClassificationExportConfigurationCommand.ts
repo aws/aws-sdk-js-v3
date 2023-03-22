@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutClassificationExportConfigurationCommand}.
  */
 export interface PutClassificationExportConfigurationCommandInput extends PutClassificationExportConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutClassificationExportConfigurationCommand}.
  */
 export interface PutClassificationExportConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutClassificationExportConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the configuration settings for storing data classification results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutClassificationExportConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutClassificationExportConfigurationCommandInput - {@link PutClassificationExportConfigurationCommandInput}
+ * @returns {@link PutClassificationExportConfigurationCommandOutput}
  * @see {@link PutClassificationExportConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutClassificationExportConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class PutClassificationExportConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutClassificationExportConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class PutClassificationExportConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutClassificationExportConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class PutClassificationExportConfigurationCommand extends $Command<
     return serializeAws_restJson1PutClassificationExportConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

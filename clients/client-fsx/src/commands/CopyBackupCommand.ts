@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CopyBackupCommand}.
  */
 export interface CopyBackupCommandInput extends CopyBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyBackupCommand}.
  */
 export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
  *          (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
  *          backup copy requests in progress to a single destination Region per account.</p>
@@ -66,6 +71,8 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyBackupCommandInput - {@link CopyBackupCommandInput}
+ * @returns {@link CopyBackupCommandOutput}
  * @see {@link CopyBackupCommandInput} for command's `input` shape.
  * @see {@link CopyBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -174,6 +181,9 @@ export class CopyBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,10 +221,16 @@ export class CopyBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CopyBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyBackupCommandOutput> {
     return deserializeAws_json1_1CopyBackupCommand(output, context);
   }

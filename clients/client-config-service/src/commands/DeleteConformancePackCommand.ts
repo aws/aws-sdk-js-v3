@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConformancePackCommand}.
  */
 export interface DeleteConformancePackCommandInput extends DeleteConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConformancePackCommand}.
  */
 export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that
  * 			conformance pack.</p>
  *          <p>Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
@@ -44,6 +49,8 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConformancePackCommandInput - {@link DeleteConformancePackCommandInput}
+ * @returns {@link DeleteConformancePackCommandOutput}
  * @see {@link DeleteConformancePackCommandInput} for command's `input` shape.
  * @see {@link DeleteConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConformancePackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConformancePackCommandOutput> {
     return deserializeAws_json1_1DeleteConformancePackCommand(output, context);
   }

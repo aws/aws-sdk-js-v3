@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestInvokeMethodCommand}.
  */
 export interface TestInvokeMethodCommandInput extends TestInvokeMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestInvokeMethodCommand}.
  */
 export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate the invocation of a Method in your RestApi with headers, parameters, and an incoming request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param TestInvokeMethodCommandInput - {@link TestInvokeMethodCommandInput}
+ * @returns {@link TestInvokeMethodCommandOutput}
  * @see {@link TestInvokeMethodCommandInput} for command's `input` shape.
  * @see {@link TestInvokeMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class TestInvokeMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestInvokeMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class TestInvokeMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestInvokeMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestInvokeMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeMethodCommandOutput> {
     return deserializeAws_restJson1TestInvokeMethodCommand(output, context);
   }

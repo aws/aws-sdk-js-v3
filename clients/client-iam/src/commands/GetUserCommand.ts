@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryGetUserCommand, serializeAws_queryGetUserCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserCommand}.
  */
 export interface GetUserCommandInput extends GetUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserCommand}.
  */
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified IAM user, including the user's creation
  *             date, path, unique ID, and ARN.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
@@ -46,6 +51,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserCommandInput - {@link GetUserCommandInput}
+ * @returns {@link GetUserCommandOutput}
  * @see {@link GetUserCommandInput} for command's `input` shape.
  * @see {@link GetUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserCommandOutput> {
     return deserializeAws_queryGetUserCommand(output, context);
   }

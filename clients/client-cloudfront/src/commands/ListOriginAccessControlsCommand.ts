@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListOriginAccessControlsCommand}.
  */
 export interface ListOriginAccessControlsCommandInput extends ListOriginAccessControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOriginAccessControlsCommand}.
  */
 export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessControlsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the list of CloudFront origin access controls in this Amazon Web Services account.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -51,6 +56,8 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginAccessControlsCommandInput - {@link ListOriginAccessControlsCommandInput}
+ * @returns {@link ListOriginAccessControlsCommandOutput}
  * @see {@link ListOriginAccessControlsCommandInput} for command's `input` shape.
  * @see {@link ListOriginAccessControlsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListOriginAccessControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginAccessControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListOriginAccessControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginAccessControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListOriginAccessControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginAccessControlsCommandOutput> {
     return deserializeAws_restXmlListOriginAccessControlsCommand(output, context);
   }

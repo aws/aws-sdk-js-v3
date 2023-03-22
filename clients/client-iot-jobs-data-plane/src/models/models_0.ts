@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IoTJobsDataPlaneServiceException as __BaseException } from "./IoTJobsDataPlaneServiceException";
 
 /**
+ * @public
  * <p>The certificate is invalid.</p>
  */
 export class CertificateValidationException extends __BaseException {
@@ -22,6 +23,9 @@ export class CertificateValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobExecutionRequest {
   /**
    * <p>The unique identifier assigned to this job when it was created.</p>
@@ -45,6 +49,9 @@ export interface DescribeJobExecutionRequest {
   executionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export enum JobExecutionStatus {
   CANCELED = "CANCELED",
   FAILED = "FAILED",
@@ -57,6 +64,7 @@ export enum JobExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Contains data about a job execution.</p>
  */
 export interface JobExecution {
@@ -120,6 +128,9 @@ export interface JobExecution {
   jobDocument?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobExecutionResponse {
   /**
    * <p>Contains data about a job execution.</p>
@@ -128,6 +139,7 @@ export interface DescribeJobExecutionResponse {
 }
 
 /**
+ * @public
  * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -147,6 +159,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -166,6 +179,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -185,6 +199,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The job is in a terminal state.</p>
  */
 export class TerminalStateException extends __BaseException {
@@ -204,6 +219,7 @@ export class TerminalStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate exceeds the limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -228,6 +244,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetPendingJobExecutionsRequest {
   /**
    * <p>The name of the thing that is executing the job.</p>
@@ -236,6 +255,7 @@ export interface GetPendingJobExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a subset of information about a job execution.</p>
  */
 export interface JobExecutionSummary {
@@ -271,6 +291,9 @@ export interface JobExecutionSummary {
   executionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetPendingJobExecutionsResponse {
   /**
    * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
@@ -284,6 +307,7 @@ export interface GetPendingJobExecutionsResponse {
 }
 
 /**
+ * @public
  * <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
  *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
  *          case, the body of the error message also contains the executionState field.</p>
@@ -304,6 +328,9 @@ export class InvalidStateTransitionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartNextPendingJobExecutionRequest {
   /**
    * <p>The name of the thing associated with the device.</p>
@@ -328,6 +355,9 @@ export interface StartNextPendingJobExecutionRequest {
   stepTimeoutInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartNextPendingJobExecutionResponse {
   /**
    * <p>A JobExecution object.</p>
@@ -335,6 +365,9 @@ export interface StartNextPendingJobExecutionResponse {
   execution?: JobExecution;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobExecutionRequest {
   /**
    * <p>The unique identifier assigned to this job when it was created.</p>
@@ -396,6 +429,7 @@ export interface UpdateJobExecutionRequest {
 }
 
 /**
+ * @public
  * <p>Contains data about the state of a job execution.</p>
  */
 export interface JobExecutionState {
@@ -417,6 +451,9 @@ export interface JobExecutionState {
   versionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobExecutionResponse {
   /**
    * <p>A JobExecutionState object.</p>

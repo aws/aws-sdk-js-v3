@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemAssociationsCommand}.
  */
 export interface DescribeFileSystemAssociationsCommandInput extends DescribeFileSystemAssociationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemAssociationsCommand}.
  */
 export interface DescribeFileSystemAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFileSystemAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the file system association information. This operation is only supported for FSx
  *          File Gateways.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeFileSystemAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemAssociationsCommandInput - {@link DescribeFileSystemAssociationsCommandInput}
+ * @returns {@link DescribeFileSystemAssociationsCommandOutput}
  * @see {@link DescribeFileSystemAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemAssociationsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFileSystemAssociationsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
     return serializeAws_json1_1DescribeFileSystemAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

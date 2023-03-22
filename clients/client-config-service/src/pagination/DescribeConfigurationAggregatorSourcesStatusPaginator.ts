@@ -10,7 +10,7 @@ import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConfigServiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeConfigurationAggregatorSourcesStatusCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeConfigurationAggregatorSourcesStatus(
   config: ConfigServicePaginationConfiguration,
   input: DescribeConfigurationAggregatorSourcesStatusCommandInput,

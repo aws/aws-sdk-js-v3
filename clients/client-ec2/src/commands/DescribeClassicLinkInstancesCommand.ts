@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClassicLinkInstancesCommand}.
  */
 export interface DescribeClassicLinkInstancesCommandInput extends DescribeClassicLinkInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClassicLinkInstancesCommand}.
  */
 export interface DescribeClassicLinkInstancesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeClassicLinkInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your linked EC2-Classic instances. This request only returns
  * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
  * 			use this request to return information about other instances.</p>
@@ -53,6 +58,8 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClassicLinkInstancesCommandInput - {@link DescribeClassicLinkInstancesCommandInput}
+ * @returns {@link DescribeClassicLinkInstancesCommandOutput}
  * @see {@link DescribeClassicLinkInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeClassicLinkInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClassicLinkInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClassicLinkInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeClassicLinkInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

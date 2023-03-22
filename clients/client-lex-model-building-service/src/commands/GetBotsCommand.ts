@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotsCommand}.
  */
 export interface GetBotsCommandInput extends GetBotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotsCommand}.
  */
 export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns bot information as follows: </p>
  *          <ul>
  *             <li>
@@ -64,6 +69,8 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotsCommandInput - {@link GetBotsCommandInput}
+ * @returns {@link GetBotsCommandOutput}
  * @see {@link GetBotsCommandInput} for command's `input` shape.
  * @see {@link GetBotsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -128,6 +135,9 @@ export class GetBotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class GetBotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotsCommandOutput> {
     return deserializeAws_restJson1GetBotsCommand(output, context);
   }

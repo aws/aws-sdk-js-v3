@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterDbRevisionsCommand}.
  */
 export interface DescribeClusterDbRevisionsCommandInput extends DescribeClusterDbRevisionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterDbRevisionsCommand}.
  */
 export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterDbRevisionsCommandInput - {@link DescribeClusterDbRevisionsCommandInput}
+ * @returns {@link DescribeClusterDbRevisionsCommandOutput}
  * @see {@link DescribeClusterDbRevisionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterDbRevisionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterDbRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterDbRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterDbRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

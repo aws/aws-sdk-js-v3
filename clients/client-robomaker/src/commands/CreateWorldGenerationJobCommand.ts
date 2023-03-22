@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorldGenerationJobCommand}.
  */
 export interface CreateWorldGenerationJobCommandInput extends CreateWorldGenerationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorldGenerationJobCommand}.
  */
 export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates worlds using the specified template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorldGenerationJobCommandInput - {@link CreateWorldGenerationJobCommandInput}
+ * @returns {@link CreateWorldGenerationJobCommandOutput}
  * @see {@link CreateWorldGenerationJobCommandInput} for command's `input` shape.
  * @see {@link CreateWorldGenerationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateWorldGenerationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorldGenerationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateWorldGenerationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorldGenerationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorldGenerationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorldGenerationJobCommandOutput> {
     return deserializeAws_restJson1CreateWorldGenerationJobCommand(output, context);
   }

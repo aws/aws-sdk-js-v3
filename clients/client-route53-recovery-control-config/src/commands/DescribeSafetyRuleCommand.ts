@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSafetyRuleCommand}.
  */
 export interface DescribeSafetyRuleCommandInput extends DescribeSafetyRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSafetyRuleCommand}.
  */
 export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a safety rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSafetyRuleCommandInput - {@link DescribeSafetyRuleCommandInput}
+ * @returns {@link DescribeSafetyRuleCommandOutput}
  * @see {@link DescribeSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeSafetyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSafetyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeSafetyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSafetyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSafetyRuleCommandOutput> {
     return deserializeAws_restJson1DescribeSafetyRuleCommand(output, context);
   }

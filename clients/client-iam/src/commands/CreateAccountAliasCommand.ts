@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountAliasCommand}.
  */
 export interface CreateAccountAliasCommandInput extends CreateAccountAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountAliasCommand}.
  */
 export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for your Amazon Web Services account. For information about using an Amazon Web Services account
  *             alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an
  *                 alias for your Amazon Web Services account ID</a> in the
@@ -44,6 +49,8 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountAliasCommandInput - {@link CreateAccountAliasCommandInput}
+ * @returns {@link CreateAccountAliasCommandOutput}
  * @see {@link CreateAccountAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountAliasCommandOutput> {
     return deserializeAws_queryCreateAccountAliasCommand(output, context);
   }

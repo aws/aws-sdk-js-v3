@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelQualityJobDefinitionCommand}.
  */
 export interface CreateModelQualityJobDefinitionCommandInput extends CreateModelQualityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelQualityJobDefinitionCommand}.
  */
 export interface CreateModelQualityJobDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateModelQualityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a definition for a job that monitors model quality and drift. For information
  *          about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model Monitor</a>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateModelQualityJobDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelQualityJobDefinitionCommandInput - {@link CreateModelQualityJobDefinitionCommandInput}
+ * @returns {@link CreateModelQualityJobDefinitionCommandOutput}
  * @see {@link CreateModelQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateModelQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateModelQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class CreateModelQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateModelQualityJobDefinitionCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class CreateModelQualityJobDefinitionCommand extends $Command<
     return serializeAws_json1_1CreateModelQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

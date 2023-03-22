@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationCustomRulePolicyCommand}.
  */
 export interface GetOrganizationCustomRulePolicyCommandInput extends GetOrganizationCustomRulePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationCustomRulePolicyCommand}.
  */
 export interface GetOrganizationCustomRulePolicyCommandOutput
@@ -37,6 +41,7 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the policy definition containing the logic for your organization Config Custom Policy rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationCustomRulePolicyCommandInput - {@link GetOrganizationCustomRulePolicyCommandInput}
+ * @returns {@link GetOrganizationCustomRulePolicyCommandOutput}
  * @see {@link GetOrganizationCustomRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationCustomRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOrganizationCustomRulePolicyCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
     return serializeAws_json1_1GetOrganizationCustomRulePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

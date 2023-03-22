@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteTableCommand}.
  */
 export interface BatchDeleteTableCommandInput extends BatchDeleteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteTableCommand}.
  */
 export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes multiple tables at once.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the table versions and
@@ -56,6 +61,8 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteTableCommandInput - {@link BatchDeleteTableCommandInput}
+ * @returns {@link BatchDeleteTableCommandOutput}
  * @see {@link BatchDeleteTableCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -97,6 +104,9 @@ export class BatchDeleteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class BatchDeleteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableCommandOutput> {
     return deserializeAws_json1_1BatchDeleteTableCommand(output, context);
   }

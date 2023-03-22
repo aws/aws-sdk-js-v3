@@ -181,6 +181,7 @@ import {
 import { CostExplorerClient } from "./CostExplorerClient";
 
 /**
+ * @public
  * <p>You can use the Cost Explorer API to programmatically query your cost and usage data.
  *       You can query for aggregated data such as total monthly costs or total daily usage. You can
  *       also query for granular data. This might include the number of daily write operations for
@@ -200,6 +201,7 @@ import { CostExplorerClient } from "./CostExplorerClient";
  */
 export class CostExplorer extends CostExplorerClient {
   /**
+   * @public
    * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
    *       specification. </p>
    */
@@ -233,6 +235,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
    *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
    *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
@@ -267,6 +270,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Cost Category with the requested name and rules.</p>
    */
   public createCostCategoryDefinition(
@@ -299,6 +303,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a cost anomaly monitor. </p>
    */
   public deleteAnomalyMonitor(
@@ -331,6 +336,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a cost anomaly subscription. </p>
    */
   public deleteAnomalySubscription(
@@ -363,6 +369,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
    *       categorized with this Cost Category.</p>
    */
@@ -396,6 +403,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
    *       Cost Category that's defined in the account.</p>
    *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
@@ -433,6 +441,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
    *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
    *       days.</p>
@@ -464,6 +473,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a
    *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
    */
@@ -497,6 +507,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a
    *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
    */
@@ -530,6 +541,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves cost and usage metrics for your account. You can specify which cost and
    *       usage-related metric that you want the request to return. For example, you can specify
    *         <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group your
@@ -568,6 +580,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves cost and usage metrics with resources for your account. You can specify which
    *       cost and usage-related metric, such as <code>BlendedCosts</code> or
    *       <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
@@ -611,6 +624,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
    *          <note>
    *             <p>If some Cost Category names and values are not associated with any cost, they will not
@@ -647,6 +661,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over
    *       the forecast time period that you select, based on your past costs. </p>
    */
@@ -680,6 +695,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all available filter values for a specified filter over a period of time. You
    *       can search the dimension values for an arbitrary string. </p>
    */
@@ -713,6 +729,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the reservation coverage for your account, which you can use to see how much
    *       of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
    *       or Amazon Redshift usage is covered by a reservation. An organization's management account can
@@ -790,6 +807,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Gets recommendations for reservation purchases. These recommendations might help you to
    *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
    *       On-Demand pricing.</p>
@@ -837,6 +855,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the reservation utilization for your account. Management account in an
    *       organization have access to member accounts. You can filter data by dimensions in a time
    *       period. You can use <code>GetDimensionValues</code> to determine the possible dimension
@@ -872,6 +891,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Creates recommendations that help you save cost by identifying idle and underutilized
    *       Amazon EC2 instances.</p>
    *          <p>Recommendations are generated to either downsize or terminate instances, along with
@@ -908,6 +928,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of
    *       your cost is covered by a Savings Plan. An organization’s management account can see the
    *       coverage of the associated member accounts. This supports dimensions, Cost Categories, and
@@ -968,6 +989,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the Savings Plans recommendations for your account. First use
    *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
    *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
@@ -1005,6 +1027,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
    *       monthly granularity. Management account in an organization have access to member accounts. You
    *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
@@ -1044,6 +1067,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves attribute data along with aggregate utilization and savings data for a given
    *       time period. This doesn't support granular or grouped data (daily/monthly) in response. You
    *       can't retrieve data by dates in a single response similar to
@@ -1087,6 +1111,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Queries for available tag keys and tag values for a specified period. You can search
    *       the tag values for an arbitrary string. </p>
    */
@@ -1114,6 +1139,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use
    *       over the forecast time period that you select, based on your past usage. </p>
    */
@@ -1147,6 +1173,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Get a list of cost allocation tags. All inputs in the API are optional and serve as
    *       filters. By default, all cost allocation tags are returned. </p>
    */
@@ -1180,6 +1207,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective
    *       dates of all Cost Categories defined in the account. You have the option to use
    *         <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific
@@ -1218,6 +1246,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of your historical recommendation generations within the past 30
    *       days.</p>
    */
@@ -1253,6 +1282,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resource tags associated with the resource specified by the Amazon
    *       Resource Name (ARN). </p>
    */
@@ -1286,6 +1316,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Modifies the feedback property of a given cost anomaly. </p>
    */
   public provideAnomalyFeedback(
@@ -1318,6 +1349,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
    *       set of Savings Plans recommendations that takes your latest usage data and current Savings
    *       Plans inventory into account. You can refresh Savings Plans recommendations up to three times
@@ -1360,6 +1392,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>An API operation for adding one or more tags (key-value pairs) to a resource.</p>
    *          <p>You can use the <code>TagResource</code> operation with a resource that already has tags.
    *       If you specify a new tag key for the resource, this tag is appended to the list of tags
@@ -1392,6 +1425,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a resource. Specify only tag keys in your request. Don't
    *       specify the value. </p>
    */
@@ -1425,6 +1459,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
    *       doesn't change anomalies detected in the past. </p>
    */
@@ -1458,6 +1493,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing cost anomaly monitor subscription. </p>
    */
   public updateAnomalySubscription(
@@ -1490,6 +1526,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
    *       status that's updated is the same as the existing tag status, the request doesn't fail.
    *       Instead, it doesn't have any effect on the tag status (for example, activating the active
@@ -1525,6 +1562,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to
    *       categorize the current month’s expenses and future expenses. This won’t change categorization
    *       for the previous months.</p>

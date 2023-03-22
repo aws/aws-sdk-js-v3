@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportFormsCommand}.
  */
 export interface ExportFormsCommandInput extends ExportFormsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportFormsCommand}.
  */
 export interface ExportFormsCommandOutput extends ExportFormsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports form configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportFormsCommandInput - {@link ExportFormsCommandInput}
+ * @returns {@link ExportFormsCommandOutput}
  * @see {@link ExportFormsCommandInput} for command's `input` shape.
  * @see {@link ExportFormsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -75,6 +82,9 @@ export class ExportFormsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportFormsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ExportFormsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportFormsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportFormsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportFormsCommandOutput> {
     return deserializeAws_restJson1ExportFormsCommand(output, context);
   }

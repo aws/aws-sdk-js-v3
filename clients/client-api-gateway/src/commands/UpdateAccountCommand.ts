@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountCommand}.
  */
 export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountCommand}.
  */
 export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes information about the current Account resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountCommandInput - {@link UpdateAccountCommandInput}
+ * @returns {@link UpdateAccountCommandOutput}
  * @see {@link UpdateAccountCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountCommandOutput> {
     return deserializeAws_restJson1UpdateAccountCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyEmailAddressCommand}.
  */
 export interface VerifyEmailAddressCommandInput extends VerifyEmailAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyEmailAddressCommand}.
  */
 export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
  *             address.</p>
  * @example
@@ -42,6 +47,8 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyEmailAddressCommandInput - {@link VerifyEmailAddressCommandInput}
+ * @returns {@link VerifyEmailAddressCommandOutput}
  * @see {@link VerifyEmailAddressCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -76,6 +83,9 @@ export class VerifyEmailAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyEmailAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class VerifyEmailAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryVerifyEmailAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyEmailAddressCommandOutput> {
     return deserializeAws_queryVerifyEmailAddressCommand(output, context);
   }

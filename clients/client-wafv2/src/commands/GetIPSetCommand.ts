@@ -23,15 +23,20 @@ import { deserializeAws_json1_1GetIPSetCommand, serializeAws_json1_1GetIPSetComm
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetIPSetCommand}.
  */
 export interface GetIPSetCommandInput extends GetIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIPSetCommand}.
  */
 export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified <a>IPSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIPSetCommandInput - {@link GetIPSetCommandInput}
+ * @returns {@link GetIPSetCommandOutput}
  * @see {@link GetIPSetCommandInput} for command's `input` shape.
  * @see {@link GetIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIPSetCommandOutput> {
     return deserializeAws_json1_1GetIPSetCommand(output, context);
   }

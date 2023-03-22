@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBrokerCommand}.
  */
 export interface DeleteBrokerCommandInput extends DeleteBrokerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBrokerCommand}.
  */
 export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a broker. Note: This API is asynchronous.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBrokerCommandInput - {@link DeleteBrokerCommandInput}
+ * @returns {@link DeleteBrokerCommandOutput}
  * @see {@link DeleteBrokerCommandInput} for command's `input` shape.
  * @see {@link DeleteBrokerCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteBrokerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBrokerCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteBrokerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBrokerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBrokerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBrokerCommandOutput> {
     return deserializeAws_restJson1DeleteBrokerCommand(output, context);
   }

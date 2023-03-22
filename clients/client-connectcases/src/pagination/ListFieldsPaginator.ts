@@ -6,7 +6,7 @@ import { ConnectCasesClient } from "../ConnectCasesClient";
 import { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectCasesClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFieldsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFields(
   config: ConnectCasesPaginationConfiguration,
   input: ListFieldsCommandInput,

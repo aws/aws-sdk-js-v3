@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityProfileCommand}.
  */
 export interface CreateSecurityProfileCommandInput extends CreateSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityProfileCommand}.
  */
 export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSecurityProfile</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityProfileCommandInput - {@link CreateSecurityProfileCommandInput}
+ * @returns {@link CreateSecurityProfileCommandOutput}
  * @see {@link CreateSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityProfileCommandOutput> {
     return deserializeAws_restJson1CreateSecurityProfileCommand(output, context);
   }

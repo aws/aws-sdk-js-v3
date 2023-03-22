@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRealtimeLogConfigCommand}.
  */
 export interface CreateRealtimeLogConfigCommandInput extends CreateRealtimeLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRealtimeLogConfigCommand}.
  */
 export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a real-time log configuration.</p>
  *          <p>After you create a real-time log configuration, you can attach it to one or more cache
  * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
@@ -50,6 +55,8 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRealtimeLogConfigCommandInput - {@link CreateRealtimeLogConfigCommandInput}
+ * @returns {@link CreateRealtimeLogConfigCommandOutput}
  * @see {@link CreateRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link CreateRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRealtimeLogConfigCommandOutput> {
     return deserializeAws_restXmlCreateRealtimeLogConfigCommand(output, context);
   }

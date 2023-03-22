@@ -18,15 +18,20 @@ import { EnableKeyRequest, EnableKeyRequestFilterSensitiveLog } from "../models/
 import { deserializeAws_json1_1EnableKeyCommand, serializeAws_json1_1EnableKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableKeyCommand}.
  */
 export interface EnableKeyCommandInput extends EnableKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableKeyCommand}.
  */
 export interface EnableKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
  *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
@@ -48,6 +53,8 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableKeyCommandInput - {@link EnableKeyCommandInput}
+ * @returns {@link EnableKeyCommandOutput}
  * @see {@link EnableKeyCommandInput} for command's `input` shape.
  * @see {@link EnableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -116,6 +123,9 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableKeyCommandOutput> {
     return deserializeAws_json1_1EnableKeyCommand(output, context);
   }

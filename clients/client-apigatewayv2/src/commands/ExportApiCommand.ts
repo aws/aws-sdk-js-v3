@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportApiCommand}.
  */
 export interface ExportApiCommandInput extends ExportApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportApiCommand}.
  */
 export interface ExportApiCommandOutput extends ExportApiResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class ExportApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,10 +95,16 @@ export class ExportApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportApiCommandOutput> {
     return deserializeAws_restJson1ExportApiCommand(output, context);
   }

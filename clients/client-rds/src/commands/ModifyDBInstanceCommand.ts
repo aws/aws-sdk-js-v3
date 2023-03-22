@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBInstanceCommand}.
  */
 export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBInstanceCommand}.
  */
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies settings for a DB instance.
  *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
  *             To learn what modifications you can make to your DB instance,
@@ -50,6 +55,8 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBInstanceCommandInput - {@link ModifyDBInstanceCommandInput}
+ * @returns {@link ModifyDBInstanceCommandOutput}
  * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -170,6 +177,9 @@ export class ModifyDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -209,10 +219,16 @@ export class ModifyDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
     return deserializeAws_queryModifyDBInstanceCommand(output, context);
   }

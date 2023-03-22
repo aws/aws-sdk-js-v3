@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBudgetsCommand}.
  */
 export interface DescribeBudgetsCommandInput extends DescribeBudgetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBudgetsCommand}.
  */
 export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the budgets that are associated with an account.</p>
  * 		       <important>
  * 			         <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a> section. </p>
@@ -49,6 +54,8 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetsCommandInput - {@link DescribeBudgetsCommandInput}
+ * @returns {@link DescribeBudgetsCommandOutput}
  * @see {@link DescribeBudgetsCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetsCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeBudgetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeBudgetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBudgetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBudgetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBudgetsCommandOutput> {
     return deserializeAws_json1_1DescribeBudgetsCommand(output, context);
   }

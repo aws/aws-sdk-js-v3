@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAlarmModelCommand}.
  */
 export interface CreateAlarmModelCommandInput extends CreateAlarmModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAlarmModelCommand}.
  */
 export interface CreateAlarmModelCommandOutput extends CreateAlarmModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get
  *       notified when the value is outside a specified range. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html">Create an
  *         alarm model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface CreateAlarmModelCommandOutput extends CreateAlarmModelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAlarmModelCommandInput - {@link CreateAlarmModelCommandInput}
+ * @returns {@link CreateAlarmModelCommandOutput}
  * @see {@link CreateAlarmModelCommandInput} for command's `input` shape.
  * @see {@link CreateAlarmModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateAlarmModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAlarmModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateAlarmModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAlarmModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAlarmModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAlarmModelCommandOutput> {
     return deserializeAws_restJson1CreateAlarmModelCommand(output, context);
   }

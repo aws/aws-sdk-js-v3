@@ -27,15 +27,20 @@ import {
 import { deserializeAws_restJson1PutBotCommand, serializeAws_restJson1PutBotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBotCommand}.
  */
 export interface PutBotCommandInput extends PutBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBotCommand}.
  */
 export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lex conversational bot or replaces an existing bot.
  *       When you create or update a bot you are only required to specify a name, a
  *       locale, and whether the bot is directed toward children under age 13. You
@@ -64,6 +69,8 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBotCommandInput - {@link PutBotCommandInput}
+ * @returns {@link PutBotCommandOutput}
  * @see {@link PutBotCommandInput} for command's `input` shape.
  * @see {@link PutBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -199,6 +206,9 @@ export class PutBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -236,10 +246,16 @@ export class PutBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBotCommandOutput> {
     return deserializeAws_restJson1PutBotCommand(output, context);
   }

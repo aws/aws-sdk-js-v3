@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBandwidthRateLimitCommand}.
  */
 export interface UpdateBandwidthRateLimitCommandInput extends UpdateBandwidthRateLimitInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBandwidthRateLimitCommand}.
  */
 export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the bandwidth rate limits of a gateway. You can update both the upload and
  *          download bandwidth rate limit or specify only one of the two. If you don't set a
  *          bandwidth rate limit, the existing rate limit remains. This operation is supported only for
@@ -57,6 +62,8 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBandwidthRateLimitCommandInput - {@link UpdateBandwidthRateLimitCommandInput}
+ * @returns {@link UpdateBandwidthRateLimitCommandOutput}
  * @see {@link UpdateBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link UpdateBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -106,6 +113,9 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBandwidthRateLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBandwidthRateLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBandwidthRateLimitCommandOutput> {
     return deserializeAws_json1_1UpdateBandwidthRateLimitCommand(output, context);
   }

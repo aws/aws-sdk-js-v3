@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMaintenanceWindowCommand}.
  */
 export interface CreateMaintenanceWindowCommandInput extends CreateMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMaintenanceWindowCommand}.
  */
 export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new maintenance window.</p>
  *          <note>
  *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -54,6 +59,8 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMaintenanceWindowCommandInput - {@link CreateMaintenanceWindowCommandInput}
+ * @returns {@link CreateMaintenanceWindowCommandOutput}
  * @see {@link CreateMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link CreateMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMaintenanceWindowCommandOutput> {
     return deserializeAws_json1_1CreateMaintenanceWindowCommand(output, context);
   }

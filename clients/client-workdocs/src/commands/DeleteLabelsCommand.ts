@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLabelsCommand}.
  */
 export interface DeleteLabelsCommandInput extends DeleteLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLabelsCommand}.
  */
 export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified list of labels from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLabelsCommandInput - {@link DeleteLabelsCommandInput}
+ * @returns {@link DeleteLabelsCommandOutput}
  * @see {@link DeleteLabelsCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelsCommandOutput> {
     return deserializeAws_restJson1DeleteLabelsCommand(output, context);
   }

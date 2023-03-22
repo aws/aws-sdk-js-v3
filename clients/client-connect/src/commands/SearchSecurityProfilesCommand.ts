@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSecurityProfilesCommand}.
  */
 export interface SearchSecurityProfilesCommandInput extends SearchSecurityProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSecurityProfilesCommand}.
  */
 export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Searches security profiles in an Amazon Connect instance, with optional
  *    filtering.</p>
@@ -48,6 +53,8 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSecurityProfilesCommandInput - {@link SearchSecurityProfilesCommandInput}
+ * @returns {@link SearchSecurityProfilesCommandOutput}
  * @see {@link SearchSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class SearchSecurityProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class SearchSecurityProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchSecurityProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSecurityProfilesCommandOutput> {
     return deserializeAws_restJson1SearchSecurityProfilesCommand(output, context);
   }

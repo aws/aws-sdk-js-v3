@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetServiceSettingCommand}.
  */
 export interface ResetServiceSettingCommandInput extends ResetServiceSettingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetServiceSettingCommand}.
  */
 export interface ResetServiceSettingCommandOutput extends ResetServiceSettingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -60,6 +65,8 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetServiceSettingCommandInput - {@link ResetServiceSettingCommandInput}
+ * @returns {@link ResetServiceSettingCommandOutput}
  * @see {@link ResetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link ResetServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +100,9 @@ export class ResetServiceSettingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetServiceSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ResetServiceSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetServiceSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetServiceSettingCommandOutput> {
     return deserializeAws_json1_1ResetServiceSettingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePartitionCommand}.
  */
 export interface DeletePartitionCommandInput extends DeletePartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePartitionCommand}.
  */
 export interface DeletePartitionCommandOutput extends DeletePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePartitionCommandInput - {@link DeletePartitionCommandInput}
+ * @returns {@link DeletePartitionCommandOutput}
  * @see {@link DeletePartitionCommandInput} for command's `input` shape.
  * @see {@link DeletePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeletePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeletePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartitionCommandOutput> {
     return deserializeAws_json1_1DeletePartitionCommand(output, context);
   }

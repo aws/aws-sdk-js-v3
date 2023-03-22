@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAdmChannelCommand}.
  */
 export interface UpdateAdmChannelCommandInput extends UpdateAdmChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAdmChannelCommand}.
  */
 export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAdmChannelCommandInput - {@link UpdateAdmChannelCommandInput}
+ * @returns {@link UpdateAdmChannelCommandOutput}
  * @see {@link UpdateAdmChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateAdmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAdmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateAdmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAdmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAdmChannelCommandOutput> {
     return deserializeAws_restJson1UpdateAdmChannelCommand(output, context);
   }

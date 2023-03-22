@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryGetRoleCommand, serializeAws_queryGetRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoleCommand}.
  */
 export interface GetRoleCommandInput extends GetRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoleCommand}.
  */
 export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
  *             and the role's trust policy that grants permission to assume the role. For more
  *             information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>.</p>
@@ -52,6 +57,8 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoleCommandInput - {@link GetRoleCommandInput}
+ * @returns {@link GetRoleCommandOutput}
  * @see {@link GetRoleCommandInput} for command's `input` shape.
  * @see {@link GetRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -107,6 +114,9 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoleCommandOutput> {
     return deserializeAws_queryGetRoleCommand(output, context);
   }

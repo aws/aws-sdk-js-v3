@@ -30,10 +30,14 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCrossAccountAuthorizationCommand}.
  */
 export interface DeleteCrossAccountAuthorizationCommandInput extends DeleteCrossAccountAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCrossAccountAuthorizationCommand}.
  */
 export interface DeleteCrossAccountAuthorizationCommandOutput
@@ -41,6 +45,7 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes cross account readiness authorization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCrossAccountAuthorizationCommandInput - {@link DeleteCrossAccountAuthorizationCommandInput}
+ * @returns {@link DeleteCrossAccountAuthorizationCommandOutput}
  * @see {@link DeleteCrossAccountAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteCrossAccountAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCrossAccountAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCrossAccountAuthorizationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command<
     return serializeAws_restJson1DeleteCrossAccountAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

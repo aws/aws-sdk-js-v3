@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDocumentCommand}.
  */
 export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDocumentCommand}.
  */
 export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
  *    document.</p>
  *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all managed nodes that are associated with the document.</p>
@@ -48,6 +53,8 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentCommandInput - {@link DeleteDocumentCommandInput}
+ * @returns {@link DeleteDocumentCommandOutput}
  * @see {@link DeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentCommandOutput> {
     return deserializeAws_json1_1DeleteDocumentCommand(output, context);
   }

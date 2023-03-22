@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeSnapshotAccessCommand}.
  */
 export interface AuthorizeSnapshotAccessCommandInput extends AuthorizeSnapshotAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeSnapshotAccessCommand}.
  */
 export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotAccessResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the specified Amazon Web Services account to restore the specified
  *             snapshot.</p>
  *          <p>
@@ -51,6 +56,8 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeSnapshotAccessCommandInput - {@link AuthorizeSnapshotAccessCommandInput}
+ * @returns {@link AuthorizeSnapshotAccessCommandOutput}
  * @see {@link AuthorizeSnapshotAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSnapshotAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -98,6 +105,9 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeSnapshotAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeSnapshotAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAuthorizeSnapshotAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeSnapshotAccessCommandOutput> {
     return deserializeAws_queryAuthorizeSnapshotAccessCommand(output, context);
   }

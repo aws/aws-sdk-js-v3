@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeActivationsCommand}.
  */
 export interface DescribeActivationsCommandInput extends DescribeActivationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeActivationsCommand}.
  */
 export interface DescribeActivationsCommandOutput extends DescribeActivationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes details about the activation, such as the date and time the activation was
  *    created, its expiration date, the Identity and Access Management (IAM) role assigned to
  *    the managed nodes in the activation, and the number of nodes registered by using this
@@ -49,6 +54,8 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActivationsCommandInput - {@link DescribeActivationsCommandInput}
+ * @returns {@link DescribeActivationsCommandOutput}
  * @see {@link DescribeActivationsCommandInput} for command's `input` shape.
  * @see {@link DescribeActivationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeActivationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeActivationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeActivationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivationsCommandOutput> {
     return deserializeAws_json1_1DescribeActivationsCommand(output, context);
   }

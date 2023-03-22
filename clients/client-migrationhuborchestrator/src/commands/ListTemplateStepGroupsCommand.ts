@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTemplateStepGroupsCommand}.
  */
 export interface ListTemplateStepGroupsCommandInput extends ListTemplateStepGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTemplateStepGroupsCommand}.
  */
 export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the step groups in a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplateStepGroupsCommandInput - {@link ListTemplateStepGroupsCommandInput}
+ * @returns {@link ListTemplateStepGroupsCommandOutput}
  * @see {@link ListTemplateStepGroupsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateStepGroupsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTemplateStepGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplateStepGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListTemplateStepGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplateStepGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTemplateStepGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateStepGroupsCommandOutput> {
     return deserializeAws_restJson1ListTemplateStepGroupsCommand(output, context);
   }

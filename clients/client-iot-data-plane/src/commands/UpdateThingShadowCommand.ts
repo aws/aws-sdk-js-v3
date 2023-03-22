@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThingShadowCommand}.
  */
 export interface UpdateThingShadowCommandInput extends UpdateThingShadowRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThingShadowCommand}.
  */
 export interface UpdateThingShadowCommandOutput extends UpdateThingShadowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the shadow for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the
@@ -49,6 +54,8 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThingShadowCommandInput - {@link UpdateThingShadowCommandInput}
+ * @returns {@link UpdateThingShadowCommandOutput}
  * @see {@link UpdateThingShadowCommandInput} for command's `input` shape.
  * @see {@link UpdateThingShadowCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateThingShadowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThingShadowCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateThingShadowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateThingShadowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThingShadowCommandOutput> {
     return deserializeAws_restJson1UpdateThingShadowCommand(output, context);
   }

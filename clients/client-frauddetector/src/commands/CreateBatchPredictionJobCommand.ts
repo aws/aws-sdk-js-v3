@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchPredictionJobCommand}.
  */
 export interface CreateBatchPredictionJobCommandInput extends CreateBatchPredictionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchPredictionJobCommand}.
  */
 export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredictionJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a batch prediction job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchPredictionJobCommandInput - {@link CreateBatchPredictionJobCommandInput}
+ * @returns {@link CreateBatchPredictionJobCommandOutput}
  * @see {@link CreateBatchPredictionJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchPredictionJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateBatchPredictionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchPredictionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateBatchPredictionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchPredictionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBatchPredictionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchPredictionJobCommandOutput> {
     return deserializeAws_json1_1CreateBatchPredictionJobCommand(output, context);
   }

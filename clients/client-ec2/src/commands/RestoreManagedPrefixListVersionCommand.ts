@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreManagedPrefixListVersionCommand}.
  */
 export interface RestoreManagedPrefixListVersionCommandInput extends RestoreManagedPrefixListVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreManagedPrefixListVersionCommand}.
  */
 export interface RestoreManagedPrefixListVersionCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreManagedPrefixListVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RestoreManagedPrefixListVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreManagedPrefixListVersionCommandInput - {@link RestoreManagedPrefixListVersionCommandInput}
+ * @returns {@link RestoreManagedPrefixListVersionCommandOutput}
  * @see {@link RestoreManagedPrefixListVersionCommandInput} for command's `input` shape.
  * @see {@link RestoreManagedPrefixListVersionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreManagedPrefixListVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreManagedPrefixListVersionCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
     return serializeAws_ec2RestoreManagedPrefixListVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

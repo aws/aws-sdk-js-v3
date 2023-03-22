@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIpamResourceDiscoveryCommand}.
  */
 export interface CreateIpamResourceDiscoveryCommandInput extends CreateIpamResourceDiscoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIpamResourceDiscoveryCommand}.
  */
 export interface CreateIpamResourceDiscoveryCommandOutput extends CreateIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateIpamResourceDiscoveryCommandOutput extends CreateIpamReso
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIpamResourceDiscoveryCommandInput - {@link CreateIpamResourceDiscoveryCommandInput}
+ * @returns {@link CreateIpamResourceDiscoveryCommandOutput}
  * @see {@link CreateIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link CreateIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class CreateIpamResourceDiscoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIpamResourceDiscoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreateIpamResourceDiscoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIpamResourceDiscoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateIpamResourceDiscoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

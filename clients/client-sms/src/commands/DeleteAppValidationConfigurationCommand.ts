@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppValidationConfigurationCommand}.
  */
 export interface DeleteAppValidationConfigurationCommandInput extends DeleteAppValidationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppValidationConfigurationCommand}.
  */
 export interface DeleteAppValidationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAppValidationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the validation configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteAppValidationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppValidationConfigurationCommandInput - {@link DeleteAppValidationConfigurationCommandInput}
+ * @returns {@link DeleteAppValidationConfigurationCommandOutput}
  * @see {@link DeleteAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppValidationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppValidationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAppValidationConfigurationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     return serializeAws_json1_1DeleteAppValidationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

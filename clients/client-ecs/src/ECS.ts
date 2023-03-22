@@ -264,6 +264,7 @@ import {
 import { ECSClient } from "./ECSClient";
 
 /**
+ * @public
  * <fullname>Amazon Elastic Container Service</fullname>
  *          <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service. It makes
  * 			it easy to run, stop, and manage Docker containers. You can host your cluster on a
@@ -280,6 +281,7 @@ import { ECSClient } from "./ECSClient";
  */
 export class ECS extends ECSClient {
   /**
+   * @public
    * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
    * 			cluster and are used in capacity provider strategies to facilitate cluster auto
    * 			scaling.</p>
@@ -318,6 +320,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
    * 			cluster when you launch your first container instance. However, you can create your own
    * 			cluster with a unique name with the <code>CreateCluster</code> action.</p>
@@ -360,6 +363,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Runs and maintains your desired number of tasks from a specified task definition. If
    * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
    * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
@@ -468,6 +472,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Create a task set in the specified cluster and service. This is used when a service
    * 			uses the <code>EXTERNAL</code> deployment controller type. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment
@@ -503,6 +508,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Disables an account setting for a specified  user, role, or the root user for
    * 			an account.</p>
    */
@@ -536,6 +542,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deletes one or more custom attributes from an Amazon ECS resource.</p>
    */
   public deleteAttributes(
@@ -568,6 +575,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified capacity provider.</p>
    *          <note>
    *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
@@ -614,6 +622,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified cluster. The cluster transitions to the <code>INACTIVE</code>
    * 			state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your
    * 			account for a period of time. However, this behavior is subject to change in the future.
@@ -651,6 +660,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified service within a cluster. You can delete a service if you have no
    * 			running tasks in it and the desired task count is zero. If the service is actively
    * 			maintaining tasks, you can't delete it, and you must update the service to a desired
@@ -703,6 +713,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deletes one or more task definitions.</p>
    *          <p>You must deregister a task definition revision before you delete it. For more information,
    * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.</p>
@@ -748,6 +759,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified task set within a service. This is used when a service uses the
    * 				<code>EXTERNAL</code> deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -781,6 +793,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is
    * 			no longer available to run tasks.</p>
    *          <p>If you intend to use the container instance for some other purpose after
@@ -826,6 +839,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deregisters the specified task definition by family and revision. Upon deregistration, the
    * 			task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
    * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
@@ -875,6 +889,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your capacity providers.</p>
    */
   public describeCapacityProviders(
@@ -907,6 +922,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your clusters.</p>
    */
   public describeClusters(
@@ -939,6 +955,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more container instances. Returns metadata about each container
    * 			instance requested.</p>
    */
@@ -972,6 +989,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified services running in your cluster.</p>
    */
   public describeServices(
@@ -1004,6 +1022,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Describes a task definition. You can specify a <code>family</code> and
    * 				<code>revision</code> to find information about a specific task definition, or you
    * 			can simply specify the family to find the latest <code>ACTIVE</code> revision in that
@@ -1043,6 +1062,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Describes a specified task or tasks.</p>
    *          <p>Currently, stopped tasks appear in the returned results for at least one hour.</p>
    */
@@ -1076,6 +1096,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Describes the task sets in the specified cluster and service. This is used when a
    * 			service uses the <code>EXTERNAL</code> deployment controller type. For more information,
    * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
@@ -1111,6 +1132,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
    *          </note>
@@ -1146,6 +1168,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Runs a command remotely on a container within a task.</p>
    *          <p>If you use a condition key in your IAM policy to refine the conditions for the policy
    * 			statement, for example limit the actions to a specific cluster, you receive an
@@ -1184,6 +1207,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the protection status of tasks in an Amazon ECS service.</p>
    */
   public getTaskProtection(
@@ -1216,6 +1240,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Lists the account settings for a specified principal.</p>
    */
   public listAccountSettings(
@@ -1248,6 +1273,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Lists the attributes for Amazon ECS resources within a specified target type and cluster.
    * 			When you specify a target type and cluster, <code>ListAttributes</code> returns a list
    * 			of attribute objects, one for each attribute on each resource. You can filter the list
@@ -1286,6 +1312,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing clusters.</p>
    */
   public listClusters(
@@ -1315,6 +1342,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of container instances in a specified cluster. You can filter the
    * 			results of a <code>ListContainerInstances</code> operation with cluster query language
    * 			statements inside the <code>filter</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -1349,6 +1377,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of services. You can filter the results by cluster, launch type, and
    * 			scheduling strategy.</p>
    */
@@ -1379,6 +1408,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>This operation lists all of the services that are associated with a Cloud Map
    * 			namespace. This list might include services in different clusters. In contrast,
    * 				<code>ListServices</code> can only list services in one cluster at a time. If you
@@ -1415,6 +1445,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>List the tags for an Amazon ECS resource.</p>
    */
   public listTagsForResource(
@@ -1447,6 +1478,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of task definition families that are registered to your account. This
    * 			list includes task definition families that no longer have any <code>ACTIVE</code> task
    * 			definition revisions.</p>
@@ -1485,6 +1517,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of task definitions that are registered to your account. You can filter
    * 			the results by family name with the <code>familyPrefix</code> parameter or by status
    * 			with the <code>status</code> parameter.</p>
@@ -1519,6 +1552,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tasks. You can filter the results by cluster, task definition
    * 			family, container instance, launch type, what IAM principal started the task, or by the
    * 			desired status of the task.</p>
@@ -1549,6 +1583,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>
    *          <p>If you change the account setting for the root user, the default settings for all of
    * 			the users and roles that no individual account setting was specified are reset for.
@@ -1604,6 +1639,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies an account setting for all users on an account for whom no individual
    * 			account setting has been specified. Account settings are set on a per-Region
    * 			basis.</p>
@@ -1638,6 +1674,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
    * 			it's created. If the attribute exists, its value is replaced with the specified value.
    * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
@@ -1673,6 +1710,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the available capacity providers and the default capacity provider strategy
    * 			for a cluster.</p>
    *          <p>You must specify both the available capacity providers and a default capacity provider
@@ -1718,6 +1756,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
    *          </note>
@@ -1754,6 +1793,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Registers a new task definition from the supplied <code>family</code> and
    * 				<code>containerDefinitions</code>. Optionally, you can add data volumes to your
    * 			containers with the <code>volumes</code> parameter. For more information about task
@@ -1803,6 +1843,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Starts a new task using the specified task definition.</p>
    *          <p>You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS places
    * 			tasks using placement constraints and placement strategies. For more information, see
@@ -1856,6 +1897,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Starts a new task from the specified task definition on the specified container
    * 			instance or instances.</p>
    *          <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
@@ -1885,6 +1927,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Stops a running task. Any tags associated with the task will be deleted.</p>
    *          <p>When <a>StopTask</a> is called on a task, the equivalent of <code>docker
    * 				stop</code> is issued to the containers running in the task. This results in a
@@ -1923,6 +1966,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
    *          </note>
@@ -1958,6 +2002,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
    *          </note>
@@ -1993,6 +2038,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
    *          </note>
@@ -2028,6 +2074,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified tags to a resource with the specified
    * 				<code>resourceArn</code>. If existing tags on a resource aren't specified in the
    * 			request parameters, they aren't changed. When a resource is deleted, the tags that are
@@ -2057,6 +2104,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Deletes specified tags from a resource.</p>
    */
   public untagResource(
@@ -2089,6 +2137,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters for a capacity provider.</p>
    */
   public updateCapacityProvider(
@@ -2121,6 +2170,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Updates the cluster.</p>
    */
   public updateCluster(
@@ -2153,6 +2203,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the settings to use for a cluster.</p>
    */
   public updateClusterSettings(
@@ -2185,6 +2236,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Updates the Amazon ECS container agent on a specified container instance. Updating the
    * 			Amazon ECS container agent doesn't interrupt running tasks or services on the container
    * 			instance. The process for updating the agent differs depending on whether your container
@@ -2235,6 +2287,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the status of an Amazon ECS container instance.</p>
    *          <p>Once a container instance has reached an <code>ACTIVE</code> state, you can change the
    * 			status of a container instance to <code>DRAINING</code> to manually remove an instance
@@ -2315,6 +2368,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a service.</p>
    *          <p>For services using the rolling update (<code>ECS</code>) you can update the desired
    * 			count, deployment configuration, network configuration, load balancers, service
@@ -2469,6 +2523,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies which task set in a service is the primary task set. Any parameters that are
    * 			updated on the primary task set in a service will transition to the service. This is
    * 			used when a service uses the <code>EXTERNAL</code> deployment controller type. For more
@@ -2505,6 +2560,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Updates the protection status of a task. You can set <code>protectionEnabled</code> to
    * 				<code>true</code> to protect your task from termination during scale-in events from
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
@@ -2563,6 +2619,7 @@ export class ECS extends ECSClient {
   }
 
   /**
+   * @public
    * <p>Modifies a task set. This is used when a service uses the <code>EXTERNAL</code>
    * 			deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
    * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>

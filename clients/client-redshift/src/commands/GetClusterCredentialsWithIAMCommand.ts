@@ -25,15 +25,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetClusterCredentialsWithIAMCommand}.
  */
 export interface GetClusterCredentialsWithIAMCommandInput extends GetClusterCredentialsWithIAMMessage {}
 /**
+ * @public
+ *
  * The output of {@link GetClusterCredentialsWithIAMCommand}.
  */
 export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtendedCredentials, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a database user name and temporary password with temporary authorization to
  *             log in to an Amazon Redshift database.
  *             The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity.
@@ -54,6 +59,8 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterCredentialsWithIAMCommandInput - {@link GetClusterCredentialsWithIAMCommandInput}
+ * @returns {@link GetClusterCredentialsWithIAMCommandOutput}
  * @see {@link GetClusterCredentialsWithIAMCommandInput} for command's `input` shape.
  * @see {@link GetClusterCredentialsWithIAMCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterCredentialsWithIAMCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterCredentialsWithIAMCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetClusterCredentialsWithIAMCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservedNodeExchangeOfferingsCommand}.
  */
 export interface GetReservedNodeExchangeOfferingsCommandInput extends GetReservedNodeExchangeOfferingsInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link GetReservedNodeExchangeOfferingsCommand}.
  */
 export interface GetReservedNodeExchangeOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
  *             and usage price of the given DC1 reserved node.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservedNodeExchangeOfferingsCommandInput - {@link GetReservedNodeExchangeOfferingsCommandInput}
+ * @returns {@link GetReservedNodeExchangeOfferingsCommandOutput}
  * @see {@link GetReservedNodeExchangeOfferingsCommandInput} for command's `input` shape.
  * @see {@link GetReservedNodeExchangeOfferingsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservedNodeExchangeOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReservedNodeExchangeOfferingsCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     return serializeAws_queryGetReservedNodeExchangeOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

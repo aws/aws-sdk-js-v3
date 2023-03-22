@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventConfigurationsCommand}.
  */
 export interface ListEventConfigurationsCommandInput extends ListEventConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventConfigurationsCommand}.
  */
 export interface ListEventConfigurationsCommandOutput extends ListEventConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List event configurations where at least one event topic has been enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventConfigurationsCommandInput - {@link ListEventConfigurationsCommandInput}
+ * @returns {@link ListEventConfigurationsCommandOutput}
  * @see {@link ListEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListEventConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListEventConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEventConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventConfigurationsCommandOutput> {
     return deserializeAws_restJson1ListEventConfigurationsCommand(output, context);
   }

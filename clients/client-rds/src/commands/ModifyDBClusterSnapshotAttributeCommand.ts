@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterSnapshotAttributeCommand}.
  */
 export interface ModifyDBClusterSnapshotAttributeCommandInput extends ModifyDBClusterSnapshotAttributeMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterSnapshotAttributeCommand}.
  */
 export interface ModifyDBClusterSnapshotAttributeCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
  *          <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
  *                 <code>restore</code> as the <code>AttributeName</code> and use the
@@ -66,6 +71,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterSnapshotAttributeCommandInput - {@link ModifyDBClusterSnapshotAttributeCommandInput}
+ * @returns {@link ModifyDBClusterSnapshotAttributeCommandOutput}
  * @see {@link ModifyDBClusterSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -123,6 +130,9 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,6 +172,9 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyDBClusterSnapshotAttributeCommandInput,
     context: __SerdeContext
@@ -169,6 +182,9 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     return serializeAws_queryModifyDBClusterSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

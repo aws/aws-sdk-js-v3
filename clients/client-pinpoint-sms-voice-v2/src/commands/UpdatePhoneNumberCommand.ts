@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing origination phone number. You can update the
  *             opt-out list, enable or disable two-way messaging, change the TwoWayChannelArn, enable
  *             or disable self-managed opt-outs, and enable or disable deletion protection.</p>
@@ -54,6 +59,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
+ * @returns {@link UpdatePhoneNumberCommandOutput}
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -101,6 +108,9 @@ export class UpdatePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UpdatePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdatePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePhoneNumberCommandOutput> {
     return deserializeAws_json1_0UpdatePhoneNumberCommand(output, context);
   }

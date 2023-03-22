@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLexiconCommand}.
  */
 export interface GetLexiconCommandInput extends GetLexiconInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLexiconCommand}.
  */
 export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the content of the specified pronunciation lexicon stored
  *       in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLexiconCommandInput - {@link GetLexiconCommandInput}
+ * @returns {@link GetLexiconCommandOutput}
  * @see {@link GetLexiconCommandInput} for command's `input` shape.
  * @see {@link GetLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -107,6 +114,9 @@ export class GetLexiconCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLexiconCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class GetLexiconCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLexiconCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLexiconCommandOutput> {
     return deserializeAws_restJson1GetLexiconCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceVersionsCommand}.
  */
 export interface ListServiceVersionsCommandInput extends ListServiceVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceVersionsCommand}.
  */
 export interface ListServiceVersionsCommandOutput extends ListServiceVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all supported versions for Snow on-device services. Returns an
  *       array of <code>ServiceVersion</code> object containing the supported versions for a particular service.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceVersionsCommandInput - {@link ListServiceVersionsCommandInput}
+ * @returns {@link ListServiceVersionsCommandOutput}
  * @see {@link ListServiceVersionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceVersionsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListServiceVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListServiceVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServiceVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceVersionsCommandOutput> {
     return deserializeAws_json1_1ListServiceVersionsCommand(output, context);
   }

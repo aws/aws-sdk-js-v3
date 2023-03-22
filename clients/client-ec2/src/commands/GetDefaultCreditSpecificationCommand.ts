@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetDefaultCreditSpecificationCommand}.
  */
 export interface GetDefaultCreditSpecificationCommandInput extends GetDefaultCreditSpecificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDefaultCreditSpecificationCommand}.
  */
 export interface GetDefaultCreditSpecificationCommandOutput
@@ -37,6 +41,7 @@ export interface GetDefaultCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the default credit option for CPU usage of a burstable performance instance
  *             family.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
@@ -51,6 +56,8 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDefaultCreditSpecificationCommandInput - {@link GetDefaultCreditSpecificationCommandInput}
+ * @returns {@link GetDefaultCreditSpecificationCommandOutput}
  * @see {@link GetDefaultCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link GetDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDefaultCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDefaultCreditSpecificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetDefaultCreditSpecificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

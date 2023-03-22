@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceCapacityReservationAttributesCommand}.
  */
 export interface ModifyInstanceCapacityReservationAttributesCommandInput
   extends ModifyInstanceCapacityReservationAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceCapacityReservationAttributesCommand}.
  */
 export interface ModifyInstanceCapacityReservationAttributesCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an
  * 			instance to target a specific Capacity Reservation, run in any <code>open</code> Capacity Reservation with matching
  * 			attributes, or run On-Demand Instance capacity.</p>
@@ -51,6 +56,8 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceCapacityReservationAttributesCommandInput - {@link ModifyInstanceCapacityReservationAttributesCommandInput}
+ * @returns {@link ModifyInstanceCapacityReservationAttributesCommandOutput}
  * @see {@link ModifyInstanceCapacityReservationAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceCapacityReservationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceCapacityReservationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyInstanceCapacityReservationAttributesCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     return serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

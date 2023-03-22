@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RecognizeTextCommand}.
  */
 export interface RecognizeTextCommandInput extends RecognizeTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link RecognizeTextCommand}.
  */
 export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends user input to Amazon Lex V2. Client applications use this API to send
  *          requests to Amazon Lex V2 at runtime. Amazon Lex V2 then interprets the user input
  *          using the machine learning model that it build for the bot.</p>
@@ -76,6 +81,8 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RecognizeTextCommandInput - {@link RecognizeTextCommandInput}
+ * @returns {@link RecognizeTextCommandOutput}
  * @see {@link RecognizeTextCommandInput} for command's `input` shape.
  * @see {@link RecognizeTextCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
@@ -123,6 +130,9 @@ export class RecognizeTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecognizeTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class RecognizeTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecognizeTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RecognizeTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecognizeTextCommandOutput> {
     return deserializeAws_restJson1RecognizeTextCommand(output, context);
   }

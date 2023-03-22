@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHostedConfigurationVersionCommand}.
  */
 export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHostedConfigurationVersionCommand}.
  */
 export interface CreateHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new configuration in the AppConfig hosted configuration
  *          store.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHostedConfigurationVersionCommandInput - {@link CreateHostedConfigurationVersionCommandInput}
+ * @returns {@link CreateHostedConfigurationVersionCommandOutput}
  * @see {@link CreateHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -112,6 +119,9 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHostedConfigurationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateHostedConfigurationVersionCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     return serializeAws_restJson1CreateHostedConfigurationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

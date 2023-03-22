@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRegexPatternSetCommand}.
  */
 export interface DeleteRegexPatternSetCommandInput extends DeleteRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRegexPatternSetCommand}.
  */
 export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -55,6 +60,8 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegexPatternSetCommandInput - {@link DeleteRegexPatternSetCommandInput}
+ * @returns {@link DeleteRegexPatternSetCommandOutput}
  * @see {@link DeleteRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link DeleteRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -119,6 +126,9 @@ export class DeleteRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class DeleteRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegexPatternSetCommandOutput> {
     return deserializeAws_json1_1DeleteRegexPatternSetCommand(output, context);
   }

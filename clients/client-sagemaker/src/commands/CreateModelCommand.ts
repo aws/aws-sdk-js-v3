@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelCommand}.
  */
 export interface CreateModelCommandInput extends CreateModelInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelCommand}.
  */
 export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a model in SageMaker. In the request, you name the model and describe a primary
  *             container. For the primary container, you specify the Docker image that
  *             contains inference code, artifacts (from prior training), and a custom environment map
@@ -65,6 +70,8 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCommandInput - {@link CreateModelCommandInput}
+ * @returns {@link CreateModelCommandOutput}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCommandOutput> {
     return deserializeAws_json1_1CreateModelCommand(output, context);
   }

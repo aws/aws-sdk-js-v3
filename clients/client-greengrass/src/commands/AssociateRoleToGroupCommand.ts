@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateRoleToGroupCommand}.
  */
 export interface AssociateRoleToGroupCommandInput extends AssociateRoleToGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateRoleToGroupCommand}.
  */
 export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateRoleToGroupCommandInput - {@link AssociateRoleToGroupCommandInput}
+ * @returns {@link AssociateRoleToGroupCommandOutput}
  * @see {@link AssociateRoleToGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateRoleToGroupCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -75,6 +82,9 @@ export class AssociateRoleToGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateRoleToGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class AssociateRoleToGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateRoleToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateRoleToGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRoleToGroupCommandOutput> {
     return deserializeAws_restJson1AssociateRoleToGroupCommand(output, context);
   }

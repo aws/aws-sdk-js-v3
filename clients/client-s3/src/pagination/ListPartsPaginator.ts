@@ -6,7 +6,7 @@ import { S3Client } from "../S3Client";
 import { S3PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: S3Client,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPartsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListParts(
   config: S3PaginationConfiguration,
   input: ListPartsCommandInput,

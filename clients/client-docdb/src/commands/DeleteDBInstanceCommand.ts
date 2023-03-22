@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBInstanceCommandInput - {@link DeleteDBInstanceCommandInput}
+ * @returns {@link DeleteDBInstanceCommandOutput}
  * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
     return deserializeAws_queryDeleteDBInstanceCommand(output, context);
   }

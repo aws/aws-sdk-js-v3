@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendWorkflowStepStateCommand}.
  */
 export interface SendWorkflowStepStateCommandInput extends SendWorkflowStepStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendWorkflowStepStateCommand}.
  */
 export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a callback for asynchronous custom steps.</p>
  *          <p>
  *       The <code>ExecutionId</code>, <code>WorkflowId</code>, and <code>Token</code> are passed to the target resource during execution of a custom step of a workflow.
@@ -50,6 +55,8 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * const response = await client.send(command);
  * ```
  *
+ * @param SendWorkflowStepStateCommandInput - {@link SendWorkflowStepStateCommandInput}
+ * @returns {@link SendWorkflowStepStateCommandOutput}
  * @see {@link SendWorkflowStepStateCommandInput} for command's `input` shape.
  * @see {@link SendWorkflowStepStateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -92,6 +99,9 @@ export class SendWorkflowStepStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendWorkflowStepStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class SendWorkflowStepStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendWorkflowStepStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendWorkflowStepStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendWorkflowStepStateCommandOutput> {
     return deserializeAws_json1_1SendWorkflowStepStateCommand(output, context);
   }

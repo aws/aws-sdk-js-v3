@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstalledComponentsCommand}.
  */
 export interface ListInstalledComponentsCommandInput extends ListInstalledComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstalledComponentsCommand}.
  */
 export interface ListInstalledComponentsCommandOutput extends ListInstalledComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of the components that a Greengrass core device runs. By default,
  *       this list doesn't include components that are deployed as dependencies of other components. To
  *       include dependencies in the response, set the <code>topologyFilter</code> parameter to
@@ -75,6 +80,8 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstalledComponentsCommandInput - {@link ListInstalledComponentsCommandInput}
+ * @returns {@link ListInstalledComponentsCommandOutput}
  * @see {@link ListInstalledComponentsCommandInput} for command's `input` shape.
  * @see {@link ListInstalledComponentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -115,6 +122,9 @@ export class ListInstalledComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstalledComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class ListInstalledComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstalledComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInstalledComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstalledComponentsCommandOutput> {
     return deserializeAws_restJson1ListInstalledComponentsCommand(output, context);
   }

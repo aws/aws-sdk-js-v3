@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
 export interface DeletePermissionsBoundaryFromPermissionSetCommandInput
   extends DeletePermissionsBoundaryFromPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
 export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
@@ -38,6 +42,7 @@ export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionsBoundaryFromPermissionSetCommandInput - {@link DeletePermissionsBoundaryFromPermissionSetCommandInput}
+ * @returns {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput}
  * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionsBoundaryFromPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeletePermissionsBoundaryFromPermissionSetCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
     return serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

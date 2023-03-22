@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateParticipantRoleConfigCommand}.
  */
 export interface UpdateParticipantRoleConfigCommandInput extends UpdateParticipantRoleConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateParticipantRoleConfigCommand}.
  */
 export interface UpdateParticipantRoleConfigCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateParticipantRoleConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents
  *    are automatically disconnected from a chat due to idleness. You can set four timers:</p>
  *          <ul>
@@ -65,6 +70,8 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateParticipantRoleConfigCommandInput - {@link UpdateParticipantRoleConfigCommandInput}
+ * @returns {@link UpdateParticipantRoleConfigCommandOutput}
  * @see {@link UpdateParticipantRoleConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateParticipantRoleConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -106,6 +113,9 @@ export class UpdateParticipantRoleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateParticipantRoleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class UpdateParticipantRoleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateParticipantRoleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateParticipantRoleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

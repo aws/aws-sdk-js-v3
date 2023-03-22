@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIdentityProviderCommand}.
  */
 export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIdentityProviderCommand}.
  */
 export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
+ * @returns {@link DeleteIdentityProviderCommandOutput}
  * @see {@link DeleteIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityProviderCommandOutput> {
     return deserializeAws_restJson1DeleteIdentityProviderCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSinkCommand}.
  */
 export interface DeleteSinkCommandInput extends DeleteSinkInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSinkCommand}.
  */
 export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a sink. You must delete all links to a sink before you can delete that sink.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSinkCommandInput - {@link DeleteSinkCommandInput}
+ * @returns {@link DeleteSinkCommandOutput}
  * @see {@link DeleteSinkCommandInput} for command's `input` shape.
  * @see {@link DeleteSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteSinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteSinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSinkCommandOutput> {
     return deserializeAws_restJson1DeleteSinkCommand(output, context);
   }

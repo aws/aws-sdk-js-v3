@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrainingJobCommand}.
  */
 export interface UpdateTrainingJobCommandInput extends UpdateTrainingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrainingJobCommand}.
  */
 export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a model training job to request a new Debugger profiling configuration or to
  *             change warm pool retention length.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrainingJobCommandInput - {@link UpdateTrainingJobCommandInput}
+ * @returns {@link UpdateTrainingJobCommandOutput}
  * @see {@link UpdateTrainingJobCommandInput} for command's `input` shape.
  * @see {@link UpdateTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class UpdateTrainingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateTrainingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTrainingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrainingJobCommandOutput> {
     return deserializeAws_json1_1UpdateTrainingJobCommand(output, context);
   }

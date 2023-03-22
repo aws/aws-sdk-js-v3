@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomVocabularyMetadataCommand}.
  */
 export interface DescribeCustomVocabularyMetadataCommandInput extends DescribeCustomVocabularyMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomVocabularyMetadataCommand}.
  */
 export interface DescribeCustomVocabularyMetadataCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides metadata information about a custom vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomVocabularyMetadataCommandInput - {@link DescribeCustomVocabularyMetadataCommandInput}
+ * @returns {@link DescribeCustomVocabularyMetadataCommandOutput}
  * @see {@link DescribeCustomVocabularyMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomVocabularyMetadataCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomVocabularyMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCustomVocabularyMetadataCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command<
     return serializeAws_restJson1DescribeCustomVocabularyMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

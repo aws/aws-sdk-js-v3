@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOfferingCommand}.
  */
 export interface DescribeOfferingCommandInput extends DescribeOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOfferingCommand}.
  */
 export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOfferingCommandInput - {@link DescribeOfferingCommandInput}
+ * @returns {@link DescribeOfferingCommandOutput}
  * @see {@link DescribeOfferingCommandInput} for command's `input` shape.
  * @see {@link DescribeOfferingCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOfferingCommandOutput> {
     return deserializeAws_restJson1DescribeOfferingCommand(output, context);
   }

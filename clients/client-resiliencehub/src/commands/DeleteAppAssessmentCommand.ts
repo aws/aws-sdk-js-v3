@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppAssessmentCommand}.
  */
 export interface DeleteAppAssessmentCommandInput extends DeleteAppAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppAssessmentCommand}.
  */
 export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an AWS Resilience Hub application assessment. This is a destructive action that can't
  *       be undone.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppAssessmentCommandInput - {@link DeleteAppAssessmentCommandInput}
+ * @returns {@link DeleteAppAssessmentCommandOutput}
  * @see {@link DeleteAppAssessmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAppAssessmentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteAppAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteAppAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAppAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppAssessmentCommandOutput> {
     return deserializeAws_restJson1DeleteAppAssessmentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an event notification subscription. This action requires a topic ARN (Amazon
  *       Resource Name) created by either the Neptune console, the SNS console, or the SNS API. To
  *       obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The
@@ -60,6 +65,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
+ * @returns {@link CreateEventSubscriptionCommandOutput}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
     return deserializeAws_queryCreateEventSubscriptionCommand(output, context);
   }

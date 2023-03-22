@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartModelPackagingJobCommand}.
  */
 export interface StartModelPackagingJobCommandInput extends StartModelPackagingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartModelPackagingJobCommand}.
  */
 export interface StartModelPackagingJobCommandOutput extends StartModelPackagingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon Lookout for Vision model packaging job. A model packaging job creates an AWS IoT Greengrass component for
  *    a Lookout for Vision model. You can use the component to deploy your model to an edge device managed by Greengrass.
  * </p>
@@ -96,6 +101,8 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * const response = await client.send(command);
  * ```
  *
+ * @param StartModelPackagingJobCommandInput - {@link StartModelPackagingJobCommandInput}
+ * @returns {@link StartModelPackagingJobCommandOutput}
  * @see {@link StartModelPackagingJobCommandInput} for command's `input` shape.
  * @see {@link StartModelPackagingJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -142,6 +149,9 @@ export class StartModelPackagingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartModelPackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class StartModelPackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartModelPackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartModelPackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartModelPackagingJobCommandOutput> {
     return deserializeAws_restJson1StartModelPackagingJobCommand(output, context);
   }

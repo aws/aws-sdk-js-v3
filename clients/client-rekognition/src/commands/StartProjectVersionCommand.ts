@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartProjectVersionCommand}.
  */
 export interface StartProjectVersionCommandInput extends StartProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartProjectVersionCommand}.
  */
 export interface StartProjectVersionCommandOutput extends StartProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the running of the version of a model. Starting a model takes a while
  *       to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p>
  *          <p>Once the model is running, you can detect custom labels in new images by calling
@@ -56,6 +61,8 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProjectVersionCommandInput - {@link StartProjectVersionCommandInput}
+ * @returns {@link StartProjectVersionCommandOutput}
  * @see {@link StartProjectVersionCommandInput} for command's `input` shape.
  * @see {@link StartProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -107,6 +114,9 @@ export class StartProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class StartProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProjectVersionCommandOutput> {
     return deserializeAws_json1_1StartProjectVersionCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTagsForResourceCommand}.
  */
 export interface UpdateTagsForResourceCommandInput extends UpdateTagsForResourceMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTagsForResourceCommand}.
  */
 export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>
  *       for tags to add or update, and <code>TagsToRemove</code>.</p>
  *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
@@ -60,6 +65,8 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTagsForResourceCommandInput - {@link UpdateTagsForResourceCommandInput}
+ * @returns {@link UpdateTagsForResourceCommandOutput}
  * @see {@link UpdateTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagsForResourceCommandOutput> {
     return deserializeAws_queryUpdateTagsForResourceCommand(output, context);
   }

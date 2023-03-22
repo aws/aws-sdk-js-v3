@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchProfilesCommand}.
  */
 export interface SearchProfilesCommandInput extends SearchProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchProfilesCommand}.
  */
 export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for profiles within a specific domain using one or more predefined search keys
  *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key
  *          is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>
@@ -50,6 +55,8 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchProfilesCommandInput - {@link SearchProfilesCommandInput}
+ * @returns {@link SearchProfilesCommandOutput}
  * @see {@link SearchProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchProfilesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -88,6 +95,9 @@ export class SearchProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class SearchProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProfilesCommandOutput> {
     return deserializeAws_restJson1SearchProfilesCommand(output, context);
   }

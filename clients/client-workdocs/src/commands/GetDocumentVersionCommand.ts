@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentVersionCommand}.
  */
 export interface GetDocumentVersionCommandInput extends GetDocumentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentVersionCommand}.
  */
 export interface GetDocumentVersionCommandOutput extends GetDocumentVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves version metadata for the specified document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDocumentVersionCommandOutput extends GetDocumentVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentVersionCommandInput - {@link GetDocumentVersionCommandInput}
+ * @returns {@link GetDocumentVersionCommandOutput}
  * @see {@link GetDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link GetDocumentVersionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetDocumentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetDocumentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDocumentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentVersionCommandOutput> {
     return deserializeAws_restJson1GetDocumentVersionCommand(output, context);
   }

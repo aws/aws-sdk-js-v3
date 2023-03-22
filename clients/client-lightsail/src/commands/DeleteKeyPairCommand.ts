@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKeyPairCommand}.
  */
 export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKeyPairCommand}.
  */
 export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified key pair by removing the public key from Amazon Lightsail.</p>
  *          <p>You can delete key pairs that were created using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html">ImportKeyPair</a> and
  *         <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default
@@ -53,6 +58,8 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeyPairCommandInput - {@link DeleteKeyPairCommandInput}
+ * @returns {@link DeleteKeyPairCommandOutput}
  * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyPairCommandOutput> {
     return deserializeAws_json1_1DeleteKeyPairCommand(output, context);
   }

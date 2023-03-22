@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessKeyCommand}.
  */
 export interface DeleteAccessKeyCommandInput extends DeleteAccessKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessKeyCommand}.
  */
 export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the access key pair associated with the specified IAM user.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -45,6 +50,8 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessKeyCommandInput - {@link DeleteAccessKeyCommandInput}
+ * @returns {@link DeleteAccessKeyCommandOutput}
  * @see {@link DeleteAccessKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessKeyCommandOutput> {
     return deserializeAws_queryDeleteAccessKeyCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrderableClusterOptionsCommand}.
  */
 export interface DescribeOrderableClusterOptionsCommandInput extends DescribeOrderableClusterOptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrderableClusterOptionsCommand}.
  */
 export interface DescribeOrderableClusterOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOrderableClusterOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of orderable cluster options. Before you create a new cluster you
  *             can use this operation to find what options are available, such as the EC2 Availability
  *             Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the node types you can
@@ -56,6 +61,8 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrderableClusterOptionsCommandInput - {@link DescribeOrderableClusterOptionsCommandInput}
+ * @returns {@link DescribeOrderableClusterOptionsCommandOutput}
  * @see {@link DescribeOrderableClusterOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableClusterOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrderableClusterOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrderableClusterOptionsCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     return serializeAws_queryDescribeOrderableClusterOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

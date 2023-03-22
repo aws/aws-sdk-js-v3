@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteArchiveRuleCommand}.
  */
 export interface DeleteArchiveRuleCommandInput extends DeleteArchiveRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteArchiveRuleCommand}.
  */
 export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified archive rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteArchiveRuleCommandInput - {@link DeleteArchiveRuleCommandInput}
+ * @returns {@link DeleteArchiveRuleCommandOutput}
  * @see {@link DeleteArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArchiveRuleCommandOutput> {
     return deserializeAws_restJson1DeleteArchiveRuleCommand(output, context);
   }

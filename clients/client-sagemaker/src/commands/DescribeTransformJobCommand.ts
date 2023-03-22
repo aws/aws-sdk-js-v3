@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransformJobCommand}.
  */
 export interface DescribeTransformJobCommandInput extends DescribeTransformJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransformJobCommand}.
  */
 export interface DescribeTransformJobCommandOutput extends DescribeTransformJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a transform job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeTransformJobCommandOutput extends DescribeTransformJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransformJobCommandInput - {@link DescribeTransformJobCommandInput}
+ * @returns {@link DescribeTransformJobCommandOutput}
  * @see {@link DescribeTransformJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTransformJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransformJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeTransformJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTransformJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransformJobCommandOutput> {
     return deserializeAws_json1_1DescribeTransformJobCommand(output, context);
   }

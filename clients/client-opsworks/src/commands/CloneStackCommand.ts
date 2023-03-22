@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CloneStackCommand}.
  */
 export interface CloneStackCommandInput extends CloneStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloneStackCommand}.
  */
 export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a clone of a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html">Clone a
  *         Stack</a>. By default, all parameters are set to the values used by the parent stack.</p>
  *          <p>
@@ -51,6 +56,8 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CloneStackCommandInput - {@link CloneStackCommandInput}
+ * @returns {@link CloneStackCommandOutput}
  * @see {@link CloneStackCommandInput} for command's `input` shape.
  * @see {@link CloneStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -80,6 +87,9 @@ export class CloneStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloneStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CloneStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloneStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CloneStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneStackCommandOutput> {
     return deserializeAws_json1_1CloneStackCommand(output, context);
   }

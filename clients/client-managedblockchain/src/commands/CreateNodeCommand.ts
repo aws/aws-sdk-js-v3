@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNodeCommand}.
  */
 export interface CreateNodeCommandInput extends CreateNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNodeCommand}.
  */
 export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a node on the specified blockchain network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNodeCommandInput - {@link CreateNodeCommandInput}
+ * @returns {@link CreateNodeCommandOutput}
  * @see {@link CreateNodeCommandInput} for command's `input` shape.
  * @see {@link CreateNodeCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -105,6 +112,9 @@ export class CreateNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNodeCommandOutput> {
     return deserializeAws_restJson1CreateNodeCommand(output, context);
   }

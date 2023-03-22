@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSessionCommand}.
  */
 export interface StartSessionCommandInput extends StartSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSessionCommand}.
  */
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a session for running calculations within a workgroup. The session is ready
  *             when it reaches an <code>IDLE</code> state.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSessionCommandInput - {@link StartSessionCommandInput}
+ * @returns {@link StartSessionCommandOutput}
  * @see {@link StartSessionCommandInput} for command's `input` shape.
  * @see {@link StartSessionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StartSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSessionCommandOutput> {
     return deserializeAws_json1_1StartSessionCommand(output, context);
   }

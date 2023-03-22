@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCACertificatesCommand}.
  */
 export interface ListCACertificatesCommandInput extends ListCACertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCACertificatesCommand}.
  */
 export interface ListCACertificatesCommandOutput extends ListCACertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the CA certificates registered for your Amazon Web Services account.</p>
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
@@ -49,6 +54,8 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCACertificatesCommandInput - {@link ListCACertificatesCommandInput}
+ * @returns {@link ListCACertificatesCommandOutput}
  * @see {@link ListCACertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCACertificatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListCACertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCACertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListCACertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCACertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCACertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCACertificatesCommandOutput> {
     return deserializeAws_restJson1ListCACertificatesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupsCommand}.
  */
 export interface ListBackupsCommandInput extends ListBackupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupsCommand}.
  */
 export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List backups associated with an Amazon Web Services account. To list backups for a
  *             given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
  *             paginated list of results with at most 1 MB worth of items in a page. You can also
@@ -52,6 +57,8 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupsCommandInput - {@link ListBackupsCommandInput}
+ * @returns {@link ListBackupsCommandOutput}
  * @see {@link ListBackupsCommandInput} for command's `input` shape.
  * @see {@link ListBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupsCommandOutput> {
     return deserializeAws_json1_0ListBackupsCommand(output, context);
   }

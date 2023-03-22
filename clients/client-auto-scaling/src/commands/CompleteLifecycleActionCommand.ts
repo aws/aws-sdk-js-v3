@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteLifecycleActionCommand}.
  */
 export interface CompleteLifecycleActionCommandInput extends CompleteLifecycleActionType {}
 /**
+ * @public
+ *
  * The output of {@link CompleteLifecycleActionCommand}.
  */
 export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleActionAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Completes the lifecycle action for the specified token or instance with the specified
  *             result.</p>
  *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
@@ -83,6 +88,8 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteLifecycleActionCommandInput - {@link CompleteLifecycleActionCommandInput}
+ * @returns {@link CompleteLifecycleActionCommandOutput}
  * @see {@link CompleteLifecycleActionCommandInput} for command's `input` shape.
  * @see {@link CompleteLifecycleActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -124,6 +131,9 @@ export class CompleteLifecycleActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteLifecycleActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class CompleteLifecycleActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteLifecycleActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCompleteLifecycleActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteLifecycleActionCommandOutput> {
     return deserializeAws_queryCompleteLifecycleActionCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComponentVersionArtifactCommand}.
  */
 export interface GetComponentVersionArtifactCommandInput extends GetComponentVersionArtifactRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComponentVersionArtifactCommand}.
  */
 export interface GetComponentVersionArtifactCommandOutput
@@ -37,6 +41,7 @@ export interface GetComponentVersionArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices call this
  *       operation to identify the URL that they can use to download an artifact to install.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetComponentVersionArtifactCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComponentVersionArtifactCommandInput - {@link GetComponentVersionArtifactCommandInput}
+ * @returns {@link GetComponentVersionArtifactCommandOutput}
  * @see {@link GetComponentVersionArtifactCommandInput} for command's `input` shape.
  * @see {@link GetComponentVersionArtifactCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -89,6 +96,9 @@ export class GetComponentVersionArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComponentVersionArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetComponentVersionArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComponentVersionArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetComponentVersionArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

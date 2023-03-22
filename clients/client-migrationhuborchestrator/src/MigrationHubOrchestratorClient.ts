@@ -109,6 +109,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateWorkflowCommandInput
   | CreateWorkflowStepCommandInput
@@ -139,6 +142,9 @@ export type ServiceInputTypes =
   | UpdateWorkflowStepCommandInput
   | UpdateWorkflowStepGroupCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateWorkflowCommandOutput
   | CreateWorkflowStepCommandOutput
@@ -169,6 +175,9 @@ export type ServiceOutputTypes =
   | UpdateWorkflowStepCommandOutput
   | UpdateWorkflowStepGroupCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -176,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -285,11 +294,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type MigrationHubOrchestratorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -300,10 +312,15 @@ type MigrationHubOrchestratorClientConfigType = Partial<__SmithyConfiguration<__
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MigrationHubOrchestratorClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MigrationHubOrchestratorClient class constructor that set the region, credentials and other options.
  */
 export interface MigrationHubOrchestratorClientConfig extends MigrationHubOrchestratorClientConfigType {}
 
+/**
+ * @public
+ */
 type MigrationHubOrchestratorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -314,12 +331,15 @@ type MigrationHubOrchestratorClientResolvedConfigType = __SmithyResolvedConfigur
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MigrationHubOrchestratorClient class. This is resolved and normalized from the {@link MigrationHubOrchestratorClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MigrationHubOrchestratorClient class. This is resolved and normalized from the {@link MigrationHubOrchestratorClientConfig | constructor configuration interface}.
  */
 export interface MigrationHubOrchestratorClientResolvedConfig
   extends MigrationHubOrchestratorClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>This API reference provides descriptions, syntax, and other details about each of the
  *             actions and data types for AWS Migration Hub Orchestrator. he topic for each action shows the API
  *             request parameters and the response. Alternatively, you can use one of the AWS SDKs to

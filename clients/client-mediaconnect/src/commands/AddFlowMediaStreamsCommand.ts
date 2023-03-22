@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddFlowMediaStreamsCommand}.
  */
 export interface AddFlowMediaStreamsCommandInput extends AddFlowMediaStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddFlowMediaStreamsCommand}.
  */
 export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Adds media streams to an existing flow. After you add a media stream to a flow, you can associate it with a source and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFlowMediaStreamsCommandInput - {@link AddFlowMediaStreamsCommandInput}
+ * @returns {@link AddFlowMediaStreamsCommandOutput}
  * @see {@link AddFlowMediaStreamsCommandInput} for command's `input` shape.
  * @see {@link AddFlowMediaStreamsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class AddFlowMediaStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFlowMediaStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AddFlowMediaStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFlowMediaStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddFlowMediaStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowMediaStreamsCommandOutput> {
     return deserializeAws_restJson1AddFlowMediaStreamsCommand(output, context);
   }

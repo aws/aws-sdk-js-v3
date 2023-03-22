@@ -45,6 +45,7 @@ import {
 import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
 
 /**
+ * @public
  * <p>Catalog API actions allow you to manage your entities through list, describe, and
  *             update capabilities. An entity can be a product or an offer on AWS Marketplace. </p>
  *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
@@ -54,6 +55,7 @@ import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
  */
 export class MarketplaceCatalog extends MarketplaceCatalogClient {
   /**
+   * @public
    * <p>Used to cancel an open change request. Must be sent before the status of the request
    *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
    *             can describe a change during the 60-day request history retention period for API
@@ -89,6 +91,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Provides information about a given change set.</p>
    */
   public describeChangeSet(
@@ -121,6 +124,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Returns the metadata and content of the entity.</p>
    */
   public describeEntity(
@@ -153,6 +157,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of change sets owned by the account being used to make the call. You
    *             can filter this list by providing any combination of <code>entityId</code>,
    *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
@@ -190,6 +195,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Provides the list of entities of a given type.</p>
    */
   public listEntities(
@@ -219,6 +225,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags that have been added to a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
    */
   public listTagsForResource(
@@ -251,6 +258,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Allows you to request changes for your entities. Within a single
    *                 <code>ChangeSet</code>, you can't start the same change type against the same entity
    *             multiple times. Additionally, when a <code>ChangeSet</code> is running, all the entities
@@ -293,6 +301,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Tags a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -319,6 +328,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag or list of tags from a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
    */
   public untagResource(

@@ -92,6 +92,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelOrderCommandInput
   | CreateOrderCommandInput
@@ -120,6 +123,9 @@ export type ServiceInputTypes =
   | UpdateSiteCommandInput
   | UpdateSiteRackPhysicalPropertiesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelOrderCommandOutput
   | CreateOrderCommandOutput
@@ -148,6 +154,9 @@ export type ServiceOutputTypes =
   | UpdateSiteCommandOutput
   | UpdateSiteRackPhysicalPropertiesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -155,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -264,11 +273,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -279,10 +291,15 @@ type OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of OutpostsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of OutpostsClient class constructor that set the region, credentials and other options.
  */
 export interface OutpostsClientConfig extends OutpostsClientConfigType {}
 
+/**
+ * @public
+ */
 type OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -293,11 +310,14 @@ type OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of OutpostsClient class. This is resolved and normalized from the {@link OutpostsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of OutpostsClient class. This is resolved and normalized from the {@link OutpostsClientConfig | constructor configuration interface}.
  */
 export interface OutpostsClientResolvedConfig extends OutpostsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools to
  *       customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts enables
  *       customers to build and run applications on premises using the same programming interfaces as

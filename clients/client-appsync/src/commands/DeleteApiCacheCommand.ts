@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApiCacheCommand}.
  */
 export interface DeleteApiCacheCommandInput extends DeleteApiCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApiCacheCommand}.
  */
 export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an <code>ApiCache</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApiCacheCommandInput - {@link DeleteApiCacheCommandInput}
+ * @returns {@link DeleteApiCacheCommandOutput}
  * @see {@link DeleteApiCacheCommandInput} for command's `input` shape.
  * @see {@link DeleteApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteApiCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApiCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteApiCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteApiCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiCacheCommandOutput> {
     return deserializeAws_restJson1DeleteApiCacheCommand(output, context);
   }

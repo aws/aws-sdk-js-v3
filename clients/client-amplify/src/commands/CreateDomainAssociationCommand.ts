@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainAssociationCommand}.
  */
 export interface CreateDomainAssociationCommandInput extends CreateDomainAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainAssociationCommand}.
  */
 export interface CreateDomainAssociationCommandOutput extends CreateDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new domain association for an Amplify app. This action associates a custom
  *             domain with the Amplify app </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDomainAssociationCommandOutput extends CreateDomainAssoci
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainAssociationCommandInput - {@link CreateDomainAssociationCommandInput}
+ * @returns {@link CreateDomainAssociationCommandOutput}
  * @see {@link CreateDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainAssociationCommandOutput> {
     return deserializeAws_restJson1CreateDomainAssociationCommand(output, context);
   }

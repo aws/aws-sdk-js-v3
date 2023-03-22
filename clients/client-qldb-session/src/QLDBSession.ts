@@ -5,6 +5,7 @@ import { SendCommandCommand, SendCommandCommandInput, SendCommandCommandOutput }
 import { QLDBSessionClient } from "./QLDBSessionClient";
 
 /**
+ * @public
  * <p>The transactional data APIs for Amazon QLDB</p>
  *          <note>
  *             <p>Instead of interacting directly with this API, we recommend using the QLDB driver
@@ -29,6 +30,7 @@ import { QLDBSessionClient } from "./QLDBSessionClient";
  */
 export class QLDBSession extends QLDBSessionClient {
   /**
+   * @public
    * <p>Sends a command to an Amazon QLDB ledger.</p>
    *          <note>
    *             <p>Instead of interacting directly with this API, we recommend using the QLDB driver

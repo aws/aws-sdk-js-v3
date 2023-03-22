@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileSystemCommand}.
  */
 export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileSystemCommand}.
  */
 export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a file system. After deletion, the file system no longer exists, and its data
  *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
  *          <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
@@ -68,6 +73,8 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
+ * @returns {@link DeleteFileSystemCommandOutput}
  * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -126,6 +133,9 @@ export class DeleteFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class DeleteFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemCommandOutput> {
     return deserializeAws_json1_1DeleteFileSystemCommand(output, context);
   }

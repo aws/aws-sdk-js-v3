@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableProactiveEngagementCommand}.
  */
 export interface DisableProactiveEngagementCommandInput extends DisableProactiveEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableProactiveEngagementCommand}.
  */
 export interface DisableProactiveEngagementCommandOutput extends DisableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes authorization from the Shield Response Team (SRT) to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableProactiveEngagementCommandOutput extends DisableProactiv
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableProactiveEngagementCommandInput - {@link DisableProactiveEngagementCommandInput}
+ * @returns {@link DisableProactiveEngagementCommandOutput}
  * @see {@link DisableProactiveEngagementCommandInput} for command's `input` shape.
  * @see {@link DisableProactiveEngagementCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisableProactiveEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableProactiveEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DisableProactiveEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableProactiveEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableProactiveEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

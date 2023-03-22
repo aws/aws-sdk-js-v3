@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentStrategyCommand}.
  */
 export interface CreateDeploymentStrategyCommandInput extends CreateDeploymentStrategyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentStrategyCommand}.
  */
 export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a deployment strategy that defines important criteria for rolling out your
  *          configuration to the designated targets. A deployment strategy includes the overall
  *          duration required, a percentage of targets to receive the deployment during each interval,
@@ -49,6 +54,8 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentStrategyCommandInput - {@link CreateDeploymentStrategyCommandInput}
+ * @returns {@link CreateDeploymentStrategyCommandOutput}
  * @see {@link CreateDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateDeploymentStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentStrategyCommandOutput> {
     return deserializeAws_restJson1CreateDeploymentStrategyCommand(output, context);
   }

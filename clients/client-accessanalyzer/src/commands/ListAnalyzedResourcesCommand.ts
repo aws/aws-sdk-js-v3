@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnalyzedResourcesCommand}.
  */
 export interface ListAnalyzedResourcesCommandInput extends ListAnalyzedResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnalyzedResourcesCommand}.
  */
 export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of resources of the specified type that have been analyzed by the
  *          specified analyzer..</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnalyzedResourcesCommandInput - {@link ListAnalyzedResourcesCommandInput}
+ * @returns {@link ListAnalyzedResourcesCommandOutput}
  * @see {@link ListAnalyzedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAnalyzedResourcesCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListAnalyzedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnalyzedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListAnalyzedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnalyzedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnalyzedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnalyzedResourcesCommandOutput> {
     return deserializeAws_restJson1ListAnalyzedResourcesCommand(output, context);
   }

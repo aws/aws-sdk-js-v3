@@ -189,6 +189,7 @@ import {
 import { InspectorClient } from "./InspectorClient";
 
 /**
+ * @public
  * <fullname>Amazon Inspector</fullname>
  *          <p>Amazon Inspector enables you to analyze the behavior of your AWS resources and to
  *          identify potential security issues. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html"> Amazon Inspector User
@@ -196,6 +197,7 @@ import { InspectorClient } from "./InspectorClient";
  */
 export class Inspector extends InspectorClient {
   /**
+   * @public
    * <p>Assigns attributes (key and value pairs) to the findings that are specified by the
    *          ARNs of the findings.</p>
    */
@@ -229,6 +231,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Creates a new assessment target using the ARN of the resource group that is generated
    *          by <a>CreateResourceGroup</a>. If resourceGroupArn is not specified, all EC2
    *          instances in the current AWS account and region are included in the assessment target. If
@@ -268,6 +271,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Creates an assessment template for the assessment target that is specified by the ARN
    *          of the assessment target. If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
    *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
@@ -303,6 +307,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Starts the generation of an exclusions preview for the specified assessment template.
    *          The exclusions preview lists the potential exclusions (ExclusionPreview) that Inspector can
    *          detect before it runs the assessment. </p>
@@ -337,6 +342,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Creates a resource group using the specified set of tags (key and value pairs) that
    *          are used to select the EC2 instances to be included in an Amazon Inspector assessment
    *          target. The created resource group is then used to create an Amazon Inspector assessment
@@ -372,6 +378,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Deletes the assessment run that is specified by the ARN of the assessment
    *          run.</p>
    */
@@ -405,6 +412,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Deletes the assessment target that is specified by the ARN of the assessment
    *          target.</p>
    */
@@ -438,6 +446,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Deletes the assessment template that is specified by the ARN of the assessment
    *          template.</p>
    */
@@ -471,6 +480,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the assessment runs that are specified by the ARNs of the assessment
    *          runs.</p>
    */
@@ -504,6 +514,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the assessment targets that are specified by the ARNs of the assessment
    *          targets.</p>
    */
@@ -537,6 +548,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the assessment templates that are specified by the ARNs of the assessment
    *          templates.</p>
    */
@@ -570,6 +582,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
    *          account.</p>
    */
@@ -603,6 +616,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
    */
   public describeExclusions(
@@ -635,6 +649,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the findings that are specified by the ARNs of the findings.</p>
    */
   public describeFindings(
@@ -667,6 +682,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the resource groups that are specified by the ARNs of the resource
    *          groups.</p>
    */
@@ -700,6 +716,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Describes the rules packages that are specified by the ARNs of the rules
    *          packages.</p>
    */
@@ -733,6 +750,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Produces an assessment report that includes detailed and comprehensive results of a
    *          specified assessment run. </p>
    */
@@ -766,6 +784,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by
    *          the preview token. You can obtain the preview token by running the CreateExclusionsPreview
    *          API.</p>
@@ -800,6 +819,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Information about the data that is collected for the specified assessment
    *          run.</p>
    */
@@ -833,6 +853,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists the agents of the assessment runs that are specified by the ARNs of the
    *          assessment runs.</p>
    */
@@ -866,6 +887,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists the assessment runs that correspond to the assessment templates that are
    *          specified by the ARNs of the assessment templates.</p>
    */
@@ -899,6 +921,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists the ARNs of the assessment targets within this AWS account. For more
    *          information about assessment targets, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon Inspector Assessment
    *             Targets</a>.</p>
@@ -933,6 +956,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists the assessment templates that correspond to the assessment targets that are
    *          specified by the ARNs of the assessment targets.</p>
    */
@@ -966,6 +990,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists all the event subscriptions for the assessment template that is specified by
    *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
    */
@@ -999,6 +1024,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>List exclusions that are generated by the assessment run.</p>
    */
   public listExclusions(
@@ -1031,6 +1057,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists findings that are generated by the assessment runs that are specified by the
    *          ARNs of the assessment runs.</p>
    */
@@ -1061,6 +1088,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists all available Amazon Inspector rules packages.</p>
    */
   public listRulesPackages(
@@ -1093,6 +1121,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags associated with an assessment template.</p>
    */
   public listTagsForResource(
@@ -1125,6 +1154,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Previews the agents installed on the EC2 instances that are part of the specified
    *          assessment target.</p>
    */
@@ -1158,6 +1188,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
    *          perform security assessments.</p>
    */
@@ -1191,6 +1222,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Removes entire attributes (key and value pairs) from the findings that are specified
    *          by the ARNs of the findings where an attribute with the specified key exists.</p>
    */
@@ -1224,6 +1256,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
    *          ARN of the assessment template.</p>
    */
@@ -1257,6 +1290,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Starts the assessment run specified by the ARN of the assessment template. For this
    *          API to function properly, you must not exceed the limit of running up to 500 concurrent
    *          agents per AWS account.</p>
@@ -1291,6 +1325,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Stops the assessment run that is specified by the ARN of the assessment
    *          run.</p>
    */
@@ -1324,6 +1359,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
    *          about a specified event to a specified SNS topic.</p>
    */
@@ -1357,6 +1393,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
    *          notifications about a specified event to a specified SNS topic.</p>
    */
@@ -1390,6 +1427,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
+   * @public
    * <p>Updates the assessment target that is specified by the ARN of the assessment
    *          target.</p>
    *          <p>If resourceGroupArn is not specified, all EC2 instances in the current AWS account

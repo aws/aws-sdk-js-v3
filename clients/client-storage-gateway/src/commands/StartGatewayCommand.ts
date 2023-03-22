@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartGatewayCommand}.
  */
 export interface StartGatewayCommandInput extends StartGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link StartGatewayCommand}.
  */
 export interface StartGatewayCommandOutput extends StartGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>).
  *          After the gateway starts, you can then make other API calls, your applications can read
  *          from or write to the gateway's storage volumes and you will be able to take snapshot
@@ -58,6 +63,8 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartGatewayCommandInput - {@link StartGatewayCommandInput}
+ * @returns {@link StartGatewayCommandOutput}
  * @see {@link StartGatewayCommandInput} for command's `input` shape.
  * @see {@link StartGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -105,6 +112,9 @@ export class StartGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class StartGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartGatewayCommandOutput> {
     return deserializeAws_json1_1StartGatewayCommand(output, context);
   }

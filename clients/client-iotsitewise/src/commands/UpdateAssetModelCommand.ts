@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAssetModelCommand}.
  */
 export interface UpdateAssetModelCommandInput extends UpdateAssetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAssetModelCommand}.
  */
 export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an asset model and all of the assets that were created from the model. Each asset
  *       created from the model inherits the updated asset model's property and hierarchy definitions.
  *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
@@ -58,6 +63,8 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssetModelCommandInput - {@link UpdateAssetModelCommandInput}
+ * @returns {@link UpdateAssetModelCommandOutput}
  * @see {@link UpdateAssetModelCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -110,6 +117,9 @@ export class UpdateAssetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class UpdateAssetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAssetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssetModelCommandOutput> {
     return deserializeAws_restJson1UpdateAssetModelCommand(output, context);
   }

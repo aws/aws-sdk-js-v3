@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLayerVersionByArnCommand}.
  */
 export interface GetLayerVersionByArnCommandInput extends GetLayerVersionByArnRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLayerVersionByArnCommand}.
  */
 export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>, with a link to download the layer archive
  *         that's valid for 10 minutes.</p>
@@ -48,6 +53,8 @@ export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionRespon
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLayerVersionByArnCommandInput - {@link GetLayerVersionByArnCommandInput}
+ * @returns {@link GetLayerVersionByArnCommandOutput}
  * @see {@link GetLayerVersionByArnCommandInput} for command's `input` shape.
  * @see {@link GetLayerVersionByArnCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetLayerVersionByArnCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLayerVersionByArnCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetLayerVersionByArnCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLayerVersionByArnCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLayerVersionByArnCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionByArnCommandOutput> {
     return deserializeAws_restJson1GetLayerVersionByArnCommand(output, context);
   }

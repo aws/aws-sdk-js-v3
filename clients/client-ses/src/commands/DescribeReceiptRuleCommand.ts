@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReceiptRuleCommand}.
  */
 export interface DescribeReceiptRuleCommandInput extends DescribeReceiptRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReceiptRuleCommand}.
  */
 export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of the specified receipt rule.</p>
  *         <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReceiptRuleCommandInput - {@link DescribeReceiptRuleCommandInput}
+ * @returns {@link DescribeReceiptRuleCommandOutput}
  * @see {@link DescribeReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -108,6 +115,9 @@ export class DescribeReceiptRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReceiptRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DescribeReceiptRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReceiptRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReceiptRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReceiptRuleCommandOutput> {
     return deserializeAws_queryDescribeReceiptRuleCommand(output, context);
   }

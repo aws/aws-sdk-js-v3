@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcEndpointCommand}.
  */
 export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcEndpointCommand}.
  */
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an OpenSearch Serverless-managed interface VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access
  *                 Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
+ * @returns {@link CreateVpcEndpointCommandOutput}
  * @see {@link CreateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcEndpointCommandOutput> {
     return deserializeAws_json1_0CreateVpcEndpointCommand(output, context);
   }

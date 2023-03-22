@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAllowedNodeTypeModificationsCommand}.
  */
 export interface ListAllowedNodeTypeModificationsCommandInput extends ListAllowedNodeTypeModificationsMessage {}
 /**
+ * @public
+ *
  * The output of {@link ListAllowedNodeTypeModificationsCommand}.
  */
 export interface ListAllowedNodeTypeModificationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available node types that you
  *             can scale your Redis cluster's or replication group's current node type.</p>
  *          <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
@@ -52,6 +57,8 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAllowedNodeTypeModificationsCommandInput - {@link ListAllowedNodeTypeModificationsCommandInput}
+ * @returns {@link ListAllowedNodeTypeModificationsCommandOutput}
  * @see {@link ListAllowedNodeTypeModificationsCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -112,6 +119,9 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAllowedNodeTypeModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAllowedNodeTypeModificationsCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     return serializeAws_queryListAllowedNodeTypeModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

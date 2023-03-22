@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePackageCommand}.
  */
 export interface AssociatePackageCommandInput extends AssociatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePackageCommand}.
  */
 export interface AssociatePackageCommandOutput extends AssociatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a package with an Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePackageCommandInput - {@link AssociatePackageCommandInput}
+ * @returns {@link AssociatePackageCommandOutput}
  * @see {@link AssociatePackageCommandInput} for command's `input` shape.
  * @see {@link AssociatePackageCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class AssociatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AssociatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociatePackageCommandOutput> {
     return deserializeAws_restJson1AssociatePackageCommand(output, context);
   }

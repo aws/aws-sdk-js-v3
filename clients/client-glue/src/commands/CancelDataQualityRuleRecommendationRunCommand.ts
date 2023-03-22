@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDataQualityRuleRecommendationRunCommand}.
  */
 export interface CancelDataQualityRuleRecommendationRunCommandInput
   extends CancelDataQualityRuleRecommendationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDataQualityRuleRecommendationRunCommand}.
  */
 export interface CancelDataQualityRuleRecommendationRunCommandOutput
@@ -38,6 +42,7 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified recommendation run that was being used to generate rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDataQualityRuleRecommendationRunCommandInput - {@link CancelDataQualityRuleRecommendationRunCommandInput}
+ * @returns {@link CancelDataQualityRuleRecommendationRunCommandOutput}
  * @see {@link CancelDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
  * @see {@link CancelDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
     return serializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

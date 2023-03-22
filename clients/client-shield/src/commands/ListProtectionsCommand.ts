@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtectionsCommand}.
  */
 export interface ListProtectionsCommandInput extends ListProtectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProtectionsCommand}.
  */
 export interface ListProtectionsCommandOutput extends ListProtectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves <a>Protection</a> objects for the account. You can retrieve all protections or you can provide
  *        filtering criteria and retrieve just the subset of protections that match the criteria. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectionsCommandInput - {@link ListProtectionsCommandInput}
+ * @returns {@link ListProtectionsCommandOutput}
  * @see {@link ListProtectionsCommandInput} for command's `input` shape.
  * @see {@link ListProtectionsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListProtectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListProtectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProtectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectionsCommandOutput> {
     return deserializeAws_json1_1ListProtectionsCommand(output, context);
   }

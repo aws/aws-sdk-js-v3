@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGroupCommand}.
  */
 export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGroupCommand}.
  */
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
  *          store.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupCommandInput - {@link DescribeGroupCommandInput}
+ * @returns {@link DescribeGroupCommandOutput}
  * @see {@link DescribeGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupCommandOutput> {
     return deserializeAws_json1_1DescribeGroupCommand(output, context);
   }

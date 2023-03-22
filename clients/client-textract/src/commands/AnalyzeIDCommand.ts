@@ -23,15 +23,20 @@ import { deserializeAws_json1_1AnalyzeIDCommand, serializeAws_json1_1AnalyzeIDCo
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link AnalyzeIDCommand}.
  */
 export interface AnalyzeIDCommandInput extends AnalyzeIDRequest {}
 /**
+ * @public
+ *
  * The output of {@link AnalyzeIDCommand}.
  */
 export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes identity documents for relevant information. This information is extracted and
  *          returned as <code>IdentityDocumentFields</code>, which records both the normalized field
  *          and value of the extracted text.Unlike other Amazon Textract operations,
@@ -46,6 +51,8 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param AnalyzeIDCommandInput - {@link AnalyzeIDCommandInput}
+ * @returns {@link AnalyzeIDCommandOutput}
  * @see {@link AnalyzeIDCommandInput} for command's `input` shape.
  * @see {@link AnalyzeIDCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -109,6 +116,9 @@ export class AnalyzeIDCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AnalyzeIDCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class AnalyzeIDCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AnalyzeIDCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AnalyzeIDCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AnalyzeIDCommandOutput> {
     return deserializeAws_json1_1AnalyzeIDCommand(output, context);
   }

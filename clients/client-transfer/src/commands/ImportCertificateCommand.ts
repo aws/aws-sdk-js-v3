@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportCertificateCommand}.
  */
 export interface ImportCertificateCommandInput extends ImportCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportCertificateCommand}.
  */
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the signing and encryption certificates that you need to create local (AS2)
  *       profiles and partner
  *       profiles.</p>
@@ -48,6 +53,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
+ * @returns {@link ImportCertificateCommandOutput}
  * @see {@link ImportCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -84,6 +91,9 @@ export class ImportCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ImportCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCertificateCommandOutput> {
     return deserializeAws_json1_1ImportCertificateCommand(output, context);
   }

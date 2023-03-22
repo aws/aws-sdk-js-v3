@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRetainedMessagesCommand}.
  */
 export interface ListRetainedMessagesCommandInput extends ListRetainedMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRetainedMessagesCommand}.
  */
 export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists summary information about the retained messages stored for the account.</p>
  *          <p>This action returns only the topic names of the retained messages. It doesn't
  *       return any message payloads. Although this action doesn't return a message payload,
@@ -55,6 +60,8 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRetainedMessagesCommandInput - {@link ListRetainedMessagesCommandInput}
+ * @returns {@link ListRetainedMessagesCommandOutput}
  * @see {@link ListRetainedMessagesCommandInput} for command's `input` shape.
  * @see {@link ListRetainedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListRetainedMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRetainedMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListRetainedMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRetainedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRetainedMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRetainedMessagesCommandOutput> {
     return deserializeAws_restJson1ListRetainedMessagesCommand(output, context);
   }

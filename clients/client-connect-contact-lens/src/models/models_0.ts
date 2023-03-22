@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ConnectContactLensServiceException as __BaseException } from "./ConnectContactLensServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request processing failed due to an error or failure with the service.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -46,6 +48,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -66,6 +69,9 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListRealtimeContactAnalysisSegmentsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -90,6 +96,7 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
 }
 
 /**
+ * @public
  * <p>The section of the contact audio where that category rule was detected.</p>
  */
 export interface PointOfInterest {
@@ -105,6 +112,7 @@ export interface PointOfInterest {
 }
 
 /**
+ * @public
  * <p>Provides information about the category rule that was matched.</p>
  */
 export interface CategoryDetails {
@@ -115,6 +123,7 @@ export interface CategoryDetails {
 }
 
 /**
+ * @public
  * <p>Provides the category rules that are used to automatically categorize contacts based on
  *       uttered keywords and phrases.</p>
  */
@@ -131,6 +140,7 @@ export interface Categories {
 }
 
 /**
+ * @public
  * <p>For characters that were detected as issues, where they occur in the transcript.</p>
  */
 export interface CharacterOffsets {
@@ -146,6 +156,7 @@ export interface CharacterOffsets {
 }
 
 /**
+ * @public
  * <p>Potential issues that are detected based on an artificial intelligence analysis of each
  *       turn in the conversation.</p>
  */
@@ -156,6 +167,9 @@ export interface IssueDetected {
   CharacterOffsets: CharacterOffsets | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SentimentValue {
   NEGATIVE = "NEGATIVE",
   NEUTRAL = "NEUTRAL",
@@ -163,6 +177,7 @@ export enum SentimentValue {
 }
 
 /**
+ * @public
  * <p>A list of messages in the session.</p>
  */
 export interface Transcript {
@@ -208,6 +223,7 @@ export interface Transcript {
 }
 
 /**
+ * @public
  * <p>An analyzed segment for a real-time analysis session.</p>
  */
 export interface RealtimeContactAnalysisSegment {
@@ -222,6 +238,9 @@ export interface RealtimeContactAnalysisSegment {
   Categories?: Categories;
 }
 
+/**
+ * @public
+ */
 export interface ListRealtimeContactAnalysisSegmentsResponse {
   /**
    * <p>An analyzed transcript or category.</p>
@@ -246,6 +265,7 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -267,6 +287,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The throttling limit has been exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {

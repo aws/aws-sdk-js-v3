@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetStatementResultCommand}.
  */
 export interface GetStatementResultCommandInput extends GetStatementResultRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStatementResultCommand}.
  */
 export interface GetStatementResultCommandOutput extends GetStatementResultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the temporarily cached result of an SQL statement.
  *        A token is returned to page through the statement results. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
@@ -50,6 +55,8 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStatementResultCommandInput - {@link GetStatementResultCommandInput}
+ * @returns {@link GetStatementResultCommandOutput}
  * @see {@link GetStatementResultCommandInput} for command's `input` shape.
  * @see {@link GetStatementResultCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetStatementResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStatementResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetStatementResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStatementResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetStatementResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatementResultCommandOutput> {
     return deserializeAws_json1_1GetStatementResultCommand(output, context);
   }

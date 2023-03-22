@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountCommand}.
  */
 export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountCommand}.
  */
 export interface DescribeAccountCommandOutput extends DescribeAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves Organizations-related information about the specified account.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -48,6 +53,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
+ * @returns {@link DescribeAccountCommandOutput}
  * @see {@link DescribeAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -223,6 +230,9 @@ export class DescribeAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -262,10 +272,16 @@ export class DescribeAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountCommandOutput> {
     return deserializeAws_json1_1DescribeAccountCommand(output, context);
   }

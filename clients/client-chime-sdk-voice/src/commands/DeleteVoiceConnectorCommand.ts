@@ -21,10 +21,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorCommand}.
  */
 export interface DeleteVoiceConnectorCommandInput extends DeleteVoiceConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorCommand}.
  */
 export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
@@ -46,6 +50,9 @@ export class DeleteVoiceConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,10 +92,16 @@ export class DeleteVoiceConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVoiceConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVoiceConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVoiceConnectorCommandOutput> {
     return deserializeAws_restJson1DeleteVoiceConnectorCommand(output, context);
   }

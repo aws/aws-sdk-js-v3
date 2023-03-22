@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableRuleCommand}.
  */
 export interface DisableRuleCommandInput extends DisableRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableRuleCommand}.
  */
 export interface DisableRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified rule. A disabled rule won't match any events, and won't
  *       self-trigger if it has a schedule expression.</p>
  *
@@ -45,6 +50,8 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableRuleCommandInput - {@link DisableRuleCommandInput}
+ * @returns {@link DisableRuleCommandOutput}
  * @see {@link DisableRuleCommandInput} for command's `input` shape.
  * @see {@link DisableRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisableRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DisableRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableRuleCommandOutput> {
     return deserializeAws_json1_1DisableRuleCommand(output, context);
   }

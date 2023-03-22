@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableControlCommand}.
  */
 export interface DisableControlCommandInput extends DisableControlInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableControlCommand}.
  */
 export interface DisableControlCommandOutput extends DisableControlOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS resources on the specified
  *         organizational unit and the accounts it contains. The resources will vary according to the
  *         control that you specify.</p>
@@ -48,6 +53,8 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableControlCommandInput - {@link DisableControlCommandInput}
+ * @returns {@link DisableControlCommandOutput}
  * @see {@link DisableControlCommandInput} for command's `input` shape.
  * @see {@link DisableControlCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
@@ -93,6 +100,9 @@ export class DisableControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DisableControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableControlCommandOutput> {
     return deserializeAws_restJson1DisableControlCommand(output, context);
   }

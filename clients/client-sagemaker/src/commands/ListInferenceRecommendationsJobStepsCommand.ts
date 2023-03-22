@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListInferenceRecommendationsJobStepsCommand}.
  */
 export interface ListInferenceRecommendationsJobStepsCommandInput extends ListInferenceRecommendationsJobStepsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInferenceRecommendationsJobStepsCommand}.
  */
 export interface ListInferenceRecommendationsJobStepsCommandOutput
@@ -37,6 +41,7 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the subtasks for an Inference Recommender job.</p>
  *          <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInferenceRecommendationsJobStepsCommandInput - {@link ListInferenceRecommendationsJobStepsCommandInput}
+ * @returns {@link ListInferenceRecommendationsJobStepsCommandOutput}
  * @see {@link ListInferenceRecommendationsJobStepsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceRecommendationsJobStepsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInferenceRecommendationsJobStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListInferenceRecommendationsJobStepsCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command<
     return serializeAws_json1_1ListInferenceRecommendationsJobStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

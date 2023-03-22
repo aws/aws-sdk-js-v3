@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1TestAlarmCommand, serializeAws_json1_1TestAlarmCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestAlarmCommand}.
  */
 export interface TestAlarmCommandInput extends TestAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestAlarmCommand}.
  */
 export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification
  *       trigger is configured for the specified alarm, the test also sends a notification to the
  *       notification protocol (<code>Email</code> and/or <code>SMS</code>) configured for the
@@ -50,6 +55,8 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param TestAlarmCommandInput - {@link TestAlarmCommandInput}
+ * @returns {@link TestAlarmCommandOutput}
  * @see {@link TestAlarmCommandInput} for command's `input` shape.
  * @see {@link TestAlarmCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class TestAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class TestAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TestAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestAlarmCommandOutput> {
     return deserializeAws_json1_1TestAlarmCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSharedDirectoriesCommand}.
  */
 export interface DescribeSharedDirectoriesCommandInput extends DescribeSharedDirectoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSharedDirectoriesCommand}.
  */
 export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDirectoriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the shared directories in your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSharedDirectoriesCommandInput - {@link DescribeSharedDirectoriesCommandInput}
+ * @returns {@link DescribeSharedDirectoriesCommandOutput}
  * @see {@link DescribeSharedDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeSharedDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSharedDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSharedDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSharedDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

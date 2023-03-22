@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyUserAttributeCommand}.
  */
 export interface VerifyUserAttributeCommandInput extends VerifyUserAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyUserAttributeCommand}.
  */
 export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies the specified user attributes in the user pool.</p>
  *         <p>
  *             If your user pool requires verification before Amazon Cognito updates the attribute value,
@@ -56,6 +61,8 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyUserAttributeCommandInput - {@link VerifyUserAttributeCommandInput}
+ * @returns {@link VerifyUserAttributeCommandOutput}
  * @see {@link VerifyUserAttributeCommandInput} for command's `input` shape.
  * @see {@link VerifyUserAttributeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -127,6 +134,9 @@ export class VerifyUserAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyUserAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class VerifyUserAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyUserAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1VerifyUserAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyUserAttributeCommandOutput> {
     return deserializeAws_json1_1VerifyUserAttributeCommand(output, context);
   }

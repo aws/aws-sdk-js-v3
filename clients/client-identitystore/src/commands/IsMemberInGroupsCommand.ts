@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link IsMemberInGroupsCommand}.
  */
 export interface IsMemberInGroupsCommandInput extends IsMemberInGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link IsMemberInGroupsCommand}.
  */
 export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param IsMemberInGroupsCommandInput - {@link IsMemberInGroupsCommandInput}
+ * @returns {@link IsMemberInGroupsCommandOutput}
  * @see {@link IsMemberInGroupsCommandInput} for command's `input` shape.
  * @see {@link IsMemberInGroupsCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +91,9 @@ export class IsMemberInGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IsMemberInGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class IsMemberInGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IsMemberInGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1IsMemberInGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IsMemberInGroupsCommandOutput> {
     return deserializeAws_json1_1IsMemberInGroupsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExportCommand}.
  */
 export interface CreateExportCommandInput extends CreateExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExportCommand}.
  */
 export interface CreateExportCommandOutput extends CreateExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a zip archive containing the contents of a bot or a bot
  *          locale. The archive contains a directory structure that contains JSON
  *          files that define the bot.</p>
@@ -55,6 +60,8 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExportCommandInput - {@link CreateExportCommandInput}
+ * @returns {@link CreateExportCommandOutput}
  * @see {@link CreateExportCommandInput} for command's `input` shape.
  * @see {@link CreateExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -102,6 +109,9 @@ export class CreateExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportCommandOutput> {
     return deserializeAws_restJson1CreateExportCommand(output, context);
   }

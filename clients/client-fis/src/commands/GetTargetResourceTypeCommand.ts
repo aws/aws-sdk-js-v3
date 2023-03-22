@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTargetResourceTypeCommand}.
  */
 export interface GetTargetResourceTypeCommandInput extends GetTargetResourceTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTargetResourceTypeCommand}.
  */
 export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTargetResourceTypeCommandInput - {@link GetTargetResourceTypeCommandInput}
+ * @returns {@link GetTargetResourceTypeCommandOutput}
  * @see {@link GetTargetResourceTypeCommandInput} for command's `input` shape.
  * @see {@link GetTargetResourceTypeCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetTargetResourceTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTargetResourceTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetTargetResourceTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTargetResourceTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTargetResourceTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTargetResourceTypeCommandOutput> {
     return deserializeAws_restJson1GetTargetResourceTypeCommand(output, context);
   }

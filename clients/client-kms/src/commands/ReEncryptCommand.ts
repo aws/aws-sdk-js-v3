@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ReEncryptCommand, serializeAws_json1_1ReEncryptCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReEncryptCommand}.
  */
 export interface ReEncryptCommandInput extends ReEncryptRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReEncryptCommand}.
  */
 export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
  *       operation to change the KMS key under which data is encrypted, such as when you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually
  *         rotate</a> a KMS key or change the KMS key that protects a ciphertext. You can also use
@@ -137,6 +142,8 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ReEncryptCommandInput - {@link ReEncryptCommandInput}
+ * @returns {@link ReEncryptCommandOutput}
  * @see {@link ReEncryptCommandInput} for command's `input` shape.
  * @see {@link ReEncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -250,6 +257,9 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReEncryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -287,10 +297,16 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReEncryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ReEncryptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReEncryptCommandOutput> {
     return deserializeAws_json1_1ReEncryptCommand(output, context);
   }

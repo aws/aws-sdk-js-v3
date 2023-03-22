@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceException";
 
 /**
+ * @public
  * <p>Contains details of a table archival operation.</p>
  */
 export interface ArchivalSummary {
@@ -34,12 +35,18 @@ export interface ArchivalSummary {
   ArchivalBackupArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum AttributeAction {
   ADD = "ADD",
   DELETE = "DELETE",
   PUT = "PUT",
 }
 
+/**
+ * @public
+ */
 export enum ScalarAttributeType {
   B = "B",
   N = "N",
@@ -47,6 +54,7 @@ export enum ScalarAttributeType {
 }
 
 /**
+ * @public
  * <p>Represents an attribute for describing the key schema for the table and
  *             indexes.</p>
  */
@@ -77,6 +85,7 @@ export interface AttributeDefinition {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a target tracking scaling policy.</p>
  */
 export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
@@ -115,6 +124,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
 }
 
 /**
+ * @public
  * <p>Represents the properties of the scaling policy.</p>
  */
 export interface AutoScalingPolicyDescription {
@@ -130,6 +140,7 @@ export interface AutoScalingPolicyDescription {
 }
 
 /**
+ * @public
  * <p>Represents the settings of a target tracking scaling policy that will be
  *             modified.</p>
  */
@@ -169,6 +180,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling policy to be modified.</p>
  */
 export interface AutoScalingPolicyUpdate {
@@ -184,6 +196,7 @@ export interface AutoScalingPolicyUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings for a global table or global secondary
  *             index.</p>
  */
@@ -217,6 +230,7 @@ export interface AutoScalingSettingsDescription {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings to be modified for a global table or global
  *             secondary index.</p>
  */
@@ -250,12 +264,18 @@ export interface AutoScalingSettingsUpdate {
   ScalingPolicyUpdate?: AutoScalingPolicyUpdate;
 }
 
+/**
+ * @public
+ */
 export enum BackupStatus {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
   DELETED = "DELETED",
 }
 
+/**
+ * @public
+ */
 export enum BackupType {
   AWS_BACKUP = "AWS_BACKUP",
   SYSTEM = "SYSTEM",
@@ -263,6 +283,7 @@ export enum BackupType {
 }
 
 /**
+ * @public
  * <p>Contains the details of the backup created for the table.</p>
  */
 export interface BackupDetails {
@@ -323,17 +344,24 @@ export interface BackupDetails {
   BackupExpiryDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum BillingMode {
   PAY_PER_REQUEST = "PAY_PER_REQUEST",
   PROVISIONED = "PROVISIONED",
 }
 
+/**
+ * @public
+ */
 export enum KeyType {
   HASH = "HASH",
   RANGE = "RANGE",
 }
 
 /**
+ * @public
  * <p>Represents <i>a single element</i> of a key schema. A key schema
  *             specifies the attributes that make up the primary key of a table, or the key attributes
  *             of an index.</p>
@@ -378,6 +406,7 @@ export interface KeySchemaElement {
 }
 
 /**
+ * @public
  * <p>Represents the provisioned throughput settings for a specified table or index. The
  *             settings can be modified using the <code>UpdateTable</code> operation.</p>
  *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
@@ -405,6 +434,7 @@ export interface ProvisionedThroughput {
 }
 
 /**
+ * @public
  * <p>Contains the details of the table when the backup was created. </p>
  */
 export interface SourceTableDetails {
@@ -469,6 +499,9 @@ export interface SourceTableDetails {
   BillingMode?: BillingMode | string;
 }
 
+/**
+ * @public
+ */
 export enum ProjectionType {
   ALL = "ALL",
   INCLUDE = "INCLUDE",
@@ -476,6 +509,7 @@ export enum ProjectionType {
 }
 
 /**
+ * @public
  * <p>Represents attributes that are copied (projected) from the table into an index. These
  *             are in addition to the primary key attributes and index key attributes, which are
  *             automatically projected.</p>
@@ -515,6 +549,7 @@ export interface Projection {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index for the table when the backup
  *             was created.</p>
  */
@@ -564,6 +599,7 @@ export interface GlobalSecondaryIndexInfo {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a local secondary index for the table when the backup was
  *             created.</p>
  */
@@ -607,11 +643,17 @@ export interface LocalSecondaryIndexInfo {
   Projection?: Projection;
 }
 
+/**
+ * @public
+ */
 export enum SSEType {
   AES256 = "AES256",
   KMS = "KMS",
 }
 
+/**
+ * @public
+ */
 export enum SSEStatus {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -621,6 +663,7 @@ export enum SSEStatus {
 }
 
 /**
+ * @public
  * <p>The description of the server-side encryption status on the specified table.</p>
  */
 export interface SSEDescription {
@@ -666,6 +709,9 @@ export interface SSEDescription {
   InaccessibleEncryptionDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum StreamViewType {
   KEYS_ONLY = "KEYS_ONLY",
   NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
@@ -674,6 +720,7 @@ export enum StreamViewType {
 }
 
 /**
+ * @public
  * <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
  */
 export interface StreamSpecification {
@@ -713,6 +760,9 @@ export interface StreamSpecification {
   StreamViewType?: StreamViewType | string;
 }
 
+/**
+ * @public
+ */
 export enum TimeToLiveStatus {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -721,6 +771,7 @@ export enum TimeToLiveStatus {
 }
 
 /**
+ * @public
  * <p>The description of the Time to Live (TTL) status on the specified table. </p>
  */
 export interface TimeToLiveDescription {
@@ -736,6 +787,7 @@ export interface TimeToLiveDescription {
 }
 
 /**
+ * @public
  * <p>Contains the details of the features enabled on the table when the backup was created.
  *             For example, LSIs, GSIs, streams, TTL. </p>
  */
@@ -772,6 +824,7 @@ export interface SourceTableFeatureDetails {
 }
 
 /**
+ * @public
  * <p>Contains the description of the backup created for the table.</p>
  */
 export interface BackupDescription {
@@ -793,6 +846,7 @@ export interface BackupDescription {
 }
 
 /**
+ * @public
  * <p>There is another ongoing conflicting backup control plane operation on the table.
  *             The backup is either being created, deleted or restored to a table.</p>
  */
@@ -813,6 +867,7 @@ export class BackupInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Backup not found for the given BackupARN. </p>
  */
 export class BackupNotFoundException extends __BaseException {
@@ -832,6 +887,7 @@ export class BackupNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details for the backup.</p>
  */
 export interface BackupSummary {
@@ -906,6 +962,9 @@ export interface BackupSummary {
   BackupSizeBytes?: number;
 }
 
+/**
+ * @public
+ */
 export enum BackupTypeFilter {
   ALL = "ALL",
   AWS_BACKUP = "AWS_BACKUP",
@@ -913,6 +972,9 @@ export enum BackupTypeFilter {
   USER = "USER",
 }
 
+/**
+ * @public
+ */
 export enum ReturnConsumedCapacity {
   INDEXES = "INDEXES",
   NONE = "NONE",
@@ -920,6 +982,7 @@ export enum ReturnConsumedCapacity {
 }
 
 /**
+ * @public
  * <p>Represents the amount of provisioned throughput capacity consumed on a table or an
  *             index.</p>
  */
@@ -941,6 +1004,7 @@ export interface Capacity {
 }
 
 /**
+ * @public
  * <p>The capacity units consumed by an operation. The data returned includes the total
  *             provisioned throughput consumed, along with statistics for the table and any indexes
  *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
@@ -986,6 +1050,9 @@ export interface ConsumedCapacity {
   GlobalSecondaryIndexes?: Record<string, Capacity>;
 }
 
+/**
+ * @public
+ */
 export enum BatchStatementErrorCodeEnum {
   AccessDenied = "AccessDenied",
   ConditionalCheckFailed = "ConditionalCheckFailed",
@@ -1001,6 +1068,7 @@ export enum BatchStatementErrorCodeEnum {
 }
 
 /**
+ * @public
  * <p> An error associated with a statement in a PartiQL batch that was run. </p>
  */
 export interface BatchStatementError {
@@ -1016,6 +1084,7 @@ export interface BatchStatementError {
 }
 
 /**
+ * @public
  * <p>An error occurred on the server side.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -1035,6 +1104,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Throughput exceeds the current throughput quota for your account. Please contact
  *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
  *             quota increase.</p>
@@ -1055,6 +1125,9 @@ export class RequestLimitExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class InvalidEndpointException extends __BaseException {
   readonly name: "InvalidEndpointException" = "InvalidEndpointException";
   readonly $fault: "client" = "client";
@@ -1074,6 +1147,7 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request rate is too high. The Amazon Web Services SDKs for DynamoDB
  *             automatically retry requests that receive this exception. Your request is eventually
  *             successful, unless your retry queue is too large to finish. Reduce the frequency of
@@ -1096,6 +1170,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  */
@@ -1115,12 +1190,16 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ReturnItemCollectionMetrics {
   NONE = "NONE",
   SIZE = "SIZE",
 }
 
 /**
+ * @public
  * <p>An item collection is too large. This exception is only returned for tables that
  *             have one or more local secondary indexes.</p>
  */
@@ -1141,6 +1220,7 @@ export class ItemCollectionSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the details for the read/write capacity mode. This page talks about
  *                 <code>PROVISIONED</code> and <code>PAY_PER_REQUEST</code> billing modes. For more
  *             information about these modes, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html">Read/write capacity mode</a>.</p>
@@ -1177,6 +1257,9 @@ export interface BillingModeSummary {
   LastUpdateToPayPerRequestDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   BEGINS_WITH = "BEGINS_WITH",
   BETWEEN = "BETWEEN",
@@ -1194,6 +1277,7 @@ export enum ComparisonOperator {
 }
 
 /**
+ * @public
  * <p>A condition specified in the operation could not be evaluated.</p>
  */
 export class ConditionalCheckFailedException extends __BaseException {
@@ -1212,27 +1296,40 @@ export class ConditionalCheckFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConditionalOperator {
   AND = "AND",
   OR = "OR",
 }
 
+/**
+ * @public
+ */
 export enum ReturnValuesOnConditionCheckFailure {
   ALL_OLD = "ALL_OLD",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum ContinuousBackupsStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum PointInTimeRecoveryStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>The description of the point in time settings applied to the table.</p>
  */
 export interface PointInTimeRecoveryDescription {
@@ -1266,6 +1363,7 @@ export interface PointInTimeRecoveryDescription {
 }
 
 /**
+ * @public
  * <p>Represents the continuous backups and point in time recovery settings on the
  *             table.</p>
  */
@@ -1284,6 +1382,7 @@ export interface ContinuousBackupsDescription {
 }
 
 /**
+ * @public
  * <p>Backups have not yet been enabled for this table.</p>
  */
 export class ContinuousBackupsUnavailableException extends __BaseException {
@@ -1302,11 +1401,17 @@ export class ContinuousBackupsUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ContributorInsightsAction {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
 }
 
+/**
+ * @public
+ */
 export enum ContributorInsightsStatus {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -1316,6 +1421,7 @@ export enum ContributorInsightsStatus {
 }
 
 /**
+ * @public
  * <p>Represents a Contributor Insights summary entry.</p>
  */
 export interface ContributorInsightsSummary {
@@ -1336,6 +1442,9 @@ export interface ContributorInsightsSummary {
   ContributorInsightsStatus?: ContributorInsightsStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupInput {
   /**
    * <p>The name of the table.</p>
@@ -1348,6 +1457,9 @@ export interface CreateBackupInput {
   BackupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupOutput {
   /**
    * <p>Contains the details of the backup created for the table.</p>
@@ -1356,6 +1468,7 @@ export interface CreateBackupOutput {
 }
 
 /**
+ * @public
  * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
  *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
  *             include <code>CreateTable</code>, <code>UpdateTable</code>,
@@ -1385,6 +1498,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A target table with the specified name is either being created or deleted.
  *         </p>
  */
@@ -1405,6 +1519,7 @@ export class TableInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  */
@@ -1425,6 +1540,7 @@ export class TableNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a new global secondary index to be added to an existing table.</p>
  */
 export interface CreateGlobalSecondaryIndexAction {
@@ -1456,6 +1572,7 @@ export interface CreateGlobalSecondaryIndexAction {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica.</p>
  */
 export interface Replica {
@@ -1465,6 +1582,9 @@ export interface Replica {
   RegionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalTableInput {
   /**
    * <p>The global table name.</p>
@@ -1477,6 +1597,9 @@ export interface CreateGlobalTableInput {
   ReplicationGroup: Replica[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum GlobalTableStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -1485,6 +1608,7 @@ export enum GlobalTableStatus {
 }
 
 /**
+ * @public
  * <p>Replica-specific provisioned throughput settings. If not specified, uses the source
  *             table's provisioned throughput settings.</p>
  */
@@ -1497,6 +1621,7 @@ export interface ProvisionedThroughputOverride {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexDescription {
@@ -1511,6 +1636,9 @@ export interface ReplicaGlobalSecondaryIndexDescription {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
 }
 
+/**
+ * @public
+ */
 export enum ReplicaStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -1521,12 +1649,16 @@ export enum ReplicaStatus {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum TableClass {
   STANDARD = "STANDARD",
   STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS",
 }
 
 /**
+ * @public
  * <p>Contains details of the table class.</p>
  */
 export interface TableClassSummary {
@@ -1543,6 +1675,7 @@ export interface TableClassSummary {
 }
 
 /**
+ * @public
  * <p>Contains the details of the replica.</p>
  */
 export interface ReplicaDescription {
@@ -1636,6 +1769,7 @@ export interface ReplicaDescription {
 }
 
 /**
+ * @public
  * <p>Contains details about the global table.</p>
  */
 export interface GlobalTableDescription {
@@ -1683,6 +1817,9 @@ export interface GlobalTableDescription {
   GlobalTableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalTableOutput {
   /**
    * <p>Contains the details of the global table.</p>
@@ -1691,6 +1828,7 @@ export interface CreateGlobalTableOutput {
 }
 
 /**
+ * @public
  * <p>The specified global table already exists.</p>
  */
 export class GlobalTableAlreadyExistsException extends __BaseException {
@@ -1710,6 +1848,7 @@ export class GlobalTableAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be added.</p>
  */
 export interface CreateReplicaAction {
@@ -1720,6 +1859,7 @@ export interface CreateReplicaAction {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndex {
@@ -1736,6 +1876,7 @@ export interface ReplicaGlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be created.</p>
  */
 export interface CreateReplicationGroupMemberAction {
@@ -1772,6 +1913,7 @@ export interface CreateReplicationGroupMemberAction {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface GlobalSecondaryIndex {
@@ -1825,6 +1967,7 @@ export interface GlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a local secondary index.</p>
  */
 export interface LocalSecondaryIndex {
@@ -1869,6 +2012,7 @@ export interface LocalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Represents the settings used to enable server-side encryption.</p>
  */
 export interface SSESpecification {
@@ -1902,6 +2046,7 @@ export interface SSESpecification {
 }
 
 /**
+ * @public
  * <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single
  *             DynamoDB table. </p>
  *          <p>Amazon Web Services-assigned tag names and values are automatically assigned the
@@ -1928,6 +2073,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateTable</code> operation.</p>
  */
 export interface CreateTableInput {
@@ -2208,6 +2354,9 @@ export interface CreateTableInput {
   DeletionProtectionEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum IndexStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -2216,6 +2365,7 @@ export enum IndexStatus {
 }
 
 /**
+ * @public
  * <p>Represents the provisioned throughput settings for the table, consisting of read and
  *             write capacity units, along with data about increases and decreases.</p>
  */
@@ -2255,6 +2405,7 @@ export interface ProvisionedThroughputDescription {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface GlobalSecondaryIndexDescription {
@@ -2366,6 +2517,7 @@ export interface GlobalSecondaryIndexDescription {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a local secondary index.</p>
  */
 export interface LocalSecondaryIndexDescription {
@@ -2428,6 +2580,7 @@ export interface LocalSecondaryIndexDescription {
 }
 
 /**
+ * @public
  * <p>Contains details for the restore.</p>
  */
 export interface RestoreSummary {
@@ -2452,6 +2605,9 @@ export interface RestoreSummary {
   RestoreInProgress: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TableStatus {
   ACTIVE = "ACTIVE",
   ARCHIVED = "ARCHIVED",
@@ -2463,6 +2619,7 @@ export enum TableStatus {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a table.</p>
  */
 export interface TableDescription {
@@ -2868,6 +3025,7 @@ export interface TableDescription {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateTable</code> operation.</p>
  */
 export interface CreateTableOutput {
@@ -2878,6 +3036,7 @@ export interface CreateTableOutput {
 }
 
 /**
+ * @public
  * <p>The operation conflicts with the resource's availability. For example, you
  *             attempted to recreate an existing table, or tried to delete a table currently in the
  *                 <code>CREATING</code> state.</p>
@@ -2899,6 +3058,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Processing options for the CSV file being imported. </p>
  */
 export interface CsvOptions {
@@ -2916,6 +3076,9 @@ export interface CsvOptions {
   HeaderList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupInput {
   /**
    * <p>The ARN associated with the backup.</p>
@@ -2923,6 +3086,9 @@ export interface DeleteBackupInput {
   BackupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupOutput {
   /**
    * <p>Contains the description of the backup created for the table.</p>
@@ -2931,6 +3097,7 @@ export interface DeleteBackupOutput {
 }
 
 /**
+ * @public
  * <p>Represents a global secondary index to be deleted from an existing table.</p>
  */
 export interface DeleteGlobalSecondaryIndexAction {
@@ -2940,6 +3107,9 @@ export interface DeleteGlobalSecondaryIndexAction {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReturnValue {
   ALL_NEW = "ALL_NEW",
   ALL_OLD = "ALL_OLD",
@@ -2949,6 +3119,7 @@ export enum ReturnValue {
 }
 
 /**
+ * @public
  * <p>Operation was rejected because there is an ongoing transaction for the
  *             item.</p>
  */
@@ -2969,6 +3140,7 @@ export class TransactionConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be removed.</p>
  */
 export interface DeleteReplicaAction {
@@ -2979,6 +3151,7 @@ export interface DeleteReplicaAction {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be deleted.</p>
  */
 export interface DeleteReplicationGroupMemberAction {
@@ -2989,6 +3162,7 @@ export interface DeleteReplicationGroupMemberAction {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableInput {
@@ -2999,6 +3173,7 @@ export interface DeleteTableInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableOutput {
@@ -3008,6 +3183,9 @@ export interface DeleteTableOutput {
   TableDescription?: TableDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the backup.</p>
@@ -3015,6 +3193,9 @@ export interface DescribeBackupInput {
   BackupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupOutput {
   /**
    * <p>Contains the description of the backup created for the table.</p>
@@ -3022,6 +3203,9 @@ export interface DescribeBackupOutput {
   BackupDescription?: BackupDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContinuousBackupsInput {
   /**
    * <p>Name of the table for which the customer wants to check the continuous backups and
@@ -3030,6 +3214,9 @@ export interface DescribeContinuousBackupsInput {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContinuousBackupsOutput {
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the
@@ -3038,6 +3225,9 @@ export interface DescribeContinuousBackupsOutput {
   ContinuousBackupsDescription?: ContinuousBackupsDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContributorInsightsInput {
   /**
    * <p>The name of the table to describe.</p>
@@ -3051,6 +3241,7 @@ export interface DescribeContributorInsightsInput {
 }
 
 /**
+ * @public
  * <p>Represents a failure a contributor insights operation.</p>
  */
 export interface FailureException {
@@ -3065,6 +3256,9 @@ export interface FailureException {
   ExceptionDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContributorInsightsOutput {
   /**
    * <p>The name of the table being described.</p>
@@ -3117,9 +3311,13 @@ export interface DescribeContributorInsightsOutput {
   FailureException?: FailureException;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsRequest {}
 
 /**
+ * @public
  * <p>An endpoint information details.</p>
  */
 export interface Endpoint {
@@ -3134,6 +3332,9 @@ export interface Endpoint {
   CachePeriodInMinutes: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsResponse {
   /**
    * <p>List of endpoints.</p>
@@ -3141,6 +3342,9 @@ export interface DescribeEndpointsResponse {
   Endpoints: Endpoint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the export.</p>
@@ -3148,23 +3352,33 @@ export interface DescribeExportInput {
   ExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExportFormat {
   DYNAMODB_JSON = "DYNAMODB_JSON",
   ION = "ION",
 }
 
+/**
+ * @public
+ */
 export enum ExportStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum S3SseAlgorithm {
   AES256 = "AES256",
   KMS = "KMS",
 }
 
 /**
+ * @public
  * <p>Represents the properties of the exported table.</p>
  */
 export interface ExportDescription {
@@ -3284,6 +3498,9 @@ export interface ExportDescription {
   ItemCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportOutput {
   /**
    * <p>Represents the properties of the export.</p>
@@ -3292,6 +3509,7 @@ export interface DescribeExportOutput {
 }
 
 /**
+ * @public
  * <p>The specified export was not found.</p>
  */
 export class ExportNotFoundException extends __BaseException {
@@ -3310,6 +3528,9 @@ export class ExportNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableInput {
   /**
    * <p>The name of the global table.</p>
@@ -3317,6 +3538,9 @@ export interface DescribeGlobalTableInput {
   GlobalTableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableOutput {
   /**
    * <p>Contains the details of the global table.</p>
@@ -3325,6 +3549,7 @@ export interface DescribeGlobalTableOutput {
 }
 
 /**
+ * @public
  * <p>The specified global table does not exist.</p>
  */
 export class GlobalTableNotFoundException extends __BaseException {
@@ -3343,6 +3568,9 @@ export class GlobalTableNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableSettingsInput {
   /**
    * <p>The name of the global table to describe.</p>
@@ -3351,6 +3579,7 @@ export interface DescribeGlobalTableSettingsInput {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexSettingsDescription {
@@ -3409,6 +3638,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica.</p>
  */
 export interface ReplicaSettingsDescription {
@@ -3480,6 +3710,9 @@ export interface ReplicaSettingsDescription {
   ReplicaTableClassSummary?: TableClassSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableSettingsOutput {
   /**
    * <p>The name of the global table.</p>
@@ -3492,6 +3725,9 @@ export interface DescribeGlobalTableSettingsOutput {
   ReplicaSettings?: ReplicaSettingsDescription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportInput {
   /**
    * <p> The Amazon Resource Name (ARN) associated with the table you're importing to. </p>
@@ -3499,6 +3735,9 @@ export interface DescribeImportInput {
   ImportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImportStatus {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
@@ -3507,12 +3746,18 @@ export enum ImportStatus {
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum InputCompressionType {
   GZIP = "GZIP",
   NONE = "NONE",
   ZSTD = "ZSTD",
 }
 
+/**
+ * @public
+ */
 export enum InputFormat {
   CSV = "CSV",
   DYNAMODB_JSON = "DYNAMODB_JSON",
@@ -3520,6 +3765,7 @@ export enum InputFormat {
 }
 
 /**
+ * @public
  * <p> The format options for the data that was imported into the target table. There is one
  *             value, CsvOption.</p>
  */
@@ -3532,6 +3778,7 @@ export interface InputFormatOptions {
 }
 
 /**
+ * @public
  * <p> The S3 bucket that is being imported from. </p>
  */
 export interface S3BucketSource {
@@ -3553,6 +3800,7 @@ export interface S3BucketSource {
 }
 
 /**
+ * @public
  * <p> The parameters for the table created as part of the import operation. </p>
  */
 export interface TableCreationParameters {
@@ -3600,6 +3848,7 @@ export interface TableCreationParameters {
 }
 
 /**
+ * @public
  * <p> Represents the properties of the table being imported into.
  *             </p>
  */
@@ -3713,6 +3962,9 @@ export interface ImportTableDescription {
   FailureMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportOutput {
   /**
    * <p> Represents the properties of the table created for the import, and parameters of the
@@ -3723,6 +3975,7 @@ export interface DescribeImportOutput {
 }
 
 /**
+ * @public
  * <p>
  *             The specified import was not found.
  *             </p>
@@ -3743,6 +3996,9 @@ export class ImportNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeKinesisStreamingDestinationInput {
   /**
    * <p>The name of the table being described.</p>
@@ -3750,6 +4006,9 @@ export interface DescribeKinesisStreamingDestinationInput {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DestinationStatus {
   ACTIVE = "ACTIVE",
   DISABLED = "DISABLED",
@@ -3759,6 +4018,7 @@ export enum DestinationStatus {
 }
 
 /**
+ * @public
  * <p>Describes a Kinesis data stream destination.</p>
  */
 export interface KinesisDataStreamDestination {
@@ -3778,6 +4038,9 @@ export interface KinesisDataStreamDestination {
   DestinationStatusDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKinesisStreamingDestinationOutput {
   /**
    * <p>The name of the table being described.</p>
@@ -3791,12 +4054,14 @@ export interface DescribeKinesisStreamingDestinationOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeLimits</code> operation. Has no
  *             content.</p>
  */
 export interface DescribeLimitsInput {}
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
  */
 export interface DescribeLimitsOutput {
@@ -3828,6 +4093,7 @@ export interface DescribeLimitsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeTable</code> operation.</p>
  */
 export interface DescribeTableInput {
@@ -3838,6 +4104,7 @@ export interface DescribeTableInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeTable</code> operation.</p>
  */
 export interface DescribeTableOutput {
@@ -3847,6 +4114,9 @@ export interface DescribeTableOutput {
   Table?: TableDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableReplicaAutoScalingInput {
   /**
    * <p>The name of the table.</p>
@@ -3855,6 +4125,7 @@ export interface DescribeTableReplicaAutoScalingInput {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling configuration for a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
@@ -3903,6 +4174,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of the replica.</p>
  */
 export interface ReplicaAutoScalingDescription {
@@ -3953,6 +4225,7 @@ export interface ReplicaAutoScalingDescription {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling configuration for a global table.</p>
  */
 export interface TableAutoScalingDescription {
@@ -3990,6 +4263,9 @@ export interface TableAutoScalingDescription {
   Replicas?: ReplicaAutoScalingDescription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableReplicaAutoScalingOutput {
   /**
    * <p>Represents the auto scaling properties of the table.</p>
@@ -3997,6 +4273,9 @@ export interface DescribeTableReplicaAutoScalingOutput {
   TableAutoScalingDescription?: TableAutoScalingDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTimeToLiveInput {
   /**
    * <p>The name of the table to be described.</p>
@@ -4004,6 +4283,9 @@ export interface DescribeTimeToLiveInput {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTimeToLiveOutput {
   /**
    * <p></p>
@@ -4011,6 +4293,9 @@ export interface DescribeTimeToLiveOutput {
   TimeToLiveDescription?: TimeToLiveDescription;
 }
 
+/**
+ * @public
+ */
 export interface KinesisStreamingDestinationInput {
   /**
    * <p>The name of the DynamoDB table.</p>
@@ -4023,6 +4308,9 @@ export interface KinesisStreamingDestinationInput {
   StreamArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface KinesisStreamingDestinationOutput {
   /**
    * <p>The name of the table being modified.</p>
@@ -4041,6 +4329,7 @@ export interface KinesisStreamingDestinationOutput {
 }
 
 /**
+ * @public
  * <p> There was an attempt to insert an item with the same primary key as an item that
  *             already exists in the DynamoDB table.</p>
  */
@@ -4061,6 +4350,7 @@ export class DuplicateItemException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>DynamoDB rejected the request because you retried a request with a
  *             different payload but with an idempotent token that was already used.</p>
  */
@@ -4083,6 +4373,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The transaction with the given request token is already in progress.</p>
  *          <p>
  *             Recommended Settings
@@ -4166,6 +4457,7 @@ export class TransactionInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict when writing to the specified S3 bucket.</p>
  */
 export class ExportConflictException extends __BaseException {
@@ -4184,6 +4476,9 @@ export class ExportConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ExportTableToPointInTimeInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
@@ -4259,6 +4554,9 @@ export interface ExportTableToPointInTimeInput {
   ExportFormat?: ExportFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface ExportTableToPointInTimeOutput {
   /**
    * <p>Contains a description of the table export.</p>
@@ -4267,6 +4565,7 @@ export interface ExportTableToPointInTimeOutput {
 }
 
 /**
+ * @public
  * <p>The specified <code>ExportTime</code> is outside of the point in time recovery
  *             window.</p>
  */
@@ -4287,6 +4586,7 @@ export class InvalidExportTimeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Point in time recovery has not yet been enabled for this source table.</p>
  */
 export class PointInTimeRecoveryUnavailableException extends __BaseException {
@@ -4306,6 +4606,7 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             There was a conflict when importing from the specified S3 source.
  *             This can occur when the current import conflicts with a previous import request
@@ -4328,6 +4629,9 @@ export class ImportConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ImportTableInput {
   /**
    * <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code>
@@ -4370,6 +4674,9 @@ export interface ImportTableInput {
   TableCreationParameters: TableCreationParameters | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportTableOutput {
   /**
    * <p> Represents the properties of the table created for the import, and parameters of the
@@ -4379,6 +4686,9 @@ export interface ImportTableOutput {
   ImportTableDescription: ImportTableDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupsInput {
   /**
    * <p>The backups from the table specified by <code>TableName</code> are listed. </p>
@@ -4434,6 +4744,9 @@ export interface ListBackupsInput {
   BackupType?: BackupTypeFilter | string;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupsOutput {
   /**
    * <p>List of <code>BackupSummary</code> objects.</p>
@@ -4454,6 +4767,9 @@ export interface ListBackupsOutput {
   LastEvaluatedBackupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContributorInsightsInput {
   /**
    * <p>The name of the table.</p>
@@ -4471,6 +4787,9 @@ export interface ListContributorInsightsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListContributorInsightsOutput {
   /**
    * <p>A list of ContributorInsightsSummary.</p>
@@ -4483,6 +4802,9 @@ export interface ListContributorInsightsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
@@ -4503,6 +4825,7 @@ export interface ListExportsInput {
 }
 
 /**
+ * @public
  * <p>Summary information about an export task.</p>
  */
 export interface ExportSummary {
@@ -4518,6 +4841,9 @@ export interface ExportSummary {
   ExportStatus?: ExportStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsOutput {
   /**
    * <p>A list of <code>ExportSummary</code> objects.</p>
@@ -4532,6 +4858,9 @@ export interface ListExportsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGlobalTablesInput {
   /**
    * <p>The first global table name that this operation will evaluate.</p>
@@ -4555,6 +4884,7 @@ export interface ListGlobalTablesInput {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global table.</p>
  */
 export interface GlobalTable {
@@ -4569,6 +4899,9 @@ export interface GlobalTable {
   ReplicationGroup?: Replica[];
 }
 
+/**
+ * @public
+ */
 export interface ListGlobalTablesOutput {
   /**
    * <p>List of global table names.</p>
@@ -4581,6 +4914,9 @@ export interface ListGlobalTablesOutput {
   LastEvaluatedGlobalTableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsInput {
   /**
    * <p> The Amazon Resource Name (ARN) associated with the table that was imported to.
@@ -4602,6 +4938,7 @@ export interface ListImportsInput {
 }
 
 /**
+ * @public
  * <p> Summary information about the source file for the import.
  *             </p>
  */
@@ -4652,6 +4989,9 @@ export interface ImportSummary {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsOutput {
   /**
    * <p> A list of <code>ImportSummary</code> objects. </p>
@@ -4667,6 +5007,7 @@ export interface ListImportsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListTables</code> operation.</p>
  */
 export interface ListTablesInput {
@@ -4685,6 +5026,7 @@ export interface ListTablesInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListTables</code> operation.</p>
  */
 export interface ListTablesOutput {
@@ -4707,6 +5049,9 @@ export interface ListTablesOutput {
   LastEvaluatedTableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsOfResourceInput {
   /**
    * <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource
@@ -4722,6 +5067,9 @@ export interface ListTagsOfResourceInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsOfResourceOutput {
   /**
    * <p>The tags currently associated with the Amazon DynamoDB resource.</p>
@@ -4735,6 +5083,9 @@ export interface ListTagsOfResourceOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum Select {
   ALL_ATTRIBUTES = "ALL_ATTRIBUTES",
   ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES",
@@ -4742,6 +5093,9 @@ export enum Select {
   SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES",
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableFromBackupInput {
   /**
    * <p>The name of the new table to which the backup must be restored.</p>
@@ -4783,6 +5137,9 @@ export interface RestoreTableFromBackupInput {
   SSESpecificationOverride?: SSESpecification;
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableFromBackupOutput {
   /**
    * <p>The description of the table created from an existing backup.</p>
@@ -4791,6 +5148,7 @@ export interface RestoreTableFromBackupOutput {
 }
 
 /**
+ * @public
  * <p>A target table with the specified name already exists. </p>
  */
 export class TableAlreadyExistsException extends __BaseException {
@@ -4810,6 +5168,7 @@ export class TableAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid restore time was specified. RestoreDateTime must be between
  *             EarliestRestorableDateTime and LatestRestorableDateTime.</p>
  */
@@ -4829,6 +5188,9 @@ export class InvalidRestoreTimeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableToPointInTimeInput {
   /**
    * <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name
@@ -4887,6 +5249,9 @@ export interface RestoreTableToPointInTimeInput {
   SSESpecificationOverride?: SSESpecification;
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableToPointInTimeOutput {
   /**
    * <p>Represents the properties of a table.</p>
@@ -4894,6 +5259,9 @@ export interface RestoreTableToPointInTimeOutput {
   TableDescription?: TableDescription;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is
@@ -4907,6 +5275,9 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The DynamoDB resource that the tags will be removed from. This value is an Amazon
@@ -4922,6 +5293,7 @@ export interface UntagResourceInput {
 }
 
 /**
+ * @public
  * <p>Represents the settings used to enable point in time recovery.</p>
  */
 export interface PointInTimeRecoverySpecification {
@@ -4932,6 +5304,9 @@ export interface PointInTimeRecoverySpecification {
   PointInTimeRecoveryEnabled: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContinuousBackupsInput {
   /**
    * <p>The name of the table.</p>
@@ -4944,6 +5319,9 @@ export interface UpdateContinuousBackupsInput {
   PointInTimeRecoverySpecification: PointInTimeRecoverySpecification | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContinuousBackupsOutput {
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the
@@ -4952,6 +5330,9 @@ export interface UpdateContinuousBackupsOutput {
   ContinuousBackupsDescription?: ContinuousBackupsDescription;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContributorInsightsInput {
   /**
    * <p>The name of the table.</p>
@@ -4969,6 +5350,9 @@ export interface UpdateContributorInsightsInput {
   ContributorInsightsAction: ContributorInsightsAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContributorInsightsOutput {
   /**
    * <p>The name of the table.</p>
@@ -4987,6 +5371,7 @@ export interface UpdateContributorInsightsOutput {
 }
 
 /**
+ * @public
  * <p>The specified replica is already part of the global table.</p>
  */
 export class ReplicaAlreadyExistsException extends __BaseException {
@@ -5006,6 +5391,7 @@ export class ReplicaAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified replica is no longer part of the global table.</p>
  */
 export class ReplicaNotFoundException extends __BaseException {
@@ -5025,6 +5411,7 @@ export class ReplicaNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents one of the following:</p>
  *          <ul>
  *             <li>
@@ -5050,6 +5437,9 @@ export interface ReplicaUpdate {
   Delete?: DeleteReplicaAction;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableInput {
   /**
    * <p>The global table name.</p>
@@ -5062,6 +5452,9 @@ export interface UpdateGlobalTableInput {
   ReplicaUpdates: ReplicaUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableOutput {
   /**
    * <p>Contains the details of the global table.</p>
@@ -5070,6 +5463,7 @@ export interface UpdateGlobalTableOutput {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a nonexistent index.</p>
  */
 export class IndexNotFoundException extends __BaseException {
@@ -5089,6 +5483,7 @@ export class IndexNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the settings of a global secondary index for a global table that will be
  *             modified.</p>
  */
@@ -5114,6 +5509,7 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the settings of a global secondary index for a global table that will be
  *             modified.</p>
  */
@@ -5138,6 +5534,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the settings for a global table in a Region that will be modified.</p>
  */
 export interface ReplicaSettingsUpdate {
@@ -5172,6 +5569,9 @@ export interface ReplicaSettingsUpdate {
   ReplicaTableClass?: TableClass | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableSettingsInput {
   /**
    * <p>The name of the global table</p>
@@ -5223,6 +5623,9 @@ export interface UpdateGlobalTableSettingsInput {
   ReplicaSettingsUpdate?: ReplicaSettingsUpdate[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableSettingsOutput {
   /**
    * <p>The name of the global table.</p>
@@ -5236,6 +5639,7 @@ export interface UpdateGlobalTableSettingsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the new provisioned throughput settings to be applied to a global secondary
  *             index.</p>
  */
@@ -5256,6 +5660,7 @@ export interface UpdateGlobalSecondaryIndexAction {
 }
 
 /**
+ * @public
  * <p>Represents one of the following:</p>
  *          <ul>
  *             <li>
@@ -5318,6 +5723,7 @@ export interface GlobalSecondaryIndexUpdate {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be modified.</p>
  */
 export interface UpdateReplicationGroupMemberAction {
@@ -5353,6 +5759,7 @@ export interface UpdateReplicationGroupMemberAction {
 }
 
 /**
+ * @public
  * <p>Represents one of the following:</p>
  *          <ul>
  *             <li>
@@ -5394,6 +5801,7 @@ export interface ReplicationGroupUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateTable</code> operation.</p>
  */
 export interface UpdateTableInput {
@@ -5500,6 +5908,7 @@ export interface UpdateTableInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateTable</code> operation.</p>
  */
 export interface UpdateTableOutput {
@@ -5510,6 +5919,7 @@ export interface UpdateTableOutput {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of a global secondary index for a global table
  *             that will be modified.</p>
  */
@@ -5527,6 +5937,7 @@ export interface GlobalSecondaryIndexAutoScalingUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of a global secondary index for a replica that
  *             will be modified.</p>
  */
@@ -5544,6 +5955,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of a replica that will be modified.</p>
  */
 export interface ReplicaAutoScalingUpdate {
@@ -5565,6 +5977,9 @@ export interface ReplicaAutoScalingUpdate {
   ReplicaProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableReplicaAutoScalingInput {
   /**
    * <p>Represents the auto scaling settings of the global secondary indexes of the replica to
@@ -5590,6 +6005,9 @@ export interface UpdateTableReplicaAutoScalingInput {
   ReplicaUpdates?: ReplicaAutoScalingUpdate[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableReplicaAutoScalingOutput {
   /**
    * <p>Returns information about the auto scaling settings of a table with replicas.</p>
@@ -5598,6 +6016,7 @@ export interface UpdateTableReplicaAutoScalingOutput {
 }
 
 /**
+ * @public
  * <p>Represents the settings used to enable or disable Time to Live (TTL) for the specified
  *             table.</p>
  */
@@ -5615,6 +6034,7 @@ export interface TimeToLiveSpecification {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateTimeToLive</code> operation.</p>
  */
 export interface UpdateTimeToLiveInput {
@@ -5630,6 +6050,9 @@ export interface UpdateTimeToLiveInput {
   TimeToLiveSpecification: TimeToLiveSpecification | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTimeToLiveOutput {
   /**
    * <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
@@ -5638,6 +6061,7 @@ export interface UpdateTimeToLiveOutput {
 }
 
 /**
+ * @public
  * <p>Represents the data for an attribute.</p>
  *          <p>Each attribute value is described as a name-value pair. The name is the data type, and
  *             the value is the data itself.</p>
@@ -5657,6 +6081,9 @@ export type AttributeValue =
   | AttributeValue.SSMember
   | AttributeValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AttributeValue {
   /**
    * <p>An attribute of type String. For example:</p>
@@ -5787,7 +6214,7 @@ export namespace AttributeValue {
   /**
    * <p>An attribute of type Map. For example:</p>
    *          <p>
-   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
+   *             <code>"M": \{"Name": \{"S": "Joe"\}, "Age": \{"N": "35"\}\}</code>
    *          </p>
    */
   export interface MMember {
@@ -5807,7 +6234,7 @@ export namespace AttributeValue {
   /**
    * <p>An attribute of type List. For example:</p>
    *          <p>
-   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N": "3.14159"}]</code>
+   *             <code>"L": [ \{"S": "Cookies"\} , \{"S": "Coffee"\}, \{"N": "3.14159"\}]</code>
    *          </p>
    */
   export interface LMember {
@@ -5908,6 +6335,7 @@ export namespace AttributeValue {
 }
 
 /**
+ * @public
  * <p>For the <code>UpdateItem</code> operation, represents the attributes to be modified,
  *             the action to perform on each, and the new value for each.</p>
  *          <note>
@@ -6028,6 +6456,7 @@ export interface AttributeValueUpdate {
 }
 
 /**
+ * @public
  * <p> A PartiQL batch statement request. </p>
  */
 export interface BatchStatementRequest {
@@ -6048,6 +6477,7 @@ export interface BatchStatementRequest {
 }
 
 /**
+ * @public
  * <p> A PartiQL batch statement response.. </p>
  */
 export interface BatchStatementResponse {
@@ -6068,6 +6498,7 @@ export interface BatchStatementResponse {
 }
 
 /**
+ * @public
  * <p>An ordered list of errors for each item in the request which caused the transaction to
  *             get cancelled. The values of the list are ordered according to the ordering of the
  *                 <code>TransactWriteItems</code> request parameter. If no error occurred for the
@@ -6091,6 +6522,7 @@ export interface CancellationReason {
 }
 
 /**
+ * @public
  * <p>Represents the selection criteria for a <code>Query</code> or <code>Scan</code>
  *             operation:</p>
  *          <ul>
@@ -6145,9 +6577,9 @@ export interface Condition {
    *                     element of type String, Number, Binary, String Set, Number Set, or Binary Set.
    *                     If an item contains an <code>AttributeValue</code> element of a different type
    *                     than the one provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6159,9 +6591,9 @@ export interface Condition {
    *                     of type String, Number, Binary, String Set, Number Set, or Binary Set. If an
    *                     item contains an <code>AttributeValue</code> of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6171,9 +6603,9 @@ export interface Condition {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6184,9 +6616,9 @@ export interface Condition {
    *                     of type String, Number, or Binary (not a set type). If an item contains an
    *                         <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6196,9 +6628,9 @@ export interface Condition {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6208,9 +6640,9 @@ export interface Condition {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6303,9 +6735,9 @@ export interface Condition {
    *                     first element and less than, or equal to, the second element. If an item
    *                     contains an <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>
+   *                         <code>\{"S":"6"\}</code> does not compare to <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6318,6 +6750,7 @@ export interface Condition {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
  */
 export interface DeleteRequest {
@@ -6329,6 +6762,9 @@ export interface DeleteRequest {
   Key: Record<string, AttributeValue> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteStatementInput {
   /**
    * <p>The PartiQL statement representing the operation to run.</p>
@@ -6395,6 +6831,7 @@ export interface ExecuteStatementInput {
 }
 
 /**
+ * @public
  * <p>Specifies an item and related attribute values to retrieve in a
  *                 <code>TransactGetItem</code> object.</p>
  */
@@ -6426,6 +6863,7 @@ export interface Get {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetItem</code> operation.</p>
  */
 export interface GetItemInput {
@@ -6531,7 +6969,7 @@ export interface GetItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6555,6 +6993,7 @@ export interface GetItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetItem</code> operation.</p>
  */
 export interface GetItemOutput {
@@ -6576,6 +7015,7 @@ export interface GetItemOutput {
 }
 
 /**
+ * @public
  * <p>Information about item collections, if any, that were affected by the operation.
  *                 <code>ItemCollectionMetrics</code> is only returned if the request asked for it. If
  *             the table does not have any local secondary indexes, this information is not returned in
@@ -6601,6 +7041,7 @@ export interface ItemCollectionMetrics {
 }
 
 /**
+ * @public
  * <p>Details for the requested item.</p>
  */
 export interface ItemResponse {
@@ -6611,6 +7052,7 @@ export interface ItemResponse {
 }
 
 /**
+ * @public
  * <p> Represents a PartiQL statment that uses parameters. </p>
  */
 export interface ParameterizedStatement {
@@ -6626,6 +7068,7 @@ export interface ParameterizedStatement {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>PutItem</code> operation on an item.</p>
  */
 export interface PutRequest {
@@ -6640,6 +7083,7 @@ export interface PutRequest {
 }
 
 /**
+ * @public
  * <p>Represents a set of primary keys and, for each key, the attributes to retrieve from
  *             the table.</p>
  *          <p>For each primary key, you must provide <i>all</i> of the key attributes.
@@ -6712,7 +7156,7 @@ export interface KeysAndAttributes {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6736,6 +7180,7 @@ export interface KeysAndAttributes {
 }
 
 /**
+ * @public
  * <p>Specifies an item to be retrieved as part of the transaction.</p>
  */
 export interface TransactGetItem {
@@ -6747,6 +7192,9 @@ export interface TransactGetItem {
   Get: Get | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchExecuteStatementInput {
   /**
    * <p>The list of PartiQL statements representing the batch to run.</p>
@@ -6783,6 +7231,9 @@ export interface BatchExecuteStatementInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchExecuteStatementOutput {
   /**
    * <p>The response to each PartiQL statement in the batch.</p>
@@ -6796,6 +7247,9 @@ export interface BatchExecuteStatementOutput {
   ConsumedCapacity?: ConsumedCapacity[];
 }
 
+/**
+ * @public
+ */
 export interface ExecuteTransactionInput {
   /**
    * <p>The list of PartiQL statements representing the transaction to run.</p>
@@ -6815,6 +7269,9 @@ export interface ExecuteTransactionInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteTransactionOutput {
   /**
    * <p>The response to a PartiQL transaction.</p>
@@ -6828,6 +7285,9 @@ export interface ExecuteTransactionOutput {
   ConsumedCapacity?: ConsumedCapacity[];
 }
 
+/**
+ * @public
+ */
 export interface TransactGetItemsOutput {
   /**
    * <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this
@@ -6852,6 +7312,7 @@ export interface TransactGetItemsOutput {
 }
 
 /**
+ * @public
  * <p>The entire transaction request was canceled.</p>
  *          <p>DynamoDB cancels a <code>TransactWriteItems</code> request under the following
  *             circumstances:</p>
@@ -7108,6 +7569,7 @@ export class TransactionCanceledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchGetItem</code> operation.</p>
  */
 export interface BatchGetItemInput {
@@ -7162,7 +7624,7 @@ export interface BatchGetItemInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>{"#P":"Percentile"}</code>
+   *                         <code>\{"#P":"Percentile"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7245,6 +7707,7 @@ export interface BatchGetItemInput {
 }
 
 /**
+ * @public
  * <p>Represents a condition to be compared with an attribute value. This condition can be
  *             used with <code>DeleteItem</code>, <code>PutItem</code>, or <code>UpdateItem</code>
  *             operations; if the comparison evaluates to true, the operation succeeds; if not, the
@@ -7342,9 +7805,9 @@ export interface ExpectedAttributeValue {
    *                     element of type String, Number, Binary, String Set, Number Set, or Binary Set.
    *                     If an item contains an <code>AttributeValue</code> element of a different type
    *                     than the one provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7356,9 +7819,9 @@ export interface ExpectedAttributeValue {
    *                     of type String, Number, Binary, String Set, Number Set, or Binary Set. If an
    *                     item contains an <code>AttributeValue</code> of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7368,9 +7831,9 @@ export interface ExpectedAttributeValue {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7381,9 +7844,9 @@ export interface ExpectedAttributeValue {
    *                     of type String, Number, or Binary (not a set type). If an item contains an
    *                         <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7393,9 +7856,9 @@ export interface ExpectedAttributeValue {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7405,9 +7868,9 @@ export interface ExpectedAttributeValue {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7500,9 +7963,9 @@ export interface ExpectedAttributeValue {
    *                     first element and less than, or equal to, the second element. If an item
    *                     contains an <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>
+   *                         <code>\{"S":"6"\}</code> does not compare to <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7524,6 +7987,9 @@ export interface ExpectedAttributeValue {
   AttributeValueList?: AttributeValue[];
 }
 
+/**
+ * @public
+ */
 export interface TransactGetItemsInput {
   /**
    * <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which
@@ -7539,6 +8005,9 @@ export interface TransactGetItemsInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
+/**
+ * @public
+ */
 export interface TransactWriteItemsOutput {
   /**
    * <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation.
@@ -7557,6 +8026,7 @@ export interface TransactWriteItemsOutput {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a check that an item exists or to check the condition
  *             of specific attributes of the item.</p>
  */
@@ -7601,6 +8071,7 @@ export interface ConditionCheck {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
  */
 export interface Delete {
@@ -7641,6 +8112,7 @@ export interface Delete {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>PutItem</code> operation.</p>
  */
 export interface Put {
@@ -7684,6 +8156,7 @@ export interface Put {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
  */
 export interface Update {
@@ -7730,6 +8203,7 @@ export interface Update {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteItem</code> operation.</p>
  */
 export interface DeleteItemOutput {
@@ -7780,6 +8254,9 @@ export interface DeleteItemOutput {
   ItemCollectionMetrics?: ItemCollectionMetrics;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteStatementOutput {
   /**
    * <p>If a read operation was used, this property will contain the result of the read
@@ -7817,6 +8294,7 @@ export interface ExecuteStatementOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PutItem</code> operation.</p>
  */
 export interface PutItemOutput {
@@ -7867,6 +8345,7 @@ export interface PutItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>Query</code> operation.</p>
  */
 export interface QueryOutput {
@@ -7921,6 +8400,7 @@ export interface QueryOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>Scan</code> operation.</p>
  */
 export interface ScanOutput {
@@ -7976,6 +8456,7 @@ export interface ScanOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateItem</code> operation.</p>
  */
 export interface UpdateItemOutput {
@@ -8028,6 +8509,7 @@ export interface UpdateItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents an operation to perform - either <code>DeleteItem</code> or
  *                 <code>PutItem</code>. You can only request one of these operations, not both, in a
  *             single <code>WriteRequest</code>. If you do need to perform both of these operations,
@@ -8046,6 +8528,7 @@ export interface WriteRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchGetItem</code> operation.</p>
  */
 export interface BatchGetItemOutput {
@@ -8107,6 +8590,7 @@ export interface BatchGetItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>Scan</code> operation.</p>
  */
 export interface ScanInput {
@@ -8345,7 +8829,7 @@ export interface ScanInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8378,8 +8862,8 @@ export interface ScanInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -8414,6 +8898,7 @@ export interface ScanInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchWriteItem</code> operation.</p>
  */
 export interface BatchWriteItemInput {
@@ -8503,6 +8988,7 @@ export interface BatchWriteItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteItem</code> operation.</p>
  */
 export interface DeleteItemInput {
@@ -8658,7 +9144,7 @@ export interface DeleteItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8691,8 +9177,8 @@ export interface DeleteItemInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -8705,6 +9191,7 @@ export interface DeleteItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutItem</code> operation.</p>
  */
 export interface PutItemInput {
@@ -8874,7 +9361,7 @@ export interface PutItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8907,8 +9394,8 @@ export interface PutItemInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -8921,6 +9408,7 @@ export interface PutItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>Query</code> operation.</p>
  */
 export interface QueryInput {
@@ -9274,7 +9762,7 @@ export interface QueryInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -9307,8 +9795,8 @@ export interface QueryInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -9321,6 +9809,7 @@ export interface QueryInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchWriteItem</code> operation.</p>
  */
 export interface BatchWriteItemOutput {
@@ -9420,6 +9909,7 @@ export interface BatchWriteItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateItem</code> operation.</p>
  */
 export interface UpdateItemInput {
@@ -9701,7 +10191,7 @@ export interface UpdateItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -9734,8 +10224,8 @@ export interface UpdateItemInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -9748,6 +10238,7 @@ export interface UpdateItemInput {
 }
 
 /**
+ * @public
  * <p>A list of requests that can perform update, put, delete, or check operations on
  *             multiple items in one or more tables atomically.</p>
  */
@@ -9773,6 +10264,9 @@ export interface TransactWriteItem {
   Update?: Update;
 }
 
+/**
+ * @public
+ */
 export interface TransactWriteItemsInput {
   /**
    * <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which

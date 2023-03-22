@@ -23,15 +23,20 @@ import { deserializeAws_queryCancelResizeCommand, serializeAws_queryCancelResize
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelResizeCommand}.
  */
 export interface CancelResizeCommandInput extends CancelResizeMessage {}
 /**
+ * @public
+ *
  * The output of {@link CancelResizeCommand}.
  */
 export interface CancelResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a resize operation for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelResizeCommandInput - {@link CancelResizeCommandInput}
+ * @returns {@link CancelResizeCommandOutput}
  * @see {@link CancelResizeCommandInput} for command's `input` shape.
  * @see {@link CancelResizeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +86,9 @@ export class CancelResizeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelResizeCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CancelResizeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelResizeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCancelResizeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelResizeCommandOutput> {
     return deserializeAws_queryCancelResizeCommand(output, context);
   }

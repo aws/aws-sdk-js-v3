@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDocumentVersionCommand}.
  */
 export interface DeleteDocumentVersionCommandInput extends DeleteDocumentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDocumentVersionCommand}.
  */
 export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific version of a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentVersionCommandInput - {@link DeleteDocumentVersionCommandInput}
+ * @returns {@link DeleteDocumentVersionCommandOutput}
  * @see {@link DeleteDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentVersionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteDocumentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteDocumentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDocumentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentVersionCommandOutput> {
     return deserializeAws_restJson1DeleteDocumentVersionCommand(output, context);
   }

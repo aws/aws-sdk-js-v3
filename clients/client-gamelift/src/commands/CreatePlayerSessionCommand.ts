@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlayerSessionCommand}.
  */
 export interface CreatePlayerSessionCommandInput extends CreatePlayerSessionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlayerSessionCommand}.
  */
 export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reserves an open player slot in a game session for a player. New player sessions can
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of
@@ -63,6 +68,8 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlayerSessionCommandInput - {@link CreatePlayerSessionCommandInput}
+ * @returns {@link CreatePlayerSessionCommandOutput}
  * @see {@link CreatePlayerSessionCommandInput} for command's `input` shape.
  * @see {@link CreatePlayerSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -115,6 +122,9 @@ export class CreatePlayerSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlayerSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class CreatePlayerSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlayerSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePlayerSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlayerSessionCommandOutput> {
     return deserializeAws_json1_1CreatePlayerSessionCommand(output, context);
   }

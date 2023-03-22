@@ -127,6 +127,7 @@ import {
 import { SSMContactsClient } from "./SSMContactsClient";
 
 /**
+ * @public
  * <p>Systems Manager Incident Manager is an incident management console designed to help users
  *          mitigate and recover from incidents affecting their Amazon Web Services-hosted applications.
  *          An incident is any unplanned interruption or reduction in quality of services. </p>
@@ -138,6 +139,7 @@ import { SSMContactsClient } from "./SSMContactsClient";
  */
 export class SSMContacts extends SSMContactsClient {
   /**
+   * @public
    * <p>Used to acknowledge an engagement to a contact channel during an incident.</p>
    */
   public acceptPage(args: AcceptPageCommandInput, options?: __HttpHandlerOptions): Promise<AcceptPageCommandOutput>;
@@ -164,6 +166,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Activates a contact's contact channel. Incident Manager can't engage a contact until the
    *          contact channel has been activated.</p>
    */
@@ -197,6 +200,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Contacts are either the contacts that Incident Manager engages during an incident or the
    *          escalation plans that Incident Manager uses to engage contacts in phases during an
    *          incident. </p>
@@ -231,6 +235,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>A contact channel is the method that Incident Manager uses to engage your contact.</p>
    */
   public createContactChannel(
@@ -263,6 +268,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>To no longer receive Incident Manager engagements to a contact channel, you can deactivate
    *          the channel.</p>
    */
@@ -296,6 +302,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>To remove a contact from Incident Manager, you can delete the contact. Deleting a contact
    *          removes them from all escalation plans and related response plans. Deleting an escalation
    *          plan removes it from all related response plans. You will have to recreate the contact and
@@ -331,6 +338,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>To no longer receive engagements on a contact channel, you can delete the channel from a
    *          contact. Deleting the contact channel removes it from the contact's engagement plan. If you
    *          delete the only contact channel for a contact, you won't be able to engage that contact
@@ -366,6 +374,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Incident Manager uses engagements to engage contacts and escalation plans during an incident.
    *          Use this command to describe the engagement that occurred during an incident.</p>
    */
@@ -399,6 +408,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists details of the engagement to a contact channel.</p>
    */
   public describePage(
@@ -428,6 +438,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified contact or escalation plan.</p>
    */
   public getContact(args: GetContactCommandInput, options?: __HttpHandlerOptions): Promise<GetContactCommandOutput>;
@@ -454,6 +465,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>List details about a specific contact channel.</p>
    */
   public getContactChannel(
@@ -486,6 +498,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource policies attached to the specified contact or escalation
    *          plan.</p>
    */
@@ -519,6 +532,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists all contact channels for the specified contact.</p>
    */
   public listContactChannels(
@@ -551,6 +565,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists all contacts and escalation plans in Incident Manager.</p>
    */
   public listContacts(
@@ -580,6 +595,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists all engagements that have happened in an incident.</p>
    */
   public listEngagements(
@@ -612,6 +628,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the engagements to contact channels that have been acknowledged. </p>
    */
   public listPageReceipts(
@@ -644,6 +661,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists the engagements to a contact's contact channels.</p>
    */
   public listPagesByContact(
@@ -676,6 +694,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists the engagements to contact channels that occurred by engaging a contact.</p>
    */
   public listPagesByEngagement(
@@ -708,6 +727,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags of an escalation plan or contact.</p>
    */
   public listTagsForResource(
@@ -740,6 +760,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Adds a resource policy to the specified contact or escalation plan. The resource policy
    *          is used to share the contact or escalation plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting up
    *             cross-account functionality</a>.</p>
@@ -774,6 +795,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Sends an activation code to a contact channel. The contact can use this code to activate
    *          the contact channel in the console or with the <code>ActivateChannel</code> operation.
    *          Incident Manager can't engage a contact channel until it has been activated.</p>
@@ -808,6 +830,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Starts an engagement to a contact or escalation plan. The engagement engages each
    *          contact specified in the incident.</p>
    */
@@ -841,6 +864,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Stops an engagement before it finishes the final stage of the escalation plan or
    *          engagement plan. Further contacts aren't engaged.</p>
    */
@@ -874,6 +898,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Tags a contact or escalation plan. You can tag only contacts and escalation plans in the
    *          first region of your replication set. </p>
    */
@@ -901,6 +926,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the specified resource. </p>
    */
   public untagResource(
@@ -933,6 +959,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Updates the contact or escalation plan specified. </p>
    */
   public updateContact(
@@ -965,6 +992,7 @@ export class SSMContacts extends SSMContactsClient {
   }
 
   /**
+   * @public
    * <p>Updates a contact's contact channel.</p>
    */
   public updateContactChannel(

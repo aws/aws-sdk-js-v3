@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddRoleToInstanceProfileCommand}.
  */
 export interface AddRoleToInstanceProfileCommandInput extends AddRoleToInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddRoleToInstanceProfileCommand}.
  */
 export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified IAM role to the specified instance profile. An instance profile
  *             can contain only one role, and this quota cannot be increased. You can remove the
  *             existing role and then add a different role to an instance profile. You must then wait
@@ -53,6 +58,8 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param AddRoleToInstanceProfileCommandInput - {@link AddRoleToInstanceProfileCommandInput}
+ * @returns {@link AddRoleToInstanceProfileCommandOutput}
  * @see {@link AddRoleToInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link AddRoleToInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -110,6 +117,9 @@ export class AddRoleToInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddRoleToInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class AddRoleToInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRoleToInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddRoleToInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToInstanceProfileCommandOutput> {
     return deserializeAws_queryAddRoleToInstanceProfileCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddLFTagsToResourceCommand}.
  */
 export interface AddLFTagsToResourceCommandInput extends AddLFTagsToResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddLFTagsToResourceCommand}.
  */
 export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches one or more LF-tags to an existing resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AddLFTagsToResourceCommandInput - {@link AddLFTagsToResourceCommandInput}
+ * @returns {@link AddLFTagsToResourceCommandOutput}
  * @see {@link AddLFTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddLFTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class AddLFTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddLFTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AddLFTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddLFTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddLFTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddLFTagsToResourceCommandOutput> {
     return deserializeAws_restJson1AddLFTagsToResourceCommand(output, context);
   }

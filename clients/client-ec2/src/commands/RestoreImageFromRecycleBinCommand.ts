@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreImageFromRecycleBinCommand}.
  */
 export interface RestoreImageFromRecycleBinCommandInput extends RestoreImageFromRecycleBinRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreImageFromRecycleBinCommand}.
  */
 export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFromRecycleBinResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFro
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreImageFromRecycleBinCommandInput - {@link RestoreImageFromRecycleBinCommandInput}
+ * @returns {@link RestoreImageFromRecycleBinCommandOutput}
  * @see {@link RestoreImageFromRecycleBinCommandInput} for command's `input` shape.
  * @see {@link RestoreImageFromRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class RestoreImageFromRecycleBinCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreImageFromRecycleBinCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class RestoreImageFromRecycleBinCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreImageFromRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RestoreImageFromRecycleBinCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

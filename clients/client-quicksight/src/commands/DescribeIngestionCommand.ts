@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIngestionCommand}.
  */
 export interface DescribeIngestionCommandInput extends DescribeIngestionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIngestionCommand}.
  */
 export interface DescribeIngestionCommandOutput extends DescribeIngestionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a SPICE ingestion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeIngestionCommandOutput extends DescribeIngestionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIngestionCommandInput - {@link DescribeIngestionCommandInput}
+ * @returns {@link DescribeIngestionCommandOutput}
  * @see {@link DescribeIngestionCommandInput} for command's `input` shape.
  * @see {@link DescribeIngestionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeIngestionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIngestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeIngestionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeIngestionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIngestionCommandOutput> {
     return deserializeAws_restJson1DescribeIngestionCommand(output, context);
   }

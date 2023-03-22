@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectConnectGatewayAssociationCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationCommandInput
   extends CreateDirectConnectGatewayAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectConnectGatewayAssociationCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
  *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
  * @example
@@ -50,6 +55,8 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectConnectGatewayAssociationCommandInput - {@link CreateDirectConnectGatewayAssociationCommandInput}
+ * @returns {@link CreateDirectConnectGatewayAssociationCommandOutput}
  * @see {@link CreateDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectConnectGatewayAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     return serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

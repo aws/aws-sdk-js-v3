@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReferenceImportJobCommand}.
  */
 export interface GetReferenceImportJobCommandInput extends GetReferenceImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReferenceImportJobCommand}.
  */
 export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a reference import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReferenceImportJobCommandInput - {@link GetReferenceImportJobCommandInput}
+ * @returns {@link GetReferenceImportJobCommandOutput}
  * @see {@link GetReferenceImportJobCommandInput} for command's `input` shape.
  * @see {@link GetReferenceImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetReferenceImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReferenceImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetReferenceImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReferenceImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReferenceImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReferenceImportJobCommandOutput> {
     return deserializeAws_restJson1GetReferenceImportJobCommand(output, context);
   }

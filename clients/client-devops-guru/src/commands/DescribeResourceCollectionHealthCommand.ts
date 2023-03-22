@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourceCollectionHealthCommand}.
  */
 export interface DescribeResourceCollectionHealthCommandInput extends DescribeResourceCollectionHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourceCollectionHealthCommand}.
  */
 export interface DescribeResourceCollectionHealthCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeResourceCollectionHealthCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)
  * 			for all closed insights in resource collections in your account. You specify the type of
  * 			Amazon Web Services resources collection. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
@@ -52,6 +57,8 @@ export interface DescribeResourceCollectionHealthCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourceCollectionHealthCommandInput - {@link DescribeResourceCollectionHealthCommandInput}
+ * @returns {@link DescribeResourceCollectionHealthCommandOutput}
  * @see {@link DescribeResourceCollectionHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceCollectionHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourceCollectionHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeResourceCollectionHealthCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DescribeResourceCollectionHealthCommand extends $Command<
     return serializeAws_restJson1DescribeResourceCollectionHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

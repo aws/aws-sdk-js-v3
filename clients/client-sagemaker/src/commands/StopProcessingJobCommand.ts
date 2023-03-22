@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopProcessingJobCommand}.
  */
 export interface StopProcessingJobCommandInput extends StopProcessingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopProcessingJobCommand}.
  */
 export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a processing job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopProcessingJobCommandInput - {@link StopProcessingJobCommandInput}
+ * @returns {@link StopProcessingJobCommandOutput}
  * @see {@link StopProcessingJobCommandInput} for command's `input` shape.
  * @see {@link StopProcessingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class StopProcessingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopProcessingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class StopProcessingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopProcessingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopProcessingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopProcessingJobCommandOutput> {
     return deserializeAws_json1_1StopProcessingJobCommand(output, context);
   }

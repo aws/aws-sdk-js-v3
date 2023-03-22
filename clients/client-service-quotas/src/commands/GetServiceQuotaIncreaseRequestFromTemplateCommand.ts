@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
 export interface GetServiceQuotaIncreaseRequestFromTemplateCommandInput
   extends GetServiceQuotaIncreaseRequestFromTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
 export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified quota increase request in your quota request
  *       template.</p>
  * @example
@@ -50,6 +55,8 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceQuotaIncreaseRequestFromTemplateCommandInput - {@link GetServiceQuotaIncreaseRequestFromTemplateCommandInput}
+ * @returns {@link GetServiceQuotaIncreaseRequestFromTemplateCommandOutput}
  * @see {@link GetServiceQuotaIncreaseRequestFromTemplateCommandInput} for command's `input` shape.
  * @see {@link GetServiceQuotaIncreaseRequestFromTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -102,6 +109,9 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     return serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

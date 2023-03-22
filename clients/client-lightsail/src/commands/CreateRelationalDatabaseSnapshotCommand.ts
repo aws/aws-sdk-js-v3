@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRelationalDatabaseSnapshotCommand}.
  */
 export interface CreateRelationalDatabaseSnapshotCommandInput extends CreateRelationalDatabaseSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRelationalDatabaseSnapshotCommand}.
  */
 export interface CreateRelationalDatabaseSnapshotCommandOutput
@@ -37,6 +41,7 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
  *       to make copies of a database, and to save data before deleting a database.</p>
  *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
@@ -51,6 +56,8 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelationalDatabaseSnapshotCommandInput - {@link CreateRelationalDatabaseSnapshotCommandInput}
+ * @returns {@link CreateRelationalDatabaseSnapshotCommandOutput}
  * @see {@link CreateRelationalDatabaseSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelationalDatabaseSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateRelationalDatabaseSnapshotCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     return serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

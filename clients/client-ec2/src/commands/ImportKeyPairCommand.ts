@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ImportKeyPairCommand, serializeAws_ec2ImportKeyPairCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ImportKeyPairCommand}.
  */
 export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportKeyPairCommand}.
  */
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the public key from an RSA or ED25519 key pair that you created with a third-party tool.
  *         Compare this with <a>CreateKeyPair</a>, in which Amazon Web Services creates the key pair and gives the keys to you
  *         (Amazon Web Services keeps a copy of the public key). With ImportKeyPair, you create the key pair and give Amazon Web Services just the public key.
@@ -48,6 +53,8 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportKeyPairCommandInput - {@link ImportKeyPairCommandInput}
+ * @returns {@link ImportKeyPairCommandOutput}
  * @see {@link ImportKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class ImportKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ImportKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ImportKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyPairCommandOutput> {
     return deserializeAws_ec2ImportKeyPairCommand(output, context);
   }

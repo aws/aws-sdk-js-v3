@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDiskSnapshotCommand}.
  */
 export interface DeleteDiskSnapshotCommandInput extends DeleteDiskSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDiskSnapshotCommand}.
  */
 export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified disk snapshot.</p>
  *          <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the
  *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -54,6 +59,8 @@ export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDiskSnapshotCommandInput - {@link DeleteDiskSnapshotCommandInput}
+ * @returns {@link DeleteDiskSnapshotCommandOutput}
  * @see {@link DeleteDiskSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDiskSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -107,6 +114,9 @@ export class DeleteDiskSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDiskSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DeleteDiskSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDiskSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiskSnapshotCommandOutput> {
     return deserializeAws_json1_1DeleteDiskSnapshotCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevEnvironmentCommand}.
  */
 export interface GetDevEnvironmentCommandInput extends GetDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevEnvironmentCommand}.
  */
 export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a Dev Environment for a source repository in a project. Dev Environments are specific to the user who creates them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevEnvironmentCommandInput - {@link GetDevEnvironmentCommandInput}
+ * @returns {@link GetDevEnvironmentCommandOutput}
  * @see {@link GetDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevEnvironmentCommandOutput> {
     return deserializeAws_restJson1GetDevEnvironmentCommand(output, context);
   }

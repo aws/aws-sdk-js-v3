@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDocumentCommand}.
  */
 export interface CreateDocumentCommandInput extends CreateDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDocumentCommand}.
  */
 export interface CreateDocumentCommandOutput extends CreateDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
  *    on your managed nodes. For more information about SSM documents, including information about
  *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon Web Services Systems Manager Documents</a> in the
@@ -49,6 +54,8 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDocumentCommandInput - {@link CreateDocumentCommandInput}
+ * @returns {@link CreateDocumentCommandOutput}
  * @see {@link CreateDocumentCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDocumentCommandOutput> {
     return deserializeAws_json1_1CreateDocumentCommand(output, context);
   }

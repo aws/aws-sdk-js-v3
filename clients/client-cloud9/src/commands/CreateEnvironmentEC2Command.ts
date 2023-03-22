@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentEC2Command}.
  */
 export interface CreateEnvironmentEC2CommandInput extends CreateEnvironmentEC2Request {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentEC2Command}.
  */
 export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2Result, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and
  *       then connects from the instance to the environment.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentEC2CommandInput - {@link CreateEnvironmentEC2CommandInput}
+ * @returns {@link CreateEnvironmentEC2CommandOutput}
  * @see {@link CreateEnvironmentEC2CommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentEC2CommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -112,6 +119,9 @@ export class CreateEnvironmentEC2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentEC2CommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class CreateEnvironmentEC2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentEC2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEnvironmentEC2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentEC2CommandOutput> {
     return deserializeAws_json1_1CreateEnvironmentEC2Command(output, context);
   }

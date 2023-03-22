@@ -28,15 +28,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMultiRegionAccessPointCommand}.
  */
 export interface GetMultiRegionAccessPointCommandInput extends GetMultiRegionAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMultiRegionAccessPointCommand}.
  */
 export interface GetMultiRegionAccessPointCommandOutput extends GetMultiRegionAccessPointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration information about the specified Multi-Region Access Point.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
  *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
@@ -74,6 +79,8 @@ export interface GetMultiRegionAccessPointCommandOutput extends GetMultiRegionAc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMultiRegionAccessPointCommandInput - {@link GetMultiRegionAccessPointCommandInput}
+ * @returns {@link GetMultiRegionAccessPointCommandOutput}
  * @see {@link GetMultiRegionAccessPointCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetMultiRegionAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMultiRegionAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class GetMultiRegionAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMultiRegionAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetMultiRegionAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

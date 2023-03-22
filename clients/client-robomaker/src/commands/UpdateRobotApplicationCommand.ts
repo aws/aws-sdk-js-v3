@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRobotApplicationCommand}.
  */
 export interface UpdateRobotApplicationCommandInput extends UpdateRobotApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRobotApplicationCommand}.
  */
 export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRobotApplicationCommandInput - {@link UpdateRobotApplicationCommandInput}
+ * @returns {@link UpdateRobotApplicationCommandOutput}
  * @see {@link UpdateRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateRobotApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRobotApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateRobotApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRobotApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRobotApplicationCommandOutput> {
     return deserializeAws_restJson1UpdateRobotApplicationCommand(output, context);
   }

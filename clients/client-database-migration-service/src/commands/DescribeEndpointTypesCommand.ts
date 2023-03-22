@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointTypesCommand}.
  */
 export interface DescribeEndpointTypesCommandInput extends DescribeEndpointTypesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointTypesCommand}.
  */
 export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the type of endpoints available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointTypesCommandInput - {@link DescribeEndpointTypesCommandInput}
+ * @returns {@link DescribeEndpointTypesCommandOutput}
  * @see {@link DescribeEndpointTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointTypesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeEndpointTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DescribeEndpointTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEndpointTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointTypesCommandOutput> {
     return deserializeAws_json1_1DescribeEndpointTypesCommand(output, context);
   }

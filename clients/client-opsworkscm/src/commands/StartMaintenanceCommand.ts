@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMaintenanceCommand}.
  */
 export interface StartMaintenanceCommandInput extends StartMaintenanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMaintenanceCommand}.
  */
 export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Manually starts server maintenance. This command can be useful if an earlier maintenance attempt failed, and the underlying
  *       cause of maintenance failure has been resolved. The server is in an <code>UNDER_MAINTENANCE</code> state while maintenance is in progress.
@@ -53,6 +58,8 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMaintenanceCommandInput - {@link StartMaintenanceCommandInput}
+ * @returns {@link StartMaintenanceCommandOutput}
  * @see {@link StartMaintenanceCommandInput} for command's `input` shape.
  * @see {@link StartMaintenanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -88,6 +95,9 @@ export class StartMaintenanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMaintenanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StartMaintenanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMaintenanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMaintenanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMaintenanceCommandOutput> {
     return deserializeAws_json1_1StartMaintenanceCommand(output, context);
   }

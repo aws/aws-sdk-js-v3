@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDetectDominantLanguageCommand}.
  */
 export interface BatchDetectDominantLanguageCommandInput extends BatchDetectDominantLanguageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDetectDominantLanguageCommand}.
  */
 export interface BatchDetectDominantLanguageCommandOutput
@@ -37,6 +41,7 @@ export interface BatchDetectDominantLanguageCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines the dominant language of the input text for a batch of documents. For a list
  *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>.
  *     </p>
@@ -50,6 +55,8 @@ export interface BatchDetectDominantLanguageCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectDominantLanguageCommandInput - {@link BatchDetectDominantLanguageCommandInput}
+ * @returns {@link BatchDetectDominantLanguageCommandOutput}
  * @see {@link BatchDetectDominantLanguageCommandInput} for command's `input` shape.
  * @see {@link BatchDetectDominantLanguageCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -86,6 +93,9 @@ export class BatchDetectDominantLanguageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectDominantLanguageCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class BatchDetectDominantLanguageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectDominantLanguageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDetectDominantLanguageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1DeleteRunCommand, serializeAws_json1_1DeleteRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRunCommand}.
  */
 export interface DeleteRunCommandInput extends DeleteRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRunCommand}.
  */
 export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the run, given the run ARN.</p>
  *         <p> Deleting this resource does not stop an in-progress run.</p>
  * @example
@@ -44,6 +49,8 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRunCommandInput - {@link DeleteRunCommandInput}
+ * @returns {@link DeleteRunCommandOutput}
  * @see {@link DeleteRunCommandInput} for command's `input` shape.
  * @see {@link DeleteRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRunCommandOutput> {
     return deserializeAws_json1_1DeleteRunCommand(output, context);
   }

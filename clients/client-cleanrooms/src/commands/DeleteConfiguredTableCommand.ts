@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfiguredTableCommand}.
  */
 export interface DeleteConfiguredTableCommandInput extends DeleteConfiguredTableInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfiguredTableCommand}.
  */
 export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfiguredTableCommandInput - {@link DeleteConfiguredTableCommandInput}
+ * @returns {@link DeleteConfiguredTableCommandOutput}
  * @see {@link DeleteConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link DeleteConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteConfiguredTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfiguredTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteConfiguredTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteConfiguredTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfiguredTableCommandOutput> {
     return deserializeAws_restJson1DeleteConfiguredTableCommand(output, context);
   }

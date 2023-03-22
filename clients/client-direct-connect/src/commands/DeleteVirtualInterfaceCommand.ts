@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualInterfaceCommand}.
  */
 export interface DeleteVirtualInterfaceCommandInput extends DeleteVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualInterfaceCommand}.
  */
 export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a virtual interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualInterfaceCommandInput - {@link DeleteVirtualInterfaceCommandInput}
+ * @returns {@link DeleteVirtualInterfaceCommandOutput}
  * @see {@link DeleteVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualInterfaceCommandOutput> {
     return deserializeAws_json1_1DeleteVirtualInterfaceCommand(output, context);
   }

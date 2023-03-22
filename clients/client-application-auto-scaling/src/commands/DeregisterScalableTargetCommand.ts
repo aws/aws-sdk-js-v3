@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterScalableTargetCommand}.
  */
 export interface DeregisterScalableTargetCommandInput extends DeregisterScalableTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterScalableTargetCommand}.
  */
 export interface DeregisterScalableTargetCommandOutput extends DeregisterScalableTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which
  *          resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. </p>
  *          <note>
@@ -55,6 +60,8 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterScalableTargetCommandInput - {@link DeregisterScalableTargetCommandInput}
+ * @returns {@link DeregisterScalableTargetCommandOutput}
  * @see {@link DeregisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link DeregisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -109,6 +116,9 @@ export class DeregisterScalableTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterScalableTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DeregisterScalableTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterScalableTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterScalableTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterScalableTargetCommandOutput> {
     return deserializeAws_json1_1DeregisterScalableTargetCommand(output, context);
   }

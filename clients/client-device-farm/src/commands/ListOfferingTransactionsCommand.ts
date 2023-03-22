@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOfferingTransactionsCommand}.
  */
 export interface ListOfferingTransactionsCommandInput extends ListOfferingTransactionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOfferingTransactionsCommand}.
  */
 export interface ListOfferingTransactionsCommandOutput extends ListOfferingTransactionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
  *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
  *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
@@ -49,6 +54,8 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOfferingTransactionsCommandInput - {@link ListOfferingTransactionsCommandInput}
+ * @returns {@link ListOfferingTransactionsCommandOutput}
  * @see {@link ListOfferingTransactionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingTransactionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -181,6 +188,9 @@ export class ListOfferingTransactionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOfferingTransactionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -220,10 +230,16 @@ export class ListOfferingTransactionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOfferingTransactionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOfferingTransactionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingTransactionsCommandOutput> {
     return deserializeAws_json1_1ListOfferingTransactionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePushTemplateCommand}.
  */
 export interface DeletePushTemplateCommandInput extends DeletePushTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePushTemplateCommand}.
  */
 export interface DeletePushTemplateCommandOutput extends DeletePushTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePushTemplateCommandInput - {@link DeletePushTemplateCommandInput}
+ * @returns {@link DeletePushTemplateCommandOutput}
  * @see {@link DeletePushTemplateCommandInput} for command's `input` shape.
  * @see {@link DeletePushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeletePushTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePushTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeletePushTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePushTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePushTemplateCommandOutput> {
     return deserializeAws_restJson1DeletePushTemplateCommand(output, context);
   }

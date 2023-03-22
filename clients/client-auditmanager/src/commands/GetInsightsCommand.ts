@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightsCommand}.
  */
 export interface GetInsightsCommandInput extends GetInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightsCommand}.
  */
 export interface GetInsightsCommandOutput extends GetInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the latest analytics data for all your current active assessments. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightsCommandInput - {@link GetInsightsCommandInput}
+ * @returns {@link GetInsightsCommandOutput}
  * @see {@link GetInsightsCommandInput} for command's `input` shape.
  * @see {@link GetInsightsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightsCommandOutput> {
     return deserializeAws_restJson1GetInsightsCommand(output, context);
   }

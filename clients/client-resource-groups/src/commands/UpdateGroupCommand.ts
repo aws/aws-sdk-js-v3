@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandInput extends UpdateGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description for an existing group. You cannot update the name of a
  *             resource group.</p>
  *          <p>
@@ -58,6 +63,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
+ * @returns {@link UpdateGroupCommandOutput}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupCommandOutput> {
     return deserializeAws_restJson1UpdateGroupCommand(output, context);
   }

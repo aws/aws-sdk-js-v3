@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateGatewayToServerCommand}.
  */
 export interface AssociateGatewayToServerCommandInput extends AssociateGatewayToServerInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateGatewayToServerCommand}.
  */
 export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayToServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a backup gateway with your server. After you complete the association process,
  *       you can back up and restore your VMs through the gateway.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateGatewayToServerCommandInput - {@link AssociateGatewayToServerCommandInput}
+ * @returns {@link AssociateGatewayToServerCommandOutput}
  * @see {@link AssociateGatewayToServerCommandInput} for command's `input` shape.
  * @see {@link AssociateGatewayToServerCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -83,6 +90,9 @@ export class AssociateGatewayToServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateGatewayToServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class AssociateGatewayToServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateGatewayToServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0AssociateGatewayToServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateGatewayToServerCommandOutput> {
     return deserializeAws_json1_0AssociateGatewayToServerCommand(output, context);
   }

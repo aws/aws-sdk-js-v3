@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvidenceFoldersByAssessmentCommand}.
  */
 export interface GetEvidenceFoldersByAssessmentCommandInput extends GetEvidenceFoldersByAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEvidenceFoldersByAssessmentCommand}.
  */
 export interface GetEvidenceFoldersByAssessmentCommandOutput
@@ -37,6 +41,7 @@ export interface GetEvidenceFoldersByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the evidence folders from a specified assessment in Audit Manager.
  *       </p>
  * @example
@@ -49,6 +54,8 @@ export interface GetEvidenceFoldersByAssessmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvidenceFoldersByAssessmentCommandInput - {@link GetEvidenceFoldersByAssessmentCommandInput}
+ * @returns {@link GetEvidenceFoldersByAssessmentCommandOutput}
  * @see {@link GetEvidenceFoldersByAssessmentCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceFoldersByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetEvidenceFoldersByAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvidenceFoldersByAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetEvidenceFoldersByAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEvidenceFoldersByAssessmentCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetEvidenceFoldersByAssessmentCommand extends $Command<
     return serializeAws_restJson1GetEvidenceFoldersByAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

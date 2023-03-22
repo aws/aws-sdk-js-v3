@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTemplateCommand}.
  */
 export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTemplateCommand}.
  */
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an email template. Email templates enable you to send personalized email to
  *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
+ * @returns {@link UpdateTemplateCommandOutput}
  * @see {@link UpdateTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateCommandOutput> {
     return deserializeAws_queryUpdateTemplateCommand(output, context);
   }

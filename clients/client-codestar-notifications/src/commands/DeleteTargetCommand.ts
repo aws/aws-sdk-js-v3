@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTargetCommand}.
  */
 export interface DeleteTargetCommandInput extends DeleteTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTargetCommand}.
  */
 export interface DeleteTargetCommandOutput extends DeleteTargetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified target for notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTargetCommandInput - {@link DeleteTargetCommandInput}
+ * @returns {@link DeleteTargetCommandOutput}
  * @see {@link DeleteTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteTargetCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTargetCommandOutput> {
     return deserializeAws_restJson1DeleteTargetCommand(output, context);
   }

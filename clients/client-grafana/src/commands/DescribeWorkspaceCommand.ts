@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceCommand}.
  */
 export interface DescribeWorkspaceCommandInput extends DescribeWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceCommand}.
  */
 export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays information about one Amazon Managed Grafana workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceCommandInput - {@link DescribeWorkspaceCommandInput}
+ * @returns {@link DescribeWorkspaceCommandOutput}
  * @see {@link DescribeWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceCommandOutput> {
     return deserializeAws_restJson1DescribeWorkspaceCommand(output, context);
   }

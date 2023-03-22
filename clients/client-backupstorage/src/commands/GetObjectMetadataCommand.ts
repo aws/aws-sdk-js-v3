@@ -29,10 +29,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectMetadataCommand}.
  */
 export interface GetObjectMetadataCommandInput extends GetObjectMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectMetadataCommand}.
  */
 export interface GetObjectMetadataCommandOutput
@@ -40,6 +44,7 @@ export interface GetObjectMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Get metadata associated with an Object.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface GetObjectMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectMetadataCommandInput - {@link GetObjectMetadataCommandInput}
+ * @returns {@link GetObjectMetadataCommandOutput}
  * @see {@link GetObjectMetadataCommandInput} for command's `input` shape.
  * @see {@link GetObjectMetadataCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetObjectMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetObjectMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetObjectMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

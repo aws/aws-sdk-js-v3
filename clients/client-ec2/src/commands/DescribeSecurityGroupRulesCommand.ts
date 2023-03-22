@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityGroupRulesCommand}.
  */
 export interface DescribeSecurityGroupRulesCommandInput extends DescribeSecurityGroupRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityGroupRulesCommand}.
  */
 export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurityGroupRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your security group rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurit
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityGroupRulesCommandInput - {@link DescribeSecurityGroupRulesCommandInput}
+ * @returns {@link DescribeSecurityGroupRulesCommandOutput}
  * @see {@link DescribeSecurityGroupRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeSecurityGroupRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityGroupRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeSecurityGroupRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityGroupRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSecurityGroupRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

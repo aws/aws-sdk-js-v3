@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkflowTypeCommand}.
  */
 export interface DescribeWorkflowTypeCommandInput extends DescribeWorkflowTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkflowTypeCommand}.
  */
 export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified <i>workflow type</i>. This
  *       includes configuration settings specified when the type was registered and other information
  *       such as creation date, current status, etc.</p>
@@ -84,6 +89,8 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkflowTypeCommandInput - {@link DescribeWorkflowTypeCommandInput}
+ * @returns {@link DescribeWorkflowTypeCommandOutput}
  * @see {@link DescribeWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeWorkflowTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkflowTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribeWorkflowTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeWorkflowTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkflowTypeCommandOutput> {
     return deserializeAws_json1_0DescribeWorkflowTypeCommand(output, context);
   }

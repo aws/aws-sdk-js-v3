@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchStopCommand}.
  */
 export interface BatchStopCommandInput extends BatchStopRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchStopCommand}.
  */
 export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops running resources
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStopCommandInput - {@link BatchStopCommandInput}
+ * @returns {@link BatchStopCommandOutput}
  * @see {@link BatchStopCommandInput} for command's `input` shape.
  * @see {@link BatchStopCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class BatchStopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStopCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class BatchStopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchStopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopCommandOutput> {
     return deserializeAws_restJson1BatchStopCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDistributionCommand}.
  */
 export interface CopyDistributionCommandInput extends CopyDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyDistributionCommand}.
  */
 export interface CopyDistributionCommandOutput extends CopyDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a staging distribution using the configuration of the provided primary
  * 			distribution. A staging distribution is a copy of an existing distribution (called the
  * 			primary distribution) that you can use in a continuous deployment workflow.</p>
@@ -52,6 +57,8 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDistributionCommandInput - {@link CopyDistributionCommandInput}
+ * @returns {@link CopyDistributionCommandOutput}
  * @see {@link CopyDistributionCommandInput} for command's `input` shape.
  * @see {@link CopyDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -301,6 +308,9 @@ export class CopyDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -340,10 +350,16 @@ export class CopyDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCopyDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDistributionCommandOutput> {
     return deserializeAws_restXmlCopyDistributionCommand(output, context);
   }

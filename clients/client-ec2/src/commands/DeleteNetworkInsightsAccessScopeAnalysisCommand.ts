@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
  */
 export interface DeleteNetworkInsightsAccessScopeAnalysisCommandInput
   extends DeleteNetworkInsightsAccessScopeAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
  */
 export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Network Access Scope analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInsightsAccessScopeAnalysisCommandInput - {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput}
+ * @returns {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput}
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     return serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

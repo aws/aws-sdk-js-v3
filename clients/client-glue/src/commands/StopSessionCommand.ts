@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSessionCommand}.
  */
 export interface StopSessionCommandInput extends StopSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSessionCommand}.
  */
 export interface StopSessionCommandOutput extends StopSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSessionCommandInput - {@link StopSessionCommandInput}
+ * @returns {@link StopSessionCommandOutput}
  * @see {@link StopSessionCommandInput} for command's `input` shape.
  * @see {@link StopSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class StopSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StopSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSessionCommandOutput> {
     return deserializeAws_json1_1StopSessionCommand(output, context);
   }

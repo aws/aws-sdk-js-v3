@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOpsMetadataCommand}.
  */
 export interface UpdateOpsMetadataCommandInput extends UpdateOpsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOpsMetadataCommand}.
  */
 export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata in Application Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOpsMetadataCommandInput - {@link UpdateOpsMetadataCommandInput}
+ * @returns {@link UpdateOpsMetadataCommandOutput}
  * @see {@link UpdateOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOpsMetadataCommandOutput> {
     return deserializeAws_json1_1UpdateOpsMetadataCommand(output, context);
   }

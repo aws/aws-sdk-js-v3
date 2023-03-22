@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnabledProductsForImportCommand}.
  */
 export interface ListEnabledProductsForImportCommandInput extends ListEnabledProductsForImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEnabledProductsForImportCommand}.
  */
 export interface ListEnabledProductsForImportCommandOutput
@@ -37,6 +41,7 @@ export interface ListEnabledProductsForImportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all findings-generating solutions (products) that you are subscribed to receive
  *          findings from in Security Hub.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListEnabledProductsForImportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnabledProductsForImportCommandInput - {@link ListEnabledProductsForImportCommandInput}
+ * @returns {@link ListEnabledProductsForImportCommandOutput}
  * @see {@link ListEnabledProductsForImportCommandInput} for command's `input` shape.
  * @see {@link ListEnabledProductsForImportCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListEnabledProductsForImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnabledProductsForImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListEnabledProductsForImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnabledProductsForImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEnabledProductsForImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppsListCommand}.
  */
 export interface GetAppsListCommandInput extends GetAppsListRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppsListCommand}.
  */
 export interface GetAppsListCommandOutput extends GetAppsListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppsListCommandInput - {@link GetAppsListCommandInput}
+ * @returns {@link GetAppsListCommandOutput}
  * @see {@link GetAppsListCommandInput} for command's `input` shape.
  * @see {@link GetAppsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetAppsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetAppsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAppsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppsListCommandOutput> {
     return deserializeAws_json1_1GetAppsListCommand(output, context);
   }

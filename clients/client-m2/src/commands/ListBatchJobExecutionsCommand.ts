@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchJobExecutionsCommand}.
  */
 export interface ListBatchJobExecutionsCommandInput extends ListBatchJobExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchJobExecutionsCommand}.
  */
 export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists historical, current, and scheduled batch job executions for a specific
  *          application.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecuti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchJobExecutionsCommandInput - {@link ListBatchJobExecutionsCommandInput}
+ * @returns {@link ListBatchJobExecutionsCommandOutput}
  * @see {@link ListBatchJobExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListBatchJobExecutionsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -85,6 +92,9 @@ export class ListBatchJobExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchJobExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListBatchJobExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchJobExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBatchJobExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchJobExecutionsCommandOutput> {
     return deserializeAws_restJson1ListBatchJobExecutionsCommand(output, context);
   }

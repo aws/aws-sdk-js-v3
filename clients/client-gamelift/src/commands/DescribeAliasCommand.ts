@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAliasCommand}.
  */
 export interface DescribeAliasCommandInput extends DescribeAliasInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAliasCommand}.
  */
 export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for an alias. This operation returns all alias metadata and
  *             settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p>
  *         <p>To get alias properties, specify the alias ID. If successful, the requested alias
@@ -55,6 +60,8 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAliasCommandInput - {@link DescribeAliasCommandInput}
+ * @returns {@link DescribeAliasCommandOutput}
  * @see {@link DescribeAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAliasCommandOutput> {
     return deserializeAws_json1_1DescribeAliasCommand(output, context);
   }

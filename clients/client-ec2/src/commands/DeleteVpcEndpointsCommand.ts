@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointsCommand}.
  */
 export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointsCommand}.
  */
 export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC endpoints.</p>
  *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
  *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
@@ -50,6 +55,8 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointsCommandInput - {@link DeleteVpcEndpointsCommandInput}
+ * @returns {@link DeleteVpcEndpointsCommandOutput}
  * @see {@link DeleteVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointsCommandOutput> {
     return deserializeAws_ec2DeleteVpcEndpointsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContainerInstancesCommand}.
  */
 export interface DescribeContainerInstancesCommandInput extends DescribeContainerInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContainerInstancesCommand}.
  */
 export interface DescribeContainerInstancesCommandOutput extends DescribeContainerInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more container instances. Returns metadata about each container
  * 			instance requested.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContainerInstancesCommandInput - {@link DescribeContainerInstancesCommandInput}
+ * @returns {@link DescribeContainerInstancesCommandOutput}
  * @see {@link DescribeContainerInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -173,6 +180,9 @@ export class DescribeContainerInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContainerInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -212,10 +222,16 @@ export class DescribeContainerInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContainerInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeContainerInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

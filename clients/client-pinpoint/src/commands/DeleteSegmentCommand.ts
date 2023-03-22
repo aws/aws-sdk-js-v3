@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSegmentCommand}.
  */
 export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSegmentCommand}.
  */
 export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a segment from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSegmentCommandInput - {@link DeleteSegmentCommandInput}
+ * @returns {@link DeleteSegmentCommandOutput}
  * @see {@link DeleteSegmentCommandInput} for command's `input` shape.
  * @see {@link DeleteSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSegmentCommandOutput> {
     return deserializeAws_restJson1DeleteSegmentCommand(output, context);
   }

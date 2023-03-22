@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatastoresCommand}.
  */
 export interface ListDatastoresCommandInput extends ListDatastoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatastoresCommand}.
  */
 export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of data stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatastoresCommandInput - {@link ListDatastoresCommandInput}
+ * @returns {@link ListDatastoresCommandOutput}
  * @see {@link ListDatastoresCommandInput} for command's `input` shape.
  * @see {@link ListDatastoresCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListDatastoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatastoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListDatastoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatastoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDatastoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatastoresCommandOutput> {
     return deserializeAws_restJson1ListDatastoresCommand(output, context);
   }

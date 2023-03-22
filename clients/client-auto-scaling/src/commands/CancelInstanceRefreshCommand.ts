@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CancelInstanceRefreshCommand}.
  */
 export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefreshType {}
 /**
+ * @public
+ *
  * The output of {@link CancelInstanceRefreshCommand}.
  */
 export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
  *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
  *             occurs.</p>
@@ -53,6 +58,8 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelInstanceRefreshCommandInput - {@link CancelInstanceRefreshCommandInput}
+ * @returns {@link CancelInstanceRefreshCommandOutput}
  * @see {@link CancelInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link CancelInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -106,6 +113,9 @@ export class CancelInstanceRefreshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelInstanceRefreshCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CancelInstanceRefreshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCancelInstanceRefreshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelInstanceRefreshCommandOutput> {
     return deserializeAws_queryCancelInstanceRefreshCommand(output, context);
   }

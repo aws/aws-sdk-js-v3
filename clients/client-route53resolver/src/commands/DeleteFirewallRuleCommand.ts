@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallRuleCommand}.
  */
 export interface DeleteFirewallRuleCommandInput extends DeleteFirewallRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallRuleCommand}.
  */
 export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified firewall rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallRuleCommandInput - {@link DeleteFirewallRuleCommandInput}
+ * @returns {@link DeleteFirewallRuleCommandOutput}
  * @see {@link DeleteFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteFirewallRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteFirewallRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFirewallRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallRuleCommandOutput> {
     return deserializeAws_json1_1DeleteFirewallRuleCommand(output, context);
   }

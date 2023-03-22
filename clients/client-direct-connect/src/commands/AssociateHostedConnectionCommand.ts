@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateHostedConnectionCommand}.
  */
 export interface AssociateHostedConnectionCommandInput extends AssociateHostedConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateHostedConnectionCommand}.
  */
 export interface AssociateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a hosted connection and its virtual interfaces with a link aggregation
  *       group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
  *       connection with a conflicting VLAN number or IP address, the operation fails. This
@@ -53,6 +58,8 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateHostedConnectionCommandInput - {@link AssociateHostedConnectionCommandInput}
+ * @returns {@link AssociateHostedConnectionCommandOutput}
  * @see {@link AssociateHostedConnectionCommandInput} for command's `input` shape.
  * @see {@link AssociateHostedConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateHostedConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateHostedConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AssociateHostedConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateHostedConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateHostedConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

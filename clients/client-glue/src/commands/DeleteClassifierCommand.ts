@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClassifierCommand}.
  */
 export interface DeleteClassifierCommandInput extends DeleteClassifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClassifierCommand}.
  */
 export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a classifier from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClassifierCommandInput - {@link DeleteClassifierCommandInput}
+ * @returns {@link DeleteClassifierCommandOutput}
  * @see {@link DeleteClassifierCommandInput} for command's `input` shape.
  * @see {@link DeleteClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClassifierCommandOutput> {
     return deserializeAws_json1_1DeleteClassifierCommand(output, context);
   }

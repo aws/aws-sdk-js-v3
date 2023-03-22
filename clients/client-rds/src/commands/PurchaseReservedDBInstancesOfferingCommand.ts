@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedDBInstancesOfferingCommand}.
  */
 export interface PurchaseReservedDBInstancesOfferingCommandInput extends PurchaseReservedDBInstancesOfferingMessage {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedDBInstancesOfferingCommand}.
  */
 export interface PurchaseReservedDBInstancesOfferingCommandOutput
@@ -37,6 +41,7 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Purchases a reserved DB instance offering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedDBInstancesOfferingCommandInput - {@link PurchaseReservedDBInstancesOfferingCommandInput}
+ * @returns {@link PurchaseReservedDBInstancesOfferingCommandOutput}
  * @see {@link PurchaseReservedDBInstancesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -97,6 +104,9 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedDBInstancesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedDBInstancesOfferingCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

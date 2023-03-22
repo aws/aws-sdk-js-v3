@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrafficPolicyCommentCommand}.
  */
 export interface UpdateTrafficPolicyCommentCommandInput extends UpdateTrafficPolicyCommentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrafficPolicyCommentCommand}.
  */
 export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPolicyCommentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the comment for a specified traffic policy version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,6 +52,8 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrafficPolicyCommentCommandInput - {@link UpdateTrafficPolicyCommentCommandInput}
+ * @returns {@link UpdateTrafficPolicyCommentCommandOutput}
  * @see {@link UpdateTrafficPolicyCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficPolicyCommentCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrafficPolicyCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrafficPolicyCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateTrafficPolicyCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

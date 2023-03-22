@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAcceleratorCommand}.
  */
 export interface UpdateAcceleratorCommandInput extends UpdateAcceleratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAcceleratorCommand}.
  */
 export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an accelerator. </p>
  *
  * 		       <important>
@@ -56,6 +61,8 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAcceleratorCommandInput - {@link UpdateAcceleratorCommandInput}
+ * @returns {@link UpdateAcceleratorCommandOutput}
  * @see {@link UpdateAcceleratorCommandInput} for command's `input` shape.
  * @see {@link UpdateAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAcceleratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAcceleratorCommandOutput> {
     return deserializeAws_json1_1UpdateAcceleratorCommand(output, context);
   }

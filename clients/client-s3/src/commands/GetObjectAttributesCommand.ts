@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectAttributesCommand}.
  */
 export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectAttributesCommand}.
  */
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all the metadata from an object without returning the object itself. This
  *          action is useful if you're interested only in an object's metadata. To use
  *             <code>GetObjectAttributes</code>, you must have READ access to the object.</p>
@@ -196,6 +201,8 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectAttributesCommandInput - {@link GetObjectAttributesCommandInput}
+ * @returns {@link GetObjectAttributesCommandOutput}
  * @see {@link GetObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link GetObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -228,6 +235,9 @@ export class GetObjectAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -268,10 +278,16 @@ export class GetObjectAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAttributesCommandOutput> {
     return deserializeAws_restXmlGetObjectAttributesCommand(output, context);
   }

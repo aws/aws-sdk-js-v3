@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricDataCommand}.
  */
 export interface GetMetricDataCommandInput extends GetMetricDataInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricDataCommand}.
  */
 export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values. The operation
  * 			can also include a CloudWatch Metrics Insights query, and one or more metric math functions.</p>
  *          <p>A <code>GetMetricData</code> operation that does not include a query can retrieve as many as 500 different
@@ -93,6 +98,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
+ * @returns {@link GetMetricDataCommandOutput}
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -119,6 +126,9 @@ export class GetMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class GetMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataCommandOutput> {
     return deserializeAws_queryGetMetricDataCommand(output, context);
   }

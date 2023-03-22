@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from MigrationHubOrchestrator service.
  */
 export class MigrationHubOrchestratorServiceException extends __ServiceException {

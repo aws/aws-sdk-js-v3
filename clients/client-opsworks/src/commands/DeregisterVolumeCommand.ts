@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterVolumeCommand}.
  */
 export interface DeregisterVolumeCommandInput extends DeregisterVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterVolumeCommand}.
  */
 export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
  *         Management</a>.</p>
@@ -48,6 +53,8 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterVolumeCommandInput - {@link DeregisterVolumeCommandInput}
+ * @returns {@link DeregisterVolumeCommandOutput}
  * @see {@link DeregisterVolumeCommandInput} for command's `input` shape.
  * @see {@link DeregisterVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeregisterVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeregisterVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterVolumeCommandOutput> {
     return deserializeAws_json1_1DeregisterVolumeCommand(output, context);
   }

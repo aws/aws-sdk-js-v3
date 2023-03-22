@@ -135,6 +135,7 @@ import {
 } from "./commands/UpdateLogPatternCommand";
 
 /**
+ * @public
  * <fullname>Amazon CloudWatch Application Insights</fullname>
  *          <p> Amazon CloudWatch Application Insights is a service that helps you detect common
  *          problems with your applications. It enables you to pinpoint the source of issues in your
@@ -150,6 +151,7 @@ import {
  */
 export class ApplicationInsights extends ApplicationInsightsClient {
   /**
+   * @public
    * <p>Adds an application that is created from a resource group.</p>
    */
   public createApplication(
@@ -182,6 +184,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom component by grouping similar standalone instances to monitor.</p>
    */
   public createComponent(
@@ -214,6 +217,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Adds an log pattern to a <code>LogPatternSet</code>.</p>
    */
   public createLogPattern(
@@ -246,6 +250,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified application from monitoring. Does not delete the
    *          application.</p>
    */
@@ -279,6 +284,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Ungroups a custom component. When you ungroup custom components, all applicable monitors
    *          that are set up for the component are removed and the instances revert to their standalone
    *          status.</p>
@@ -313,6 +319,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>
    */
   public deleteLogPattern(
@@ -345,6 +352,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describes the application.</p>
    */
   public describeApplication(
@@ -377,6 +385,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describes a component and lists the resources that are grouped together in a
    *          component.</p>
    */
@@ -410,6 +419,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describes the monitoring configuration of the component.</p>
    */
   public describeComponentConfiguration(
@@ -442,6 +452,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describes the recommended monitoring configuration of the component.</p>
    */
   public describeComponentConfigurationRecommendation(
@@ -476,6 +487,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>
    */
   public describeLogPattern(
@@ -508,6 +520,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describes an anomaly or error with the application.</p>
    */
   public describeObservation(
@@ -540,6 +553,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describes an application problem.</p>
    */
   public describeProblem(
@@ -572,6 +586,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Describes the anomalies or errors associated with the problem.</p>
    */
   public describeProblemObservations(
@@ -604,6 +619,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Lists the IDs of the applications that you are monitoring. </p>
    */
   public listApplications(
@@ -636,6 +652,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Lists the auto-grouped, standalone, and custom components of the application.</p>
    */
   public listComponents(
@@ -668,6 +685,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p> Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by
    *          Application Insights. Examples of events represented are: </p>
    *          <ul>
@@ -713,6 +731,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
    */
   public listLogPatterns(
@@ -745,6 +764,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Lists the log pattern sets in the specific application.</p>
    */
   public listLogPatternSets(
@@ -777,6 +797,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Lists the problems with your application.</p>
    */
   public listProblems(
@@ -806,6 +827,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of the tags (keys and values) that are associated with a specified
    *          application. A <i>tag</i> is a label that you optionally define and associate
    *          with an application. Each tag consists of a required <i>tag key</i> and an
@@ -843,6 +865,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Add one or more tags (keys and values) to a specified application. A
    *             <i>tag</i> is a label that you optionally define and associate with an
    *          application. Tags can help you categorize and manage application in different ways, such as
@@ -876,6 +899,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Remove one or more tags (keys and values) from a specified application.</p>
    */
   public untagResource(
@@ -908,6 +932,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Updates the application.</p>
    */
   public updateApplication(
@@ -940,6 +965,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Updates the custom component name and/or the list of resources that make up the
    *          component.</p>
    */
@@ -973,6 +999,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Updates the monitoring configurations for the component. The configuration input
    *          parameter is an escaped JSON of the configuration and should match the schema of what is
    *          returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
@@ -1007,6 +1034,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
+   * @public
    * <p>Adds a log pattern to a <code>LogPatternSet</code>.</p>
    */
   public updateLogPattern(

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBSnapshotAttributeCommand}.
  */
 export interface ModifyDBSnapshotAttributeCommandInput extends ModifyDBSnapshotAttributeMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBSnapshotAttributeCommand}.
  */
 export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshotAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
  *          <p>To share a manual DB snapshot with other Amazon Web Services accounts, specify <code>restore</code>
  *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
@@ -62,6 +67,8 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBSnapshotAttributeCommandInput - {@link ModifyDBSnapshotAttributeCommandInput}
+ * @returns {@link ModifyDBSnapshotAttributeCommandOutput}
  * @see {@link ModifyDBSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -115,6 +122,9 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBSnapshotAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

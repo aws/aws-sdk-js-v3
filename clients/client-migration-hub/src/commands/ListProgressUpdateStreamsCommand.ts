@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProgressUpdateStreamsCommand}.
  */
 export interface ListProgressUpdateStreamsCommandInput extends ListProgressUpdateStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProgressUpdateStreamsCommand}.
  */
 export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpdateStreamsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists progress update streams associated with the user account making this call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProgressUpdateStreamsCommandInput - {@link ListProgressUpdateStreamsCommandInput}
+ * @returns {@link ListProgressUpdateStreamsCommandOutput}
  * @see {@link ListProgressUpdateStreamsCommandInput} for command's `input` shape.
  * @see {@link ListProgressUpdateStreamsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListProgressUpdateStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProgressUpdateStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListProgressUpdateStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProgressUpdateStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProgressUpdateStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityCommand}.
  */
 export interface UpdateSecurityCommandInput extends UpdateSecurityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityCommand}.
  */
 export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the security settings for the cluster. You can use this operation to specify encryption and authentication on existing clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityCommandInput - {@link UpdateSecurityCommandInput}
+ * @returns {@link UpdateSecurityCommandOutput}
  * @see {@link UpdateSecurityCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateSecurityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateSecurityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecurityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSecurityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityCommandOutput> {
     return deserializeAws_restJson1UpdateSecurityCommand(output, context);
   }

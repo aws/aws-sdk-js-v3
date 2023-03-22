@@ -24,15 +24,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopHyperParameterTuningJobCommand}.
  */
 export interface StopHyperParameterTuningJobCommandInput extends StopHyperParameterTuningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopHyperParameterTuningJobCommand}.
  */
 export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running hyperparameter tuning job and all running training jobs that the
  *             tuning job launched.</p>
  *          <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
@@ -50,6 +55,8 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param StopHyperParameterTuningJobCommandInput - {@link StopHyperParameterTuningJobCommandInput}
+ * @returns {@link StopHyperParameterTuningJobCommandOutput}
  * @see {@link StopHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link StopHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class StopHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StopHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopHyperParameterTuningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

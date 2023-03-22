@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartFraudsterRegistrationJobCommand}.
  */
 export interface StartFraudsterRegistrationJobCommandInput extends StartFraudsterRegistrationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFraudsterRegistrationJobCommand}.
  */
 export interface StartFraudsterRegistrationJobCommandOutput
@@ -37,6 +41,7 @@ export interface StartFraudsterRegistrationJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new batch fraudster registration job using provided details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface StartFraudsterRegistrationJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFraudsterRegistrationJobCommandInput - {@link StartFraudsterRegistrationJobCommandInput}
+ * @returns {@link StartFraudsterRegistrationJobCommandOutput}
  * @see {@link StartFraudsterRegistrationJobCommandInput} for command's `input` shape.
  * @see {@link StartFraudsterRegistrationJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -99,6 +106,9 @@ export class StartFraudsterRegistrationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFraudsterRegistrationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class StartFraudsterRegistrationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFraudsterRegistrationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StartFraudsterRegistrationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceSetCommand}.
  */
 export interface CreateResourceSetCommandInput extends CreateResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceSetCommand}.
  */
 export interface CreateResourceSetCommandOutput extends CreateResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceSetCommandInput - {@link CreateResourceSetCommandInput}
+ * @returns {@link CreateResourceSetCommandOutput}
  * @see {@link CreateResourceSetCommandInput} for command's `input` shape.
  * @see {@link CreateResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceSetCommandOutput> {
     return deserializeAws_restJson1CreateResourceSetCommand(output, context);
   }

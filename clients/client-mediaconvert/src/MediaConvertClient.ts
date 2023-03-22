@@ -94,6 +94,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateCertificateCommandInput
   | CancelJobCommandInput
@@ -124,6 +127,9 @@ export type ServiceInputTypes =
   | UpdatePresetCommandInput
   | UpdateQueueCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateCertificateCommandOutput
   | CancelJobCommandOutput
@@ -154,6 +160,9 @@ export type ServiceOutputTypes =
   | UpdatePresetCommandOutput
   | UpdateQueueCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -161,7 +170,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -270,11 +279,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type MediaConvertClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -285,10 +297,15 @@ type MediaConvertClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MediaConvertClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MediaConvertClient class constructor that set the region, credentials and other options.
  */
 export interface MediaConvertClientConfig extends MediaConvertClientConfigType {}
 
+/**
+ * @public
+ */
 type MediaConvertClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -299,11 +316,14 @@ type MediaConvertClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MediaConvertClient class. This is resolved and normalized from the {@link MediaConvertClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MediaConvertClient class. This is resolved and normalized from the {@link MediaConvertClientConfig | constructor configuration interface}.
  */
 export interface MediaConvertClientResolvedConfig extends MediaConvertClientResolvedConfigType {}
 
 /**
+ * @public
  * AWS Elemental MediaConvert
  */
 export class MediaConvertClient extends __Client<

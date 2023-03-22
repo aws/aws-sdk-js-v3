@@ -21,10 +21,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSettingsResponse, __MetadataBearer {}
@@ -46,6 +50,9 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,10 +92,16 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPhoneNumberSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberSettingsCommandOutput> {
     return deserializeAws_restJson1GetPhoneNumberSettingsCommand(output, context);
   }

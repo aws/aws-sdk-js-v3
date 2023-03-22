@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatalakeAutoEnableCommand}.
  */
 export interface GetDatalakeAutoEnableCommandInput extends GetDatalakeAutoEnableRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatalakeAutoEnableCommand}.
  */
 export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration that will be automatically set up for accounts added to the
  *          organization after the organization has onboarded to Amazon Security Lake. This API does not take
  *          input parameters.</p>
@@ -48,6 +53,8 @@ export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnabl
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeAutoEnableCommandInput - {@link GetDatalakeAutoEnableCommandInput}
+ * @returns {@link GetDatalakeAutoEnableCommandOutput}
  * @see {@link GetDatalakeAutoEnableCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeAutoEnableCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetDatalakeAutoEnableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeAutoEnableCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetDatalakeAutoEnableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDatalakeAutoEnableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatalakeAutoEnableCommandOutput> {
     return deserializeAws_restJson1GetDatalakeAutoEnableCommand(output, context);
   }

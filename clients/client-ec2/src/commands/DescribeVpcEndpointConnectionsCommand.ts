@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointConnectionsCommand}.
  */
 export interface DescribeVpcEndpointConnectionsCommandInput extends DescribeVpcEndpointConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointConnectionsCommand}.
  */
 export interface DescribeVpcEndpointConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the VPC endpoint connections to your VPC endpoint services, including any
  *             endpoints that are pending your acceptance.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointConnectionsCommandInput - {@link DescribeVpcEndpointConnectionsCommandInput}
+ * @returns {@link DescribeVpcEndpointConnectionsCommandOutput}
  * @see {@link DescribeVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcEndpointConnectionsCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     return serializeAws_ec2DescribeVpcEndpointConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

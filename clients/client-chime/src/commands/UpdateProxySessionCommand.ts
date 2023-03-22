@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProxySessionCommand}.
  */
 export interface UpdateProxySessionCommandInput extends UpdateProxySessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProxySessionCommand}.
  */
 export interface UpdateProxySessionCommandOutput extends UpdateProxySessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProxySessionCommandInput - {@link UpdateProxySessionCommandInput}
+ * @returns {@link UpdateProxySessionCommandOutput}
  * @see {@link UpdateProxySessionCommandInput} for command's `input` shape.
  * @see {@link UpdateProxySessionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateProxySessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProxySessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateProxySessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProxySessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProxySessionCommandOutput> {
     return deserializeAws_restJson1UpdateProxySessionCommand(output, context);
   }

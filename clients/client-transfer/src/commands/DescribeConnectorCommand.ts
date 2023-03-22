@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorCommand}.
  */
 export interface DescribeConnectorCommandInput extends DescribeConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorCommand}.
  */
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the connector that's identified by the <code>ConnectorId.</code>
  *          </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorCommandInput - {@link DescribeConnectorCommandInput}
+ * @returns {@link DescribeConnectorCommandOutput}
  * @see {@link DescribeConnectorCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorCommandOutput> {
     return deserializeAws_json1_1DescribeConnectorCommand(output, context);
   }

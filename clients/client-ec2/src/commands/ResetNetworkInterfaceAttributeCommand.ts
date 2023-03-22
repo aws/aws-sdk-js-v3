@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetNetworkInterfaceAttributeCommand}.
  */
 export interface ResetNetworkInterfaceAttributeCommandInput extends ResetNetworkInterfaceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetNetworkInterfaceAttributeCommand}.
  */
 export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets a network interface attribute. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetNetworkInterfaceAttributeCommandInput - {@link ResetNetworkInterfaceAttributeCommandInput}
+ * @returns {@link ResetNetworkInterfaceAttributeCommandOutput}
  * @see {@link ResetNetworkInterfaceAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -67,6 +74,9 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetNetworkInterfaceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +116,9 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ResetNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
@@ -113,6 +126,9 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     return serializeAws_ec2ResetNetworkInterfaceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

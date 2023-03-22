@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QueryWhatIfForecastCommand}.
  */
 export interface QueryWhatIfForecastCommandInput extends QueryWhatIfForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryWhatIfForecastCommand}.
  */
 export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a what-if forecast.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryWhatIfForecastCommandInput - {@link QueryWhatIfForecastCommandInput}
+ * @returns {@link QueryWhatIfForecastCommandOutput}
  * @see {@link QueryWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link QueryWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.
@@ -85,6 +92,9 @@ export class QueryWhatIfForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryWhatIfForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class QueryWhatIfForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryWhatIfForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1QueryWhatIfForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryWhatIfForecastCommandOutput> {
     return deserializeAws_json1_1QueryWhatIfForecastCommand(output, context);
   }

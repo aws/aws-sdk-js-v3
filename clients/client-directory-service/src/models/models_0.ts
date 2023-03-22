@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { DirectoryServiceServiceException as __BaseException } from "./DirectoryServiceServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptSharedDirectoryRequest {
   /**
    * <p>Identifier of the shared directory in the directory consumer account. This identifier is
@@ -11,11 +14,17 @@ export interface AcceptSharedDirectoryRequest {
   SharedDirectoryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ShareMethod {
   HANDSHAKE = "HANDSHAKE",
   ORGANIZATIONS = "ORGANIZATIONS",
 }
 
+/**
+ * @public
+ */
 export enum ShareStatus {
   DELETED = "Deleted",
   DELETING = "Deleting",
@@ -29,6 +38,7 @@ export enum ShareStatus {
 }
 
 /**
+ * @public
  * <p>Details about the shared directory in the directory owner account for which the share
  *       request in the directory consumer account has been accepted.</p>
  */
@@ -86,6 +96,9 @@ export interface SharedDirectory {
   LastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AcceptSharedDirectoryResult {
   /**
    * <p>The shared directory in the directory consumer account.</p>
@@ -94,6 +107,7 @@ export interface AcceptSharedDirectoryResult {
 }
 
 /**
+ * @public
  * <p>A client exception has occurred.</p>
  */
 export class ClientException extends __BaseException {
@@ -124,6 +138,7 @@ export class ClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified directory has already been shared with this Amazon Web Services account.</p>
  */
 export class DirectoryAlreadySharedException extends __BaseException {
@@ -154,6 +169,7 @@ export class DirectoryAlreadySharedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified entity could not be found.</p>
  */
 export class EntityDoesNotExistException extends __BaseException {
@@ -184,6 +200,7 @@ export class EntityDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters are not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -214,6 +231,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception has occurred in Directory Service.</p>
  */
 export class ServiceException extends __BaseException {
@@ -244,6 +262,7 @@ export class ServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Client authentication is not available in this region at this time.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -274,6 +293,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>IP address block. This is often the address block of the DNS server used for your
  *          self-managed domain. </p>
  */
@@ -291,6 +311,9 @@ export interface IpRoute {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddIpRoutesRequest {
   /**
    * <p>Identifier (ID) of the directory to which to add the address block.</p>
@@ -377,9 +400,13 @@ export interface AddIpRoutesRequest {
   UpdateSecurityGroupForDirectoryControllers?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AddIpRoutesResult {}
 
 /**
+ * @public
  * <p>The specified directory is unavailable or could not be found.</p>
  */
 export class DirectoryUnavailableException extends __BaseException {
@@ -410,6 +437,7 @@ export class DirectoryUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified entity already exists.</p>
  */
 export class EntityAlreadyExistsException extends __BaseException {
@@ -440,6 +468,7 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP
  *          address blocks.</p>
  */
@@ -471,6 +500,7 @@ export class IpRouteLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
  */
 export interface DirectoryVpcSettings {
@@ -487,6 +517,9 @@ export interface DirectoryVpcSettings {
   SubnetIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddRegionRequest {
   /**
    * <p>The identifier of the directory to which you want to add Region replication.</p>
@@ -505,9 +538,13 @@ export interface AddRegionRequest {
   VPCSettings: DirectoryVpcSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddRegionResult {}
 
 /**
+ * @public
  * <p>The Region you specified is the same Region where the Managed Microsoft AD directory
  *       was created. Specify a different Region and try again.</p>
  */
@@ -539,6 +576,7 @@ export class DirectoryAlreadyInRegionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified directory does not exist in the system.</p>
  */
 export class DirectoryDoesNotExistException extends __BaseException {
@@ -569,6 +607,7 @@ export class DirectoryDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the limit for maximum number of simultaneous Region replications per
  *       directory.</p>
  */
@@ -600,6 +639,7 @@ export class RegionLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation is not supported.</p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -630,6 +670,7 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Metadata assigned to a directory consisting of a key-value pair.</p>
  */
 export interface Tag {
@@ -637,18 +678,21 @@ export interface Tag {
    * <p>Required name of the tag. The string value can be Unicode characters and cannot be
    *       prefixed with "aws:". The string can contain only the set of Unicode letters, digits,
    *       white-space, '_', '.', '/', '=', '+', '-' (Java regex:
-   *       "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   *       "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Key: string | undefined;
 
   /**
    * <p>The optional value of the tag. The string value can be Unicode characters. The string
    *       can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-'
-   *       (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   *       (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToResourceRequest {
   /**
    * <p>Identifier (ID) for the directory to which to add the tag.</p>
@@ -661,9 +705,13 @@ export interface AddTagsToResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToResourceResult {}
 
 /**
+ * @public
  * <p>The maximum allowed number of tags was exceeded.</p>
  */
 export class TagLimitExceededException extends __BaseException {
@@ -694,6 +742,7 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a named directory attribute.</p>
  */
 export interface Attribute {
@@ -709,6 +758,7 @@ export interface Attribute {
 }
 
 /**
+ * @public
  * <p>An authentication error occurred.</p>
  */
 export class AuthenticationFailedException extends __BaseException {
@@ -738,6 +788,9 @@ export class AuthenticationFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelSchemaExtensionRequest {
   /**
    * <p>The identifier of the directory whose schema extension will be canceled.</p>
@@ -750,9 +803,13 @@ export interface CancelSchemaExtensionRequest {
   SchemaExtensionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelSchemaExtensionResult {}
 
 /**
+ * @public
  * <p>Contains information about the client certificate authentication settings for the <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>
  */
 export interface ClientCertAuthSettings {
@@ -762,6 +819,9 @@ export interface ClientCertAuthSettings {
   OCSPUrl?: string;
 }
 
+/**
+ * @public
+ */
 export enum CertificateState {
   DEREGISTERED = "Deregistered",
   DEREGISTERING = "Deregistering",
@@ -771,12 +831,16 @@ export enum CertificateState {
   REGISTER_FAILED = "RegisterFailed",
 }
 
+/**
+ * @public
+ */
 export enum CertificateType {
   CLIENT_CERT_AUTH = "ClientCertAuth",
   CLIENT_LDAPS = "ClientLDAPS",
 }
 
 /**
+ * @public
  * <p>Information about the certificate.</p>
  */
 export interface Certificate {
@@ -822,6 +886,7 @@ export interface Certificate {
 }
 
 /**
+ * @public
  * <p>The certificate has already been registered into the system.</p>
  */
 export class CertificateAlreadyExistsException extends __BaseException {
@@ -852,6 +917,7 @@ export class CertificateAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The certificate is not present in the system for describe or deregister activities.</p>
  */
 export class CertificateDoesNotExistException extends __BaseException {
@@ -882,6 +948,7 @@ export class CertificateDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains general information about a certificate.</p>
  */
 export interface CertificateInfo {
@@ -912,6 +979,7 @@ export interface CertificateInfo {
 }
 
 /**
+ * @public
  * <p>The certificate is being used for the LDAP security connection and cannot be removed
  *       without disabling LDAP security.</p>
  */
@@ -943,6 +1011,7 @@ export class CertificateInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The certificate could not be added because the certificate limit has been reached.</p>
  */
 export class CertificateLimitExceededException extends __BaseException {
@@ -972,17 +1041,24 @@ export class CertificateLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ClientAuthenticationStatus {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum ClientAuthenticationType {
   SMART_CARD = "SmartCard",
   SMART_CARD_OR_PASSWORD = "SmartCardOrPassword",
 }
 
 /**
+ * @public
  * <p>Contains information about a client authentication method for a directory.</p>
  */
 export interface ClientAuthenticationSettingInfo {
@@ -1003,6 +1079,7 @@ export interface ClientAuthenticationSettingInfo {
 }
 
 /**
+ * @public
  * <p>Contains information about a computer account in a directory.</p>
  */
 export interface Computer {
@@ -1023,11 +1100,15 @@ export interface Computer {
   ComputerAttributes?: Attribute[];
 }
 
+/**
+ * @public
+ */
 export enum ReplicationScope {
   Domain = "Domain",
 }
 
 /**
+ * @public
  * <p>Points to a remote domain with which you are setting up a trust relationship.
  *       Conditional forwarders are required in order to set up a trust relationship with another
  *       domain.</p>
@@ -1054,6 +1135,7 @@ export interface ConditionalForwarder {
 }
 
 /**
+ * @public
  * <p>Contains information for the <a>ConnectDirectory</a> operation when an AD
  *       Connector directory is being created.</p>
  */
@@ -1092,12 +1174,16 @@ export interface DirectoryConnectSettings {
   CustomerUserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DirectorySize {
   LARGE = "Large",
   SMALL = "Small",
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>ConnectDirectory</a> operation.</p>
  */
 export interface ConnectDirectoryRequest {
@@ -1140,6 +1226,7 @@ export interface ConnectDirectoryRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>ConnectDirectory</a> operation.</p>
  */
 export interface ConnectDirectoryResult {
@@ -1150,6 +1237,7 @@ export interface ConnectDirectoryResult {
 }
 
 /**
+ * @public
  * <p>The maximum number of directories in the region has been reached. You can use the
  *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
  *             the region.</p>
@@ -1182,6 +1270,7 @@ export class DirectoryLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>CreateAlias</a> operation.</p>
  */
 export interface CreateAliasRequest {
@@ -1199,6 +1288,7 @@ export interface CreateAliasRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>CreateAlias</a> operation.</p>
  */
 export interface CreateAliasResult {
@@ -1214,6 +1304,7 @@ export interface CreateAliasResult {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>CreateComputer</a> operation.</p>
  */
 export interface CreateComputerRequest {
@@ -1245,6 +1336,7 @@ export interface CreateComputerRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results for the <a>CreateComputer</a> operation.</p>
  */
 export interface CreateComputerResult {
@@ -1255,6 +1347,7 @@ export interface CreateComputerResult {
 }
 
 /**
+ * @public
  * <p>Initiates the creation of a conditional forwarder for your Directory Service for Microsoft Active
  *       Directory. Conditional forwarders are required in order to set up a trust relationship with
  *       another domain.</p>
@@ -1279,11 +1372,13 @@ export interface CreateConditionalForwarderRequest {
 }
 
 /**
+ * @public
  * <p>The result of a CreateConditinalForwarder request.</p>
  */
 export interface CreateConditionalForwarderResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>CreateDirectory</a> operation. </p>
  */
 export interface CreateDirectoryRequest {
@@ -1305,7 +1400,7 @@ export interface CreateDirectoryRequest {
    *          <p>The regex pattern for this string is made up of the following conditions:</p>
    *          <ul>
    *             <li>
-   *                <p>Length (?=^.{8,64}$) – Must be between 8 and 64 characters</p>
+   *                <p>Length (?=^.\{8,64\}$) – Must be between 8 and 64 characters</p>
    *             </li>
    *          </ul>
    *          <p>AND any 3 of the following password complexity rules required by Active Directory:</p>
@@ -1353,6 +1448,7 @@ export interface CreateDirectoryRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>CreateDirectory</a> operation.</p>
  */
 export interface CreateDirectoryResult {
@@ -1362,6 +1458,9 @@ export interface CreateDirectoryResult {
   DirectoryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLogSubscriptionRequest {
   /**
    * <p>Identifier of the directory to which you want to subscribe and receive real-time logs to
@@ -1376,9 +1475,13 @@ export interface CreateLogSubscriptionRequest {
   LogGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLogSubscriptionResult {}
 
 /**
+ * @public
  * <p>The account does not have sufficient permission to perform the operation.</p>
  */
 export class InsufficientPermissionsException extends __BaseException {
@@ -1408,12 +1511,16 @@ export class InsufficientPermissionsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DirectoryEdition {
   ENTERPRISE = "Enterprise",
   STANDARD = "Standard",
 }
 
 /**
+ * @public
  * <p>Creates an Managed Microsoft AD directory.</p>
  */
 export interface CreateMicrosoftADRequest {
@@ -1461,6 +1568,7 @@ export interface CreateMicrosoftADRequest {
 }
 
 /**
+ * @public
  * <p>Result of a CreateMicrosoftAD request.</p>
  */
 export interface CreateMicrosoftADResult {
@@ -1471,6 +1579,7 @@ export interface CreateMicrosoftADResult {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>CreateSnapshot</a> operation.</p>
  */
 export interface CreateSnapshotRequest {
@@ -1486,6 +1595,7 @@ export interface CreateSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>CreateSnapshot</a> operation.</p>
  */
 export interface CreateSnapshotResult {
@@ -1496,6 +1606,7 @@ export interface CreateSnapshotResult {
 }
 
 /**
+ * @public
  * <p>The maximum number of manual snapshots for the directory has been reached. You can
  *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
  *             for a directory.</p>
@@ -1527,23 +1638,33 @@ export class SnapshotLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum SelectiveAuth {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum TrustDirection {
   ONE_WAY_INCOMING = "One-Way: Incoming",
   ONE_WAY_OUTGOING = "One-Way: Outgoing",
   TWO_WAY = "Two-Way",
 }
 
+/**
+ * @public
+ */
 export enum TrustType {
   EXTERNAL = "External",
   FOREST = "Forest",
 }
 
 /**
+ * @public
  * <p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For
  *       example, you can establish a trust between your Managed Microsoft AD directory, and your existing
  *       self-managed Microsoft Active Directory. This would allow you to provide users and groups
@@ -1592,6 +1713,7 @@ export interface CreateTrustRequest {
 }
 
 /**
+ * @public
  * <p>The result of a CreateTrust request.</p>
  */
 export interface CreateTrustResult {
@@ -1602,6 +1724,7 @@ export interface CreateTrustResult {
 }
 
 /**
+ * @public
  * <p>Deletes a conditional forwarder.</p>
  */
 export interface DeleteConditionalForwarderRequest {
@@ -1618,11 +1741,13 @@ export interface DeleteConditionalForwarderRequest {
 }
 
 /**
+ * @public
  * <p>The result of a DeleteConditionalForwarder request.</p>
  */
 export interface DeleteConditionalForwarderResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DeleteDirectory</a> operation.</p>
  */
 export interface DeleteDirectoryRequest {
@@ -1633,6 +1758,7 @@ export interface DeleteDirectoryRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>DeleteDirectory</a> operation.</p>
  */
 export interface DeleteDirectoryResult {
@@ -1642,6 +1768,9 @@ export interface DeleteDirectoryResult {
   DirectoryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLogSubscriptionRequest {
   /**
    * <p>Identifier of the directory whose log subscription you want to delete.</p>
@@ -1649,9 +1778,13 @@ export interface DeleteLogSubscriptionRequest {
   DirectoryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLogSubscriptionResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DeleteSnapshot</a> operation.</p>
  */
 export interface DeleteSnapshotRequest {
@@ -1662,6 +1795,7 @@ export interface DeleteSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>DeleteSnapshot</a> operation.</p>
  */
 export interface DeleteSnapshotResult {
@@ -1672,6 +1806,7 @@ export interface DeleteSnapshotResult {
 }
 
 /**
+ * @public
  * <p>Deletes the local side of an existing trust relationship between the Managed Microsoft AD
  *       directory and the external domain.</p>
  */
@@ -1688,6 +1823,7 @@ export interface DeleteTrustRequest {
 }
 
 /**
+ * @public
  * <p>The result of a DeleteTrust request.</p>
  */
 export interface DeleteTrustResult {
@@ -1697,6 +1833,9 @@ export interface DeleteTrustResult {
   TrustId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterCertificateRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -1709,9 +1848,13 @@ export interface DeregisterCertificateRequest {
   CertificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterCertificateResult {}
 
 /**
+ * @public
  * <p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>
  */
 export interface DeregisterEventTopicRequest {
@@ -1729,10 +1872,14 @@ export interface DeregisterEventTopicRequest {
 }
 
 /**
+ * @public
  * <p>The result of a DeregisterEventTopic request.</p>
  */
 export interface DeregisterEventTopicResult {}
 
+/**
+ * @public
+ */
 export interface DescribeCertificateRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -1745,6 +1892,9 @@ export interface DescribeCertificateRequest {
   CertificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateResult {
   /**
    * <p>Information about the certificate, including registered date time, certificate state, the
@@ -1753,6 +1903,9 @@ export interface DescribeCertificateResult {
   Certificate?: Certificate;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientAuthenticationSettingsRequest {
   /**
    * <p>The identifier of the directory for which to retrieve information.</p>
@@ -1775,6 +1928,9 @@ export interface DescribeClientAuthenticationSettingsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientAuthenticationSettingsResult {
   /**
    * <p>Information about the type of client authentication for the specified directory. The following information is retrieved: The date and time when the status of the client authentication type was last updated, whether the client authentication type is enabled or disabled, and the type of client authentication.</p>
@@ -1789,6 +1945,7 @@ export interface DescribeClientAuthenticationSettingsResult {
 }
 
 /**
+ * @public
  * <p>Describes a conditional forwarder.</p>
  */
 export interface DescribeConditionalForwardersRequest {
@@ -1807,6 +1964,7 @@ export interface DescribeConditionalForwardersRequest {
 }
 
 /**
+ * @public
  * <p>The result of a DescribeConditionalForwarder request.</p>
  */
 export interface DescribeConditionalForwardersResult {
@@ -1817,6 +1975,7 @@ export interface DescribeConditionalForwardersResult {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DescribeDirectories</a> operation.</p>
  */
 export interface DescribeDirectoriesRequest {
@@ -1840,6 +1999,7 @@ export interface DescribeDirectoriesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an AD Connector directory.</p>
  */
 export interface DirectoryConnectSettingsDescription {
@@ -1874,11 +2034,17 @@ export interface DirectoryConnectSettingsDescription {
   ConnectIps?: string[];
 }
 
+/**
+ * @public
+ */
 export enum OSVersion {
   VERSION_2012 = "SERVER_2012",
   VERSION_2019 = "SERVER_2019",
 }
 
+/**
+ * @public
+ */
 export enum RadiusAuthenticationProtocol {
   CHAP = "CHAP",
   MSCHAPV1 = "MS-CHAPv1",
@@ -1887,6 +2053,7 @@ export enum RadiusAuthenticationProtocol {
 }
 
 /**
+ * @public
  * <p>Contains information about a Remote Authentication Dial In User Service (RADIUS)
  *          server.</p>
  */
@@ -1936,6 +2103,9 @@ export interface RadiusSettings {
   UseSameUsername?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum RadiusStatus {
   COMPLETED = "Completed",
   CREATING = "Creating",
@@ -1943,6 +2113,7 @@ export enum RadiusStatus {
 }
 
 /**
+ * @public
  * <p>Contains information about the directory.</p>
  */
 export interface DirectoryVpcSettingsDescription {
@@ -1968,6 +2139,7 @@ export interface DirectoryVpcSettingsDescription {
 }
 
 /**
+ * @public
  * <p>Describes the directory owner account details that have been shared to the directory
  *       consumer account.</p>
  */
@@ -2006,6 +2178,7 @@ export interface OwnerDirectoryDescription {
 }
 
 /**
+ * @public
  * <p>Provides information about the Regions that are configured for multi-Region
  *       replication.</p>
  */
@@ -2022,6 +2195,9 @@ export interface RegionsInfo {
   AdditionalRegions?: string[];
 }
 
+/**
+ * @public
+ */
 export enum DirectoryStage {
   ACTIVE = "Active",
   CREATED = "Created",
@@ -2036,6 +2212,9 @@ export enum DirectoryStage {
   RESTORING = "Restoring",
 }
 
+/**
+ * @public
+ */
 export enum DirectoryType {
   AD_CONNECTOR = "ADConnector",
   MICROSOFT_AD = "MicrosoftAD",
@@ -2044,6 +2223,7 @@ export enum DirectoryType {
 }
 
 /**
+ * @public
  * <p>Contains information about an Directory Service directory.</p>
  */
 export interface DirectoryDescription {
@@ -2196,6 +2376,7 @@ export interface DirectoryDescription {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>DescribeDirectories</a> operation.</p>
  */
 export interface DescribeDirectoriesResult {
@@ -2217,6 +2398,7 @@ export interface DescribeDirectoriesResult {
 }
 
 /**
+ * @public
  * <p>The <code>NextToken</code> value is not valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -2246,6 +2428,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainControllersRequest {
   /**
    * <p>Identifier of the directory for which to retrieve the domain controller
@@ -2272,6 +2457,9 @@ export interface DescribeDomainControllersRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum DomainControllerStatus {
   ACTIVE = "Active",
   CREATING = "Creating",
@@ -2283,6 +2471,7 @@ export enum DomainControllerStatus {
 }
 
 /**
+ * @public
  * <p>Contains information about the domain controllers for a specified directory.</p>
  */
 export interface DomainController {
@@ -2337,6 +2526,9 @@ export interface DomainController {
   StatusLastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainControllersResult {
   /**
    * <p>List of the <a>DomainController</a> objects that were retrieved.</p>
@@ -2352,6 +2544,7 @@ export interface DescribeDomainControllersResult {
 }
 
 /**
+ * @public
  * <p>Describes event topics.</p>
  */
 export interface DescribeEventTopicsRequest {
@@ -2370,6 +2563,9 @@ export interface DescribeEventTopicsRequest {
   TopicNames?: string[];
 }
 
+/**
+ * @public
+ */
 export enum TopicStatus {
   DELETED = "Deleted",
   FAILED = "Failed",
@@ -2378,6 +2574,7 @@ export enum TopicStatus {
 }
 
 /**
+ * @public
  * <p>Information about Amazon SNS topic and Directory Service directory associations.</p>
  */
 export interface EventTopic {
@@ -2409,6 +2606,7 @@ export interface EventTopic {
 }
 
 /**
+ * @public
  * <p>The result of a DescribeEventTopic request.</p>
  */
 export interface DescribeEventTopicsResult {
@@ -2419,10 +2617,16 @@ export interface DescribeEventTopicsResult {
   EventTopics?: EventTopic[];
 }
 
+/**
+ * @public
+ */
 export enum LDAPSType {
   CLIENT = "Client",
 }
 
+/**
+ * @public
+ */
 export interface DescribeLDAPSSettingsRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -2446,6 +2650,9 @@ export interface DescribeLDAPSSettingsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum LDAPSStatus {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
@@ -2454,6 +2661,7 @@ export enum LDAPSStatus {
 }
 
 /**
+ * @public
  * <p>Contains general information about the LDAPS settings.</p>
  */
 export interface LDAPSSettingInfo {
@@ -2473,6 +2681,9 @@ export interface LDAPSSettingInfo {
   LastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLDAPSSettingsResult {
   /**
    * <p>Information about LDAP security for the specified directory, including status of
@@ -2487,6 +2698,9 @@ export interface DescribeLDAPSSettingsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegionsRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -2504,12 +2718,16 @@ export interface DescribeRegionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum RegionType {
   ADDITIONAL = "Additional",
   PRIMARY = "Primary",
 }
 
 /**
+ * @public
  * <p>The replicated Region information for a directory.</p>
  */
 export interface RegionDescription {
@@ -2560,6 +2778,9 @@ export interface RegionDescription {
   LastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegionsResult {
   /**
    * <p>List of Region information related to the directory for each replicated Region.</p>
@@ -2574,6 +2795,9 @@ export interface DescribeRegionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DirectoryConfigurationStatus {
   DEFAULT = "Default",
   FAILED = "Failed",
@@ -2582,6 +2806,9 @@ export enum DirectoryConfigurationStatus {
   UPDATING = "Updating",
 }
 
+/**
+ * @public
+ */
 export interface DescribeSettingsRequest {
   /**
    * <p>The identifier of the directory for which to retrieve information.</p>
@@ -2600,6 +2827,7 @@ export interface DescribeSettingsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the specified configurable setting for a directory.</p>
  */
 export interface SettingEntry {
@@ -2657,6 +2885,9 @@ export interface SettingEntry {
   LastRequestedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSettingsResult {
   /**
    * <p>The identifier of the directory.</p>
@@ -2678,6 +2909,9 @@ export interface DescribeSettingsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSharedDirectoriesRequest {
   /**
    * <p>Returns the identifier of the directory in the directory owner account. </p>
@@ -2701,6 +2935,9 @@ export interface DescribeSharedDirectoriesRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSharedDirectoriesResult {
   /**
    * <p>A list of all shared directories in your account.</p>
@@ -2715,6 +2952,7 @@ export interface DescribeSharedDirectoriesResult {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DescribeSnapshots</a> operation.</p>
  */
 export interface DescribeSnapshotsRequest {
@@ -2742,18 +2980,25 @@ export interface DescribeSnapshotsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum SnapshotStatus {
   COMPLETED = "Completed",
   CREATING = "Creating",
   FAILED = "Failed",
 }
 
+/**
+ * @public
+ */
 export enum SnapshotType {
   AUTO = "Auto",
   MANUAL = "Manual",
 }
 
 /**
+ * @public
  * <p>Describes a directory snapshot.</p>
  */
 export interface Snapshot {
@@ -2789,6 +3034,7 @@ export interface Snapshot {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>DescribeSnapshots</a> operation.</p>
  */
 export interface DescribeSnapshotsResult {
@@ -2809,6 +3055,7 @@ export interface DescribeSnapshotsResult {
 }
 
 /**
+ * @public
  * <p>Describes the trust relationships for a particular Managed Microsoft AD directory. If no input
  *       parameters are provided, such as directory ID or trust ID, this request describes all the
  *       trust relationships.</p>
@@ -2840,6 +3087,9 @@ export interface DescribeTrustsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum TrustState {
   CREATED = "Created",
   CREATING = "Creating",
@@ -2855,6 +3105,7 @@ export enum TrustState {
 }
 
 /**
+ * @public
  * <p>Describes a trust relationship between an Managed Microsoft AD directory and an external
  *       domain.</p>
  */
@@ -2917,6 +3168,7 @@ export interface Trust {
 }
 
 /**
+ * @public
  * <p>The result of a DescribeTrust request.</p>
  */
 export interface DescribeTrustsResult {
@@ -2936,10 +3188,16 @@ export interface DescribeTrustsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum UpdateType {
   OS = "OS",
 }
 
+/**
+ * @public
+ */
 export interface DescribeUpdateDirectoryRequest {
   /**
    * <p>
@@ -2971,6 +3229,7 @@ export interface DescribeUpdateDirectoryRequest {
 }
 
 /**
+ * @public
  * <p>
  *       OS version that the directory needs to be updated to.
  *     </p>
@@ -2985,6 +3244,7 @@ export interface OSUpdateSettings {
 }
 
 /**
+ * @public
  * <p>
  *       The value for a given type of <code>UpdateSettings</code>.
  *     </p>
@@ -2998,6 +3258,9 @@ export interface UpdateValue {
   OSUpdateSettings?: OSUpdateSettings;
 }
 
+/**
+ * @public
+ */
 export enum UpdateStatus {
   UPDATED = "Updated",
   UPDATE_FAILED = "UpdateFailed",
@@ -3005,6 +3268,7 @@ export enum UpdateStatus {
 }
 
 /**
+ * @public
  * <p>
  *       An entry of update information related to a requested update type.
  *     </p>
@@ -3067,6 +3331,9 @@ export interface UpdateInfoEntry {
   LastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUpdateDirectoryResult {
   /**
    * <p>
@@ -3084,6 +3351,7 @@ export interface DescribeUpdateDirectoryResult {
 }
 
 /**
+ * @public
  * <p>
  *       The directory is already updated to desired update type settings.
  *     </p>
@@ -3116,6 +3384,7 @@ export class DirectoryInDesiredStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains directory limit information for a Region.</p>
  */
 export interface DirectoryLimits {
@@ -3166,6 +3435,7 @@ export interface DirectoryLimits {
 }
 
 /**
+ * @public
  * <p>The specified directory has not been shared with this Amazon Web Services account.</p>
  */
 export class DirectoryNotSharedException extends __BaseException {
@@ -3195,6 +3465,9 @@ export class DirectoryNotSharedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisableClientAuthenticationRequest {
   /**
    * <p>The identifier of the directory </p>
@@ -3207,9 +3480,13 @@ export interface DisableClientAuthenticationRequest {
   Type: ClientAuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableClientAuthenticationResult {}
 
 /**
+ * @public
  * <p>Client authentication is already enabled.</p>
  */
 export class InvalidClientAuthStatusException extends __BaseException {
@@ -3239,6 +3516,9 @@ export class InvalidClientAuthStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisableLDAPSRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3252,9 +3532,13 @@ export interface DisableLDAPSRequest {
   Type: LDAPSType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableLDAPSResult {}
 
 /**
+ * @public
  * <p>The LDAP activities could not be performed because they are limited by the LDAPS
  *       status.</p>
  */
@@ -3286,6 +3570,7 @@ export class InvalidLDAPSStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DisableRadius</a> operation.</p>
  */
 export interface DisableRadiusRequest {
@@ -3296,11 +3581,13 @@ export interface DisableRadiusRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>DisableRadius</a> operation.</p>
  */
 export interface DisableRadiusResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DisableSso</a> operation.</p>
  */
 export interface DisableSsoRequest {
@@ -3330,10 +3617,14 @@ export interface DisableSsoRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>DisableSso</a> operation.</p>
  */
 export interface DisableSsoResult {}
 
+/**
+ * @public
+ */
 export interface EnableClientAuthenticationRequest {
   /**
    * <p>The identifier of the specified directory. </p>
@@ -3349,9 +3640,13 @@ export interface EnableClientAuthenticationRequest {
   Type: ClientAuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableClientAuthenticationResult {}
 
 /**
+ * @public
  * <p>Client authentication setup could not be completed because at least one valid certificate must be
  *       registered in the system.</p>
  */
@@ -3382,6 +3677,9 @@ export class NoAvailableCertificateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface EnableLDAPSRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3395,9 +3693,13 @@ export interface EnableLDAPSRequest {
   Type: LDAPSType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableLDAPSResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>EnableRadius</a> operation.</p>
  */
 export interface EnableRadiusRequest {
@@ -3414,11 +3716,13 @@ export interface EnableRadiusRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>EnableRadius</a> operation.</p>
  */
 export interface EnableRadiusResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>EnableSso</a> operation.</p>
  */
 export interface EnableSsoRequest {
@@ -3448,16 +3752,19 @@ export interface EnableSsoRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>EnableSso</a> operation.</p>
  */
 export interface EnableSsoResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>GetDirectoryLimits</a> operation.</p>
  */
 export interface GetDirectoryLimitsRequest {}
 
 /**
+ * @public
  * <p>Contains the results of the <a>GetDirectoryLimits</a> operation.</p>
  */
 export interface GetDirectoryLimitsResult {
@@ -3469,6 +3776,7 @@ export interface GetDirectoryLimitsResult {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>GetSnapshotLimits</a> operation.</p>
  */
 export interface GetSnapshotLimitsRequest {
@@ -3479,6 +3787,7 @@ export interface GetSnapshotLimitsRequest {
 }
 
 /**
+ * @public
  * <p>Contains manual snapshot limit information for a directory.</p>
  */
 export interface SnapshotLimits {
@@ -3499,6 +3808,7 @@ export interface SnapshotLimits {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>GetSnapshotLimits</a> operation.</p>
  */
 export interface GetSnapshotLimitsResult {
@@ -3509,6 +3819,9 @@ export interface GetSnapshotLimitsResult {
   SnapshotLimits?: SnapshotLimits;
 }
 
+/**
+ * @public
+ */
 export interface ListCertificatesRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3529,6 +3842,9 @@ export interface ListCertificatesRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCertificatesResult {
   /**
    * <p>Indicates whether another page of certificates is available when the number of available
@@ -3543,6 +3859,9 @@ export interface ListCertificatesResult {
   CertificatesInfo?: CertificateInfo[];
 }
 
+/**
+ * @public
+ */
 export interface ListIpRoutesRequest {
   /**
    * <p>Identifier (ID) of the directory for which you want to retrieve the IP
@@ -3562,6 +3881,9 @@ export interface ListIpRoutesRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum IpRouteStatusMsg {
   ADDED = "Added",
   ADDING = "Adding",
@@ -3572,6 +3894,7 @@ export enum IpRouteStatusMsg {
 }
 
 /**
+ * @public
  * <p>Information about one or more IP address blocks.</p>
  */
 export interface IpRouteInfo {
@@ -3606,6 +3929,9 @@ export interface IpRouteInfo {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIpRoutesResult {
   /**
    * <p>A list of <a>IpRoute</a>s.</p>
@@ -3619,6 +3945,9 @@ export interface ListIpRoutesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogSubscriptionsRequest {
   /**
    * <p>If a <i>DirectoryID</i> is provided, lists only the log subscription
@@ -3640,6 +3969,7 @@ export interface ListLogSubscriptionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a log subscription, which tracks real-time data from a chosen log group to a
  *       specified destination.</p>
  */
@@ -3661,6 +3991,9 @@ export interface LogSubscription {
   SubscriptionCreatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListLogSubscriptionsResult {
   /**
    * <p>A list of active <a>LogSubscription</a> objects for calling the Amazon Web Services account.</p>
@@ -3673,6 +4006,9 @@ export interface ListLogSubscriptionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaExtensionsRequest {
   /**
    * <p>The identifier of the directory from which to retrieve the schema extension
@@ -3692,6 +4028,9 @@ export interface ListSchemaExtensionsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export enum SchemaExtensionStatus {
   CANCELLED = "Cancelled",
   CANCEL_IN_PROGRESS = "CancelInProgress",
@@ -3705,6 +4044,7 @@ export enum SchemaExtensionStatus {
 }
 
 /**
+ * @public
  * <p>Information about a schema extension.</p>
  */
 export interface SchemaExtensionInfo {
@@ -3745,6 +4085,9 @@ export interface SchemaExtensionInfo {
   EndDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaExtensionsResult {
   /**
    * <p>Information about the schema extensions applied to the directory.</p>
@@ -3759,6 +4102,9 @@ export interface ListSchemaExtensionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Identifier (ID) of the directory for which you want to retrieve tags.</p>
@@ -3776,6 +4122,9 @@ export interface ListTagsForResourceRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>List of tags returned by the ListTagsForResource operation.</p>
@@ -3789,6 +4138,7 @@ export interface ListTagsForResourceResult {
 }
 
 /**
+ * @public
  * <p>The certificate PEM that was provided has incorrect encoding.</p>
  */
 export class InvalidCertificateException extends __BaseException {
@@ -3818,6 +4168,9 @@ export class InvalidCertificateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterCertificateRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3840,6 +4193,9 @@ export interface RegisterCertificateRequest {
   ClientCertAuthSettings?: ClientCertAuthSettings;
 }
 
+/**
+ * @public
+ */
 export interface RegisterCertificateResult {
   /**
    * <p>The identifier of the certificate.</p>
@@ -3848,6 +4204,7 @@ export interface RegisterCertificateResult {
 }
 
 /**
+ * @public
  * <p>Registers a new event topic.</p>
  */
 export interface RegisterEventTopicRequest {
@@ -3864,10 +4221,14 @@ export interface RegisterEventTopicRequest {
 }
 
 /**
+ * @public
  * <p>The result of a RegisterEventTopic request.</p>
  */
 export interface RegisterEventTopicResult {}
 
+/**
+ * @public
+ */
 export interface RejectSharedDirectoryRequest {
   /**
    * <p>Identifier of the shared directory in the directory consumer account. This identifier is
@@ -3876,6 +4237,9 @@ export interface RejectSharedDirectoryRequest {
   SharedDirectoryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RejectSharedDirectoryResult {
   /**
    * <p>Identifier of the shared directory in the directory consumer account.</p>
@@ -3883,6 +4247,9 @@ export interface RejectSharedDirectoryResult {
   SharedDirectoryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveIpRoutesRequest {
   /**
    * <p>Identifier (ID) of the directory from which you want to remove the IP
@@ -3896,8 +4263,14 @@ export interface RemoveIpRoutesRequest {
   CidrIps: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveIpRoutesResult {}
 
+/**
+ * @public
+ */
 export interface RemoveRegionRequest {
   /**
    * <p>The identifier of the directory for which you want to remove Region replication.</p>
@@ -3905,8 +4278,14 @@ export interface RemoveRegionRequest {
   DirectoryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveRegionResult {}
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceRequest {
   /**
    * <p>Identifier (ID) of the directory from which to remove the tag.</p>
@@ -3919,9 +4298,13 @@ export interface RemoveTagsFromResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceResult {}
 
 /**
+ * @public
  * <p>The new password provided by the user does not meet the password complexity
  *             requirements defined in your directory.</p>
  */
@@ -3952,6 +4335,9 @@ export class InvalidPasswordException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResetUserPasswordRequest {
   /**
    * <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user
@@ -3970,9 +4356,13 @@ export interface ResetUserPasswordRequest {
   NewPassword: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResetUserPasswordResult {}
 
 /**
+ * @public
  * <p>The user provided a username that does not exist in your directory.</p>
  */
 export class UserDoesNotExistException extends __BaseException {
@@ -4003,6 +4393,7 @@ export class UserDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object representing the inputs for the <a>RestoreFromSnapshot</a> operation.</p>
  */
 export interface RestoreFromSnapshotRequest {
@@ -4013,11 +4404,13 @@ export interface RestoreFromSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>RestoreFromSnapshot</a> operation.</p>
  */
 export interface RestoreFromSnapshotResult {}
 
 /**
+ * @public
  * <p>The specified shared target is not valid.</p>
  */
 export class InvalidTargetException extends __BaseException {
@@ -4048,6 +4441,7 @@ export class InvalidTargetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
  */
 export class OrganizationsException extends __BaseException {
@@ -4077,11 +4471,15 @@ export class OrganizationsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum TargetType {
   ACCOUNT = "ACCOUNT",
 }
 
 /**
+ * @public
  * <p>Identifier that contains details about the directory consumer account.</p>
  */
 export interface ShareTarget {
@@ -4096,6 +4494,9 @@ export interface ShareTarget {
   Type: TargetType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ShareDirectoryRequest {
   /**
    * <p>Identifier of the Managed Microsoft AD directory that you want to share with other Amazon Web Services accounts.</p>
@@ -4123,6 +4524,9 @@ export interface ShareDirectoryRequest {
   ShareMethod: ShareMethod | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ShareDirectoryResult {
   /**
    * <p>Identifier of the directory that is stored in the directory consumer account that is
@@ -4132,6 +4536,7 @@ export interface ShareDirectoryResult {
 }
 
 /**
+ * @public
  * <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been
  *             reached.</p>
  */
@@ -4162,6 +4567,9 @@ export class ShareLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartSchemaExtensionRequest {
   /**
    * <p>The identifier of the directory for which the schema extension will be applied
@@ -4188,6 +4596,9 @@ export interface StartSchemaExtensionRequest {
   Description: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSchemaExtensionResult {
   /**
    * <p>The identifier of the schema extension that will be applied.</p>
@@ -4196,6 +4607,7 @@ export interface StartSchemaExtensionResult {
 }
 
 /**
+ * @public
  * <p>Identifier that contains details about the directory consumer account with whom the
  *       directory is being unshared.</p>
  */
@@ -4211,6 +4623,9 @@ export interface UnshareTarget {
   Type: TargetType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnshareDirectoryRequest {
   /**
    * <p>The identifier of the Managed Microsoft AD directory that you want to stop
@@ -4225,6 +4640,9 @@ export interface UnshareDirectoryRequest {
   UnshareTarget: UnshareTarget | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnshareDirectoryResult {
   /**
    * <p>Identifier of the directory stored in the directory consumer account that is to be
@@ -4234,6 +4652,7 @@ export interface UnshareDirectoryResult {
 }
 
 /**
+ * @public
  * <p>Updates a conditional forwarder.</p>
  */
 export interface UpdateConditionalForwarderRequest {
@@ -4257,10 +4676,14 @@ export interface UpdateConditionalForwarderRequest {
 }
 
 /**
+ * @public
  * <p>The result of an UpdateConditionalForwarder request.</p>
  */
 export interface UpdateConditionalForwarderResult {}
 
+/**
+ * @public
+ */
 export interface UpdateDirectorySetupRequest {
   /**
    * <p>
@@ -4291,9 +4714,13 @@ export interface UpdateDirectorySetupRequest {
   CreateSnapshotBeforeUpdate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectorySetupResult {}
 
 /**
+ * @public
  * <p>The maximum allowed number of domain controllers per directory was exceeded. The
  *       default limit per directory is 20 domain controllers.</p>
  */
@@ -4324,6 +4751,9 @@ export class DomainControllerLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateNumberOfDomainControllersRequest {
   /**
    * <p>Identifier of the directory to which the domain controllers will be added or
@@ -4337,9 +4767,13 @@ export interface UpdateNumberOfDomainControllersRequest {
   DesiredNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNumberOfDomainControllersResult {}
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>UpdateRadius</a> operation.</p>
  */
 export interface UpdateRadiusRequest {
@@ -4357,11 +4791,13 @@ export interface UpdateRadiusRequest {
 }
 
 /**
+ * @public
  * <p>Contains the results of the <a>UpdateRadius</a> operation.</p>
  */
 export interface UpdateRadiusResult {}
 
 /**
+ * @public
  * <p>The specified directory setting is not compatible with other settings.</p>
  */
 export class IncompatibleSettingsException extends __BaseException {
@@ -4392,6 +4828,7 @@ export class IncompatibleSettingsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified directory setting is not supported.</p>
  */
 export class UnsupportedSettingsException extends __BaseException {
@@ -4422,6 +4859,7 @@ export class UnsupportedSettingsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about the configurable settings for a directory.</p>
  */
 export interface Setting {
@@ -4439,6 +4877,9 @@ export interface Setting {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSettingsRequest {
   /**
    * <p>The identifier of the directory for which to update settings.</p>
@@ -4451,6 +4892,9 @@ export interface UpdateSettingsRequest {
   Settings: Setting[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSettingsResult {
   /**
    * <p>The identifier of the directory.</p>
@@ -4458,6 +4902,9 @@ export interface UpdateSettingsResult {
   DirectoryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrustRequest {
   /**
    * <p>Identifier of the trust relationship.</p>
@@ -4470,6 +4917,9 @@ export interface UpdateTrustRequest {
   SelectiveAuth?: SelectiveAuth | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrustResult {
   /**
    * <p>The Amazon Web Services request identifier.</p>
@@ -4483,6 +4933,7 @@ export interface UpdateTrustResult {
 }
 
 /**
+ * @public
  * <p>Initiates the verification of an existing trust relationship between an Managed Microsoft AD
  *       directory and an external domain.</p>
  */
@@ -4494,6 +4945,7 @@ export interface VerifyTrustRequest {
 }
 
 /**
+ * @public
  * <p>Result of a VerifyTrust request.</p>
  */
 export interface VerifyTrustResult {

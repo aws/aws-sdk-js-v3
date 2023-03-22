@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppInstanceRetentionSettingsCommand}.
  */
 export interface GetAppInstanceRetentionSettingsCommandInput extends GetAppInstanceRetentionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppInstanceRetentionSettingsCommand}.
  */
 export interface GetAppInstanceRetentionSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppInstanceRetentionSettingsCommandInput - {@link GetAppInstanceRetentionSettingsCommandInput}
+ * @returns {@link GetAppInstanceRetentionSettingsCommandOutput}
  * @see {@link GetAppInstanceRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAppInstanceRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppInstanceRetentionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAppInstanceRetentionSettingsCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     return serializeAws_restJson1GetAppInstanceRetentionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

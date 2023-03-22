@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAdvisorDatabasesCommand}.
  */
 export interface DescribeFleetAdvisorDatabasesCommandInput extends DescribeFleetAdvisorDatabasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAdvisorDatabasesCommand}.
  */
 export interface DescribeFleetAdvisorDatabasesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeFleetAdvisorDatabasesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Fleet Advisor databases in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeFleetAdvisorDatabasesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorDatabasesCommandInput - {@link DescribeFleetAdvisorDatabasesCommandInput}
+ * @returns {@link DescribeFleetAdvisorDatabasesCommandOutput}
  * @see {@link DescribeFleetAdvisorDatabasesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorDatabasesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetAdvisorDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetAdvisorDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

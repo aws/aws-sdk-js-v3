@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyProductCommand}.
  */
 export interface CopyProductCommandInput extends CopyProductInput {}
 /**
+ * @public
+ *
  * The output of {@link CopyProductCommand}.
  */
 export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified source product to the specified target product or a new
  *          product.</p>
  *          <p>You can copy a product to the same account or another account. You can copy a product
@@ -52,6 +57,8 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyProductCommandInput - {@link CopyProductCommandInput}
+ * @returns {@link CopyProductCommandOutput}
  * @see {@link CopyProductCommandInput} for command's `input` shape.
  * @see {@link CopyProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class CopyProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CopyProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CopyProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyProductCommandOutput> {
     return deserializeAws_json1_1CopyProductCommand(output, context);
   }

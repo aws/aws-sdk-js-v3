@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopContactCommand}.
  */
 export interface StopContactCommandInput extends StopContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopContactCommand}.
  */
 export interface StopContactCommandOutput extends StopContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends the specified contact. This call does not work for the following initiation
  *    methods:</p>
  *          <ul>
@@ -58,6 +63,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StopContactCommandInput - {@link StopContactCommandInput}
+ * @returns {@link StopContactCommandOutput}
  * @see {@link StopContactCommandInput} for command's `input` shape.
  * @see {@link StopContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -97,6 +104,9 @@ export class StopContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class StopContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContactCommandOutput> {
     return deserializeAws_restJson1StopContactCommand(output, context);
   }

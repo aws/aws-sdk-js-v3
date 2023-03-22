@@ -25,15 +25,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDefaultViewCommand}.
  */
 export interface GetDefaultViewCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDefaultViewCommand}.
  */
 export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Amazon Resource Name (ARN) of the view that is the default for the
  *             Amazon Web Services Region in which you call this operation. You can then call <a>GetView</a> to retrieve the details of that view.</p>
  * @example
@@ -46,6 +51,8 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDefaultViewCommandInput - {@link GetDefaultViewCommandInput}
+ * @returns {@link GetDefaultViewCommandOutput}
  * @see {@link GetDefaultViewCommandInput} for command's `input` shape.
  * @see {@link GetDefaultViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -89,6 +96,9 @@ export class GetDefaultViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDefaultViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetDefaultViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDefaultViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultViewCommandOutput> {
     return deserializeAws_restJson1GetDefaultViewCommand(output, context);
   }

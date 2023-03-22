@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCostCategoryDefinitionCommand}.
  */
 export interface UpdateCostCategoryDefinitionCommandInput extends UpdateCostCategoryDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCostCategoryDefinitionCommand}.
  */
 export interface UpdateCostCategoryDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to
  *       categorize the current month’s expenses and future expenses. This won’t change categorization
  *       for the previous months.</p>
@@ -50,6 +55,8 @@ export interface UpdateCostCategoryDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCostCategoryDefinitionCommandInput - {@link UpdateCostCategoryDefinitionCommandInput}
+ * @returns {@link UpdateCostCategoryDefinitionCommandOutput}
  * @see {@link UpdateCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateCostCategoryDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCostCategoryDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateCostCategoryDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCostCategoryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCostCategoryDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

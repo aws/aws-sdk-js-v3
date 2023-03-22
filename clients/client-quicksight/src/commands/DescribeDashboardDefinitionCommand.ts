@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDashboardDefinitionCommand}.
  */
 export interface DescribeDashboardDefinitionCommandInput extends DescribeDashboardDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDashboardDefinitionCommand}.
  */
 export interface DescribeDashboardDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDashboardDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed description of the definition of a dashboard.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of a dashboard, for instance if you
@@ -56,6 +61,8 @@ export interface DescribeDashboardDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDashboardDefinitionCommandInput - {@link DescribeDashboardDefinitionCommandInput}
+ * @returns {@link DescribeDashboardDefinitionCommandOutput}
  * @see {@link DescribeDashboardDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -109,6 +116,9 @@ export class DescribeDashboardDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDashboardDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DescribeDashboardDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDashboardDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDashboardDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCertificateCommand}.
  */
 export interface DeleteCertificateCommandInput extends DeleteCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCertificateCommand}.
  */
 export interface DeleteCertificateCommandOutput extends DeleteCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>Certificates that are currently attached to a distribution cannot be deleted. Use the
@@ -50,6 +55,8 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
+ * @returns {@link DeleteCertificateCommandOutput}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
     return deserializeAws_json1_1DeleteCertificateCommand(output, context);
   }

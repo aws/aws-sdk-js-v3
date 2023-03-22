@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetAllResourceLogLevelsCommand}.
  */
 export interface ResetAllResourceLogLevelsCommandInput extends ResetAllResourceLogLevelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetAllResourceLogLevelsCommand}.
  */
 export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResourceLogLevelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the log-level overrides for all resources; both wireless devices and wireless gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetAllResourceLogLevelsCommandInput - {@link ResetAllResourceLogLevelsCommandInput}
+ * @returns {@link ResetAllResourceLogLevelsCommandOutput}
  * @see {@link ResetAllResourceLogLevelsCommandInput} for command's `input` shape.
  * @see {@link ResetAllResourceLogLevelsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class ResetAllResourceLogLevelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetAllResourceLogLevelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ResetAllResourceLogLevelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetAllResourceLogLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResetAllResourceLogLevelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

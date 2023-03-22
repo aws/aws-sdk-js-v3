@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOTAUpdateCommand}.
  */
 export interface CreateOTAUpdateCommandInput extends CreateOTAUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOTAUpdateCommand}.
  */
 export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IoT OTA update on a target group of things or groups.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateOTAUpdate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOTAUpdateCommandInput - {@link CreateOTAUpdateCommandInput}
+ * @returns {@link CreateOTAUpdateCommandOutput}
  * @see {@link CreateOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link CreateOTAUpdateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateOTAUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOTAUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateOTAUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOTAUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateOTAUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOTAUpdateCommandOutput> {
     return deserializeAws_restJson1CreateOTAUpdateCommand(output, context);
   }

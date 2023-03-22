@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSecurityConfigurationsCommand}.
  */
 export interface GetSecurityConfigurationsCommandInput extends GetSecurityConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSecurityConfigurationsCommand}.
  */
 export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all security configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSecurityConfigurationsCommandInput - {@link GetSecurityConfigurationsCommandInput}
+ * @returns {@link GetSecurityConfigurationsCommandOutput}
  * @see {@link GetSecurityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetSecurityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetSecurityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSecurityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetSecurityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSecurityConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSecurityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

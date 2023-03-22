@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverEndpointsCommand}.
  */
 export interface ListResolverEndpointsCommandInput extends ListResolverEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverEndpointsCommand}.
  */
 export interface ListResolverEndpointsCommandOutput extends ListResolverEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the Resolver endpoints that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverEndpointsCommandInput - {@link ListResolverEndpointsCommandInput}
+ * @returns {@link ListResolverEndpointsCommandOutput}
  * @see {@link ListResolverEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListResolverEndpointsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListResolverEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListResolverEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResolverEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolverEndpointsCommandOutput> {
     return deserializeAws_json1_1ListResolverEndpointsCommand(output, context);
   }

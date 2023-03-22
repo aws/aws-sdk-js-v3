@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToVaultCommand}.
  */
 export interface AddTagsToVaultCommandInput extends AddTagsToVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToVaultCommand}.
  */
 export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation adds the specified tags to a vault. Each tag is composed of a key and
  *          a value. Each vault can have up to 10 tags. If your request would cause the tag limit for
  *          the vault to be exceeded, the operation throws the <code>LimitExceededException</code>
@@ -46,6 +51,8 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToVaultCommandInput - {@link AddTagsToVaultCommandInput}
+ * @returns {@link AddTagsToVaultCommandOutput}
  * @see {@link AddTagsToVaultCommandInput} for command's `input` shape.
  * @see {@link AddTagsToVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -101,6 +108,9 @@ export class AddTagsToVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class AddTagsToVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddTagsToVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToVaultCommandOutput> {
     return deserializeAws_restJson1AddTagsToVaultCommand(output, context);
   }

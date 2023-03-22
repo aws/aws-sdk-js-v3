@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterInstanceEventNotificationAttributesCommand}.
  */
 export interface RegisterInstanceEventNotificationAttributesCommandInput
   extends RegisterInstanceEventNotificationAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterInstanceEventNotificationAttributesCommand}.
  */
 export interface RegisterInstanceEventNotificationAttributesCommandOutput
@@ -38,6 +42,7 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.
  *    		</p>
  *          <p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
@@ -51,6 +56,8 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterInstanceEventNotificationAttributesCommandInput - {@link RegisterInstanceEventNotificationAttributesCommandInput}
+ * @returns {@link RegisterInstanceEventNotificationAttributesCommandOutput}
  * @see {@link RegisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterInstanceEventNotificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterInstanceEventNotificationAttributesCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     return serializeAws_ec2RegisterInstanceEventNotificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

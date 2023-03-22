@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportWorkspaceImageCommand}.
  */
 export interface ImportWorkspaceImageCommandInput extends ImportWorkspaceImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportWorkspaceImageCommand}.
  */
 export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the specified Windows 10 Bring Your Own License (BYOL)
  *          image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
  *          in your Amazon Web Services account, and you must own the image. For more information about
@@ -50,6 +55,8 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportWorkspaceImageCommandInput - {@link ImportWorkspaceImageCommandInput}
+ * @returns {@link ImportWorkspaceImageCommandOutput}
  * @see {@link ImportWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link ImportWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -91,6 +98,9 @@ export class ImportWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ImportWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportWorkspaceImageCommandOutput> {
     return deserializeAws_json1_1ImportWorkspaceImageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorProxyCommand}.
  */
 export interface PutVoiceConnectorProxyCommandInput extends PutVoiceConnectorProxyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorProxyCommand}.
  */
 export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorProxyCommandInput - {@link PutVoiceConnectorProxyCommandInput}
+ * @returns {@link PutVoiceConnectorProxyCommandOutput}
  * @see {@link PutVoiceConnectorProxyCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorProxyCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class PutVoiceConnectorProxyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorProxyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class PutVoiceConnectorProxyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutVoiceConnectorProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutVoiceConnectorProxyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutVoiceConnectorProxyCommandOutput> {
     return deserializeAws_restJson1PutVoiceConnectorProxyCommand(output, context);
   }

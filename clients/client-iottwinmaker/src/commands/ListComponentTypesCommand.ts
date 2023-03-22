@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentTypesCommand}.
  */
 export interface ListComponentTypesCommandInput extends ListComponentTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentTypesCommand}.
  */
 export interface ListComponentTypesCommandOutput extends ListComponentTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all component types in a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListComponentTypesCommandOutput extends ListComponentTypesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentTypesCommandInput - {@link ListComponentTypesCommandInput}
+ * @returns {@link ListComponentTypesCommandOutput}
  * @see {@link ListComponentTypesCommandInput} for command's `input` shape.
  * @see {@link ListComponentTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListComponentTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListComponentTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListComponentTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentTypesCommandOutput> {
     return deserializeAws_restJson1ListComponentTypesCommand(output, context);
   }

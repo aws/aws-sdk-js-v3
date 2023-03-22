@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTargetsWithJobCommand}.
  */
 export interface AssociateTargetsWithJobCommandInput extends AssociateTargetsWithJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTargetsWithJobCommand}.
  */
 export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWithJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a group with a continuous job. The following criteria must be met: </p>
  *          <ul>
  *             <li>
@@ -59,6 +64,8 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTargetsWithJobCommandInput - {@link AssociateTargetsWithJobCommandInput}
+ * @returns {@link AssociateTargetsWithJobCommandOutput}
  * @see {@link AssociateTargetsWithJobCommandInput} for command's `input` shape.
  * @see {@link AssociateTargetsWithJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -97,6 +104,9 @@ export class AssociateTargetsWithJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTargetsWithJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AssociateTargetsWithJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTargetsWithJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateTargetsWithJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTargetsWithJobCommandOutput> {
     return deserializeAws_restJson1AssociateTargetsWithJobCommand(output, context);
   }

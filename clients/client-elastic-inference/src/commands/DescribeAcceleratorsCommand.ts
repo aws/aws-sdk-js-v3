@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAcceleratorsCommand}.
  */
 export interface DescribeAcceleratorsCommandInput extends DescribeAcceleratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAcceleratorsCommand}.
  */
 export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Describes information over a provided set of accelerators belonging to an account.
  *         </p>
@@ -48,6 +53,8 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAcceleratorsCommandInput - {@link DescribeAcceleratorsCommandInput}
+ * @returns {@link DescribeAcceleratorsCommandOutput}
  * @see {@link DescribeAcceleratorsCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorsCommandOutput} for command's `response` shape.
  * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeAcceleratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAcceleratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeAcceleratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAcceleratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAcceleratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAcceleratorsCommandOutput> {
     return deserializeAws_restJson1DescribeAcceleratorsCommand(output, context);
   }

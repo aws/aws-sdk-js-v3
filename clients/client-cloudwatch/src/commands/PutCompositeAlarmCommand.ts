@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutCompositeAlarmCommand}.
  */
 export interface PutCompositeAlarmCommandInput extends PutCompositeAlarmInput {}
 /**
+ * @public
+ *
  * The output of {@link PutCompositeAlarmCommand}.
  */
 export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a <i>composite alarm</i>. When you create a composite
  * 			alarm, you specify a rule expression for the alarm that takes into account the alarm
  * 			states of other alarms that you have created. The composite alarm goes into ALARM state
@@ -79,6 +84,8 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCompositeAlarmCommandInput - {@link PutCompositeAlarmCommandInput}
+ * @returns {@link PutCompositeAlarmCommandOutput}
  * @see {@link PutCompositeAlarmCommandInput} for command's `input` shape.
  * @see {@link PutCompositeAlarmCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -105,6 +112,9 @@ export class PutCompositeAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCompositeAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class PutCompositeAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCompositeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutCompositeAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCompositeAlarmCommandOutput> {
     return deserializeAws_queryPutCompositeAlarmCommand(output, context);
   }

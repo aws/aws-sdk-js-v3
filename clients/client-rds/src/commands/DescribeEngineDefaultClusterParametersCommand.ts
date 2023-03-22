@@ -26,11 +26,15 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngineDefaultClusterParametersCommand}.
  */
 export interface DescribeEngineDefaultClusterParametersCommandInput
   extends DescribeEngineDefaultClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngineDefaultClusterParametersCommand}.
  */
 export interface DescribeEngineDefaultClusterParametersCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -52,6 +57,8 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineDefaultClusterParametersCommandInput - {@link DescribeEngineDefaultClusterParametersCommandInput}
+ * @returns {@link DescribeEngineDefaultClusterParametersCommandOutput}
  * @see {@link DescribeEngineDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEngineDefaultClusterParametersCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceEventWindowCommand}.
  */
 export interface ModifyInstanceEventWindowCommandInput extends ModifyInstanceEventWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceEventWindowCommand}.
  */
 export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEventWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified event window.</p>
  *          <p>You can define either a set of time ranges or a cron expression when modifying the event
  *          window, but not both.</p>
@@ -53,6 +58,8 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceEventWindowCommandInput - {@link ModifyInstanceEventWindowCommandInput}
+ * @returns {@link ModifyInstanceEventWindowCommandOutput}
  * @see {@link ModifyInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

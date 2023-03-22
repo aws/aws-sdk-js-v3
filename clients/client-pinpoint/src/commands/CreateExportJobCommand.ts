@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExportJobCommand}.
  */
 export interface CreateExportJobCommandInput extends CreateExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExportJobCommand}.
  */
 export interface CreateExportJobCommandOutput extends CreateExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an export job for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExportJobCommandInput - {@link CreateExportJobCommandInput}
+ * @returns {@link CreateExportJobCommandOutput}
  * @see {@link CreateExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateExportJobCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportJobCommandOutput> {
     return deserializeAws_restJson1CreateExportJobCommand(output, context);
   }

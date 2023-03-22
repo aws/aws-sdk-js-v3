@@ -28,10 +28,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StartNetworkInsightsAnalysisCommand}.
  */
 export interface StartNetworkInsightsAnalysisCommandInput extends StartNetworkInsightsAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartNetworkInsightsAnalysisCommand}.
  */
 export interface StartNetworkInsightsAnalysisCommandOutput
@@ -39,6 +43,7 @@ export interface StartNetworkInsightsAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts analyzing the specified path. If the path is reachable, the
  *          operation returns the shortest feasible path.</p>
  * @example
@@ -51,6 +56,8 @@ export interface StartNetworkInsightsAnalysisCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNetworkInsightsAnalysisCommandInput - {@link StartNetworkInsightsAnalysisCommandInput}
+ * @returns {@link StartNetworkInsightsAnalysisCommandOutput}
  * @see {@link StartNetworkInsightsAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartNetworkInsightsAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class StartNetworkInsightsAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNetworkInsightsAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class StartNetworkInsightsAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNetworkInsightsAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2StartNetworkInsightsAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

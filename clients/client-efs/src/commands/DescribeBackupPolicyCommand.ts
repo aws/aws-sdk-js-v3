@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBackupPolicyCommand}.
  */
 export interface DescribeBackupPolicyCommandInput extends DescribeBackupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBackupPolicyCommand}.
  */
 export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the backup policy for the specified EFS file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupPolicyCommandInput - {@link DescribeBackupPolicyCommandInput}
+ * @returns {@link DescribeBackupPolicyCommandOutput}
  * @see {@link DescribeBackupPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeBackupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeBackupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBackupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupPolicyCommandOutput> {
     return deserializeAws_restJson1DescribeBackupPolicyCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRelatedResourcesForAuditFindingCommand}.
  */
 export interface ListRelatedResourcesForAuditFindingCommandInput extends ListRelatedResourcesForAuditFindingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRelatedResourcesForAuditFindingCommand}.
  */
 export interface ListRelatedResourcesForAuditFindingCommandOutput
@@ -37,6 +41,7 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The related resources of an Audit finding.
  *       The following resources can be returned from calling this API:</p>
  *          <ul>
@@ -84,6 +89,8 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRelatedResourcesForAuditFindingCommandInput - {@link ListRelatedResourcesForAuditFindingCommandInput}
+ * @returns {@link ListRelatedResourcesForAuditFindingCommandOutput}
  * @see {@link ListRelatedResourcesForAuditFindingCommandInput} for command's `input` shape.
  * @see {@link ListRelatedResourcesForAuditFindingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -119,6 +126,9 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRelatedResourcesForAuditFindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,6 +168,9 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRelatedResourcesForAuditFindingCommandInput,
     context: __SerdeContext
@@ -165,6 +178,9 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
     return serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

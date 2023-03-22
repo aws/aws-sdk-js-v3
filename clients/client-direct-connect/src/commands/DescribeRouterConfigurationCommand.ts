@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRouterConfigurationCommand}.
  */
 export interface DescribeRouterConfigurationCommandInput extends DescribeRouterConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRouterConfigurationCommand}.
  */
 export interface DescribeRouterConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRouterConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Details about the router.
  *     </p>
@@ -50,6 +55,8 @@ export interface DescribeRouterConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRouterConfigurationCommandInput - {@link DescribeRouterConfigurationCommandInput}
+ * @returns {@link DescribeRouterConfigurationCommandOutput}
  * @see {@link DescribeRouterConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRouterConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeRouterConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRouterConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeRouterConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRouterConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRouterConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

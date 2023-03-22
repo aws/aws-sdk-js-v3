@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendUsersMessagesCommand}.
  */
 export interface SendUsersMessagesCommandInput extends SendUsersMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendUsersMessagesCommand}.
  */
 export interface SendUsersMessagesCommandOutput extends SendUsersMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and sends a message to a list of users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param SendUsersMessagesCommandInput - {@link SendUsersMessagesCommandInput}
+ * @returns {@link SendUsersMessagesCommandOutput}
  * @see {@link SendUsersMessagesCommandInput} for command's `input` shape.
  * @see {@link SendUsersMessagesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class SendUsersMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendUsersMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SendUsersMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendUsersMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendUsersMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendUsersMessagesCommandOutput> {
     return deserializeAws_restJson1SendUsersMessagesCommand(output, context);
   }

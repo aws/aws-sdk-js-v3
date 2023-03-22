@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMemberToGroupCommand}.
  */
 export interface AssociateMemberToGroupCommandInput extends AssociateMemberToGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMemberToGroupCommand}.
  */
 export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a member (user or group) to the group's set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMemberToGroupCommandInput - {@link AssociateMemberToGroupCommandInput}
+ * @returns {@link AssociateMemberToGroupCommandOutput}
  * @see {@link AssociateMemberToGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberToGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -97,6 +104,9 @@ export class AssociateMemberToGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMemberToGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AssociateMemberToGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMemberToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateMemberToGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberToGroupCommandOutput> {
     return deserializeAws_json1_1AssociateMemberToGroupCommand(output, context);
   }

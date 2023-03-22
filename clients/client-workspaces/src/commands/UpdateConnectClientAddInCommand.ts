@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectClientAddInCommand}.
  */
 export interface UpdateConnectClientAddInCommandInput extends UpdateConnectClientAddInRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectClientAddInCommand}.
  */
 export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClientAddInResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Amazon Connect client add-in. Use this action to update the name and
  *          endpoint URL of a Amazon Connect client add-in.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectClientAddInCommandInput - {@link UpdateConnectClientAddInCommandInput}
+ * @returns {@link UpdateConnectClientAddInCommandOutput}
  * @see {@link UpdateConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateConnectClientAddInCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectClientAddInCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateConnectClientAddInCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectClientAddInCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateConnectClientAddInCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectClientAddInCommandOutput> {
     return deserializeAws_json1_1UpdateConnectClientAddInCommand(output, context);
   }

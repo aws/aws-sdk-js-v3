@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegisterAccountStatusCommand}.
  */
 export interface GetRegisterAccountStatusCommandInput extends GetRegisterAccountStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegisterAccountStatusCommand}.
  */
 export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccountStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about the status of registering your Amazon Web Services account, IAM, and
  *             Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services
  *             Cloud. </p>
@@ -52,6 +57,8 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegisterAccountStatusCommandInput - {@link GetRegisterAccountStatusCommandInput}
+ * @returns {@link GetRegisterAccountStatusCommandOutput}
  * @see {@link GetRegisterAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetRegisterAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetRegisterAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegisterAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetRegisterAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegisterAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRegisterAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegisterAccountStatusCommandOutput> {
     return deserializeAws_json1_0GetRegisterAccountStatusCommand(output, context);
   }

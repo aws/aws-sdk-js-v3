@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMetricSetCommand}.
  */
 export interface DescribeMetricSetCommandInput extends DescribeMetricSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMetricSetCommand}.
  */
 export interface DescribeMetricSetCommandOutput extends DescribeMetricSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a dataset.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -48,6 +53,8 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMetricSetCommandInput - {@link DescribeMetricSetCommandInput}
+ * @returns {@link DescribeMetricSetCommandOutput}
  * @see {@link DescribeMetricSetCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricSetCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeMetricSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMetricSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeMetricSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMetricSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeMetricSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMetricSetCommandOutput> {
     return deserializeAws_restJson1DescribeMetricSetCommand(output, context);
   }

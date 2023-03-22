@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventTrackerCommand}.
  */
 export interface DescribeEventTrackerCommandInput extends DescribeEventTrackerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventTrackerCommand}.
  */
 export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an event tracker. The response includes the <code>trackingId</code> and
  *       <code>status</code> of the event tracker.
  *       For more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventTrackerCommandInput - {@link DescribeEventTrackerCommandInput}
+ * @returns {@link DescribeEventTrackerCommandOutput}
  * @see {@link DescribeEventTrackerCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeEventTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeEventTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTrackerCommandOutput> {
     return deserializeAws_json1_1DescribeEventTrackerCommand(output, context);
   }

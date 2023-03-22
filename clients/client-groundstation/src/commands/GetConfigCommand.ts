@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigCommand}.
  */
 export interface GetConfigCommandInput extends GetConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigCommand}.
  */
 export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns <code>Config</code> information.</p>
  *          <p>Only one <code>Config</code> response can be returned.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigCommandInput - {@link GetConfigCommandInput}
+ * @returns {@link GetConfigCommandOutput}
  * @see {@link GetConfigCommandInput} for command's `input` shape.
  * @see {@link GetConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigCommandOutput> {
     return deserializeAws_restJson1GetConfigCommand(output, context);
   }

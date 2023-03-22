@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { LakeFormationServiceException as __BaseException } from "./LakeFormationServiceException";
 
 /**
+ * @public
  * <p>Access to a resource was denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure containing an LF-tag key-value pair.</p>
  */
 export interface LFTagPair {
@@ -49,11 +51,13 @@ export interface LFTagPair {
 }
 
 /**
+ * @public
  * <p>A structure for the catalog object.</p>
  */
 export interface CatalogResource {}
 
 /**
+ * @public
  * <p>A structure for the database object.</p>
  */
 export interface DatabaseResource {
@@ -69,6 +73,7 @@ export interface DatabaseResource {
 }
 
 /**
+ * @public
  * <p>A structure for a data cells filter resource. </p>
  */
 export interface DataCellsFilterResource {
@@ -94,6 +99,7 @@ export interface DataCellsFilterResource {
 }
 
 /**
+ * @public
  * <p>A structure for a data location object where permissions are granted or revoked. </p>
  */
 export interface DataLocationResource {
@@ -109,6 +115,7 @@ export interface DataLocationResource {
 }
 
 /**
+ * @public
  * <p>A structure containing an LF-tag key and values for a resource.</p>
  */
 export interface LFTagKeyResource {
@@ -129,6 +136,7 @@ export interface LFTagKeyResource {
 }
 
 /**
+ * @public
  * <p>A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.</p>
  */
 export interface LFTag {
@@ -143,12 +151,16 @@ export interface LFTag {
   TagValues: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   DATABASE = "DATABASE",
   TABLE = "TABLE",
 }
 
 /**
+ * @public
  * <p>A structure containing a list of LF-tag conditions that apply to a resource's LF-tag policy.</p>
  */
 export interface LFTagPolicyResource {
@@ -169,11 +181,13 @@ export interface LFTagPolicyResource {
 }
 
 /**
+ * @public
  * <p>A wildcard object representing every table under a database.</p>
  */
 export interface TableWildcard {}
 
 /**
+ * @public
  * <p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
  */
 export interface TableResource {
@@ -200,6 +214,7 @@ export interface TableResource {
 }
 
 /**
+ * @public
  * <p>A wildcard object, consisting of an optional list of excluded column names or indexes.</p>
  */
 export interface ColumnWildcard {
@@ -210,6 +225,7 @@ export interface ColumnWildcard {
 }
 
 /**
+ * @public
  * <p>A structure for a table with columns object. This object is only used when granting a SELECT permission.</p>
  *          <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>
  */
@@ -241,6 +257,7 @@ export interface TableWithColumnsResource {
 }
 
 /**
+ * @public
  * <p>A structure for the resource.</p>
  */
 export interface Resource {
@@ -285,6 +302,9 @@ export interface Resource {
   LFTagPolicy?: LFTagPolicyResource;
 }
 
+/**
+ * @public
+ */
 export interface AddLFTagsToResourceRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -303,6 +323,7 @@ export interface AddLFTagsToResourceRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about an error.</p>
  */
 export interface ErrorDetail {
@@ -318,6 +339,7 @@ export interface ErrorDetail {
 }
 
 /**
+ * @public
  * <p>A structure containing an error related to a <code>TagResource</code> or <code>UnTagResource</code> operation.</p>
  */
 export interface LFTagError {
@@ -332,6 +354,9 @@ export interface LFTagError {
   Error?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface AddLFTagsToResourceResponse {
   /**
    * <p>A list of failures to tag the resource.</p>
@@ -340,6 +365,7 @@ export interface AddLFTagsToResourceResponse {
 }
 
 /**
+ * @public
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -364,6 +390,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified entity does not exist</p>
  */
 export class EntityNotFoundException extends __BaseException {
@@ -388,6 +415,7 @@ export class EntityNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal service error occurred.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -412,6 +440,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input provided was not valid.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -436,6 +465,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation timed out.</p>
  */
 export class OperationTimeoutException extends __BaseException {
@@ -460,6 +490,7 @@ export class OperationTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A new object to add to the governed table.</p>
  */
 export interface AddObjectInput {
@@ -486,11 +517,13 @@ export interface AddObjectInput {
 }
 
 /**
+ * @public
  * <p>A structure that you pass to indicate you want all rows in a filter. </p>
  */
 export interface AllRowsWildcard {}
 
 /**
+ * @public
  * <p>A resource to be created or added already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -514,6 +547,9 @@ export class AlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssumeDecoratedRoleWithSAMLRequest {
   /**
    * <p>A SAML assertion consisting of an assertion statement for the user who needs temporary credentials. This must match the SAML assertion that was issued to IAM. This must be Base64 encoded.</p>
@@ -536,6 +572,9 @@ export interface AssumeDecoratedRoleWithSAMLRequest {
   DurationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface AssumeDecoratedRoleWithSAMLResponse {
   /**
    * <p>The access key ID for the temporary credentials. (The access key consists of an access key ID and a secret key).</p>
@@ -559,6 +598,7 @@ export interface AssumeDecoratedRoleWithSAMLResponse {
 }
 
 /**
+ * @public
  * <p>A structure used to include auditing information on the privileged API. </p>
  */
 export interface AuditContext {
@@ -568,6 +608,9 @@ export interface AuditContext {
   AdditionalAuditContext?: string;
 }
 
+/**
+ * @public
+ */
 export enum Permission {
   ALL = "ALL",
   ALTER = "ALTER",
@@ -584,6 +627,7 @@ export enum Permission {
 }
 
 /**
+ * @public
  * <p>The Lake Formation principal. Supported principals are IAM users
  *       or IAM roles.</p>
  */
@@ -595,6 +639,7 @@ export interface DataLakePrincipal {
 }
 
 /**
+ * @public
  * <p>A permission to a resource granted by batch operation to the principal.</p>
  */
 export interface BatchPermissionsRequestEntry {
@@ -624,6 +669,9 @@ export interface BatchPermissionsRequestEntry {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGrantPermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -637,6 +685,7 @@ export interface BatchGrantPermissionsRequest {
 }
 
 /**
+ * @public
  * <p>A list of failures when performing a batch grant or batch revoke operation.</p>
  */
 export interface BatchPermissionsFailureEntry {
@@ -651,6 +700,9 @@ export interface BatchPermissionsFailureEntry {
   Error?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchGrantPermissionsResponse {
   /**
    * <p>A list of failures to grant permissions to the resources.</p>
@@ -658,6 +710,9 @@ export interface BatchGrantPermissionsResponse {
   Failures?: BatchPermissionsFailureEntry[];
 }
 
+/**
+ * @public
+ */
 export interface BatchRevokePermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -670,6 +725,9 @@ export interface BatchRevokePermissionsRequest {
   Entries: BatchPermissionsRequestEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchRevokePermissionsResponse {
   /**
    * <p>A list of failures to revoke permissions to the resources.</p>
@@ -677,6 +735,9 @@ export interface BatchRevokePermissionsResponse {
   Failures?: BatchPermissionsFailureEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CancelTransactionRequest {
   /**
    * <p>The transaction to cancel.</p>
@@ -684,9 +745,13 @@ export interface CancelTransactionRequest {
   TransactionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelTransactionResponse {}
 
 /**
+ * @public
  * <p>Contains details about an error related to a transaction commit that was in progress.</p>
  */
 export class TransactionCommitInProgressException extends __BaseException {
@@ -711,6 +776,7 @@ export class TransactionCommitInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  */
 export class TransactionCommittedException extends __BaseException {
@@ -734,6 +800,9 @@ export class TransactionCommittedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CommitTransactionRequest {
   /**
    * <p>The transaction to commit.</p>
@@ -741,6 +810,9 @@ export interface CommitTransactionRequest {
   TransactionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TransactionStatus {
   ABORTED = "ABORTED",
   ACTIVE = "ACTIVE",
@@ -748,6 +820,9 @@ export enum TransactionStatus {
   COMMIT_IN_PROGRESS = "COMMIT_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface CommitTransactionResponse {
   /**
    * <p>The status of the transaction.</p>
@@ -756,6 +831,7 @@ export interface CommitTransactionResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error related to a transaction that was cancelled.</p>
  */
 export class TransactionCanceledException extends __BaseException {
@@ -780,6 +856,7 @@ export class TransactionCanceledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A PartiQL predicate.</p>
  */
 export interface RowFilter {
@@ -795,6 +872,7 @@ export interface RowFilter {
 }
 
 /**
+ * @public
  * <p>A structure that describes certain columns on certain rows.</p>
  */
 export interface DataCellsFilter {
@@ -841,6 +919,9 @@ export interface DataCellsFilter {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataCellsFilterRequest {
   /**
    * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
@@ -848,9 +929,13 @@ export interface CreateDataCellsFilterRequest {
   TableData: DataCellsFilter | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataCellsFilterResponse {}
 
 /**
+ * @public
  * <p>A resource numerical limit was exceeded.</p>
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
@@ -874,6 +959,9 @@ export class ResourceNumberLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -891,8 +979,14 @@ export interface CreateLFTagRequest {
   TagValues: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLFTagResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDataCellsFilterRequest {
   /**
    * <p>The ID of the catalog to which the table belongs.</p>
@@ -915,8 +1009,14 @@ export interface DeleteDataCellsFilterRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataCellsFilterResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -929,9 +1029,13 @@ export interface DeleteLFTagRequest {
   TagKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLFTagResponse {}
 
 /**
+ * @public
  * <p>An object that defines an Amazon S3 object to be deleted if a transaction cancels, provided that
  *       <code>VirtualPut</code> was called before writing the object.</p>
  */
@@ -947,6 +1051,9 @@ export interface VirtualObject {
   ETag?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectsOnCancelRequest {
   /**
    * <p>The Glue data catalog that contains the governed table. Defaults to the current account ID.</p>
@@ -974,9 +1081,13 @@ export interface DeleteObjectsOnCancelRequest {
   Objects: VirtualObject[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectsOnCancelResponse {}
 
 /**
+ * @public
  * <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -1000,6 +1111,9 @@ export class ResourceNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>
@@ -1007,8 +1121,14 @@ export interface DeregisterResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterResourceResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1017,6 +1137,7 @@ export interface DescribeResourceRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing information about an Lake Formation resource.</p>
  */
 export interface ResourceInfo {
@@ -1036,6 +1157,9 @@ export interface ResourceInfo {
   LastModified?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceResponse {
   /**
    * <p>A structure containing information about an Lake Formation resource.</p>
@@ -1043,6 +1167,9 @@ export interface DescribeResourceResponse {
   ResourceInfo?: ResourceInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransactionRequest {
   /**
    * <p>The transaction for which to return status.</p>
@@ -1051,6 +1178,7 @@ export interface DescribeTransactionRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about a transaction.</p>
  */
 export interface TransactionDescription {
@@ -1075,6 +1203,9 @@ export interface TransactionDescription {
   TransactionEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransactionResponse {
   /**
    * <p>Returns a <code>TransactionDescription</code> object containing information about the transaction.</p>
@@ -1082,6 +1213,9 @@ export interface DescribeTransactionResponse {
   TransactionDescription?: TransactionDescription;
 }
 
+/**
+ * @public
+ */
 export interface ExtendTransactionRequest {
   /**
    * <p>The transaction to extend.</p>
@@ -1089,8 +1223,14 @@ export interface ExtendTransactionRequest {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExtendTransactionResponse {}
 
+/**
+ * @public
+ */
 export interface GetDataCellsFilterRequest {
   /**
    * <p>The ID of the catalog to which the table belongs.</p>
@@ -1113,6 +1253,9 @@ export interface GetDataCellsFilterRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataCellsFilterResponse {
   /**
    * <p>A structure that describes certain columns on certain rows.</p>
@@ -1120,6 +1263,9 @@ export interface GetDataCellsFilterResponse {
   DataCellsFilter?: DataCellsFilter;
 }
 
+/**
+ * @public
+ */
 export interface GetDataLakeSettingsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1128,6 +1274,7 @@ export interface GetDataLakeSettingsRequest {
 }
 
 /**
+ * @public
  * <p>Permissions granted to a principal.</p>
  */
 export interface PrincipalPermissions {
@@ -1143,6 +1290,7 @@ export interface PrincipalPermissions {
 }
 
 /**
+ * @public
  * <p>A structure representing a list of Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.</p>
  */
 export interface DataLakeSettings {
@@ -1197,6 +1345,9 @@ export interface DataLakeSettings {
   AuthorizedSessionTagValueList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetDataLakeSettingsResponse {
   /**
    * <p>A structure representing a list of Lake Formation principals designated as data lake administrators.</p>
@@ -1204,6 +1355,9 @@ export interface GetDataLakeSettingsResponse {
   DataLakeSettings?: DataLakeSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetEffectivePermissionsForPathRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1227,6 +1381,7 @@ export interface GetEffectivePermissionsForPathRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p>
  *          <p>If a catalog resource is shared through Resource Access Manager (RAM), then there will exist a corresponding RAM resource share ARN.</p>
  */
@@ -1238,6 +1393,7 @@ export interface DetailsMap {
 }
 
 /**
+ * @public
  * <p>The permissions granted or revoked on a resource.</p>
  */
 export interface PrincipalResourcePermissions {
@@ -1267,6 +1423,9 @@ export interface PrincipalResourcePermissions {
   AdditionalDetails?: DetailsMap;
 }
 
+/**
+ * @public
+ */
 export interface GetEffectivePermissionsForPathResponse {
   /**
    * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
@@ -1279,6 +1438,9 @@ export interface GetEffectivePermissionsForPathResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1291,6 +1453,9 @@ export interface GetLFTagRequest {
   TagKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLFTagResponse {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1308,6 +1473,9 @@ export interface GetLFTagResponse {
   TagValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetQueryStateRequest {
   /**
    * <p>The ID of the plan query operation.</p>
@@ -1315,6 +1483,9 @@ export interface GetQueryStateRequest {
   QueryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum QueryStateString {
   ERROR = "ERROR",
   EXPIRED = "EXPIRED",
@@ -1324,6 +1495,7 @@ export enum QueryStateString {
 }
 
 /**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface GetQueryStateResponse {
@@ -1353,6 +1525,7 @@ export interface GetQueryStateResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error where the query request expired.</p>
  */
 export class ExpiredException extends __BaseException {
@@ -1376,6 +1549,9 @@ export class ExpiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetQueryStatisticsRequest {
   /**
    * <p>The ID of the plan query operation.</p>
@@ -1384,6 +1560,7 @@ export interface GetQueryStatisticsRequest {
 }
 
 /**
+ * @public
  * <p>Statistics related to the processing of a query statement.</p>
  */
 export interface ExecutionStatistics {
@@ -1404,6 +1581,7 @@ export interface ExecutionStatistics {
 }
 
 /**
+ * @public
  * <p>Statistics related to the processing of a query statement.</p>
  */
 export interface PlanningStatistics {
@@ -1428,6 +1606,9 @@ export interface PlanningStatistics {
   WorkUnitsGeneratedCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryStatisticsResponse {
   /**
    * <p>An <code>ExecutionStatistics</code> structure containing execution statistics.</p>
@@ -1446,6 +1627,7 @@ export interface GetQueryStatisticsResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error related to statistics not being ready.</p>
  */
 export class StatisticsNotReadyYetException extends __BaseException {
@@ -1470,6 +1652,7 @@ export class StatisticsNotReadyYetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details about an error where the query request was throttled.</p>
  */
 export class ThrottledException extends __BaseException {
@@ -1496,6 +1679,9 @@ export class ThrottledException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetResourceLFTagsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1514,6 +1700,7 @@ export interface GetResourceLFTagsRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing the name of a column resource and the LF-tags attached to it.</p>
  */
 export interface ColumnLFTag {
@@ -1528,6 +1715,9 @@ export interface ColumnLFTag {
   LFTags?: LFTagPair[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourceLFTagsResponse {
   /**
    * <p>A list of LF-tags applied to a database resource.</p>
@@ -1546,6 +1736,7 @@ export interface GetResourceLFTagsResponse {
 }
 
 /**
+ * @public
  * <p>An encryption operation failed.</p>
  */
 export class GlueEncryptionException extends __BaseException {
@@ -1569,6 +1760,9 @@ export class GlueEncryptionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetTableObjectsRequest {
   /**
    * <p>The catalog containing the governed table. Defaults to the caller’s account.</p>
@@ -1623,6 +1817,7 @@ export interface GetTableObjectsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the details of a governed table.</p>
  */
 export interface TableObject {
@@ -1643,6 +1838,7 @@ export interface TableObject {
 }
 
 /**
+ * @public
  * <p>A structure containing a list of partition values and table objects.</p>
  */
 export interface PartitionObjects {
@@ -1657,6 +1853,9 @@ export interface PartitionObjects {
   Objects?: TableObject[];
 }
 
+/**
+ * @public
+ */
 export interface GetTableObjectsResponse {
   /**
    * <p>A list of objects organized by partition keys.</p>
@@ -1670,6 +1869,7 @@ export interface GetTableObjectsResponse {
 }
 
 /**
+ * @public
  * <p>Contains a list of values defining partitions.</p>
  */
 export interface PartitionValueList {
@@ -1679,11 +1879,17 @@ export interface PartitionValueList {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PermissionType {
   CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
   COLUMN_PERMISSION = "COLUMN_PERMISSION",
 }
 
+/**
+ * @public
+ */
 export interface GetTemporaryGluePartitionCredentialsRequest {
   /**
    * <p>The ARN of the partitions' table.</p>
@@ -1716,6 +1922,9 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemporaryGluePartitionCredentialsResponse {
   /**
    * <p>The access key ID for the temporary credentials.</p>
@@ -1739,6 +1948,7 @@ export interface GetTemporaryGluePartitionCredentialsResponse {
 }
 
 /**
+ * @public
  * <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
  */
 export class PermissionTypeMismatchException extends __BaseException {
@@ -1762,6 +1972,9 @@ export class PermissionTypeMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetTemporaryGlueTableCredentialsRequest {
   /**
    * <p>The ARN identifying a table in the Data Catalog for the temporary credentials request.</p>
@@ -1789,6 +2002,9 @@ export interface GetTemporaryGlueTableCredentialsRequest {
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemporaryGlueTableCredentialsResponse {
   /**
    * <p>The access key ID for the temporary credentials.</p>
@@ -1811,6 +2027,9 @@ export interface GetTemporaryGlueTableCredentialsResponse {
   Expiration?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkUnitResultsRequest {
   /**
    * <p>The ID of the plan query operation for which to get results.</p>
@@ -1829,6 +2048,7 @@ export interface GetWorkUnitResultsRequest {
 }
 
 /**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface GetWorkUnitResultsResponse {
@@ -1838,6 +2058,9 @@ export interface GetWorkUnitResultsResponse {
   ResultStream?: Readable | ReadableStream | Blob;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkUnitsRequest {
   /**
    * <p>A continuation token, if this is a continuation call.</p>
@@ -1856,6 +2079,7 @@ export interface GetWorkUnitsRequest {
 }
 
 /**
+ * @public
  * <p>Defines the valid range of work unit IDs for querying the execution service.</p>
  */
 export interface WorkUnitRange {
@@ -1876,6 +2100,7 @@ export interface WorkUnitRange {
 }
 
 /**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface GetWorkUnitsResponse {
@@ -1896,6 +2121,7 @@ export interface GetWorkUnitsResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about an error related to work units not being ready.</p>
  */
 export class WorkUnitsNotReadyYetException extends __BaseException {
@@ -1919,6 +2145,9 @@ export class WorkUnitsNotReadyYetException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GrantPermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1947,8 +2176,14 @@ export interface GrantPermissionsRequest {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GrantPermissionsResponse {}
 
+/**
+ * @public
+ */
 export interface ListDataCellsFilterRequest {
   /**
    * <p>A table in the Glue Data Catalog.</p>
@@ -1966,6 +2201,9 @@ export interface ListDataCellsFilterRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataCellsFilterResponse {
   /**
    * <p>A list of <code>DataCellFilter</code> structures.</p>
@@ -1978,11 +2216,17 @@ export interface ListDataCellsFilterResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ResourceShareType {
   ALL = "ALL",
   FOREIGN = "FOREIGN",
 }
 
+/**
+ * @public
+ */
 export interface ListLFTagsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2005,6 +2249,9 @@ export interface ListLFTagsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLFTagsResponse {
   /**
    * <p>A list of LF-tags that the requested has permission to view.</p>
@@ -2017,6 +2264,9 @@ export interface ListLFTagsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataLakeResourceType {
   CATALOG = "CATALOG",
   DATABASE = "DATABASE",
@@ -2028,6 +2278,9 @@ export enum DataLakeResourceType {
   TABLE = "TABLE",
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2066,6 +2319,9 @@ export interface ListPermissionsRequest {
   IncludeRelated?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionsResponse {
   /**
    * <p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>
@@ -2078,6 +2334,9 @@ export interface ListPermissionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   BEGINS_WITH = "BEGINS_WITH",
   BETWEEN = "BETWEEN",
@@ -2092,6 +2351,9 @@ export enum ComparisonOperator {
   NOT_CONTAINS = "NOT_CONTAINS",
 }
 
+/**
+ * @public
+ */
 export enum FieldNameString {
   LAST_MODIFIED = "LAST_MODIFIED",
   RESOURCE_ARN = "RESOURCE_ARN",
@@ -2099,6 +2361,7 @@ export enum FieldNameString {
 }
 
 /**
+ * @public
  * <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
  */
 export interface FilterCondition {
@@ -2118,6 +2381,9 @@ export interface FilterCondition {
   StringValueList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesRequest {
   /**
    * <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
@@ -2135,6 +2401,9 @@ export interface ListResourcesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesResponse {
   /**
    * <p>A summary of the data lake resources.</p>
@@ -2147,12 +2416,18 @@ export interface ListResourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OptimizerType {
   COMPACTION = "COMPACTION",
   GARBAGE_COLLECTION = "GARBAGE_COLLECTION",
   GENERIC = "ALL",
 }
 
+/**
+ * @public
+ */
 export interface ListTableStorageOptimizersRequest {
   /**
    * <p>The Catalog ID of the table.</p>
@@ -2186,6 +2461,7 @@ export interface ListTableStorageOptimizersRequest {
 }
 
 /**
+ * @public
  * <p>A structure describing the configuration and details of a storage optimizer.</p>
  */
 export interface StorageOptimizer {
@@ -2217,6 +2493,9 @@ export interface StorageOptimizer {
   LastRunDetails?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTableStorageOptimizersResponse {
   /**
    * <p>A list of the storage optimizers associated with a table.</p>
@@ -2229,6 +2508,9 @@ export interface ListTableStorageOptimizersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum TransactionStatusFilter {
   ABORTED = "ABORTED",
   ACTIVE = "ACTIVE",
@@ -2237,6 +2519,9 @@ export enum TransactionStatusFilter {
   COMPLETED = "COMPLETED",
 }
 
+/**
+ * @public
+ */
 export interface ListTransactionsRequest {
   /**
    * <p>The catalog for which to list transactions. Defaults to the account ID of the caller.</p>
@@ -2259,6 +2544,9 @@ export interface ListTransactionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTransactionsResponse {
   /**
    * <p>A list of transactions. The record for each transaction is a <code>TransactionDescription</code> object.</p>
@@ -2271,6 +2559,9 @@ export interface ListTransactionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutDataLakeSettingsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2283,8 +2574,14 @@ export interface PutDataLakeSettingsRequest {
   DataLakeSettings: DataLakeSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDataLakeSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to register.</p>
@@ -2303,8 +2600,14 @@ export interface RegisterResourceRequest {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterResourceResponse {}
 
+/**
+ * @public
+ */
 export interface RemoveLFTagsFromResourceRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2322,6 +2625,9 @@ export interface RemoveLFTagsFromResourceRequest {
   LFTags: LFTagPair[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveLFTagsFromResourceResponse {
   /**
    * <p>A list of failures to untag a resource.</p>
@@ -2329,6 +2635,9 @@ export interface RemoveLFTagsFromResourceResponse {
   Failures?: LFTagError[];
 }
 
+/**
+ * @public
+ */
 export interface RevokePermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2357,8 +2666,14 @@ export interface RevokePermissionsRequest {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
+/**
+ * @public
+ */
 export interface RevokePermissionsResponse {}
 
+/**
+ * @public
+ */
 export interface SearchDatabasesByLFTagsRequest {
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
@@ -2382,6 +2697,7 @@ export interface SearchDatabasesByLFTagsRequest {
 }
 
 /**
+ * @public
  * <p>A structure describing a database resource with LF-tags.</p>
  */
 export interface TaggedDatabase {
@@ -2396,6 +2712,9 @@ export interface TaggedDatabase {
   LFTags?: LFTagPair[];
 }
 
+/**
+ * @public
+ */
 export interface SearchDatabasesByLFTagsResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -2408,6 +2727,9 @@ export interface SearchDatabasesByLFTagsResponse {
   DatabaseList?: TaggedDatabase[];
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesByLFTagsRequest {
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
@@ -2431,6 +2753,7 @@ export interface SearchTablesByLFTagsRequest {
 }
 
 /**
+ * @public
  * <p>A structure describing a table resource with LF-tags.</p>
  */
 export interface TaggedTable {
@@ -2455,6 +2778,9 @@ export interface TaggedTable {
   LFTagsOnColumns?: ColumnLFTag[];
 }
 
+/**
+ * @public
+ */
 export interface SearchTablesByLFTagsResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -2468,6 +2794,7 @@ export interface SearchTablesByLFTagsResponse {
 }
 
 /**
+ * @public
  * <p>A structure containing information about the query plan.</p>
  */
 export interface QueryPlanningContext {
@@ -2497,6 +2824,9 @@ export interface QueryPlanningContext {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartQueryPlanningRequest {
   /**
    * <p>A structure containing information about the query plan.</p>
@@ -2510,6 +2840,7 @@ export interface StartQueryPlanningRequest {
 }
 
 /**
+ * @public
  * <p>A structure for the output.</p>
  */
 export interface StartQueryPlanningResponse {
@@ -2519,11 +2850,17 @@ export interface StartQueryPlanningResponse {
   QueryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TransactionType {
   READ_AND_WRITE = "READ_AND_WRITE",
   READ_ONLY = "READ_ONLY",
 }
 
+/**
+ * @public
+ */
 export interface StartTransactionRequest {
   /**
    * <p>Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed. </p>
@@ -2531,6 +2868,9 @@ export interface StartTransactionRequest {
   TransactionType?: TransactionType | string;
 }
 
+/**
+ * @public
+ */
 export interface StartTransactionResponse {
   /**
    * <p>An opaque identifier for the transaction.</p>
@@ -2538,6 +2878,9 @@ export interface StartTransactionResponse {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataCellsFilterRequest {
   /**
    * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
@@ -2545,8 +2888,14 @@ export interface UpdateDataCellsFilterRequest {
   TableData: DataCellsFilter | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataCellsFilterResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -2569,8 +2918,14 @@ export interface UpdateLFTagRequest {
   TagValuesToAdd?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateLFTagResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateResourceRequest {
   /**
    * <p>The new role to use for the given resource registered in Lake Formation.</p>
@@ -2583,9 +2938,13 @@ export interface UpdateResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceResponse {}
 
 /**
+ * @public
  * <p>An object to delete from the governed table.</p>
  */
 export interface DeleteObjectInput {
@@ -2606,6 +2965,7 @@ export interface DeleteObjectInput {
 }
 
 /**
+ * @public
  * <p>Defines an object to add to or delete from a governed table.</p>
  */
 export interface WriteOperation {
@@ -2620,6 +2980,9 @@ export interface WriteOperation {
   DeleteObject?: DeleteObjectInput;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableObjectsRequest {
   /**
    * <p>The catalog containing the governed table to update. Defaults to the caller’s account ID.</p>
@@ -2647,8 +3010,14 @@ export interface UpdateTableObjectsRequest {
   WriteOperations: WriteOperation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableObjectsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTableStorageOptimizerRequest {
   /**
    * <p>The Catalog ID of the table.</p>
@@ -2671,6 +3040,9 @@ export interface UpdateTableStorageOptimizerRequest {
   StorageOptimizerConfig: Record<string, Record<string, string>> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableStorageOptimizerResponse {
   /**
    * <p>A response indicating the success of failure of the operation.</p>

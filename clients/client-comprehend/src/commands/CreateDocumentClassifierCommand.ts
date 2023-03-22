@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDocumentClassifierCommand}.
  */
 export interface CreateDocumentClassifierCommandInput extends CreateDocumentClassifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDocumentClassifierCommand}.
  */
 export interface CreateDocumentClassifierCommandOutput extends CreateDocumentClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new document classifier that you can use to categorize documents. To create a
  *       classifier, you provide a set of training documents that labeled with the categories that you
  *       want to use. After the classifier is trained you can use it to categorize a set of labeled
@@ -51,6 +56,8 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDocumentClassifierCommandInput - {@link CreateDocumentClassifierCommandInput}
+ * @returns {@link CreateDocumentClassifierCommandOutput}
  * @see {@link CreateDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateDocumentClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class CreateDocumentClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDocumentClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDocumentClassifierCommandOutput> {
     return deserializeAws_json1_1CreateDocumentClassifierCommand(output, context);
   }

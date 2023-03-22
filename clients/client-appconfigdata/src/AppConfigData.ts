@@ -14,6 +14,7 @@ import {
 } from "./commands/StartConfigurationSessionCommand";
 
 /**
+ * @public
  * <p>AppConfig Data provides the data plane APIs your application uses to retrieve
  *          configuration data. Here's how it works:</p>
  *          <p>Your application retrieves configuration data by first establishing a configuration
@@ -76,6 +77,7 @@ import {
  */
 export class AppConfigData extends AppConfigDataClient {
   /**
+   * @public
    * <p>Retrieves the latest deployed configuration. This API may return empty configuration
    *          data if the client already has the latest version. For more information about this API
    *          action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
@@ -128,6 +130,7 @@ export class AppConfigData extends AppConfigDataClient {
   }
 
   /**
+   * @public
    * <p>Starts a configuration session used to retrieve a deployed configuration. For more
    *          information about this API action and to view example CLI commands that show how to use
    *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResendValidationEmailCommand}.
  */
 export interface ResendValidationEmailCommandInput extends ResendValidationEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResendValidationEmailCommand}.
  */
 export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resends the email that requests domain ownership validation. The domain owner or an
  *       authorized representative must approve the ACM certificate before it can be issued. The
  *       certificate can be approved by clicking a link in the mail to navigate to the Amazon
@@ -49,6 +54,8 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ResendValidationEmailCommandInput - {@link ResendValidationEmailCommandInput}
+ * @returns {@link ResendValidationEmailCommandOutput}
  * @see {@link ResendValidationEmailCommandInput} for command's `input` shape.
  * @see {@link ResendValidationEmailCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -86,6 +93,9 @@ export class ResendValidationEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResendValidationEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ResendValidationEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResendValidationEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResendValidationEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResendValidationEmailCommandOutput> {
     return deserializeAws_json1_1ResendValidationEmailCommand(output, context);
   }

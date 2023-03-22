@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceProfileCommand}.
  */
 export interface UpdateResourceProfileCommandInput extends UpdateResourceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceProfileCommand}.
  */
 export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the sensitivity score for an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceProfileCommandInput - {@link UpdateResourceProfileCommandInput}
+ * @returns {@link UpdateResourceProfileCommandOutput}
  * @see {@link UpdateResourceProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceProfileCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateResourceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateResourceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResourceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceProfileCommandOutput> {
     return deserializeAws_restJson1UpdateResourceProfileCommand(output, context);
   }

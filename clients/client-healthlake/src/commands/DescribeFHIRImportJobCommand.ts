@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFHIRImportJobCommand}.
  */
 export interface DescribeFHIRImportJobCommandInput extends DescribeFHIRImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFHIRImportJobCommand}.
  */
 export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFHIRImportJobCommandInput - {@link DescribeFHIRImportJobCommandInput}
+ * @returns {@link DescribeFHIRImportJobCommandOutput}
  * @see {@link DescribeFHIRImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeFHIRImportJobCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeFHIRImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFHIRImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeFHIRImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFHIRImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeFHIRImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFHIRImportJobCommandOutput> {
     return deserializeAws_json1_0DescribeFHIRImportJobCommand(output, context);
   }

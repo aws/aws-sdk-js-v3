@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
   extends ListRequestedServiceQuotaChangeHistoryByQuotaRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
@@ -38,6 +42,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the quota increase requests for the specified quota.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput - {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput}
+ * @returns {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput}
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput} for command's `input` shape.
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceGroupsCommand}.
  */
 export interface ListInstanceGroupsCommandInput extends ListInstanceGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceGroupsCommand}.
  */
 export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides all available details about the instance groups in a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceGroupsCommandInput - {@link ListInstanceGroupsCommandInput}
+ * @returns {@link ListInstanceGroupsCommandOutput}
  * @see {@link ListInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListInstanceGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListInstanceGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInstanceGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceGroupsCommandOutput> {
     return deserializeAws_json1_1ListInstanceGroupsCommand(output, context);
   }

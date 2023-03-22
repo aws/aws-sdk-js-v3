@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartServerCommand}.
  */
 export interface StartServerCommandInput extends StartServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartServerCommand}.
  */
 export interface StartServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
  *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
  *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
@@ -47,6 +52,8 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartServerCommandInput - {@link StartServerCommandInput}
+ * @returns {@link StartServerCommandOutput}
  * @see {@link StartServerCommandInput} for command's `input` shape.
  * @see {@link StartServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StartServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartServerCommandOutput> {
     return deserializeAws_json1_1StartServerCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReadPipelineCommand}.
  */
 export interface ReadPipelineCommandInput extends ReadPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReadPipelineCommand}.
  */
 export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ReadPipelineCommandInput - {@link ReadPipelineCommandInput}
+ * @returns {@link ReadPipelineCommandOutput}
  * @see {@link ReadPipelineCommandInput} for command's `input` shape.
  * @see {@link ReadPipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -88,6 +95,9 @@ export class ReadPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReadPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ReadPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReadPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReadPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadPipelineCommandOutput> {
     return deserializeAws_restJson1ReadPipelineCommand(output, context);
   }

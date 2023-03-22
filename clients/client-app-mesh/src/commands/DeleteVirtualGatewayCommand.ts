@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualGatewayCommand}.
  */
 export interface DeleteVirtualGatewayCommandInput extends DeleteVirtualGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualGatewayCommand}.
  */
 export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
  *          routes are associated to it.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualGatewayCommandInput - {@link DeleteVirtualGatewayCommandInput}
+ * @returns {@link DeleteVirtualGatewayCommandOutput}
  * @see {@link DeleteVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteVirtualGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteVirtualGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVirtualGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualGatewayCommandOutput> {
     return deserializeAws_restJson1DeleteVirtualGatewayCommand(output, context);
   }

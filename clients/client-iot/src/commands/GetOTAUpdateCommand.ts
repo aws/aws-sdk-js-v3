@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOTAUpdateCommand}.
  */
 export interface GetOTAUpdateCommandInput extends GetOTAUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOTAUpdateCommand}.
  */
 export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an OTA update.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetOTAUpdate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOTAUpdateCommandInput - {@link GetOTAUpdateCommandInput}
+ * @returns {@link GetOTAUpdateCommandOutput}
  * @see {@link GetOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link GetOTAUpdateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetOTAUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOTAUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetOTAUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOTAUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetOTAUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOTAUpdateCommandOutput> {
     return deserializeAws_restJson1GetOTAUpdateCommand(output, context);
   }

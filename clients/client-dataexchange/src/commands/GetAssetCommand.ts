@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssetCommand}.
  */
 export interface GetAssetCommandInput extends GetAssetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssetCommand}.
  */
 export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about an asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssetCommandInput - {@link GetAssetCommandInput}
+ * @returns {@link GetAssetCommandOutput}
  * @see {@link GetAssetCommandInput} for command's `input` shape.
  * @see {@link GetAssetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssetCommandOutput> {
     return deserializeAws_restJson1GetAssetCommand(output, context);
   }

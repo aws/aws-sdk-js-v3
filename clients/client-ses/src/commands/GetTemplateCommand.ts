@@ -23,15 +23,20 @@ import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCo
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandInput extends GetTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the template object (which includes the Subject line, HTML part and text
  *             part) for the template you specify.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -45,6 +50,8 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
+ * @returns {@link GetTemplateCommandOutput}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class GetTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateCommandOutput> {
     return deserializeAws_queryGetTemplateCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReturnShippingLabelCommand}.
  */
 export interface DescribeReturnShippingLabelCommandInput extends DescribeReturnShippingLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReturnShippingLabelCommand}.
  */
 export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturnShippingLabelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information on the shipping label of a Snow device that is being returned to Amazon Web Services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReturnShippingLabelCommandInput - {@link DescribeReturnShippingLabelCommandInput}
+ * @returns {@link DescribeReturnShippingLabelCommandOutput}
  * @see {@link DescribeReturnShippingLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReturnShippingLabelCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeReturnShippingLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReturnShippingLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeReturnShippingLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReturnShippingLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReturnShippingLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

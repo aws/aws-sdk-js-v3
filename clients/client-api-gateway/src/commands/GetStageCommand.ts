@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStageCommand}.
  */
 export interface GetStageCommandInput extends GetStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStageCommand}.
  */
 export interface GetStageCommandOutput extends Stage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Stage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface GetStageCommandOutput extends Stage, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStageCommandInput - {@link GetStageCommandInput}
+ * @returns {@link GetStageCommandOutput}
  * @see {@link GetStageCommandInput} for command's `input` shape.
  * @see {@link GetStageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStageCommandOutput> {
     return deserializeAws_restJson1GetStageCommand(output, context);
   }

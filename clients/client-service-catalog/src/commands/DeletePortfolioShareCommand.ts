@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePortfolioShareCommand}.
  */
 export interface DeletePortfolioShareCommandInput extends DeletePortfolioShareInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePortfolioShareCommand}.
  */
 export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops sharing the specified portfolio with the specified account or organization
  *          node. Shares to an organization node can only be deleted by the management account of an
  *          organization or by a delegated administrator.</p>
@@ -49,6 +54,8 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePortfolioShareCommandInput - {@link DeletePortfolioShareCommandInput}
+ * @returns {@link DeletePortfolioShareCommandOutput}
  * @see {@link DeletePortfolioShareCommandInput} for command's `input` shape.
  * @see {@link DeletePortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeletePortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeletePortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortfolioShareCommandOutput> {
     return deserializeAws_json1_1DeletePortfolioShareCommand(output, context);
   }

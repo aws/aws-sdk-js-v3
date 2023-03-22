@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSentimentDetectionJobCommand}.
  */
 export interface DescribeSentimentDetectionJobCommandInput extends DescribeSentimentDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSentimentDetectionJobCommand}.
  */
 export interface DescribeSentimentDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSentimentDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeSentimentDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSentimentDetectionJobCommandInput - {@link DescribeSentimentDetectionJobCommandInput}
+ * @returns {@link DescribeSentimentDetectionJobCommandOutput}
  * @see {@link DescribeSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link TransactGetItemsCommand}.
  */
 export interface TransactGetItemsCommandInput extends TransactGetItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link TransactGetItemsCommand}.
  */
 export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
  *             multiple items from one or more tables (but not from indexes) in a single account and
@@ -72,6 +77,8 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param TransactGetItemsCommandInput - {@link TransactGetItemsCommandInput}
+ * @returns {@link TransactGetItemsCommandOutput}
  * @see {@link TransactGetItemsCommandInput} for command's `input` shape.
  * @see {@link TransactGetItemsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -348,6 +355,9 @@ export class TransactGetItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransactGetItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -387,10 +397,16 @@ export class TransactGetItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransactGetItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0TransactGetItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactGetItemsCommandOutput> {
     return deserializeAws_json1_0TransactGetItemsCommand(output, context);
   }

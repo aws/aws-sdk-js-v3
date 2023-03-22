@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubnetChangeProtectionCommand}.
  */
 export interface UpdateSubnetChangeProtectionCommandInput extends UpdateSubnetChangeProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubnetChangeProtectionCommand}.
  */
 export interface UpdateSubnetChangeProtectionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSubnetChangeProtectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubnetChangeProtectionCommandInput - {@link UpdateSubnetChangeProtectionCommandInput}
+ * @returns {@link UpdateSubnetChangeProtectionCommandOutput}
  * @see {@link UpdateSubnetChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetChangeProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubnetChangeProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubnetChangeProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateSubnetChangeProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

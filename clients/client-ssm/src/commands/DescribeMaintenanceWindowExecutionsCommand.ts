@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowExecutionsCommand}.
  */
 export interface DescribeMaintenanceWindowExecutionsCommandInput extends DescribeMaintenanceWindowExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowExecutionsCommand}.
  */
 export interface DescribeMaintenanceWindowExecutionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the executions of a maintenance window. This includes information about when the
  *    maintenance window was scheduled to be active, and information about tasks registered and run
  *    with the maintenance window.</p>
@@ -50,6 +55,8 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowExecutionsCommandInput - {@link DescribeMaintenanceWindowExecutionsCommandInput}
+ * @returns {@link DescribeMaintenanceWindowExecutionsCommandOutput}
  * @see {@link DescribeMaintenanceWindowExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +125,9 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowExecutionsCommandInput,
     context: __SerdeContext
@@ -122,6 +135,9 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
     return serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSchedulingPolicyCommand}.
  */
 export interface DeleteSchedulingPolicyCommandInput extends DeleteSchedulingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSchedulingPolicyCommand}.
  */
 export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scheduling policy.</p>
  *          <p>You can't delete a scheduling policy that's used in any job queues.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSchedulingPolicyCommandInput - {@link DeleteSchedulingPolicyCommandInput}
+ * @returns {@link DeleteSchedulingPolicyCommandOutput}
  * @see {@link DeleteSchedulingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteSchedulingPolicyCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteSchedulingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSchedulingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteSchedulingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSchedulingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSchedulingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchedulingPolicyCommandOutput> {
     return deserializeAws_restJson1DeleteSchedulingPolicyCommand(output, context);
   }

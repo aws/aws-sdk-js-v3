@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLaunchProfileMembersCommand}.
  */
 export interface PutLaunchProfileMembersCommandInput extends PutLaunchProfileMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLaunchProfileMembersCommand}.
  */
 export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add/update users with given persona to launch profile membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLaunchProfileMembersCommandInput - {@link PutLaunchProfileMembersCommandInput}
+ * @returns {@link PutLaunchProfileMembersCommandOutput}
  * @see {@link PutLaunchProfileMembersCommandInput} for command's `input` shape.
  * @see {@link PutLaunchProfileMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class PutLaunchProfileMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLaunchProfileMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class PutLaunchProfileMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLaunchProfileMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutLaunchProfileMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLaunchProfileMembersCommandOutput> {
     return deserializeAws_restJson1PutLaunchProfileMembersCommand(output, context);
   }

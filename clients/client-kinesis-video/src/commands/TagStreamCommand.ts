@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TagStreamCommand}.
  */
 export interface TagStreamCommandInput extends TagStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link TagStreamCommand}.
  */
 export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair
  *             (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify
  *             a tag that already exists, the tag value is replaced with the value that you specify in
@@ -55,6 +60,8 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param TagStreamCommandInput - {@link TagStreamCommandInput}
+ * @returns {@link TagStreamCommandOutput}
  * @see {@link TagStreamCommandInput} for command's `input` shape.
  * @see {@link TagStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -98,6 +105,9 @@ export class TagStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class TagStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TagStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagStreamCommandOutput> {
     return deserializeAws_restJson1TagStreamCommand(output, context);
   }

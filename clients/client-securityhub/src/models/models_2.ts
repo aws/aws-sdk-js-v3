@@ -12,6 +12,9 @@ import {
   StandardsSubscription,
 } from "./models_1";
 
+/**
+ * @public
+ */
 export interface DeleteFindingAggregatorRequest {
   /**
    * <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
@@ -19,8 +22,14 @@ export interface DeleteFindingAggregatorRequest {
   FindingAggregatorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFindingAggregatorResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteInsightRequest {
   /**
    * <p>The ARN of the insight to delete.</p>
@@ -28,6 +37,9 @@ export interface DeleteInsightRequest {
   InsightArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInsightResponse {
   /**
    * <p>The ARN of the insight that was deleted.</p>
@@ -35,6 +47,9 @@ export interface DeleteInsightResponse {
   InsightArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInvitationsRequest {
   /**
    * <p>The list of the account IDs that sent the invitations to delete.</p>
@@ -42,6 +57,9 @@ export interface DeleteInvitationsRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInvitationsResponse {
   /**
    * <p>The list of Amazon Web Services accounts for which the invitations were not deleted. For each account,
@@ -50,6 +68,9 @@ export interface DeleteInvitationsResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembersRequest {
   /**
    * <p>The list of account IDs for the member accounts to delete.</p>
@@ -57,6 +78,9 @@ export interface DeleteMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembersResponse {
   /**
    * <p>The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the
@@ -65,6 +89,9 @@ export interface DeleteMembersResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionTargetsRequest {
   /**
    * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
@@ -86,6 +113,9 @@ export interface DescribeActionTargetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionTargetsResponse {
   /**
    * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
@@ -100,6 +130,9 @@ export interface DescribeActionTargetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubRequest {
   /**
    * <p>The ARN of the Hub resource to retrieve.</p>
@@ -107,6 +140,9 @@ export interface DescribeHubRequest {
   HubArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubResponse {
   /**
    * <p>The ARN of the Hub resource that was retrieved.</p>
@@ -140,8 +176,14 @@ export interface DescribeHubResponse {
   ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
@@ -167,6 +209,9 @@ export interface DescribeOrganizationConfigurationResponse {
   AutoEnableStandards?: AutoEnableStandards | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductsRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -188,6 +233,9 @@ export interface DescribeProductsRequest {
   ProductArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum IntegrationType {
   RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
   SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
@@ -195,6 +243,7 @@ export enum IntegrationType {
 }
 
 /**
+ * @public
  * <p>Contains details about a product.</p>
  */
 export interface Product {
@@ -262,6 +311,9 @@ export interface Product {
   ProductSubscriptionResourcePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductsResponse {
   /**
    * <p>A list of products, including details for each product.</p>
@@ -274,6 +326,9 @@ export interface DescribeProductsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -291,6 +346,7 @@ export interface DescribeStandardsRequest {
 }
 
 /**
+ * @public
  * <p>Provides details about the management of a security standard.</p>
  */
 export interface StandardsManagedBy {
@@ -309,6 +365,7 @@ export interface StandardsManagedBy {
 }
 
 /**
+ * @public
  * <p>Provides information about a specific security standard.</p>
  */
 export interface Standard {
@@ -344,6 +401,9 @@ export interface Standard {
   StandardsManagedBy?: StandardsManagedBy;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsResponse {
   /**
    * <p>A list of available standards.</p>
@@ -356,6 +416,9 @@ export interface DescribeStandardsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsControlsRequest {
   /**
    * <p>The ARN of a resource that represents your subscription to a supported standard. To get
@@ -379,6 +442,7 @@ export interface DescribeStandardsControlsRequest {
 }
 
 /**
+ * @public
  * <p>Details for an individual security standard control.</p>
  */
 export interface StandardsControl {
@@ -439,6 +503,9 @@ export interface StandardsControl {
   RelatedRequirements?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsControlsResponse {
   /**
    * <p>A list of security standards controls.</p>
@@ -451,6 +518,9 @@ export interface DescribeStandardsControlsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableImportFindingsForProductRequest {
   /**
    * <p>The ARN of the integrated product to disable the integration for.</p>
@@ -458,8 +528,14 @@ export interface DisableImportFindingsForProductRequest {
   ProductSubscriptionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableImportFindingsForProductResponse {}
 
+/**
+ * @public
+ */
 export interface DisableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account identifier of the Security Hub administrator account.</p>
@@ -467,20 +543,44 @@ export interface DisableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableOrganizationAdminAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisableSecurityHubRequest {}
 
+/**
+ * @public
+ */
 export interface DisableSecurityHubResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromAdministratorAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromAdministratorAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromMasterAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromMasterAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateMembersRequest {
   /**
    * <p>The account IDs of the member accounts to disassociate from the administrator account.</p>
@@ -488,8 +588,14 @@ export interface DisassociateMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMembersResponse {}
 
+/**
+ * @public
+ */
 export interface EnableImportFindingsForProductRequest {
   /**
    * <p>The ARN of the product to enable the integration for.</p>
@@ -497,6 +603,9 @@ export interface EnableImportFindingsForProductRequest {
   ProductArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableImportFindingsForProductResponse {
   /**
    * <p>The ARN of your subscription to the product to enable integrations for.</p>
@@ -504,6 +613,9 @@ export interface EnableImportFindingsForProductResponse {
   ProductSubscriptionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator
@@ -512,8 +624,14 @@ export interface EnableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableOrganizationAdminAccountResponse {}
 
+/**
+ * @public
+ */
 export interface EnableSecurityHubRequest {
   /**
    * <p>The tags to add to the hub resource when you enable Security Hub.</p>
@@ -543,9 +661,13 @@ export interface EnableSecurityHubRequest {
   ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
+/**
+ * @public
+ */
 export interface EnableSecurityHubResponse {}
 
 /**
+ * @public
  * <p>A finding aggregator. A finding aggregator contains the configuration for finding aggregation.</p>
  */
 export interface FindingAggregator {
@@ -555,9 +677,13 @@ export interface FindingAggregator {
   FindingAggregatorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAdministratorAccountRequest {}
 
 /**
+ * @public
  * <p>Details about an invitation.</p>
  */
 export interface Invitation {
@@ -582,6 +708,9 @@ export interface Invitation {
   MemberStatus?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAdministratorAccountResponse {
   /**
    * <p>Details about an invitation.</p>
@@ -589,6 +718,9 @@ export interface GetAdministratorAccountResponse {
   Administrator?: Invitation;
 }
 
+/**
+ * @public
+ */
 export interface GetEnabledStandardsRequest {
   /**
    * <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
@@ -610,6 +742,9 @@ export interface GetEnabledStandardsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEnabledStandardsResponse {
   /**
    * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
@@ -623,6 +758,9 @@ export interface GetEnabledStandardsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingAggregatorRequest {
   /**
    * <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
@@ -630,6 +768,9 @@ export interface GetFindingAggregatorRequest {
   FindingAggregatorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingAggregatorResponse {
   /**
    * <p>The ARN of the finding aggregator.</p>
@@ -652,12 +793,16 @@ export interface GetFindingAggregatorResponse {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "asc",
   DESCENDING = "desc",
 }
 
 /**
+ * @public
  * <p>A collection of finding attributes used to sort findings.</p>
  */
 export interface SortCriterion {
@@ -672,6 +817,9 @@ export interface SortCriterion {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsRequest {
   /**
    * <p>The finding attributes used to define a condition to filter the returned
@@ -703,6 +851,9 @@ export interface GetFindingsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsResponse {
   /**
    * <p>The findings that matched the filters specified in the request.</p>
@@ -715,6 +866,9 @@ export interface GetFindingsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightResultsRequest {
   /**
    * <p>The ARN of the insight for which to return results.</p>
@@ -723,6 +877,7 @@ export interface GetInsightResultsRequest {
 }
 
 /**
+ * @public
  * <p>The insight result values returned by the <code>GetInsightResults</code>
  *          operation.</p>
  */
@@ -740,6 +895,7 @@ export interface InsightResultValue {
 }
 
 /**
+ * @public
  * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
  */
 export interface InsightResults {
@@ -762,6 +918,9 @@ export interface InsightResults {
   ResultValues: InsightResultValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightResultsResponse {
   /**
    * <p>The insight results returned by the operation.</p>
@@ -769,6 +928,9 @@ export interface GetInsightResultsResponse {
   InsightResults: InsightResults | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsRequest {
   /**
    * <p>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
@@ -793,6 +955,7 @@ export interface GetInsightsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a Security Hub insight.</p>
  */
 export interface Insight {
@@ -821,6 +984,9 @@ export interface Insight {
   GroupByAttribute: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsResponse {
   /**
    * <p>The insights returned by the operation.</p>
@@ -833,8 +999,14 @@ export interface GetInsightsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInvitationsCountRequest {}
 
+/**
+ * @public
+ */
 export interface GetInvitationsCountResponse {
   /**
    * <p>The number of all membership invitations sent to this Security Hub member account, not
@@ -843,8 +1015,14 @@ export interface GetInvitationsCountResponse {
   InvitationsCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetMasterAccountRequest {}
 
+/**
+ * @public
+ */
 export interface GetMasterAccountResponse {
   /**
    * <p>A list of details about the Security Hub administrator account for the current member account.
@@ -853,6 +1031,9 @@ export interface GetMasterAccountResponse {
   Master?: Invitation;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersRequest {
   /**
    * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
@@ -861,6 +1042,7 @@ export interface GetMembersRequest {
 }
 
 /**
+ * @public
  * <p>The details about a member account.</p>
  */
 export interface Member {
@@ -943,6 +1125,9 @@ export interface Member {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersResponse {
   /**
    * <p>The list of details about the Security Hub member accounts.</p>
@@ -956,6 +1141,9 @@ export interface GetMembersResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface InviteMembersRequest {
   /**
    * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
@@ -963,6 +1151,9 @@ export interface InviteMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InviteMembersResponse {
   /**
    * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
@@ -971,6 +1162,9 @@ export interface InviteMembersResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface ListEnabledProductsForImportRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -987,6 +1181,9 @@ export interface ListEnabledProductsForImportRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEnabledProductsForImportResponse {
   /**
    * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
@@ -999,6 +1196,9 @@ export interface ListEnabledProductsForImportResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregatorsRequest {
   /**
    * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
@@ -1011,6 +1211,9 @@ export interface ListFindingAggregatorsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregatorsResponse {
   /**
    * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
@@ -1025,6 +1228,9 @@ export interface ListFindingAggregatorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsRequest {
   /**
    * <p>The maximum number of items to return in the response. </p>
@@ -1041,6 +1247,9 @@ export interface ListInvitationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsResponse {
   /**
    * <p>The details of the invitations returned by the operation.</p>
@@ -1053,6 +1262,9 @@ export interface ListInvitationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersRequest {
   /**
    * <p>Specifies which member accounts to include in the response based on their relationship
@@ -1079,6 +1291,9 @@ export interface ListMembersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersResponse {
   /**
    * <p>Member details returned by the operation.</p>
@@ -1091,6 +1306,9 @@ export interface ListMembersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsRequest {
   /**
    * <p>The maximum number of items to return in the response.</p>
@@ -1106,6 +1324,9 @@ export interface ListOrganizationAdminAccountsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsResponse {
   /**
    * <p>The list of Security Hub administrator accounts.</p>
@@ -1118,6 +1339,9 @@ export interface ListOrganizationAdminAccountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityControlDefinitionsRequest {
   /**
    * <p>
@@ -1143,12 +1367,16 @@ export interface ListSecurityControlDefinitionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum RegionAvailabilityStatus {
   AVAILABLE = "AVAILABLE",
   UNAVAILABLE = "UNAVAILABLE",
 }
 
 /**
+ * @public
  * <p>
  *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
  *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
@@ -1203,6 +1431,9 @@ export interface SecurityControlDefinition {
   CurrentRegionAvailability: RegionAvailabilityStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityControlDefinitionsResponse {
   /**
    * <p>
@@ -1218,6 +1449,9 @@ export interface ListSecurityControlDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStandardsControlAssociationsRequest {
   /**
    * <p>
@@ -1247,6 +1481,7 @@ export interface ListStandardsControlAssociationsRequest {
 }
 
 /**
+ * @public
  * <p> An array that provides the enablement status and other details for each control that
  *          applies to each enabled standard. </p>
  */
@@ -1313,6 +1548,9 @@ export interface StandardsControlAssociationSummary {
   StandardsControlDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStandardsControlAssociationsResponse {
   /**
    * <p> An array that provides the enablement status and other details for each security
@@ -1327,6 +1565,9 @@ export interface ListStandardsControlAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource to retrieve tags for.</p>
@@ -1334,6 +1575,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with a resource.</p>
@@ -1341,6 +1585,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource to apply the tags to.</p>
@@ -1353,8 +1600,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource to remove the tags from.</p>
@@ -1367,8 +1620,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateActionTargetRequest {
   /**
    * <p>The ARN of the custom action target to update.</p>
@@ -1386,8 +1645,14 @@ export interface UpdateActionTargetRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionTargetResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFindingAggregatorRequest {
   /**
    * <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
@@ -1425,6 +1690,9 @@ export interface UpdateFindingAggregatorRequest {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingAggregatorResponse {
   /**
    * <p>The ARN of the finding aggregator.</p>
@@ -1447,6 +1715,9 @@ export interface UpdateFindingAggregatorResponse {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingsRequest {
   /**
    * <p>A collection of attributes that specify which findings you want to update.</p>
@@ -1464,8 +1735,14 @@ export interface UpdateFindingsRequest {
   RecordState?: RecordState | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateInsightRequest {
   /**
    * <p>The ARN of the insight that you want to update.</p>
@@ -1488,8 +1765,14 @@ export interface UpdateInsightRequest {
   GroupByAttribute?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInsightResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
@@ -1508,8 +1791,14 @@ export interface UpdateOrganizationConfigurationRequest {
   AutoEnableStandards?: AutoEnableStandards | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateSecurityHubConfigurationRequest {
   /**
    * <p>Whether to automatically enable new controls when they are added to standards that are
@@ -1532,8 +1821,14 @@ export interface UpdateSecurityHubConfigurationRequest {
   ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityHubConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateStandardsControlRequest {
   /**
    * <p>The ARN of the security standard control to enable or disable.</p>
@@ -1552,6 +1847,9 @@ export interface UpdateStandardsControlRequest {
   DisabledReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStandardsControlResponse {}
 
 /**

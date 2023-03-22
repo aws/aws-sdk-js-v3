@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnassignVolumeCommand}.
  */
 export interface UnassignVolumeCommandInput extends UnassignVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnassignVolumeCommand}.
  */
 export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
  *         Management</a>.</p>
@@ -48,6 +53,8 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignVolumeCommandInput - {@link UnassignVolumeCommandInput}
+ * @returns {@link UnassignVolumeCommandOutput}
  * @see {@link UnassignVolumeCommandInput} for command's `input` shape.
  * @see {@link UnassignVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class UnassignVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UnassignVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnassignVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnassignVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignVolumeCommandOutput> {
     return deserializeAws_json1_1UnassignVolumeCommand(output, context);
   }

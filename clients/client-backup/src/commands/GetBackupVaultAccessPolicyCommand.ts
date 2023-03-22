@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackupVaultAccessPolicyCommand}.
  */
 export interface GetBackupVaultAccessPolicyCommandInput extends GetBackupVaultAccessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBackupVaultAccessPolicyCommand}.
  */
 export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the access policy document that is associated with the named backup
  *          vault.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupVaultAccessPolicyCommandInput - {@link GetBackupVaultAccessPolicyCommandInput}
+ * @returns {@link GetBackupVaultAccessPolicyCommandOutput}
  * @see {@link GetBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link GetBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupVaultAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackupVaultAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

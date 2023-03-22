@@ -26,11 +26,15 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateStandardsControlAssociationsCommand}.
  */
 export interface BatchUpdateStandardsControlAssociationsCommandInput
   extends BatchUpdateStandardsControlAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateStandardsControlAssociationsCommand}.
  */
 export interface BatchUpdateStandardsControlAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          For a batch of security controls and standards, this operation updates the enablement status of a control in a standard.
  *       </p>
@@ -51,6 +56,8 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateStandardsControlAssociationsCommandInput - {@link BatchUpdateStandardsControlAssociationsCommandInput}
+ * @returns {@link BatchUpdateStandardsControlAssociationsCommandOutput}
  * @see {@link BatchUpdateStandardsControlAssociationsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -88,6 +95,9 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchUpdateStandardsControlAssociationsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
     return serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

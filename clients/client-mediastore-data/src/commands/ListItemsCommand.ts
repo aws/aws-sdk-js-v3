@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListItemsCommand}.
  */
 export interface ListItemsCommandInput extends ListItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListItemsCommand}.
  */
 export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of metadata entries about folders and objects in the specified
  *          folder.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListItemsCommandInput - {@link ListItemsCommandInput}
+ * @returns {@link ListItemsCommandOutput}
  * @see {@link ListItemsCommandInput} for command's `input` shape.
  * @see {@link ListItemsCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListItemsCommandOutput> {
     return deserializeAws_restJson1ListItemsCommand(output, context);
   }

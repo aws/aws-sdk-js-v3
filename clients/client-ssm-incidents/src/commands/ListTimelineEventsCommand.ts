@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTimelineEventsCommand}.
  */
 export interface ListTimelineEventsCommandInput extends ListTimelineEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTimelineEventsCommand}.
  */
 export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists timeline events for the specified incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTimelineEventsCommandInput - {@link ListTimelineEventsCommandInput}
+ * @returns {@link ListTimelineEventsCommandOutput}
  * @see {@link ListTimelineEventsCommandInput} for command's `input` shape.
  * @see {@link ListTimelineEventsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListTimelineEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTimelineEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListTimelineEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTimelineEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTimelineEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTimelineEventsCommandOutput> {
     return deserializeAws_restJson1ListTimelineEventsCommand(output, context);
   }

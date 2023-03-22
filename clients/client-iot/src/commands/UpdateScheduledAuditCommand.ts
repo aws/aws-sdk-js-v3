@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScheduledAuditCommand}.
  */
 export interface UpdateScheduledAuditCommandInput extends UpdateScheduledAuditRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScheduledAuditCommand}.
  */
 export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a scheduled audit, including which checks are performed and
  *           how often the audit takes place.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateScheduledAudit</a> action.</p>
@@ -48,6 +53,8 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScheduledAuditCommandInput - {@link UpdateScheduledAuditCommandInput}
+ * @returns {@link UpdateScheduledAuditCommandOutput}
  * @see {@link UpdateScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduledAuditCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateScheduledAuditCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScheduledAuditCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateScheduledAuditCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScheduledAuditCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateScheduledAuditCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduledAuditCommandOutput> {
     return deserializeAws_restJson1UpdateScheduledAuditCommand(output, context);
   }

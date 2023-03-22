@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineExecutionCommand}.
  */
 export interface UpdatePipelineExecutionCommandInput extends UpdatePipelineExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineExecutionCommand}.
  */
 export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineExecutionCommandInput - {@link UpdatePipelineExecutionCommandInput}
+ * @returns {@link UpdatePipelineExecutionCommandOutput}
  * @see {@link UpdatePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdatePipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class UpdatePipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineExecutionCommandOutput> {
     return deserializeAws_json1_1UpdatePipelineExecutionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDocumentVersionsCommand}.
  */
 export interface ListDocumentVersionsCommandInput extends ListDocumentVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDocumentVersionsCommand}.
  */
 export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all versions for a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentVersionsCommandInput - {@link ListDocumentVersionsCommandInput}
+ * @returns {@link ListDocumentVersionsCommandOutput}
  * @see {@link ListDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListDocumentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListDocumentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDocumentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentVersionsCommandOutput> {
     return deserializeAws_json1_1ListDocumentVersionsCommand(output, context);
   }

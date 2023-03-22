@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRuleGroupCommand}.
  */
 export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRuleGroupCommand}.
  */
 export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified stateless or stateful rule group, which includes the rules for
  *          network traffic inspection, a capacity setting, and tags. </p>
  *          <p>You provide your rule group specification in your request using either
@@ -49,6 +54,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
+ * @returns {@link CreateRuleGroupCommandOutput}
  * @see {@link CreateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
     return deserializeAws_json1_0CreateRuleGroupCommand(output, context);
   }

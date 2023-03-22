@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IvschatServiceException as __BaseException } from "./IvschatServiceException";
 
 /**
+ * @public
  * <p/>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,12 +23,18 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ChatTokenCapability {
   DELETE_MESSAGE = "DELETE_MESSAGE",
   DISCONNECT_USER = "DISCONNECT_USER",
   SEND_MESSAGE = "SEND_MESSAGE",
 }
 
+/**
+ * @public
+ */
 export interface CreateChatTokenRequest {
   /**
    * <p>Identifier of the room that the client is trying to access. Currently this must be an
@@ -61,6 +68,9 @@ export interface CreateChatTokenRequest {
   attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateChatTokenResponse {
   /**
    * <p>The issued client token, encrypted.</p>
@@ -82,6 +92,7 @@ export interface CreateChatTokenResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class PendingVerification extends __BaseException {
@@ -100,11 +111,15 @@ export class PendingVerification extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   ROOM = "ROOM",
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -136,6 +151,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This object is used in the ValidationException error.</p>
  */
 export interface ValidationExceptionField {
@@ -150,6 +166,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
   OTHER = "OTHER",
@@ -157,6 +176,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ValidationException extends __BaseException {
@@ -188,6 +208,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ConflictException extends __BaseException {
@@ -219,6 +240,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies a CloudWatch Logs location where chat logs will be stored.</p>
  */
 export interface CloudWatchLogsDestinationConfiguration {
@@ -229,6 +251,7 @@ export interface CloudWatchLogsDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies a Kinesis Firehose location where chat logs will be stored.</p>
  */
 export interface FirehoseDestinationConfiguration {
@@ -240,6 +263,7 @@ export interface FirehoseDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies an S3 location where chat logs will be stored.</p>
  */
 export interface S3DestinationConfiguration {
@@ -250,6 +274,7 @@ export interface S3DestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>A complex type that describes a location where chat logs will be stored. Each member
  *       represents the configuration of one log destination. For logging, you define only one type of
  *       destination (for CloudWatch Logs, Kinesis Firehose, or S3).</p>
@@ -260,6 +285,9 @@ export type DestinationConfiguration =
   | DestinationConfiguration.S3Member
   | DestinationConfiguration.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DestinationConfiguration {
   /**
    * <p>An Amazon S3 destination configuration where chat activity will be logged.</p>
@@ -315,6 +343,9 @@ export namespace DestinationConfiguration {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateLoggingConfigurationRequest {
   /**
    * <p>Logging-configuration name. The value does not need to be unique.</p>
@@ -339,10 +370,16 @@ export interface CreateLoggingConfigurationRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum CreateLoggingConfigurationState {
   ACTIVE = "ACTIVE",
 }
 
+/**
+ * @public
+ */
 export interface CreateLoggingConfigurationResponse {
   /**
    * <p>Logging-configuration ARN, assigned by the system.</p>
@@ -394,6 +431,7 @@ export interface CreateLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -430,12 +468,16 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FallbackResult {
   ALLOW = "ALLOW",
   DENY = "DENY",
 }
 
 /**
+ * @public
  * <p>Configuration information for optional message review.</p>
  */
 export interface MessageReviewHandler {
@@ -456,6 +498,9 @@ export interface MessageReviewHandler {
   fallbackResult?: FallbackResult | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomRequest {
   /**
    * <p>Room name. The value does not need to be unique.</p>
@@ -495,6 +540,9 @@ export interface CreateRoomRequest {
   loggingConfigurationIdentifiers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomResponse {
   /**
    * <p>Room ARN, assigned by the system.</p>
@@ -553,6 +601,9 @@ export interface CreateRoomResponse {
   loggingConfigurationIdentifiers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoggingConfigurationRequest {
   /**
    * <p>Identifier of the logging configuration to be deleted.</p>
@@ -560,6 +611,9 @@ export interface DeleteLoggingConfigurationRequest {
   identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMessageRequest {
   /**
    * <p>Identifier of the room where the message should be deleted. Currently this must be an
@@ -580,6 +634,9 @@ export interface DeleteMessageRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMessageResponse {
   /**
    * <p>Operation identifier, generated by Amazon IVS Chat.</p>
@@ -588,6 +645,7 @@ export interface DeleteMessageResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ThrottlingException extends __BaseException {
@@ -624,6 +682,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRoomRequest {
   /**
    * <p>Identifier of the room to be deleted. Currently this must be an ARN.</p>
@@ -631,6 +692,9 @@ export interface DeleteRoomRequest {
   identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectUserRequest {
   /**
    * <p>Identifier of the room from which the user's clients should be disconnected. Currently
@@ -649,8 +713,14 @@ export interface DisconnectUserRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectUserResponse {}
 
+/**
+ * @public
+ */
 export interface GetLoggingConfigurationRequest {
   /**
    * <p>Identifier of the logging configuration to be retrieved.</p>
@@ -658,6 +728,9 @@ export interface GetLoggingConfigurationRequest {
   identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum LoggingConfigurationState {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -668,6 +741,9 @@ export enum LoggingConfigurationState {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export interface GetLoggingConfigurationResponse {
   /**
    * <p>Logging-configuration ARN, from the request (if <code>identifier</code> was an
@@ -719,6 +795,9 @@ export interface GetLoggingConfigurationResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetRoomRequest {
   /**
    * <p>Identifier of the room for which the configuration is to be retrieved. Currently this
@@ -727,6 +806,9 @@ export interface GetRoomRequest {
   identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRoomResponse {
   /**
    * <p>Room ARN, from the request (if <code>identifier</code> was an ARN).</p>
@@ -786,6 +868,9 @@ export interface GetRoomResponse {
   loggingConfigurationIdentifiers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListLoggingConfigurationsRequest {
   /**
    * <p>The first logging configurations to retrieve. This is used for pagination; see the
@@ -800,6 +885,7 @@ export interface ListLoggingConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a logging configuration.</p>
  */
 export interface LoggingConfigurationSummary {
@@ -853,6 +939,9 @@ export interface LoggingConfigurationSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListLoggingConfigurationsResponse {
   /**
    * <p>List of the matching logging configurations (summary information only). There is only
@@ -868,6 +957,9 @@ export interface ListLoggingConfigurationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoomsRequest {
   /**
    * <p>Filters the list to match the specified room name.</p>
@@ -897,6 +989,7 @@ export interface ListRoomsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a room.</p>
  */
 export interface RoomSummary {
@@ -948,6 +1041,9 @@ export interface RoomSummary {
   loggingConfigurationIdentifiers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListRoomsResponse {
   /**
    * <p>List of the matching rooms (summary information only).</p>
@@ -962,6 +1058,7 @@ export interface ListRoomsResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class InternalServerException extends __BaseException {
@@ -980,6 +1077,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
@@ -987,6 +1087,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
@@ -995,6 +1098,9 @@ export interface ListTagsForResourceResponse {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendEventRequest {
   /**
    * <p>Identifier of the room to which the event will be sent. Currently this must be an
@@ -1014,6 +1120,9 @@ export interface SendEventRequest {
   attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SendEventResponse {
   /**
    * <p>An identifier generated by Amazon IVS Chat. This identifier must be used in subsequent
@@ -1022,6 +1131,9 @@ export interface SendEventResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource to be tagged. The ARN must be URL-encoded.</p>
@@ -1038,8 +1150,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>
@@ -1056,8 +1174,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLoggingConfigurationRequest {
   /**
    * <p>Identifier of the logging configuration to be updated.</p>
@@ -1078,10 +1202,16 @@ export interface UpdateLoggingConfigurationRequest {
   destinationConfiguration?: DestinationConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum UpdateLoggingConfigurationState {
   ACTIVE = "ACTIVE",
 }
 
+/**
+ * @public
+ */
 export interface UpdateLoggingConfigurationResponse {
   /**
    * <p>Logging-configuration ARN, from the request (if <code>identifier</code> was an
@@ -1133,6 +1263,9 @@ export interface UpdateLoggingConfigurationResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoomRequest {
   /**
    * <p>Identifier of the room to be updated. Currently this must be an ARN.</p>
@@ -1170,6 +1303,9 @@ export interface UpdateRoomRequest {
   loggingConfigurationIdentifiers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoomResponse {
   /**
    * <p>Room ARN, from the request (if <code>identifier</code> was an ARN).</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHostedConnectionsCommand}.
  */
 export interface DescribeHostedConnectionsCommandInput extends DescribeHostedConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHostedConnectionsCommand}.
  */
 export interface DescribeHostedConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the hosted connections that have been provisioned on the specified
  *       interconnect or link aggregation group (LAG).</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostedConnectionsCommandInput - {@link DescribeHostedConnectionsCommandInput}
+ * @returns {@link DescribeHostedConnectionsCommandOutput}
  * @see {@link DescribeHostedConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostedConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeHostedConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostedConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeHostedConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHostedConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeHostedConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

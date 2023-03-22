@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAWSDefaultServiceQuotaCommand}.
  */
 export interface GetAWSDefaultServiceQuotaCommandInput extends GetAWSDefaultServiceQuotaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAWSDefaultServiceQuotaCommand}.
  */
 export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultServiceQuotaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the default value for the specified quota. The default value does not reflect
  *       any quota increases.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAWSDefaultServiceQuotaCommandInput - {@link GetAWSDefaultServiceQuotaCommandInput}
+ * @returns {@link GetAWSDefaultServiceQuotaCommandOutput}
  * @see {@link GetAWSDefaultServiceQuotaCommandInput} for command's `input` shape.
  * @see {@link GetAWSDefaultServiceQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAWSDefaultServiceQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAWSDefaultServiceQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

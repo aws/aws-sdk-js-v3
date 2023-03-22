@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHostedZoneCommand}.
  */
 export interface DeleteHostedZoneCommandInput extends DeleteHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHostedZoneCommand}.
  */
 export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a hosted zone.</p>
  *          <p>If the hosted zone was created by another service, such as Cloud Map, see
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting Public Hosted Zones That Were Created by Another Service</a> in the
@@ -88,6 +93,8 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHostedZoneCommandInput - {@link DeleteHostedZoneCommandInput}
+ * @returns {@link DeleteHostedZoneCommandOutput}
  * @see {@link DeleteHostedZoneCommandInput} for command's `input` shape.
  * @see {@link DeleteHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -130,6 +137,9 @@ export class DeleteHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class DeleteHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostedZoneCommandOutput> {
     return deserializeAws_restXmlDeleteHostedZoneCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUpdateCommand}.
  */
 export interface DescribeUpdateCommandInput extends DescribeUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUpdateCommand}.
  */
 export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptive information about an update against your Amazon EKS
  *             cluster or associated managed node group or Amazon EKS add-on.</p>
  *          <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
@@ -50,6 +55,8 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUpdateCommandInput - {@link DescribeUpdateCommandInput}
+ * @returns {@link DescribeUpdateCommandOutput}
  * @see {@link DescribeUpdateCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateCommandOutput> {
     return deserializeAws_restJson1DescribeUpdateCommand(output, context);
   }

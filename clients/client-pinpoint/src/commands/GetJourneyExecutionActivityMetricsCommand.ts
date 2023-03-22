@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJourneyExecutionActivityMetricsCommand}.
  */
 export interface GetJourneyExecutionActivityMetricsCommandInput extends GetJourneyExecutionActivityMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJourneyExecutionActivityMetricsCommand}.
  */
 export interface GetJourneyExecutionActivityMetricsCommandOutput
@@ -37,6 +41,7 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJourneyExecutionActivityMetricsCommandInput - {@link GetJourneyExecutionActivityMetricsCommandInput}
+ * @returns {@link GetJourneyExecutionActivityMetricsCommandOutput}
  * @see {@link GetJourneyExecutionActivityMetricsCommandInput} for command's `input` shape.
  * @see {@link GetJourneyExecutionActivityMetricsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJourneyExecutionActivityMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetJourneyExecutionActivityMetricsCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
     return serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

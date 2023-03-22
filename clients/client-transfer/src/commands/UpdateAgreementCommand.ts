@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAgreementCommand}.
  */
 export interface UpdateAgreementCommandInput extends UpdateAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAgreementCommand}.
  */
 export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some of the parameters for an existing agreement. Provide the
  *         <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to
  *       update, along with the new values for the parameters to update.</p>
@@ -48,6 +53,8 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAgreementCommandInput - {@link UpdateAgreementCommandInput}
+ * @returns {@link UpdateAgreementCommandOutput}
  * @see {@link UpdateAgreementCommandInput} for command's `input` shape.
  * @see {@link UpdateAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAgreementCommandOutput> {
     return deserializeAws_json1_1UpdateAgreementCommand(output, context);
   }

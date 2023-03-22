@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReloadTablesCommand}.
  */
 export interface ReloadTablesCommandInput extends ReloadTablesMessage {}
 /**
+ * @public
+ *
  * The output of {@link ReloadTablesCommand}.
  */
 export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reloads the target database table with the source data. </p>
  *          <p>You can only use this operation with a task in the <code>RUNNING</code> state, otherwise the service
  *            will throw an <code>InvalidResourceStateFault</code> exception.</p>
@@ -52,6 +57,8 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ReloadTablesCommandInput - {@link ReloadTablesCommandInput}
+ * @returns {@link ReloadTablesCommandOutput}
  * @see {@link ReloadTablesCommandInput} for command's `input` shape.
  * @see {@link ReloadTablesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class ReloadTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReloadTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ReloadTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReloadTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ReloadTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReloadTablesCommandOutput> {
     return deserializeAws_json1_1ReloadTablesCommand(output, context);
   }

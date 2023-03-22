@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceResourcesCommand}.
  */
 export interface ListDeviceResourcesCommandInput extends ListDeviceResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceResourcesCommand}.
  */
 export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Amazon Web Services resources available for a device. Currently, Amazon EC2 instances are the only supported resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceResourcesCommandInput - {@link ListDeviceResourcesCommandInput}
+ * @returns {@link ListDeviceResourcesCommandOutput}
  * @see {@link ListDeviceResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceResourcesCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListDeviceResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListDeviceResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDeviceResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceResourcesCommandOutput> {
     return deserializeAws_restJson1ListDeviceResourcesCommand(output, context);
   }

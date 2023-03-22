@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainNamesCommand}.
  */
 export interface GetDomainNamesCommandInput extends GetDomainNamesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainNamesCommand}.
  */
 export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the domain names for an AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainNamesCommandInput - {@link GetDomainNamesCommandInput}
+ * @returns {@link GetDomainNamesCommandOutput}
  * @see {@link GetDomainNamesCommandInput} for command's `input` shape.
  * @see {@link GetDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetDomainNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetDomainNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDomainNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainNamesCommandOutput> {
     return deserializeAws_restJson1GetDomainNamesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartObjectCommand}.
  */
 export interface StartObjectCommandInput extends StartObjectInput {}
 /**
+ * @public
+ *
  * The output of {@link StartObjectCommand}.
  */
 export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Start upload containing one or many chunks.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StartObjectCommandInput - {@link StartObjectCommandInput}
+ * @returns {@link StartObjectCommandOutput}
  * @see {@link StartObjectCommandInput} for command's `input` shape.
  * @see {@link StartObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -94,6 +101,9 @@ export class StartObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StartObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartObjectCommandOutput> {
     return deserializeAws_restJson1StartObjectCommand(output, context);
   }

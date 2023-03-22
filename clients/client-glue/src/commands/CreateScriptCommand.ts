@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScriptCommand}.
  */
 export interface CreateScriptCommandInput extends CreateScriptRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateScriptCommand}.
  */
 export interface CreateScriptCommandOutput extends CreateScriptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transforms a directed acyclic graph (DAG) into code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
+ * @returns {@link CreateScriptCommandOutput}
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScriptCommandOutput> {
     return deserializeAws_json1_1CreateScriptCommand(output, context);
   }

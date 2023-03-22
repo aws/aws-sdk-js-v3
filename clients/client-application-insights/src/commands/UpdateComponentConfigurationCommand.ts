@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateComponentConfigurationCommand}.
  */
 export interface UpdateComponentConfigurationCommandInput extends UpdateComponentConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateComponentConfigurationCommand}.
  */
 export interface UpdateComponentConfigurationCommandOutput
@@ -41,6 +45,7 @@ export interface UpdateComponentConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the monitoring configurations for the component. The configuration input
  *          parameter is an escaped JSON of the configuration and should match the schema of what is
  *          returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
@@ -54,6 +59,8 @@ export interface UpdateComponentConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComponentConfigurationCommandInput - {@link UpdateComponentConfigurationCommandInput}
+ * @returns {@link UpdateComponentConfigurationCommandOutput}
  * @see {@link UpdateComponentConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateComponentConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComponentConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateComponentConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComponentConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateComponentConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -18,15 +18,20 @@ import { DeleteKeyPairRequest, DeleteKeyPairRequestFilterSensitiveLog } from "..
 import { deserializeAws_ec2DeleteKeyPairCommand, serializeAws_ec2DeleteKeyPairCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKeyPairCommand}.
  */
 export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKeyPairCommand}.
  */
 export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,6 +43,8 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeyPairCommandInput - {@link DeleteKeyPairCommandInput}
+ * @returns {@link DeleteKeyPairCommandOutput}
  * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyPairCommandOutput> {
     return deserializeAws_ec2DeleteKeyPairCommand(output, context);
   }

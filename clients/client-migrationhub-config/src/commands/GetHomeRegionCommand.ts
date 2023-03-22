@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHomeRegionCommand}.
  */
 export interface GetHomeRegionCommandInput extends GetHomeRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHomeRegionCommand}.
  */
 export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the calling account’s home region, if configured. This API is used by other AWS
  *       services to determine the regional endpoint for calling AWS Application Discovery Service and
  *       Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any
@@ -54,6 +59,8 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHomeRegionCommandInput - {@link GetHomeRegionCommandInput}
+ * @returns {@link GetHomeRegionCommandOutput}
  * @see {@link GetHomeRegionCommandInput} for command's `input` shape.
  * @see {@link GetHomeRegionCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetHomeRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHomeRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetHomeRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHomeRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetHomeRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHomeRegionCommandOutput> {
     return deserializeAws_json1_1GetHomeRegionCommand(output, context);
   }

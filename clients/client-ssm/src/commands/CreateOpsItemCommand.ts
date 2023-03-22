@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOpsItemCommand}.
  */
 export interface CreateOpsItemCommandInput extends CreateOpsItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOpsItemCommand}.
  */
 export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new OpsItem. You must have permission in Identity and Access Management (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
  *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -51,6 +56,8 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOpsItemCommandInput - {@link CreateOpsItemCommandInput}
+ * @returns {@link CreateOpsItemCommandOutput}
  * @see {@link CreateOpsItemCommandInput} for command's `input` shape.
  * @see {@link CreateOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateOpsItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOpsItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateOpsItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOpsItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateOpsItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsItemCommandOutput> {
     return deserializeAws_json1_1CreateOpsItemCommand(output, context);
   }

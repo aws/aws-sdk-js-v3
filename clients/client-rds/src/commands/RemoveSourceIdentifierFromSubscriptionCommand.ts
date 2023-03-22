@@ -26,11 +26,15 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
 export interface RemoveSourceIdentifierFromSubscriptionCommandInput
   extends RemoveSourceIdentifierFromSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
 export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
@@ -38,6 +42,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a source identifier from an existing RDS event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSourceIdentifierFromSubscriptionCommandInput - {@link RemoveSourceIdentifierFromSubscriptionCommandInput}
+ * @returns {@link RemoveSourceIdentifierFromSubscriptionCommandOutput}
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -95,6 +102,9 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSourceIdentifierFromSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVirtualClusterCommand}.
  */
 export interface CreateVirtualClusterCommandInput extends CreateVirtualClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVirtualClusterCommand}.
  */
 export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
  *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
  *          namespace. Given this relationship, you can model virtual clusters the same way you model
@@ -49,6 +54,8 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualClusterCommandInput - {@link CreateVirtualClusterCommandInput}
+ * @returns {@link CreateVirtualClusterCommandOutput}
  * @see {@link CreateVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateVirtualClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateVirtualClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVirtualClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualClusterCommandOutput> {
     return deserializeAws_restJson1CreateVirtualClusterCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPrincipalMappingCommand}.
  */
 export interface PutPrincipalMappingCommandInput extends PutPrincipalMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPrincipalMappingCommand}.
  */
 export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Maps users to their groups so that you only need to provide
  *             the user ID when you issue the query.</p>
  *          <p>You can also map sub groups to groups.
@@ -59,6 +64,8 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPrincipalMappingCommandInput - {@link PutPrincipalMappingCommandInput}
+ * @returns {@link PutPrincipalMappingCommandOutput}
  * @see {@link PutPrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link PutPrincipalMappingCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -111,6 +118,9 @@ export class PutPrincipalMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPrincipalMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class PutPrincipalMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPrincipalMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPrincipalMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPrincipalMappingCommandOutput> {
     return deserializeAws_json1_1PutPrincipalMappingCommand(output, context);
   }

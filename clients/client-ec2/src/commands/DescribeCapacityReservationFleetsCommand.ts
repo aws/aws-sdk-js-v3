@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCapacityReservationFleetsCommand}.
  */
 export interface DescribeCapacityReservationFleetsCommandInput extends DescribeCapacityReservationFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCapacityReservationFleetsCommand}.
  */
 export interface DescribeCapacityReservationFleetsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeCapacityReservationFleetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Capacity Reservation Fleets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeCapacityReservationFleetsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCapacityReservationFleetsCommandInput - {@link DescribeCapacityReservationFleetsCommandInput}
+ * @returns {@link DescribeCapacityReservationFleetsCommandOutput}
  * @see {@link DescribeCapacityReservationFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityReservationFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeCapacityReservationFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCapacityReservationFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeCapacityReservationFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCapacityReservationFleetsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeCapacityReservationFleetsCommand extends $Command<
     return serializeAws_ec2DescribeCapacityReservationFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

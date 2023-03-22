@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProjectVersionCommand}.
  */
 export interface CreateProjectVersionCommandInput extends CreateProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProjectVersionCommand}.
  */
 export interface CreateProjectVersionCommandOutput extends CreateProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of a model and begins training.
  *          Models are managed as part of an Amazon Rekognition Custom Labels project.
  *          The response from <code>CreateProjectVersion</code>
@@ -75,6 +80,8 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectVersionCommandInput - {@link CreateProjectVersionCommandInput}
+ * @returns {@link CreateProjectVersionCommandOutput}
  * @see {@link CreateProjectVersionCommandInput} for command's `input` shape.
  * @see {@link CreateProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -131,6 +138,9 @@ export class CreateProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class CreateProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectVersionCommandOutput> {
     return deserializeAws_json1_1CreateProjectVersionCommand(output, context);
   }

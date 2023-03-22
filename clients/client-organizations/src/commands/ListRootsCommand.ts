@@ -23,15 +23,20 @@ import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { deserializeAws_json1_1ListRootsCommand, serializeAws_json1_1ListRootsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRootsCommand}.
  */
 export interface ListRootsCommandInput extends ListRootsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRootsCommand}.
  */
 export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the roots that are defined in the current organization.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -60,6 +65,8 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRootsCommandInput - {@link ListRootsCommandInput}
+ * @returns {@link ListRootsCommandOutput}
  * @see {@link ListRootsCommandInput} for command's `input` shape.
  * @see {@link ListRootsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -235,6 +242,9 @@ export class ListRootsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRootsCommandInput) {
     // Start section: command_constructor
     super();
@@ -272,10 +282,16 @@ export class ListRootsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRootsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRootsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRootsCommandOutput> {
     return deserializeAws_json1_1ListRootsCommand(output, context);
   }

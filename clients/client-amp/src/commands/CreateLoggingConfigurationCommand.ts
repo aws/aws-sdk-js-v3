@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoggingConfigurationCommand}.
  */
 export interface CreateLoggingConfigurationCommandInput extends CreateLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoggingConfigurationCommand}.
  */
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create logging configuration.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
+ * @returns {@link CreateLoggingConfigurationCommandOutput}
  * @see {@link CreateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

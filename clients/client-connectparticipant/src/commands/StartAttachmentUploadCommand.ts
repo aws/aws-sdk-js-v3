@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAttachmentUploadCommand}.
  */
 export interface StartAttachmentUploadCommandInput extends StartAttachmentUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAttachmentUploadCommand}.
  */
 export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  *             S3.</p>
  *          <note>
@@ -58,6 +63,8 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAttachmentUploadCommandInput - {@link StartAttachmentUploadCommandInput}
+ * @returns {@link StartAttachmentUploadCommandOutput}
  * @see {@link StartAttachmentUploadCommandInput} for command's `input` shape.
  * @see {@link StartAttachmentUploadCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartAttachmentUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAttachmentUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class StartAttachmentUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAttachmentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartAttachmentUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAttachmentUploadCommandOutput> {
     return deserializeAws_restJson1StartAttachmentUploadCommand(output, context);
   }

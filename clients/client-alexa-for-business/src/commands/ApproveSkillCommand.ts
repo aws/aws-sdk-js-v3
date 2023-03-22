@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ApproveSkillCommand}.
  */
 export interface ApproveSkillCommandInput extends ApproveSkillRequest {}
 /**
+ * @public
+ *
  * The output of {@link ApproveSkillCommand}.
  */
 export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a skill with the organization under the customer's AWS account. If a skill
  *          is private, the user implicitly accepts access to this skill during enablement.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ApproveSkillCommandInput - {@link ApproveSkillCommandInput}
+ * @returns {@link ApproveSkillCommandOutput}
  * @see {@link ApproveSkillCommandInput} for command's `input` shape.
  * @see {@link ApproveSkillCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -79,6 +86,9 @@ export class ApproveSkillCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApproveSkillCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ApproveSkillCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApproveSkillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ApproveSkillCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveSkillCommandOutput> {
     return deserializeAws_json1_1ApproveSkillCommand(output, context);
   }

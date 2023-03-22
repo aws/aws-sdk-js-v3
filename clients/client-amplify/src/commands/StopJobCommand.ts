@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopJobCommand}.
  */
 export interface StopJobCommandInput extends StopJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopJobCommand}.
  */
 export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Stops a job that is in progress for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopJobCommandInput - {@link StopJobCommandInput}
+ * @returns {@link StopJobCommandOutput}
  * @see {@link StopJobCommandInput} for command's `input` shape.
  * @see {@link StopJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -80,6 +87,9 @@ export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobCommandOutput> {
     return deserializeAws_restJson1StopJobCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelRunCommand}.
  */
 export interface CancelRunCommandInput extends CancelRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelRunCommand}.
  */
 export interface CancelRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelRunCommandInput - {@link CancelRunCommandInput}
+ * @returns {@link CancelRunCommandOutput}
  * @see {@link CancelRunCommandInput} for command's `input` shape.
  * @see {@link CancelRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +95,9 @@ export class CancelRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CancelRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRunCommandOutput> {
     return deserializeAws_restJson1CancelRunCommand(output, context);
   }

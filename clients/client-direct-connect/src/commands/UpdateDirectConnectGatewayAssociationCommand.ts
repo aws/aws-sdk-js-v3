@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDirectConnectGatewayAssociationCommand}.
  */
 export interface UpdateDirectConnectGatewayAssociationCommandInput
   extends UpdateDirectConnectGatewayAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDirectConnectGatewayAssociationCommand}.
  */
 export interface UpdateDirectConnectGatewayAssociationCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attributes of the Direct Connect gateway association.</p>
  *          <p>Add or remove prefixes from the association.</p>
  * @example
@@ -50,6 +55,8 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDirectConnectGatewayAssociationCommandInput - {@link UpdateDirectConnectGatewayAssociationCommandInput}
+ * @returns {@link UpdateDirectConnectGatewayAssociationCommandOutput}
  * @see {@link UpdateDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDirectConnectGatewayAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     return serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

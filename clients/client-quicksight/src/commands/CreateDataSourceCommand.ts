@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSourceCommand}.
  */
 export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSourceCommand}.
  */
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSourceCommandInput - {@link CreateDataSourceCommandInput}
+ * @returns {@link CreateDataSourceCommandOutput}
  * @see {@link CreateDataSourceCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceCommandOutput> {
     return deserializeAws_restJson1CreateDataSourceCommand(output, context);
   }

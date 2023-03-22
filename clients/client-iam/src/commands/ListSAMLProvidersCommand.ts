@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListSAMLProvidersCommand}.
  */
 export interface ListSAMLProvidersCommandInput extends ListSAMLProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSAMLProvidersCommand}.
  */
 export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SAML provider resource objects defined in IAM in the account.
  *             IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see <a>GetSAMLProvider</a>.</p>
@@ -51,6 +56,8 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSAMLProvidersCommandInput - {@link ListSAMLProvidersCommandInput}
+ * @returns {@link ListSAMLProvidersCommandOutput}
  * @see {@link ListSAMLProvidersCommandInput} for command's `input` shape.
  * @see {@link ListSAMLProvidersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListSAMLProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSAMLProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListSAMLProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSAMLProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSAMLProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSAMLProvidersCommandOutput> {
     return deserializeAws_queryListSAMLProvidersCommand(output, context);
   }

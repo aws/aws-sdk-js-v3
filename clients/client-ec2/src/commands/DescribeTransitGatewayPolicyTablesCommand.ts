@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayPolicyTablesCommand}.
  */
 export interface DescribeTransitGatewayPolicyTablesCommandInput extends DescribeTransitGatewayPolicyTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayPolicyTablesCommand}.
  */
 export interface DescribeTransitGatewayPolicyTablesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTransitGatewayPolicyTablesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateway route policy tables.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTransitGatewayPolicyTablesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayPolicyTablesCommandInput - {@link DescribeTransitGatewayPolicyTablesCommandInput}
+ * @returns {@link DescribeTransitGatewayPolicyTablesCommandOutput}
  * @see {@link DescribeTransitGatewayPolicyTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayPolicyTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeTransitGatewayPolicyTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayPolicyTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeTransitGatewayPolicyTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayPolicyTablesCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeTransitGatewayPolicyTablesCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayPolicyTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

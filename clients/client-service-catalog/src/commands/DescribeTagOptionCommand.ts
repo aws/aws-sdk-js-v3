@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagOptionCommand}.
  */
 export interface DescribeTagOptionCommandInput extends DescribeTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagOptionCommand}.
  */
 export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagOptionCommandInput - {@link DescribeTagOptionCommandInput}
+ * @returns {@link DescribeTagOptionCommandOutput}
  * @see {@link DescribeTagOptionCommandInput} for command's `input` shape.
  * @see {@link DescribeTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagOptionCommandOutput> {
     return deserializeAws_json1_1DescribeTagOptionCommand(output, context);
   }

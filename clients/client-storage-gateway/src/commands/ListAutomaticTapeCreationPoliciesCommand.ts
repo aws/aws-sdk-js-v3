@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAutomaticTapeCreationPoliciesCommand}.
  */
 export interface ListAutomaticTapeCreationPoliciesCommandInput extends ListAutomaticTapeCreationPoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAutomaticTapeCreationPoliciesCommand}.
  */
 export interface ListAutomaticTapeCreationPoliciesCommandOutput
@@ -37,6 +41,7 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape
  *          creation policies for the gateway, it returns an empty list.</p>
  *
@@ -51,6 +56,8 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAutomaticTapeCreationPoliciesCommandInput - {@link ListAutomaticTapeCreationPoliciesCommandInput}
+ * @returns {@link ListAutomaticTapeCreationPoliciesCommandOutput}
  * @see {@link ListAutomaticTapeCreationPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAutomaticTapeCreationPoliciesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAutomaticTapeCreationPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAutomaticTapeCreationPoliciesCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     return serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

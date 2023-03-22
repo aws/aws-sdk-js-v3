@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDocumentClassificationJobsCommand}.
  */
 export interface ListDocumentClassificationJobsCommandInput extends ListDocumentClassificationJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDocumentClassificationJobsCommand}.
  */
 export interface ListDocumentClassificationJobsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDocumentClassificationJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListDocumentClassificationJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentClassificationJobsCommandInput - {@link ListDocumentClassificationJobsCommandInput}
+ * @returns {@link ListDocumentClassificationJobsCommandOutput}
  * @see {@link ListDocumentClassificationJobsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassificationJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentClassificationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDocumentClassificationJobsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     return serializeAws_json1_1ListDocumentClassificationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

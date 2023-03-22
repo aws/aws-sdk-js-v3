@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePrivateVirtualInterfaceCommand}.
  */
 export interface CreatePrivateVirtualInterfaceCommandInput extends CreatePrivateVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePrivateVirtualInterfaceCommand}.
  */
 export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a private virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
  *       A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW).
  *       Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple
@@ -56,6 +61,8 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePrivateVirtualInterfaceCommandInput - {@link CreatePrivateVirtualInterfaceCommandInput}
+ * @returns {@link CreatePrivateVirtualInterfaceCommandOutput}
  * @see {@link CreatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePrivateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePrivateVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

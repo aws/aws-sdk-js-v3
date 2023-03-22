@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeProfilesCommand}.
  */
 export interface MergeProfilesCommandInput extends MergeProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link MergeProfilesCommand}.
  */
 export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an AWS Lambda job that does the following:</p>
  *          <ol>
  *             <li>
@@ -88,6 +93,8 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeProfilesCommandInput - {@link MergeProfilesCommandInput}
+ * @returns {@link MergeProfilesCommandOutput}
  * @see {@link MergeProfilesCommandInput} for command's `input` shape.
  * @see {@link MergeProfilesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -123,6 +130,9 @@ export class MergeProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class MergeProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MergeProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeProfilesCommandOutput> {
     return deserializeAws_restJson1MergeProfilesCommand(output, context);
   }

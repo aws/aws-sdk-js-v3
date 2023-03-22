@@ -26,15 +26,20 @@ import {
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRuleCommand}.
  */
 export interface GetRuleCommandInput extends GetRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRuleCommand}.
  */
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Recycle Bin retention rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRuleCommandInput - {@link GetRuleCommandInput}
+ * @returns {@link GetRuleCommandOutput}
  * @see {@link GetRuleCommandInput} for command's `input` shape.
  * @see {@link GetRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRuleCommandOutput> {
     return deserializeAws_restJson1GetRuleCommand(output, context);
   }

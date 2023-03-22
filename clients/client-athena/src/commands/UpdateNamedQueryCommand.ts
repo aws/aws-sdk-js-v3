@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNamedQueryCommand}.
  */
 export interface UpdateNamedQueryCommandInput extends UpdateNamedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNamedQueryCommand}.
  */
 export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be
  *             updated.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNamedQueryCommandInput - {@link UpdateNamedQueryCommandInput}
+ * @returns {@link UpdateNamedQueryCommandOutput}
  * @see {@link UpdateNamedQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateNamedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNamedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateNamedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNamedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNamedQueryCommandOutput> {
     return deserializeAws_json1_1UpdateNamedQueryCommand(output, context);
   }

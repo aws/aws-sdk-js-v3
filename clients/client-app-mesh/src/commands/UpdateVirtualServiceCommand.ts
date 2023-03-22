@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVirtualServiceCommand}.
  */
 export interface UpdateVirtualServiceCommandInput extends UpdateVirtualServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVirtualServiceCommand}.
  */
 export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing virtual service in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualServiceCommandInput - {@link UpdateVirtualServiceCommandInput}
+ * @returns {@link UpdateVirtualServiceCommandOutput}
  * @see {@link UpdateVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateVirtualServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateVirtualServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVirtualServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVirtualServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualServiceCommandOutput> {
     return deserializeAws_restJson1UpdateVirtualServiceCommand(output, context);
   }

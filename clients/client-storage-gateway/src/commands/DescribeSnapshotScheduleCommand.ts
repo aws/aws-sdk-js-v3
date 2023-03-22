@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotScheduleCommand}.
  */
 export interface DescribeSnapshotScheduleCommandInput extends DescribeSnapshotScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotScheduleCommand}.
  */
 export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the snapshot schedule for the specified gateway volume. The snapshot schedule
  *          information includes intervals at which snapshots are automatically initiated on the
  *          volume. This operation is only supported in the cached volume and stored volume
@@ -49,6 +54,8 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotScheduleCommandInput - {@link DescribeSnapshotScheduleCommandInput}
+ * @returns {@link DescribeSnapshotScheduleCommandOutput}
  * @see {@link DescribeSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DescribeSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotScheduleCommandOutput> {
     return deserializeAws_json1_1DescribeSnapshotScheduleCommand(output, context);
   }

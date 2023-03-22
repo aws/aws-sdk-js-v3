@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddAttributesToFindingsCommand}.
  */
 export interface AddAttributesToFindingsCommandInput extends AddAttributesToFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddAttributesToFindingsCommand}.
  */
 export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns attributes (key and value pairs) to the findings that are specified by the
  *          ARNs of the findings.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * const response = await client.send(command);
  * ```
  *
+ * @param AddAttributesToFindingsCommandInput - {@link AddAttributesToFindingsCommandInput}
+ * @returns {@link AddAttributesToFindingsCommandOutput}
  * @see {@link AddAttributesToFindingsCommandInput} for command's `input` shape.
  * @see {@link AddAttributesToFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -111,6 +118,9 @@ export class AddAttributesToFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddAttributesToFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class AddAttributesToFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddAttributesToFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddAttributesToFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAttributesToFindingsCommandOutput> {
     return deserializeAws_json1_1AddAttributesToFindingsCommand(output, context);
   }

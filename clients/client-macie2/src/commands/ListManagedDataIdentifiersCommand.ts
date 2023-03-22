@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedDataIdentifiersCommand}.
  */
 export interface ListManagedDataIdentifiersCommandInput extends ListManagedDataIdentifiersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedDataIdentifiersCommand}.
  */
 export interface ListManagedDataIdentifiersCommandOutput extends ListManagedDataIdentifiersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the managed data identifiers that Amazon Macie currently provides.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedDataIdentifiersCommandInput - {@link ListManagedDataIdentifiersCommandInput}
+ * @returns {@link ListManagedDataIdentifiersCommandOutput}
  * @see {@link ListManagedDataIdentifiersCommandInput} for command's `input` shape.
  * @see {@link ListManagedDataIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ListManagedDataIdentifiersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedDataIdentifiersCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListManagedDataIdentifiersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedDataIdentifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListManagedDataIdentifiersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMissionProfileCommand}.
  */
 export interface CreateMissionProfileCommandInput extends CreateMissionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMissionProfileCommand}.
  */
 export interface CreateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a mission profile.</p>
  *          <p>
  *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
@@ -49,6 +54,8 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMissionProfileCommandInput - {@link CreateMissionProfileCommandInput}
+ * @returns {@link CreateMissionProfileCommandOutput}
  * @see {@link CreateMissionProfileCommandInput} for command's `input` shape.
  * @see {@link CreateMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateMissionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMissionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateMissionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMissionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMissionProfileCommandOutput> {
     return deserializeAws_restJson1CreateMissionProfileCommand(output, context);
   }

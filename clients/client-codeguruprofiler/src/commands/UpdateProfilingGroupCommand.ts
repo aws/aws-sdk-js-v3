@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProfilingGroupCommand}.
  */
 export interface UpdateProfilingGroupCommandInput extends UpdateProfilingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProfilingGroupCommand}.
  */
 export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfilingGroupCommandInput - {@link UpdateProfilingGroupCommandInput}
+ * @returns {@link UpdateProfilingGroupCommandOutput}
  * @see {@link UpdateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateProfilingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfilingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateProfilingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProfilingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfilingGroupCommandOutput> {
     return deserializeAws_restJson1UpdateProfilingGroupCommand(output, context);
   }

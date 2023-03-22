@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAnnotationStoreCommand}.
  */
 export interface DeleteAnnotationStoreCommandInput extends DeleteAnnotationStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAnnotationStoreCommand}.
  */
 export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnnotationStoreCommandInput - {@link DeleteAnnotationStoreCommandInput}
+ * @returns {@link DeleteAnnotationStoreCommandOutput}
  * @see {@link DeleteAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteAnnotationStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnnotationStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteAnnotationStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAnnotationStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnnotationStoreCommandOutput> {
     return deserializeAws_restJson1DeleteAnnotationStoreCommand(output, context);
   }

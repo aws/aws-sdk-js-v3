@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUseCaseCommand}.
  */
 export interface DeleteUseCaseCommandInput extends DeleteUseCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUseCaseCommand}.
  */
 export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a use case from an integration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUseCaseCommandInput - {@link DeleteUseCaseCommandInput}
+ * @returns {@link DeleteUseCaseCommandOutput}
  * @see {@link DeleteUseCaseCommandInput} for command's `input` shape.
  * @see {@link DeleteUseCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteUseCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUseCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteUseCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUseCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUseCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUseCaseCommandOutput> {
     return deserializeAws_restJson1DeleteUseCaseCommand(output, context);
   }

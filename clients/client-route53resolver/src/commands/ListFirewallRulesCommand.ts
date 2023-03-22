@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFirewallRulesCommand}.
  */
 export interface ListFirewallRulesCommandInput extends ListFirewallRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFirewallRulesCommand}.
  */
 export interface ListFirewallRulesCommandOutput extends ListFirewallRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
  *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallRulesCommandInput - {@link ListFirewallRulesCommandInput}
+ * @returns {@link ListFirewallRulesCommandOutput}
  * @see {@link ListFirewallRulesCommandInput} for command's `input` shape.
  * @see {@link ListFirewallRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListFirewallRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListFirewallRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFirewallRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallRulesCommandOutput> {
     return deserializeAws_json1_1ListFirewallRulesCommand(output, context);
   }

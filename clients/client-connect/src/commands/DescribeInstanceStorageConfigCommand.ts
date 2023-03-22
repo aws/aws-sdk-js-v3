@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceStorageConfigCommand}.
  */
 export interface DescribeInstanceStorageConfigCommandInput extends DescribeInstanceStorageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceStorageConfigCommand}.
  */
 export interface DescribeInstanceStorageConfigCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInstanceStorageConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Retrieves the current storage configurations for the specified resource type, association
  *    ID, and instance ID.</p>
@@ -50,6 +55,8 @@ export interface DescribeInstanceStorageConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceStorageConfigCommandInput - {@link DescribeInstanceStorageConfigCommandInput}
+ * @returns {@link DescribeInstanceStorageConfigCommandOutput}
  * @see {@link DescribeInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceStorageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

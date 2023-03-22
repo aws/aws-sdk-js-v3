@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMethodResponseCommand}.
  */
 export interface GetMethodResponseCommandInput extends GetMethodResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMethodResponseCommand}.
  */
 export interface GetMethodResponseCommandOutput extends MethodResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMethodResponseCommandOutput extends MethodResponse, __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMethodResponseCommandInput - {@link GetMethodResponseCommandInput}
+ * @returns {@link GetMethodResponseCommandOutput}
  * @see {@link GetMethodResponseCommandInput} for command's `input` shape.
  * @see {@link GetMethodResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetMethodResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMethodResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetMethodResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMethodResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMethodResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMethodResponseCommandOutput> {
     return deserializeAws_restJson1GetMethodResponseCommand(output, context);
   }

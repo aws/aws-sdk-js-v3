@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticGpusCommand}.
  */
 export interface DescribeElasticGpusCommandInput extends DescribeElasticGpusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticGpusCommand}.
  */
 export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Elastic Graphics accelerator associated with your instances. For more information
  *             about Elastic Graphics, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon Elastic Graphics</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticGpusCommandInput - {@link DescribeElasticGpusCommandInput}
+ * @returns {@link DescribeElasticGpusCommandOutput}
  * @see {@link DescribeElasticGpusCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticGpusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeElasticGpusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticGpusCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeElasticGpusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticGpusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeElasticGpusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeElasticGpusCommandOutput> {
     return deserializeAws_ec2DescribeElasticGpusCommand(output, context);
   }

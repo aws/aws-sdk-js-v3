@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopProductSubscriptionCommand}.
  */
 export interface StopProductSubscriptionCommandInput extends StopProductSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopProductSubscriptionCommand}.
  */
 export interface StopProductSubscriptionCommandOutput extends StopProductSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a product subscription for a user with the specified identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param StopProductSubscriptionCommandInput - {@link StopProductSubscriptionCommandInput}
+ * @returns {@link StopProductSubscriptionCommandOutput}
  * @see {@link StopProductSubscriptionCommandInput} for command's `input` shape.
  * @see {@link StopProductSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +102,9 @@ export class StopProductSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopProductSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class StopProductSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopProductSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopProductSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopProductSubscriptionCommandOutput> {
     return deserializeAws_restJson1StopProductSubscriptionCommand(output, context);
   }

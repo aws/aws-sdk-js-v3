@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFolderPermissionsCommand}.
  */
 export interface UpdateFolderPermissionsCommandInput extends UpdateFolderPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFolderPermissionsCommand}.
  */
 export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates permissions of a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermis
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFolderPermissionsCommandInput - {@link UpdateFolderPermissionsCommandInput}
+ * @returns {@link UpdateFolderPermissionsCommandOutput}
  * @see {@link UpdateFolderPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateFolderPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFolderPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateFolderPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFolderPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFolderPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFolderPermissionsCommandOutput> {
     return deserializeAws_restJson1UpdateFolderPermissionsCommand(output, context);
   }

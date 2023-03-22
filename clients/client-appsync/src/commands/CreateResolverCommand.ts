@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResolverCommand}.
  */
 export interface CreateResolverCommandInput extends CreateResolverRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResolverCommand}.
  */
 export interface CreateResolverCommandOutput extends CreateResolverResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>Resolver</code> object.</p>
  *          <p>A resolver converts incoming requests into a format that a data source can understand, and converts the data
  *          source's responses into GraphQL.</p>
@@ -48,6 +53,8 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResolverCommandInput - {@link CreateResolverCommandInput}
+ * @returns {@link CreateResolverCommandOutput}
  * @see {@link CreateResolverCommandInput} for command's `input` shape.
  * @see {@link CreateResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateResolverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResolverCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateResolverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResolverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResolverCommandOutput> {
     return deserializeAws_restJson1CreateResolverCommand(output, context);
   }

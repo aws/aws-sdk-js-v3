@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLocationSmbCommand}.
  */
 export interface UpdateLocationSmbCommandInput extends UpdateLocationSmbRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLocationSmbCommand}.
  */
 export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some of the parameters of a previously created location for Server Message Block
  *       (SMB) file system access. For information about creating an SMB location, see
  *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating a location for SMB</a>.</p>
@@ -48,6 +53,8 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLocationSmbCommandInput - {@link UpdateLocationSmbCommandInput}
+ * @returns {@link UpdateLocationSmbCommandOutput}
  * @see {@link UpdateLocationSmbCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateLocationSmbCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLocationSmbCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateLocationSmbCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLocationSmbCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLocationSmbCommandOutput> {
     return deserializeAws_json1_1UpdateLocationSmbCommand(output, context);
   }

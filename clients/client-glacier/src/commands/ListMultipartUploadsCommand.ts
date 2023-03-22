@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMultipartUploadsCommand}.
  */
 export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMultipartUploadsCommand}.
  */
 export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists in-progress multipart uploads for the specified vault. An
  *          in-progress multipart upload is a multipart upload that has been initiated by an <a>InitiateMultipartUpload</a> request, but has not yet been completed or aborted.
  *          The list returned in the List Multipart Upload response has no guaranteed order. </p>
@@ -71,6 +76,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
+ * @returns {@link ListMultipartUploadsCommandOutput}
  * @see {@link ListMultipartUploadsCommandInput} for command's `input` shape.
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -147,6 +154,9 @@ export class ListMultipartUploadsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultipartUploadsCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class ListMultipartUploadsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultipartUploadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMultipartUploadsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultipartUploadsCommandOutput> {
     return deserializeAws_restJson1ListMultipartUploadsCommand(output, context);
   }

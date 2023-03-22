@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeActionTargetsCommand}.
  */
 export interface DescribeActionTargetsCommandInput extends DescribeActionTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeActionTargetsCommand}.
  */
 export interface DescribeActionTargetsCommandOutput extends DescribeActionTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActionTargetsCommandInput - {@link DescribeActionTargetsCommandInput}
+ * @returns {@link DescribeActionTargetsCommandOutput}
  * @see {@link DescribeActionTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeActionTargetsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeActionTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActionTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeActionTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActionTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeActionTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActionTargetsCommandOutput> {
     return deserializeAws_restJson1DescribeActionTargetsCommand(output, context);
   }

@@ -89,6 +89,7 @@ import {
 import { MigrationHubClient } from "./MigrationHubClient";
 
 /**
+ * @public
  * <p>The AWS Migration Hub API methods help to obtain server and application migration status
  *          and integrate your resource-specific migration tool by providing a programmatic interface
  *          to Migration Hub.</p>
@@ -98,6 +99,7 @@ import { MigrationHubClient } from "./MigrationHubClient";
  */
 export class MigrationHub extends MigrationHubClient {
   /**
+   * @public
    * <p>Associates a created artifact of an AWS cloud resource, the target receiving the
    *          migration, with the migration task performed by a migration tool. This API has the
    *          following traits:</p>
@@ -147,6 +149,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Associates a discovered resource ID from Application Discovery Service with a migration
    *          task.</p>
    */
@@ -180,6 +183,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Creates a progress update stream which is an AWS resource used for access control as
    *          well as a namespace for migration task names that is implicitly linked to your AWS account.
    *          It must uniquely identify the migration tool as it is used for all updates made by the
@@ -216,6 +220,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Deletes a progress update stream, including all of its tasks, which was previously
    *          created as an AWS resource used for access control. This API has the following
    *          traits:</p>
@@ -278,6 +283,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Gets the migration status of an application.</p>
    */
   public describeApplicationState(
@@ -310,6 +316,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
    */
   public describeMigrationTask(
@@ -342,6 +349,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a created artifact of an AWS resource with a migration task performed by a
    *          migration tool that was previously associated. This API has the following traits:</p>
    *          <ul>
@@ -390,6 +398,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Disassociate an Application Discovery Service discovered resource from a migration
    *          task.</p>
    */
@@ -423,6 +432,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Registers a new migration task which represents a server, database, etc., being migrated
    *          to AWS by a migration tool.</p>
    *          <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as
@@ -458,6 +468,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Lists all the migration statuses for your applications. If you use the optional
    *             <code>ApplicationIds</code> parameter, only the migration statuses for those
    *          applications will be returned.</p>
@@ -492,6 +503,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Lists the created artifacts attached to a given migration task in an update stream. This
    *          API has the following traits:</p>
    *          <ul>
@@ -538,6 +550,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
    */
   public listDiscoveredResources(
@@ -570,6 +583,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Lists all, or filtered by resource name, migration tasks associated with the user
    *          account making this call. This API has the following traits:</p>
    *          <ul>
@@ -615,6 +629,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Lists progress update streams associated with the user account making this call.</p>
    */
   public listProgressUpdateStreams(
@@ -647,6 +662,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Sets the migration state of an application. For a given application identified by the
    *          value passed to <code>ApplicationId</code>, its status is set or updated by passing one of
    *          three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS |
@@ -682,6 +698,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a
    *          migration task. This API has the following traits:</p>
    *          <ul>
@@ -731,6 +748,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
+   * @public
    * <p>Provides identifying details of the resource being migrated so that it can be associated
    *          in the Application Discovery Service repository. This association occurs asynchronously
    *          after <code>PutResourceAttributes</code> returns.</p>

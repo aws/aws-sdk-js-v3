@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAlarmModelCommand}.
  */
 export interface UpdateAlarmModelCommandInput extends UpdateAlarmModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAlarmModelCommand}.
  */
 export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an alarm model. Any alarms that were created based on the previous version are
  *       deleted and then created again as new data arrives.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAlarmModelCommandInput - {@link UpdateAlarmModelCommandInput}
+ * @returns {@link UpdateAlarmModelCommandOutput}
  * @see {@link UpdateAlarmModelCommandInput} for command's `input` shape.
  * @see {@link UpdateAlarmModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateAlarmModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAlarmModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateAlarmModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAlarmModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAlarmModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAlarmModelCommandOutput> {
     return deserializeAws_restJson1UpdateAlarmModelCommand(output, context);
   }

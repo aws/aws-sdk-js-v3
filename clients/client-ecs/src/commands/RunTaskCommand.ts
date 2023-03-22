@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1RunTaskCommand, serializeAws_json1_1RunTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RunTaskCommand}.
  */
 export interface RunTaskCommandInput extends RunTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link RunTaskCommand}.
  */
 export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new task using the specified task definition.</p>
  *          <p>You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS places
  * 			tasks using placement constraints and placement strategies. For more information, see
@@ -70,6 +75,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param RunTaskCommandInput - {@link RunTaskCommandInput}
+ * @returns {@link RunTaskCommandOutput}
  * @see {@link RunTaskCommandInput} for command's `input` shape.
  * @see {@link RunTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -161,6 +168,9 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -198,10 +208,16 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RunTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunTaskCommandOutput> {
     return deserializeAws_json1_1RunTaskCommand(output, context);
   }

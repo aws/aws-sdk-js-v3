@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagStreamCommand}.
  */
 export interface UntagStreamCommandInput extends UntagStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagStreamCommand}.
  */
 export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
  *             keys; don't specify the value. If you specify a tag key that does not exist, it's
  *             ignored.</p>
@@ -50,6 +55,8 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagStreamCommandInput - {@link UntagStreamCommandInput}
+ * @returns {@link UntagStreamCommandOutput}
  * @see {@link UntagStreamCommandInput} for command's `input` shape.
  * @see {@link UntagStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -89,6 +96,9 @@ export class UntagStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UntagStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UntagStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagStreamCommandOutput> {
     return deserializeAws_restJson1UntagStreamCommand(output, context);
   }

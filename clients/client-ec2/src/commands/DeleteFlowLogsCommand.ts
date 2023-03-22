@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DeleteFlowLogsCommand, serializeAws_ec2DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlowLogsCommand}.
  */
 export interface DeleteFlowLogsCommandInput extends DeleteFlowLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlowLogsCommand}.
  */
 export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more flow logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowLogsCommandInput - {@link DeleteFlowLogsCommandInput}
+ * @returns {@link DeleteFlowLogsCommandOutput}
  * @see {@link DeleteFlowLogsCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +73,9 @@ export class DeleteFlowLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class DeleteFlowLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteFlowLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowLogsCommandOutput> {
     return deserializeAws_ec2DeleteFlowLogsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutMailboxPermissionsCommand}.
  */
 export interface PutMailboxPermissionsCommandInput extends PutMailboxPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMailboxPermissionsCommand}.
  */
 export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing
  *          permissions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMailboxPermissionsCommandInput - {@link PutMailboxPermissionsCommandInput}
+ * @returns {@link PutMailboxPermissionsCommandOutput}
  * @see {@link PutMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link PutMailboxPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutMailboxPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMailboxPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class PutMailboxPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutMailboxPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMailboxPermissionsCommandOutput> {
     return deserializeAws_json1_1PutMailboxPermissionsCommand(output, context);
   }

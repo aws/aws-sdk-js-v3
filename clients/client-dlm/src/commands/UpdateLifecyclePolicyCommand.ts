@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLifecyclePolicyCommand}.
  */
 export interface UpdateLifecyclePolicyCommandInput extends UpdateLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLifecyclePolicyCommand}.
  */
 export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified lifecycle policy.</p>
  *          <p>For more information about updating a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify">Modify lifecycle
  * 			policies</a>.</p>
@@ -48,6 +53,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLifecyclePolicyCommandInput - {@link UpdateLifecyclePolicyCommandInput}
+ * @returns {@link UpdateLifecyclePolicyCommandOutput}
  * @see {@link UpdateLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLifecyclePolicyCommandOutput> {
     return deserializeAws_restJson1UpdateLifecyclePolicyCommand(output, context);
   }

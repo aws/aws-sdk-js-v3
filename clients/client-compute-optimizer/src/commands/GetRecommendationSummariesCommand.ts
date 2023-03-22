@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationSummariesCommand}.
  */
 export interface GetRecommendationSummariesCommandInput extends GetRecommendationSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationSummariesCommand}.
  */
 export interface GetRecommendationSummariesCommandOutput extends GetRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the optimization findings for an account.</p>
  *          <p>It returns the number of:</p>
  *          <ul>
@@ -70,6 +75,8 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationSummariesCommandInput - {@link GetRecommendationSummariesCommandInput}
+ * @returns {@link GetRecommendationSummariesCommandOutput}
  * @see {@link GetRecommendationSummariesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -115,6 +122,9 @@ export class GetRecommendationSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class GetRecommendationSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRecommendationSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

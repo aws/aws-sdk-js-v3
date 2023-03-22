@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrailCommand}.
  */
 export interface CreateTrailCommandInput extends CreateTrailRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrailCommand}.
  */
 export interface CreateTrailCommandOutput extends CreateTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
  *          </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrailCommandInput - {@link CreateTrailCommandInput}
+ * @returns {@link CreateTrailCommandOutput}
  * @see {@link CreateTrailCommandInput} for command's `input` shape.
  * @see {@link CreateTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -206,6 +213,9 @@ export class CreateTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -243,10 +253,16 @@ export class CreateTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrailCommandOutput> {
     return deserializeAws_json1_1CreateTrailCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLatestAssessmentIdCommand}.
  */
 export interface GetLatestAssessmentIdCommandInput extends GetLatestAssessmentIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLatestAssessmentIdCommand}.
  */
 export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the latest ID of a specific assessment task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLatestAssessmentIdCommandInput - {@link GetLatestAssessmentIdCommandInput}
+ * @returns {@link GetLatestAssessmentIdCommandOutput}
  * @see {@link GetLatestAssessmentIdCommandInput} for command's `input` shape.
  * @see {@link GetLatestAssessmentIdCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetLatestAssessmentIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLatestAssessmentIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetLatestAssessmentIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLatestAssessmentIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLatestAssessmentIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLatestAssessmentIdCommandOutput> {
     return deserializeAws_restJson1GetLatestAssessmentIdCommand(output, context);
   }

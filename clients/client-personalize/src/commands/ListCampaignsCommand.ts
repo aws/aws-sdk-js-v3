@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCampaignsCommand}.
  */
 export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCampaignsCommand}.
  */
 export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of campaigns that use the given solution.
  *       When a solution is not specified, all the campaigns associated with the account are listed.
  *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
@@ -49,6 +54,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
+ * @returns {@link ListCampaignsCommandOutput}
  * @see {@link ListCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListCampaignsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListCampaignsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCampaignsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListCampaignsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCampaignsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCampaignsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCampaignsCommandOutput> {
     return deserializeAws_json1_1ListCampaignsCommand(output, context);
   }

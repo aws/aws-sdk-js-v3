@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFileSystemCommand}.
  */
 export interface DisassociateFileSystemCommandInput extends DisassociateFileSystemInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFileSystemCommand}.
  */
 export interface DisassociateFileSystemCommandOutput extends DisassociateFileSystemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Amazon FSx file system from the specified gateway. After the
  *          disassociation process finishes, the gateway can no longer access the Amazon FSx
  *          file system. This operation is only supported in the FSx File Gateway type.</p>
@@ -48,6 +53,8 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFileSystemCommandInput - {@link DisassociateFileSystemCommandInput}
+ * @returns {@link DisassociateFileSystemCommandOutput}
  * @see {@link DisassociateFileSystemCommandInput} for command's `input` shape.
  * @see {@link DisassociateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DisassociateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DisassociateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFileSystemCommandOutput> {
     return deserializeAws_json1_1DisassociateFileSystemCommand(output, context);
   }

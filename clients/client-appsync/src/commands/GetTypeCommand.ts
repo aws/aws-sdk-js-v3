@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTypeCommand}.
  */
 export interface GetTypeCommandInput extends GetTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTypeCommand}.
  */
 export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTypeCommandInput - {@link GetTypeCommandInput}
+ * @returns {@link GetTypeCommandOutput}
  * @see {@link GetTypeCommandInput} for command's `input` shape.
  * @see {@link GetTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTypeCommandOutput> {
     return deserializeAws_restJson1GetTypeCommand(output, context);
   }

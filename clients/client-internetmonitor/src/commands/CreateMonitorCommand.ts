@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMonitorCommand}.
  */
 export interface CreateMonitorCommandInput extends CreateMonitorInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMonitorCommand}.
  */
 export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: Virtual Private Clouds (VPCs),
  * 			Amazon CloudFront distributions, and WorkSpaces directories. </p>
  *          <p>After you create a monitor, you can view the internet performance for your application, scoped to a location, as well as any health events that are
@@ -49,6 +54,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
+ * @returns {@link CreateMonitorCommandOutput}
  * @see {@link CreateMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitorCommandOutput> {
     return deserializeAws_restJson1CreateMonitorCommand(output, context);
   }

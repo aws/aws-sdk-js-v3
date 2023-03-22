@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProfileJobCommand}.
  */
 export interface CreateProfileJobCommandInput extends CreateProfileJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProfileJobCommand}.
  */
 export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new job to analyze a dataset and create its data profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfileJobCommandInput - {@link CreateProfileJobCommandInput}
+ * @returns {@link CreateProfileJobCommandOutput}
  * @see {@link CreateProfileJobCommandInput} for command's `input` shape.
  * @see {@link CreateProfileJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateProfileJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfileJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateProfileJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfileJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProfileJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileJobCommandOutput> {
     return deserializeAws_restJson1CreateProfileJobCommand(output, context);
   }

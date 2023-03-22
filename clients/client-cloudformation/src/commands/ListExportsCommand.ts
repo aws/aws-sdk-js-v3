@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryListExportsCommand, serializeAws_queryListExportsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListExportsCommand}.
  */
 export interface ListExportsCommandInput extends ListExportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListExportsCommand}.
  */
 export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all exported output values in the account and Region in which you call this
  *          action. Use this action to see the exported output values that you can import into other
  *          stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
@@ -49,6 +54,8 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExportsCommandInput - {@link ListExportsCommandInput}
+ * @returns {@link ListExportsCommandOutput}
  * @see {@link ListExportsCommandInput} for command's `input` shape.
  * @see {@link ListExportsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportsCommandOutput> {
     return deserializeAws_queryListExportsCommand(output, context);
   }

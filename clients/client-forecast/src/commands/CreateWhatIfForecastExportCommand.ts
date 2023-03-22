@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWhatIfForecastExportCommand}.
  */
 export interface CreateWhatIfForecastExportCommandInput extends CreateWhatIfForecastExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWhatIfForecastExportCommand}.
  */
 export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfForecastExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a forecast created by the <a>CreateWhatIfForecast</a> operation to your
  *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
  *          <p>
@@ -62,6 +67,8 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWhatIfForecastExportCommandInput - {@link CreateWhatIfForecastExportCommandInput}
+ * @returns {@link CreateWhatIfForecastExportCommandOutput}
  * @see {@link CreateWhatIfForecastExportCommandInput} for command's `input` shape.
  * @see {@link CreateWhatIfForecastExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateWhatIfForecastExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWhatIfForecastExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateWhatIfForecastExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWhatIfForecastExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

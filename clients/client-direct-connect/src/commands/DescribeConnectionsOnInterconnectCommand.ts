@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectionsOnInterconnectCommand}.
  */
 export interface DescribeConnectionsOnInterconnectCommandInput extends DescribeConnectionsOnInterconnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectionsOnInterconnectCommand}.
  */
 export interface DescribeConnectionsOnInterconnectCommandOutput extends Connections, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
@@ -52,6 +57,8 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionsOnInterconnectCommandInput - {@link DescribeConnectionsOnInterconnectCommandInput}
+ * @returns {@link DescribeConnectionsOnInterconnectCommandOutput}
  * @see {@link DescribeConnectionsOnInterconnectCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsOnInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionsOnInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConnectionsOnInterconnectCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     return serializeAws_json1_1DescribeConnectionsOnInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

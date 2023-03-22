@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountPasswordPolicyCommand}.
  */
 export interface UpdateAccountPasswordPolicyCommandInput extends UpdateAccountPasswordPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountPasswordPolicyCommand}.
  */
 export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the password policy settings for the Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation does not support partial updates. No parameters are required, but
@@ -54,6 +59,8 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountPasswordPolicyCommandInput - {@link UpdateAccountPasswordPolicyCommandInput}
+ * @returns {@link UpdateAccountPasswordPolicyCommandOutput}
  * @see {@link UpdateAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -105,6 +112,9 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountPasswordPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAccountPasswordPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

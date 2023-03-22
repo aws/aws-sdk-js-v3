@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the scheduled actions that haven't run or that have not reached
  *             their end time.</p>
  *          <p>To describe the scaling activities for scheduled actions that have already run, call
@@ -49,6 +54,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
+ * @returns {@link DescribeScheduledActionsCommandOutput}
  * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -107,6 +114,9 @@ export class DescribeScheduledActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DescribeScheduledActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScheduledActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledActionsCommandOutput> {
     return deserializeAws_queryDescribeScheduledActionsCommand(output, context);
   }

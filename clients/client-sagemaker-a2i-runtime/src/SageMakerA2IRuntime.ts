@@ -29,6 +29,7 @@ import {
 import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
 
 /**
+ * @public
  * <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning
  *       application. When an AI application can't evaluate data with a high degree of confidence,
  *       human reviewers can take over. This human review is called a human review workflow. To create
@@ -58,6 +59,7 @@ import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
  */
 export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   /**
+   * @public
    * <p>Deletes the specified human loop for a flow definition.</p>
    *          <p>If the human loop was deleted, this operation will return a
    *         <code>ResourceNotFoundException</code>. </p>
@@ -92,6 +94,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified human loop. If the human loop was deleted, this
    *       operation will return a <code>ResourceNotFoundException</code> error. </p>
    */
@@ -125,6 +128,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   }
 
   /**
+   * @public
    * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
    */
   public listHumanLoops(
@@ -157,6 +161,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   }
 
   /**
+   * @public
    * <p>Starts a human loop, provided that at least one activation condition is met.</p>
    */
   public startHumanLoop(
@@ -189,6 +194,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   }
 
   /**
+   * @public
    * <p>Stops the specified human loop.</p>
    */
   public stopHumanLoop(

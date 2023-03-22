@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoomsCommand}.
  */
 export interface ListRoomsCommandInput extends ListRoomsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoomsCommand}.
  */
 export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about all your rooms in the AWS region where the API request is
  *          processed. Results are sorted in descending order of <code>updateTime</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoomsCommandInput - {@link ListRoomsCommandInput}
+ * @returns {@link ListRoomsCommandOutput}
  * @see {@link ListRoomsCommandInput} for command's `input` shape.
  * @see {@link ListRoomsCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListRoomsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoomsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListRoomsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoomsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRoomsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoomsCommandOutput> {
     return deserializeAws_restJson1ListRoomsCommand(output, context);
   }

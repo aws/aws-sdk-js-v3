@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlacementsCommand}.
  */
 export interface ListPlacementsCommandInput extends ListPlacementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlacementsCommand}.
  */
 export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the placement(s) of a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlacementsCommandInput - {@link ListPlacementsCommandInput}
+ * @returns {@link ListPlacementsCommandOutput}
  * @see {@link ListPlacementsCommandInput} for command's `input` shape.
  * @see {@link ListPlacementsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListPlacementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlacementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListPlacementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlacementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPlacementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlacementsCommandOutput> {
     return deserializeAws_restJson1ListPlacementsCommand(output, context);
   }

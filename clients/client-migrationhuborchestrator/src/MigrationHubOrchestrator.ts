@@ -128,6 +128,7 @@ import {
 import { MigrationHubOrchestratorClient } from "./MigrationHubOrchestratorClient";
 
 /**
+ * @public
  * <p>This API reference provides descriptions, syntax, and other details about each of the
  *             actions and data types for AWS Migration Hub Orchestrator. he topic for each action shows the API
  *             request parameters and the response. Alternatively, you can use one of the AWS SDKs to
@@ -136,6 +137,7 @@ import { MigrationHubOrchestratorClient } from "./MigrationHubOrchestratorClient
  */
 export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   /**
+   * @public
    * <p>Create a workflow to orchestrate your migrations.</p>
    */
   public createWorkflow(
@@ -168,6 +170,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Create a step in the migration workflow.</p>
    */
   public createWorkflowStep(
@@ -200,6 +203,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Create a step group in a migration workflow.</p>
    */
   public createWorkflowStepGroup(
@@ -232,6 +236,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Delete a migration workflow. You must pause a running workflow in Migration Hub Orchestrator console to
    *             delete it.</p>
    */
@@ -265,6 +270,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Delete a step in a migration workflow. Pause the workflow to delete a running
    *             step.</p>
    */
@@ -298,6 +304,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Delete a step group in a migration workflow.</p>
    */
   public deleteWorkflowStepGroup(
@@ -330,6 +337,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Get the template you want to use for creating a migration workflow.</p>
    */
   public getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
@@ -356,6 +364,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Get a specific step in a template.</p>
    */
   public getTemplateStep(
@@ -388,6 +397,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Get a step group in a template.</p>
    */
   public getTemplateStepGroup(
@@ -420,6 +430,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Get migration workflow.</p>
    */
   public getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
@@ -446,6 +457,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Get a step in the migration workflow.</p>
    */
   public getWorkflowStep(
@@ -478,6 +490,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Get the step group of a migration workflow.</p>
    */
   public getWorkflowStepGroup(
@@ -510,6 +523,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List AWS Migration Hub Orchestrator plugins.</p>
    */
   public listPlugins(args: ListPluginsCommandInput, options?: __HttpHandlerOptions): Promise<ListPluginsCommandOutput>;
@@ -536,6 +550,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List the tags added to a resource.</p>
    */
   public listTagsForResource(
@@ -568,6 +583,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List the templates available in Migration Hub Orchestrator to create a migration workflow.</p>
    */
   public listTemplates(
@@ -600,6 +616,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List the step groups in a template.</p>
    */
   public listTemplateStepGroups(
@@ -632,6 +649,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List the steps in a template.</p>
    */
   public listTemplateSteps(
@@ -664,6 +682,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List the migration workflows.</p>
    */
   public listWorkflows(
@@ -696,6 +715,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List the step groups in a migration workflow.</p>
    */
   public listWorkflowStepGroups(
@@ -728,6 +748,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>List the steps in a workflow.</p>
    */
   public listWorkflowSteps(
@@ -760,6 +781,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Retry a failed step in a migration workflow.</p>
    */
   public retryWorkflowStep(
@@ -792,6 +814,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Start a migration workflow.</p>
    */
   public startWorkflow(
@@ -824,6 +847,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Stop an ongoing migration workflow.</p>
    */
   public stopWorkflow(
@@ -853,6 +877,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Tag a resource by specifying its Amazon Resource Name (ARN).</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -879,6 +904,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Deletes the tags for a resource.</p>
    */
   public untagResource(
@@ -911,6 +937,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Update a migration workflow.</p>
    */
   public updateWorkflow(
@@ -943,6 +970,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Update a step in a migration workflow.</p>
    */
   public updateWorkflowStep(
@@ -975,6 +1003,7 @@ export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient {
   }
 
   /**
+   * @public
    * <p>Update the step group in a migration workflow.</p>
    */
   public updateWorkflowStepGroup(

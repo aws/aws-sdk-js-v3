@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionFilterCommand}.
  */
 export interface DeleteSubscriptionFilterCommandInput extends DeleteSubscriptionFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionFilterCommand}.
  */
 export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified subscription filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionFilterCommandInput - {@link DeleteSubscriptionFilterCommandInput}
+ * @returns {@link DeleteSubscriptionFilterCommandOutput}
  * @see {@link DeleteSubscriptionFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteSubscriptionFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteSubscriptionFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriptionFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubscriptionFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriptionFilterCommandOutput> {
     return deserializeAws_json1_1DeleteSubscriptionFilterCommand(output, context);
   }

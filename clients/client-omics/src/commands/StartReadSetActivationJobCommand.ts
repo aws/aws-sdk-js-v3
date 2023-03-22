@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReadSetActivationJobCommand}.
  */
 export interface StartReadSetActivationJobCommandInput extends StartReadSetActivationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartReadSetActivationJobCommand}.
  */
 export interface StartReadSetActivationJobCommandOutput extends StartReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
  *        sets after 30 days.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReadSetActivationJobCommandInput - {@link StartReadSetActivationJobCommandInput}
+ * @returns {@link StartReadSetActivationJobCommandOutput}
  * @see {@link StartReadSetActivationJobCommandInput} for command's `input` shape.
  * @see {@link StartReadSetActivationJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartReadSetActivationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReadSetActivationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartReadSetActivationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReadSetActivationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartReadSetActivationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

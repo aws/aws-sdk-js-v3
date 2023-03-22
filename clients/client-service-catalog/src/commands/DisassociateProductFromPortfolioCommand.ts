@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateProductFromPortfolioCommand}.
  */
 export interface DisassociateProductFromPortfolioCommandInput extends DisassociateProductFromPortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateProductFromPortfolioCommand}.
  */
 export interface DisassociateProductFromPortfolioCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateProductFromPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified product from the specified portfolio. </p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateProductFromPortfolioCommandInput - {@link DisassociateProductFromPortfolioCommandInput}
+ * @returns {@link DisassociateProductFromPortfolioCommandOutput}
  * @see {@link DisassociateProductFromPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisassociateProductFromPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateProductFromPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateProductFromPortfolioCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     return serializeAws_json1_1DisassociateProductFromPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

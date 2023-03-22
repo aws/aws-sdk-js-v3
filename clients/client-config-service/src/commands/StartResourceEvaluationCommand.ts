@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartResourceEvaluationCommand}.
  */
 export interface StartResourceEvaluationCommandInput extends StartResourceEvaluationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartResourceEvaluationCommand}.
  */
 export interface StartResourceEvaluationCommandOutput extends StartResourceEvaluationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an on-demand evaluation for the specified resource to determine whether the resource details will comply with configured Config rules.
  * 			You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
  * 			of the Config rules in your account that match with the specified proactive mode and resource type.</p>
@@ -56,6 +61,8 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * const response = await client.send(command);
  * ```
  *
+ * @param StartResourceEvaluationCommandInput - {@link StartResourceEvaluationCommandInput}
+ * @returns {@link StartResourceEvaluationCommandOutput}
  * @see {@link StartResourceEvaluationCommandInput} for command's `input` shape.
  * @see {@link StartResourceEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartResourceEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartResourceEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartResourceEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartResourceEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartResourceEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartResourceEvaluationCommandOutput> {
     return deserializeAws_json1_1StartResourceEvaluationCommand(output, context);
   }

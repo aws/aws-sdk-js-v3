@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScriptCommand}.
  */
 export interface CreateScriptCommandInput extends CreateScriptInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateScriptCommand}.
  */
 export interface CreateScriptCommandOutput extends CreateScriptOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that
  *             provide configuration settings and optional custom game logic for your game. The script
  *             is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is
@@ -85,6 +90,8 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
+ * @returns {@link CreateScriptCommandOutput}
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -130,6 +137,9 @@ export class CreateScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class CreateScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScriptCommandOutput> {
     return deserializeAws_json1_1CreateScriptCommand(output, context);
   }

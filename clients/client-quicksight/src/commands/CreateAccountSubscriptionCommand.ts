@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountSubscriptionCommand}.
  */
 export interface CreateAccountSubscriptionCommandInput extends CreateAccountSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountSubscriptionCommand}.
  */
 export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.</p>
  *          <p>The Amazon Web Services Region for the account is derived from what is configured in the
  *           CLI or SDK. This operation isn't supported in the US East (Ohio) Region, South America (Sao Paulo) Region, or Asia
@@ -68,6 +73,8 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountSubscriptionCommandInput - {@link CreateAccountSubscriptionCommandInput}
+ * @returns {@link CreateAccountSubscriptionCommandOutput}
  * @see {@link CreateAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -121,6 +128,9 @@ export class CreateAccountSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class CreateAccountSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccountSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSipRuleCommand}.
  */
 export interface CreateSipRuleCommandInput extends CreateSipRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSipRuleCommand}.
  */
 export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a specific trigger type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSipRuleCommandInput - {@link CreateSipRuleCommandInput}
+ * @returns {@link CreateSipRuleCommandOutput}
  * @see {@link CreateSipRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSipRuleCommandOutput> {
     return deserializeAws_restJson1CreateSipRuleCommand(output, context);
   }

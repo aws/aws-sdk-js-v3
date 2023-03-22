@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandInput extends ListAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter accounts
  *             by account name prefix. To find out which Amazon Chime account a user belongs to, you can
  *             filter by the user's email address, which returns one account result.</p>
@@ -48,6 +53,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
+ * @returns {@link ListAccountsCommandOutput}
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsCommandOutput> {
     return deserializeAws_restJson1ListAccountsCommand(output, context);
   }

@@ -84,6 +84,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateTeamMemberCommandInput
   | CreateProjectCommandInput
@@ -104,6 +107,9 @@ export type ServiceInputTypes =
   | UpdateTeamMemberCommandInput
   | UpdateUserProfileCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateTeamMemberCommandOutput
   | CreateProjectCommandOutput
@@ -124,6 +130,9 @@ export type ServiceOutputTypes =
   | UpdateTeamMemberCommandOutput
   | UpdateUserProfileCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -131,7 +140,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -240,11 +249,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CodeStarClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -255,10 +267,15 @@ type CodeStarClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CodeStarClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CodeStarClient class constructor that set the region, credentials and other options.
  */
 export interface CodeStarClientConfig extends CodeStarClientConfigType {}
 
+/**
+ * @public
+ */
 type CodeStarClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -269,11 +286,14 @@ type CodeStarClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CodeStarClient class. This is resolved and normalized from the {@link CodeStarClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CodeStarClient class. This is resolved and normalized from the {@link CodeStarClientConfig | constructor configuration interface}.
  */
 export interface CodeStarClientResolvedConfig extends CodeStarClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>AWS CodeStar</fullname>
  *          <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the
  *       operations and data types for the AWS CodeStar API along with usage examples.</p>

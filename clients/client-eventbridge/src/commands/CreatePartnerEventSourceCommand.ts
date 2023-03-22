@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePartnerEventSourceCommand}.
  */
 export interface CreatePartnerEventSourceCommandInput extends CreatePartnerEventSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePartnerEventSourceCommand}.
  */
 export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEventSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Called by an SaaS partner to create a partner event source. This operation is not used by
  *       Amazon Web Services customers.</p>
  *          <p>Each partner event source can be used by one Amazon Web Services account to create a matching partner
@@ -69,6 +74,8 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePartnerEventSourceCommandInput - {@link CreatePartnerEventSourceCommandInput}
+ * @returns {@link CreatePartnerEventSourceCommandOutput}
  * @see {@link CreatePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreatePartnerEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePartnerEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class CreatePartnerEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePartnerEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartnerEventSourceCommandOutput> {
     return deserializeAws_json1_1CreatePartnerEventSourceCommand(output, context);
   }

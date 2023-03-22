@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRxNormInferenceJobCommand}.
  */
 export interface DescribeRxNormInferenceJobCommandInput extends DescribeRxNormInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRxNormInferenceJobCommand}.
  */
 export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the
  *       status of an inference job.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRxNormInferenceJobCommandInput - {@link DescribeRxNormInferenceJobCommandInput}
+ * @returns {@link DescribeRxNormInferenceJobCommandOutput}
  * @see {@link DescribeRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeRxNormInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRxNormInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRxNormInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRxNormInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

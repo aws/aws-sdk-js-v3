@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReportDefinitionCommand}.
  */
 export interface GetReportDefinitionCommandInput extends GetReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReportDefinitionCommand}.
  */
 export interface GetReportDefinitionCommandOutput extends GetReportDefinitionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the definition of a report already configured in AWS Application Cost Profiler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReportDefinitionCommandInput - {@link GetReportDefinitionCommandInput}
+ * @returns {@link GetReportDefinitionCommandOutput}
  * @see {@link GetReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReportDefinitionCommandOutput> {
     return deserializeAws_restJson1GetReportDefinitionCommand(output, context);
   }

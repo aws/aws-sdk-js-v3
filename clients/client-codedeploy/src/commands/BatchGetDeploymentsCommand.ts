@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDeploymentsCommand}.
  */
 export interface BatchGetDeploymentsCommandInput extends BatchGetDeploymentsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDeploymentsCommand}.
  */
 export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more deployments. The maximum number of deployments that
  *             can be returned is 25.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDeploymentsCommandInput - {@link BatchGetDeploymentsCommandInput}
+ * @returns {@link BatchGetDeploymentsCommandOutput}
  * @see {@link BatchGetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -79,6 +86,9 @@ export class BatchGetDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class BatchGetDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDeploymentsCommandOutput> {
     return deserializeAws_json1_1BatchGetDeploymentsCommand(output, context);
   }

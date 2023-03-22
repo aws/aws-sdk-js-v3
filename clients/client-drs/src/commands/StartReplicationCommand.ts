@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationCommand}.
  */
 export interface StartReplicationCommandInput extends StartReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationCommand}.
  */
 export interface StartReplicationCommandOutput extends StartReplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts replication for a stopped Source Server. This action would make the Source Server protected again and restart billing for it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationCommandInput - {@link StartReplicationCommandInput}
+ * @returns {@link StartReplicationCommandOutput}
  * @see {@link StartReplicationCommandInput} for command's `input` shape.
  * @see {@link StartReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StartReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReplicationCommandOutput> {
     return deserializeAws_restJson1StartReplicationCommand(output, context);
   }

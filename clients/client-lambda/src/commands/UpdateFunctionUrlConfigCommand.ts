@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFunctionUrlConfigCommand}.
  */
 export interface UpdateFunctionUrlConfigCommandInput extends UpdateFunctionUrlConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFunctionUrlConfigCommand}.
  */
 export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration for a Lambda function URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionUrlConfigCommandInput - {@link UpdateFunctionUrlConfigCommandInput}
+ * @returns {@link UpdateFunctionUrlConfigCommandOutput}
  * @see {@link UpdateFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionUrlConfigCommandOutput> {
     return deserializeAws_restJson1UpdateFunctionUrlConfigCommand(output, context);
   }

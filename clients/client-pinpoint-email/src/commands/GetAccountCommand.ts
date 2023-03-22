@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountCommand}.
  */
 export interface GetAccountCommandInput extends GetAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountCommand}.
  */
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint
  *             account in the current AWS Region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountCommandInput - {@link GetAccountCommandInput}
+ * @returns {@link GetAccountCommandOutput}
  * @see {@link GetAccountCommandInput} for command's `input` shape.
  * @see {@link GetAccountCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountCommandOutput> {
     return deserializeAws_restJson1GetAccountCommand(output, context);
   }

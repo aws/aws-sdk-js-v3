@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicationCommand}.
  */
 export interface DescribeApplicationCommandInput extends DescribeApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicationCommand}.
  */
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Fleet Hub for AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -49,6 +54,8 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationCommandInput - {@link DescribeApplicationCommandInput}
+ * @returns {@link DescribeApplicationCommandOutput}
  * @see {@link DescribeApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationCommandOutput> {
     return deserializeAws_restJson1DescribeApplicationCommand(output, context);
   }

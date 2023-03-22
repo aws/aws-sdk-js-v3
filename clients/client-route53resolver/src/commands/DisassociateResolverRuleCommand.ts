@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResolverRuleCommand}.
  */
 export interface DisassociateResolverRuleCommandInput extends DisassociateResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResolverRuleCommand}.
  */
 export interface DisassociateResolverRuleCommandOutput extends DisassociateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
  *          <important>
  *             <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
@@ -50,6 +55,8 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResolverRuleCommandInput - {@link DisassociateResolverRuleCommandInput}
+ * @returns {@link DisassociateResolverRuleCommandOutput}
  * @see {@link DisassociateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisassociateResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DisassociateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResolverRuleCommandOutput> {
     return deserializeAws_json1_1DisassociateResolverRuleCommand(output, context);
   }

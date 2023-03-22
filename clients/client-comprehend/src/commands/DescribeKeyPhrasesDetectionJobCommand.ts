@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeKeyPhrasesDetectionJobCommand}.
  */
 export interface DescribeKeyPhrasesDetectionJobCommandInput extends DescribeKeyPhrasesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeKeyPhrasesDetectionJobCommand}.
  */
 export interface DescribeKeyPhrasesDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeyPhrasesDetectionJobCommandInput - {@link DescribeKeyPhrasesDetectionJobCommandInput}
+ * @returns {@link DescribeKeyPhrasesDetectionJobCommandOutput}
  * @see {@link DescribeKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeyPhrasesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeKeyPhrasesDetectionJobCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     return serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceSettingCommand}.
  */
 export interface GetServiceSettingCommandInput extends GetServiceSettingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceSettingCommand}.
  */
 export interface GetServiceSettingCommandOutput extends GetServiceSettingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -59,6 +64,8 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceSettingCommandInput - {@link GetServiceSettingCommandInput}
+ * @returns {@link GetServiceSettingCommandOutput}
  * @see {@link GetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetServiceSettingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetServiceSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetServiceSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceSettingCommandOutput> {
     return deserializeAws_json1_1GetServiceSettingCommand(output, context);
   }

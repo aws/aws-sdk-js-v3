@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContentCommand}.
  */
 export interface CreateContentCommandInput extends CreateContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContentCommand}.
  */
 export interface CreateContentCommandOutput extends CreateContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates Wisdom content. Before to calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
  *       upload an asset.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContentCommandInput - {@link CreateContentCommandInput}
+ * @returns {@link CreateContentCommandOutput}
  * @see {@link CreateContentCommandInput} for command's `input` shape.
  * @see {@link CreateContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContentCommandOutput> {
     return deserializeAws_restJson1CreateContentCommand(output, context);
   }

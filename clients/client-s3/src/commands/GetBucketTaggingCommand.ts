@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketTaggingCommand}.
  */
 export interface GetBucketTaggingCommandInput extends GetBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketTaggingCommand}.
  */
 export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the tag set associated with the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:GetBucketTagging</code> action. By default, the bucket owner has this
@@ -75,6 +80,8 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketTaggingCommandInput - {@link GetBucketTaggingCommandInput}
+ * @returns {@link GetBucketTaggingCommandOutput}
  * @see {@link GetBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -129,6 +136,9 @@ export class GetBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class GetBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketTaggingCommandOutput> {
     return deserializeAws_restXmlGetBucketTaggingCommand(output, context);
   }

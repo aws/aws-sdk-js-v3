@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobTemplateCommand}.
  */
 export interface GetJobTemplateCommandInput extends GetJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobTemplateCommand}.
  */
 export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve the JSON for a specific job template.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobTemplateCommandInput - {@link GetJobTemplateCommandInput}
+ * @returns {@link GetJobTemplateCommandOutput}
  * @see {@link GetJobTemplateCommandInput} for command's `input` shape.
  * @see {@link GetJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobTemplateCommandOutput> {
     return deserializeAws_restJson1GetJobTemplateCommand(output, context);
   }

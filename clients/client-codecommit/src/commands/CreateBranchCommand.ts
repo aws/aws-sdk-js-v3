@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBranchCommand}.
  */
 export interface CreateBranchCommandInput extends CreateBranchInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBranchCommand}.
  */
 export interface CreateBranchCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a branch in a repository and points the branch to a commit.</p>
  *         <note>
  *             <p>Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.</p>
@@ -44,6 +49,8 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBranchCommandInput - {@link CreateBranchCommandInput}
+ * @returns {@link CreateBranchCommandOutput}
  * @see {@link CreateBranchCommandInput} for command's `input` shape.
  * @see {@link CreateBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -116,6 +123,9 @@ export class CreateBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class CreateBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBranchCommandOutput> {
     return deserializeAws_json1_1CreateBranchCommand(output, context);
   }

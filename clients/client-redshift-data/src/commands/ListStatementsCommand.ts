@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStatementsCommand}.
  */
 export interface ListStatementsCommandInput extends ListStatementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStatementsCommand}.
  */
 export interface ListStatementsCommandOutput extends ListStatementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List of SQL statements. By default, only finished statements are shown.
  *         A token is returned to page through the statement list. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
@@ -50,6 +55,8 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStatementsCommandInput - {@link ListStatementsCommandInput}
+ * @returns {@link ListStatementsCommandOutput}
  * @see {@link ListStatementsCommandInput} for command's `input` shape.
  * @see {@link ListStatementsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListStatementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStatementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListStatementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStatementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStatementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStatementsCommandOutput> {
     return deserializeAws_json1_1ListStatementsCommand(output, context);
   }

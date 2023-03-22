@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnvironmentAccountConnectionCommand}.
  */
 export interface GetEnvironmentAccountConnectionCommandInput extends GetEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEnvironmentAccountConnectionCommand}.
  */
 export interface GetEnvironmentAccountConnectionCommandOutput
@@ -37,6 +41,7 @@ export interface GetEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In an environment account, get the detailed data for an environment account connection.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
  *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -50,6 +55,8 @@ export interface GetEnvironmentAccountConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentAccountConnectionCommandInput - {@link GetEnvironmentAccountConnectionCommandInput}
+ * @returns {@link GetEnvironmentAccountConnectionCommandOutput}
  * @see {@link GetEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     return serializeAws_json1_0GetEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

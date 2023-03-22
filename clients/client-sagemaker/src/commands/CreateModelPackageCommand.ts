@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelPackageCommand}.
  */
 export interface CreateModelPackageCommandInput extends CreateModelPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelPackageCommand}.
  */
 export interface CreateModelPackageCommandOutput extends CreateModelPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a model package that you can use to create SageMaker models or list on Amazon Web Services
  *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to
  *             model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
@@ -65,6 +70,8 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelPackageCommandInput - {@link CreateModelPackageCommandInput}
+ * @returns {@link CreateModelPackageCommandOutput}
  * @see {@link CreateModelPackageCommandInput} for command's `input` shape.
  * @see {@link CreateModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateModelPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateModelPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateModelPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelPackageCommandOutput> {
     return deserializeAws_json1_1CreateModelPackageCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProvisionedProductPlanCommand}.
  */
 export interface CreateProvisionedProductPlanCommandInput extends CreateProvisionedProductPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateProvisionedProductPlanCommand}.
  */
 export interface CreateProvisionedProductPlanCommandOutput
@@ -37,6 +41,7 @@ export interface CreateProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a plan.</p>
  *          <p>A plan includes the list of resources to be
  *          created (when provisioning a new product) or modified (when updating a provisioned product)
@@ -55,6 +60,8 @@ export interface CreateProvisionedProductPlanCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisionedProductPlanCommandInput - {@link CreateProvisionedProductPlanCommandInput}
+ * @returns {@link CreateProvisionedProductPlanCommandOutput}
  * @see {@link CreateProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link CreateProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateProvisionedProductPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

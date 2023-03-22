@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpgradePublishedSchemaCommand}.
  */
 export interface UpgradePublishedSchemaCommandInput extends UpgradePublishedSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpgradePublishedSchemaCommand}.
  */
 export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Upgrades a published schema under a new minor version revision using the current contents of <code>DevelopmentSchemaArn</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  * const response = await client.send(command);
  * ```
  *
+ * @param UpgradePublishedSchemaCommandInput - {@link UpgradePublishedSchemaCommandInput}
+ * @returns {@link UpgradePublishedSchemaCommandOutput}
  * @see {@link UpgradePublishedSchemaCommandInput} for command's `input` shape.
  * @see {@link UpgradePublishedSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpgradePublishedSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpgradePublishedSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpgradePublishedSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpgradePublishedSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpgradePublishedSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradePublishedSchemaCommandOutput> {
     return deserializeAws_restJson1UpgradePublishedSchemaCommand(output, context);
   }

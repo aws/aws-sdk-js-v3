@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImagesCommand}.
  */
 export interface ListImagesCommandInput extends ListImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImagesCommand}.
  */
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of images that you have access to. Newly created images
  * 			can take up to two minutes to appear in the ListImages API Results.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImagesCommandInput - {@link ListImagesCommandInput}
+ * @returns {@link ListImagesCommandOutput}
  * @see {@link ListImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesCommandOutput> {
     return deserializeAws_restJson1ListImagesCommand(output, context);
   }

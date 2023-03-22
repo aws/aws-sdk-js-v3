@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReportPlanCommand}.
  */
 export interface UpdateReportPlanCommandInput extends UpdateReportPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReportPlanCommand}.
  */
 export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing report plan identified by its <code>ReportPlanName</code> with the
  *          input document in JSON format.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReportPlanCommandInput - {@link UpdateReportPlanCommandInput}
+ * @returns {@link UpdateReportPlanCommandOutput}
  * @see {@link UpdateReportPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateReportPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReportPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateReportPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReportPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateReportPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportPlanCommandOutput> {
     return deserializeAws_restJson1UpdateReportPlanCommand(output, context);
   }

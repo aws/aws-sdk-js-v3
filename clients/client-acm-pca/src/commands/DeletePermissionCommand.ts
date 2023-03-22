@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePermissionCommand}.
  */
 export interface DeletePermissionCommandInput extends DeletePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePermissionCommand}.
  */
 export interface DeletePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes permissions on a private CA granted to the Certificate Manager (ACM) service principal
  * 			(acm.amazonaws.com). </p>
  *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
@@ -69,6 +74,8 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
+ * @returns {@link DeletePermissionCommandOutput}
  * @see {@link DeletePermissionCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeletePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DeletePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionCommandOutput> {
     return deserializeAws_json1_1DeletePermissionCommand(output, context);
   }

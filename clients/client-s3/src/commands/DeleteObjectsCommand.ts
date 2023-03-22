@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectsCommand}.
  */
 export interface DeleteObjectsCommandInput extends DeleteObjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectsCommand}.
  */
 export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action enables you to delete multiple objects from a bucket using a single HTTP
  *          request. If you know the object keys that you want to delete, then this action provides
  *          a suitable alternative to sending individual delete requests, reducing per-request
@@ -98,6 +103,8 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectsCommandInput - {@link DeleteObjectsCommandInput}
+ * @returns {@link DeleteObjectsCommandOutput}
  * @see {@link DeleteObjectsCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -203,6 +210,9 @@ export class DeleteObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -247,10 +257,16 @@ export class DeleteObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectsCommandOutput> {
     return deserializeAws_restXmlDeleteObjectsCommand(output, context);
   }

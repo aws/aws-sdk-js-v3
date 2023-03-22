@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateZonalShiftCommand}.
  */
 export interface UpdateZonalShiftCommandInput extends UpdateZonalShiftRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateZonalShiftCommand}.
  */
 export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an active zonal shift in Amazon Route 53 Application Recovery Controller in your AWS account. You can update a zonal shift to set a new expiration, or
  *    	edit or replace the comment for the zonal shift. </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateZonalShiftCommandInput - {@link UpdateZonalShiftCommandInput}
+ * @returns {@link UpdateZonalShiftCommandOutput}
  * @see {@link UpdateZonalShiftCommandInput} for command's `input` shape.
  * @see {@link UpdateZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateZonalShiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateZonalShiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateZonalShiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateZonalShiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateZonalShiftCommandOutput> {
     return deserializeAws_restJson1UpdateZonalShiftCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationInstanceCommand}.
  */
 export interface CreateApplicationInstanceCommandInput extends CreateApplicationInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationInstanceCommand}.
  */
 export interface CreateApplicationInstanceCommandOutput extends CreateApplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application instance and deploys it to a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationInstanceCommandInput - {@link CreateApplicationInstanceCommandInput}
+ * @returns {@link CreateApplicationInstanceCommandOutput}
  * @see {@link CreateApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateApplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateApplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateApplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

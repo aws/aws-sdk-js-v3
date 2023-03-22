@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopStreamProcessorCommand}.
  */
 export interface StopStreamProcessorCommandInput extends StopStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopStreamProcessorCommand}.
  */
 export interface StopStreamProcessorCommandOutput extends StopStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStreamProcessorCommandInput - {@link StopStreamProcessorCommandInput}
+ * @returns {@link StopStreamProcessorCommandOutput}
  * @see {@link StopStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link StopStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -92,6 +99,9 @@ export class StopStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StopStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamProcessorCommandOutput> {
     return deserializeAws_json1_1StopStreamProcessorCommand(output, context);
   }

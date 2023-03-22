@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventSourcesConfigCommand}.
  */
 export interface DescribeEventSourcesConfigCommandInput extends DescribeEventSourcesConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventSourcesConfigCommand}.
  */
 export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSourcesConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the integration status of services that are integrated with DevOps Guru as Consumer
  * 			via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru
  * 			Profiler, which can produce proactive recommendations which can be stored and viewed in
@@ -49,6 +54,8 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventSourcesConfigCommandInput - {@link DescribeEventSourcesConfigCommandInput}
+ * @returns {@link DescribeEventSourcesConfigCommandOutput}
  * @see {@link DescribeEventSourcesConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSourcesConfigCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeEventSourcesConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventSourcesConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeEventSourcesConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventSourcesConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeEventSourcesConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

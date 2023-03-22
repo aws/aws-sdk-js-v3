@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1CopyImageCommand, serializeAws_json1_1CopyImageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CopyImageCommand}.
  */
 export interface CopyImageCommandInput extends CopyImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyImageCommand}.
  */
 export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyImageCommandInput - {@link CopyImageCommandInput}
+ * @returns {@link CopyImageCommandOutput}
  * @see {@link CopyImageCommandInput} for command's `input` shape.
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -84,6 +91,9 @@ export class CopyImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CopyImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CopyImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyImageCommandOutput> {
     return deserializeAws_json1_1CopyImageCommand(output, context);
   }

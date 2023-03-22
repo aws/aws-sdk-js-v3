@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInferenceExperimentCommand}.
  */
 export interface CreateInferenceExperimentCommandInput extends CreateInferenceExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInferenceExperimentCommand}.
  */
 export interface CreateInferenceExperimentCommandOutput extends CreateInferenceExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Creates an inference experiment using the configurations specified in the request.
  *        </p>
@@ -60,6 +65,8 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInferenceExperimentCommandInput - {@link CreateInferenceExperimentCommandInput}
+ * @returns {@link CreateInferenceExperimentCommandOutput}
  * @see {@link CreateInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

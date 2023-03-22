@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportSshPublicKeyCommand}.
  */
 export interface ImportSshPublicKeyCommandInput extends ImportSshPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportSshPublicKeyCommand}.
  */
 export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
  *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
  *       identified by <code>ServerId</code>.</p>
@@ -50,6 +55,8 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportSshPublicKeyCommandInput - {@link ImportSshPublicKeyCommandInput}
+ * @returns {@link ImportSshPublicKeyCommandOutput}
  * @see {@link ImportSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link ImportSshPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -92,6 +99,9 @@ export class ImportSshPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportSshPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ImportSshPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportSshPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportSshPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSshPublicKeyCommandOutput> {
     return deserializeAws_json1_1ImportSshPublicKeyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWebACLCommand}.
  */
 export interface DisassociateWebACLCommandInput extends DisassociateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWebACLCommand}.
  */
 export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWebACLCommandInput - {@link DisassociateWebACLCommandInput}
+ * @returns {@link DisassociateWebACLCommandOutput}
  * @see {@link DisassociateWebACLCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -126,6 +133,9 @@ export class DisassociateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class DisassociateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateWebACLCommandOutput> {
     return deserializeAws_json1_1DisassociateWebACLCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExplainabilityExportsCommand}.
  */
 export interface ListExplainabilityExportsCommandInput extends ListExplainabilityExportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExplainabilityExportsCommand}.
  */
 export interface ListExplainabilityExportsCommandOutput extends ListExplainabilityExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Explainability exports created using the <a>CreateExplainabilityExport</a> operation. This operation returns a summary
  *             for each Explainability export. You can filter the list using an array of <a>Filter</a> objects.</p>
  *          <p>To retrieve the complete set of properties for a particular Explainability export, use
@@ -49,6 +54,8 @@ export interface ListExplainabilityExportsCommandOutput extends ListExplainabili
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExplainabilityExportsCommandInput - {@link ListExplainabilityExportsCommandInput}
+ * @returns {@link ListExplainabilityExportsCommandOutput}
  * @see {@link ListExplainabilityExportsCommandInput} for command's `input` shape.
  * @see {@link ListExplainabilityExportsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListExplainabilityExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExplainabilityExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListExplainabilityExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExplainabilityExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExplainabilityExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

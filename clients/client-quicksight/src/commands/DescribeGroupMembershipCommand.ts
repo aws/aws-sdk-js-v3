@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGroupMembershipCommand}.
  */
 export interface DescribeGroupMembershipCommandInput extends DescribeGroupMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGroupMembershipCommand}.
  */
 export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>DescribeGroupMembership</code> operation to determine if a user is a
  * 			member of the specified group. If the user exists and is a member of the specified
  * 			group, an associated <code>GroupMember</code> object is returned.</p>
@@ -48,6 +53,8 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupMembershipCommandInput - {@link DescribeGroupMembershipCommandInput}
+ * @returns {@link DescribeGroupMembershipCommandOutput}
  * @see {@link DescribeGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeGroupMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeGroupMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeGroupMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupMembershipCommandOutput> {
     return deserializeAws_restJson1DescribeGroupMembershipCommand(output, context);
   }

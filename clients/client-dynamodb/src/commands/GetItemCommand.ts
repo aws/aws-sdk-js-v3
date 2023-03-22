@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_0GetItemCommand, serializeAws_json1_0GetItemCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetItemCommand}.
  */
 export interface GetItemCommandInput extends GetItemInput {}
 /**
+ * @public
+ *
  * The output of {@link GetItemCommand}.
  */
 export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the
  *             given primary key. If there is no matching item, <code>GetItem</code> does not return
  *             any data and there will be no <code>Item</code> element in the response.</p>
@@ -50,6 +55,8 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetItemCommandInput - {@link GetItemCommandInput}
+ * @returns {@link GetItemCommandOutput}
  * @see {@link GetItemCommandInput} for command's `input` shape.
  * @see {@link GetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -123,6 +130,9 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetItemCommandOutput> {
     return deserializeAws_json1_0GetItemCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRemoteAccessSessionCommand}.
  */
 export interface DeleteRemoteAccessSessionCommandInput extends DeleteRemoteAccessSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRemoteAccessSessionCommand}.
  */
 export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a completed remote access session and its results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRemoteAccessSessionCommandInput - {@link DeleteRemoteAccessSessionCommandInput}
+ * @returns {@link DeleteRemoteAccessSessionCommandOutput}
  * @see {@link DeleteRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

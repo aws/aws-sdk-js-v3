@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOptOutListsCommand}.
  */
 export interface DescribeOptOutListsCommandInput extends DescribeOptOutListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOptOutListsCommand}.
  */
 export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified opt-out list or all opt-out lists in your account.</p>
  *         <p>If you specify opt-out list names, the output includes information for only the
  *             specified opt-out lists. Opt-out lists include only those that meet the filter criteria.
@@ -55,6 +60,8 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOptOutListsCommandInput - {@link DescribeOptOutListsCommandInput}
+ * @returns {@link DescribeOptOutListsCommandOutput}
  * @see {@link DescribeOptOutListsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptOutListsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeOptOutListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOptOutListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeOptOutListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOptOutListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeOptOutListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptOutListsCommandOutput> {
     return deserializeAws_json1_0DescribeOptOutListsCommand(output, context);
   }

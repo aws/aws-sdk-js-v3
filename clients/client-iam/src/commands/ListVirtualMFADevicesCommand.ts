@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualMFADevicesCommand}.
  */
 export interface ListVirtualMFADevicesCommandInput extends ListVirtualMFADevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualMFADevicesCommand}.
  */
 export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If
  *             you do not specify an assignment status, the operation returns a list of all virtual MFA
  *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
@@ -55,6 +60,8 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualMFADevicesCommandInput - {@link ListVirtualMFADevicesCommandInput}
+ * @returns {@link ListVirtualMFADevicesCommandOutput}
  * @see {@link ListVirtualMFADevicesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -99,6 +106,9 @@ export class ListVirtualMFADevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualMFADevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListVirtualMFADevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualMFADevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListVirtualMFADevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualMFADevicesCommandOutput> {
     return deserializeAws_queryListVirtualMFADevicesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartThingRegistrationTaskCommand}.
  */
 export interface StartThingRegistrationTaskCommandInput extends StartThingRegistrationTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartThingRegistrationTaskCommand}.
  */
 export interface StartThingRegistrationTaskCommandOutput extends StartThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a bulk thing provisioning task.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
  * const response = await client.send(command);
  * ```
  *
+ * @param StartThingRegistrationTaskCommandInput - {@link StartThingRegistrationTaskCommandInput}
+ * @returns {@link StartThingRegistrationTaskCommandOutput}
  * @see {@link StartThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link StartThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class StartThingRegistrationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartThingRegistrationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartThingRegistrationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartThingRegistrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartThingRegistrationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

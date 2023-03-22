@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { Route53DomainsServiceException as __BaseException } from "./Route53DomainsServiceException";
 
 /**
+ * @public
  * <p>The AcceptDomainTransferFromAnotherAwsAccount request includes the following
  * 			elements.</p>
  */
@@ -21,6 +22,7 @@ export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The AcceptDomainTransferFromAnotherAwsAccount response includes the following
  * 			element.</p>
  */
@@ -33,6 +35,7 @@ export interface AcceptDomainTransferFromAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>The number of domains has exceeded the allowed threshold for the account.</p>
  */
 export class DomainLimitExceeded extends __BaseException {
@@ -52,6 +55,7 @@ export class DomainLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
  * 			the request might specify a domain name that doesn't belong to the account that
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
@@ -74,6 +78,7 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of operations or jobs running exceeded the allowed threshold for the
  * 			account.</p>
  */
@@ -94,6 +99,7 @@ export class OperationLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  */
 export class UnsupportedTLD extends __BaseException {
@@ -113,6 +119,7 @@ export class UnsupportedTLD extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a delegation signer (DS) record that was created in the registry by
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>. </p>
  */
@@ -138,6 +145,9 @@ export interface DnssecSigningAttributes {
   PublicKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDelegationSignerToDomainRequest {
   /**
    * <p>The name of the domain.</p>
@@ -151,6 +161,9 @@ export interface AssociateDelegationSignerToDomainRequest {
   SigningAttributes: DnssecSigningAttributes | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDelegationSignerToDomainResponse {
   /**
    * <p>The identifier for tracking the progress of the request. To query the operation
@@ -160,6 +173,7 @@ export interface AssociateDelegationSignerToDomainResponse {
 }
 
 /**
+ * @public
  * <p> This error is returned if you call <code>AssociateDelegationSignerToDomain</code>
  * 			when the specified domain has reached the maximum number of DS records. You can't add
  * 			any additional DS records unless you delete an existing one first. </p>
@@ -181,6 +195,7 @@ export class DnssecLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is already in progress for the domain.</p>
  */
 export class DuplicateRequest extends __BaseException {
@@ -200,6 +215,7 @@ export class DuplicateRequest extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The top-level domain does not support this operation.</p>
  */
 export class TLDRulesViolation extends __BaseException {
@@ -218,6 +234,9 @@ export class TLDRulesViolation extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum OperationType {
   ADD_DNSSEC = "ADD_DNSSEC",
   CHANGE_DOMAIN_OWNER = "CHANGE_DOMAIN_OWNER",
@@ -240,6 +259,7 @@ export enum OperationType {
 }
 
 /**
+ * @public
  * <p>Information for one billing record.</p>
  */
 export interface BillingRecord {
@@ -275,6 +295,7 @@ export interface BillingRecord {
 }
 
 /**
+ * @public
  * <p>The CancelDomainTransferToAnotherAwsAccount request includes the following
  * 			element.</p>
  */
@@ -286,6 +307,7 @@ export interface CancelDomainTransferToAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The <code>CancelDomainTransferToAnotherAwsAccount</code> response includes the
  * 			following element.</p>
  */
@@ -300,6 +322,7 @@ export interface CancelDomainTransferToAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>The CheckDomainAvailability request contains the following elements.</p>
  */
 export interface CheckDomainAvailabilityRequest {
@@ -339,6 +362,9 @@ export interface CheckDomainAvailabilityRequest {
   IdnLangCode?: string;
 }
 
+/**
+ * @public
+ */
 export enum DomainAvailability {
   AVAILABLE = "AVAILABLE",
   AVAILABLE_PREORDER = "AVAILABLE_PREORDER",
@@ -351,6 +377,7 @@ export enum DomainAvailability {
 }
 
 /**
+ * @public
  * <p>The CheckDomainAvailability response includes the following elements.</p>
  */
 export interface CheckDomainAvailabilityResponse {
@@ -409,6 +436,7 @@ export interface CheckDomainAvailabilityResponse {
 }
 
 /**
+ * @public
  * <p>The CheckDomainTransferability request contains the following elements.</p>
  */
 export interface CheckDomainTransferabilityRequest {
@@ -446,6 +474,9 @@ export interface CheckDomainTransferabilityRequest {
   AuthCode?: string;
 }
 
+/**
+ * @public
+ */
 export enum Transferable {
   DOMAIN_IN_ANOTHER_ACCOUNT = "DOMAIN_IN_ANOTHER_ACCOUNT",
   DOMAIN_IN_OWN_ACCOUNT = "DOMAIN_IN_OWN_ACCOUNT",
@@ -456,6 +487,7 @@ export enum Transferable {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about whether the specified domain can be
  * 			transferred to Route 53.</p>
  */
@@ -498,6 +530,7 @@ export interface DomainTransferability {
 }
 
 /**
+ * @public
  * <p>The CheckDomainTransferability response includes the following elements.</p>
  */
 export interface CheckDomainTransferabilityResponse {
@@ -509,6 +542,7 @@ export interface CheckDomainTransferabilityResponse {
 }
 
 /**
+ * @public
  * <p> Customer's consent for the owner change request. </p>
  */
 export interface Consent {
@@ -523,6 +557,9 @@ export interface Consent {
   Currency: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContactType {
   ASSOCIATION = "ASSOCIATION",
   COMPANY = "COMPANY",
@@ -531,6 +568,9 @@ export enum ContactType {
   RESELLER = "RESELLER",
 }
 
+/**
+ * @public
+ */
 export enum CountryCode {
   AC = "AC",
   AD = "AD",
@@ -785,6 +825,9 @@ export enum CountryCode {
   ZW = "ZW",
 }
 
+/**
+ * @public
+ */
 export enum ExtraParamName {
   AU_ID_NUMBER = "AU_ID_NUMBER",
   AU_ID_TYPE = "AU_ID_TYPE",
@@ -820,6 +863,7 @@ export enum ExtraParamName {
 }
 
 /**
+ * @public
  * <p>ExtraParam includes the following elements.</p>
  */
 export interface ExtraParam {
@@ -1685,6 +1729,7 @@ export interface ExtraParam {
 }
 
 /**
+ * @public
  * <p>ContactDetail includes the following elements.</p>
  */
 export interface ContactDetail {
@@ -1785,6 +1830,9 @@ export interface ContactDetail {
   ExtraParams?: ExtraParam[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>Name of the domain to be deleted.</p>
@@ -1792,6 +1840,9 @@ export interface DeleteDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainResponse {
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status,
@@ -1801,6 +1852,7 @@ export interface DeleteDomainResponse {
 }
 
 /**
+ * @public
  * <p>The DeleteTagsForDomainRequest includes the following elements.</p>
  */
 export interface DeleteTagsForDomainRequest {
@@ -1815,8 +1867,14 @@ export interface DeleteTagsForDomainRequest {
   TagsToDelete: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsForDomainResponse {}
 
+/**
+ * @public
+ */
 export interface DisableDomainAutoRenewRequest {
   /**
    * <p>The name of the domain that you want to disable automatic renewal for.</p>
@@ -1824,9 +1882,13 @@ export interface DisableDomainAutoRenewRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableDomainAutoRenewResponse {}
 
 /**
+ * @public
  * <p>The DisableDomainTransferLock request includes the following element.</p>
  */
 export interface DisableDomainTransferLockRequest {
@@ -1837,6 +1899,7 @@ export interface DisableDomainTransferLockRequest {
 }
 
 /**
+ * @public
  * <p>The DisableDomainTransferLock response includes the following element.</p>
  */
 export interface DisableDomainTransferLockResponse {
@@ -1847,6 +1910,9 @@ export interface DisableDomainTransferLockResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDelegationSignerFromDomainRequest {
   /**
    * <p>Name of the domain.</p>
@@ -1860,6 +1926,9 @@ export interface DisassociateDelegationSignerFromDomainRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDelegationSignerFromDomainResponse {
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status,
@@ -1869,6 +1938,7 @@ export interface DisassociateDelegationSignerFromDomainResponse {
 }
 
 /**
+ * @public
  * <p>Information about the DNSSEC key.</p>
  *          <p>You get this from your DNS provider and then give it to Route 53 (by using
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>) to pass it to the registry to establish
@@ -1924,6 +1994,7 @@ export interface DnssecKey {
 }
 
 /**
+ * @public
  * <p>Currency-specific price information.</p>
  */
 export interface PriceWithCurrency {
@@ -1939,6 +2010,7 @@ export interface PriceWithCurrency {
 }
 
 /**
+ * @public
  * <p>Information about the domain price associated with a TLD.</p>
  */
 export interface DomainPrice {
@@ -1974,6 +2046,7 @@ export interface DomainPrice {
 }
 
 /**
+ * @public
  * <p>Information about one suggested domain name.</p>
  */
 export interface DomainSuggestion {
@@ -2038,6 +2111,7 @@ export interface DomainSuggestion {
 }
 
 /**
+ * @public
  * <p>Summary information about one domain.</p>
  */
 export interface DomainSummary {
@@ -2064,6 +2138,9 @@ export interface DomainSummary {
   Expiry?: Date;
 }
 
+/**
+ * @public
+ */
 export interface EnableDomainAutoRenewRequest {
   /**
    * <p>The name of the domain that you want to enable automatic renewal for.</p>
@@ -2071,9 +2148,13 @@ export interface EnableDomainAutoRenewRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableDomainAutoRenewResponse {}
 
 /**
+ * @public
  * <p>A request to set the transfer lock for the specified domain.</p>
  */
 export interface EnableDomainTransferLockRequest {
@@ -2084,6 +2165,7 @@ export interface EnableDomainTransferLockRequest {
 }
 
 /**
+ * @public
  * <p>The EnableDomainTransferLock response includes the following elements.</p>
  */
 export interface EnableDomainTransferLockResponse {
@@ -2094,11 +2176,17 @@ export interface EnableDomainTransferLockResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListDomainsAttributeName {
   DomainName = "DomainName",
   Expiry = "Expiry",
 }
 
+/**
+ * @public
+ */
 export enum Operator {
   BEGINS_WITH = "BEGINS_WITH",
   GE = "GE",
@@ -2106,6 +2194,7 @@ export enum Operator {
 }
 
 /**
+ * @public
  * <p>Information for the filtering of a list of domains returned by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>.</p>
  */
 export interface FilterCondition {
@@ -2140,6 +2229,9 @@ export interface FilterCondition {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactReachabilityStatusRequest {
   /**
    * <p>The name of the domain for which you want to know whether the registrant contact has
@@ -2148,12 +2240,18 @@ export interface GetContactReachabilityStatusRequest {
   domainName?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReachabilityStatus {
   DONE = "DONE",
   EXPIRED = "EXPIRED",
   PENDING = "PENDING",
 }
 
+/**
+ * @public
+ */
 export interface GetContactReachabilityStatusResponse {
   /**
    * <p>The domain name for which you requested the reachability status.</p>
@@ -2181,6 +2279,7 @@ export interface GetContactReachabilityStatusResponse {
 }
 
 /**
+ * @public
  * <p>The GetDomainDetail request includes the following element.</p>
  */
 export interface GetDomainDetailRequest {
@@ -2191,6 +2290,7 @@ export interface GetDomainDetailRequest {
 }
 
 /**
+ * @public
  * <p>Name server includes the following elements.</p>
  */
 export interface Nameserver {
@@ -2211,6 +2311,7 @@ export interface Nameserver {
 }
 
 /**
+ * @public
  * <p>The GetDomainDetail response includes the following elements.</p>
  */
 export interface GetDomainDetailResponse {
@@ -2357,6 +2458,9 @@ export interface GetDomainDetailResponse {
   DnssecKeys?: DnssecKey[];
 }
 
+/**
+ * @public
+ */
 export interface GetDomainSuggestionsRequest {
   /**
    * <p>A domain name that you want to use as the basis for a list of possible domain names.
@@ -2404,6 +2508,9 @@ export interface GetDomainSuggestionsRequest {
   OnlyAvailable: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainSuggestionsResponse {
   /**
    * <p>A list of possible domain names. If you specified <code>true</code> for
@@ -2414,6 +2521,7 @@ export interface GetDomainSuggestionsResponse {
 }
 
 /**
+ * @public
  * <p>The <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> request includes the following element.</p>
  */
 export interface GetOperationDetailRequest {
@@ -2424,6 +2532,9 @@ export interface GetOperationDetailRequest {
   OperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OperationStatus {
   ERROR = "ERROR",
   FAILED = "FAILED",
@@ -2432,6 +2543,9 @@ export enum OperationStatus {
   SUCCESSFUL = "SUCCESSFUL",
 }
 
+/**
+ * @public
+ */
 export enum StatusFlag {
   PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
   PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
@@ -2441,6 +2555,7 @@ export enum StatusFlag {
 }
 
 /**
+ * @public
  * <p>The GetOperationDetail response includes the following elements.</p>
  */
 export interface GetOperationDetailResponse {
@@ -2513,12 +2628,16 @@ export interface GetOperationDetailResponse {
   StatusFlag?: StatusFlag | string;
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASC = "ASC",
   DESC = "DESC",
 }
 
 /**
+ * @public
  * <p>Information for sorting a list of domains.</p>
  */
 export interface SortCondition {
@@ -2539,6 +2658,7 @@ export interface SortCondition {
 }
 
 /**
+ * @public
  * <p>The ListDomains request includes the following elements.</p>
  */
 export interface ListDomainsRequest {
@@ -2574,6 +2694,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p>The ListDomains response includes the following elements.</p>
  */
 export interface ListDomainsResponse {
@@ -2590,11 +2711,15 @@ export interface ListDomainsResponse {
   NextPageMarker?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListOperationsSortAttributeName {
   SubmittedDate = "SubmittedDate",
 }
 
 /**
+ * @public
  * <p>The ListOperations request includes the following elements.</p>
  */
 export interface ListOperationsRequest {
@@ -2643,6 +2768,7 @@ export interface ListOperationsRequest {
 }
 
 /**
+ * @public
  * <p>OperationSummary includes the following elements.</p>
  */
 export interface OperationSummary {
@@ -2718,6 +2844,7 @@ export interface OperationSummary {
 }
 
 /**
+ * @public
  * <p>The ListOperations response includes the following elements.</p>
  */
 export interface ListOperationsResponse {
@@ -2734,6 +2861,9 @@ export interface ListOperationsResponse {
   NextPageMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPricesRequest {
   /**
    * <p>The TLD for which you want to receive the pricing information. For example.
@@ -2763,6 +2893,9 @@ export interface ListPricesRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPricesResponse {
   /**
    * <p>A complex type that includes all the pricing information. If you specify a TLD, this
@@ -2781,6 +2914,7 @@ export interface ListPricesResponse {
 }
 
 /**
+ * @public
  * <p>The ListTagsForDomainRequest includes the following elements.</p>
  */
 export interface ListTagsForDomainRequest {
@@ -2791,6 +2925,7 @@ export interface ListTagsForDomainRequest {
 }
 
 /**
+ * @public
  * <p>Each tag includes the following elements.</p>
  */
 export interface Tag {
@@ -2810,6 +2945,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The ListTagsForDomain response includes the following elements.</p>
  */
 export interface ListTagsForDomainResponse {
@@ -2819,6 +2955,9 @@ export interface ListTagsForDomainResponse {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PushDomainRequest {
   /**
    * <p> Name of the domain. </p>
@@ -2832,6 +2971,7 @@ export interface PushDomainRequest {
 }
 
 /**
+ * @public
  * <p>The RegisterDomain request includes the following elements.</p>
  */
 export interface RegisterDomainRequest {
@@ -2952,6 +3092,7 @@ export interface RegisterDomainRequest {
 }
 
 /**
+ * @public
  * <p>The RegisterDomain response includes the following element.</p>
  */
 export interface RegisterDomainResponse {
@@ -2963,6 +3104,7 @@ export interface RegisterDomainResponse {
 }
 
 /**
+ * @public
  * <p>The RejectDomainTransferFromAnotherAwsAccount request includes the following
  * 			element.</p>
  */
@@ -2975,6 +3117,7 @@ export interface RejectDomainTransferFromAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The RejectDomainTransferFromAnotherAwsAccount response includes the following
  * 			element.</p>
  */
@@ -2989,6 +3132,7 @@ export interface RejectDomainTransferFromAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>A <code>RenewDomain</code> request includes the number of years that you want to renew
  * 			for and the current expiration year.</p>
  */
@@ -3015,6 +3159,9 @@ export interface RenewDomainRequest {
   CurrentExpiryYear: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RenewDomainResponse {
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status,
@@ -3023,6 +3170,9 @@ export interface RenewDomainResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResendContactReachabilityEmailRequest {
   /**
    * <p>The name of the domain for which you want Route 53 to resend a confirmation email to
@@ -3031,6 +3181,9 @@ export interface ResendContactReachabilityEmailRequest {
   domainName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResendContactReachabilityEmailResponse {
   /**
    * <p>The domain name for which you requested a confirmation email.</p>
@@ -3052,6 +3205,9 @@ export interface ResendContactReachabilityEmailResponse {
   isAlreadyVerified?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ResendOperationAuthorizationRequest {
   /**
    * <p> Operation ID. </p>
@@ -3060,6 +3216,7 @@ export interface ResendOperationAuthorizationRequest {
 }
 
 /**
+ * @public
  * <p>A request for the authorization code for the specified domain. To transfer a domain to
  * 			another registrar, you provide this value to the new registrar.</p>
  */
@@ -3071,6 +3228,7 @@ export interface RetrieveDomainAuthCodeRequest {
 }
 
 /**
+ * @public
  * <p>The RetrieveDomainAuthCode response includes the following element.</p>
  */
 export interface RetrieveDomainAuthCodeResponse {
@@ -3081,6 +3239,7 @@ export interface RetrieveDomainAuthCodeResponse {
 }
 
 /**
+ * @public
  * <p>The TransferDomain request includes the following elements.</p>
  */
 export interface TransferDomainRequest {
@@ -3202,6 +3361,7 @@ export interface TransferDomainRequest {
 }
 
 /**
+ * @public
  * <p>The TransferDomain response includes the following element.</p>
  */
 export interface TransferDomainResponse {
@@ -3213,6 +3373,7 @@ export interface TransferDomainResponse {
 }
 
 /**
+ * @public
  * <p>The TransferDomainToAnotherAwsAccount request includes the following elements.</p>
  */
 export interface TransferDomainToAnotherAwsAccountRequest {
@@ -3229,6 +3390,7 @@ export interface TransferDomainToAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The <code>TransferDomainToAnotherAwsAccount</code> response includes the following
  * 			elements.</p>
  */
@@ -3249,6 +3411,7 @@ export interface TransferDomainToAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContact request includes the following elements.</p>
  */
 export interface UpdateDomainContactRequest {
@@ -3279,6 +3442,7 @@ export interface UpdateDomainContactRequest {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContact response includes the following element.</p>
  */
 export interface UpdateDomainContactResponse {
@@ -3290,6 +3454,7 @@ export interface UpdateDomainContactResponse {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContactPrivacy request includes the following elements.</p>
  */
 export interface UpdateDomainContactPrivacyRequest {
@@ -3339,6 +3504,7 @@ export interface UpdateDomainContactPrivacyRequest {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContactPrivacy response includes the following element.</p>
  */
 export interface UpdateDomainContactPrivacyResponse {
@@ -3350,6 +3516,7 @@ export interface UpdateDomainContactPrivacyResponse {
 }
 
 /**
+ * @public
  * <p>Replaces the current set of name servers for the domain with the specified set of name
  * 			servers. If you use Amazon Route 53 as your DNS service, specify the four name servers
  * 			in the delegation set for the hosted zone for the domain.</p>
@@ -3377,6 +3544,7 @@ export interface UpdateDomainNameserversRequest {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainNameservers response includes the following element.</p>
  */
 export interface UpdateDomainNameserversResponse {
@@ -3388,6 +3556,7 @@ export interface UpdateDomainNameserversResponse {
 }
 
 /**
+ * @public
  * <p>The UpdateTagsForDomainRequest includes the following elements.</p>
  */
 export interface UpdateTagsForDomainRequest {
@@ -3403,9 +3572,13 @@ export interface UpdateTagsForDomainRequest {
   TagsToUpdate?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagsForDomainResponse {}
 
 /**
+ * @public
  * <p>The ViewBilling request includes the following elements.</p>
  */
 export interface ViewBillingRequest {
@@ -3444,6 +3617,7 @@ export interface ViewBillingRequest {
 }
 
 /**
+ * @public
  * <p>The ViewBilling response includes the following elements.</p>
  */
 export interface ViewBillingResponse {

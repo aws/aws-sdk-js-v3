@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServiceErrorsCommand}.
  */
 export interface DescribeServiceErrorsCommandInput extends DescribeServiceErrorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServiceErrorsCommand}.
  */
 export interface DescribeServiceErrorsCommandOutput extends DescribeServiceErrorsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes AWS OpsWorks Stacks service errors.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -52,6 +57,8 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServiceErrorsCommandInput - {@link DescribeServiceErrorsCommandInput}
+ * @returns {@link DescribeServiceErrorsCommandOutput}
  * @see {@link DescribeServiceErrorsCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceErrorsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeServiceErrorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceErrorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeServiceErrorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServiceErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeServiceErrorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceErrorsCommandOutput> {
     return deserializeAws_json1_1DescribeServiceErrorsCommand(output, context);
   }

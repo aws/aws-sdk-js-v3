@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserProfilesCommand}.
  */
 export interface DescribeUserProfilesCommandInput extends DescribeUserProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserProfilesCommand}.
  */
 export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe specified users.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -50,6 +55,8 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserProfilesCommandInput - {@link DescribeUserProfilesCommandInput}
+ * @returns {@link DescribeUserProfilesCommandOutput}
  * @see {@link DescribeUserProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeUserProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeUserProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfilesCommandOutput> {
     return deserializeAws_json1_1DescribeUserProfilesCommand(output, context);
   }

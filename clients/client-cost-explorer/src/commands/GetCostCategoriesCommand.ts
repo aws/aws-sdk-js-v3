@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCostCategoriesCommand}.
  */
 export interface GetCostCategoriesCommandInput extends GetCostCategoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCostCategoriesCommand}.
  */
 export interface GetCostCategoriesCommandOutput extends GetCostCategoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
  *          <note>
  *             <p>If some Cost Category names and values are not associated with any cost, they will not
@@ -50,6 +55,8 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCostCategoriesCommandInput - {@link GetCostCategoriesCommandInput}
+ * @returns {@link GetCostCategoriesCommandOutput}
  * @see {@link GetCostCategoriesCommandInput} for command's `input` shape.
  * @see {@link GetCostCategoriesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetCostCategoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCostCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetCostCategoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCostCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCostCategoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostCategoriesCommandOutput> {
     return deserializeAws_json1_1GetCostCategoriesCommand(output, context);
   }

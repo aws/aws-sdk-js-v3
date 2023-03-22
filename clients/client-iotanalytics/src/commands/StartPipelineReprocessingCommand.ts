@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartPipelineReprocessingCommand}.
  */
 export interface StartPipelineReprocessingCommandInput extends StartPipelineReprocessingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartPipelineReprocessingCommand}.
  */
 export interface StartPipelineReprocessingCommandOutput extends StartPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the reprocessing of raw message data through the pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPipelineReprocessingCommandInput - {@link StartPipelineReprocessingCommandInput}
+ * @returns {@link StartPipelineReprocessingCommandOutput}
  * @see {@link StartPipelineReprocessingCommandInput} for command's `input` shape.
  * @see {@link StartPipelineReprocessingCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartPipelineReprocessingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPipelineReprocessingCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartPipelineReprocessingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPipelineReprocessingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartPipelineReprocessingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

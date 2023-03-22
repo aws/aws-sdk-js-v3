@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListShardsCommand}.
  */
 export interface ListShardsCommandInput extends ListShardsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListShardsCommand}.
  */
 export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the shards in a stream and provides information about each shard. This operation
  *             has a limit of 1000 transactions per second per data stream.</p>
  *          <note>
@@ -60,6 +65,8 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListShardsCommandInput - {@link ListShardsCommandInput}
+ * @returns {@link ListShardsCommandOutput}
  * @see {@link ListShardsCommandInput} for command's `input` shape.
  * @see {@link ListShardsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -108,6 +115,9 @@ export class ListShardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListShardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class ListShardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListShardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListShardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListShardsCommandOutput> {
     return deserializeAws_json1_1ListShardsCommand(output, context);
   }

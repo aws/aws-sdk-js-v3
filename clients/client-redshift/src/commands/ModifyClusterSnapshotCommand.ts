@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterSnapshotCommand}.
  */
 export interface ModifyClusterSnapshotCommandInput extends ModifyClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterSnapshotCommand}.
  */
 export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a snapshot.</p>
  *          <p>This exanmple modifies the manual retention period setting for a cluster snapshot.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterSnapshotCommandInput - {@link ModifyClusterSnapshotCommandInput}
+ * @returns {@link ModifyClusterSnapshotCommandOutput}
  * @see {@link ModifyClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -81,6 +88,9 @@ export class ModifyClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ModifyClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterSnapshotCommandOutput> {
     return deserializeAws_queryModifyClusterSnapshotCommand(output, context);
   }

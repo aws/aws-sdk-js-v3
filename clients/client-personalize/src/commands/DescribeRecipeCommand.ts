@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecipeCommand}.
  */
 export interface DescribeRecipeCommandInput extends DescribeRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecipeCommand}.
  */
 export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a recipe.</p>
  *          <p>A recipe contains three items:</p>
  *          <ul>
@@ -64,6 +69,8 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecipeCommandInput - {@link DescribeRecipeCommandInput}
+ * @returns {@link DescribeRecipeCommandOutput}
  * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
  * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecipeCommandOutput> {
     return deserializeAws_json1_1DescribeRecipeCommand(output, context);
   }

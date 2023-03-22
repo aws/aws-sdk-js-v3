@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandInput extends AddPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web Services organization
  *       permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict
  *       access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name
@@ -58,6 +63,8 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
+ * @returns {@link AddPermissionCommandOutput}
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -103,6 +110,9 @@ export class AddPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
     return deserializeAws_restJson1AddPermissionCommand(output, context);
   }

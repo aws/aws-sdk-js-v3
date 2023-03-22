@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcPeeringConnectionCommand}.
  */
 export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeeringConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcPeeringConnectionCommand}.
  */
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
  * 		  an accepter VPC with which to create the connection. The accepter VPC can belong to
  * 		  another Amazon Web Services account and can be in a different Region to the requester VPC.
@@ -58,6 +63,8 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcPeeringConnectionCommandInput - {@link CreateVpcPeeringConnectionCommandInput}
+ * @returns {@link CreateVpcPeeringConnectionCommandOutput}
  * @see {@link CreateVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -81,6 +88,9 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVpcPeeringConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -18,15 +18,20 @@ import { ModifyIdFormatRequest, ModifyIdFormatRequestFilterSensitiveLog } from "
 import { deserializeAws_ec2ModifyIdFormatCommand, serializeAws_ec2ModifyIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIdFormatCommand}.
  */
 export interface ModifyIdFormatCommandInput extends ModifyIdFormatRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIdFormatCommand}.
  */
 export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the ID format for the specified resource on a per-Region basis. You can
  *             specify that resources should receive longer IDs (17-character IDs) when they are
  *             created.</p>
@@ -61,6 +66,8 @@ export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIdFormatCommandInput - {@link ModifyIdFormatCommandInput}
+ * @returns {@link ModifyIdFormatCommandOutput}
  * @see {@link ModifyIdFormatCommandInput} for command's `input` shape.
  * @see {@link ModifyIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -84,6 +91,9 @@ export class ModifyIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ModifyIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIdFormatCommandOutput> {
     return deserializeAws_ec2ModifyIdFormatCommand(output, context);
   }

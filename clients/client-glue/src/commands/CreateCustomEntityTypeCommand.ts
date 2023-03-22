@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomEntityTypeCommand}.
  */
 export interface CreateCustomEntityTypeCommandInput extends CreateCustomEntityTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomEntityTypeCommand}.
  */
 export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
  *          <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomEntityTypeCommandInput - {@link CreateCustomEntityTypeCommandInput}
+ * @returns {@link CreateCustomEntityTypeCommandOutput}
  * @see {@link CreateCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link CreateCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateCustomEntityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomEntityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateCustomEntityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCustomEntityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomEntityTypeCommandOutput> {
     return deserializeAws_json1_1CreateCustomEntityTypeCommand(output, context);
   }

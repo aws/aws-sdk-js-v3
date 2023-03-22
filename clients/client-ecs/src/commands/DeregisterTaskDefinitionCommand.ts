@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTaskDefinitionCommand}.
  */
 export interface DeregisterTaskDefinitionCommandInput extends DeregisterTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTaskDefinitionCommand}.
  */
 export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified task definition by family and revision. Upon deregistration, the
  * 			task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
  * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
@@ -63,6 +68,8 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTaskDefinitionCommandInput - {@link DeregisterTaskDefinitionCommandInput}
+ * @returns {@link DeregisterTaskDefinitionCommandOutput}
  * @see {@link DeregisterTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeregisterTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeregisterTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterTaskDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTaskDefinitionCommandOutput> {
     return deserializeAws_json1_1DeregisterTaskDefinitionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkloadCommand}.
  */
 export interface UpdateWorkloadCommandInput extends UpdateWorkloadInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkloadCommand}.
  */
 export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkloadCommandInput - {@link UpdateWorkloadCommandInput}
+ * @returns {@link UpdateWorkloadCommandOutput}
  * @see {@link UpdateWorkloadCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateWorkloadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateWorkloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWorkloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkloadCommandOutput> {
     return deserializeAws_restJson1UpdateWorkloadCommand(output, context);
   }

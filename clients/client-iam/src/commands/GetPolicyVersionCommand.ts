@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandInput extends GetPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified version of the specified managed policy,
  *             including the policy document.</p>
  *          <note>
@@ -61,6 +66,8 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
+ * @returns {@link GetPolicyVersionCommandOutput}
  * @see {@link GetPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link GetPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyVersionCommandOutput> {
     return deserializeAws_queryGetPolicyVersionCommand(output, context);
   }

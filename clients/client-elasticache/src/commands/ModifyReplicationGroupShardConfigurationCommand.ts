@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationGroupShardConfigurationCommand}.
  */
 export interface ModifyReplicationGroupShardConfigurationCommandInput
   extends ModifyReplicationGroupShardConfigurationMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationGroupShardConfigurationCommand}.
  */
 export interface ModifyReplicationGroupShardConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a replication group's shards (node groups) by allowing you to
  *             add shards, remove shards, or rebalance the keyspaces among existing shards.</p>
  * @example
@@ -50,6 +55,8 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationGroupShardConfigurationCommandInput - {@link ModifyReplicationGroupShardConfigurationCommandInput}
+ * @returns {@link ModifyReplicationGroupShardConfigurationCommandOutput}
  * @see {@link ModifyReplicationGroupShardConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationGroupShardConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -105,6 +112,9 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationGroupShardConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyReplicationGroupShardConfigurationCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     return serializeAws_queryModifyReplicationGroupShardConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

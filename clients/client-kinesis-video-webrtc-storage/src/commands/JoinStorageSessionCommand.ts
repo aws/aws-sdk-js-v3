@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link JoinStorageSessionCommand}.
  */
 export interface JoinStorageSessionCommandInput extends JoinStorageSessionInput {}
 /**
+ * @public
+ *
  * The output of {@link JoinStorageSessionCommand}.
  */
 export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Join the ongoing one way-video and/or multi-way audio WebRTC session as
  *       a video producing device for an input channel. If there’s no existing
@@ -66,6 +71,8 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param JoinStorageSessionCommandInput - {@link JoinStorageSessionCommandInput}
+ * @returns {@link JoinStorageSessionCommandOutput}
  * @see {@link JoinStorageSessionCommandInput} for command's `input` shape.
  * @see {@link JoinStorageSessionCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoWebRTCStorageClientResolvedConfig | config} for KinesisVideoWebRTCStorageClient's `config` shape.
@@ -103,6 +110,9 @@ export class JoinStorageSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: JoinStorageSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class JoinStorageSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JoinStorageSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1JoinStorageSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinStorageSessionCommandOutput> {
     return deserializeAws_restJson1JoinStorageSessionCommand(output, context);
   }

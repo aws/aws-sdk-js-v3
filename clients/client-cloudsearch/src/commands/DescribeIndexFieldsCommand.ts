@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIndexFieldsCommand}.
  */
 export interface DescribeIndexFieldsCommandInput extends DescribeIndexFieldsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIndexFieldsCommand}.
  */
 export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the index fields configured for the search domain.
  *       Can be limited to specific fields by name.  By default, shows all fields and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIndexFieldsCommandInput - {@link DescribeIndexFieldsCommandInput}
+ * @returns {@link DescribeIndexFieldsCommandOutput}
  * @see {@link DescribeIndexFieldsCommandInput} for command's `input` shape.
  * @see {@link DescribeIndexFieldsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeIndexFieldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIndexFieldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeIndexFieldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIndexFieldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeIndexFieldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIndexFieldsCommandOutput> {
     return deserializeAws_queryDescribeIndexFieldsCommand(output, context);
   }

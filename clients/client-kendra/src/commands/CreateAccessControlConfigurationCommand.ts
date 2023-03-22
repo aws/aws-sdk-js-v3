@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessControlConfigurationCommand}.
  */
 export interface CreateAccessControlConfigurationCommandInput extends CreateAccessControlConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessControlConfigurationCommand}.
  */
 export interface CreateAccessControlConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an access configuration for your documents. This includes
  *             user and group access information for your documents. This is useful
  *             for user context filtering, where search results are filtered based
@@ -70,6 +75,8 @@ export interface CreateAccessControlConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessControlConfigurationCommandInput - {@link CreateAccessControlConfigurationCommandInput}
+ * @returns {@link CreateAccessControlConfigurationCommandOutput}
  * @see {@link CreateAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -122,6 +129,9 @@ export class CreateAccessControlConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,6 +171,9 @@ export class CreateAccessControlConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAccessControlConfigurationCommandInput,
     context: __SerdeContext
@@ -168,6 +181,9 @@ export class CreateAccessControlConfigurationCommand extends $Command<
     return serializeAws_json1_1CreateAccessControlConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

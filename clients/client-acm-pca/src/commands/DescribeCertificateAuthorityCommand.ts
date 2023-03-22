@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificateAuthorityCommand}.
  */
 export interface DescribeCertificateAuthorityCommandInput extends DescribeCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificateAuthorityCommand}.
  */
 export interface DescribeCertificateAuthorityCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about your private certificate authority (CA) or one that has been
  * 			shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
  * 			The output contains the status of your CA. This can be any of the following: </p>
@@ -88,6 +93,8 @@ export interface DescribeCertificateAuthorityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateAuthorityCommandInput - {@link DescribeCertificateAuthorityCommandInput}
+ * @returns {@link DescribeCertificateAuthorityCommandOutput}
  * @see {@link DescribeCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -119,6 +126,9 @@ export class DescribeCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class DescribeCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

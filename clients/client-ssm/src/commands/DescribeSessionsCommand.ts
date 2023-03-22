@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSessionsCommand}.
  */
 export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSessionsCommand}.
  */
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
  *    sessions from the past 30 days.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
+ * @returns {@link DescribeSessionsCommandOutput}
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSessionsCommandOutput> {
     return deserializeAws_json1_1DescribeSessionsCommand(output, context);
   }

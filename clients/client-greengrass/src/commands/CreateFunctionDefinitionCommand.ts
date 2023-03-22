@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionDefinitionCommand}.
  */
 export interface CreateFunctionDefinitionCommandInput extends CreateFunctionDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionDefinitionCommand}.
  */
 export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionDefinitionCommandInput - {@link CreateFunctionDefinitionCommandInput}
+ * @returns {@link CreateFunctionDefinitionCommandOutput}
  * @see {@link CreateFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateFunctionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateFunctionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFunctionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionDefinitionCommandOutput> {
     return deserializeAws_restJson1CreateFunctionDefinitionCommand(output, context);
   }

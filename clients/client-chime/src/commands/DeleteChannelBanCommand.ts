@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelBanCommand}.
  */
 export interface DeleteChannelBanCommandInput extends DeleteChannelBanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelBanCommand}.
  */
 export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user from a channel's ban list.</p>
  *
  *          <note>
@@ -47,6 +52,8 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelBanCommandInput - {@link DeleteChannelBanCommandInput}
+ * @returns {@link DeleteChannelBanCommandOutput}
  * @see {@link DeleteChannelBanCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelBanCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteChannelBanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelBanCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteChannelBanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelBanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteChannelBanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelBanCommandOutput> {
     return deserializeAws_restJson1DeleteChannelBanCommand(output, context);
   }

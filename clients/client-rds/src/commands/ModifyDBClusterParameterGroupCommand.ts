@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterParameterGroupCommand}.
  */
 export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterParameterGroupCommand}.
  */
 export interface ModifyDBClusterParameterGroupCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
  *             submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>,
  *             and <code>ApplyMethod</code>. A maximum of 20
@@ -73,6 +78,8 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterParameterGroupCommandInput - {@link ModifyDBClusterParameterGroupCommandInput}
+ * @returns {@link ModifyDBClusterParameterGroupCommandOutput}
  * @see {@link ModifyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -124,6 +131,9 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

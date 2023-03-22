@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePhoneNumberCommand}.
  */
 export interface DeletePhoneNumberCommandInput extends DeletePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePhoneNumberCommand}.
  */
 export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Moves the specified phone number into the <b>Deletion queue</b>. A
  *             phone number must be disassociated from any users or Amazon Chime Voice Connectors
  *             before it can be deleted.</p>
@@ -47,6 +52,8 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePhoneNumberCommandInput - {@link DeletePhoneNumberCommandInput}
+ * @returns {@link DeletePhoneNumberCommandOutput}
  * @see {@link DeletePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DeletePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeletePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeletePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePhoneNumberCommandOutput> {
     return deserializeAws_restJson1DeletePhoneNumberCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAssetPropertyCommand}.
  */
 export interface UpdateAssetPropertyCommandInput extends UpdateAssetPropertyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAssetPropertyCommand}.
  */
 export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an asset property's alias and notification state.</p>
  *          <important>
  *             <p>This operation overwrites the property's existing alias and notification state. To keep
@@ -46,6 +51,8 @@ export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssetPropertyCommandInput - {@link UpdateAssetPropertyCommandInput}
+ * @returns {@link UpdateAssetPropertyCommandOutput}
  * @see {@link UpdateAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateAssetPropertyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssetPropertyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateAssetPropertyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAssetPropertyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAssetPropertyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssetPropertyCommandOutput> {
     return deserializeAws_restJson1UpdateAssetPropertyCommand(output, context);
   }

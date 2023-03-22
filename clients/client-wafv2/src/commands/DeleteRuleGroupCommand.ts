@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleGroupCommand}.
  */
 export interface DeleteRuleGroupCommandInput extends DeleteRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleGroupCommand}.
  */
 export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>RuleGroup</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
+ * @returns {@link DeleteRuleGroupCommandOutput}
  * @see {@link DeleteRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -119,6 +126,9 @@ export class DeleteRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class DeleteRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleGroupCommandOutput> {
     return deserializeAws_json1_1DeleteRuleGroupCommand(output, context);
   }

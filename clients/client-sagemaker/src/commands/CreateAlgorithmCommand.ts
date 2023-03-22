@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAlgorithmCommand}.
  */
 export interface CreateAlgorithmCommandInput extends CreateAlgorithmInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateAlgorithmCommand}.
  */
 export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAlgorithmCommandInput - {@link CreateAlgorithmCommandInput}
+ * @returns {@link CreateAlgorithmCommandOutput}
  * @see {@link CreateAlgorithmCommandInput} for command's `input` shape.
  * @see {@link CreateAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class CreateAlgorithmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAlgorithmCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreateAlgorithmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAlgorithmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAlgorithmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAlgorithmCommandOutput> {
     return deserializeAws_json1_1CreateAlgorithmCommand(output, context);
   }

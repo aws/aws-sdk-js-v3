@@ -79,12 +79,14 @@ import {
 } from "./commands/UpdateCertificateOptionsCommand";
 
 /**
+ * @public
  * <fullname>Certificate Manager</fullname>
  *          <p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
  *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
  */
 export class ACM extends ACMClient {
   /**
+   * @public
    * <p>Adds one or more tags to an ACM certificate. Tags are labels that you can use to
    *       identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an
    *       optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name
@@ -130,6 +132,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a certificate and its associated private key. If this action succeeds, the
    *       certificate no longer appears in the list that can be displayed by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a> action. The certificate will not be available for use by Amazon Web Services
    *       services integrated with ACM. </p>
@@ -169,6 +172,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed metadata about the specified ACM certificate.</p>
    *          <p>If you have just created a certificate using the <code>RequestCertificate</code> action,
    *       there is a delay of several seconds before you can retrieve information about it.</p>
@@ -203,6 +207,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Exports a private certificate issued by a private certificate authority (CA) for use
    *       anywhere. The exported file contains the certificate, the certificate chain, and the encrypted
    *       private 2048-bit RSA key associated with the public key that is embedded in the certificate.
@@ -241,6 +246,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Returns the account configuration options associated with an Amazon Web Services account.</p>
    */
   public getAccountConfiguration(
@@ -273,6 +279,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of
    *       the certificate of the issuing CA and the intermediate certificates of any other subordinate
    *       CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
@@ -308,6 +315,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with
    *       ACM. Note that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated
    *         services</a> allow only certificate types and keys they support to be associated with
@@ -407,6 +415,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of certificate ARNs and domain names. You can request that only
    *       certificates that match a specific status be listed. You can also filter by specific
    *       attributes of the certificate. Default filtering returns only <code>RSA_2048</code>
@@ -442,6 +451,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's
    *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
    *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
@@ -476,6 +486,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Adds or modifies account-level configurations in ACM. </p>
    *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
    *       the number of days prior to certificate expiration when ACM starts generating
@@ -513,6 +524,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If
    *       you do not specify the value portion of the tag when calling this function, the tag will be
    *       removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -550,6 +562,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
    *       be renewed with this operation. In order to renew your Amazon Web Services Private CA certificates with ACM, you
    *       must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant the ACM
@@ -586,6 +599,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM
    *       certificate, you must specify a fully qualified domain name (FQDN) in the
    *         <code>DomainName</code> parameter. You can also specify additional FQDNs in the
@@ -633,6 +647,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Resends the email that requests domain ownership validation. The domain owner or an
    *       authorized representative must approve the ACM certificate before it can be issued. The
    *       certificate can be approved by clicking a link in the mail to navigate to the Amazon
@@ -673,6 +688,7 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * @public
    * <p>Updates a certificate. Currently, you can use this function to specify whether to opt in
    *       to or out of recording your certificate in a certificate transparency log. For more
    *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting Out of

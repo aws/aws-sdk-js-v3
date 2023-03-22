@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectorDefinitionCommand}.
  */
 export interface CreateConnectorDefinitionCommandInput extends CreateConnectorDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectorDefinitionCommand}.
  */
 export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectorDefinitionCommandInput - {@link CreateConnectorDefinitionCommandInput}
+ * @returns {@link CreateConnectorDefinitionCommandOutput}
  * @see {@link CreateConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateConnectorDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectorDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateConnectorDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConnectorDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

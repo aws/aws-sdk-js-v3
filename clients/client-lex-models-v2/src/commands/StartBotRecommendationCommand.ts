@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBotRecommendationCommand}.
  */
 export interface StartBotRecommendationCommandInput extends StartBotRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBotRecommendationCommand}.
  */
 export interface StartBotRecommendationCommandOutput extends StartBotRecommendationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this to provide your transcript data, and to start the bot
  *          recommendation process.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBotRecommendationCommandInput - {@link StartBotRecommendationCommandInput}
+ * @returns {@link StartBotRecommendationCommandOutput}
  * @see {@link StartBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link StartBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -99,6 +106,9 @@ export class StartBotRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBotRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class StartBotRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartBotRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBotRecommendationCommandOutput> {
     return deserializeAws_restJson1StartBotRecommendationCommand(output, context);
   }

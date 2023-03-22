@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamKeyCommand}.
  */
 export interface GetStreamKeyCommandInput extends GetStreamKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamKeyCommand}.
  */
 export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets stream-key information for a specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamKeyCommandInput - {@link GetStreamKeyCommandInput}
+ * @returns {@link GetStreamKeyCommandOutput}
  * @see {@link GetStreamKeyCommandInput} for command's `input` shape.
  * @see {@link GetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetStreamKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetStreamKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStreamKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamKeyCommandOutput> {
     return deserializeAws_restJson1GetStreamKeyCommand(output, context);
   }

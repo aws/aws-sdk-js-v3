@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceProfileCommand}.
  */
 export interface CreateServiceProfileCommandInput extends CreateServiceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceProfileCommand}.
  */
 export interface CreateServiceProfileCommandOutput extends CreateServiceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new service profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceProfileCommandInput - {@link CreateServiceProfileCommandInput}
+ * @returns {@link CreateServiceProfileCommandOutput}
  * @see {@link CreateServiceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateServiceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateServiceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateServiceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateServiceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceProfileCommandOutput> {
     return deserializeAws_restJson1CreateServiceProfileCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupsForCapacityReservationCommand}.
  */
 export interface GetGroupsForCapacityReservationCommandInput extends GetGroupsForCapacityReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupsForCapacityReservationCommand}.
  */
 export interface GetGroupsForCapacityReservationCommandOutput
@@ -37,6 +41,7 @@ export interface GetGroupsForCapacityReservationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetGroupsForCapacityReservationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupsForCapacityReservationCommandInput - {@link GetGroupsForCapacityReservationCommandInput}
+ * @returns {@link GetGroupsForCapacityReservationCommandOutput}
  * @see {@link GetGroupsForCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link GetGroupsForCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupsForCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetGroupsForCapacityReservationCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     return serializeAws_ec2GetGroupsForCapacityReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

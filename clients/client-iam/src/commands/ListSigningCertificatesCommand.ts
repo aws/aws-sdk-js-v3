@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListSigningCertificatesCommand}.
  */
 export interface ListSigningCertificatesCommandInput extends ListSigningCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSigningCertificatesCommand}.
  */
 export interface ListSigningCertificatesCommandOutput extends ListSigningCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the signing certificates associated with the specified IAM
  *             user. If none exists, the operation returns an empty list.</p>
  *          <p>Although each user is limited to a small number of signing certificates, you can still
@@ -55,6 +60,8 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSigningCertificatesCommandInput - {@link ListSigningCertificatesCommandInput}
+ * @returns {@link ListSigningCertificatesCommandOutput}
  * @see {@link ListSigningCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListSigningCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -110,6 +117,9 @@ export class ListSigningCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class ListSigningCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSigningCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningCertificatesCommandOutput> {
     return deserializeAws_queryListSigningCertificatesCommand(output, context);
   }

@@ -88,6 +88,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateDefaultViewCommandInput
   | BatchGetViewCommandInput
@@ -109,6 +112,9 @@ export type ServiceInputTypes =
   | UpdateIndexTypeCommandInput
   | UpdateViewCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateDefaultViewCommandOutput
   | BatchGetViewCommandOutput
@@ -130,6 +136,9 @@ export type ServiceOutputTypes =
   | UpdateIndexTypeCommandOutput
   | UpdateViewCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -137,7 +146,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -246,11 +255,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ResourceExplorer2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -261,10 +273,15 @@ type ResourceExplorer2ClientConfigType = Partial<__SmithyConfiguration<__HttpHan
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ResourceExplorer2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ResourceExplorer2Client class constructor that set the region, credentials and other options.
  */
 export interface ResourceExplorer2ClientConfig extends ResourceExplorer2ClientConfigType {}
 
+/**
+ * @public
+ */
 type ResourceExplorer2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -275,11 +292,14 @@ type ResourceExplorer2ClientResolvedConfigType = __SmithyResolvedConfiguration<_
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ResourceExplorer2Client class. This is resolved and normalized from the {@link ResourceExplorer2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ResourceExplorer2Client class. This is resolved and normalized from the {@link ResourceExplorer2ClientConfig | constructor configuration interface}.
  */
 export interface ResourceExplorer2ClientResolvedConfig extends ResourceExplorer2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Web Services Resource Explorer is a resource search and discovery service. By using Resource Explorer, you can
  *             explore your resources using an internet search engine-like experience. Examples of
  *             resources include Amazon Relational Database Service (Amazon RDS) instances, Amazon Simple Storage Service (Amazon S3) buckets, or Amazon DynamoDB

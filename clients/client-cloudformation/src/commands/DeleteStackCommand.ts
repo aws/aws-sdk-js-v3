@@ -18,15 +18,20 @@ import { DeleteStackInput, DeleteStackInputFilterSensitiveLog } from "../models/
 import { deserializeAws_queryDeleteStackCommand, serializeAws_queryDeleteStackCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStackCommand}.
  */
 export interface DeleteStackCommandInput extends DeleteStackInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStackCommand}.
  */
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified stack. Once the call completes successfully, stack deletion starts.
  *          Deleted stacks don't show up in the <a>DescribeStacks</a> operation if the
  *          deletion has been completed successfully.</p>
@@ -40,6 +45,8 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
+ * @returns {@link DeleteStackCommandOutput}
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -66,6 +73,9 @@ export class DeleteStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class DeleteStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackCommandOutput> {
     return deserializeAws_queryDeleteStackCommand(output, context);
   }

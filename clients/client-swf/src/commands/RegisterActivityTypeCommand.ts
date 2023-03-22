@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterActivityTypeCommand}.
  */
 export interface RegisterActivityTypeCommandInput extends RegisterActivityTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterActivityTypeCommand}.
  */
 export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new <i>activity type</i> along with its configuration
  *       settings in the specified domain.</p>
  *          <important>
@@ -87,6 +92,8 @@ export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterActivityTypeCommandInput - {@link RegisterActivityTypeCommandInput}
+ * @returns {@link RegisterActivityTypeCommandOutput}
  * @see {@link RegisterActivityTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -122,6 +129,9 @@ export class RegisterActivityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class RegisterActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RegisterActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterActivityTypeCommandOutput> {
     return deserializeAws_json1_0RegisterActivityTypeCommand(output, context);
   }

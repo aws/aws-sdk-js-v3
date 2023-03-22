@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAuthorizerCommand}.
  */
 export interface GetAuthorizerCommandInput extends GetAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAuthorizerCommand}.
  */
 export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAuthorizerCommandInput - {@link GetAuthorizerCommandInput}
+ * @returns {@link GetAuthorizerCommandOutput}
  * @see {@link GetAuthorizerCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizerCommandOutput> {
     return deserializeAws_restJson1GetAuthorizerCommand(output, context);
   }

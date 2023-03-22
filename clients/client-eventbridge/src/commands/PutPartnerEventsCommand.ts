@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPartnerEventsCommand}.
  */
 export interface PutPartnerEventsCommandInput extends PutPartnerEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPartnerEventsCommand}.
  */
 export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services
  *       customers do not use this operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPartnerEventsCommandInput - {@link PutPartnerEventsCommandInput}
+ * @returns {@link PutPartnerEventsCommandOutput}
  * @see {@link PutPartnerEventsCommandInput} for command's `input` shape.
  * @see {@link PutPartnerEventsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -76,6 +83,9 @@ export class PutPartnerEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPartnerEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class PutPartnerEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPartnerEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPartnerEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPartnerEventsCommandOutput> {
     return deserializeAws_json1_1PutPartnerEventsCommand(output, context);
   }

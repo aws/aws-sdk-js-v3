@@ -18,15 +18,20 @@ import { DeleteAlarmsInput, DeleteAlarmsInputFilterSensitiveLog } from "../model
 import { deserializeAws_queryDeleteAlarmsCommand, serializeAws_queryDeleteAlarmsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAlarmsCommand}.
  */
 export interface DeleteAlarmsCommandInput extends DeleteAlarmsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAlarmsCommand}.
  */
 export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more
  * 			than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't
  * 			delete two composite alarms with one operation.</p>
@@ -53,6 +58,8 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlarmsCommandInput - {@link DeleteAlarmsCommandInput}
+ * @returns {@link DeleteAlarmsCommandOutput}
  * @see {@link DeleteAlarmsCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteAlarmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlarmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteAlarmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAlarmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlarmsCommandOutput> {
     return deserializeAws_queryDeleteAlarmsCommand(output, context);
   }

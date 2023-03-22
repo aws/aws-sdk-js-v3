@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBotAliasCommand}.
  */
 export interface UpdateBotAliasCommandInput extends UpdateBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBotAliasCommand}.
  */
 export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBotAliasCommandInput - {@link UpdateBotAliasCommandInput}
+ * @returns {@link UpdateBotAliasCommandOutput}
  * @see {@link UpdateBotAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotAliasCommandOutput> {
     return deserializeAws_restJson1UpdateBotAliasCommand(output, context);
   }

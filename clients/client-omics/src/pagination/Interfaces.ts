@@ -3,6 +3,9 @@ import { PaginationConfiguration } from "@aws-sdk/types";
 
 import { OmicsClient } from "../OmicsClient";
 
+/**
+ * @public
+ */
 export interface OmicsPaginationConfiguration extends PaginationConfiguration {
   client: OmicsClient;
 }

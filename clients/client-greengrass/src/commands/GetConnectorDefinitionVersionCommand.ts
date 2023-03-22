@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectorDefinitionVersionCommand}.
  */
 export interface GetConnectorDefinitionVersionCommandInput extends GetConnectorDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectorDefinitionVersionCommand}.
  */
 export interface GetConnectorDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface GetConnectorDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetConnectorDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectorDefinitionVersionCommandInput - {@link GetConnectorDefinitionVersionCommandInput}
+ * @returns {@link GetConnectorDefinitionVersionCommandOutput}
  * @see {@link GetConnectorDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetConnectorDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetConnectorDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectorDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetConnectorDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectorDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConnectorDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

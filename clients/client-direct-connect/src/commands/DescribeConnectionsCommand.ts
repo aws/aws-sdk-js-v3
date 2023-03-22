@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectionsCommand}.
  */
 export interface DescribeConnectionsCommandInput extends DescribeConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectionsCommand}.
  */
 export interface DescribeConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the specified connection or all connections in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionsCommandInput - {@link DescribeConnectionsCommandInput}
+ * @returns {@link DescribeConnectionsCommandOutput}
  * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionsCommandOutput> {
     return deserializeAws_json1_1DescribeConnectionsCommand(output, context);
   }

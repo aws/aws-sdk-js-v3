@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackageCommand}.
  */
 export interface DescribePackageCommandInput extends DescribePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackageCommand}.
  */
 export interface DescribePackageCommandOutput extends DescribePackageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a
  *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
  *       object that contains information about the requested package.</p>
@@ -48,6 +53,8 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackageCommandInput - {@link DescribePackageCommandInput}
+ * @returns {@link DescribePackageCommandOutput}
  * @see {@link DescribePackageCommandInput} for command's `input` shape.
  * @see {@link DescribePackageCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageCommandOutput> {
     return deserializeAws_restJson1DescribePackageCommand(output, context);
   }

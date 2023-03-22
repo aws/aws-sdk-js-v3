@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataQualityRulesetsCommand}.
  */
 export interface ListDataQualityRulesetsCommandInput extends ListDataQualityRulesetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataQualityRulesetsCommand}.
  */
 export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRulesetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of rulesets for the specified list of Glue tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityRulesetsCommandInput - {@link ListDataQualityRulesetsCommandInput}
+ * @returns {@link ListDataQualityRulesetsCommandOutput}
  * @see {@link ListDataQualityRulesetsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRulesetsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListDataQualityRulesetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityRulesetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListDataQualityRulesetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataQualityRulesetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDataQualityRulesetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataQualityRulesetsCommandOutput> {
     return deserializeAws_json1_1ListDataQualityRulesetsCommand(output, context);
   }

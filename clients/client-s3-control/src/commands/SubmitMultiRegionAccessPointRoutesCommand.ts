@@ -28,10 +28,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitMultiRegionAccessPointRoutesCommand}.
  */
 export interface SubmitMultiRegionAccessPointRoutesCommandInput extends SubmitMultiRegionAccessPointRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitMultiRegionAccessPointRoutesCommand}.
  */
 export interface SubmitMultiRegionAccessPointRoutesCommandOutput
@@ -39,6 +43,7 @@ export interface SubmitMultiRegionAccessPointRoutesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits an updated route configuration for a Multi-Region Access Point. This API operation updates the
  *          routing status for the specified Regions from active to passive, or from passive to active.
  *          A value of <code>0</code> indicates a passive status, which means that traffic won't be
@@ -94,6 +99,8 @@ export interface SubmitMultiRegionAccessPointRoutesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitMultiRegionAccessPointRoutesCommandInput - {@link SubmitMultiRegionAccessPointRoutesCommandInput}
+ * @returns {@link SubmitMultiRegionAccessPointRoutesCommandOutput}
  * @see {@link SubmitMultiRegionAccessPointRoutesCommandInput} for command's `input` shape.
  * @see {@link SubmitMultiRegionAccessPointRoutesCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -120,6 +127,9 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitMultiRegionAccessPointRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,6 +171,9 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SubmitMultiRegionAccessPointRoutesCommandInput,
     context: __SerdeContext
@@ -168,6 +181,9 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
     return serializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

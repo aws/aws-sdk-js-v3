@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CheckoutBorrowLicenseCommand}.
  */
 export interface CheckoutBorrowLicenseCommandInput extends CheckoutBorrowLicenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckoutBorrowLicenseCommand}.
  */
 export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks out the specified license for offline use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckoutBorrowLicenseCommandInput - {@link CheckoutBorrowLicenseCommandInput}
+ * @returns {@link CheckoutBorrowLicenseCommandOutput}
  * @see {@link CheckoutBorrowLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckoutBorrowLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -103,6 +110,9 @@ export class CheckoutBorrowLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckoutBorrowLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CheckoutBorrowLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckoutBorrowLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckoutBorrowLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckoutBorrowLicenseCommandOutput> {
     return deserializeAws_json1_1CheckoutBorrowLicenseCommand(output, context);
   }

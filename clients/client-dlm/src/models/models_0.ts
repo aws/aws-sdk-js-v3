@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DLMServiceException as __BaseException } from "./DLMServiceException";
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies the encryption settings for cross-Region snapshot copies created by
  * 			event-based policies.</p>
@@ -23,6 +24,9 @@ export interface EncryptionConfiguration {
   CmkArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum RetentionIntervalUnitValues {
   DAYS = "DAYS",
   MONTHS = "MONTHS",
@@ -31,6 +35,7 @@ export enum RetentionIntervalUnitValues {
 }
 
 /**
+ * @public
  * <p>Specifies a retention rule for cross-Region snapshot copies created by snapshot or
  * 			event-based policies, or cross-Region AMI copies created by AMI policies. After the
  * 			retention period expires, the cross-Region copy is deleted.</p>
@@ -50,6 +55,7 @@ export interface CrossRegionCopyRetainRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies a cross-Region copy action for event-based policies.</p>
  *          <note>
@@ -77,6 +83,7 @@ export interface CrossRegionCopyAction {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies an action for an event-based policy.</p>
  */
@@ -93,6 +100,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Describes the retention rule for archived snapshots. Once the archive
  * 			retention threshold is met, the snapshots are permanently deleted from the archive tier.</p>
@@ -130,6 +138,7 @@ export interface RetentionArchiveTier {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies information about the archive storage tier retention period.</p>
  */
@@ -143,6 +152,7 @@ export interface ArchiveRetainRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies a snapshot archiving rule for a schedule.</p>
  */
@@ -153,11 +163,15 @@ export interface ArchiveRule {
   RetainRule: ArchiveRetainRule | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EventTypeValues {
   SHARE_SNAPSHOT = "shareSnapshot",
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies an event that activates an event-based policy.</p>
  */
@@ -184,11 +198,15 @@ export interface EventParameters {
   DescriptionRegex: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EventSourceValues {
   MANAGED_CWE = "MANAGED_CWE",
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies an event that activates an event-based policy.</p>
  */
@@ -205,6 +223,7 @@ export interface EventSource {
 }
 
 /**
+ * @public
  * <p>Specifies a tag for a resource.</p>
  */
 export interface Tag {
@@ -220,6 +239,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies optional parameters for snapshot and AMI policies. The
  * 			set of valid parameters depends on the combination of policy type and target resource
@@ -260,32 +280,48 @@ export interface _Parameters {
   ExcludeDataVolumeTags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum PolicyTypeValues {
   EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT",
   EVENT_BASED_POLICY = "EVENT_BASED_POLICY",
   IMAGE_MANAGEMENT = "IMAGE_MANAGEMENT",
 }
 
+/**
+ * @public
+ */
 export enum ResourceLocationValues {
   CLOUD = "CLOUD",
   OUTPOST = "OUTPOST",
 }
 
+/**
+ * @public
+ */
 export enum ResourceTypeValues {
   INSTANCE = "INSTANCE",
   VOLUME = "VOLUME",
 }
 
+/**
+ * @public
+ */
 export enum IntervalUnitValues {
   HOURS = "HOURS",
 }
 
+/**
+ * @public
+ */
 export enum LocationValues {
   CLOUD = "CLOUD",
   OUTPOST_LOCAL = "OUTPOST_LOCAL",
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies when the policy should create snapshots or AMIs.</p>
  *          <note>
@@ -342,6 +378,7 @@ export interface CreateRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[AMI policies only]</b> Specifies an AMI deprecation rule for cross-Region AMI copies created by an AMI policy.</p>
  */
@@ -362,6 +399,7 @@ export interface CrossRegionCopyDeprecateRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a cross-Region copy rule for snapshot and AMI policies.</p>
  *          <note>
@@ -422,6 +460,7 @@ export interface CrossRegionCopyRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[AMI policies only]</b> Specifies an AMI deprecation rule for AMIs created by an AMI lifecycle policy.</p>
  *          <p>For age-based schedules, you must specify <b>Interval</b> and
@@ -451,6 +490,7 @@ export interface DeprecateRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies a rule for enabling fast snapshot restore for snapshots created by
  * 			snapshot policies. You can enable fast snapshot restore based on either a count or a
@@ -480,6 +520,7 @@ export interface FastRestoreRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a retention rule for snapshots created by snapshot policies, or for AMIs
  * 			created by AMI policies.</p>
@@ -540,6 +581,7 @@ export interface RetainRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies a rule for sharing snapshots across Amazon Web Services accounts.</p>
  */
@@ -561,6 +603,7 @@ export interface ShareRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a schedule for a snapshot or AMI lifecycle policy.</p>
  */
@@ -643,6 +686,7 @@ export interface Schedule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[All policy types]</b> Specifies the configuration of a lifecycle policy.</p>
  */
@@ -714,11 +758,17 @@ export interface PolicyDetails {
   Actions?: Action[];
 }
 
+/**
+ * @public
+ */
 export enum SettablePolicyStateValues {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface CreateLifecyclePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
@@ -748,6 +798,9 @@ export interface CreateLifecyclePolicyRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateLifecyclePolicyResponse {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -756,6 +809,7 @@ export interface CreateLifecyclePolicyResponse {
 }
 
 /**
+ * @public
  * <p>The service failed in an unexpected way.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -779,6 +833,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Bad request. The request is missing required parameters or has invalid
  * 			parameters.</p>
  */
@@ -814,6 +869,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because a limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -841,6 +897,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyRequest {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -848,9 +907,13 @@ export interface DeleteLifecyclePolicyRequest {
   PolicyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyResponse {}
 
 /**
+ * @public
  * <p>A requested resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -884,12 +947,18 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum GettablePolicyStateValues {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
   ERROR = "ERROR",
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePoliciesRequest {
   /**
    * <p>The identifiers of the data lifecycle policies.</p>
@@ -921,6 +990,7 @@ export interface GetLifecyclePoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a lifecycle policy.</p>
  */
 export interface LifecyclePolicySummary {
@@ -954,6 +1024,9 @@ export interface LifecyclePolicySummary {
   PolicyType?: PolicyTypeValues | string;
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePoliciesResponse {
   /**
    * <p>Summary information about the lifecycle policies.</p>
@@ -961,6 +1034,9 @@ export interface GetLifecyclePoliciesResponse {
   Policies?: LifecyclePolicySummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePolicyRequest {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -969,6 +1045,7 @@ export interface GetLifecyclePolicyRequest {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[All policy types]</b> Detailed information about a snapshot, AMI, or event-based lifecycle policy.</p>
  */
@@ -1025,6 +1102,9 @@ export interface LifecyclePolicy {
   PolicyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePolicyResponse {
   /**
    * <p>Detailed information about the lifecycle policy.</p>
@@ -1032,6 +1112,9 @@ export interface GetLifecyclePolicyResponse {
   Policy?: LifecyclePolicy;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1039,6 +1122,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
@@ -1046,6 +1132,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1058,8 +1147,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1072,8 +1167,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLifecyclePolicyRequest {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -1103,6 +1204,9 @@ export interface UpdateLifecyclePolicyRequest {
   PolicyDetails?: PolicyDetails;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLifecyclePolicyResponse {}
 
 /**

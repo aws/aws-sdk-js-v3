@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateVpcCidrBlockCommand}.
  */
 export interface DisassociateVpcCidrBlockCommandInput extends DisassociateVpcCidrBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateVpcCidrBlockCommand}.
  */
 export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must
  *             specify its association ID. You can get the association ID by using
  *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
@@ -51,6 +56,8 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateVpcCidrBlockCommandInput - {@link DisassociateVpcCidrBlockCommandInput}
+ * @returns {@link DisassociateVpcCidrBlockCommandOutput}
  * @see {@link DisassociateVpcCidrBlockCommandInput} for command's `input` shape.
  * @see {@link DisassociateVpcCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateVpcCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateVpcCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateVpcCidrBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateVpcCidrBlockCommandOutput> {
     return deserializeAws_ec2DisassociateVpcCidrBlockCommand(output, context);
   }

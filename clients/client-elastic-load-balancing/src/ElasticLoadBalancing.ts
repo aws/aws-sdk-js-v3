@@ -141,6 +141,7 @@ import {
 import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
 
 /**
+ * @public
  * <fullname>Elastic Load Balancing</fullname>
  *
  *         <p>A load balancer can distribute incoming traffic across your EC2 instances.
@@ -165,6 +166,7 @@ import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
  */
 export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   /**
+   * @public
    * <p>Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.</p>
    *
    *         <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated
@@ -197,6 +199,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security Groups for Load Balancers in a VPC</a>
    *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -231,6 +234,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more subnets to the set of configured subnets for the specified load balancer.</p>
    *         <p>The load balancer evenly distributes requests across all registered subnets.
    *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add or Remove Subnets for Your Load Balancer in a VPC</a>
@@ -266,6 +270,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure Health Checks for Your Load Balancer</a>
    *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -300,6 +305,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>
    *         <p>This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>,
    *             except that the lifetime of the special Elastic Load Balancing cookie, <code>AWSELB</code>,
@@ -340,6 +346,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners.</p>
    *         <p>When a load balancer implements this policy, the load balancer uses a special cookie to track the instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request.
    *             If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load-balancing algorithm.</p>
@@ -378,6 +385,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Creates a Classic Load Balancer.</p>
    *
    *         <p>You can add listeners, security groups, subnets, and tags when you create your load balancer,
@@ -423,6 +431,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
    *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -457,6 +466,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Creates a policy with the specified attributes for the specified load balancer.</p>
    *          <p>Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.</p>
    */
@@ -490,6 +500,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified load balancer.</p>
    *         <p>If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.</p>
    *         <p>If the load balancer does not exist or has already been deleted, the call to
@@ -525,6 +536,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified listeners from the specified load balancer.</p>
    */
   public deleteLoadBalancerListeners(
@@ -557,6 +569,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>
    */
   public deleteLoadBalancerPolicy(
@@ -589,6 +602,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p>
    *
    *         <p>You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered from the load balancer.</p>
@@ -626,6 +640,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a>
    *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -660,6 +675,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.</p>
    */
   public describeInstanceHealth(
@@ -692,6 +708,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Describes the attributes for the specified load balancer.</p>
    */
   public describeLoadBalancerAttributes(
@@ -724,6 +741,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified policies.</p>
    *          <p>If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer.
    *     If you specify a policy name associated with your load balancer, the action returns the description of that policy.
@@ -760,6 +778,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>
    *          <p>The description of each type indicates how it can be used. For example,
    *            some policies can be used only with layer 7 listeners,
@@ -799,6 +818,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.</p>
    */
   public describeLoadBalancers(
@@ -831,6 +851,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Describes the tags associated with the specified load balancers.</p>
    */
   public describeTags(
@@ -860,6 +881,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>
    *         <p>After a subnet is removed, all EC2 instances registered with the load balancer
    *             in the removed subnet go into the <code>OutOfService</code> state. Then,
@@ -895,6 +917,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer
    *             in EC2-Classic or a default VPC.</p>
    *         <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p>
@@ -937,6 +960,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer
    *             in EC2-Classic or a default VPC.</p>
    *         <p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p>
@@ -976,6 +1000,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Modifies the attributes of the specified load balancer.</p>
    *         <p>You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>, and
    *             <code>CrossZoneLoadBalancing</code> by either enabling or disabling them. Or, you can modify the load balancer attribute
@@ -1034,6 +1059,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified instances to the specified load balancer.</p>
    *
    *         <p>The instance must be a running instance in the same network as the load balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and a load balancer in a VPC with ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register the linked EC2-Classic instances with the load balancer in the VPC.</p>
@@ -1084,6 +1110,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified load balancer.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
@@ -1110,6 +1137,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.</p>
    *
    *         <p>For more information about updating your SSL certificate, see
@@ -1148,6 +1176,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.
    *             At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.</p>
    *         <p>Each time you use <code>SetLoadBalancerPoliciesForBackendServer</code> to enable the policies,
@@ -1192,6 +1221,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   }
 
   /**
+   * @public
    * <p>Replaces the current set of policies for the specified load balancer port with the specified set of policies.</p>
    *         <p>To enable back-end server authentication, use <a>SetLoadBalancerPoliciesForBackendServer</a>.</p>
    *         <p>For more information about setting policies, see

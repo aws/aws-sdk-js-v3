@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResendConfirmationCodeCommand}.
  */
 export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResendConfirmationCodeCommand}.
  */
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
  *             user pool.</p>
  *
@@ -69,6 +74,8 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * const response = await client.send(command);
  * ```
  *
+ * @param ResendConfirmationCodeCommandInput - {@link ResendConfirmationCodeCommandInput}
+ * @returns {@link ResendConfirmationCodeCommandOutput}
  * @see {@link ResendConfirmationCodeCommandInput} for command's `input` shape.
  * @see {@link ResendConfirmationCodeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -149,6 +156,9 @@ export class ResendConfirmationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResendConfirmationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -188,10 +198,16 @@ export class ResendConfirmationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResendConfirmationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResendConfirmationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResendConfirmationCodeCommandOutput> {
     return deserializeAws_json1_1ResendConfirmationCodeCommand(output, context);
   }

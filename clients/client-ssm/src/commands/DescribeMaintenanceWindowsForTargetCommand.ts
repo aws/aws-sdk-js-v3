@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowsForTargetCommand}.
  */
 export interface DescribeMaintenanceWindowsForTargetCommandInput extends DescribeMaintenanceWindowsForTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowsForTargetCommand}.
  */
 export interface DescribeMaintenanceWindowsForTargetCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
  *    associated with.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowsForTargetCommandInput - {@link DescribeMaintenanceWindowsForTargetCommandInput}
+ * @returns {@link DescribeMaintenanceWindowsForTargetCommandOutput}
  * @see {@link DescribeMaintenanceWindowsForTargetCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsForTargetCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowsForTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowsForTargetCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     return serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

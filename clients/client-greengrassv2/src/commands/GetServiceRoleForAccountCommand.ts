@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceRoleForAccountCommand}.
  */
 export interface GetServiceRoleForAccountCommandInput extends GetServiceRoleForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceRoleForAccountCommand}.
  */
 export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleForAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the service role associated with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.
  *       IoT Greengrass uses this role to verify the identity of client devices and manage core device
  *       connectivity information. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in
@@ -49,6 +54,8 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceRoleForAccountCommandInput - {@link GetServiceRoleForAccountCommandInput}
+ * @returns {@link GetServiceRoleForAccountCommandOutput}
  * @see {@link GetServiceRoleForAccountCommandInput} for command's `input` shape.
  * @see {@link GetServiceRoleForAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -75,6 +82,9 @@ export class GetServiceRoleForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceRoleForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetServiceRoleForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceRoleForAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetServiceRoleForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceRoleForAccountCommandOutput> {
     return deserializeAws_restJson1GetServiceRoleForAccountCommand(output, context);
   }

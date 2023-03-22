@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExplainabilityCommand}.
  */
 export interface CreateExplainabilityCommandInput extends CreateExplainabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExplainabilityCommand}.
  */
 export interface CreateExplainabilityCommandOutput extends CreateExplainabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>Explainability is only available for Forecasts and Predictors generated from an
  *                 AutoPredictor (<a>CreateAutoPredictor</a>)</p>
@@ -164,6 +169,8 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExplainabilityCommandInput - {@link CreateExplainabilityCommandInput}
+ * @returns {@link CreateExplainabilityCommandOutput}
  * @see {@link CreateExplainabilityCommandInput} for command's `input` shape.
  * @see {@link CreateExplainabilityCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -204,6 +211,9 @@ export class CreateExplainabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExplainabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -243,10 +253,16 @@ export class CreateExplainabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExplainabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateExplainabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExplainabilityCommandOutput> {
     return deserializeAws_json1_1CreateExplainabilityCommand(output, context);
   }

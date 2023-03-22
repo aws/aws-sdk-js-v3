@@ -28,15 +28,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResponseHeadersPolicyCommand}.
  */
 export interface CreateResponseHeadersPolicyCommandInput extends CreateResponseHeadersPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResponseHeadersPolicyCommand}.
  */
 export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a response headers policy.</p>
  *          <p>A response headers policy contains information about a set of HTTP headers. To create a
  * 			response headers policy, you provide some metadata about the policy and a set of
@@ -58,6 +63,8 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResponseHeadersPolicyCommandInput - {@link CreateResponseHeadersPolicyCommandInput}
+ * @returns {@link CreateResponseHeadersPolicyCommandOutput}
  * @see {@link CreateResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -120,6 +127,9 @@ export class CreateResponseHeadersPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class CreateResponseHeadersPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateResponseHeadersPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetRecordCommand}.
  */
 export interface BatchGetRecordCommandInput extends BatchGetRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetRecordCommand}.
  */
 export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetRecordCommandInput - {@link BatchGetRecordCommandInput}
+ * @returns {@link BatchGetRecordCommandOutput}
  * @see {@link BatchGetRecordCommandInput} for command's `input` shape.
  * @see {@link BatchGetRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
@@ -86,6 +93,9 @@ export class BatchGetRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class BatchGetRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetRecordCommandOutput> {
     return deserializeAws_restJson1BatchGetRecordCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupPlansCommand}.
  */
 export interface ListBackupPlansCommandInput extends ListBackupPlansInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupPlansCommand}.
  */
 export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all active backup plans for an authenticated account. The list
  *          contains information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
  *          dates, version IDs, plan names, and creator request IDs.</p>
@@ -48,6 +53,8 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupPlansCommandInput - {@link ListBackupPlansCommandInput}
+ * @returns {@link ListBackupPlansCommandOutput}
  * @see {@link ListBackupPlansCommandInput} for command's `input` shape.
  * @see {@link ListBackupPlansCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListBackupPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListBackupPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBackupPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupPlansCommandOutput> {
     return deserializeAws_restJson1ListBackupPlansCommand(output, context);
   }

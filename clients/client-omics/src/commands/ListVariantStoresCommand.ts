@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVariantStoresCommand}.
  */
 export interface ListVariantStoresCommandInput extends ListVariantStoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVariantStoresCommand}.
  */
 export interface ListVariantStoresCommandOutput extends ListVariantStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of variant stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListVariantStoresCommandOutput extends ListVariantStoresRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVariantStoresCommandInput - {@link ListVariantStoresCommandInput}
+ * @returns {@link ListVariantStoresCommandOutput}
  * @see {@link ListVariantStoresCommandInput} for command's `input` shape.
  * @see {@link ListVariantStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListVariantStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVariantStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListVariantStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVariantStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVariantStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVariantStoresCommandOutput> {
     return deserializeAws_restJson1ListVariantStoresCommand(output, context);
   }

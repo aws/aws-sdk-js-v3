@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandInput
   extends DeleteDirectConnectGatewayAssociationProposalRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectConnectGatewayAssociationProposalCommandInput - {@link DeleteDirectConnectGatewayAssociationProposalCommandInput}
+ * @returns {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput}
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     return serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

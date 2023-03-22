@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelImportTaskCommand}.
  */
 export interface CancelImportTaskCommandInput extends CancelImportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelImportTaskCommand}.
  */
 export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an in-process import virtual machine or import snapshot task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelImportTaskCommandInput - {@link CancelImportTaskCommandInput}
+ * @returns {@link CancelImportTaskCommandOutput}
  * @see {@link CancelImportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelImportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class CancelImportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelImportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CancelImportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelImportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelImportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelImportTaskCommandOutput> {
     return deserializeAws_ec2CancelImportTaskCommand(output, context);
   }

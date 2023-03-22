@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetSchemaCommand}.
  */
 export interface BatchGetSchemaCommandInput extends BatchGetSchemaInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetSchemaCommand}.
  */
 export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves multiple schemas by their identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetSchemaCommandInput - {@link BatchGetSchemaCommandInput}
+ * @returns {@link BatchGetSchemaCommandOutput}
  * @see {@link BatchGetSchemaCommandInput} for command's `input` shape.
  * @see {@link BatchGetSchemaCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +91,9 @@ export class BatchGetSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class BatchGetSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSchemaCommandOutput> {
     return deserializeAws_restJson1BatchGetSchemaCommand(output, context);
   }

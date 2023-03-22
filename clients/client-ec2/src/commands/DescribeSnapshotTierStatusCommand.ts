@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotTierStatusCommand}.
  */
 export interface DescribeSnapshotTierStatusCommandInput extends DescribeSnapshotTierStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotTierStatusCommand}.
  */
 export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapshotTierStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotTierStatusCommandInput - {@link DescribeSnapshotTierStatusCommandInput}
+ * @returns {@link DescribeSnapshotTierStatusCommandOutput}
  * @see {@link DescribeSnapshotTierStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotTierStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeSnapshotTierStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotTierStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeSnapshotTierStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotTierStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSnapshotTierStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

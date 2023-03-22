@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventDestinationCommand}.
  */
 export interface UpdateEventDestinationCommandInput extends UpdateEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventDestinationCommand}.
  */
 export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing event destination in a configuration set. You can update the
  *                 IAM role ARN for CloudWatch Logs and Kinesis Data Firehose. You can
  *             also enable or disable the event destination.</p>
@@ -55,6 +60,8 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventDestinationCommandInput - {@link UpdateEventDestinationCommandInput}
+ * @returns {@link UpdateEventDestinationCommandOutput}
  * @see {@link UpdateEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventDestinationCommandOutput> {
     return deserializeAws_json1_0UpdateEventDestinationCommand(output, context);
   }

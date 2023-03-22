@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLaunchPathsCommand}.
  */
 export interface ListLaunchPathsCommandInput extends ListLaunchPathsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLaunchPathsCommand}.
  */
 export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Lists the paths
  *          to the specified product.
@@ -71,6 +76,8 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLaunchPathsCommandInput - {@link ListLaunchPathsCommandInput}
+ * @returns {@link ListLaunchPathsCommandOutput}
  * @see {@link ListLaunchPathsCommandInput} for command's `input` shape.
  * @see {@link ListLaunchPathsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -100,6 +107,9 @@ export class ListLaunchPathsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLaunchPathsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListLaunchPathsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLaunchPathsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLaunchPathsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchPathsCommandOutput> {
     return deserializeAws_json1_1ListLaunchPathsCommand(output, context);
   }

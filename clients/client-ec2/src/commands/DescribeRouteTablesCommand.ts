@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRouteTablesCommand}.
  */
 export interface DescribeRouteTablesCommandInput extends DescribeRouteTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRouteTablesCommand}.
  */
 export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your route tables.</p>
  *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
@@ -49,6 +54,8 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRouteTablesCommandInput - {@link DescribeRouteTablesCommandInput}
+ * @returns {@link DescribeRouteTablesCommandOutput}
  * @see {@link DescribeRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeRouteTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRouteTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DescribeRouteTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRouteTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeRouteTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteTablesCommandOutput> {
     return deserializeAws_ec2DescribeRouteTablesCommand(output, context);
   }

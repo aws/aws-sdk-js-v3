@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsForOrganizationCommand}.
  */
 export interface DescribeEventsForOrganizationCommandInput extends DescribeEventsForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsForOrganizationCommand}.
  */
 export interface DescribeEventsForOrganizationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEventsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about events across your organization in Organizations. You can use
  *             the<code>filters</code> parameter to specify the events that you want to return. Events
  *          are returned in a summary form and don't include the affected accounts, detailed
@@ -79,6 +84,8 @@ export interface DescribeEventsForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsForOrganizationCommandInput - {@link DescribeEventsForOrganizationCommandInput}
+ * @returns {@link DescribeEventsForOrganizationCommandOutput}
  * @see {@link DescribeEventsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -108,6 +115,9 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsForOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventsForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

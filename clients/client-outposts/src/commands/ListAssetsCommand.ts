@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetsCommand}.
  */
 export interface ListAssetsCommandInput extends ListAssetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetsCommand}.
  */
 export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the hardware assets for the specified Outpost.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -49,6 +54,8 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
+ * @returns {@link ListAssetsCommandOutput}
  * @see {@link ListAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssetsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetsCommandOutput> {
     return deserializeAws_restJson1ListAssetsCommand(output, context);
   }

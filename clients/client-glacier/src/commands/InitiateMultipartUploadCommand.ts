@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateMultipartUploadCommand}.
  */
 export interface InitiateMultipartUploadCommandInput extends InitiateMultipartUploadInput {}
 /**
+ * @public
+ *
  * The output of {@link InitiateMultipartUploadCommand}.
  */
 export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartUploadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation initiates a multipart upload. Amazon S3 Glacier creates a multipart
  *          upload resource and returns its ID in the response. The multipart upload ID is used in
  *          subsequent requests to upload parts of an archive (see <a>UploadMultipartPart</a>).</p>
@@ -79,6 +84,8 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateMultipartUploadCommandInput - {@link InitiateMultipartUploadCommandInput}
+ * @returns {@link InitiateMultipartUploadCommandOutput}
  * @see {@link InitiateMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -134,6 +141,9 @@ export class InitiateMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class InitiateMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InitiateMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateMultipartUploadCommandOutput> {
     return deserializeAws_restJson1InitiateMultipartUploadCommand(output, context);
   }

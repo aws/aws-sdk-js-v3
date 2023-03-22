@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolNetworkInstanceCommand}.
  */
 export interface GetSolNetworkInstanceCommandInput extends GetSolNetworkInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolNetworkInstanceCommand}.
  */
 export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of the network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolNetworkInstanceCommandInput - {@link GetSolNetworkInstanceCommandInput}
+ * @returns {@link GetSolNetworkInstanceCommandOutput}
  * @see {@link GetSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetSolNetworkInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolNetworkInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetSolNetworkInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSolNetworkInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolNetworkInstanceCommandOutput> {
     return deserializeAws_restJson1GetSolNetworkInstanceCommand(output, context);
   }

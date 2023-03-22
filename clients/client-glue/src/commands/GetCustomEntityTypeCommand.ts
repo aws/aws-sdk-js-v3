@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCustomEntityTypeCommand}.
  */
 export interface GetCustomEntityTypeCommandInput extends GetCustomEntityTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCustomEntityTypeCommand}.
  */
 export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a custom pattern by specifying its name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomEntityTypeCommandInput - {@link GetCustomEntityTypeCommandInput}
+ * @returns {@link GetCustomEntityTypeCommandOutput}
  * @see {@link GetCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link GetCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetCustomEntityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomEntityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCustomEntityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCustomEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCustomEntityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomEntityTypeCommandOutput> {
     return deserializeAws_json1_1GetCustomEntityTypeCommand(output, context);
   }

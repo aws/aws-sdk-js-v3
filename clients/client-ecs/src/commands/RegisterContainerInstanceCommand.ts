@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterContainerInstanceCommand}.
  */
 export interface RegisterContainerInstanceCommandInput extends RegisterContainerInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterContainerInstanceCommand}.
  */
 export interface RegisterContainerInstanceCommandOutput extends RegisterContainerInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -50,6 +55,8 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterContainerInstanceCommandInput - {@link RegisterContainerInstanceCommandInput}
+ * @returns {@link RegisterContainerInstanceCommandOutput}
  * @see {@link RegisterContainerInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterContainerInstanceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -85,6 +92,9 @@ export class RegisterContainerInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterContainerInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class RegisterContainerInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterContainerInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterContainerInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

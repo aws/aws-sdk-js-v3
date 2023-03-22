@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopStreamCommand}.
  */
 export interface StopStreamCommandInput extends StopStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopStreamCommand}.
  */
 export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in
  *       conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a
  *       channel.</p>
@@ -53,6 +58,8 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStreamCommandInput - {@link StopStreamCommandInput}
+ * @returns {@link StopStreamCommandOutput}
  * @see {@link StopStreamCommandInput} for command's `input` shape.
  * @see {@link StopStreamCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -91,6 +98,9 @@ export class StopStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StopStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamCommandOutput> {
     return deserializeAws_restJson1StopStreamCommand(output, context);
   }

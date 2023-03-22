@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionCommand}.
  */
 export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionCommand}.
  */
 export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CloudFront function.</p>
  *          <p>You cannot delete a function if it's associated with a cache behavior. First, update
  * 			your distributions to remove the function association from all cache behaviors, then
@@ -47,6 +52,8 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
+ * @returns {@link DeleteFunctionCommandOutput}
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionCommandOutput> {
     return deserializeAws_restXmlDeleteFunctionCommand(output, context);
   }

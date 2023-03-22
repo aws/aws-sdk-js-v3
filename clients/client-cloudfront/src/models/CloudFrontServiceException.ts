@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from CloudFront service.
  */
 export class CloudFrontServiceException extends __ServiceException {

@@ -6,7 +6,7 @@ import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameLiftClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListComputeCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCompute(
   config: GameLiftPaginationConfiguration,
   input: ListComputeCommandInput,

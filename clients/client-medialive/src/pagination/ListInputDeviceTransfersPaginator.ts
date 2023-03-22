@@ -10,7 +10,7 @@ import { MediaLiveClient } from "../MediaLiveClient";
 import { MediaLivePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaLiveClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInputDeviceTransfersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListInputDeviceTransfers(
   config: MediaLivePaginationConfiguration,
   input: ListInputDeviceTransfersCommandInput,

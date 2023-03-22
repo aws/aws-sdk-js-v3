@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceServerCommand}.
  */
 export interface CreateResourceServerCommandInput extends CreateResourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceServerCommand}.
  */
 export interface CreateResourceServerCommandOutput extends CreateResourceServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new OAuth2.0 resource server and defines custom scopes within it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceServerCommandInput - {@link CreateResourceServerCommandInput}
+ * @returns {@link CreateResourceServerCommandOutput}
  * @see {@link CreateResourceServerCommandInput} for command's `input` shape.
  * @see {@link CreateResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateResourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateResourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceServerCommandOutput> {
     return deserializeAws_json1_1CreateResourceServerCommand(output, context);
   }

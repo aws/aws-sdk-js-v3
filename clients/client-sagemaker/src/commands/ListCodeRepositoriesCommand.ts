@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCodeRepositoriesCommand}.
  */
 export interface ListCodeRepositoriesCommandInput extends ListCodeRepositoriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCodeRepositoriesCommand}.
  */
 export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the Git repositories in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCodeRepositoriesCommandInput - {@link ListCodeRepositoriesCommandInput}
+ * @returns {@link ListCodeRepositoriesCommandOutput}
  * @see {@link ListCodeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListCodeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListCodeRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCodeRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListCodeRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCodeRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCodeRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCodeRepositoriesCommandOutput> {
     return deserializeAws_json1_1ListCodeRepositoriesCommand(output, context);
   }

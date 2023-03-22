@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryTestTypeCommand, serializeAws_queryTestTypeCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TestTypeCommand}.
  */
 export interface TestTypeCommandInput extends TestTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link TestTypeCommand}.
  */
 export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests a registered extension to make sure it meets all necessary requirements for being
  *          published in the CloudFormation registry.</p>
  *          <ul>
@@ -65,6 +70,8 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param TestTypeCommandInput - {@link TestTypeCommandInput}
+ * @returns {@link TestTypeCommandOutput}
  * @see {@link TestTypeCommandInput} for command's `input` shape.
  * @see {@link TestTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -94,6 +101,9 @@ export class TestTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class TestTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTestTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestTypeCommandOutput> {
     return deserializeAws_queryTestTypeCommand(output, context);
   }

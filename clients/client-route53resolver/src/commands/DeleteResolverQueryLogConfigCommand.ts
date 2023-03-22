@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResolverQueryLogConfigCommand}.
  */
 export interface DeleteResolverQueryLogConfigCommandInput extends DeleteResolverQueryLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResolverQueryLogConfigCommand}.
  */
 export interface DeleteResolverQueryLogConfigCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are
  * 			associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and
  * 			the other accounts have associated VPCs with the shared configuration.</p>
@@ -56,6 +61,8 @@ export interface DeleteResolverQueryLogConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResolverQueryLogConfigCommandInput - {@link DeleteResolverQueryLogConfigCommandInput}
+ * @returns {@link DeleteResolverQueryLogConfigCommandOutput}
  * @see {@link DeleteResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResolverQueryLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

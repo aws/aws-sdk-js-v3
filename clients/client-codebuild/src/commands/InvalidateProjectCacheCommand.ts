@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InvalidateProjectCacheCommand}.
  */
 export interface InvalidateProjectCacheCommandInput extends InvalidateProjectCacheInput {}
 /**
+ * @public
+ *
  * The output of {@link InvalidateProjectCacheCommand}.
  */
 export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the cache for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * const response = await client.send(command);
  * ```
  *
+ * @param InvalidateProjectCacheCommandInput - {@link InvalidateProjectCacheCommandInput}
+ * @returns {@link InvalidateProjectCacheCommandOutput}
  * @see {@link InvalidateProjectCacheCommandInput} for command's `input` shape.
  * @see {@link InvalidateProjectCacheCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +82,9 @@ export class InvalidateProjectCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvalidateProjectCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class InvalidateProjectCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvalidateProjectCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InvalidateProjectCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvalidateProjectCacheCommandOutput> {
     return deserializeAws_json1_1InvalidateProjectCacheCommand(output, context);
   }

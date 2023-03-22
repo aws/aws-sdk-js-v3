@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchOrganizationInsightsCommand}.
  */
 export interface SearchOrganizationInsightsCommandInput extends SearchOrganizationInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchOrganizationInsightsCommand}.
  */
 export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizationInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of insights in your organization. You can specify which insights are
  * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
  * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
@@ -53,6 +58,8 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchOrganizationInsightsCommandInput - {@link SearchOrganizationInsightsCommandInput}
+ * @returns {@link SearchOrganizationInsightsCommandOutput}
  * @see {@link SearchOrganizationInsightsCommandInput} for command's `input` shape.
  * @see {@link SearchOrganizationInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -92,6 +99,9 @@ export class SearchOrganizationInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchOrganizationInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class SearchOrganizationInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchOrganizationInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchOrganizationInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

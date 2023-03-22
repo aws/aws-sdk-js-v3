@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteV2LoggingLevelCommand}.
  */
 export interface DeleteV2LoggingLevelCommandInput extends DeleteV2LoggingLevelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteV2LoggingLevelCommand}.
  */
 export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a logging level.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteV2LoggingLevel</a> action.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteV2LoggingLevelCommandInput - {@link DeleteV2LoggingLevelCommandInput}
+ * @returns {@link DeleteV2LoggingLevelCommandOutput}
  * @see {@link DeleteV2LoggingLevelCommandInput} for command's `input` shape.
  * @see {@link DeleteV2LoggingLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteV2LoggingLevelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteV2LoggingLevelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteV2LoggingLevelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteV2LoggingLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteV2LoggingLevelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteV2LoggingLevelCommandOutput> {
     return deserializeAws_restJson1DeleteV2LoggingLevelCommand(output, context);
   }

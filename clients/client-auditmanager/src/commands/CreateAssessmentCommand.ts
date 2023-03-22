@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssessmentCommand}.
  */
 export interface CreateAssessmentCommandInput extends CreateAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssessmentCommand}.
  */
 export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssessmentCommandInput - {@link CreateAssessmentCommandInput}
+ * @returns {@link CreateAssessmentCommandOutput}
  * @see {@link CreateAssessmentCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssessmentCommandOutput> {
     return deserializeAws_restJson1CreateAssessmentCommand(output, context);
   }

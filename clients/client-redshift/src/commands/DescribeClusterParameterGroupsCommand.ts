@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterParameterGroupsCommand}.
  */
 export interface DescribeClusterParameterGroupsCommandInput extends DescribeClusterParameterGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterParameterGroupsCommand}.
  */
 export interface DescribeClusterParameterGroupsCommandOutput extends ClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
  *             created and the default parameter group. For each parameter group, the response includes
  *             the parameter group name, description, and parameter group family name. You can
@@ -62,6 +67,8 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterParameterGroupsCommandInput - {@link DescribeClusterParameterGroupsCommandInput}
+ * @returns {@link DescribeClusterParameterGroupsCommandOutput}
  * @see {@link DescribeClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClusterParameterGroupsCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     return serializeAws_queryDescribeClusterParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

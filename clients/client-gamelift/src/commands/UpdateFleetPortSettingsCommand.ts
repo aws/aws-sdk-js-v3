@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetPortSettingsCommand}.
  */
 export interface UpdateFleetPortSettingsCommandInput extends UpdateFleetPortSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetPortSettingsCommand}.
  */
 export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates permissions that allow inbound traffic to connect to game sessions that are
  *             being hosted on instances in the fleet. </p>
  *         <p>To update settings, specify the fleet ID to be updated and specify the changes to be
@@ -59,6 +64,8 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetPortSettingsCommandInput - {@link UpdateFleetPortSettingsCommandInput}
+ * @returns {@link UpdateFleetPortSettingsCommandOutput}
  * @see {@link UpdateFleetPortSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetPortSettingsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -111,6 +118,9 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetPortSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetPortSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFleetPortSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetPortSettingsCommandOutput> {
     return deserializeAws_json1_1UpdateFleetPortSettingsCommand(output, context);
   }

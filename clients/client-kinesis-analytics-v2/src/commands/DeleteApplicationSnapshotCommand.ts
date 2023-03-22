@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationSnapshotCommand}.
  */
 export interface DeleteApplicationSnapshotCommandInput extends DeleteApplicationSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationSnapshotCommand}.
  */
 export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicationSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a snapshot of application state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationSnapshotCommandInput - {@link DeleteApplicationSnapshotCommandInput}
+ * @returns {@link DeleteApplicationSnapshotCommandOutput}
  * @see {@link DeleteApplicationSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationSnapshotCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteApplicationSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

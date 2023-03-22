@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { TranscribeStreamingServiceException as __BaseException } from "./TranscribeStreamingServiceException";
 
 /**
+ * @public
  * <p>Contains entities identified as personally identifiable information (PII) in your
  *       transcription output, along with various associated attributes. Examples include category,
  *       confidence score, type, stability score, and start and end times.</p>
@@ -44,12 +45,16 @@ export interface Entity {
   Confidence?: number;
 }
 
+/**
+ * @public
+ */
 export enum ItemType {
   PRONUNCIATION = "pronunciation",
   PUNCTUATION = "punctuation",
 }
 
 /**
+ * @public
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various associated
  *       attributes, such as confidence score, type, and start and end times.</p>
  */
@@ -103,6 +108,7 @@ export interface Item {
 }
 
 /**
+ * @public
  * <p>A list of possible alternative transcriptions for the input audio. Each alternative may contain
  *       one or more of <code>Items</code>, <code>Entities</code>, or <code>Transcript</code>.</p>
  */
@@ -125,6 +131,7 @@ export interface Alternative {
 }
 
 /**
+ * @public
  * <p>A wrapper for your audio chunks. Your audio stream consists of one or more audio
  *       events, which consist of one or more audio chunks.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html">Event stream encoding</a>.</p>
@@ -137,12 +144,16 @@ export interface AudioEvent {
   AudioChunk?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export enum ParticipantRole {
   AGENT = "AGENT",
   CUSTOMER = "CUSTOMER",
 }
 
 /**
+ * @public
  * <p>Makes it possible to specify which speaker is on which audio channel. For example, if your
  *       agent is the first participant to speak, you would set <code>ChannelId</code> to
  *       <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
@@ -161,12 +172,16 @@ export interface ChannelDefinition {
   ParticipantRole: ParticipantRole | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContentRedactionOutput {
   REDACTED = "redacted",
   REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
 }
 
 /**
+ * @public
  * <p>Allows you to specify additional settings for your streaming Call Analytics
  *       post-call request, including output locations for your redacted and unredacted
  *       transcript, which IAM role to use, and, optionally, which encryption key to
@@ -260,6 +275,7 @@ export interface PostCallAnalyticsSettings {
 }
 
 /**
+ * @public
  * <p>Allows you to set audio channel definitions and post-call analytics settings.</p>
  */
 export interface ConfigurationEvent {
@@ -276,6 +292,7 @@ export interface ConfigurationEvent {
 }
 
 /**
+ * @public
  * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
  *       data frames.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
@@ -285,6 +302,9 @@ export type AudioStream =
   | AudioStream.ConfigurationEventMember
   | AudioStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AudioStream {
   /**
    * <p>A blob of audio from your application. Your audio stream consists of one or more audio
@@ -326,6 +346,7 @@ export namespace AudioStream {
 }
 
 /**
+ * @public
  * <p>One or more arguments to the <code>StartStreamTranscription</code>,
  *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
  *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
@@ -350,6 +371,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains entities identified as personally identifiable information (PII) in your
  *       transcription output, along with various associated attributes. Examples include category,
  *       confidence score, content, type, and start and end times.</p>
@@ -391,6 +413,7 @@ export interface CallAnalyticsEntity {
 }
 
 /**
+ * @public
  * <p>A word, phrase, or punctuation mark in your Call Analytics transcription output, along with various
  *       associated attributes, such as confidence score, type, and start and end times.</p>
  */
@@ -437,6 +460,9 @@ export interface CallAnalyticsItem {
   Stable?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum CallAnalyticsLanguageCode {
   DE_DE = "de-DE",
   EN_AU = "en-AU",
@@ -450,6 +476,7 @@ export enum CallAnalyticsLanguageCode {
 }
 
 /**
+ * @public
  * <p>Contains the timestamp range (start time through end time) of a matched category.</p>
  */
 export interface TimestampRange {
@@ -467,6 +494,7 @@ export interface TimestampRange {
 }
 
 /**
+ * @public
  * <p>Contains the timestamps of matched categories.</p>
  */
 export interface PointsOfInterest {
@@ -477,6 +505,7 @@ export interface PointsOfInterest {
 }
 
 /**
+ * @public
  * <p>Provides information on any <code>TranscriptFilterType</code> categories that matched your
  *       transcription output. Matches are identified for each segment upon completion of that segment.</p>
  */
@@ -493,6 +522,7 @@ export interface CategoryEvent {
 }
 
 /**
+ * @public
  * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
  */
 export class ConflictException extends __BaseException {
@@ -514,6 +544,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
  *       processing.</p>
  */
@@ -536,6 +567,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
  *       limit. Break your audio stream into smaller chunks and try your request again.</p>
  */
@@ -558,6 +590,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable. Try your request later.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -579,6 +612,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides the location, using character count, in your transcript where a match is identified. For example,
  *       the location of an issue or a category match within a segment.</p>
  */
@@ -597,6 +631,7 @@ export interface CharacterOffsets {
 }
 
 /**
+ * @public
  * <p>Lists the issues that were identified in your audio segment.</p>
  */
 export interface IssueDetected {
@@ -606,6 +641,9 @@ export interface IssueDetected {
   CharacterOffsets?: CharacterOffsets;
 }
 
+/**
+ * @public
+ */
 export enum Sentiment {
   MIXED = "MIXED",
   NEGATIVE = "NEGATIVE",
@@ -614,6 +652,7 @@ export enum Sentiment {
 }
 
 /**
+ * @public
  * <p>Contains set of transcription results from one or more audio segments, along with additional
  *       information about the parameters included in your request. For example, channel definitions, partial result
  *       stabilization, sentiment, and issue detection.</p>
@@ -677,6 +716,7 @@ export interface UtteranceEvent {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about your Call Analytics streaming session. These details are
  *       provided in the <code>UtteranceEvent</code> and <code>CategoryEvent</code> objects.</p>
  */
@@ -690,6 +730,9 @@ export type CallAnalyticsTranscriptResultStream =
   | CallAnalyticsTranscriptResultStream.UtteranceEventMember
   | CallAnalyticsTranscriptResultStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace CallAnalyticsTranscriptResultStream {
   /**
    * <p>Contains set of transcription results from one or more audio segments, along with additional
@@ -833,14 +876,23 @@ export namespace CallAnalyticsTranscriptResultStream {
   };
 }
 
+/**
+ * @public
+ */
 export enum ContentIdentificationType {
   PII = "PII",
 }
 
+/**
+ * @public
+ */
 export enum ContentRedactionType {
   PII = "PII",
 }
 
+/**
+ * @public
+ */
 export enum LanguageCode {
   DE_DE = "de-DE",
   EN_AU = "en-AU",
@@ -859,6 +911,7 @@ export enum LanguageCode {
 }
 
 /**
+ * @public
  * <p>The language code that represents the language identified in your audio, including the associated
  *       confidence score. If you enabled channel identification in your request and each channel contained a
  *       different language, you will have more than one <code>LanguageWithScore</code> result.</p>
@@ -876,6 +929,9 @@ export interface LanguageWithScore {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export enum MediaEncoding {
   FLAC = "flac",
   OGG_OPUS = "ogg-opus",
@@ -883,6 +939,7 @@ export enum MediaEncoding {
 }
 
 /**
+ * @public
  * <p>Contains entities identified as personal health information (PHI) in your
  *             transcription output, along with various associated attributes. Examples include
  *             category, confidence score, type, stability score, and start and end times.</p>
@@ -918,6 +975,7 @@ export interface MedicalEntity {
 }
 
 /**
+ * @public
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various
  *             associated attributes, such as confidence score, type, and start and end times.</p>
  */
@@ -959,6 +1017,7 @@ export interface MedicalItem {
 }
 
 /**
+ * @public
  * <p>A list of possible alternative transcriptions for the input audio. Each alternative may
  *             contain one or more of <code>Items</code>, <code>Entities</code>, or
  *             <code>Transcript</code>.</p>
@@ -981,11 +1040,15 @@ export interface MedicalAlternative {
   Entities?: MedicalEntity[];
 }
 
+/**
+ * @public
+ */
 export enum MedicalContentIdentificationType {
   PHI = "PHI",
 }
 
 /**
+ * @public
  * <p>The <code>Result</code> associated with a
  *             <code></code>.</p>
  *         <p>Contains a set of transcription results from one or more audio segments, along with
@@ -1030,6 +1093,7 @@ export interface MedicalResult {
 }
 
 /**
+ * @public
  * <p>The <code>MedicalTranscript</code> associated with a
  *             <code></code>.</p>
  *         <p>
@@ -1048,6 +1112,7 @@ export interface MedicalTranscript {
 }
 
 /**
+ * @public
  * <p>The <code>MedicalTranscriptEvent</code> associated with a
  *             <code>MedicalTranscriptResultStream</code>.</p>
  *         <p>Contains a set of transcription results from one or more audio segments, along with additional
@@ -1064,6 +1129,7 @@ export interface MedicalTranscriptEvent {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about your streaming session.</p>
  */
 export type MedicalTranscriptResultStream =
@@ -1075,6 +1141,9 @@ export type MedicalTranscriptResultStream =
   | MedicalTranscriptResultStream.TranscriptEventMember
   | MedicalTranscriptResultStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MedicalTranscriptResultStream {
   /**
    * <p>The <code>MedicalTranscriptEvent</code> associated with a
@@ -1197,6 +1266,9 @@ export namespace MedicalTranscriptResultStream {
   };
 }
 
+/**
+ * @public
+ */
 export enum PartialResultsStability {
   HIGH = "high",
   LOW = "low",
@@ -1204,6 +1276,7 @@ export enum PartialResultsStability {
 }
 
 /**
+ * @public
  * <p>The <code>Result</code> associated with a
  *       <code></code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
@@ -1258,6 +1331,9 @@ export interface Result {
   LanguageIdentification?: LanguageWithScore[];
 }
 
+/**
+ * @public
+ */
 export enum Specialty {
   CARDIOLOGY = "CARDIOLOGY",
   NEUROLOGY = "NEUROLOGY",
@@ -1267,12 +1343,18 @@ export enum Specialty {
   UROLOGY = "UROLOGY",
 }
 
+/**
+ * @public
+ */
 export enum VocabularyFilterMethod {
   MASK = "mask",
   REMOVE = "remove",
   TAG = "tag",
 }
 
+/**
+ * @public
+ */
 export interface StartCallAnalyticsStreamTranscriptionRequest {
   /**
    * <p>Specify the language code that represents the language spoken in your audio.</p>
@@ -1417,6 +1499,9 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
   PiiEntityTypes?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
    * <p>Provides the identifier for your Call Analytics streaming request.</p>
@@ -1496,11 +1581,17 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   PiiEntityTypes?: string;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   CONVERSATION = "CONVERSATION",
   DICTATION = "DICTATION",
 }
 
+/**
+ * @public
+ */
 export interface StartMedicalStreamTranscriptionRequest {
   /**
    * <p>Specify the language code that represents the language spoken in your audio.</p>
@@ -1601,6 +1692,9 @@ export interface StartMedicalStreamTranscriptionRequest {
   ContentIdentificationType?: MedicalContentIdentificationType | string;
 }
 
+/**
+ * @public
+ */
 export interface StartMedicalStreamTranscriptionResponse {
   /**
    * <p>Provides the identifier for your streaming request.</p>
@@ -1669,6 +1763,9 @@ export interface StartMedicalStreamTranscriptionResponse {
   ContentIdentificationType?: MedicalContentIdentificationType | string;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamTranscriptionRequest {
   /**
    * <p>Specify the language code that represents the language spoken in your audio.</p>
@@ -1924,6 +2021,7 @@ export interface StartStreamTranscriptionRequest {
 }
 
 /**
+ * @public
  * <p>The <code>Transcript</code> associated with a
  *       <code></code>.</p>
  *          <p>
@@ -1942,6 +2040,7 @@ export interface Transcript {
 }
 
 /**
+ * @public
  * <p>The <code>TranscriptEvent</code> associated with a
  *       <code>TranscriptResultStream</code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
@@ -1958,6 +2057,7 @@ export interface TranscriptEvent {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about your streaming session.</p>
  */
 export type TranscriptResultStream =
@@ -1969,6 +2069,9 @@ export type TranscriptResultStream =
   | TranscriptResultStream.TranscriptEventMember
   | TranscriptResultStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TranscriptResultStream {
   /**
    * <p>Contains <code>Transcript</code>, which contains <code>Results</code>. The
@@ -2088,6 +2191,9 @@ export namespace TranscriptResultStream {
   };
 }
 
+/**
+ * @public
+ */
 export interface StartStreamTranscriptionResponse {
   /**
    * <p>Provides the identifier for your streaming request.</p>

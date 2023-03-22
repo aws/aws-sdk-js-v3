@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkAclCommand}.
  */
 export interface CreateNetworkAclCommandInput extends CreateNetworkAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkAclCommand}.
  */
 export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkAclCommandInput - {@link CreateNetworkAclCommandInput}
+ * @returns {@link CreateNetworkAclCommandOutput}
  * @see {@link CreateNetworkAclCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkAclCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -109,6 +116,9 @@ export class CreateNetworkAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateNetworkAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateNetworkAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkAclCommandOutput> {
     return deserializeAws_ec2CreateNetworkAclCommand(output, context);
   }

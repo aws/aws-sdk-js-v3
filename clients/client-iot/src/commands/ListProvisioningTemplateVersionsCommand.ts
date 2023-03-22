@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisioningTemplateVersionsCommand}.
  */
 export interface ListProvisioningTemplateVersionsCommandInput extends ListProvisioningTemplateVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisioningTemplateVersionsCommand}.
  */
 export interface ListProvisioningTemplateVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListProvisioningTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of provisioning template versions.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListProvisioningTemplateVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisioningTemplateVersionsCommandInput - {@link ListProvisioningTemplateVersionsCommandInput}
+ * @returns {@link ListProvisioningTemplateVersionsCommandOutput}
  * @see {@link ListProvisioningTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisioningTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListProvisioningTemplateVersionsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     return serializeAws_restJson1ListProvisioningTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

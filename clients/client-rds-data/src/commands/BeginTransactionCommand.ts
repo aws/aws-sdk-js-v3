@@ -26,15 +26,20 @@ import {
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link BeginTransactionCommand}.
  */
 export interface BeginTransactionCommandInput extends BeginTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BeginTransactionCommand}.
  */
 export interface BeginTransactionCommandOutput extends BeginTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a SQL transaction.</p>
  *         <note>
  *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24
@@ -54,6 +59,8 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BeginTransactionCommandInput - {@link BeginTransactionCommandInput}
+ * @returns {@link BeginTransactionCommandOutput}
  * @see {@link BeginTransactionCommandInput} for command's `input` shape.
  * @see {@link BeginTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -96,6 +103,9 @@ export class BeginTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BeginTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class BeginTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BeginTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BeginTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BeginTransactionCommandOutput> {
     return deserializeAws_restJson1BeginTransactionCommand(output, context);
   }

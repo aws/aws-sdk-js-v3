@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergePullRequestByFastForwardCommand}.
  */
 export interface MergePullRequestByFastForwardCommandInput extends MergePullRequestByFastForwardInput {}
 /**
+ * @public
+ *
  * The output of {@link MergePullRequestByFastForwardCommand}.
  */
 export interface MergePullRequestByFastForwardCommandOutput
@@ -37,6 +41,7 @@ export interface MergePullRequestByFastForwardCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the fast-forward merge strategy. If the merge is successful, it closes the pull request.</p>
  * @example
@@ -49,6 +54,8 @@ export interface MergePullRequestByFastForwardCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param MergePullRequestByFastForwardCommandInput - {@link MergePullRequestByFastForwardCommandInput}
+ * @returns {@link MergePullRequestByFastForwardCommandOutput}
  * @see {@link MergePullRequestByFastForwardCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestByFastForwardCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -136,6 +143,9 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergePullRequestByFastForwardCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergePullRequestByFastForwardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergePullRequestByFastForwardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

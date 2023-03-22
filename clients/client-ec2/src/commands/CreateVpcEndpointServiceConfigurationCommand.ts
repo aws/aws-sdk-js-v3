@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcEndpointServiceConfigurationCommand}.
  */
 export interface CreateVpcEndpointServiceConfigurationCommandInput
   extends CreateVpcEndpointServiceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcEndpointServiceConfigurationCommand}.
  */
 export interface CreateVpcEndpointServiceConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
  *             users, and IAM roles) can connect.</p>
  *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
@@ -65,6 +70,8 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointServiceConfigurationCommandInput - {@link CreateVpcEndpointServiceConfigurationCommandInput}
+ * @returns {@link CreateVpcEndpointServiceConfigurationCommandOutput}
  * @see {@link CreateVpcEndpointServiceConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointServiceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +95,9 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointServiceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateVpcEndpointServiceConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     return serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

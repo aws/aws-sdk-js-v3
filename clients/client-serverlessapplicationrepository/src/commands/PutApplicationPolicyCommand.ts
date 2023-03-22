@@ -30,15 +30,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutApplicationPolicyCommand}.
  */
 export interface PutApplicationPolicyCommandInput extends PutApplicationPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutApplicationPolicyCommand}.
  */
 export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the permission policy for an application. For the list of actions supported for this operation, see
  *  <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
  *  Permissions</a>
@@ -53,6 +58,8 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param PutApplicationPolicyCommandInput - {@link PutApplicationPolicyCommandInput}
+ * @returns {@link PutApplicationPolicyCommandOutput}
  * @see {@link PutApplicationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutApplicationPolicyCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -91,6 +98,9 @@ export class PutApplicationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutApplicationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class PutApplicationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutApplicationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutApplicationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutApplicationPolicyCommandOutput> {
     return deserializeAws_restJson1PutApplicationPolicyCommand(output, context);
   }

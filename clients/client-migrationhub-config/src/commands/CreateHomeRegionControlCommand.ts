@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHomeRegionControlCommand}.
  */
 export interface CreateHomeRegionControlCommandInput extends CreateHomeRegionControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHomeRegionControlCommand}.
  */
 export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionControlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API sets up the home region for the calling account only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHomeRegionControlCommandInput - {@link CreateHomeRegionControlCommandInput}
+ * @returns {@link CreateHomeRegionControlCommandOutput}
  * @see {@link CreateHomeRegionControlCommandInput} for command's `input` shape.
  * @see {@link CreateHomeRegionControlCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateHomeRegionControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHomeRegionControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateHomeRegionControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHomeRegionControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHomeRegionControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHomeRegionControlCommandOutput> {
     return deserializeAws_json1_1CreateHomeRegionControlCommand(output, context);
   }

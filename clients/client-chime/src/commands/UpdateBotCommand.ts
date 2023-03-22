@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBotCommand}.
  */
 export interface UpdateBotCommandInput extends UpdateBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBotCommand}.
  */
 export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBotCommandInput - {@link UpdateBotCommandInput}
+ * @returns {@link UpdateBotCommandOutput}
  * @see {@link UpdateBotCommandInput} for command's `input` shape.
  * @see {@link UpdateBotCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotCommandOutput> {
     return deserializeAws_restJson1UpdateBotCommand(output, context);
   }

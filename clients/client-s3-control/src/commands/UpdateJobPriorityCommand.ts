@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobPriorityCommand}.
  */
 export interface UpdateJobPriorityCommandInput extends UpdateJobPriorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobPriorityCommand}.
  */
 export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>Related actions include:</p>
@@ -71,6 +76,8 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobPriorityCommandInput - {@link UpdateJobPriorityCommandInput}
+ * @returns {@link UpdateJobPriorityCommandOutput}
  * @see {@link UpdateJobPriorityCommandInput} for command's `input` shape.
  * @see {@link UpdateJobPriorityCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -109,6 +116,9 @@ export class UpdateJobPriorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobPriorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class UpdateJobPriorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobPriorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateJobPriorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobPriorityCommandOutput> {
     return deserializeAws_restXmlUpdateJobPriorityCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolFunctionInstancesCommand}.
  */
 export interface ListSolFunctionInstancesCommandInput extends ListSolFunctionInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolFunctionInstancesCommand}.
  */
 export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists network function instances.</p>
  *          <p>A network function instance is a function in a function package .</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolFunctionInstancesCommandInput - {@link ListSolFunctionInstancesCommandInput}
+ * @returns {@link ListSolFunctionInstancesCommandOutput}
  * @see {@link ListSolFunctionInstancesCommandInput} for command's `input` shape.
  * @see {@link ListSolFunctionInstancesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSolFunctionInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolFunctionInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSolFunctionInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolFunctionInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSolFunctionInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolFunctionInstancesCommandOutput> {
     return deserializeAws_restJson1ListSolFunctionInstancesCommand(output, context);
   }

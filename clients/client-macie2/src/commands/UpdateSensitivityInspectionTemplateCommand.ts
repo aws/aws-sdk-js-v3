@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSensitivityInspectionTemplateCommand}.
  */
 export interface UpdateSensitivityInspectionTemplateCommandInput extends UpdateSensitivityInspectionTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSensitivityInspectionTemplateCommand}.
  */
 export interface UpdateSensitivityInspectionTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for the sensitivity inspection template for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSensitivityInspectionTemplateCommandInput - {@link UpdateSensitivityInspectionTemplateCommandInput}
+ * @returns {@link UpdateSensitivityInspectionTemplateCommandOutput}
  * @see {@link UpdateSensitivityInspectionTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateSensitivityInspectionTemplateCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateSensitivityInspectionTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSensitivityInspectionTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class UpdateSensitivityInspectionTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSensitivityInspectionTemplateCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class UpdateSensitivityInspectionTemplateCommand extends $Command<
     return serializeAws_restJson1UpdateSensitivityInspectionTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

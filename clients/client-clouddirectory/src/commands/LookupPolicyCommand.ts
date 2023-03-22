@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link LookupPolicyCommand}.
  */
 export interface LookupPolicyCommandInput extends LookupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link LookupPolicyCommand}.
  */
 export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all policies from the root of the <a>Directory</a> to the object
  *       specified. If there are no policies present, an empty list is returned. If policies are
  *       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
@@ -51,6 +56,8 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param LookupPolicyCommandInput - {@link LookupPolicyCommandInput}
+ * @returns {@link LookupPolicyCommandOutput}
  * @see {@link LookupPolicyCommandInput} for command's `input` shape.
  * @see {@link LookupPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +109,9 @@ export class LookupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LookupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class LookupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LookupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1LookupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupPolicyCommandOutput> {
     return deserializeAws_restJson1LookupPolicyCommand(output, context);
   }

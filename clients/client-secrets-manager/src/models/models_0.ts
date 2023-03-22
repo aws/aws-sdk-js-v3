@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SecretsManagerServiceException as __BaseException } from "./SecretsManagerServiceException";
 
 /**
+ * @public
  * <p>A custom type that specifies a <code>Region</code> and the <code>KmsKeyId</code> for a replica secret.</p>
  */
 export interface ReplicaRegionType {
@@ -18,6 +19,9 @@ export interface ReplicaRegionType {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelRotateSecretRequest {
   /**
    * <p>The ARN or name of the secret.</p>
@@ -27,6 +31,9 @@ export interface CancelRotateSecretRequest {
   SecretId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelRotateSecretResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -49,6 +56,7 @@ export interface CancelRotateSecretResponse {
 }
 
 /**
+ * @public
  * <p>An error occurred on the server side.</p>
  */
 export class InternalServiceError extends __BaseException {
@@ -70,6 +78,7 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parameter name or value is invalid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -91,6 +100,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A parameter value is not valid for the current state of the
  *       resource.</p>
  *          <p>Possible causes:</p>
@@ -127,6 +137,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Secrets Manager can't find the resource that you asked for.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -148,6 +159,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about a tag.</p>
  */
 export interface Tag {
@@ -162,6 +174,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecretRequest {
   /**
    * <p>The name of the new secret.</p>
@@ -254,7 +269,7 @@ export interface CreateSecretRequest {
    * <p>A list of tags to attach to the secret. Each tag
    *       is a key and value pair of strings in a JSON text string, for example:</p>
    *          <p>
-   *             <code>[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]</code>
+   *             <code>[\{"Key":"CostCenter","Value":"12345"\},\{"Key":"environment","Value":"production"\}]</code>
    *          </p>
    *          <p>Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag
    *       from one with key "abc".</p>
@@ -309,6 +324,9 @@ export interface CreateSecretRequest {
   ForceOverwriteReplicaSecret?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum StatusType {
   Failed = "Failed",
   InProgress = "InProgress",
@@ -316,6 +334,7 @@ export enum StatusType {
 }
 
 /**
+ * @public
  * <p>A replication object consisting of a <code>RegionReplicationStatus</code> object and includes a Region, KMSKeyId, status, and status message.</p>
  */
 export interface ReplicationStatusType {
@@ -346,6 +365,9 @@ export interface ReplicationStatusType {
   LastAccessedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecretResponse {
   /**
    * <p>The ARN of the new secret. The ARN includes the name of the secret followed by six random
@@ -386,6 +408,7 @@ export interface CreateSecretResponse {
 }
 
 /**
+ * @public
  * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
  */
 export class DecryptionFailure extends __BaseException {
@@ -407,6 +430,7 @@ export class DecryptionFailure extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the
  *       KMS key is available, enabled, and not in an invalid state. For more
  *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a>.</p>
@@ -430,6 +454,7 @@ export class EncryptionFailure extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -451,6 +476,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource policy has syntax errors.</p>
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -472,6 +498,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because you did not complete all the prerequisite steps.</p>
  */
 export class PreconditionNotMetException extends __BaseException {
@@ -493,6 +520,7 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource with the ID you requested already exists.</p>
  */
 export class ResourceExistsException extends __BaseException {
@@ -513,6 +541,9 @@ export class ResourceExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The ARN or name of the secret to delete the attached resource-based policy for.</p>
@@ -522,6 +553,9 @@ export interface DeleteResourcePolicyRequest {
   SecretId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {
   /**
    * <p>The ARN of the secret that the resource-based policy was deleted for.</p>
@@ -534,6 +568,9 @@ export interface DeleteResourcePolicyResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecretRequest {
   /**
    * <p>The ARN or name of the secret to delete.</p>
@@ -567,6 +604,9 @@ export interface DeleteSecretRequest {
   ForceDeleteWithoutRecovery?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecretResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -586,6 +626,9 @@ export interface DeleteSecretResponse {
   DeletionDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecretRequest {
   /**
    * <p>The ARN or name of the secret. </p>
@@ -596,6 +639,7 @@ export interface DescribeSecretRequest {
 }
 
 /**
+ * @public
  * <p>A structure that defines the rotation configuration for the secret.</p>
  */
 export interface RotationRulesType {
@@ -648,6 +692,9 @@ export interface RotationRulesType {
   ScheduleExpression?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecretResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -792,6 +839,9 @@ export interface DescribeSecretResponse {
   ReplicationStatus?: ReplicationStatusType[];
 }
 
+/**
+ * @public
+ */
 export enum FilterNameStringType {
   all = "all",
   description = "description",
@@ -803,6 +853,7 @@ export enum FilterNameStringType {
 }
 
 /**
+ * @public
  * <p>Allows you to add filters when you use the search function in Secrets Manager. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Find secrets in Secrets Manager</a>.</p>
  */
 export interface Filter {
@@ -848,6 +899,9 @@ export interface Filter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetRandomPasswordRequest {
   /**
    * <p>The length of the password. If you don't include this parameter, the
@@ -868,7 +922,7 @@ export interface GetRandomPasswordRequest {
 
   /**
    * <p>Specifies whether to exclude the following punctuation characters from the password:
-   *       <code>! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</code>.
+   *       <code>! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` \{ | \} ~</code>.
    *       If you don't include this switch, the password can contain punctuation.</p>
    */
   ExcludePunctuation?: boolean;
@@ -898,6 +952,9 @@ export interface GetRandomPasswordRequest {
   RequireEachIncludedType?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetRandomPasswordResponse {
   /**
    * <p>A string with the password.</p>
@@ -905,6 +962,9 @@ export interface GetRandomPasswordResponse {
   RandomPassword?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The ARN or name of the secret to retrieve the attached resource-based policy for.</p>
@@ -914,6 +974,9 @@ export interface GetResourcePolicyRequest {
   SecretId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
@@ -933,6 +996,9 @@ export interface GetResourcePolicyResponse {
   ResourcePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSecretValueRequest {
   /**
    * <p>The ARN or name of the secret to retrieve.</p>
@@ -961,6 +1027,9 @@ export interface GetSecretValueRequest {
   VersionStage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSecretValueResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -1011,6 +1080,7 @@ export interface GetSecretValueResponse {
 }
 
 /**
+ * @public
  * <p>The <code>NextToken</code> value is invalid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -1031,11 +1101,17 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum SortOrderType {
   asc = "asc",
   desc = "desc",
 }
 
+/**
+ * @public
+ */
 export interface ListSecretsRequest {
   /**
    * <p>Specifies whether to include secrets scheduled for deletion.</p>
@@ -1069,6 +1145,7 @@ export interface ListSecretsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains the details about a secret. It does not include the encrypted
  *         <code>SecretString</code> and <code>SecretBinary</code> values. To get those values, use
  *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html">GetSecretValue</a>
@@ -1184,6 +1261,9 @@ export interface SecretListEntry {
   PrimaryRegion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecretsResponse {
   /**
    * <p>A list of the secrets in the account.</p>
@@ -1200,6 +1280,9 @@ export interface ListSecretsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecretVersionIdsRequest {
   /**
    * <p>The ARN or name of the secret whose versions you want to list.</p>
@@ -1231,6 +1314,7 @@ export interface ListSecretVersionIdsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about one version of a secret.</p>
  */
 export interface SecretVersionsListEntry {
@@ -1262,6 +1346,9 @@ export interface SecretVersionsListEntry {
   KmsKeyIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListSecretVersionIdsResponse {
   /**
    * <p>A list of the versions of the secret.</p>
@@ -1288,6 +1375,7 @@ export interface ListSecretVersionIdsResponse {
 }
 
 /**
+ * @public
  * <p>The <code>BlockPublicPolicy</code> parameter is set to true, and the resource policy did not prevent broad access to the secret.</p>
  */
 export class PublicPolicyException extends __BaseException {
@@ -1308,6 +1396,9 @@ export class PublicPolicyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The ARN or name of the secret to attach the resource-based policy.</p>
@@ -1329,6 +1420,9 @@ export interface PutResourcePolicyRequest {
   BlockPublicPolicy?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -1341,6 +1435,9 @@ export interface PutResourcePolicyResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutSecretValueRequest {
   /**
    * <p>The ARN or name of the secret to add a new version to.</p>
@@ -1416,6 +1513,9 @@ export interface PutSecretValueRequest {
   VersionStages?: string[];
 }
 
+/**
+ * @public
+ */
 export interface PutSecretValueResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -1440,6 +1540,9 @@ export interface PutSecretValueResponse {
   VersionStages?: string[];
 }
 
+/**
+ * @public
+ */
 export interface RemoveRegionsFromReplicationRequest {
   /**
    * <p>The ARN or name of the secret.</p>
@@ -1452,6 +1555,9 @@ export interface RemoveRegionsFromReplicationRequest {
   RemoveReplicaRegions: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveRegionsFromReplicationResponse {
   /**
    * <p>The ARN of the primary secret.</p>
@@ -1464,6 +1570,9 @@ export interface RemoveRegionsFromReplicationResponse {
   ReplicationStatus?: ReplicationStatusType[];
 }
 
+/**
+ * @public
+ */
 export interface ReplicateSecretToRegionsRequest {
   /**
    * <p>The ARN or name of the secret to replicate.</p>
@@ -1481,6 +1590,9 @@ export interface ReplicateSecretToRegionsRequest {
   ForceOverwriteReplicaSecret?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ReplicateSecretToRegionsResponse {
   /**
    * <p>The ARN of the primary secret.</p>
@@ -1493,6 +1605,9 @@ export interface ReplicateSecretToRegionsResponse {
   ReplicationStatus?: ReplicationStatusType[];
 }
 
+/**
+ * @public
+ */
 export interface RestoreSecretRequest {
   /**
    * <p>The ARN or name of the secret to restore.</p>
@@ -1502,6 +1617,9 @@ export interface RestoreSecretRequest {
   SecretId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreSecretResponse {
   /**
    * <p>The ARN of the secret that was restored.</p>
@@ -1514,6 +1632,9 @@ export interface RestoreSecretResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface RotateSecretRequest {
   /**
    * <p>The ARN or name of the secret to rotate.</p>
@@ -1562,6 +1683,9 @@ export interface RotateSecretRequest {
   RotateImmediately?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RotateSecretResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -1579,6 +1703,9 @@ export interface RotateSecretResponse {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopReplicationToReplicaRequest {
   /**
    * <p>The ARN of the primary secret. </p>
@@ -1586,6 +1713,9 @@ export interface StopReplicationToReplicaRequest {
   SecretId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopReplicationToReplicaResponse {
   /**
    * <p>The ARN of the promoted secret. The ARN is the same as the original primary secret except the Region is changed.</p>
@@ -1593,6 +1723,9 @@ export interface StopReplicationToReplicaResponse {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The identifier for the secret to attach tags to. You can specify either the
@@ -1612,6 +1745,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN or name of the secret.</p>
@@ -1631,6 +1767,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecretRequest {
   /**
    * <p>The ARN or name of the secret.</p>
@@ -1702,6 +1841,9 @@ export interface UpdateSecretRequest {
   SecretString?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecretResponse {
   /**
    * <p>The ARN of the secret that was updated.</p>
@@ -1720,6 +1862,9 @@ export interface UpdateSecretResponse {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecretVersionStageRequest {
   /**
    * <p>The ARN or the name of the secret with the version and staging labelsto modify.</p>
@@ -1751,6 +1896,9 @@ export interface UpdateSecretVersionStageRequest {
   MoveToVersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecretVersionStageResponse {
   /**
    * <p>The ARN of the secret that was updated.</p>
@@ -1763,6 +1911,9 @@ export interface UpdateSecretVersionStageResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ValidateResourcePolicyRequest {
   /**
    * <p>This field is reserved for internal use.</p>
@@ -1778,6 +1929,7 @@ export interface ValidateResourcePolicyRequest {
 }
 
 /**
+ * @public
  * <p>Displays errors that occurred during validation of the resource policy.</p>
  */
 export interface ValidationErrorsEntry {
@@ -1792,6 +1944,9 @@ export interface ValidationErrorsEntry {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ValidateResourcePolicyResponse {
   /**
    * <p>True if your policy passes validation, otherwise false.</p>

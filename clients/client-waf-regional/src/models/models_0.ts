@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { WAFRegionalServiceException as __BaseException } from "./WAFRegionalServiceException";
 
+/**
+ * @public
+ */
 export enum WafActionType {
   ALLOW = "ALLOW",
   BLOCK = "BLOCK",
@@ -10,6 +13,7 @@ export enum WafActionType {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -46,6 +50,7 @@ export interface WafAction {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -65,12 +70,16 @@ export interface ExcludedRule {
   RuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum WafOverrideActionType {
   COUNT = "COUNT",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -89,6 +98,9 @@ export interface WafOverrideAction {
   Type: WafOverrideActionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum WafRuleType {
   GROUP = "GROUP",
   RATE_BASED = "RATE_BASED",
@@ -96,6 +108,7 @@ export enum WafRuleType {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -214,6 +227,9 @@ export interface ActivatedRule {
   ExcludedRules?: ExcludedRule[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateWebACLRequest {
   /**
    * <p>A unique identifier (ID) for the web ACL. </p>
@@ -239,9 +255,13 @@ export interface AssociateWebACLRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateWebACLResponse {}
 
 /**
+ * @public
  * <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  */
 export class WAFInternalErrorException extends __BaseException {
@@ -261,6 +281,7 @@ export class WAFInternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  */
 export class WAFInvalidAccountException extends __BaseException {
@@ -279,6 +300,9 @@ export class WAFInvalidAccountException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ParameterExceptionField {
   BYTE_MATCH_FIELD_TYPE = "BYTE_MATCH_FIELD_TYPE",
   BYTE_MATCH_POSITIONAL_CONSTRAINT = "BYTE_MATCH_POSITIONAL_CONSTRAINT",
@@ -300,6 +324,9 @@ export enum ParameterExceptionField {
   WAF_OVERRIDE_ACTION = "WAF_OVERRIDE_ACTION",
 }
 
+/**
+ * @public
+ */
 export enum ParameterExceptionReason {
   ILLEGAL_ARGUMENT = "ILLEGAL_ARGUMENT",
   ILLEGAL_COMBINATION = "ILLEGAL_COMBINATION",
@@ -308,6 +335,7 @@ export enum ParameterExceptionReason {
 }
 
 /**
+ * @public
  * <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p>
  * 			      <ul>
  *             <li>
@@ -370,6 +398,7 @@ export class WAFInvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because the referenced object doesn't exist.</p>
  */
 export class WAFNonexistentItemException extends __BaseException {
@@ -389,6 +418,7 @@ export class WAFNonexistentItemException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because the entity
  *       referenced is temporarily unavailable. Retry your request.</p>
  */
@@ -408,6 +438,9 @@ export class WAFUnavailableEntityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateByteMatchSetRequest {
   /**
    * <p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a
@@ -421,6 +454,9 @@ export interface CreateByteMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MatchFieldType {
   ALL_QUERY_ARGS = "ALL_QUERY_ARGS",
   BODY = "BODY",
@@ -432,6 +468,7 @@ export enum MatchFieldType {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -496,6 +533,9 @@ export interface FieldToMatch {
   Data?: string;
 }
 
+/**
+ * @public
+ */
 export enum PositionalConstraint {
   CONTAINS = "CONTAINS",
   CONTAINS_WORD = "CONTAINS_WORD",
@@ -504,6 +544,9 @@ export enum PositionalConstraint {
   STARTS_WITH = "STARTS_WITH",
 }
 
+/**
+ * @public
+ */
 export enum TextTransformation {
   CMD_LINE = "CMD_LINE",
   COMPRESS_WHITE_SPACE = "COMPRESS_WHITE_SPACE",
@@ -514,6 +557,7 @@ export enum TextTransformation {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -746,6 +790,7 @@ export interface ByteMatchTuple {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -783,6 +828,9 @@ export interface ByteMatchSet {
   ByteMatchTuples: ByteMatchTuple[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateByteMatchSetResponse {
   /**
    * <p>A <a>ByteMatchSet</a> that contains no <code>ByteMatchTuple</code> objects.</p>
@@ -797,6 +845,7 @@ export interface CreateByteMatchSetResponse {
 }
 
 /**
+ * @public
  * <p>The name specified is invalid.</p>
  */
 export class WAFDisallowedNameException extends __BaseException {
@@ -816,6 +865,7 @@ export class WAFDisallowedNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
  * 			for an AWS account. For more information, see
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
@@ -837,6 +887,7 @@ export class WAFLimitsExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  */
 export class WAFStaleDataException extends __BaseException {
@@ -855,6 +906,9 @@ export class WAFStaleDataException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateGeoMatchSetRequest {
   /**
    * <p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change <code>Name</code> after you create the <code>GeoMatchSet</code>.</p>
@@ -867,10 +921,16 @@ export interface CreateGeoMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum GeoMatchConstraintType {
   Country = "Country",
 }
 
+/**
+ * @public
+ */
 export enum GeoMatchConstraintValue {
   AD = "AD",
   AE = "AE",
@@ -1124,6 +1184,7 @@ export enum GeoMatchConstraintValue {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1147,6 +1208,7 @@ export interface GeoMatchConstraint {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1177,6 +1239,9 @@ export interface GeoMatchSet {
   GeoMatchConstraints: GeoMatchConstraint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGeoMatchSetResponse {
   /**
    * <p>The <a>GeoMatchSet</a> returned in the <code>CreateGeoMatchSet</code> response. The <code>GeoMatchSet</code> contains no <code>GeoMatchConstraints</code>.</p>
@@ -1190,6 +1255,9 @@ export interface CreateGeoMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateIPSetRequest {
   /**
    * <p>A friendly name or description of the <a>IPSet</a>. You can't change <code>Name</code> after you create the <code>IPSet</code>.</p>
@@ -1202,12 +1270,16 @@ export interface CreateIPSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IPSetDescriptorType {
   IPV4 = "IPV4",
   IPV6 = "IPV6",
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1252,6 +1324,7 @@ export interface IPSetDescriptor {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1290,6 +1363,9 @@ export interface IPSet {
   IPSetDescriptors: IPSetDescriptor[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateIPSetResponse {
   /**
    * <p>The <a>IPSet</a> returned in the <code>CreateIPSet</code> response.</p>
@@ -1303,11 +1379,15 @@ export interface CreateIPSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum RateKey {
   IP = "IP",
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1331,6 +1411,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRateBasedRuleRequest {
   /**
    * <p>A friendly name or description of the <a>RateBasedRule</a>. You can't
@@ -1376,6 +1459,9 @@ export interface CreateRateBasedRuleRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum PredicateType {
   BYTE_MATCH = "ByteMatch",
   GEO_MATCH = "GeoMatch",
@@ -1387,6 +1473,7 @@ export enum PredicateType {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1425,6 +1512,7 @@ export interface Predicate {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1498,6 +1586,9 @@ export interface RateBasedRule {
   RateLimit: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRateBasedRuleResponse {
   /**
    * <p>The <a>RateBasedRule</a>
@@ -1514,6 +1605,7 @@ export interface CreateRateBasedRuleResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class WAFBadRequestException extends __BaseException {
@@ -1533,6 +1625,7 @@ export class WAFBadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class WAFTagOperationException extends __BaseException {
@@ -1552,6 +1645,7 @@ export class WAFTagOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class WAFTagOperationInternalErrorException extends __BaseException {
@@ -1570,6 +1664,9 @@ export class WAFTagOperationInternalErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateRegexMatchSetRequest {
   /**
    * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a
@@ -1584,6 +1681,7 @@ export interface CreateRegexMatchSetRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1719,6 +1817,7 @@ export interface RegexMatchTuple {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1768,6 +1867,9 @@ export interface RegexMatchSet {
   RegexMatchTuples?: RegexMatchTuple[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRegexMatchSetResponse {
   /**
    * <p>A <a>RegexMatchSet</a> that contains no <code>RegexMatchTuple</code> objects.</p>
@@ -1781,6 +1883,9 @@ export interface CreateRegexMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRegexPatternSetRequest {
   /**
    * <p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a
@@ -1795,6 +1900,7 @@ export interface CreateRegexPatternSetRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1825,6 +1931,9 @@ export interface RegexPatternSet {
   RegexPatternStrings: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRegexPatternSetResponse {
   /**
    * <p>A <a>RegexPatternSet</a> that contains no objects.</p>
@@ -1838,6 +1947,9 @@ export interface CreateRegexPatternSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleRequest {
   /**
    * <p>A friendly name or description of the <a>Rule</a>. You can't change the name of a <code>Rule</code> after you create it.</p>
@@ -1863,6 +1975,7 @@ export interface CreateRuleRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1914,6 +2027,9 @@ export interface Rule {
   Predicates: Predicate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleResponse {
   /**
    * <p>The <a>Rule</a> returned in the <code>CreateRule</code> response.</p>
@@ -1927,6 +2043,9 @@ export interface CreateRuleResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleGroupRequest {
   /**
    * <p>A friendly name or description of the <a>RuleGroup</a>. You can't change <code>Name</code> after you create a
@@ -1952,6 +2071,7 @@ export interface CreateRuleGroupRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1996,6 +2116,9 @@ export interface RuleGroup {
   MetricName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleGroupResponse {
   /**
    * <p>An empty  <a>RuleGroup</a>.</p>
@@ -2009,6 +2132,9 @@ export interface CreateRuleGroupResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSizeConstraintSetRequest {
   /**
    * <p>A friendly name or description of the <a>SizeConstraintSet</a>. You can't change <code>Name</code> after you create a
@@ -2022,6 +2148,9 @@ export interface CreateSizeConstraintSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   EQ = "EQ",
   GE = "GE",
@@ -2032,6 +2161,7 @@ export enum ComparisonOperator {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2187,6 +2317,7 @@ export interface SizeConstraint {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2222,6 +2353,9 @@ export interface SizeConstraintSet {
   SizeConstraints: SizeConstraint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSizeConstraintSetResponse {
   /**
    * <p>A <a>SizeConstraintSet</a> that contains no <code>SizeConstraint</code> objects.</p>
@@ -2236,6 +2370,7 @@ export interface CreateSizeConstraintSetResponse {
 }
 
 /**
+ * @public
  * <p>A request to create a <a>SqlInjectionMatchSet</a>.</p>
  */
 export interface CreateSqlInjectionMatchSetRequest {
@@ -2252,6 +2387,7 @@ export interface CreateSqlInjectionMatchSetRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2367,6 +2503,7 @@ export interface SqlInjectionMatchTuple {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2404,6 +2541,7 @@ export interface SqlInjectionMatchSet {
 }
 
 /**
+ * @public
  * <p>The response to a <code>CreateSqlInjectionMatchSet</code> request.</p>
  */
 export interface CreateSqlInjectionMatchSetResponse {
@@ -2419,6 +2557,9 @@ export interface CreateSqlInjectionMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWebACLRequest {
   /**
    * <p>A friendly name or description of the <a>WebACL</a>. You can't change <code>Name</code> after you create the <code>WebACL</code>.</p>
@@ -2450,6 +2591,7 @@ export interface CreateWebACLRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2504,6 +2646,9 @@ export interface WebACL {
   WebACLArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWebACLResponse {
   /**
    * <p>The <a>WebACL</a> returned in the <code>CreateWebACL</code> response.</p>
@@ -2517,6 +2662,9 @@ export interface CreateWebACLResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWebACLMigrationStackRequest {
   /**
    * <p>The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.</p>
@@ -2549,6 +2697,9 @@ export interface CreateWebACLMigrationStackRequest {
   IgnoreUnsupportedType: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWebACLMigrationStackResponse {
   /**
    * <p>The URL of the template created in Amazon S3. </p>
@@ -2556,6 +2707,9 @@ export interface CreateWebACLMigrationStackResponse {
   S3ObjectUrl: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MigrationErrorType {
   ENTITY_NOT_FOUND = "ENTITY_NOT_FOUND",
   ENTITY_NOT_SUPPORTED = "ENTITY_NOT_SUPPORTED",
@@ -2567,6 +2721,7 @@ export enum MigrationErrorType {
 }
 
 /**
+ * @public
  * <p>The operation failed due to a problem with the migration. The failure cause is provided in the exception, in the <code>MigrationErrorType</code>: </p>
  *          <ul>
  *             <li>
@@ -2620,6 +2775,7 @@ export class WAFEntityMigrationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because there was nothing to do. For example:</p>
  * 			      <ul>
  *             <li>
@@ -2659,6 +2815,7 @@ export class WAFInvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to create an <a>XssMatchSet</a>.</p>
  */
 export interface CreateXssMatchSetRequest {
@@ -2675,6 +2832,7 @@ export interface CreateXssMatchSetRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2790,6 +2948,7 @@ export interface XssMatchTuple {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2827,6 +2986,7 @@ export interface XssMatchSet {
 }
 
 /**
+ * @public
  * <p>The response to a <code>CreateXssMatchSet</code> request.</p>
  */
 export interface CreateXssMatchSetResponse {
@@ -2842,6 +3002,9 @@ export interface CreateXssMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteByteMatchSetRequest {
   /**
    * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to delete. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by
@@ -2855,6 +3018,9 @@ export interface DeleteByteMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteByteMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteByteMatchSet</code> request. You can also use this value
@@ -2864,6 +3030,7 @@ export interface DeleteByteMatchSetResponse {
 }
 
 /**
+ * @public
  * <p>The operation failed because you tried to delete an object that isn't empty. For example:</p>
  * 		       <ul>
  *             <li>
@@ -2898,6 +3065,7 @@ export class WAFNonEmptyEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because you tried to delete an object that is still in use. For example:</p>
  * 		       <ul>
  *             <li>
@@ -2924,6 +3092,9 @@ export class WAFReferencedItemException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteGeoMatchSetRequest {
   /**
    * <p>The <code>GeoMatchSetID</code> of the <a>GeoMatchSet</a> that you want to delete. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
@@ -2937,6 +3108,9 @@ export interface DeleteGeoMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGeoMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteGeoMatchSet</code> request. You can also use this value
@@ -2945,6 +3119,9 @@ export interface DeleteGeoMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIPSetRequest {
   /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to delete. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
@@ -2958,6 +3135,9 @@ export interface DeleteIPSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIPSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteIPSet</code> request. You can also use this value
@@ -2966,6 +3146,9 @@ export interface DeleteIPSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</p>
@@ -2973,8 +3156,14 @@ export interface DeleteLoggingConfigurationRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoggingConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePermissionPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the RuleGroup from which you want to delete the policy.</p>
@@ -2983,8 +3172,14 @@ export interface DeletePermissionPolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePermissionPolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRateBasedRuleRequest {
   /**
    * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to
@@ -2999,6 +3194,9 @@ export interface DeleteRateBasedRuleRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRateBasedRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
@@ -3008,6 +3206,9 @@ export interface DeleteRateBasedRuleResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRegexMatchSetRequest {
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by
@@ -3021,6 +3222,9 @@ export interface DeleteRegexMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRegexMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexMatchSet</code> request. You can also use this value
@@ -3029,6 +3233,9 @@ export interface DeleteRegexMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRegexPatternSetRequest {
   /**
    * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to delete. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by
@@ -3042,6 +3249,9 @@ export interface DeleteRegexPatternSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRegexPatternSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexPatternSet</code> request. You can also use this value
@@ -3050,6 +3260,9 @@ export interface DeleteRegexPatternSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleRequest {
   /**
    * <p>The <code>RuleId</code> of the <a>Rule</a> that you want to delete. <code>RuleId</code> is returned by <a>CreateRule</a> and by
@@ -3063,6 +3276,9 @@ export interface DeleteRuleRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRule</code> request. You can also use this value
@@ -3071,6 +3287,9 @@ export interface DeleteRuleResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleGroupRequest {
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to delete. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by
@@ -3084,6 +3303,9 @@ export interface DeleteRuleGroupRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleGroupResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRuleGroup</code> request. You can also use this value
@@ -3092,6 +3314,9 @@ export interface DeleteRuleGroupResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSizeConstraintSetRequest {
   /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to delete. <code>SizeConstraintSetId</code>
@@ -3105,6 +3330,9 @@ export interface DeleteSizeConstraintSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSizeConstraintSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteSizeConstraintSet</code> request. You can also use this value
@@ -3114,6 +3342,7 @@ export interface DeleteSizeConstraintSetResponse {
 }
 
 /**
+ * @public
  * <p>A request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteSqlInjectionMatchSetRequest {
@@ -3130,6 +3359,7 @@ export interface DeleteSqlInjectionMatchSetRequest {
 }
 
 /**
+ * @public
  * <p>The response to a request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteSqlInjectionMatchSetResponse {
@@ -3140,6 +3370,9 @@ export interface DeleteSqlInjectionMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWebACLRequest {
   /**
    * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to delete. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
@@ -3153,6 +3386,9 @@ export interface DeleteWebACLRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWebACLResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteWebACL</code> request. You can also use this value
@@ -3162,6 +3398,7 @@ export interface DeleteWebACLResponse {
 }
 
 /**
+ * @public
  * <p>A request to delete an <a>XssMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteXssMatchSetRequest {
@@ -3178,6 +3415,7 @@ export interface DeleteXssMatchSetRequest {
 }
 
 /**
+ * @public
  * <p>The response to a request to delete an <a>XssMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteXssMatchSetResponse {
@@ -3188,6 +3426,9 @@ export interface DeleteXssMatchSetResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateWebACLRequest {
   /**
    * <p>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.</p>
@@ -3208,8 +3449,14 @@ export interface DisassociateWebACLRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateWebACLResponse {}
 
+/**
+ * @public
+ */
 export interface GetByteMatchSetRequest {
   /**
    * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to get. <code>ByteMatchSetId</code> is returned by
@@ -3218,6 +3465,9 @@ export interface GetByteMatchSetRequest {
   ByteMatchSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetByteMatchSetResponse {
   /**
    * <p>Information about the <a>ByteMatchSet</a> that you specified in the <code>GetByteMatchSet</code> request. For more information, see the
@@ -3245,8 +3495,14 @@ export interface GetByteMatchSetResponse {
   ByteMatchSet?: ByteMatchSet;
 }
 
+/**
+ * @public
+ */
 export interface GetChangeTokenRequest {}
 
+/**
+ * @public
+ */
 export interface GetChangeTokenResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used in the request. Use this value in a <code>GetChangeTokenStatus</code> request
@@ -3255,6 +3511,9 @@ export interface GetChangeTokenResponse {
   ChangeToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetChangeTokenStatusRequest {
   /**
    * <p>The change token for which you want to get the status. This change token was previously returned in the <code>GetChangeToken</code> response.</p>
@@ -3262,12 +3521,18 @@ export interface GetChangeTokenStatusRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ChangeTokenStatus {
   INSYNC = "INSYNC",
   PENDING = "PENDING",
   PROVISIONED = "PROVISIONED",
 }
 
+/**
+ * @public
+ */
 export interface GetChangeTokenStatusResponse {
   /**
    * <p>The status of the change token.</p>
@@ -3275,6 +3540,9 @@ export interface GetChangeTokenStatusResponse {
   ChangeTokenStatus?: ChangeTokenStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetGeoMatchSetRequest {
   /**
    * <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to get. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
@@ -3283,6 +3551,9 @@ export interface GetGeoMatchSetRequest {
   GeoMatchSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGeoMatchSetResponse {
   /**
    * <p>Information about the <a>GeoMatchSet</a> that you specified in the <code>GetGeoMatchSet</code> request. This includes the <code>Type</code>, which for a <code>GeoMatchContraint</code> is always <code>Country</code>, as well as the <code>Value</code>, which is the identifier for a specific country.</p>
@@ -3290,6 +3561,9 @@ export interface GetGeoMatchSetResponse {
   GeoMatchSet?: GeoMatchSet;
 }
 
+/**
+ * @public
+ */
 export interface GetIPSetRequest {
   /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to get. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
@@ -3298,6 +3572,9 @@ export interface GetIPSetRequest {
   IPSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetIPSetResponse {
   /**
    * <p>Information about the <a>IPSet</a> that you specified in the <code>GetIPSet</code> request. For more information, see the
@@ -3319,6 +3596,9 @@ export interface GetIPSetResponse {
   IPSet?: IPSet;
 }
 
+/**
+ * @public
+ */
 export interface GetLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
@@ -3327,6 +3607,7 @@ export interface GetLoggingConfigurationRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3359,6 +3640,9 @@ export interface LoggingConfiguration {
   RedactedFields?: FieldToMatch[];
 }
 
+/**
+ * @public
+ */
 export interface GetLoggingConfigurationResponse {
   /**
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
@@ -3366,6 +3650,9 @@ export interface GetLoggingConfigurationResponse {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the RuleGroup for which you want to get the policy.</p>
@@ -3373,6 +3660,9 @@ export interface GetPermissionPolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionPolicyResponse {
   /**
    * <p>The IAM policy attached to the specified RuleGroup.</p>
@@ -3380,6 +3670,9 @@ export interface GetPermissionPolicyResponse {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRateBasedRuleRequest {
   /**
    * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to get.
@@ -3388,6 +3681,9 @@ export interface GetRateBasedRuleRequest {
   RuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRateBasedRuleResponse {
   /**
    * <p>Information about the <a>RateBasedRule</a> that you specified in the
@@ -3396,6 +3692,9 @@ export interface GetRateBasedRuleResponse {
   Rule?: RateBasedRule;
 }
 
+/**
+ * @public
+ */
 export interface GetRateBasedRuleManagedKeysRequest {
   /**
    * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> for which you want to
@@ -3409,6 +3708,9 @@ export interface GetRateBasedRuleManagedKeysRequest {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRateBasedRuleManagedKeysResponse {
   /**
    * <p>An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. </p>
@@ -3421,6 +3723,9 @@ export interface GetRateBasedRuleManagedKeysResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRegexMatchSetRequest {
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to get. <code>RegexMatchSetId</code> is returned by
@@ -3429,6 +3734,9 @@ export interface GetRegexMatchSetRequest {
   RegexMatchSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRegexMatchSetResponse {
   /**
    * <p>Information about the <a>RegexMatchSet</a> that you specified in the <code>GetRegexMatchSet</code> request. For more information, see <a>RegexMatchTuple</a>.</p>
@@ -3436,6 +3744,9 @@ export interface GetRegexMatchSetResponse {
   RegexMatchSet?: RegexMatchSet;
 }
 
+/**
+ * @public
+ */
 export interface GetRegexPatternSetRequest {
   /**
    * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to get. <code>RegexPatternSetId</code> is returned by
@@ -3444,6 +3755,9 @@ export interface GetRegexPatternSetRequest {
   RegexPatternSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRegexPatternSetResponse {
   /**
    * <p>Information about the <a>RegexPatternSet</a> that you specified in the <code>GetRegexPatternSet</code> request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for. </p>
@@ -3451,6 +3765,9 @@ export interface GetRegexPatternSetResponse {
   RegexPatternSet?: RegexPatternSet;
 }
 
+/**
+ * @public
+ */
 export interface GetRuleRequest {
   /**
    * <p>The <code>RuleId</code> of the <a>Rule</a> that you want to get. <code>RuleId</code> is returned by <a>CreateRule</a> and by
@@ -3459,6 +3776,9 @@ export interface GetRuleRequest {
   RuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRuleResponse {
   /**
    * <p>Information about the <a>Rule</a> that you specified in the <code>GetRule</code> request.
@@ -3481,6 +3801,9 @@ export interface GetRuleResponse {
   Rule?: Rule;
 }
 
+/**
+ * @public
+ */
 export interface GetRuleGroupRequest {
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to get. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by
@@ -3489,6 +3812,9 @@ export interface GetRuleGroupRequest {
   RuleGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRuleGroupResponse {
   /**
    * <p>Information about the <a>RuleGroup</a> that you specified in the <code>GetRuleGroup</code> request. </p>
@@ -3497,6 +3823,7 @@ export interface GetRuleGroupResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3533,6 +3860,9 @@ export interface TimeWindow {
   EndTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSampledRequestsRequest {
   /**
    * <p>The <code>WebACLId</code> of the <code>WebACL</code> for which you want <code>GetSampledRequests</code> to return a sample of requests.</p>
@@ -3571,6 +3901,7 @@ export interface GetSampledRequestsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3596,6 +3927,7 @@ export interface HTTPHeader {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3654,6 +3986,7 @@ export interface HTTPRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3695,6 +4028,9 @@ export interface SampledHTTPRequest {
   RuleWithinRuleGroup?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSampledRequestsResponse {
   /**
    * <p>A complex type that contains detailed information about each of the requests in the sample.</p>
@@ -3716,6 +4052,9 @@ export interface GetSampledRequestsResponse {
   TimeWindow?: TimeWindow;
 }
 
+/**
+ * @public
+ */
 export interface GetSizeConstraintSetRequest {
   /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to get. <code>SizeConstraintSetId</code> is returned by
@@ -3724,6 +4063,9 @@ export interface GetSizeConstraintSetRequest {
   SizeConstraintSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSizeConstraintSetResponse {
   /**
    * <p>Information about the <a>SizeConstraintSet</a> that you specified in the <code>GetSizeConstraintSet</code> request. For more information, see the
@@ -3752,6 +4094,7 @@ export interface GetSizeConstraintSetResponse {
 }
 
 /**
+ * @public
  * <p>A request to get a <a>SqlInjectionMatchSet</a>.</p>
  */
 export interface GetSqlInjectionMatchSetRequest {
@@ -3763,6 +4106,7 @@ export interface GetSqlInjectionMatchSetRequest {
 }
 
 /**
+ * @public
  * <p>The response to a <a>GetSqlInjectionMatchSet</a> request.</p>
  */
 export interface GetSqlInjectionMatchSetResponse {
@@ -3791,6 +4135,9 @@ export interface GetSqlInjectionMatchSetResponse {
   SqlInjectionMatchSet?: SqlInjectionMatchSet;
 }
 
+/**
+ * @public
+ */
 export interface GetWebACLRequest {
   /**
    * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
@@ -3799,6 +4146,9 @@ export interface GetWebACLRequest {
   WebACLId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWebACLResponse {
   /**
    * <p>Information about the <a>WebACL</a> that you specified in the <code>GetWebACL</code> request.
@@ -3831,6 +4181,9 @@ export interface GetWebACLResponse {
   WebACL?: WebACL;
 }
 
+/**
+ * @public
+ */
 export interface GetWebACLForResourceRequest {
   /**
    * <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p>
@@ -3852,6 +4205,7 @@ export interface GetWebACLForResourceRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3878,6 +4232,9 @@ export interface WebACLSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWebACLForResourceResponse {
   /**
    * <p>Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned.</p>
@@ -3886,6 +4243,7 @@ export interface GetWebACLForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A request to get an <a>XssMatchSet</a>.</p>
  */
 export interface GetXssMatchSetRequest {
@@ -3897,6 +4255,7 @@ export interface GetXssMatchSetRequest {
 }
 
 /**
+ * @public
  * <p>The response to a <a>GetXssMatchSet</a> request.</p>
  */
 export interface GetXssMatchSetResponse {
@@ -3925,6 +4284,9 @@ export interface GetXssMatchSetResponse {
   XssMatchSet?: XssMatchSet;
 }
 
+/**
+ * @public
+ */
 export interface ListActivatedRulesInRuleGroupRequest {
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>
@@ -3946,6 +4308,9 @@ export interface ListActivatedRulesInRuleGroupRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListActivatedRulesInRuleGroupResponse {
   /**
    * <p>If you have more <code>ActivatedRules</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>ActivatedRules</code>, submit another <code>ListActivatedRulesInRuleGroup</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
@@ -3958,6 +4323,9 @@ export interface ListActivatedRulesInRuleGroupResponse {
   ActivatedRules?: ActivatedRule[];
 }
 
+/**
+ * @public
+ */
 export interface ListByteMatchSetsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code> than the value of <code>Limit</code>,
@@ -3976,6 +4344,7 @@ export interface ListByteMatchSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4002,6 +4371,9 @@ export interface ByteMatchSetSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListByteMatchSetsResponse {
   /**
    * <p>If you have more <code>ByteMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -4017,6 +4389,9 @@ export interface ListByteMatchSetsResponse {
   ByteMatchSets?: ByteMatchSetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListGeoMatchSetsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>GeoMatchSet</code>s than the value of <code>Limit</code>,
@@ -4035,6 +4410,7 @@ export interface ListGeoMatchSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4057,6 +4433,9 @@ export interface GeoMatchSetSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGeoMatchSetsResponse {
   /**
    * <p>If you have more <code>GeoMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -4072,6 +4451,9 @@ export interface ListGeoMatchSetsResponse {
   GeoMatchSets?: GeoMatchSetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListIPSetsRequest {
   /**
    * <p>AWS WAF returns a <code>NextMarker</code> value in the response that allows you to
@@ -4090,6 +4472,7 @@ export interface ListIPSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4113,6 +4496,9 @@ export interface IPSetSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListIPSetsResponse {
   /**
    * <p>To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code>
@@ -4127,6 +4513,9 @@ export interface ListIPSetsResponse {
   IPSets?: IPSetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListLoggingConfigurationsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>LoggingConfigurations</code> than the value of <code>Limit</code>,
@@ -4142,6 +4531,9 @@ export interface ListLoggingConfigurationsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLoggingConfigurationsResponse {
   /**
    * <p>An array of <a>LoggingConfiguration</a> objects.</p>
@@ -4154,6 +4546,9 @@ export interface ListLoggingConfigurationsResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRateBasedRulesRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code>
@@ -4175,6 +4570,7 @@ export interface ListRateBasedRulesRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4201,6 +4597,9 @@ export interface RuleSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRateBasedRulesResponse {
   /**
    * <p>If you have more <code>Rules</code> than the number that you specified for
@@ -4217,6 +4616,9 @@ export interface ListRateBasedRulesResponse {
   Rules?: RuleSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListRegexMatchSetsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>RegexMatchSet</code> objects than the value of <code>Limit</code>,
@@ -4235,6 +4637,7 @@ export interface ListRegexMatchSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4261,6 +4664,9 @@ export interface RegexMatchSetSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRegexMatchSetsResponse {
   /**
    * <p>If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -4276,6 +4682,9 @@ export interface ListRegexMatchSetsResponse {
   RegexMatchSets?: RegexMatchSetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListRegexPatternSetsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>RegexPatternSet</code> objects than the value of <code>Limit</code>,
@@ -4294,6 +4703,7 @@ export interface ListRegexPatternSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4320,6 +4730,9 @@ export interface RegexPatternSetSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRegexPatternSetsResponse {
   /**
    * <p>If you have more <code>RegexPatternSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -4335,11 +4748,17 @@ export interface ListRegexPatternSetsResponse {
   RegexPatternSets?: RegexPatternSetSummary[];
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   API_GATEWAY = "API_GATEWAY",
   APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesForWebACLRequest {
   /**
    * <p>The unique identifier (ID) of the web ACL for which to list the associated resources.</p>
@@ -4352,6 +4771,9 @@ export interface ListResourcesForWebACLRequest {
   ResourceType?: ResourceType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesForWebACLResponse {
   /**
    * <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
@@ -4359,6 +4781,9 @@ export interface ListResourcesForWebACLResponse {
   ResourceArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListRuleGroupsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>RuleGroups</code> than the value of <code>Limit</code>,
@@ -4375,6 +4800,7 @@ export interface ListRuleGroupsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4401,6 +4827,9 @@ export interface RuleGroupSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRuleGroupsResponse {
   /**
    * <p>If you have more <code>RuleGroups</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RuleGroups</code>, submit another <code>ListRuleGroups</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
@@ -4413,6 +4842,9 @@ export interface ListRuleGroupsResponse {
   RuleGroups?: RuleGroupSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListRulesRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>,
@@ -4429,6 +4861,9 @@ export interface ListRulesRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesResponse {
   /**
    * <p>If you have more <code>Rules</code> than the number that you specified for <code>Limit</code> in the request, 			the response includes a <code>NextMarker</code> value. To list more <code>Rules</code>, submit another
@@ -4443,6 +4878,9 @@ export interface ListRulesResponse {
   Rules?: RuleSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListSizeConstraintSetsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>SizeConstraintSets</code> than the value of <code>Limit</code>,
@@ -4460,6 +4898,7 @@ export interface ListSizeConstraintSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4488,6 +4927,9 @@ export interface SizeConstraintSetSummary {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSizeConstraintSetsResponse {
   /**
    * <p>If you have more <code>SizeConstraintSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -4504,6 +4946,7 @@ export interface ListSizeConstraintSetsResponse {
 }
 
 /**
+ * @public
  * <p>A request to list the <a>SqlInjectionMatchSet</a> objects created by the current AWS account.</p>
  */
 export interface ListSqlInjectionMatchSetsRequest {
@@ -4524,6 +4967,7 @@ export interface ListSqlInjectionMatchSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4553,6 +4997,7 @@ export interface SqlInjectionMatchSetSummary {
 }
 
 /**
+ * @public
  * <p>The response to a <a>ListSqlInjectionMatchSets</a> request.</p>
  */
 export interface ListSqlInjectionMatchSetsResponse {
@@ -4570,6 +5015,9 @@ export interface ListSqlInjectionMatchSetsResponse {
   SqlInjectionMatchSets?: SqlInjectionMatchSetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribedRuleGroupsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code>subscribed rule groups than the value of <code>Limit</code>,
@@ -4588,6 +5036,7 @@ export interface ListSubscribedRuleGroupsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4616,6 +5065,9 @@ export interface SubscribedRuleGroupSummary {
   MetricName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribedRuleGroupsResponse {
   /**
    * <p>If you have more objects than the number that you specified for <code>Limit</code> in the request,
@@ -4631,6 +5083,9 @@ export interface ListSubscribedRuleGroupsResponse {
   RuleGroups?: SubscribedRuleGroupSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p></p>
@@ -4649,6 +5104,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4672,6 +5128,9 @@ export interface TagInfoForResource {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p></p>
@@ -4684,6 +5143,9 @@ export interface ListTagsForResourceResponse {
   TagInfoForResource?: TagInfoForResource;
 }
 
+/**
+ * @public
+ */
 export interface ListWebACLsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>WebACL</code> objects than the number that you specify
@@ -4701,6 +5163,9 @@ export interface ListWebACLsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWebACLsResponse {
   /**
    * <p>If you have more <code>WebACL</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -4717,6 +5182,7 @@ export interface ListWebACLsResponse {
 }
 
 /**
+ * @public
  * <p>A request to list the <a>XssMatchSet</a> objects created by the current AWS account.</p>
  */
 export interface ListXssMatchSetsRequest {
@@ -4737,6 +5203,7 @@ export interface ListXssMatchSetsRequest {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4766,6 +5233,7 @@ export interface XssMatchSetSummary {
 }
 
 /**
+ * @public
  * <p>The response to a <a>ListXssMatchSets</a> request.</p>
  */
 export interface ListXssMatchSetsResponse {
@@ -4783,6 +5251,9 @@ export interface ListXssMatchSetsResponse {
   XssMatchSets?: XssMatchSetSummary[];
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingConfigurationRequest {
   /**
    * <p>The Amazon Kinesis Data Firehose that contains the inspected traffic
@@ -4797,6 +5268,9 @@ export interface PutLoggingConfigurationRequest {
   LoggingConfiguration: LoggingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingConfigurationResponse {
   /**
    * <p>The <a>LoggingConfiguration</a> that you submitted in the request.</p>
@@ -4805,6 +5279,7 @@ export interface PutLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
  */
 export class WAFServiceLinkedRoleErrorException extends __BaseException {
@@ -4823,6 +5298,9 @@ export class WAFServiceLinkedRoleErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutPermissionPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.</p>
@@ -4835,9 +5313,13 @@ export interface PutPermissionPolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutPermissionPolicyResponse {}
 
 /**
+ * @public
  * <p>The operation failed because the specified policy is not in the proper format. </p>
  *          <p>The policy is subject to the following restrictions:</p>
  *          <ul>
@@ -4885,6 +5367,9 @@ export class WAFInvalidPermissionPolicyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p></p>
@@ -4897,8 +5382,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p></p>
@@ -4911,14 +5402,21 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export enum ChangeAction {
   DELETE = "DELETE",
   INSERT = "INSERT",
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4944,6 +5442,9 @@ export interface ByteMatchSetUpdate {
   ByteMatchTuple: ByteMatchTuple | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateByteMatchSetRequest {
   /**
    * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to update. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by
@@ -4981,6 +5482,9 @@ export interface UpdateByteMatchSetRequest {
   Updates: ByteMatchSetUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateByteMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateByteMatchSet</code> request. You can also use this value
@@ -4990,6 +5494,7 @@ export interface UpdateByteMatchSetResponse {
 }
 
 /**
+ * @public
  * <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p>
  * 		       <ul>
  *             <li>
@@ -5024,6 +5529,7 @@ export class WAFNonexistentContainerException extends __BaseException {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5046,6 +5552,9 @@ export interface GeoMatchSetUpdate {
   GeoMatchConstraint: GeoMatchConstraint | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGeoMatchSetRequest {
   /**
    * <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to update. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
@@ -5078,6 +5587,9 @@ export interface UpdateGeoMatchSetRequest {
   Updates: GeoMatchSetUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGeoMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateGeoMatchSet</code> request. You can also use this value
@@ -5087,6 +5599,7 @@ export interface UpdateGeoMatchSetResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5109,6 +5622,9 @@ export interface IPSetUpdate {
   IPSetDescriptor: IPSetDescriptor | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIPSetRequest {
   /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to update. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
@@ -5141,6 +5657,9 @@ export interface UpdateIPSetRequest {
   Updates: IPSetUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIPSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateIPSet</code> request. You can also use this value
@@ -5150,6 +5669,7 @@ export interface UpdateIPSetResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5174,6 +5694,9 @@ export interface RuleUpdate {
   Predicate: Predicate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRateBasedRuleRequest {
   /**
    * <p>The <code>RuleId</code> of the <code>RateBasedRule</code> that you want to update.
@@ -5201,6 +5724,9 @@ export interface UpdateRateBasedRuleRequest {
   RateLimit: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRateBasedRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
@@ -5211,6 +5737,7 @@ export interface UpdateRateBasedRuleResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5236,6 +5763,9 @@ export interface RegexMatchSetUpdate {
   RegexMatchTuple: RegexMatchTuple | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegexMatchSetRequest {
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by
@@ -5255,6 +5785,9 @@ export interface UpdateRegexMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegexMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexMatchSet</code> request. You can also use this value
@@ -5264,6 +5797,7 @@ export interface UpdateRegexMatchSetResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5287,6 +5821,9 @@ export interface RegexPatternSetUpdate {
   RegexPatternString: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegexPatternSetRequest {
   /**
    * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to update. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by
@@ -5305,6 +5842,9 @@ export interface UpdateRegexPatternSetRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegexPatternSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexPatternSet</code> request. You can also use this value
@@ -5314,6 +5854,7 @@ export interface UpdateRegexPatternSetResponse {
 }
 
 /**
+ * @public
  * <p>The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.</p>
  */
 export class WAFInvalidRegexPatternException extends __BaseException {
@@ -5332,6 +5873,9 @@ export class WAFInvalidRegexPatternException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleRequest {
   /**
    * <p>The <code>RuleId</code> of the <code>Rule</code> that you want to update. <code>RuleId</code> is returned by
@@ -5368,6 +5912,9 @@ export interface UpdateRuleRequest {
   Updates: RuleUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRule</code> request. You can also use this value
@@ -5377,6 +5924,7 @@ export interface UpdateRuleResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5403,6 +5951,9 @@ export interface RuleGroupUpdate {
   ActivatedRule: ActivatedRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleGroupRequest {
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to update. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by
@@ -5425,6 +5976,9 @@ export interface UpdateRuleGroupRequest {
   ChangeToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleGroupResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRuleGroup</code> request. You can also use this value
@@ -5434,6 +5988,7 @@ export interface UpdateRuleGroupResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5461,6 +6016,9 @@ export interface SizeConstraintSetUpdate {
   SizeConstraint: SizeConstraint | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSizeConstraintSetRequest {
   /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to update. <code>SizeConstraintSetId</code>
@@ -5498,6 +6056,9 @@ export interface UpdateSizeConstraintSetRequest {
   Updates: SizeConstraintSetUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSizeConstraintSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateSizeConstraintSet</code> request. You can also use this value
@@ -5507,6 +6068,7 @@ export interface UpdateSizeConstraintSetResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5532,6 +6094,7 @@ export interface SqlInjectionMatchSetUpdate {
 }
 
 /**
+ * @public
  * <p>A request to update a <a>SqlInjectionMatchSet</a>.</p>
  */
 export interface UpdateSqlInjectionMatchSetRequest {
@@ -5571,6 +6134,7 @@ export interface UpdateSqlInjectionMatchSetRequest {
 }
 
 /**
+ * @public
  * <p>The response to an <a>UpdateSqlInjectionMatchSets</a> request.</p>
  */
 export interface UpdateSqlInjectionMatchSetResponse {
@@ -5582,6 +6146,7 @@ export interface UpdateSqlInjectionMatchSetResponse {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5606,6 +6171,9 @@ export interface WebACLUpdate {
   ActivatedRule: ActivatedRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWebACLRequest {
   /**
    * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
@@ -5655,6 +6223,9 @@ export interface UpdateWebACLRequest {
   DefaultAction?: WafAction;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWebACLResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateWebACL</code> request. You can also use this value
@@ -5664,6 +6235,7 @@ export interface UpdateWebACLResponse {
 }
 
 /**
+ * @public
  * <p>The specified subscription does not exist.</p>
  */
 export class WAFSubscriptionNotFoundException extends __BaseException {
@@ -5683,6 +6255,7 @@ export class WAFSubscriptionNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -5710,6 +6283,7 @@ export interface XssMatchSetUpdate {
 }
 
 /**
+ * @public
  * <p>A request to update an <a>XssMatchSet</a>.</p>
  */
 export interface UpdateXssMatchSetRequest {
@@ -5751,6 +6325,7 @@ export interface UpdateXssMatchSetRequest {
 }
 
 /**
+ * @public
  * <p>The response to an <a>UpdateXssMatchSets</a> request.</p>
  */
 export interface UpdateXssMatchSetResponse {

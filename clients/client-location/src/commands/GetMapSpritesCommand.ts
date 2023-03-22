@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMapSpritesCommand}.
  */
 export interface GetMapSpritesCommandInput extends GetMapSpritesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMapSpritesCommand}.
  */
 export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a PNG
  *             image paired with a JSON document describing the offsets of individual icons that will
  *             be displayed on a rendered map.</p>
@@ -48,6 +53,8 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMapSpritesCommandInput - {@link GetMapSpritesCommandInput}
+ * @returns {@link GetMapSpritesCommandOutput}
  * @see {@link GetMapSpritesCommandInput} for command's `input` shape.
  * @see {@link GetMapSpritesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetMapSpritesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMapSpritesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetMapSpritesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMapSpritesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMapSpritesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapSpritesCommandOutput> {
     return deserializeAws_restJson1GetMapSpritesCommand(output, context);
   }

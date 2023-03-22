@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecretCommand}.
  */
 export interface UpdateSecretCommandInput extends UpdateSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecretCommand}.
  */
 export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use <a>PutSecretValue</a>.</p>
  *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.</p>
  *          <p>To change a secret so that it is managed by another service, you need to recreate the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.</p>
@@ -72,6 +77,8 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecretCommandInput - {@link UpdateSecretCommandInput}
+ * @returns {@link UpdateSecretCommandOutput}
  * @see {@link UpdateSecretCommandInput} for command's `input` shape.
  * @see {@link UpdateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -198,6 +205,9 @@ export class UpdateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -235,10 +245,16 @@ export class UpdateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecretCommandOutput> {
     return deserializeAws_json1_1UpdateSecretCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAddressBookCommand}.
  */
 export interface DeleteAddressBookCommandInput extends DeleteAddressBookRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAddressBookCommand}.
  */
 export interface DeleteAddressBookCommandOutput extends DeleteAddressBookResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an address book by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAddressBookCommandInput - {@link DeleteAddressBookCommandInput}
+ * @returns {@link DeleteAddressBookCommandOutput}
  * @see {@link DeleteAddressBookCommandInput} for command's `input` shape.
  * @see {@link DeleteAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAddressBookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAddressBookCommandOutput> {
     return deserializeAws_json1_1DeleteAddressBookCommand(output, context);
   }

@@ -29,10 +29,12 @@ import {
 import { S3OutpostsClient } from "./S3OutpostsClient";
 
 /**
+ * @public
  * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
  */
 export class S3Outposts extends S3OutpostsClient {
   /**
+   * @public
    * <p>Creates an endpoint and associates it with the specified Outpost.</p>
    *          <note>
    *             <p>It can take up to 5 minutes for this action to finish.</p>
@@ -82,6 +84,7 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an endpoint.</p>
    *          <note>
    *             <p>It can take up to 5 minutes for this action to finish.</p>
@@ -131,6 +134,7 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists endpoints associated with the specified Outpost. </p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -176,6 +180,7 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.
    *             Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user
    *             from Resource Access Manager (RAM). </p>
@@ -210,6 +215,7 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>
    *          <p>Related actions include:</p>
    *          <ul>

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1DeleteACLCommand, serializeAws_json1_1DeleteACLCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteACLCommand}.
  */
 export interface DeleteACLCommandInput extends DeleteACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteACLCommand}.
  */
 export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteACLCommandInput - {@link DeleteACLCommandInput}
+ * @returns {@link DeleteACLCommandOutput}
  * @see {@link DeleteACLCommandInput} for command's `input` shape.
  * @see {@link DeleteACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteACLCommandOutput> {
     return deserializeAws_json1_1DeleteACLCommand(output, context);
   }

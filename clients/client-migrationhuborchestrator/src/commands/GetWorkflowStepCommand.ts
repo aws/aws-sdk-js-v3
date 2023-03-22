@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkflowStepCommand}.
  */
 export interface GetWorkflowStepCommandInput extends GetWorkflowStepRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkflowStepCommand}.
  */
 export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a step in the migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowStepCommandInput - {@link GetWorkflowStepCommandInput}
+ * @returns {@link GetWorkflowStepCommandOutput}
  * @see {@link GetWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetWorkflowStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetWorkflowStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWorkflowStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowStepCommandOutput> {
     return deserializeAws_restJson1GetWorkflowStepCommand(output, context);
   }

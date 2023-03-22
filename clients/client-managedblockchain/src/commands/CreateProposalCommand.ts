@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProposalCommand}.
  */
 export interface CreateProposalCommandInput extends CreateProposalInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateProposalCommand}.
  */
 export interface CreateProposalCommandOutput extends CreateProposalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProposalCommandInput - {@link CreateProposalCommandInput}
+ * @returns {@link CreateProposalCommandOutput}
  * @see {@link CreateProposalCommandInput} for command's `input` shape.
  * @see {@link CreateProposalCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateProposalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateProposalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProposalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProposalCommandOutput> {
     return deserializeAws_restJson1CreateProposalCommand(output, context);
   }

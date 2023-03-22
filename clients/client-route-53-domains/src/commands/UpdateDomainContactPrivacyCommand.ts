@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainContactPrivacyCommand}.
  */
 export interface UpdateDomainContactPrivacyCommandInput extends UpdateDomainContactPrivacyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainContactPrivacyCommand}.
  */
 export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainContactPrivacyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation updates the specified domain contact's privacy setting. When privacy
  * 			protection is enabled, contact information such as email address is replaced either with
  * 			contact information for Amazon Registrar (for .com, .net, and .org domains) or with
@@ -68,6 +73,8 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainContactPrivacyCommandInput - {@link UpdateDomainContactPrivacyCommandInput}
+ * @returns {@link UpdateDomainContactPrivacyCommandOutput}
  * @see {@link UpdateDomainContactPrivacyCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainContactPrivacyCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -110,6 +117,9 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainContactPrivacyCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainContactPrivacyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDomainContactPrivacyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

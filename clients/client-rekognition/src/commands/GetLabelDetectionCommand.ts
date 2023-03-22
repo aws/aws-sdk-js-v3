@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLabelDetectionCommand}.
  */
 export interface GetLabelDetectionCommandInput extends GetLabelDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLabelDetectionCommand}.
  */
 export interface GetLabelDetectionCommandOutput extends GetLabelDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>.  </p>
  *          <p>The label detection operation is started by a call to <a>StartLabelDetection</a> which returns a job identifier (<code>JobId</code>). When
  *       the label detection operation finishes, Amazon Rekognition publishes a completion status to the
@@ -111,6 +116,8 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLabelDetectionCommandInput - {@link GetLabelDetectionCommandInput}
+ * @returns {@link GetLabelDetectionCommandOutput}
  * @see {@link GetLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link GetLabelDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -157,6 +164,9 @@ export class GetLabelDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLabelDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class GetLabelDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLabelDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLabelDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLabelDetectionCommandOutput> {
     return deserializeAws_json1_1GetLabelDetectionCommand(output, context);
   }

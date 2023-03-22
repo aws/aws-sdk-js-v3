@@ -10,7 +10,7 @@ import { IvschatClient } from "../IvschatClient";
 import { IvschatPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IvschatClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListLoggingConfigurationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListLoggingConfigurations(
   config: IvschatPaginationConfiguration,
   input: ListLoggingConfigurationsCommandInput,

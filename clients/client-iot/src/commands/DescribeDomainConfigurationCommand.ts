@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainConfigurationCommand}.
  */
 export interface DescribeDomainConfigurationCommandInput extends DescribeDomainConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainConfigurationCommand}.
  */
 export interface DescribeDomainConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDomainConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about a domain configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDomainConfiguration</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeDomainConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainConfigurationCommandInput - {@link DescribeDomainConfigurationCommandInput}
+ * @returns {@link DescribeDomainConfigurationCommandOutput}
  * @see {@link DescribeDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeDomainConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeDomainConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDomainConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

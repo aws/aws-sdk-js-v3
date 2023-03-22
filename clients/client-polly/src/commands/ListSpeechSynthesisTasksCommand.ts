@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSpeechSynthesisTasksCommand}.
  */
 export interface ListSpeechSynthesisTasksCommandInput extends ListSpeechSynthesisTasksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSpeechSynthesisTasksCommand}.
  */
 export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthesisTasksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of SpeechSynthesisTask objects ordered by their
  *       creation date. This operation can filter the tasks by their status, for
  *       example, allowing users to list only tasks that are completed.</p>
@@ -48,6 +53,8 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSpeechSynthesisTasksCommandInput - {@link ListSpeechSynthesisTasksCommandInput}
+ * @returns {@link ListSpeechSynthesisTasksCommandOutput}
  * @see {@link ListSpeechSynthesisTasksCommandInput} for command's `input` shape.
  * @see {@link ListSpeechSynthesisTasksCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSpeechSynthesisTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSpeechSynthesisTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSpeechSynthesisTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpeechSynthesisTasksCommandOutput> {
     return deserializeAws_restJson1ListSpeechSynthesisTasksCommand(output, context);
   }

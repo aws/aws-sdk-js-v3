@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRoutingControlCommand}.
  */
 export interface DescribeRoutingControlCommandInput extends DescribeRoutingControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRoutingControlCommand}.
  */
 export interface DescribeRoutingControlCommandOutput extends DescribeRoutingControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays details about a routing control. A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control routing.</p> <p>To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRoutingControlCommandInput - {@link DescribeRoutingControlCommandInput}
+ * @returns {@link DescribeRoutingControlCommandOutput}
  * @see {@link DescribeRoutingControlCommandInput} for command's `input` shape.
  * @see {@link DescribeRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeRoutingControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRoutingControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeRoutingControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRoutingControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRoutingControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoutingControlCommandOutput> {
     return deserializeAws_restJson1DescribeRoutingControlCommand(output, context);
   }

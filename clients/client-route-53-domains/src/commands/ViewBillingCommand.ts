@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ViewBillingCommand}.
  */
 export interface ViewBillingCommandInput extends ViewBillingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ViewBillingCommand}.
  */
 export interface ViewBillingCommandOutput extends ViewBillingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all the domain-related billing records for the current Amazon Web Services account for a specified period</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ViewBillingCommandInput - {@link ViewBillingCommandInput}
+ * @returns {@link ViewBillingCommandOutput}
  * @see {@link ViewBillingCommandInput} for command's `input` shape.
  * @see {@link ViewBillingCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -75,6 +82,9 @@ export class ViewBillingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ViewBillingCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ViewBillingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ViewBillingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ViewBillingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ViewBillingCommandOutput> {
     return deserializeAws_json1_1ViewBillingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventStreamCommand}.
  */
 export interface PutEventStreamCommandInput extends PutEventStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventStreamCommand}.
  */
 export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventStreamCommandInput - {@link PutEventStreamCommandInput}
+ * @returns {@link PutEventStreamCommandOutput}
  * @see {@link PutEventStreamCommandInput} for command's `input` shape.
  * @see {@link PutEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutEventStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutEventStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutEventStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventStreamCommandOutput> {
     return deserializeAws_restJson1PutEventStreamCommand(output, context);
   }

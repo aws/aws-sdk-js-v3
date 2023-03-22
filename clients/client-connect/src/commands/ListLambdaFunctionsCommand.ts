@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLambdaFunctionsCommand}.
  */
 export interface ListLambdaFunctionsCommandInput extends ListLambdaFunctionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLambdaFunctionsCommand}.
  */
 export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
  *    relevant flow blocks.</p>
@@ -48,6 +53,8 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLambdaFunctionsCommandInput - {@link ListLambdaFunctionsCommandInput}
+ * @returns {@link ListLambdaFunctionsCommandOutput}
  * @see {@link ListLambdaFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListLambdaFunctionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListLambdaFunctionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLambdaFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListLambdaFunctionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLambdaFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLambdaFunctionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLambdaFunctionsCommandOutput> {
     return deserializeAws_restJson1ListLambdaFunctionsCommand(output, context);
   }

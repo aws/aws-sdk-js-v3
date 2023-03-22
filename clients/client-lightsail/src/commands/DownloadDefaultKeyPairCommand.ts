@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DownloadDefaultKeyPairCommand}.
  */
 export interface DownloadDefaultKeyPairCommandInput extends DownloadDefaultKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link DownloadDefaultKeyPairCommand}.
  */
 export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads the regional Amazon Lightsail default key pair.</p>
  *          <p>This action also creates a Lightsail default key pair if a default key pair
  *       does not currently exist in the Amazon Web Services Region.</p>
@@ -48,6 +53,8 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * const response = await client.send(command);
  * ```
  *
+ * @param DownloadDefaultKeyPairCommandInput - {@link DownloadDefaultKeyPairCommandInput}
+ * @returns {@link DownloadDefaultKeyPairCommandOutput}
  * @see {@link DownloadDefaultKeyPairCommandInput} for command's `input` shape.
  * @see {@link DownloadDefaultKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DownloadDefaultKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DownloadDefaultKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DownloadDefaultKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DownloadDefaultKeyPairCommandOutput> {
     return deserializeAws_json1_1DownloadDefaultKeyPairCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMembershipCommand}.
  */
 export interface DeleteMembershipCommandInput extends DeleteMembershipInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMembershipCommand}.
  */
 export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified membership. All resources under a membership must be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMembershipCommandInput - {@link DeleteMembershipCommandInput}
+ * @returns {@link DeleteMembershipCommandOutput}
  * @see {@link DeleteMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMembershipCommandOutput> {
     return deserializeAws_restJson1DeleteMembershipCommand(output, context);
   }

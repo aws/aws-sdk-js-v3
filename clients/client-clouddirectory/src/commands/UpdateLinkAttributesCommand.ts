@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLinkAttributesCommand}.
  */
 export interface UpdateLinkAttributesCommandInput extends UpdateLinkAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLinkAttributesCommand}.
  */
 export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLinkAttributesCommandInput - {@link UpdateLinkAttributesCommandInput}
+ * @returns {@link UpdateLinkAttributesCommandOutput}
  * @see {@link UpdateLinkAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateLinkAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLinkAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateLinkAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLinkAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLinkAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLinkAttributesCommandOutput> {
     return deserializeAws_restJson1UpdateLinkAttributesCommand(output, context);
   }

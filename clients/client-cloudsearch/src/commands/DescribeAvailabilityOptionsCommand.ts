@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAvailabilityOptionsCommand}.
  */
 export interface DescribeAvailabilityOptionsCommandInput extends DescribeAvailabilityOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAvailabilityOptionsCommand}.
  */
 export interface DescribeAvailabilityOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAvailabilityOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html" target="_blank">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAvailabilityOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAvailabilityOptionsCommandInput - {@link DescribeAvailabilityOptionsCommandInput}
+ * @returns {@link DescribeAvailabilityOptionsCommandOutput}
  * @see {@link DescribeAvailabilityOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAvailabilityOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAvailabilityOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAvailabilityOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

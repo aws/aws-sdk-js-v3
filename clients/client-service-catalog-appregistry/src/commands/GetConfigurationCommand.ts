@@ -25,15 +25,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Retrieves a <code>TagKey</code> configuration
  *       from an account.
@@ -48,6 +53,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
+ * @returns {@link GetConfigurationCommandOutput}
  * @see {@link GetConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationCommandOutput> {
     return deserializeAws_restJson1GetConfigurationCommand(output, context);
   }

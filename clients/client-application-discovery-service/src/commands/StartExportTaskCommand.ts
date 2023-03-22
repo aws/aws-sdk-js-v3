@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartExportTaskCommand}.
  */
 export interface StartExportTaskCommandInput extends StartExportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartExportTaskCommand}.
  */
 export interface StartExportTaskCommandOutput extends StartExportTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Begins the export of discovered data to an S3 bucket.</p>
  *          <p> If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of
  *       detailed data collected by the identified Application Discovery Agent, including network,
@@ -58,6 +63,8 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExportTaskCommandInput - {@link StartExportTaskCommandInput}
+ * @returns {@link StartExportTaskCommandOutput}
  * @see {@link StartExportTaskCommandInput} for command's `input` shape.
  * @see {@link StartExportTaskCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -101,6 +108,9 @@ export class StartExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class StartExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportTaskCommandOutput> {
     return deserializeAws_json1_1StartExportTaskCommand(output, context);
   }

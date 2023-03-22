@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceSummaryByConfigRuleCommand}.
  */
 export interface GetComplianceSummaryByConfigRuleCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceSummaryByConfigRuleCommand}.
  */
 export interface GetComplianceSummaryByConfigRuleCommandOutput
@@ -35,6 +39,7 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of Config rules that are compliant and
  * 			noncompliant, up to a maximum of 25 for each.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceSummaryByConfigRuleCommandInput - {@link GetComplianceSummaryByConfigRuleCommandInput}
+ * @returns {@link GetComplianceSummaryByConfigRuleCommandOutput}
  * @see {@link GetComplianceSummaryByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -70,6 +77,9 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceSummaryByConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,6 +119,9 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetComplianceSummaryByConfigRuleCommandInput,
     context: __SerdeContext
@@ -116,6 +129,9 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     return serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

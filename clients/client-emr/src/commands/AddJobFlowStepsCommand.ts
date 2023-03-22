@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddJobFlowStepsCommand}.
  */
 export interface AddJobFlowStepsCommandInput extends AddJobFlowStepsInput {}
 /**
+ * @public
+ *
  * The output of {@link AddJobFlowStepsCommand}.
  */
 export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed
  *          in each job flow.</p>
  *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
@@ -64,6 +69,8 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param AddJobFlowStepsCommandInput - {@link AddJobFlowStepsCommandInput}
+ * @returns {@link AddJobFlowStepsCommandOutput}
  * @see {@link AddJobFlowStepsCommandInput} for command's `input` shape.
  * @see {@link AddJobFlowStepsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -91,6 +98,9 @@ export class AddJobFlowStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddJobFlowStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AddJobFlowStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddJobFlowStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddJobFlowStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddJobFlowStepsCommandOutput> {
     return deserializeAws_json1_1AddJobFlowStepsCommand(output, context);
   }

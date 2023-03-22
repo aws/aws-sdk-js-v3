@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendMessageCommand}.
  */
 export interface SendMessageCommandInput extends SendMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendMessageCommand}.
  */
 export interface SendMessageCommandOutput extends SendMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a message.</p>
  *          <note>
  *             <p>
@@ -57,6 +62,8 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param SendMessageCommandInput - {@link SendMessageCommandInput}
+ * @returns {@link SendMessageCommandOutput}
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -92,6 +99,9 @@ export class SendMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SendMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageCommandOutput> {
     return deserializeAws_restJson1SendMessageCommand(output, context);
   }

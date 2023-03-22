@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DefineAnalysisSchemeCommand}.
  */
 export interface DefineAnalysisSchemeCommandInput extends DefineAnalysisSchemeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DefineAnalysisSchemeCommand}.
  */
 export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures an analysis scheme that can be applied to a <code>text</code> or <code>text-array</code> field to define language-specific text processing options. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html" target="_blank">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeR
  * const response = await client.send(command);
  * ```
  *
+ * @param DefineAnalysisSchemeCommandInput - {@link DefineAnalysisSchemeCommandInput}
+ * @returns {@link DefineAnalysisSchemeCommandOutput}
  * @see {@link DefineAnalysisSchemeCommandInput} for command's `input` shape.
  * @see {@link DefineAnalysisSchemeCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -88,6 +95,9 @@ export class DefineAnalysisSchemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DefineAnalysisSchemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DefineAnalysisSchemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DefineAnalysisSchemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDefineAnalysisSchemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineAnalysisSchemeCommandOutput> {
     return deserializeAws_queryDefineAnalysisSchemeCommand(output, context);
   }

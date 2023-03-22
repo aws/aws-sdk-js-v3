@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstancesCommand}.
  */
 export interface CreateInstancesCommandInput extends CreateInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstancesCommand}.
  */
 export interface CreateInstancesCommandOutput extends CreateInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more Amazon Lightsail instances.</p>
  *          <p>The <code>create instances</code> operation supports tag-based access control via request
  *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstancesCommandInput - {@link CreateInstancesCommandInput}
+ * @returns {@link CreateInstancesCommandOutput}
  * @see {@link CreateInstancesCommandInput} for command's `input` shape.
  * @see {@link CreateInstancesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstancesCommandOutput> {
     return deserializeAws_json1_1CreateInstancesCommand(output, context);
   }

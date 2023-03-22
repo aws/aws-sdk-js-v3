@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SagemakerEdgeServiceException as __BaseException } from "./SagemakerEdgeServiceException";
 
+/**
+ * @public
+ */
 export interface GetDeploymentsRequest {
   /**
    * <p>The unique name of the device you want to get the configuration of active deployments from.</p>
@@ -15,11 +18,15 @@ export interface GetDeploymentsRequest {
   DeviceFleetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ChecksumType {
   Sha1 = "SHA1",
 }
 
 /**
+ * @public
  * <p>Information about the checksum of a model deployed on a device.</p>
  */
 export interface Checksum {
@@ -34,12 +41,16 @@ export interface Checksum {
   Sum?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelState {
   Deploy = "DEPLOY",
   Undeploy = "UNDEPLOY",
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface Definition {
@@ -64,16 +75,23 @@ export interface Definition {
   State?: ModelState | string;
 }
 
+/**
+ * @public
+ */
 export enum FailureHandlingPolicy {
   DoNothing = "DO_NOTHING",
   RollbackOnFailure = "ROLLBACK_ON_FAILURE",
 }
 
+/**
+ * @public
+ */
 export enum DeploymentType {
   Model = "Model",
 }
 
 /**
+ * @public
  * <p>Information about a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
  */
 export interface EdgeDeployment {
@@ -98,6 +116,9 @@ export interface EdgeDeployment {
   Definitions?: Definition[];
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentsResult {
   /**
    * <p>Returns a list of the configurations of the active deployments on the device.</p>
@@ -106,6 +127,7 @@ export interface GetDeploymentsResult {
 }
 
 /**
+ * @public
  * <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact Amazon Web Services customer support.</p>
  */
@@ -127,6 +149,9 @@ export class InternalServiceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceRegistrationRequest {
   /**
    * <p>The unique name of the device you want to get the registration status from.</p>
@@ -139,6 +164,9 @@ export interface GetDeviceRegistrationRequest {
   DeviceFleetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceRegistrationResult {
   /**
    * <p>Describes if the device is currently registered with SageMaker Edge Manager.</p>
@@ -152,6 +180,7 @@ export interface GetDeviceRegistrationResult {
 }
 
 /**
+ * @public
  * <p>Information required for edge device metrics.</p>
  */
 export interface EdgeMetric {
@@ -176,12 +205,16 @@ export interface EdgeMetric {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentStatus {
   Fail = "FAIL",
   Success = "SUCCESS",
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeploymentModel {
@@ -227,6 +260,7 @@ export interface DeploymentModel {
 }
 
 /**
+ * @public
  * <p>Information about the result of a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
  */
 export interface DeploymentResult {
@@ -262,6 +296,7 @@ export interface DeploymentResult {
 }
 
 /**
+ * @public
  * <p>Information about a model deployed on an edge device that is registered with SageMaker Edge Manager.</p>
  */
 export interface Model {
@@ -291,6 +326,9 @@ export interface Model {
   ModelMetrics?: EdgeMetric[];
 }
 
+/**
+ * @public
+ */
 export interface SendHeartbeatRequest {
   /**
    * <p>For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.</p>

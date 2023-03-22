@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobExecutionsForJobCommand}.
  */
 export interface ListJobExecutionsForJobCommandInput extends ListJobExecutionsForJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobExecutionsForJobCommand}.
  */
 export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsForJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the job executions for a job.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForJob</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsF
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobExecutionsForJobCommandInput - {@link ListJobExecutionsForJobCommandInput}
+ * @returns {@link ListJobExecutionsForJobCommandOutput}
  * @see {@link ListJobExecutionsForJobCommandInput} for command's `input` shape.
  * @see {@link ListJobExecutionsForJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListJobExecutionsForJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobExecutionsForJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListJobExecutionsForJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobExecutionsForJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobExecutionsForJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobExecutionsForJobCommandOutput> {
     return deserializeAws_restJson1ListJobExecutionsForJobCommand(output, context);
   }

@@ -10,7 +10,7 @@ import { LocationClient } from "../LocationClient";
 import { LocationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LocationClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDevicePositionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDevicePositions(
   config: LocationPaginationConfiguration,
   input: ListDevicePositionsCommandInput,

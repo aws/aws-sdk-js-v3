@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImageVersionCommand}.
  */
 export interface DeleteImageVersionCommandInput extends DeleteImageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImageVersionCommand}.
  */
 export interface DeleteImageVersionCommandOutput extends DeleteImageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a version of a SageMaker image. The container image the version represents isn't
  *         deleted.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageVersionCommandInput - {@link DeleteImageVersionCommandInput}
+ * @returns {@link DeleteImageVersionCommandOutput}
  * @see {@link DeleteImageVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteImageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteImageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteImageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageVersionCommandOutput> {
     return deserializeAws_json1_1DeleteImageVersionCommand(output, context);
   }

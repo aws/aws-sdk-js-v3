@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBillingGroupCommand}.
  */
 export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBillingGroupCommand}.
  */
 export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a billing group.
  *     </p>
@@ -48,6 +53,8 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
+ * @returns {@link DeleteBillingGroupCommandOutput}
  * @see {@link DeleteBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBillingGroupCommandOutput> {
     return deserializeAws_restJson1DeleteBillingGroupCommand(output, context);
   }

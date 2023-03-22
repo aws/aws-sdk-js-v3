@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMulticastGroupCommand}.
  */
 export interface UpdateMulticastGroupCommandInput extends UpdateMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMulticastGroupCommand}.
  */
 export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties of a multicast group session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMulticastGroupCommandInput - {@link UpdateMulticastGroupCommandInput}
+ * @returns {@link UpdateMulticastGroupCommandOutput}
  * @see {@link UpdateMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateMulticastGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateMulticastGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMulticastGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMulticastGroupCommandOutput> {
     return deserializeAws_restJson1UpdateMulticastGroupCommand(output, context);
   }

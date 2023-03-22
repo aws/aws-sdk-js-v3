@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVpcLinkCommand}.
  */
 export interface UpdateVpcLinkCommandInput extends UpdateVpcLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVpcLinkCommand}.
  */
 export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing VpcLink of a specified identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcLinkCommandInput - {@link UpdateVpcLinkCommandInput}
+ * @returns {@link UpdateVpcLinkCommandOutput}
  * @see {@link UpdateVpcLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateVpcLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateVpcLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVpcLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcLinkCommandOutput> {
     return deserializeAws_restJson1UpdateVpcLinkCommand(output, context);
   }

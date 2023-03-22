@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoreDevicesCommand}.
  */
 export interface ListCoreDevicesCommandInput extends ListCoreDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoreDevicesCommand}.
  */
 export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of Greengrass core devices.</p>
  *          <note>
  *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
@@ -73,6 +78,8 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreDevicesCommandInput - {@link ListCoreDevicesCommandInput}
+ * @returns {@link ListCoreDevicesCommandOutput}
  * @see {@link ListCoreDevicesCommandInput} for command's `input` shape.
  * @see {@link ListCoreDevicesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -110,6 +117,9 @@ export class ListCoreDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class ListCoreDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCoreDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoreDevicesCommandOutput> {
     return deserializeAws_restJson1ListCoreDevicesCommand(output, context);
   }

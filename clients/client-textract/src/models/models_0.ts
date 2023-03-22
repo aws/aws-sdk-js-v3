@@ -7,6 +7,7 @@ import {
 import { TextractServiceException as __BaseException } from "./TextractServiceException";
 
 /**
+ * @public
  * <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
  *             of an authorized user or IAM role to perform the operation.</p>
  */
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The S3 bucket name and file name that identifies the document.</p>
  *          <p>The AWS Region for the S3 bucket that contains the document must match the Region that
  *          you use for Amazon Textract operations.</p>
@@ -60,6 +62,7 @@ export interface S3Object {
 }
 
 /**
+ * @public
  * <p>The input document, either as bytes or as an S3 object.</p>
  *          <p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code>
  *          property. For example, you would use the <code>Bytes</code> property to pass a document
@@ -94,6 +97,9 @@ export interface Document {
   S3Object?: S3Object;
 }
 
+/**
+ * @public
+ */
 export enum FeatureType {
   FORMS = "FORMS",
   QUERIES = "QUERIES",
@@ -101,12 +107,16 @@ export enum FeatureType {
   TABLES = "TABLES",
 }
 
+/**
+ * @public
+ */
 export enum ContentClassifier {
   FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
   FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
 }
 
 /**
+ * @public
  * <p>Allows you to set attributes of the image. Currently, you can declare an image as free
  *          of personally identifiable information and adult content. </p>
  */
@@ -119,6 +129,7 @@ export interface HumanLoopDataAttributes {
 }
 
 /**
+ * @public
  * <p>Sets up the human review workflow the document will be sent to if one of the conditions
  *          is met. You can also set certain attributes of the image before review. </p>
  */
@@ -141,6 +152,7 @@ export interface HumanLoopConfig {
 }
 
 /**
+ * @public
  * <p>Each query contains the question you want to ask in the Text and the alias you want to associate.</p>
  */
 export interface Query {
@@ -181,6 +193,7 @@ export interface Query {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface QueriesConfig {
@@ -190,6 +203,9 @@ export interface QueriesConfig {
   Queries: Query[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeDocumentRequest {
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS
@@ -223,6 +239,9 @@ export interface AnalyzeDocumentRequest {
   QueriesConfig?: QueriesConfig;
 }
 
+/**
+ * @public
+ */
 export enum BlockType {
   CELL = "CELL",
   KEY_VALUE_SET = "KEY_VALUE_SET",
@@ -238,6 +257,9 @@ export enum BlockType {
   WORD = "WORD",
 }
 
+/**
+ * @public
+ */
 export enum EntityType {
   COLUMN_HEADER = "COLUMN_HEADER",
   KEY = "KEY",
@@ -245,6 +267,7 @@ export enum EntityType {
 }
 
 /**
+ * @public
  * <p>The bounding box around the detected page, text, key-value pair, table, table cell, or
  *          selection element on a document page. The <code>left</code> (x-coordinate) and
  *             <code>top</code> (y-coordinate) are coordinates that represent the top and left sides of
@@ -285,6 +308,7 @@ export interface BoundingBox {
 }
 
 /**
+ * @public
  * <p>The X and Y coordinates of a point on a document page. The X and Y
  *          values that are returned are ratios of the overall document page size. For example, if the
  *          input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is
@@ -308,6 +332,7 @@ export interface Point {
 }
 
 /**
+ * @public
  * <p>Information about where the following items are located on a document page: detected
  *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
  */
@@ -324,6 +349,9 @@ export interface Geometry {
   Polygon?: Point[];
 }
 
+/**
+ * @public
+ */
 export enum RelationshipType {
   ANSWER = "ANSWER",
   CHILD = "CHILD",
@@ -334,6 +362,7 @@ export enum RelationshipType {
 }
 
 /**
+ * @public
  * <p>Information about how blocks are related to each other. A <code>Block</code> object
  *          contains 0 or more <code>Relation</code> objects in a list, <code>Relationships</code>. For
  *          more information, see <a>Block</a>.</p>
@@ -359,17 +388,24 @@ export interface Relationship {
   Ids?: string[];
 }
 
+/**
+ * @public
+ */
 export enum SelectionStatus {
   NOT_SELECTED = "NOT_SELECTED",
   SELECTED = "SELECTED",
 }
 
+/**
+ * @public
+ */
 export enum TextType {
   HANDWRITING = "HANDWRITING",
   PRINTED = "PRINTED",
 }
 
 /**
+ * @public
  * <p>A <code>Block</code> represents items that are recognized in a document within a group
  *          of pixels close to each other. The information returned in a <code>Block</code> object
  *          depends on the type of operation. In text detection for documents (for example <a>DetectDocumentText</a>), you get information about the detected words and lines
@@ -582,6 +618,7 @@ export interface Block {
 }
 
 /**
+ * @public
  * <p>Information about the input document.</p>
  */
 export interface DocumentMetadata {
@@ -592,6 +629,7 @@ export interface DocumentMetadata {
 }
 
 /**
+ * @public
  * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the
  *          input did not trigger human review.</p>
  */
@@ -613,6 +651,9 @@ export interface HumanLoopActivationOutput {
   HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeDocumentResponse {
   /**
    * <p>Metadata about the analyzed document. An example is the number of pages.</p>
@@ -636,6 +677,7 @@ export interface AnalyzeDocumentResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Textract isn't able to read the document. For more information on the document
  *          limits in Amazon Textract, see <a>limits</a>.</p>
  */
@@ -660,6 +702,7 @@ export class BadDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The document can't be processed because it's too large. The maximum document size for
  *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
  *          MB for PDF files.</p>
@@ -685,6 +728,7 @@ export class DocumentTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
  */
 export class HumanLoopQuotaExceededException extends __BaseException {
@@ -726,6 +770,7 @@ export class HumanLoopQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Textract experienced a service issue. Try your call again.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -749,6 +794,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input parameter violated a constraint. For example, in synchronous operations,
  *        an <code>InvalidParameterException</code> exception occurs
  *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
@@ -776,6 +822,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Textract is unable to access the S3 object that's specified in the request.
  *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
  *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
@@ -802,6 +849,7 @@ export class InvalidS3ObjectException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
  *          contact Amazon Textract.</p>
  */
@@ -826,6 +874,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -849,6 +898,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  */
@@ -872,6 +922,9 @@ export class UnsupportedDocumentException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeExpenseRequest {
   /**
    * <p>The input document, either as bytes or as an S3 object.</p>
@@ -896,6 +949,7 @@ export interface AnalyzeExpenseRequest {
 }
 
 /**
+ * @public
  * <p>Returns the kind of currency detected.</p>
  */
 export interface ExpenseCurrency {
@@ -949,6 +1003,7 @@ export interface ExpenseCurrency {
 }
 
 /**
+ * @public
  * <p>Shows the group that a certain key belongs to. This helps differentiate between
  *          names and addresses for different organizations, that can be hard to determine
  *          via JSON response.</p>
@@ -966,6 +1021,7 @@ export interface ExpenseGroupProperty {
 }
 
 /**
+ * @public
  * <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
  */
 export interface ExpenseDetection {
@@ -987,6 +1043,7 @@ export interface ExpenseDetection {
 }
 
 /**
+ * @public
  * <p>An object used to store information about the Type detected by Amazon Textract.</p>
  */
 export interface ExpenseType {
@@ -1002,6 +1059,7 @@ export interface ExpenseType {
 }
 
 /**
+ * @public
  * <p>Breakdown of detected information, seperated into
  *          the catagories Type, LabelDetection, and ValueDetection</p>
  */
@@ -1040,6 +1098,7 @@ export interface ExpenseField {
 }
 
 /**
+ * @public
  * <p>A structure that holds information about the different lines found in a document's tables.</p>
  */
 export interface LineItemFields {
@@ -1050,6 +1109,7 @@ export interface LineItemFields {
 }
 
 /**
+ * @public
  * <p>A grouping of tables which contain LineItems, with each table identified by the table's <code>LineItemGroupIndex</code>.</p>
  */
 export interface LineItemGroup {
@@ -1065,6 +1125,7 @@ export interface LineItemGroup {
 }
 
 /**
+ * @public
  * <p>The structure holding all the information returned by AnalyzeExpense</p>
  */
 export interface ExpenseDocument {
@@ -1091,6 +1152,9 @@ export interface ExpenseDocument {
   Blocks?: Block[];
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeExpenseResponse {
   /**
    * <p>Information about the input document.</p>
@@ -1103,6 +1167,9 @@ export interface AnalyzeExpenseResponse {
   ExpenseDocuments?: ExpenseDocument[];
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeIDRequest {
   /**
    * <p>The document being passed to AnalyzeID.</p>
@@ -1110,11 +1177,15 @@ export interface AnalyzeIDRequest {
   DocumentPages: Document[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValueType {
   DATE = "DATE",
 }
 
 /**
+ * @public
  * <p>Contains information relating to dates in a document, including the type
  *          of value, and the value.</p>
  */
@@ -1131,6 +1202,7 @@ export interface NormalizedValue {
 }
 
 /**
+ * @public
  * <p>Used to contain the information detected by an AnalyzeID operation.</p>
  */
 export interface AnalyzeIDDetections {
@@ -1152,6 +1224,7 @@ export interface AnalyzeIDDetections {
 }
 
 /**
+ * @public
  * <p>Structure containing both the normalized type of the extracted information
  *          and the text associated with it. These are extracted as Type and Value respectively.</p>
  */
@@ -1168,6 +1241,7 @@ export interface IdentityDocumentField {
 }
 
 /**
+ * @public
  * <p>The structure that lists each document processed in an AnalyzeID operation.</p>
  */
 export interface IdentityDocument {
@@ -1189,6 +1263,9 @@ export interface IdentityDocument {
   Blocks?: Block[];
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeIDResponse {
   /**
    * <p>The list of documents processed by AnalyzeID. Includes a number denoting their place in
@@ -1207,6 +1284,9 @@ export interface AnalyzeIDResponse {
   AnalyzeIDModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DetectDocumentTextRequest {
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
@@ -1218,6 +1298,9 @@ export interface DetectDocumentTextRequest {
   Document: Document | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectDocumentTextResponse {
   /**
    * <p>Metadata about the document. It contains the number of pages that are detected in the
@@ -1238,6 +1321,7 @@ export interface DetectDocumentTextResponse {
 }
 
 /**
+ * @public
  * <p>A structure that holds information regarding a detected signature on a page.</p>
  */
 export interface DetectedSignature {
@@ -1248,6 +1332,7 @@ export interface DetectedSignature {
 }
 
 /**
+ * @public
  * <p>Contains information about the pages of a document, defined by logical boundary.</p>
  */
 export interface SplitDocument {
@@ -1263,6 +1348,7 @@ export interface SplitDocument {
 }
 
 /**
+ * @public
  * <p>A structure containing information about an undetected signature on a page where it was expected but not found.</p>
  */
 export interface UndetectedSignature {
@@ -1273,6 +1359,7 @@ export interface UndetectedSignature {
 }
 
 /**
+ * @public
  * <p>Summary information about documents grouped by the same document type.</p>
  */
 export interface DocumentGroup {
@@ -1298,6 +1385,7 @@ export interface DocumentGroup {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
  *          operations.</p>
  *          <p>The input document can be an image file in JPEG or PNG format. It can also be a file in
@@ -1311,6 +1399,7 @@ export interface DocumentLocation {
 }
 
 /**
+ * @public
  * <p>The results extracted for a lending document.</p>
  */
 export interface LendingDetection {
@@ -1337,6 +1426,7 @@ export interface LendingDetection {
 }
 
 /**
+ * @public
  * <p>Holds the normalized key-value pairs returned by AnalyzeDocument, including the document type, detected text, and geometry.</p>
  */
 export interface LendingField {
@@ -1357,6 +1447,7 @@ export interface LendingField {
 }
 
 /**
+ * @public
  * <p>Information regarding a detected signature on a page.</p>
  */
 export interface SignatureDetection {
@@ -1373,6 +1464,7 @@ export interface SignatureDetection {
 }
 
 /**
+ * @public
  * <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
  */
 export interface LendingDocument {
@@ -1388,6 +1480,7 @@ export interface LendingDocument {
 }
 
 /**
+ * @public
  * <p>Contains information extracted by an analysis operation after using StartLendingAnalysis.</p>
  */
 export interface Extraction {
@@ -1407,6 +1500,9 @@ export interface Extraction {
   IdentityDocument?: IdentityDocument;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentAnalysisRequest {
   /**
    * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
@@ -1430,6 +1526,9 @@ export interface GetDocumentAnalysisRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1438,6 +1537,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p>A warning about an issue that occurred during asynchronous text analysis (<a>StartDocumentAnalysis</a>) or asynchronous document text detection (<a>StartDocumentTextDetection</a>). </p>
  */
 export interface Warning {
@@ -1452,6 +1552,9 @@ export interface Warning {
   Pages?: number[];
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentAnalysisResponse {
   /**
    * <p>Information about a document that Amazon Textract processed.
@@ -1494,6 +1597,7 @@ export interface GetDocumentAnalysisResponse {
 }
 
 /**
+ * @public
  * <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
  */
 export class InvalidJobIdException extends __BaseException {
@@ -1517,6 +1621,7 @@ export class InvalidJobIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
  *         was entered incorrectly. </p>
  */
@@ -1540,6 +1645,9 @@ export class InvalidKMSKeyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentTextDetectionRequest {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -1561,6 +1669,9 @@ export interface GetDocumentTextDetectionRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentTextDetectionResponse {
   /**
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
@@ -1601,6 +1712,9 @@ export interface GetDocumentTextDetectionResponse {
   DetectDocumentTextModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExpenseAnalysisRequest {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -1622,6 +1736,9 @@ export interface GetExpenseAnalysisRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExpenseAnalysisResponse {
   /**
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
@@ -1662,6 +1779,9 @@ export interface GetExpenseAnalysisResponse {
   AnalyzeExpenseModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisRequest {
   /**
    * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is
@@ -1686,6 +1806,7 @@ export interface GetLendingAnalysisRequest {
 }
 
 /**
+ * @public
  * <p>Contains information regarding predicted values returned by Amazon Textract operations, including the
  *          predicted value and the confidence in the predicted value.</p>
  */
@@ -1702,6 +1823,7 @@ export interface Prediction {
 }
 
 /**
+ * @public
  * <p>The class assigned to a Page object detected in an input document.
  *          Contains information regarding the predicted type/class of a document's page and the
  *          page number that the Page object was detected on.</p>
@@ -1720,6 +1842,7 @@ export interface PageClassification {
 }
 
 /**
+ * @public
  * <p>Contains the detections for each page analyzed through the Analyze Lending API.</p>
  */
 export interface LendingResult {
@@ -1739,6 +1862,9 @@ export interface LendingResult {
   Extractions?: Extraction[];
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisResponse {
   /**
    * <p>Information about the input document.</p>
@@ -1779,6 +1905,9 @@ export interface GetLendingAnalysisResponse {
   AnalyzeLendingModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisSummaryRequest {
   /**
    * <p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is
@@ -1788,6 +1917,7 @@ export interface GetLendingAnalysisSummaryRequest {
 }
 
 /**
+ * @public
  * <p>Contains information regarding DocumentGroups and UndetectedDocumentTypes.</p>
  */
 export interface LendingSummary {
@@ -1802,6 +1932,9 @@ export interface LendingSummary {
   UndetectedDocumentTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisSummaryResponse {
   /**
    * <p>Information about the input document.</p>
@@ -1836,6 +1969,7 @@ export interface GetLendingAnalysisSummaryResponse {
 }
 
 /**
+ * @public
  * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
  *          least one of the other input parameters is different from the previous call to the
  *          operation. </p>
@@ -1861,6 +1995,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
  *          asynchronous jobs concurrently, calls to start operations
  *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
@@ -1888,6 +2023,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of
  *          an asynchronous document operation. </p>
  */
@@ -1904,6 +2040,7 @@ export interface NotificationChannel {
 }
 
 /**
+ * @public
  * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
  *          of the bucket, and the prefix on the output file.</p>
  *          <p>
@@ -1935,6 +2072,9 @@ export interface OutputConfig {
   S3Prefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentAnalysisRequest {
   /**
    * <p>The location of the document to be processed.</p>
@@ -1995,6 +2135,9 @@ export interface StartDocumentAnalysisRequest {
   QueriesConfig?: QueriesConfig;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentAnalysisResponse {
   /**
    * <p>The identifier for the document text detection job. Use <code>JobId</code> to identify
@@ -2004,6 +2147,9 @@ export interface StartDocumentAnalysisResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentTextDetectionRequest {
   /**
    * <p>The location of the document to be processed.</p>
@@ -2049,6 +2195,9 @@ export interface StartDocumentTextDetectionRequest {
   KMSKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentTextDetectionResponse {
   /**
    * <p>The identifier of the text detection job for the document. Use <code>JobId</code> to
@@ -2058,6 +2207,9 @@ export interface StartDocumentTextDetectionResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExpenseAnalysisRequest {
   /**
    * <p>The location of the document to be processed.</p>
@@ -2103,6 +2255,9 @@ export interface StartExpenseAnalysisRequest {
   KMSKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExpenseAnalysisResponse {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -2111,6 +2266,9 @@ export interface StartExpenseAnalysisResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartLendingAnalysisRequest {
   /**
    * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
@@ -2172,6 +2330,9 @@ export interface StartLendingAnalysisRequest {
   KMSKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartLendingAnalysisResponse {
   /**
    * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is

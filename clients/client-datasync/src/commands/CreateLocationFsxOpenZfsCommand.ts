@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationFsxOpenZfsCommand}.
  */
 export interface CreateLocationFsxOpenZfsCommandInput extends CreateLocationFsxOpenZfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationFsxOpenZfsCommand}.
  */
 export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync
  *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationFsxOpenZfsCommandInput - {@link CreateLocationFsxOpenZfsCommandInput}
+ * @returns {@link CreateLocationFsxOpenZfsCommandOutput}
  * @see {@link CreateLocationFsxOpenZfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxOpenZfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationFsxOpenZfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationFsxOpenZfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationFsxOpenZfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxOpenZfsCommandOutput> {
     return deserializeAws_json1_1CreateLocationFsxOpenZfsCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventsConfigurationCommand}.
  */
 export interface DeleteEventsConfigurationCommandInput extends DeleteEventsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventsConfigurationCommand}.
  */
 export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventsConfigurationCommandInput - {@link DeleteEventsConfigurationCommandInput}
+ * @returns {@link DeleteEventsConfigurationCommandOutput}
  * @see {@link DeleteEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteEventsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteEventsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEventsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCostForecastCommand}.
  */
 export interface GetCostForecastCommandInput extends GetCostForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCostForecastCommand}.
  */
 export interface GetCostForecastCommandOutput extends GetCostForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over
  *       the forecast time period that you select, based on your past costs. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCostForecastCommandInput - {@link GetCostForecastCommandInput}
+ * @returns {@link GetCostForecastCommandOutput}
  * @see {@link GetCostForecastCommandInput} for command's `input` shape.
  * @see {@link GetCostForecastCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetCostForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCostForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetCostForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCostForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCostForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostForecastCommandOutput> {
     return deserializeAws_json1_1GetCostForecastCommand(output, context);
   }

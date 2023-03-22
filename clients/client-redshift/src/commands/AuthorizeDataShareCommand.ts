@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeDataShareCommand}.
  */
 export interface AuthorizeDataShareCommandInput extends AuthorizeDataShareMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeDataShareCommand}.
  */
 export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
+ * @public
  * <p>From a data producer account, authorizes the sharing of a datashare with one or more
  *             consumer accounts or managing entities. To authorize a datashare for a data consumer,
  *             the producer account must have the correct access permissions.</p>
@@ -48,6 +53,8 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeDataShareCommandInput - {@link AuthorizeDataShareCommandInput}
+ * @returns {@link AuthorizeDataShareCommandOutput}
  * @see {@link AuthorizeDataShareCommandInput} for command's `input` shape.
  * @see {@link AuthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +81,9 @@ export class AuthorizeDataShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeDataShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class AuthorizeDataShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAuthorizeDataShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeDataShareCommandOutput> {
     return deserializeAws_queryAuthorizeDataShareCommand(output, context);
   }

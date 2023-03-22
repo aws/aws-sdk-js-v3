@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePrimaryEmailAddressCommand}.
  */
 export interface UpdatePrimaryEmailAddressCommandInput extends UpdatePrimaryEmailAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePrimaryEmailAddressCommand}.
  */
 export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEmailAddressResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the primary email for a user, group, or resource. The current email is moved
  *          into the list of aliases (or swapped between an existing alias and the current primary
  *          email), and the email provided in the input is promoted as the primary.</p>
@@ -48,6 +53,8 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePrimaryEmailAddressCommandInput - {@link UpdatePrimaryEmailAddressCommandInput}
+ * @returns {@link UpdatePrimaryEmailAddressCommandOutput}
  * @see {@link UpdatePrimaryEmailAddressCommandInput} for command's `input` shape.
  * @see {@link UpdatePrimaryEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -110,6 +117,9 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePrimaryEmailAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePrimaryEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePrimaryEmailAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

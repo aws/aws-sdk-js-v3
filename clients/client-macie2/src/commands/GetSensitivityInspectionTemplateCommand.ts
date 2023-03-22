@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSensitivityInspectionTemplateCommand}.
  */
 export interface GetSensitivityInspectionTemplateCommandInput extends GetSensitivityInspectionTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSensitivityInspectionTemplateCommand}.
  */
 export interface GetSensitivityInspectionTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface GetSensitivityInspectionTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the settings for the sensitivity inspection template for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetSensitivityInspectionTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSensitivityInspectionTemplateCommandInput - {@link GetSensitivityInspectionTemplateCommandInput}
+ * @returns {@link GetSensitivityInspectionTemplateCommandOutput}
  * @see {@link GetSensitivityInspectionTemplateCommandInput} for command's `input` shape.
  * @see {@link GetSensitivityInspectionTemplateCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -86,6 +93,9 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSensitivityInspectionTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSensitivityInspectionTemplateCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
     return serializeAws_restJson1GetSensitivityInspectionTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

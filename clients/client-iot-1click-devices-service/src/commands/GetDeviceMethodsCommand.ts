@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceMethodsCommand}.
  */
 export interface GetDeviceMethodsCommandInput extends GetDeviceMethodsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceMethodsCommand}.
  */
 export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, returns the invokable methods associated with the device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceMethodsCommandInput - {@link GetDeviceMethodsCommandInput}
+ * @returns {@link GetDeviceMethodsCommandOutput}
  * @see {@link GetDeviceMethodsCommandInput} for command's `input` shape.
  * @see {@link GetDeviceMethodsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetDeviceMethodsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceMethodsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetDeviceMethodsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceMethodsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeviceMethodsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceMethodsCommandOutput> {
     return deserializeAws_restJson1GetDeviceMethodsCommand(output, context);
   }

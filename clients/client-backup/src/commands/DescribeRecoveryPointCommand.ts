@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecoveryPointCommand}.
  */
 export interface DescribeRecoveryPointCommandInput extends DescribeRecoveryPointInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecoveryPointCommand}.
  */
 export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
  *          lifecycle.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecoveryPointCommandInput - {@link DescribeRecoveryPointCommandInput}
+ * @returns {@link DescribeRecoveryPointCommandOutput}
  * @see {@link DescribeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecoveryPointCommandOutput> {
     return deserializeAws_restJson1DescribeRecoveryPointCommand(output, context);
   }

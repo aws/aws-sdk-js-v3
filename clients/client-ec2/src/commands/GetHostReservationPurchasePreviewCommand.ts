@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostReservationPurchasePreviewCommand}.
  */
 export interface GetHostReservationPurchasePreviewCommandInput extends GetHostReservationPurchasePreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostReservationPurchasePreviewCommand}.
  */
 export interface GetHostReservationPurchasePreviewCommandOutput
@@ -37,6 +41,7 @@ export interface GetHostReservationPurchasePreviewCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Preview a reservation purchase with configurations that match those of your Dedicated
  *             Host. You must have active Dedicated Hosts in your account before you purchase a
  *             reservation.</p>
@@ -52,6 +57,8 @@ export interface GetHostReservationPurchasePreviewCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostReservationPurchasePreviewCommandInput - {@link GetHostReservationPurchasePreviewCommandInput}
+ * @returns {@link GetHostReservationPurchasePreviewCommandOutput}
  * @see {@link GetHostReservationPurchasePreviewCommandInput} for command's `input` shape.
  * @see {@link GetHostReservationPurchasePreviewCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostReservationPurchasePreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetHostReservationPurchasePreviewCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     return serializeAws_ec2GetHostReservationPurchasePreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

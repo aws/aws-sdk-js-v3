@@ -6,7 +6,7 @@ import { GetUsageCommand, GetUsageCommandInput, GetUsageCommandOutput } from "..
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetUsageCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetUsage(
   config: APIGatewayPaginationConfiguration,
   input: GetUsageCommandInput,

@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostedZonesByVPCCommand}.
  */
 export interface ListHostedZonesByVPCCommandInput extends ListHostedZonesByVPCRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHostedZonesByVPCCommand}.
  */
 export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless
  * 			of which Amazon Web Services account or Amazon Web Services service owns the hosted zones.
  * 			The <code>HostedZoneOwner</code> structure in the response contains one of the following
@@ -85,6 +90,8 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostedZonesByVPCCommandInput - {@link ListHostedZonesByVPCCommandInput}
+ * @returns {@link ListHostedZonesByVPCCommandOutput}
  * @see {@link ListHostedZonesByVPCCommandInput} for command's `input` shape.
  * @see {@link ListHostedZonesByVPCCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -115,6 +122,9 @@ export class ListHostedZonesByVPCCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostedZonesByVPCCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class ListHostedZonesByVPCCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostedZonesByVPCCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListHostedZonesByVPCCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostedZonesByVPCCommandOutput> {
     return deserializeAws_restXmlListHostedZonesByVPCCommand(output, context);
   }

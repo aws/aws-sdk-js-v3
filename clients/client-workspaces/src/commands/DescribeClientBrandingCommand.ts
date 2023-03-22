@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientBrandingCommand}.
  */
 export interface DescribeClientBrandingCommandInput extends DescribeClientBrandingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientBrandingCommand}.
  */
 export interface DescribeClientBrandingCommandOutput extends DescribeClientBrandingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified client branding. Client branding allows you to customize the log
  *          in page of various device types for your users. You can add your company logo, the support
  *          email address, support link, link to reset password, and a custom message for users trying
@@ -53,6 +58,8 @@ export interface DescribeClientBrandingCommandOutput extends DescribeClientBrand
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientBrandingCommandInput - {@link DescribeClientBrandingCommandInput}
+ * @returns {@link DescribeClientBrandingCommandOutput}
  * @see {@link DescribeClientBrandingCommandInput} for command's `input` shape.
  * @see {@link DescribeClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeClientBrandingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientBrandingCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeClientBrandingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientBrandingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeClientBrandingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClientBrandingCommandOutput> {
     return deserializeAws_json1_1DescribeClientBrandingCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BackupServiceException as __BaseException } from "./BackupServiceException";
 
 /**
+ * @public
  * <p>A list of backup options for each resource type.</p>
  */
 export interface AdvancedBackupSetting {
@@ -33,6 +34,7 @@ export interface AdvancedBackupSetting {
 }
 
 /**
+ * @public
  * <p>The required resource already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -79,6 +81,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about the backup plan and rule that Backup used to
  *          initiate the recovery point backup.</p>
  */
@@ -107,6 +110,9 @@ export interface RecoveryPointCreator {
   BackupRuleId?: string;
 }
 
+/**
+ * @public
+ */
 export enum BackupJobState {
   ABORTED = "ABORTED",
   ABORTING = "ABORTING",
@@ -120,6 +126,7 @@ export enum BackupJobState {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about a backup job.</p>
  */
 export interface BackupJob {
@@ -277,6 +284,7 @@ export interface BackupJob {
 }
 
 /**
+ * @public
  * <p>Contains an array of <code>Transition</code> objects specifying how long in days before
  *          a recovery point transitions to cold storage or is deleted.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
@@ -303,6 +311,7 @@ export interface Lifecycle {
 }
 
 /**
+ * @public
  * <p>The details of the copy operation.</p>
  */
 export interface CopyAction {
@@ -329,6 +338,7 @@ export interface CopyAction {
 }
 
 /**
+ * @public
  * <p>Specifies a scheduled task used to back up a selection of resources.</p>
  */
 export interface BackupRule {
@@ -410,6 +420,7 @@ export interface BackupRule {
 }
 
 /**
+ * @public
  * <p>Contains an optional backup plan display name and an array of <code>BackupRule</code>
  *          objects, each of which specifies a backup rule. Each rule in a backup plan is a separate
  *          scheduled task and can back up a different selection of Amazon Web Services
@@ -435,6 +446,7 @@ export interface BackupPlan {
 }
 
 /**
+ * @public
  * <p>Specifies a scheduled task used to back up a selection of resources.</p>
  */
 export interface BackupRuleInput {
@@ -506,6 +518,7 @@ export interface BackupRuleInput {
 }
 
 /**
+ * @public
  * <p>Contains an optional backup plan display name and an array of <code>BackupRule</code>
  *          objects, each of which specifies a backup rule. Each rule in a backup plan is a separate
  *          scheduled task. </p>
@@ -531,6 +544,7 @@ export interface BackupPlanInput {
 }
 
 /**
+ * @public
  * <p>Contains metadata about a backup plan.</p>
  */
 export interface BackupPlansListMember {
@@ -594,6 +608,7 @@ export interface BackupPlansListMember {
 }
 
 /**
+ * @public
  * <p>An object specifying metadata associated with a backup plan template.</p>
  */
 export interface BackupPlanTemplatesListMember {
@@ -609,6 +624,7 @@ export interface BackupPlanTemplatesListMember {
 }
 
 /**
+ * @public
  * <p>Includes information about tags you define to assign tagged resources to a backup
  *          plan.</p>
  */
@@ -627,6 +643,7 @@ export interface ConditionParameter {
 }
 
 /**
+ * @public
  * <p>Contains information about which resources to include or exclude from a backup plan
  *          using their tags. Conditions are case sensitive.</p>
  */
@@ -657,11 +674,15 @@ export interface Conditions {
   StringNotLike?: ConditionParameter[];
 }
 
+/**
+ * @public
+ */
 export enum ConditionType {
   STRINGEQUALS = "STRINGEQUALS",
 }
 
 /**
+ * @public
  * <p>Contains an array of triplets made up of a condition type (such as
  *             <code>StringEquals</code>), a key, and a value. Used to filter resources using their
  *          tags and assign them to a backup plan. Case sensitive.</p>
@@ -691,6 +712,7 @@ export interface Condition {
 }
 
 /**
+ * @public
  * <p>Used to specify a set of resources to a backup plan.</p>
  *          <p>Specifying your desired <code>Conditions</code>, <code>ListOfTags</code>, <code>NotResources</code>,
  *          and/or <code>Resources</code> is recommended. If none of these are specified, Backup will attempt to
@@ -720,10 +742,10 @@ export interface BackupSelection {
 
   /**
    * <p>A list of conditions that you define to assign resources to your backup plans using
-   *          tags. For example, <code>"StringEquals":  {
+   *          tags. For example, <code>"StringEquals":  \{
    *             "ConditionKey": "aws:ResourceTag/CreatedByCryo",
    *             "ConditionValue": "true"
-   *             },</code>. Condition
+   *             \},</code>. Condition
    *          operators are case sensitive.</p>
    *          <p>
    *             <code>ListOfTags</code> differs from <code>Conditions</code> as follows:</p>
@@ -754,10 +776,10 @@ export interface BackupSelection {
 
   /**
    * <p>A list of conditions that you define to assign resources to your backup plans using
-   *          tags. For example, <code>"StringEquals":  {
+   *          tags. For example, <code>"StringEquals":  \{
    *             "ConditionKey": "aws:ResourceTag/CreatedByCryo",
    *             "ConditionValue": "true"
-   *             },</code>. Condition
+   *             \},</code>. Condition
    *          operators are case sensitive.</p>
    *          <p>
    *             <code>Conditions</code> differs from <code>ListOfTags</code> as follows:</p>
@@ -779,6 +801,7 @@ export interface BackupSelection {
 }
 
 /**
+ * @public
  * <p>Contains metadata about a <code>BackupSelection</code> object.</p>
  */
 export interface BackupSelectionsListMember {
@@ -819,6 +842,9 @@ export interface BackupSelectionsListMember {
   IamRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum BackupVaultEvent {
   BACKUP_JOB_COMPLETED = "BACKUP_JOB_COMPLETED",
   BACKUP_JOB_EXPIRED = "BACKUP_JOB_EXPIRED",
@@ -840,6 +866,7 @@ export enum BackupVaultEvent {
 }
 
 /**
+ * @public
  * <p>Contains metadata about a backup vault.</p>
  */
 export interface BackupVaultListMember {
@@ -938,6 +965,7 @@ export interface BackupVaultListMember {
 }
 
 /**
+ * @public
  * <p>Contains <code>DeleteAt</code> and <code>MoveToColdStorageAt</code> timestamps, which
  *          are used to specify a lifecycle for a recovery point.</p>
  *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -964,6 +992,9 @@ export interface CalculatedLifecycle {
   DeleteAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CancelLegalHoldInput {
   /**
    * <p>Legal hold ID required to remove the specified legal hold on a recovery point.</p>
@@ -982,9 +1013,13 @@ export interface CancelLegalHoldInput {
   RetainRecordInDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface CancelLegalHoldOutput {}
 
 /**
+ * @public
  * <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
  */
@@ -1020,6 +1055,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Backup is already performing an action on this recovery point. It can't
  *          perform the action you requested until the first action finishes. Try again later.</p>
  */
@@ -1055,6 +1091,7 @@ export class InvalidResourceStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a required parameter is missing.</p>
  */
 export class MissingParameterValueException extends __BaseException {
@@ -1089,6 +1126,7 @@ export class MissingParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource that is required for the action doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1123,6 +1161,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed due to a temporary failure of the server.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1157,6 +1196,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Backup can't perform the action that you requested until it finishes
  *          performing a previous action. Try again later.</p>
  */
@@ -1192,6 +1232,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A list of parameters for a control. A control can have zero, one, or more than one
  *          parameter. An example of a control with two parameters is: "backup plan frequency is at
  *          least <code>daily</code> and the retention period is at least <code>1 year</code>". The
@@ -1210,6 +1251,7 @@ export interface ControlInputParameter {
 }
 
 /**
+ * @public
  * <p>A framework consists of one or more controls. Each control has its own control scope.
  *          The control scope can include one or more resource types, a combination of a tag key and
  *          value, or a combination of one resource type and one resource ID. If no scope is specified,
@@ -1238,11 +1280,14 @@ export interface ControlScope {
    * <p>The tag key-value pair applied to those Amazon Web Services resources that you want to
    *          trigger an evaluation for a rule. A maximum of one key-value pair can be provided. The tag
    *          value is optional, but it cannot be an empty string. The structure to assign a tag is:
-   *             <code>[{"Key":"string","Value":"string"}]</code>.</p>
+   *             <code>[\{"Key":"string","Value":"string"\}]</code>.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum CopyJobState {
   COMPLETED = "COMPLETED",
   CREATED = "CREATED",
@@ -1252,6 +1297,7 @@ export enum CopyJobState {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about a copy job.</p>
  */
 export interface CopyJob {
@@ -1382,6 +1428,9 @@ export interface CopyJob {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupPlanInput {
   /**
    * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
@@ -1405,6 +1454,9 @@ export interface CreateBackupPlanInput {
   CreatorRequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupPlanOutput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -1439,6 +1491,7 @@ export interface CreateBackupPlanOutput {
 }
 
 /**
+ * @public
  * <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
  *          in a request.</p>
  */
@@ -1473,6 +1526,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupSelectionInput {
   /**
    * <p>Uniquely identifies the backup plan to be associated with the selection of
@@ -1493,6 +1549,9 @@ export interface CreateBackupSelectionInput {
   CreatorRequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupSelectionOutput {
   /**
    * <p>Uniquely identifies the body of a request to assign a set of resources to a backup
@@ -1514,6 +1573,9 @@ export interface CreateBackupSelectionOutput {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -1542,6 +1604,9 @@ export interface CreateBackupVaultInput {
   CreatorRequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupVaultOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -1566,6 +1631,7 @@ export interface CreateBackupVaultOutput {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about all of the controls of a framework. Each framework
  *          must contain at least one control.</p>
  */
@@ -1590,6 +1656,9 @@ export interface FrameworkControl {
   ControlScope?: ControlScope;
 }
 
+/**
+ * @public
+ */
 export interface CreateFrameworkInput {
   /**
    * <p>The unique name of the framework. The name must be between 1 and 256 characters,
@@ -1623,6 +1692,9 @@ export interface CreateFrameworkInput {
   FrameworkTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFrameworkOutput {
   /**
    * <p>The unique name of the framework. The name must be between 1 and 256 characters,
@@ -1639,6 +1711,7 @@ export interface CreateFrameworkOutput {
 }
 
 /**
+ * @public
  * <p>This is a resource filter containing FromDate: DateTime
  *          and ToDate: DateTime. Both values are required. Future DateTime
  *          values are not permitted.</p>
@@ -1667,6 +1740,7 @@ export interface DateRange {
 }
 
 /**
+ * @public
  * <p>This specifies criteria to assign
  *          a set of resources, such as resource types or backup vaults.</p>
  */
@@ -1696,6 +1770,9 @@ export interface RecoveryPointSelection {
   DateRange?: DateRange;
 }
 
+/**
+ * @public
+ */
 export interface CreateLegalHoldInput {
   /**
    * <p>This is the string title of the legal hold.</p>
@@ -1728,6 +1805,9 @@ export interface CreateLegalHoldInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum LegalHoldStatus {
   ACTIVE = "ACTIVE",
   CANCELED = "CANCELED",
@@ -1735,6 +1815,9 @@ export enum LegalHoldStatus {
   CREATING = "CREATING",
 }
 
+/**
+ * @public
+ */
 export interface CreateLegalHoldOutput {
   /**
    * <p>This is the string title of the legal hold returned after creating the legal hold.</p>
@@ -1776,6 +1859,7 @@ export interface CreateLegalHoldOutput {
 }
 
 /**
+ * @public
  * <p>Contains information from your report plan about where to deliver your reports,
  *          specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your
  *          reports.</p>
@@ -1801,6 +1885,7 @@ export interface ReportDeliveryChannel {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about a report setting.</p>
  */
 export interface ReportSetting {
@@ -1840,6 +1925,9 @@ export interface ReportSetting {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateReportPlanInput {
   /**
    * <p>The unique name of the report plan. The name must be between 1 and 256 characters,
@@ -1887,6 +1975,9 @@ export interface CreateReportPlanInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReportPlanOutput {
   /**
    * <p>The unique name of the report plan.</p>
@@ -1908,6 +1999,9 @@ export interface CreateReportPlanOutput {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupPlanInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -1915,6 +2009,9 @@ export interface DeleteBackupPlanInput {
   BackupPlanId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupPlanOutput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -1943,6 +2040,7 @@ export interface DeleteBackupPlanOutput {
 }
 
 /**
+ * @public
  * <p>Indicates that something is wrong with the input to the request. For example, a
  *          parameter is of the wrong type.</p>
  */
@@ -1977,6 +2075,9 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupSelectionInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -1990,6 +2091,9 @@ export interface DeleteBackupSelectionInput {
   SelectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2000,6 +2104,9 @@ export interface DeleteBackupVaultInput {
   BackupVaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2010,6 +2117,9 @@ export interface DeleteBackupVaultAccessPolicyInput {
   BackupVaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupVaultLockConfigurationInput {
   /**
    * <p>The name of the backup vault from which to delete Backup Vault Lock.</p>
@@ -2017,6 +2127,9 @@ export interface DeleteBackupVaultLockConfigurationInput {
   BackupVaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2026,6 +2139,9 @@ export interface DeleteBackupVaultNotificationsInput {
   BackupVaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFrameworkInput {
   /**
    * <p>The unique name of a framework.</p>
@@ -2033,6 +2149,9 @@ export interface DeleteFrameworkInput {
   FrameworkName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecoveryPointInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2049,6 +2168,9 @@ export interface DeleteRecoveryPointInput {
   RecoveryPointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReportPlanInput {
   /**
    * <p>The unique name of a report plan.</p>
@@ -2057,6 +2179,7 @@ export interface DeleteReportPlanInput {
 }
 
 /**
+ * @public
  * <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
  */
 export class DependencyFailureException extends __BaseException {
@@ -2090,6 +2213,9 @@ export class DependencyFailureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupJobInput {
   /**
    * <p>Uniquely identifies a request to Backup to back up a resource.</p>
@@ -2097,6 +2223,9 @@ export interface DescribeBackupJobInput {
   BackupJobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupJobOutput {
   /**
    * <p>Returns the account ID that owns the backup job.</p>
@@ -2253,6 +2382,9 @@ export interface DescribeBackupJobOutput {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2263,6 +2395,9 @@ export interface DescribeBackupVaultInput {
   BackupVaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupVaultOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2349,6 +2484,9 @@ export interface DescribeBackupVaultOutput {
   LockDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCopyJobInput {
   /**
    * <p>Uniquely identifies a copy job.</p>
@@ -2356,6 +2494,9 @@ export interface DescribeCopyJobInput {
   CopyJobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCopyJobOutput {
   /**
    * <p>Contains detailed information about a copy job.</p>
@@ -2363,6 +2504,9 @@ export interface DescribeCopyJobOutput {
   CopyJob?: CopyJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFrameworkInput {
   /**
    * <p>The unique name of a framework.</p>
@@ -2370,6 +2514,9 @@ export interface DescribeFrameworkInput {
   FrameworkName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFrameworkOutput {
   /**
    * <p>The unique name of a framework.</p>
@@ -2446,8 +2593,14 @@ export interface DescribeFrameworkOutput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalSettingsInput {}
 
+/**
+ * @public
+ */
 export interface DescribeGlobalSettingsOutput {
   /**
    * <p>The status of the flag <code>isCrossAccountBackupEnabled</code>.</p>
@@ -2463,6 +2616,9 @@ export interface DescribeGlobalSettingsOutput {
   LastUpdateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProtectedResourceInput {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
@@ -2471,6 +2627,9 @@ export interface DescribeProtectedResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProtectedResourceOutput {
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
@@ -2499,6 +2658,9 @@ export interface DescribeProtectedResourceOutput {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoveryPointInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2515,6 +2677,9 @@ export interface DescribeRecoveryPointInput {
   RecoveryPointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RecoveryPointStatus {
   COMPLETED = "COMPLETED",
   DELETING = "DELETING",
@@ -2522,12 +2687,18 @@ export enum RecoveryPointStatus {
   PARTIAL = "PARTIAL",
 }
 
+/**
+ * @public
+ */
 export enum StorageClass {
   COLD = "COLD",
   DELETED = "DELETED",
   WARM = "WARM",
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecoveryPointOutput {
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
@@ -2707,8 +2878,14 @@ export interface DescribeRecoveryPointOutput {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegionSettingsInput {}
 
+/**
+ * @public
+ */
 export interface DescribeRegionSettingsOutput {
   /**
    * <p>Returns a list of all services along with the opt-in preferences in the Region.</p>
@@ -2728,6 +2905,9 @@ export interface DescribeRegionSettingsOutput {
   ResourceTypeManagementPreference?: Record<string, boolean>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReportJobInput {
   /**
    * <p>The identifier of the report job. A unique, randomly generated, Unicode, UTF-8 encoded
@@ -2737,6 +2917,7 @@ export interface DescribeReportJobInput {
 }
 
 /**
+ * @public
  * <p>Contains information from your report job about your report destination.</p>
  */
 export interface ReportDestination {
@@ -2752,6 +2933,7 @@ export interface ReportDestination {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about a report job. A report job compiles a report based
  *          on a report plan and publishes it to Amazon S3.</p>
  */
@@ -2818,6 +3000,9 @@ export interface ReportJob {
   ReportDestination?: ReportDestination;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReportJobOutput {
   /**
    * <p>A list of information about a report job, including its completion and creation times,
@@ -2827,6 +3012,9 @@ export interface DescribeReportJobOutput {
   ReportJob?: ReportJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReportPlanInput {
   /**
    * <p>The unique name of a report plan.</p>
@@ -2835,6 +3023,7 @@ export interface DescribeReportPlanInput {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about a report plan.</p>
  */
 export interface ReportPlan {
@@ -2909,6 +3098,9 @@ export interface ReportPlan {
   LastSuccessfulExecutionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReportPlanOutput {
   /**
    * <p>Returns details about the report plan that is specified by its name. These details
@@ -2919,6 +3111,9 @@ export interface DescribeReportPlanOutput {
   ReportPlan?: ReportPlan;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRestoreJobInput {
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
@@ -2926,6 +3121,9 @@ export interface DescribeRestoreJobInput {
   RestoreJobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RestoreJobStatus {
   ABORTED = "ABORTED",
   COMPLETED = "COMPLETED",
@@ -2934,6 +3132,9 @@ export enum RestoreJobStatus {
   RUNNING = "RUNNING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeRestoreJobOutput {
   /**
    * <p>Returns the account ID that owns the restore job.</p>
@@ -3014,6 +3215,9 @@ export interface DescribeRestoreJobOutput {
   ResourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateRecoveryPointInput {
   /**
    * <p>The unique name of an Backup vault.</p>
@@ -3027,6 +3231,9 @@ export interface DisassociateRecoveryPointInput {
   RecoveryPointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateRecoveryPointFromParentInput {
   /**
    * <p>This is the name of a logical container where the child (nested) recovery point
@@ -3045,6 +3252,9 @@ export interface DisassociateRecoveryPointFromParentInput {
   RecoveryPointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportBackupPlanTemplateInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -3052,6 +3262,9 @@ export interface ExportBackupPlanTemplateInput {
   BackupPlanId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportBackupPlanTemplateOutput {
   /**
    * <p>The body of a backup plan template in JSON format.</p>
@@ -3064,6 +3277,9 @@ export interface ExportBackupPlanTemplateOutput {
   BackupPlanTemplateJson?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupPlanInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -3077,6 +3293,9 @@ export interface GetBackupPlanInput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupPlanOutput {
   /**
    * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
@@ -3138,6 +3357,9 @@ export interface GetBackupPlanOutput {
   AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
+/**
+ * @public
+ */
 export interface GetBackupPlanFromJSONInput {
   /**
    * <p>A customer-supplied backup plan document in JSON format.</p>
@@ -3145,6 +3367,9 @@ export interface GetBackupPlanFromJSONInput {
   BackupPlanTemplateJson: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupPlanFromJSONOutput {
   /**
    * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
@@ -3153,6 +3378,9 @@ export interface GetBackupPlanFromJSONOutput {
   BackupPlan?: BackupPlan;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupPlanFromTemplateInput {
   /**
    * <p>Uniquely identifies a stored backup plan template.</p>
@@ -3160,6 +3388,9 @@ export interface GetBackupPlanFromTemplateInput {
   BackupPlanTemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupPlanFromTemplateOutput {
   /**
    * <p>Returns the body of a backup plan based on the target template, including the name,
@@ -3168,6 +3399,9 @@ export interface GetBackupPlanFromTemplateOutput {
   BackupPlanDocument?: BackupPlan;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupSelectionInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -3181,6 +3415,9 @@ export interface GetBackupSelectionInput {
   SelectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupSelectionOutput {
   /**
    * <p>Specifies the body of a request to assign a set of resources to a backup plan.</p>
@@ -3213,6 +3450,9 @@ export interface GetBackupSelectionOutput {
   CreatorRequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3223,6 +3463,9 @@ export interface GetBackupVaultAccessPolicyInput {
   BackupVaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupVaultAccessPolicyOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3243,6 +3486,9 @@ export interface GetBackupVaultAccessPolicyOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3253,6 +3499,9 @@ export interface GetBackupVaultNotificationsInput {
   BackupVaultName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackupVaultNotificationsOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3280,6 +3529,9 @@ export interface GetBackupVaultNotificationsOutput {
   BackupVaultEvents?: (BackupVaultEvent | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetLegalHoldInput {
   /**
    * <p>This is the ID required to use <code>GetLegalHold</code>. This unique ID
@@ -3288,6 +3540,9 @@ export interface GetLegalHoldInput {
   LegalHoldId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLegalHoldOutput {
   /**
    * <p>This is the string title of the legal hold.</p>
@@ -3346,6 +3601,9 @@ export interface GetLegalHoldOutput {
   RecoveryPointSelection?: RecoveryPointSelection;
 }
 
+/**
+ * @public
+ */
 export interface GetRecoveryPointRestoreMetadataInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3362,6 +3620,9 @@ export interface GetRecoveryPointRestoreMetadataInput {
   RecoveryPointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRecoveryPointRestoreMetadataOutput {
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
@@ -3383,6 +3644,9 @@ export interface GetRecoveryPointRestoreMetadataOutput {
   RestoreMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetSupportedResourceTypesOutput {
   /**
    * <p>Contains a string with the supported Amazon Web Services resource types:</p>
@@ -3432,6 +3696,9 @@ export interface GetSupportedResourceTypesOutput {
   ResourceTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListBackupJobsInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3556,6 +3823,9 @@ export interface ListBackupJobsInput {
   ByParentJobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupJobsOutput {
   /**
    * <p>An array of structures containing metadata about your backup jobs returned in JSON
@@ -3572,6 +3842,9 @@ export interface ListBackupJobsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupPlansInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3593,6 +3866,9 @@ export interface ListBackupPlansInput {
   IncludeDeleted?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupPlansOutput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3609,6 +3885,9 @@ export interface ListBackupPlansOutput {
   BackupPlansList?: BackupPlansListMember[];
 }
 
+/**
+ * @public
+ */
 export interface ListBackupPlanTemplatesInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3624,6 +3903,9 @@ export interface ListBackupPlanTemplatesInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupPlanTemplatesOutput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3639,6 +3921,9 @@ export interface ListBackupPlanTemplatesOutput {
   BackupPlanTemplatesList?: BackupPlanTemplatesListMember[];
 }
 
+/**
+ * @public
+ */
 export interface ListBackupPlanVersionsInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -3659,6 +3944,9 @@ export interface ListBackupPlanVersionsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupPlanVersionsOutput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3674,6 +3962,9 @@ export interface ListBackupPlanVersionsOutput {
   BackupPlanVersionsList?: BackupPlansListMember[];
 }
 
+/**
+ * @public
+ */
 export interface ListBackupSelectionsInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -3694,6 +3985,9 @@ export interface ListBackupSelectionsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupSelectionsOutput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3710,6 +4004,9 @@ export interface ListBackupSelectionsOutput {
   BackupSelectionsList?: BackupSelectionsListMember[];
 }
 
+/**
+ * @public
+ */
 export interface ListBackupVaultsInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3725,6 +4022,9 @@ export interface ListBackupVaultsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupVaultsOutput {
   /**
    * <p>An array of backup vault list members containing vault metadata, including Amazon
@@ -3742,6 +4042,9 @@ export interface ListBackupVaultsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCopyJobsInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3862,6 +4165,9 @@ export interface ListCopyJobsInput {
   ByParentJobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCopyJobsOutput {
   /**
    * <p>An array of structures containing metadata about your copy jobs returned in JSON format.
@@ -3877,6 +4183,9 @@ export interface ListCopyJobsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFrameworksInput {
   /**
    * <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will
@@ -3892,6 +4201,7 @@ export interface ListFrameworksInput {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about a framework. Frameworks contain controls, which
  *          evaluate and report on your backup events and resources. Frameworks generate daily
  *          compliance results.</p>
@@ -3937,6 +4247,9 @@ export interface Framework {
   DeploymentStatus?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFrameworksOutput {
   /**
    * <p>A list of frameworks with details for each framework, including the framework name,
@@ -3952,6 +4265,9 @@ export interface ListFrameworksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLegalHoldsInput {
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -3968,6 +4284,7 @@ export interface ListLegalHoldsInput {
 }
 
 /**
+ * @public
  * <p>A legal hold is an administrative tool that helps prevent backups
  *          from being deleted while under a hold. While the hold is in place,
  *          backups under a hold cannot be deleted and lifecycle policies that
@@ -4017,6 +4334,9 @@ export interface LegalHold {
   CancellationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListLegalHoldsOutput {
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -4032,6 +4352,9 @@ export interface ListLegalHoldsOutput {
   LegalHolds?: LegalHold[];
 }
 
+/**
+ * @public
+ */
 export interface ListProtectedResourcesInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -4048,6 +4371,7 @@ export interface ListProtectedResourcesInput {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about a backed-up resource.</p>
  */
 export interface ProtectedResource {
@@ -4079,6 +4403,9 @@ export interface ProtectedResource {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProtectedResourcesOutput {
   /**
    * <p>An array of resources successfully backed up by Backup including the time
@@ -4096,6 +4423,9 @@ export interface ListProtectedResourcesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsByBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -4156,6 +4486,7 @@ export interface ListRecoveryPointsByBackupVaultInput {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about the recovery points stored in a backup vault.</p>
  */
 export interface RecoveryPointByBackupVault {
@@ -4311,6 +4642,9 @@ export interface RecoveryPointByBackupVault {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsByBackupVaultOutput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -4327,6 +4661,9 @@ export interface ListRecoveryPointsByBackupVaultOutput {
   RecoveryPoints?: RecoveryPointByBackupVault[];
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsByLegalHoldInput {
   /**
    * <p>This is the ID of the legal hold.</p>
@@ -4348,6 +4685,7 @@ export interface ListRecoveryPointsByLegalHoldInput {
 }
 
 /**
+ * @public
  * <p>This is a recovery point which is a child (nested) recovery point
  *          of a parent (composite) recovery point. These recovery points
  *          can be disassociated from their parent (composite) recovery
@@ -4361,6 +4699,9 @@ export interface RecoveryPointMember {
   RecoveryPointArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsByLegalHoldOutput {
   /**
    * <p>This is a list of the recovery points returned by
@@ -4374,6 +4715,9 @@ export interface ListRecoveryPointsByLegalHoldOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsByResourceInput {
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
@@ -4399,6 +4743,7 @@ export interface ListRecoveryPointsByResourceInput {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about a saved recovery point.</p>
  */
 export interface RecoveryPointByResource {
@@ -4464,6 +4809,9 @@ export interface RecoveryPointByResource {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsByResourceOutput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -4484,6 +4832,9 @@ export interface ListRecoveryPointsByResourceOutput {
   RecoveryPoints?: RecoveryPointByResource[];
 }
 
+/**
+ * @public
+ */
 export interface ListReportJobsInput {
   /**
    * <p>Returns only report jobs with the specified report plan name.</p>
@@ -4525,6 +4876,9 @@ export interface ListReportJobsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReportJobsOutput {
   /**
    * <p>Details about your report jobs in JSON format.</p>
@@ -4538,6 +4892,9 @@ export interface ListReportJobsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReportPlansInput {
   /**
    * <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will
@@ -4552,6 +4909,9 @@ export interface ListReportPlansInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReportPlansOutput {
   /**
    * <p>A list of your report plans with detailed information for each plan. This information
@@ -4568,6 +4928,9 @@ export interface ListReportPlansOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRestoreJobsInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -4617,6 +4980,7 @@ export interface ListRestoreJobsInput {
 }
 
 /**
+ * @public
  * <p>Contains metadata about a restore job.</p>
  */
 export interface RestoreJobsListMember {
@@ -4701,6 +5065,9 @@ export interface RestoreJobsListMember {
   ResourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRestoreJobsOutput {
   /**
    * <p>An array of objects that contain detailed information about jobs to restore saved
@@ -4717,6 +5084,9 @@ export interface ListRestoreJobsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsInput {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
@@ -4739,6 +5109,9 @@ export interface ListTagsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsOutput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -4755,6 +5128,9 @@ export interface ListTagsOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -4770,6 +5146,9 @@ export interface PutBackupVaultAccessPolicyInput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBackupVaultLockConfigurationInput {
   /**
    * <p>The Backup Vault Lock configuration that specifies the name of the backup
@@ -4831,6 +5210,9 @@ export interface PutBackupVaultLockConfigurationInput {
   ChangeableForDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface PutBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -4885,6 +5267,9 @@ export interface PutBackupVaultNotificationsInput {
   BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartBackupJobInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -4960,6 +5345,9 @@ export interface StartBackupJobInput {
   BackupOptions?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartBackupJobOutput {
   /**
    * <p>Uniquely identifies a request to Backup to back up a resource.</p>
@@ -4991,6 +5379,9 @@ export interface StartBackupJobOutput {
   IsParent?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartCopyJobInput {
   /**
    * <p>An ARN that uniquely identifies a recovery point to use for the copy job; for example,
@@ -5041,6 +5432,9 @@ export interface StartCopyJobInput {
   Lifecycle?: Lifecycle;
 }
 
+/**
+ * @public
+ */
 export interface StartCopyJobOutput {
   /**
    * <p>Uniquely identifies a copy job.</p>
@@ -5062,6 +5456,9 @@ export interface StartCopyJobOutput {
   IsParent?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartReportJobInput {
   /**
    * <p>The unique name of a report plan.</p>
@@ -5076,6 +5473,9 @@ export interface StartReportJobInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartReportJobOutput {
   /**
    * <p>The identifier of the report job. A unique, randomly generated, Unicode, UTF-8 encoded
@@ -5084,6 +5484,9 @@ export interface StartReportJobOutput {
   ReportJobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRestoreJobInput {
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
@@ -5214,6 +5617,9 @@ export interface StartRestoreJobInput {
   ResourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRestoreJobOutput {
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
@@ -5221,6 +5627,9 @@ export interface StartRestoreJobOutput {
   RestoreJobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopBackupJobInput {
   /**
    * <p>Uniquely identifies a request to Backup to back up a resource.</p>
@@ -5228,6 +5637,9 @@ export interface StopBackupJobInput {
   BackupJobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
@@ -5238,11 +5650,14 @@ export interface TagResourceInput {
   /**
    * <p>Key-value pairs that are used to help organize your resources. You can assign your own
    *          metadata to the resources you create. For clarity, this is the structure to assign tags:
-   *             <code>[{"Key":"string","Value":"string"}]</code>.</p>
+   *             <code>[\{"Key":"string","Value":"string"\}]</code>.</p>
    */
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
@@ -5256,6 +5671,9 @@ export interface UntagResourceInput {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBackupPlanInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -5269,6 +5687,9 @@ export interface UpdateBackupPlanInput {
   BackupPlan: BackupPlanInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBackupPlanOutput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -5301,6 +5722,9 @@ export interface UpdateBackupPlanOutput {
   AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFrameworkInput {
   /**
    * <p>The unique name of a framework. This name is between 1 and 256 characters, starting with
@@ -5327,6 +5751,9 @@ export interface UpdateFrameworkInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFrameworkOutput {
   /**
    * <p>The unique name of a framework. This name is between 1 and 256 characters, starting with
@@ -5348,6 +5775,9 @@ export interface UpdateFrameworkOutput {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalSettingsInput {
   /**
    * <p>A value for <code>isCrossAccountBackupEnabled</code> and a Region. Example:
@@ -5357,6 +5787,9 @@ export interface UpdateGlobalSettingsInput {
   GlobalSettings?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecoveryPointLifecycleInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -5384,6 +5817,9 @@ export interface UpdateRecoveryPointLifecycleInput {
   Lifecycle?: Lifecycle;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecoveryPointLifecycleOutput {
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
@@ -5419,6 +5855,9 @@ export interface UpdateRecoveryPointLifecycleOutput {
   CalculatedLifecycle?: CalculatedLifecycle;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegionSettingsInput {
   /**
    * <p>Updates the list of services along with the opt-in preferences for the Region.</p>
@@ -5434,6 +5873,9 @@ export interface UpdateRegionSettingsInput {
   ResourceTypeManagementPreference?: Record<string, boolean>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReportPlanInput {
   /**
    * <p>The unique name of the report plan. This name is between 1 and 256 characters, starting
@@ -5474,6 +5916,9 @@ export interface UpdateReportPlanInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReportPlanOutput {
   /**
    * <p>The unique name of the report plan.</p>

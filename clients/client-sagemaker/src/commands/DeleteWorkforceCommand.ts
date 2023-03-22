@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkforceCommand}.
  */
 export interface DeleteWorkforceCommandInput extends DeleteWorkforceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkforceCommand}.
  */
 export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to delete a workforce.</p>
  *          <p>If you want to create a new workforce in an Amazon Web Services Region where
  *       a workforce already exists, use this operation to delete the
@@ -57,6 +62,8 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkforceCommandInput - {@link DeleteWorkforceCommandInput}
+ * @returns {@link DeleteWorkforceCommandOutput}
  * @see {@link DeleteWorkforceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteWorkforceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteWorkforceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkforceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkforceCommandOutput> {
     return deserializeAws_json1_1DeleteWorkforceCommand(output, context);
   }

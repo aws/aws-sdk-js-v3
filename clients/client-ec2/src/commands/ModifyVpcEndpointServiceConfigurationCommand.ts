@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointServiceConfigurationCommand}.
  */
 export interface ModifyVpcEndpointServiceConfigurationCommandInput
   extends ModifyVpcEndpointServiceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointServiceConfigurationCommand}.
  */
 export interface ModifyVpcEndpointServiceConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the
  *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
  *             required for requests to connect to your endpoint service through an interface VPC
@@ -54,6 +59,8 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointServiceConfigurationCommandInput - {@link ModifyVpcEndpointServiceConfigurationCommandInput}
+ * @returns {@link ModifyVpcEndpointServiceConfigurationCommandOutput}
  * @see {@link ModifyVpcEndpointServiceConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointServiceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointServiceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointServiceConfigurationCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     return serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

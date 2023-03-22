@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableFromSnapshotCommand}.
  */
 export interface RestoreTableFromSnapshotCommandInput extends RestoreTableFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableFromSnapshotCommand}.
  */
 export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to
  *          restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableFromSnapshotCommandInput - {@link RestoreTableFromSnapshotCommandInput}
+ * @returns {@link RestoreTableFromSnapshotCommandOutput}
  * @see {@link RestoreTableFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreTableFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -86,6 +93,9 @@ export class RestoreTableFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class RestoreTableFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreTableFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreTableFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableFromSnapshotCommandOutput> {
     return deserializeAws_json1_1RestoreTableFromSnapshotCommand(output, context);
   }

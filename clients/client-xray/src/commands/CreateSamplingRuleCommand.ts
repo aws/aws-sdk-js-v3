@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSamplingRuleCommand}.
  */
 export interface CreateSamplingRuleCommandInput extends CreateSamplingRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSamplingRuleCommand}.
  */
 export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rule to control sampling behavior for instrumented applications. Services
  *          retrieve rules with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a>, and evaluate each rule in ascending
  *          order of <i>priority</i> for each request. If a rule matches, the service
@@ -52,6 +57,8 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSamplingRuleCommandInput - {@link CreateSamplingRuleCommandInput}
+ * @returns {@link CreateSamplingRuleCommandOutput}
  * @see {@link CreateSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateSamplingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSamplingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateSamplingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSamplingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSamplingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSamplingRuleCommandOutput> {
     return deserializeAws_restJson1CreateSamplingRuleCommand(output, context);
   }

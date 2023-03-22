@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLaunchConfigurationTemplateCommand}.
  */
 export interface UpdateLaunchConfigurationTemplateCommandInput extends UpdateLaunchConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLaunchConfigurationTemplateCommand}.
  */
 export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchConfigurationTemplate, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Launch Configuration Template by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLaunchConfigurationTemplateCommandInput - {@link UpdateLaunchConfigurationTemplateCommandInput}
+ * @returns {@link UpdateLaunchConfigurationTemplateCommandOutput}
  * @see {@link UpdateLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLaunchConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command<
     return serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

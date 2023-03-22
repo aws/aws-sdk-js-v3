@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCostAllocationTagsStatusCommand}.
  */
 export interface UpdateCostAllocationTagsStatusCommandInput extends UpdateCostAllocationTagsStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCostAllocationTagsStatusCommand}.
  */
 export interface UpdateCostAllocationTagsStatusCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
  *       status that's updated is the same as the existing tag status, the request doesn't fail.
  *       Instead, it doesn't have any effect on the tag status (for example, activating the active
@@ -51,6 +56,8 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCostAllocationTagsStatusCommandInput - {@link UpdateCostAllocationTagsStatusCommandInput}
+ * @returns {@link UpdateCostAllocationTagsStatusCommandOutput}
  * @see {@link UpdateCostAllocationTagsStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateCostAllocationTagsStatusCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCostAllocationTagsStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCostAllocationTagsStatusCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
     return serializeAws_json1_1UpdateCostAllocationTagsStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

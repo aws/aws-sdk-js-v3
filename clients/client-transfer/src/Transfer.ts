@@ -262,6 +262,7 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { TransferClient } from "./TransferClient";
 
 /**
+ * @public
  * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
  *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
  *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.
@@ -275,6 +276,7 @@ import { TransferClient } from "./TransferClient";
  */
 export class Transfer extends TransferClient {
   /**
+   * @public
    * <p>Used by administrators to choose which groups in the directory should have access to
    *       upload and download files over the enabled protocols using Transfer Family. For example, a
    *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
@@ -309,6 +311,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership,
    *       between an Transfer Family server and an AS2 process. The agreement defines the file and message
    *       transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family
@@ -346,6 +349,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Creates the connector, which captures the parameters for an outbound connection for the
    *       AS2 protocol. The connector is required for sending files to an externally hosted AS2 server.
    *       For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create AS2 connectors</a>.</p>
@@ -380,6 +384,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Creates the local or partner profile to use for AS2 transfers.</p>
    */
   public createProfile(
@@ -412,6 +417,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Instantiates an auto-scaling virtual server based on the selected file transfer protocol
    *       in Amazon Web Services. When you make updates to your file transfer protocol-enabled server or when you work
    *       with users, use the service-generated <code>ServerId</code> property that is assigned to the
@@ -444,6 +450,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Creates a user and associates them with an existing file transfer protocol-enabled server.
    *       You can only create and associate users with servers that have the
    *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
@@ -476,6 +483,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>
    *       Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes.
    *       After creating a workflow, you can associate the workflow created with any transfer servers by specifying the <code>workflow-details</code> field in <code>CreateServer</code> and <code>UpdateServer</code> operations.
@@ -511,6 +519,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Allows you to delete the access specified in the <code>ServerID</code> and
    *       <code>ExternalID</code> parameters.</p>
    */
@@ -541,6 +550,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Delete the agreement that's specified in the provided <code>AgreementId</code>.</p>
    */
   public deleteAgreement(
@@ -573,6 +583,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes the certificate that's specified in the <code>CertificateId</code>
    *       parameter.</p>
    */
@@ -606,6 +617,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes the agreement that's specified in the provided <code>ConnectorId</code>.</p>
    */
   public deleteConnector(
@@ -638,6 +650,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes the host key that's specified in the <code>HoskKeyId</code> parameter.</p>
    */
   public deleteHostKey(
@@ -670,6 +683,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes the profile that's specified in the <code>ProfileId</code> parameter.</p>
    */
   public deleteProfile(
@@ -702,6 +716,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
    *          <p>No response returns from this operation.</p>
    */
@@ -732,6 +747,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes a user's Secure Shell (SSH) public key.</p>
    */
   public deleteSshPublicKey(
@@ -764,6 +780,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
    *          <p>No response returns from this operation.</p>
    *          <note>
@@ -794,6 +811,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified workflow.</p>
    */
   public deleteWorkflow(
@@ -826,6 +844,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
    *       server, as identified by its <code>ServerId</code> property and its
    *       <code>ExternalId</code>.</p>
@@ -862,6 +881,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes the agreement that's identified by the <code>AgreementId</code>.</p>
    */
   public describeAgreement(
@@ -894,6 +914,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>
    */
   public describeCertificate(
@@ -926,6 +947,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes the connector that's identified by the <code>ConnectorId.</code>
    *          </p>
    */
@@ -959,6 +981,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p>
    */
   public describeExecution(
@@ -991,6 +1014,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of the host key that's specified by the <code>HostKeyId</code> and <code>ServerId</code>.</p>
    */
   public describeHostKey(
@@ -1023,6 +1047,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>
    */
   public describeProfile(
@@ -1055,6 +1080,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes the security policy that is attached to your file transfer protocol-enabled
    *       server. The response contains a description of the security policy's properties. For more
    *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
@@ -1090,6 +1116,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes a file transfer protocol-enabled server that you specify by passing the
    *         <code>ServerId</code> parameter.</p>
    *          <p>The response contains a description of a server's properties. When you set
@@ -1126,6 +1153,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
    *       identified by its <code>ServerId</code> property.</p>
    *          <p>The response from this call returns the properties of the user associated with the
@@ -1158,6 +1186,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified workflow.</p>
    */
   public describeWorkflow(
@@ -1190,6 +1219,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Imports the signing and encryption certificates that you need to create local (AS2)
    *       profiles and partner
    *       profiles.</p>
@@ -1224,6 +1254,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Adds a host key to the server that's specified by the <code>ServerId</code>
    *       parameter.</p>
    */
@@ -1257,6 +1288,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
    *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
    *       identified by <code>ServerId</code>.</p>
@@ -1293,6 +1325,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists the details for all the accesses you have on your server.</p>
    */
   public listAccesses(
@@ -1322,6 +1355,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the agreements for the server that's identified by the
    *         <code>ServerId</code> that you supply. If you want to limit the results to a certain number,
    *       supply a value for the <code>MaxResults</code> parameter. If you ran the command previously
@@ -1358,6 +1392,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the current certificates that have been imported into Transfer Family. If you want to
    *       limit the results to a certain number, supply a value for the <code>MaxResults</code>
    *       parameter. If you ran the command previously and received a value for the
@@ -1394,6 +1429,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists the connectors for the specified Region.</p>
    */
   public listConnectors(
@@ -1426,6 +1462,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists all executions for the specified workflow.</p>
    */
   public listExecutions(
@@ -1458,6 +1495,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>
    *       parameter.</p>
    */
@@ -1488,6 +1526,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the profiles for your system. If you want to limit the results to a
    *       certain number, supply a value for the <code>MaxResults</code> parameter. If you ran the
    *       command previously and received a value for <code>NextToken</code>, you can supply that value
@@ -1520,6 +1559,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists the security policies that are attached to your file transfer protocol-enabled
    *       servers.</p>
    */
@@ -1553,6 +1593,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services
    *       account.</p>
    */
@@ -1580,6 +1621,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the tags associated with the Amazon Resource Name (ARN) that you specify. The
    *       resource can be a user, server, or role.</p>
    */
@@ -1613,6 +1655,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
    *       the <code>ServerId</code> parameter.</p>
    */
@@ -1640,6 +1683,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Lists all of your workflows.</p>
    */
   public listWorkflows(
@@ -1672,6 +1716,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Sends a callback for asynchronous custom steps.</p>
    *          <p>
    *       The <code>ExecutionId</code>, <code>WorkflowId</code>, and <code>Token</code> are passed to the target resource during execution of a custom step of a workflow.
@@ -1708,6 +1753,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code> and the file
    *       paths for where to send the files. </p>
    */
@@ -1741,6 +1787,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
    *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
    *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
@@ -1773,6 +1820,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Changes the state of a file transfer protocol-enabled server from <code>ONLINE</code> to
    *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
    *       jobs. Information tied to your server, such as server and user properties, are not affected by
@@ -1810,6 +1858,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN).
    *       Resources are users, servers, roles, and other entities.</p>
    *          <p>There is no response returned from this call.</p>
@@ -1838,6 +1887,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
    *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your identity
    *       provider is set up successfully. We highly recommend that you call this operation to test your
@@ -1908,6 +1958,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
    *       (ARN). Resources are users, servers, roles, and other entities.</p>
    *          <p>No response is returned from this call.</p>
@@ -1942,6 +1993,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Allows you to update parameters for the access specified in the <code>ServerID</code> and
    *       <code>ExternalID</code> parameters.</p>
    */
@@ -1972,6 +2024,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Updates some of the parameters for an existing agreement. Provide the
    *         <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to
    *       update, along with the new values for the parameters to update.</p>
@@ -2006,6 +2059,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Updates the active and inactive dates for a certificate.</p>
    */
   public updateCertificate(
@@ -2038,6 +2092,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Updates some of the parameters for an existing connector. Provide the
    *         <code>ConnectorId</code> for the connector that you want to update, along with the new
    *       values for the parameters to update.</p>
@@ -2072,6 +2127,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Updates the description for the host key that's specified by the <code>ServerId</code> and
    *         <code>HostKeyId</code> parameters.</p>
    */
@@ -2105,6 +2161,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code>
    *       for the profile that you want to update, along with the new values for the parameters to
    *       update.</p>
@@ -2139,6 +2196,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Updates the file transfer protocol-enabled server's properties after that server has
    *       been created.</p>
    *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
@@ -2171,6 +2229,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * @public
    * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
    *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
    *       you specify.</p>

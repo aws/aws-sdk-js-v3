@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUploadBufferCommand}.
  */
 export interface DescribeUploadBufferCommandInput extends DescribeUploadBufferInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUploadBufferCommand}.
  */
 export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the upload buffer of a gateway. This operation is supported
  *          for the stored volume, cached volume, and tape gateway types.</p>
  *
@@ -50,6 +55,8 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUploadBufferCommandInput - {@link DescribeUploadBufferCommandInput}
+ * @returns {@link DescribeUploadBufferCommandOutput}
  * @see {@link DescribeUploadBufferCommandInput} for command's `input` shape.
  * @see {@link DescribeUploadBufferCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -125,6 +132,9 @@ export class DescribeUploadBufferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUploadBufferCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class DescribeUploadBufferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUploadBufferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUploadBufferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUploadBufferCommandOutput> {
     return deserializeAws_json1_1DescribeUploadBufferCommand(output, context);
   }

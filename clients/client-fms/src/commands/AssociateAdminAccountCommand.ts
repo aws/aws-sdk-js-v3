@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAdminAccountCommand}.
  */
 export interface AssociateAdminAccountCommandInput extends AssociateAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAdminAccountCommand}.
  */
 export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the Firewall Manager administrator account. The account must be
  *       a member of the organization in Organizations whose resources you want to protect.
  *           Firewall Manager sets the permissions that allow the account to administer your Firewall Manager policies.</p>
@@ -44,6 +49,8 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAdminAccountCommandInput - {@link AssociateAdminAccountCommandInput}
+ * @returns {@link AssociateAdminAccountCommandOutput}
  * @see {@link AssociateAdminAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -90,6 +97,9 @@ export class AssociateAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class AssociateAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAdminAccountCommandOutput> {
     return deserializeAws_json1_1AssociateAdminAccountCommand(output, context);
   }

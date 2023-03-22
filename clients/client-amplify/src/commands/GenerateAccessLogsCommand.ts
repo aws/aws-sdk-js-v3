@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateAccessLogsCommand}.
  */
 export interface GenerateAccessLogsCommandInput extends GenerateAccessLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateAccessLogsCommand}.
  */
 export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the website access logs for a specific time range using a presigned URL.
  *         </p>
  * @example
@@ -47,6 +52,8 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateAccessLogsCommandInput - {@link GenerateAccessLogsCommandInput}
+ * @returns {@link GenerateAccessLogsCommandOutput}
  * @see {@link GenerateAccessLogsCommandInput} for command's `input` shape.
  * @see {@link GenerateAccessLogsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -82,6 +89,9 @@ export class GenerateAccessLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateAccessLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GenerateAccessLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateAccessLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GenerateAccessLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateAccessLogsCommandOutput> {
     return deserializeAws_restJson1GenerateAccessLogsCommand(output, context);
   }

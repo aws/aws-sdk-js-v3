@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactChannelCommand}.
  */
 export interface UpdateContactChannelCommandInput extends UpdateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactChannelCommand}.
  */
 export interface UpdateContactChannelCommandOutput extends UpdateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a contact's contact channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactChannelCommandInput - {@link UpdateContactChannelCommandInput}
+ * @returns {@link UpdateContactChannelCommandOutput}
  * @see {@link UpdateContactChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class UpdateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactChannelCommandOutput> {
     return deserializeAws_json1_1UpdateContactChannelCommand(output, context);
   }

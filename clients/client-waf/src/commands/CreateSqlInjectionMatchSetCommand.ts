@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSqlInjectionMatchSetCommand}.
  */
 export interface CreateSqlInjectionMatchSetCommandInput extends CreateSqlInjectionMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSqlInjectionMatchSetCommand}.
  */
 export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -75,6 +80,8 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSqlInjectionMatchSetCommandInput - {@link CreateSqlInjectionMatchSetCommandInput}
+ * @returns {@link CreateSqlInjectionMatchSetCommandOutput}
  * @see {@link CreateSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -184,6 +191,9 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSqlInjectionMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -223,10 +233,16 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSqlInjectionMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSqlInjectionMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

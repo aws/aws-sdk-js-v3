@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRestoreJobCommand}.
  */
 export interface DescribeRestoreJobCommandInput extends DescribeRestoreJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRestoreJobCommand}.
  */
 export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata associated with a restore job that is specified by a job ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRestoreJobCommandInput - {@link DescribeRestoreJobCommandInput}
+ * @returns {@link DescribeRestoreJobCommandOutput}
  * @see {@link DescribeRestoreJobCommandInput} for command's `input` shape.
  * @see {@link DescribeRestoreJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeRestoreJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRestoreJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeRestoreJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRestoreJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRestoreJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRestoreJobCommandOutput> {
     return deserializeAws_restJson1DescribeRestoreJobCommand(output, context);
   }

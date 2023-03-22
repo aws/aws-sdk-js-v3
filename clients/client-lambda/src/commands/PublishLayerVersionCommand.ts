@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishLayerVersionCommand}.
  */
 export interface PublishLayerVersionCommandInput extends PublishLayerVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishLayerVersionCommand}.
  */
 export interface PublishLayerVersionCommandOutput extends PublishLayerVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
  *       layer name, a new version is created.</p>
@@ -49,6 +54,8 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishLayerVersionCommandInput - {@link PublishLayerVersionCommandInput}
+ * @returns {@link PublishLayerVersionCommandOutput}
  * @see {@link PublishLayerVersionCommandInput} for command's `input` shape.
  * @see {@link PublishLayerVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -87,6 +94,9 @@ export class PublishLayerVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishLayerVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PublishLayerVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishLayerVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishLayerVersionCommandOutput> {
     return deserializeAws_restJson1PublishLayerVersionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRepositoryCommand}.
  */
 export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRepositoryCommand}.
  */
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Deletes a repository.
  *        </p>
@@ -48,6 +53,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
+ * @returns {@link DeleteRepositoryCommandOutput}
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DeleteRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryCommandOutput> {
     return deserializeAws_restJson1DeleteRepositoryCommand(output, context);
   }

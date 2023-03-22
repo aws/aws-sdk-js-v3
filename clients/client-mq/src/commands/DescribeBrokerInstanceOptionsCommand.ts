@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBrokerInstanceOptionsCommand}.
  */
 export interface DescribeBrokerInstanceOptionsCommandInput extends DescribeBrokerInstanceOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBrokerInstanceOptionsCommand}.
  */
 export interface DescribeBrokerInstanceOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe available broker instance options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBrokerInstanceOptionsCommandInput - {@link DescribeBrokerInstanceOptionsCommandInput}
+ * @returns {@link DescribeBrokerInstanceOptionsCommandOutput}
  * @see {@link DescribeBrokerInstanceOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeBrokerInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBrokerInstanceOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBrokerInstanceOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBrokerInstanceOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

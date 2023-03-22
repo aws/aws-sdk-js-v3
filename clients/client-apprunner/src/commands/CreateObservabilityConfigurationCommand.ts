@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateObservabilityConfigurationCommand}.
  */
 export interface CreateObservabilityConfigurationCommandInput extends CreateObservabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateObservabilityConfigurationCommand}.
  */
 export interface CreateObservabilityConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateObservabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner observability configuration resource. App Runner requires this resource when you create or update App Runner services and you want to enable
  *       non-default observability features. You can share an observability configuration across multiple services.</p>
  *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>ObservabilityConfigurationName</code>. The
@@ -56,6 +61,8 @@ export interface CreateObservabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateObservabilityConfigurationCommandInput - {@link CreateObservabilityConfigurationCommandInput}
+ * @returns {@link CreateObservabilityConfigurationCommandOutput}
  * @see {@link CreateObservabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateObservabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateObservabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateObservabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class CreateObservabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateObservabilityConfigurationCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class CreateObservabilityConfigurationCommand extends $Command<
     return serializeAws_json1_0CreateObservabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

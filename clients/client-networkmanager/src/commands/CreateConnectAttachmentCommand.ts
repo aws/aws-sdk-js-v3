@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectAttachmentCommand}.
  */
 export interface CreateConnectAttachmentCommandInput extends CreateConnectAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectAttachmentCommand}.
  */
 export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a core network Connect attachment from a specified core network attachment. </p>
  *          <p>A core network Connect attachment is a GRE-based tunnel attachment that you can use to
  *          establish a connection between a core network and an appliance. A core network Connect
@@ -49,6 +54,8 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectAttachmentCommandInput - {@link CreateConnectAttachmentCommandInput}
+ * @returns {@link CreateConnectAttachmentCommandOutput}
  * @see {@link CreateConnectAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateConnectAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateConnectAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateConnectAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConnectAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectAttachmentCommandOutput> {
     return deserializeAws_restJson1CreateConnectAttachmentCommand(output, context);
   }

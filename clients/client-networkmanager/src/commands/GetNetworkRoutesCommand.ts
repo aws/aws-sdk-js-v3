@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkRoutesCommand}.
  */
 export interface GetNetworkRoutesCommandInput extends GetNetworkRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkRoutesCommand}.
  */
 export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the network routes of the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkRoutesCommandInput - {@link GetNetworkRoutesCommandInput}
+ * @returns {@link GetNetworkRoutesCommandOutput}
  * @see {@link GetNetworkRoutesCommandInput} for command's `input` shape.
  * @see {@link GetNetworkRoutesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetNetworkRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetNetworkRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetNetworkRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkRoutesCommandOutput> {
     return deserializeAws_restJson1GetNetworkRoutesCommand(output, context);
   }

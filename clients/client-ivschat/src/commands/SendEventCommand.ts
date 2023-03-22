@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendEventCommand}.
  */
 export interface SendEventCommandInput extends SendEventRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendEventCommand}.
  */
 export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an event to a room. Use this within your application’s business logic to send
  *          events to clients of a room; e.g., to notify clients to change the way the chat UI is
  *          rendered.</p>
@@ -48,6 +53,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEventCommandInput - {@link SendEventCommandInput}
+ * @returns {@link SendEventCommandOutput}
  * @see {@link SendEventCommandInput} for command's `input` shape.
  * @see {@link SendEventCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -86,6 +93,9 @@ export class SendEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class SendEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEventCommandOutput> {
     return deserializeAws_restJson1SendEventCommand(output, context);
   }

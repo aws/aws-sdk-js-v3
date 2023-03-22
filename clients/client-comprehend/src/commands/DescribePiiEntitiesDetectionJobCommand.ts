@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePiiEntitiesDetectionJobCommand}.
  */
 export interface DescribePiiEntitiesDetectionJobCommandInput extends DescribePiiEntitiesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePiiEntitiesDetectionJobCommand}.
  */
 export interface DescribePiiEntitiesDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a PII entities detection job. For example, you can use
  *       this operation to get the job status.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePiiEntitiesDetectionJobCommandInput - {@link DescribePiiEntitiesDetectionJobCommandInput}
+ * @returns {@link DescribePiiEntitiesDetectionJobCommandOutput}
  * @see {@link DescribePiiEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribePiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePiiEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePiiEntitiesDetectionJobCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
     return serializeAws_json1_1DescribePiiEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpaceCommand}.
  */
 export interface DescribeSpaceCommandInput extends DescribeSpaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpaceCommand}.
  */
 export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpaceCommandInput - {@link DescribeSpaceCommandInput}
+ * @returns {@link DescribeSpaceCommandOutput}
  * @see {@link DescribeSpaceCommandInput} for command's `input` shape.
  * @see {@link DescribeSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpaceCommandOutput> {
     return deserializeAws_json1_1DescribeSpaceCommand(output, context);
   }

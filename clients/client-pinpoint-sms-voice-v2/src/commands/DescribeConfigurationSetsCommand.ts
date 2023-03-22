@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationSetsCommand}.
  */
 export interface DescribeConfigurationSetsCommandInput extends DescribeConfigurationSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationSetsCommand}.
  */
 export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigurationSetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified configuration sets or all in your account.</p>
  *         <p>If you specify configuration set names, the output includes information for only the
  *             specified configuration sets. If you specify filters, the output includes information
@@ -56,6 +61,8 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationSetsCommandInput - {@link DescribeConfigurationSetsCommandInput}
+ * @returns {@link DescribeConfigurationSetsCommandOutput}
  * @see {@link DescribeConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeConfigurationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeConfigurationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeConfigurationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

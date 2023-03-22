@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelMessageCommand}.
  */
 export interface DeleteChannelMessageCommandInput extends DeleteChannelMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelMessageCommand}.
  */
 export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
  *          inaccessible immediately. A background process deletes any revisions created by
  *             <code>UpdateChannelMessage</code>.</p>
@@ -49,6 +54,8 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelMessageCommandInput - {@link DeleteChannelMessageCommandInput}
+ * @returns {@link DeleteChannelMessageCommandOutput}
  * @see {@link DeleteChannelMessageCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelMessageCommandOutput> {
     return deserializeAws_restJson1DeleteChannelMessageCommand(output, context);
   }

@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRetentionSettingsCommand}.
  */
 export interface GetRetentionSettingsCommandInput extends GetRetentionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRetentionSettingsCommand}.
  */
 export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Gets the retention settings for the specified Amazon Chime Enterprise account. For more information about retention settings, see
  * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
@@ -45,6 +50,8 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRetentionSettingsCommandInput - {@link GetRetentionSettingsCommandInput}
+ * @returns {@link GetRetentionSettingsCommandOutput}
  * @see {@link GetRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetRetentionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRetentionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetRetentionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRetentionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRetentionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRetentionSettingsCommandOutput> {
     return deserializeAws_restJson1GetRetentionSettingsCommand(output, context);
   }

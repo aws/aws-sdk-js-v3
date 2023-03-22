@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartZonalShiftCommand}.
  */
 export interface StartZonalShiftCommandInput extends StartZonalShiftRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartZonalShiftCommand}.
  */
 export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in a AWS Region,
  *    		to help your application recover immediately, for example, from a developer's bad code deployment or from an AWS
  *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in Route 53 ARC only for managed
@@ -55,6 +60,8 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param StartZonalShiftCommandInput - {@link StartZonalShiftCommandInput}
+ * @returns {@link StartZonalShiftCommandOutput}
  * @see {@link StartZonalShiftCommandInput} for command's `input` shape.
  * @see {@link StartZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartZonalShiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartZonalShiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class StartZonalShiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartZonalShiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartZonalShiftCommandOutput> {
     return deserializeAws_restJson1StartZonalShiftCommand(output, context);
   }

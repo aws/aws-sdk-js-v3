@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScalingPlanCommand}.
  */
 export interface DeleteScalingPlanCommandInput extends DeleteScalingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScalingPlanCommand}.
  */
 export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scaling plan.</p>
  *          <p>Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for
  *          all of the scalable resources that are covered by the plan.</p>
@@ -50,6 +55,8 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScalingPlanCommandInput - {@link DeleteScalingPlanCommandInput}
+ * @returns {@link DeleteScalingPlanCommandOutput}
  * @see {@link DeleteScalingPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteScalingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScalingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteScalingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScalingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPlanCommandOutput> {
     return deserializeAws_json1_1DeleteScalingPlanCommand(output, context);
   }

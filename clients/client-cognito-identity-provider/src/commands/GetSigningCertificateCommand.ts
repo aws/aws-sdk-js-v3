@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSigningCertificateCommand}.
  */
 export interface GetSigningCertificateCommandInput extends GetSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSigningCertificateCommand}.
  */
 export interface GetSigningCertificateCommandOutput extends GetSigningCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This method takes a user pool ID, and returns the signing certificate. The issued certificate is valid for 10 years from the date of issue.</p>
  *         <p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a new value in the response to <code>GetSigningCertificate</code>,
  *             but doesn't invalidate the original certificate.</p>
@@ -53,6 +58,8 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSigningCertificateCommandInput - {@link GetSigningCertificateCommandInput}
+ * @returns {@link GetSigningCertificateCommandOutput}
  * @see {@link GetSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link GetSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningCertificateCommandOutput> {
     return deserializeAws_json1_1GetSigningCertificateCommand(output, context);
   }

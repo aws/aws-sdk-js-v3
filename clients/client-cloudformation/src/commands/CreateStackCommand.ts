@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryCreateStackCommand, serializeAws_queryCreateStackCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStackCommand}.
  */
 export interface CreateStackCommandInput extends CreateStackInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStackCommand}.
  */
 export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stack as specified in the template. After the call completes successfully, the
  *          stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a>operation.</p>
  * @example
@@ -44,6 +49,8 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackCommandInput - {@link CreateStackCommandInput}
+ * @returns {@link CreateStackCommandOutput}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
     return deserializeAws_queryCreateStackCommand(output, context);
   }

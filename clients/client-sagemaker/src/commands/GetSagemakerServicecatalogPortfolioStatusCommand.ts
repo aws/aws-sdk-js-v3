@@ -26,11 +26,15 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
 export interface GetSagemakerServicecatalogPortfolioStatusCommandInput
   extends GetSagemakerServicecatalogPortfolioStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
 export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
@@ -38,6 +42,7 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -50,6 +55,8 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSagemakerServicecatalogPortfolioStatusCommandInput - {@link GetSagemakerServicecatalogPortfolioStatusCommandInput}
+ * @returns {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput}
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandInput} for command's `input` shape.
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSagemakerServicecatalogPortfolioStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSagemakerServicecatalogPortfolioStatusCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     return serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

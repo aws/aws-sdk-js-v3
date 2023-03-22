@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExecutionCommand}.
  */
 export interface DescribeExecutionCommandInput extends DescribeExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExecutionCommand}.
  */
 export interface DescribeExecutionCommandOutput extends DescribeExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
+ * @returns {@link DescribeExecutionCommandOutput}
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExecutionCommandOutput> {
     return deserializeAws_json1_1DescribeExecutionCommand(output, context);
   }

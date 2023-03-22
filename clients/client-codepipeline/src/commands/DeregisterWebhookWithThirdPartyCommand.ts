@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterWebhookWithThirdPartyCommand}.
  */
 export interface DeregisterWebhookWithThirdPartyCommandInput extends DeregisterWebhookWithThirdPartyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterWebhookWithThirdPartyCommand}.
  */
 export interface DeregisterWebhookWithThirdPartyCommandOutput
@@ -37,6 +41,7 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the connection between the webhook that was created by CodePipeline and the
  *             external tool with events to be detected. Currently supported only for webhooks that
  *             target an action type of GitHub.</p>
@@ -50,6 +55,8 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterWebhookWithThirdPartyCommandInput - {@link DeregisterWebhookWithThirdPartyCommandInput}
+ * @returns {@link DeregisterWebhookWithThirdPartyCommandOutput}
  * @see {@link DeregisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
  * @see {@link DeregisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterWebhookWithThirdPartyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterWebhookWithThirdPartyCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     return serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

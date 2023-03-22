@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectRecoveryInstanceCommand}.
  */
 export interface DisconnectRecoveryInstanceCommandInput extends DisconnectRecoveryInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectRecoveryInstanceCommand}.
  */
 export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnect a Recovery Instance from Elastic Disaster Recovery. Data replication is stopped immediately. All AWS resources created by Elastic Disaster Recovery for enabling the replication of the Recovery Instance will be terminated / deleted within 90 minutes. If the agent on the Recovery Instance has not been prevented from communicating with the Elastic Disaster Recovery service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the Recovery Instance will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectRecoveryInstanceCommandInput - {@link DisconnectRecoveryInstanceCommandInput}
+ * @returns {@link DisconnectRecoveryInstanceCommandOutput}
  * @see {@link DisconnectRecoveryInstanceCommandInput} for command's `input` shape.
  * @see {@link DisconnectRecoveryInstanceCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisconnectRecoveryInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectRecoveryInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DisconnectRecoveryInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectRecoveryInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisconnectRecoveryInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

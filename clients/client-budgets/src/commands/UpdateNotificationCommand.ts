@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotificationCommand}.
  */
 export interface UpdateNotificationCommandInput extends UpdateNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotificationCommand}.
  */
 export interface UpdateNotificationCommandOutput extends UpdateNotificationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotificationCommandInput - {@link UpdateNotificationCommandInput}
+ * @returns {@link UpdateNotificationCommandOutput}
  * @see {@link UpdateNotificationCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotificationCommandOutput> {
     return deserializeAws_json1_1UpdateNotificationCommand(output, context);
   }

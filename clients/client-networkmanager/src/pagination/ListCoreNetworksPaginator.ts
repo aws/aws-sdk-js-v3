@@ -10,7 +10,7 @@ import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCoreNetworksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCoreNetworks(
   config: NetworkManagerPaginationConfiguration,
   input: ListCoreNetworksCommandInput,

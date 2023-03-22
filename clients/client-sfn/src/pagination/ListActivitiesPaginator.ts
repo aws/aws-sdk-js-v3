@@ -10,7 +10,7 @@ import { SFNClient } from "../SFNClient";
 import { SFNPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SFNClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListActivitiesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListActivities(
   config: SFNPaginationConfiguration,
   input: ListActivitiesCommandInput,

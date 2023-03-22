@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVoiceConnectorGroupCommand}.
  */
 export interface CreateVoiceConnectorGroupCommandInput extends CreateVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVoiceConnectorGroupCommand}.
  */
 export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can
  *             associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by
  *             including <code>VoiceConnectorItems</code> in the request.</p>
@@ -50,6 +55,8 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVoiceConnectorGroupCommandInput - {@link CreateVoiceConnectorGroupCommandInput}
+ * @returns {@link CreateVoiceConnectorGroupCommandOutput}
  * @see {@link CreateVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

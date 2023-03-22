@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCommentCommand}.
  */
 export interface CreateCommentCommandInput extends CreateCommentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCommentCommand}.
  */
 export interface CreateCommentCommandOutput extends CreateCommentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new comment to the specified document version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCommentCommandInput - {@link CreateCommentCommandInput}
+ * @returns {@link CreateCommentCommandOutput}
  * @see {@link CreateCommentCommandInput} for command's `input` shape.
  * @see {@link CreateCommentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCommentCommandOutput> {
     return deserializeAws_restJson1CreateCommentCommand(output, context);
   }

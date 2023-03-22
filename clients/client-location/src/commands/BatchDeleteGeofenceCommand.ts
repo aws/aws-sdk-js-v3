@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteGeofenceCommand}.
  */
 export interface BatchDeleteGeofenceCommandInput extends BatchDeleteGeofenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteGeofenceCommand}.
  */
 export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a batch of geofences from a geofence collection.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
@@ -49,6 +54,8 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteGeofenceCommandInput - {@link BatchDeleteGeofenceCommandInput}
+ * @returns {@link BatchDeleteGeofenceCommandOutput}
  * @see {@link BatchDeleteGeofenceCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -88,6 +95,9 @@ export class BatchDeleteGeofenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteGeofenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class BatchDeleteGeofenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteGeofenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeleteGeofenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteGeofenceCommandOutput> {
     return deserializeAws_restJson1BatchDeleteGeofenceCommand(output, context);
   }

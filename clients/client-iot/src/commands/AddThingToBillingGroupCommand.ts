@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddThingToBillingGroupCommand}.
  */
 export interface AddThingToBillingGroupCommandInput extends AddThingToBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddThingToBillingGroupCommand}.
  */
 export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a thing to a billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToBillingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  * const response = await client.send(command);
  * ```
  *
+ * @param AddThingToBillingGroupCommandInput - {@link AddThingToBillingGroupCommandInput}
+ * @returns {@link AddThingToBillingGroupCommandOutput}
  * @see {@link AddThingToBillingGroupCommandInput} for command's `input` shape.
  * @see {@link AddThingToBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class AddThingToBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddThingToBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AddThingToBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddThingToBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddThingToBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddThingToBillingGroupCommandOutput> {
     return deserializeAws_restJson1AddThingToBillingGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApprovalRuleTemplatesCommand}.
  */
 export interface ListApprovalRuleTemplatesCommandInput extends ListApprovalRuleTemplatesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListApprovalRuleTemplatesCommand}.
  */
 export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRuleTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all approval rule templates in the specified AWS Region in your AWS account. If
  *             an AWS Region is not specified, the AWS Region where you are signed in is used.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApprovalRuleTemplatesCommandInput - {@link ListApprovalRuleTemplatesCommandInput}
+ * @returns {@link ListApprovalRuleTemplatesCommandOutput}
  * @see {@link ListApprovalRuleTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListApprovalRuleTemplatesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApprovalRuleTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApprovalRuleTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApprovalRuleTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

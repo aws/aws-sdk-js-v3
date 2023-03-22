@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopAssessmentRunCommand}.
  */
 export interface StopAssessmentRunCommandInput extends StopAssessmentRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopAssessmentRunCommand}.
  */
 export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the assessment run that is specified by the ARN of the assessment
  *          run.</p>
  * @example
@@ -42,6 +47,8 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAssessmentRunCommandInput - {@link StopAssessmentRunCommandInput}
+ * @returns {@link StopAssessmentRunCommandOutput}
  * @see {@link StopAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -93,6 +100,9 @@ export class StopAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class StopAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAssessmentRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAssessmentRunCommandOutput> {
     return deserializeAws_json1_1StopAssessmentRunCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface PutVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends PutVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for
  *     the Amazon Chime Voice Connector before emergency calling can be configured.</p>
  * @example
@@ -50,6 +55,8 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link PutVoiceConnectorEmergencyCallingConfigurationCommandInput}
+ * @returns {@link PutVoiceConnectorEmergencyCallingConfigurationCommandOutput}
  * @see {@link PutVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -94,6 +101,9 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorEmergencyCallingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     return serializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

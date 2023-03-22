@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutIdentityPolicyCommand}.
  */
 export interface PutIdentityPolicyCommandInput extends PutIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIdentityPolicyCommand}.
  */
 export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates a sending authorization policy for the specified identity (an email
  *             address or a domain).</p>
  *         <note>
@@ -56,6 +61,8 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIdentityPolicyCommandInput - {@link PutIdentityPolicyCommandInput}
+ * @returns {@link PutIdentityPolicyCommandOutput}
  * @see {@link PutIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -96,6 +103,9 @@ export class PutIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class PutIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIdentityPolicyCommandOutput> {
     return deserializeAws_queryPutIdentityPolicyCommand(output, context);
   }

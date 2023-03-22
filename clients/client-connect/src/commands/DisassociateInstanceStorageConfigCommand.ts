@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateInstanceStorageConfigCommand}.
  */
 export interface DisassociateInstanceStorageConfigCommandInput extends DisassociateInstanceStorageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateInstanceStorageConfigCommand}.
  */
 export interface DisassociateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Removes the storage type configurations for the specified resource type and association
  *    ID.</p>
@@ -46,6 +51,8 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateInstanceStorageConfigCommandInput - {@link DisassociateInstanceStorageConfigCommandInput}
+ * @returns {@link DisassociateInstanceStorageConfigCommandOutput}
  * @see {@link DisassociateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateInstanceStorageConfigCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DisassociateInstanceStorageConfigCommand extends $Command<
     return serializeAws_restJson1DisassociateInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

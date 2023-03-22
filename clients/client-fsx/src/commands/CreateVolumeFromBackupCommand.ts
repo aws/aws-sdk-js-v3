@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVolumeFromBackupCommand}.
  */
 export interface CreateVolumeFromBackupCommandInput extends CreateVolumeFromBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVolumeFromBackupCommand}.
  */
 export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon FSx for NetApp ONTAP volume from an
  *             existing Amazon FSx volume backup.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVolumeFromBackupCommandInput - {@link CreateVolumeFromBackupCommandInput}
+ * @returns {@link CreateVolumeFromBackupCommandOutput}
  * @see {@link CreateVolumeFromBackupCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateVolumeFromBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVolumeFromBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateVolumeFromBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVolumeFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateVolumeFromBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeFromBackupCommandOutput> {
     return deserializeAws_json1_1CreateVolumeFromBackupCommand(output, context);
   }

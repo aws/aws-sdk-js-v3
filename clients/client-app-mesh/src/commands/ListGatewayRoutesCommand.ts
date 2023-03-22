@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGatewayRoutesCommand}.
  */
 export interface ListGatewayRoutesCommandInput extends ListGatewayRoutesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGatewayRoutesCommand}.
  */
 export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing gateway routes that are associated to a virtual
  *          gateway.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGatewayRoutesCommandInput - {@link ListGatewayRoutesCommandInput}
+ * @returns {@link ListGatewayRoutesCommandOutput}
  * @see {@link ListGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link ListGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListGatewayRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGatewayRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListGatewayRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGatewayRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewayRoutesCommandOutput> {
     return deserializeAws_restJson1ListGatewayRoutesCommand(output, context);
   }

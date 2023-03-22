@@ -6,7 +6,7 @@ import { GuardDutyClient } from "../GuardDutyClient";
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMembersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMembers(
   config: GuardDutyPaginationConfiguration,
   input: ListMembersCommandInput,

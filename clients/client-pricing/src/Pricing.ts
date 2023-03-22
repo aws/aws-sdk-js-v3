@@ -25,6 +25,7 @@ import {
 import { PricingClient } from "./PricingClient";
 
 /**
+ * @public
  * <p>Amazon Web Services Price List API is a centralized and convenient way to
  *          programmatically query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List
  *          uses standardized product attributes such as <code>Location</code>, <code>Storage
@@ -52,6 +53,7 @@ import { PricingClient } from "./PricingClient";
  */
 export class Pricing extends PricingClient {
   /**
+   * @public
    * <p>Returns the metadata for one service or a list of the metadata for all services. Use
    *          this without a service code to get the service codes for all services.
    *          Use it with a service code, such as <code>AmazonEC2</code>, to get information specific to
@@ -90,6 +92,7 @@ export class Pricing extends PricingClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of attribute values. Attributes are similar to the details
    *           in a Price List API offer file. For a list of available attributes, see
    *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a>
@@ -125,6 +128,7 @@ export class Pricing extends PricingClient {
   }
 
   /**
+   * @public
    * <p>
    *             <i>
    *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
@@ -165,6 +169,7 @@ export class Pricing extends PricingClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all products that match the filter criteria.</p>
    */
   public getProducts(args: GetProductsCommandInput, options?: __HttpHandlerOptions): Promise<GetProductsCommandOutput>;
@@ -191,6 +196,7 @@ export class Pricing extends PricingClient {
   }
 
   /**
+   * @public
    * <p>
    *             <i>
    *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>

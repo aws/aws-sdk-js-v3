@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutInboundDmarcSettingsCommand}.
  */
 export interface PutInboundDmarcSettingsCommandInput extends PutInboundDmarcSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutInboundDmarcSettingsCommand}.
  */
 export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables a DMARC policy for a given organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSet
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInboundDmarcSettingsCommandInput - {@link PutInboundDmarcSettingsCommandInput}
+ * @returns {@link PutInboundDmarcSettingsCommandOutput}
  * @see {@link PutInboundDmarcSettingsCommandInput} for command's `input` shape.
  * @see {@link PutInboundDmarcSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -77,6 +84,9 @@ export class PutInboundDmarcSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInboundDmarcSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class PutInboundDmarcSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInboundDmarcSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutInboundDmarcSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInboundDmarcSettingsCommandOutput> {
     return deserializeAws_json1_1PutInboundDmarcSettingsCommand(output, context);
   }

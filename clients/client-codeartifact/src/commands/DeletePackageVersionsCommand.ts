@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePackageVersionsCommand}.
  */
 export interface DeletePackageVersionsCommandInput extends DeletePackageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePackageVersionsCommand}.
  */
 export interface DeletePackageVersionsCommandOutput extends DeletePackageVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes one or more versions of a package. A deleted package version cannot be restored
  *       in your repository. If you want to remove a package version from your repository and be able
  *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
@@ -50,6 +55,8 @@ export interface DeletePackageVersionsCommandOutput extends DeletePackageVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePackageVersionsCommandInput - {@link DeletePackageVersionsCommandInput}
+ * @returns {@link DeletePackageVersionsCommandOutput}
  * @see {@link DeletePackageVersionsCommandInput} for command's `input` shape.
  * @see {@link DeletePackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeletePackageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeletePackageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePackageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackageVersionsCommandOutput> {
     return deserializeAws_restJson1DeletePackageVersionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreVolumeFromSnapshotCommand}.
  */
 export interface RestoreVolumeFromSnapshotCommandInput extends RestoreVolumeFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreVolumeFromSnapshotCommand}.
  */
 export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFromSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
  *             snapshot.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreVolumeFromSnapshotCommandInput - {@link RestoreVolumeFromSnapshotCommandInput}
+ * @returns {@link RestoreVolumeFromSnapshotCommandOutput}
  * @see {@link RestoreVolumeFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreVolumeFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -79,6 +86,9 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreVolumeFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreVolumeFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreVolumeFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

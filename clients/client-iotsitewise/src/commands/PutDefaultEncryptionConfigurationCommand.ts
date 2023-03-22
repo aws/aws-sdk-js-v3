@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDefaultEncryptionConfigurationCommand}.
  */
 export interface PutDefaultEncryptionConfigurationCommandInput extends PutDefaultEncryptionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDefaultEncryptionConfigurationCommand}.
  */
 export interface PutDefaultEncryptionConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in
  *       the <i>IoT SiteWise User Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDefaultEncryptionConfigurationCommandInput - {@link PutDefaultEncryptionConfigurationCommandInput}
+ * @returns {@link PutDefaultEncryptionConfigurationCommandOutput}
  * @see {@link PutDefaultEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutDefaultEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -96,6 +103,9 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDefaultEncryptionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDefaultEncryptionConfigurationCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
     return serializeAws_restJson1PutDefaultEncryptionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

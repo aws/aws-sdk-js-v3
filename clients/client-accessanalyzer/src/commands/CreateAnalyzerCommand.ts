@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAnalyzerCommand}.
  */
 export interface CreateAnalyzerCommandInput extends CreateAnalyzerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAnalyzerCommand}.
  */
 export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an analyzer for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAnalyzerCommandInput - {@link CreateAnalyzerCommandInput}
+ * @returns {@link CreateAnalyzerCommandOutput}
  * @see {@link CreateAnalyzerCommandInput} for command's `input` shape.
  * @see {@link CreateAnalyzerCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateAnalyzerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAnalyzerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateAnalyzerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAnalyzerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAnalyzerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnalyzerCommandOutput> {
     return deserializeAws_restJson1CreateAnalyzerCommand(output, context);
   }

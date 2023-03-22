@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutRumEventsCommand}.
  */
 export interface PutRumEventsCommandInput extends PutRumEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRumEventsCommand}.
  */
 export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends telemetry events about your application performance and user behavior to CloudWatch RUM. The code
  *       snippet that RUM generates for you to add to your application includes <code>PutRumEvents</code> operations to
  *       send this data to RUM.</p>
@@ -49,6 +54,8 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRumEventsCommandInput - {@link PutRumEventsCommandInput}
+ * @returns {@link PutRumEventsCommandOutput}
  * @see {@link PutRumEventsCommandInput} for command's `input` shape.
  * @see {@link PutRumEventsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutRumEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRumEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutRumEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRumEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutRumEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRumEventsCommandOutput> {
     return deserializeAws_restJson1PutRumEventsCommand(output, context);
   }

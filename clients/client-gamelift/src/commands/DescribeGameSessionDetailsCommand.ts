@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameSessionDetailsCommand}.
  */
 export interface DescribeGameSessionDetailsCommandInput extends DescribeGameSessionDetailsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameSessionDetailsCommand}.
  */
 export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSessionDetailsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves additional game session properties, including the game session protection
  *             policy in force, a set of one or more game sessions in a specific fleet location. You
  *             can optionally filter the results by current game session status.</p>
@@ -80,6 +85,8 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionDetailsCommandInput - {@link DescribeGameSessionDetailsCommandInput}
+ * @returns {@link DescribeGameSessionDetailsCommandOutput}
  * @see {@link DescribeGameSessionDetailsCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionDetailsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -126,6 +133,9 @@ export class DescribeGameSessionDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class DescribeGameSessionDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGameSessionDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

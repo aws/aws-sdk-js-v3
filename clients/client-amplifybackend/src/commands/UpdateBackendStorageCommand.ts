@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBackendStorageCommand}.
  */
 export interface UpdateBackendStorageCommandInput extends UpdateBackendStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBackendStorageCommand}.
  */
 export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBackendStorageCommandInput - {@link UpdateBackendStorageCommandInput}
+ * @returns {@link UpdateBackendStorageCommandOutput}
  * @see {@link UpdateBackendStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackendStorageCommandOutput> {
     return deserializeAws_restJson1UpdateBackendStorageCommand(output, context);
   }

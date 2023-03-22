@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ProtonServiceException as __BaseException } from "./ProtonServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptEnvironmentAccountConnectionInput {
   /**
    * <p>The ID of the environment account connection.</p>
@@ -10,6 +13,9 @@ export interface AcceptEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentAccountConnectionStatus {
   CONNECTED = "CONNECTED",
   PENDING = "PENDING",
@@ -17,6 +23,7 @@ export enum EnvironmentAccountConnectionStatus {
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton environment account connection resource.</p>
  */
 export interface EnvironmentAccountConnection {
@@ -83,6 +90,9 @@ export interface EnvironmentAccountConnection {
   codebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment account connection data that's returned by Proton.</p>
@@ -91,6 +101,7 @@ export interface AcceptEnvironmentAccountConnectionOutput {
 }
 
 /**
+ * @public
  * <p>There <i>isn't</i> sufficient access for performing this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -110,6 +121,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -129,6 +141,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed to register with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -149,6 +162,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource <i>wasn't</i> found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -168,6 +182,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -190,6 +205,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  */
 export class ValidationException extends __BaseException {
@@ -208,6 +224,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RepositoryProvider {
   BITBUCKET = "BITBUCKET",
   GITHUB = "GITHUB",
@@ -215,6 +234,7 @@ export enum RepositoryProvider {
 }
 
 /**
+ * @public
  * <p>Detail data for a linked repository branch.</p>
  */
 export interface RepositoryBranch {
@@ -240,6 +260,7 @@ export interface RepositoryBranch {
 }
 
 /**
+ * @public
  * <p>Proton settings that are used for multiple services in the Amazon Web Services account.</p>
  */
 export interface AccountSettings {
@@ -262,8 +283,14 @@ export interface AccountSettings {
   pipelineCodebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsInput {}
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsOutput {
   /**
    * <p>The Proton pipeline service role detail data that's returned by Proton.</p>
@@ -272,6 +299,7 @@ export interface GetAccountSettingsOutput {
 }
 
 /**
+ * @public
  * <p>Detail input data for a linked repository branch.</p>
  */
 export interface RepositoryBranchInput {
@@ -291,6 +319,9 @@ export interface RepositoryBranchInput {
   branch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton
@@ -321,6 +352,9 @@ export interface UpdateAccountSettingsInput {
   pipelineCodebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsOutput {
   /**
    * <p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>
@@ -328,6 +362,9 @@ export interface UpdateAccountSettingsOutput {
   accountSettings: AccountSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelComponentDeploymentInput {
   /**
    * <p>The name of the component with the deployment to cancel.</p>
@@ -335,6 +372,9 @@ export interface CancelComponentDeploymentInput {
   componentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentStatus {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
@@ -347,6 +387,7 @@ export enum DeploymentStatus {
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton component resource.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -419,6 +460,9 @@ export interface Component {
   serviceSpec?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelComponentDeploymentOutput {
   /**
    * <p>The detailed data of the component with the deployment that is being canceled.</p>
@@ -426,6 +470,9 @@ export interface CancelComponentDeploymentOutput {
   component: Component | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelEnvironmentDeploymentInput {
   /**
    * <p>The name of the environment with the deployment to cancel.</p>
@@ -433,11 +480,15 @@ export interface CancelEnvironmentDeploymentInput {
   environmentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Provisioning {
   CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton environment resource. An Proton environment is a set of resources shared across Proton services.</p>
  */
 export interface Environment {
@@ -544,6 +595,9 @@ export interface Environment {
   codebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelEnvironmentDeploymentOutput {
   /**
    * <p>The environment summary data that's returned by Proton.</p>
@@ -551,6 +605,9 @@ export interface CancelEnvironmentDeploymentOutput {
   environment: Environment | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelServiceInstanceDeploymentInput {
   /**
    * <p>The name of the service instance with the deployment to cancel.</p>
@@ -564,6 +621,7 @@ export interface CancelServiceInstanceDeploymentInput {
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton service instance resource.</p>
  */
 export interface ServiceInstance {
@@ -633,6 +691,9 @@ export interface ServiceInstance {
   spec?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelServiceInstanceDeploymentOutput {
   /**
    * <p>The service instance summary data that's returned by Proton.</p>
@@ -640,6 +701,9 @@ export interface CancelServiceInstanceDeploymentOutput {
   serviceInstance: ServiceInstance | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelServicePipelineDeploymentInput {
   /**
    * <p>The name of the service with the service pipeline deployment to cancel.</p>
@@ -648,6 +712,7 @@ export interface CancelServicePipelineDeploymentInput {
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton service instance pipeline resource.</p>
  */
 export interface ServicePipeline {
@@ -702,6 +767,9 @@ export interface ServicePipeline {
   spec?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelServicePipelineDeploymentOutput {
   /**
    * <p>The service pipeline detail data that's returned by Proton.</p>
@@ -709,6 +777,9 @@ export interface CancelServicePipelineDeploymentOutput {
   pipeline: ServicePipeline | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentOutputsInput {
   /**
    * <p>The name of the component whose outputs you want.</p>
@@ -722,6 +793,7 @@ export interface ListComponentOutputsInput {
 }
 
 /**
+ * @public
  * <p>An infrastructure as code defined resource output.</p>
  */
 export interface Output {
@@ -736,6 +808,9 @@ export interface Output {
   valueString?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentOutputsOutput {
   /**
    * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
@@ -748,6 +823,9 @@ export interface ListComponentOutputsOutput {
   outputs: Output[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentProvisionedResourcesInput {
   /**
    * <p>The name of the component whose provisioned resources you want.</p>
@@ -761,12 +839,16 @@ export interface ListComponentProvisionedResourcesInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProvisionedResourceEngine {
   CLOUDFORMATION = "CLOUDFORMATION",
   TERRAFORM = "TERRAFORM",
 }
 
 /**
+ * @public
  * <p>Detail data for a provisioned resource.</p>
  */
 export interface ProvisionedResource {
@@ -788,6 +870,9 @@ export interface ProvisionedResource {
   provisioningEngine?: ProvisionedResourceEngine | string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
@@ -802,6 +887,7 @@ export interface ListComponentProvisionedResourcesOutput {
 }
 
 /**
+ * @public
  * <p>A description of a resource tag.</p>
  */
 export interface Tag {
@@ -816,6 +902,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentInput {
   /**
    * <p>The customer-provided name of the component.</p>
@@ -873,6 +962,9 @@ export interface CreateComponentInput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentOutput {
   /**
    * <p>The detailed data of the created component.</p>
@@ -881,6 +973,7 @@ export interface CreateComponentOutput {
 }
 
 /**
+ * @public
  * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
  *       the <i>Proton User Guide</i>.</p>
  */
@@ -900,6 +993,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentInput {
   /**
    * <p>The name of the component to delete.</p>
@@ -907,6 +1003,9 @@ export interface DeleteComponentInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentOutput {
   /**
    * <p>The detailed data of the component being deleted.</p>
@@ -914,6 +1013,9 @@ export interface DeleteComponentOutput {
   component?: Component;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentInput {
   /**
    * <p>The name of the component that you want to get the detailed data for.</p>
@@ -921,6 +1023,9 @@ export interface GetComponentInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentOutput {
   /**
    * <p>The detailed data of the requested component.</p>
@@ -928,6 +1033,9 @@ export interface GetComponentOutput {
   component?: Component;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsInput {
   /**
    * <p>A token that indicates the location of the next component in the array of components, after the list of components that was previously
@@ -958,6 +1066,7 @@ export interface ListComponentsInput {
 }
 
 /**
+ * @public
  * <p>Summary data of an Proton component resource.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -1020,6 +1129,9 @@ export interface ComponentSummary {
   deploymentStatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsOutput {
   /**
    * <p>A token that indicates the location of the next component in the array of components, after the current requested list of components.</p>
@@ -1032,11 +1144,17 @@ export interface ListComponentsOutput {
   components: ComponentSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ComponentDeploymentUpdateType {
   CURRENT_VERSION = "CURRENT_VERSION",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentInput {
   /**
    * <p>The name of the component to update.</p>
@@ -1100,6 +1218,9 @@ export interface UpdateComponentInput {
   templateFile?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentOutput {
   /**
    * <p>The detailed data of the updated component.</p>
@@ -1107,6 +1228,9 @@ export interface UpdateComponentOutput {
   component: Component | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentAccountConnectionInput {
   /**
    * <p>When included, if two identical requests are made with the same client token, Proton returns the environment account connection that the first
@@ -1157,6 +1281,9 @@ export interface CreateEnvironmentAccountConnectionInput {
   codebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment account connection detail data that's returned by Proton.</p>
@@ -1164,6 +1291,9 @@ export interface CreateEnvironmentAccountConnectionOutput {
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentAccountConnectionInput {
   /**
    * <p>The ID of the environment account connection to delete.</p>
@@ -1171,6 +1301,9 @@ export interface DeleteEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentAccountConnectionOutput {
   /**
    * <p>The detailed data of the environment account connection being deleted.</p>
@@ -1178,6 +1311,9 @@ export interface DeleteEnvironmentAccountConnectionOutput {
   environmentAccountConnection?: EnvironmentAccountConnection;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentAccountConnectionInput {
   /**
    * <p>The ID of the environment account connection that you want to get the detailed data for.</p>
@@ -1185,6 +1321,9 @@ export interface GetEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentAccountConnectionOutput {
   /**
    * <p>The detailed data of the requested environment account connection.</p>
@@ -1192,11 +1331,17 @@ export interface GetEnvironmentAccountConnectionOutput {
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentAccountConnectionRequesterAccountType {
   ENVIRONMENT_ACCOUNT = "ENVIRONMENT_ACCOUNT",
   MANAGEMENT_ACCOUNT = "MANAGEMENT_ACCOUNT",
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentAccountConnectionsInput {
   /**
    * <p>The type of account making the <code>ListEnvironmentAccountConnections</code> request.</p>
@@ -1226,6 +1371,7 @@ export interface ListEnvironmentAccountConnectionsInput {
 }
 
 /**
+ * @public
  * <p>Summary data of an Proton environment account connection resource.</p>
  */
 export interface EnvironmentAccountConnectionSummary {
@@ -1286,6 +1432,9 @@ export interface EnvironmentAccountConnectionSummary {
   componentRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentAccountConnectionsOutput {
   /**
    * <p>An array of environment account connections with details that's returned by Proton. </p>
@@ -1299,6 +1448,9 @@ export interface ListEnvironmentAccountConnectionsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RejectEnvironmentAccountConnectionInput {
   /**
    * <p>The ID of the environment account connection to reject.</p>
@@ -1306,6 +1458,9 @@ export interface RejectEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RejectEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment connection account detail data that's returned by Proton.</p>
@@ -1313,6 +1468,9 @@ export interface RejectEnvironmentAccountConnectionOutput {
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentAccountConnectionInput {
   /**
    * <p>The ID of the environment account connection to update.</p>
@@ -1342,6 +1500,9 @@ export interface UpdateEnvironmentAccountConnectionInput {
   codebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment account connection detail data that's returned by Proton.</p>
@@ -1349,6 +1510,9 @@ export interface UpdateEnvironmentAccountConnectionOutput {
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentOutputsInput {
   /**
    * <p>The environment name.</p>
@@ -1362,6 +1526,9 @@ export interface ListEnvironmentOutputsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentOutputsOutput {
   /**
    * <p>A token that indicates the location of the next environment output in the array of environment outputs, after the current requested list of
@@ -1375,6 +1542,9 @@ export interface ListEnvironmentOutputsOutput {
   outputs: Output[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentProvisionedResourcesInput {
   /**
    * <p>The environment name.</p>
@@ -1388,6 +1558,9 @@ export interface ListEnvironmentProvisionedResourcesInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next environment provisioned resource in the array of provisioned resources, after the current requested
@@ -1401,6 +1574,9 @@ export interface ListEnvironmentProvisionedResourcesOutput {
   provisionedResources: ProvisionedResource[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentInput {
   /**
    * <p>The name of the environment.</p>
@@ -1483,6 +1659,9 @@ export interface CreateEnvironmentInput {
   codebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentOutput {
   /**
    * <p>The environment detail data that's returned by Proton.</p>
@@ -1490,6 +1669,9 @@ export interface CreateEnvironmentOutput {
   environment: Environment | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentInput {
   /**
    * <p>The name of the environment to delete.</p>
@@ -1497,6 +1679,9 @@ export interface DeleteEnvironmentInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentOutput {
   /**
    * <p>The detailed data of the environment being deleted.</p>
@@ -1504,6 +1689,9 @@ export interface DeleteEnvironmentOutput {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentInput {
   /**
    * <p>The name of the environment that you want to get the detailed data for.</p>
@@ -1511,6 +1699,9 @@ export interface GetEnvironmentInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentOutput {
   /**
    * <p>The detailed data of the requested environment.</p>
@@ -1519,6 +1710,7 @@ export interface GetEnvironmentOutput {
 }
 
 /**
+ * @public
  * <p>A search filter for environment templates.</p>
  */
 export interface EnvironmentTemplateFilter {
@@ -1533,6 +1725,9 @@ export interface EnvironmentTemplateFilter {
   majorVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsInput {
   /**
    * <p>A token that indicates the location of the next environment in the array of environments, after the list of environments that was previously
@@ -1552,6 +1747,7 @@ export interface ListEnvironmentsInput {
 }
 
 /**
+ * @public
  * <p>Summary data of an Proton environment resource. An Proton environment is a set of resources shared across Proton services.</p>
  */
 export interface EnvironmentSummary {
@@ -1641,6 +1837,9 @@ export interface EnvironmentSummary {
   componentRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsOutput {
   /**
    * <p>A token that indicates the location of the next environment in the array of environments, after the current requested list of environments.</p>
@@ -1653,6 +1852,9 @@ export interface ListEnvironmentsOutput {
   environments: EnvironmentSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeploymentUpdateType {
   CURRENT_VERSION = "CURRENT_VERSION",
   MAJOR_VERSION = "MAJOR_VERSION",
@@ -1660,6 +1862,9 @@ export enum DeploymentUpdateType {
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentInput {
   /**
    * <p>The name of the environment to update.</p>
@@ -1759,6 +1964,9 @@ export interface UpdateEnvironmentInput {
   codebuildRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentOutput {
   /**
    * <p>The environment detail data that's returned by Proton.</p>
@@ -1766,6 +1974,9 @@ export interface UpdateEnvironmentOutput {
   environment: Environment | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentTemplateInput {
   /**
    * <p>The name of the environment template.</p>
@@ -1801,6 +2012,7 @@ export interface CreateEnvironmentTemplateInput {
 }
 
 /**
+ * @public
  * <p>The environment template data.</p>
  */
 export interface EnvironmentTemplate {
@@ -1850,6 +2062,9 @@ export interface EnvironmentTemplate {
   provisioning?: Provisioning | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentTemplateOutput {
   /**
    * <p>The environment template detail data that's returned by Proton.</p>
@@ -1857,6 +2072,9 @@ export interface CreateEnvironmentTemplateOutput {
   environmentTemplate: EnvironmentTemplate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentTemplateInput {
   /**
    * <p>The name of the environment template to delete.</p>
@@ -1864,6 +2082,9 @@ export interface DeleteEnvironmentTemplateInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentTemplateOutput {
   /**
    * <p>The detailed data of the environment template being deleted.</p>
@@ -1871,6 +2092,9 @@ export interface DeleteEnvironmentTemplateOutput {
   environmentTemplate?: EnvironmentTemplate;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentTemplateInput {
   /**
    * <p>The name of the environment template that you want to get the detailed data for.</p>
@@ -1878,6 +2102,9 @@ export interface GetEnvironmentTemplateInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentTemplateOutput {
   /**
    * <p>The detailed data of the requested environment template.</p>
@@ -1885,6 +2112,9 @@ export interface GetEnvironmentTemplateOutput {
   environmentTemplate: EnvironmentTemplate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentTemplatesInput {
   /**
    * <p>A token that indicates the location of the next environment template in the array of environment templates, after the list of environment templates
@@ -1899,6 +2129,7 @@ export interface ListEnvironmentTemplatesInput {
 }
 
 /**
+ * @public
  * <p>The environment template data.</p>
  */
 export interface EnvironmentTemplateSummary {
@@ -1943,6 +2174,9 @@ export interface EnvironmentTemplateSummary {
   provisioning?: Provisioning | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentTemplatesOutput {
   /**
    * <p>A token that indicates the location of the next environment template in the array of environment templates, after the current requested list of
@@ -1956,6 +2190,9 @@ export interface ListEnvironmentTemplatesOutput {
   templates: EnvironmentTemplateSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentTemplateInput {
   /**
    * <p>The name of the environment template to update.</p>
@@ -1973,6 +2210,9 @@ export interface UpdateEnvironmentTemplateInput {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentTemplateOutput {
   /**
    * <p>The environment template detail data that's returned by Proton.</p>
@@ -1981,6 +2221,7 @@ export interface UpdateEnvironmentTemplateOutput {
 }
 
 /**
+ * @public
  * <p>Template bundle S3 bucket data.</p>
  */
 export interface S3ObjectSource {
@@ -1996,12 +2237,16 @@ export interface S3ObjectSource {
 }
 
 /**
+ * @public
  * <p>Template version source data.</p>
  */
 export type TemplateVersionSourceInput =
   | TemplateVersionSourceInput.S3Member
   | TemplateVersionSourceInput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TemplateVersionSourceInput {
   /**
    * <p>An S3 source object that includes the template bundle S3 path and name for a template minor version.</p>
@@ -2027,6 +2272,9 @@ export namespace TemplateVersionSourceInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentTemplateVersionInput {
   /**
    * <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first
@@ -2063,6 +2311,9 @@ export interface CreateEnvironmentTemplateVersionInput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum TemplateVersionStatus {
   DRAFT = "DRAFT",
   PUBLISHED = "PUBLISHED",
@@ -2071,6 +2322,7 @@ export enum TemplateVersionStatus {
 }
 
 /**
+ * @public
  * <p>The environment template version data.</p>
  */
 export interface EnvironmentTemplateVersion {
@@ -2130,6 +2382,9 @@ export interface EnvironmentTemplateVersion {
   schema?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentTemplateVersionOutput {
   /**
    * <p>The environment template detail data that's returned by Proton.</p>
@@ -2137,6 +2392,9 @@ export interface CreateEnvironmentTemplateVersionOutput {
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentTemplateVersionInput {
   /**
    * <p>The name of the environment template.</p>
@@ -2154,6 +2412,9 @@ export interface DeleteEnvironmentTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentTemplateVersionOutput {
   /**
    * <p>The detailed data of the environment template version being deleted.</p>
@@ -2161,6 +2422,9 @@ export interface DeleteEnvironmentTemplateVersionOutput {
   environmentTemplateVersion?: EnvironmentTemplateVersion;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentTemplateVersionInput {
   /**
    * <p>The name of the environment template a version of which you want to get detailed data for.</p>
@@ -2178,6 +2442,9 @@ export interface GetEnvironmentTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentTemplateVersionOutput {
   /**
    * <p>The detailed data of the requested environment template version.</p>
@@ -2185,6 +2452,9 @@ export interface GetEnvironmentTemplateVersionOutput {
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentTemplateVersionsInput {
   /**
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of an environment template, after the
@@ -2211,6 +2481,7 @@ export interface ListEnvironmentTemplateVersionsInput {
 }
 
 /**
+ * @public
  * <p>A summary of the version of an environment template detail data.</p>
  */
 export interface EnvironmentTemplateVersionSummary {
@@ -2265,6 +2536,9 @@ export interface EnvironmentTemplateVersionSummary {
   lastModifiedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentTemplateVersionsOutput {
   /**
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of an environment template, after the
@@ -2278,6 +2552,9 @@ export interface ListEnvironmentTemplateVersionsOutput {
   templateVersions: EnvironmentTemplateVersionSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentTemplateVersionInput {
   /**
    * <p>The name of the environment template.</p>
@@ -2305,6 +2582,9 @@ export interface UpdateEnvironmentTemplateVersionInput {
   status?: TemplateVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentTemplateVersionOutput {
   /**
    * <p>The environment template version detail data that's returned by Proton.</p>
@@ -2312,10 +2592,16 @@ export interface UpdateEnvironmentTemplateVersionOutput {
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SyncType {
   TEMPLATE_SYNC = "TEMPLATE_SYNC",
 }
 
+/**
+ * @public
+ */
 export interface GetRepositorySyncStatusInput {
   /**
    * <p>The repository name.</p>
@@ -2339,6 +2625,7 @@ export interface GetRepositorySyncStatusInput {
 }
 
 /**
+ * @public
  * <p>Repository sync event detail data for a sync attempt.</p>
  */
 export interface RepositorySyncEvent {
@@ -2363,6 +2650,9 @@ export interface RepositorySyncEvent {
   event: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RepositorySyncStatus {
   /**
    *     The repository sync attempt has failed.
@@ -2392,6 +2682,7 @@ export enum RepositorySyncStatus {
 }
 
 /**
+ * @public
  * <p>Detail data for a repository sync attempt activated by a push to a repository.</p>
  */
 export interface RepositorySyncAttempt {
@@ -2411,6 +2702,9 @@ export interface RepositorySyncAttempt {
   events: RepositorySyncEvent[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositorySyncStatusOutput {
   /**
    * <p>The repository sync status detail data that's returned by Proton.</p>
@@ -2418,9 +2712,13 @@ export interface GetRepositorySyncStatusOutput {
   latestSync?: RepositorySyncAttempt;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcesSummaryInput {}
 
 /**
+ * @public
  * <p>Summary counts of each Proton resource types.</p>
  */
 export interface ResourceCountsSummary {
@@ -2451,6 +2749,7 @@ export interface ResourceCountsSummary {
 }
 
 /**
+ * @public
  * <p>Summary counts of each Proton resource type.</p>
  */
 export interface CountsSummary {
@@ -2496,6 +2795,9 @@ export interface CountsSummary {
   pipelines?: ResourceCountsSummary;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcesSummaryOutput {
   /**
    * <p>Summary counts of each Proton resource type.</p>
@@ -2503,11 +2805,17 @@ export interface GetResourcesSummaryOutput {
   counts: CountsSummary | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TemplateType {
   ENVIRONMENT = "ENVIRONMENT",
   SERVICE = "SERVICE",
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateSyncStatusInput {
   /**
    * <p>The template name.</p>
@@ -2526,6 +2834,7 @@ export interface GetTemplateSyncStatusInput {
 }
 
 /**
+ * @public
  * <p>Revision detail data for a commit and push that activates a sync attempt</p>
  */
 export interface Revision {
@@ -2556,6 +2865,7 @@ export interface Revision {
 }
 
 /**
+ * @public
  * <p>Detail data for a resource sync event.</p>
  */
 export interface ResourceSyncEvent {
@@ -2580,6 +2890,9 @@ export interface ResourceSyncEvent {
   event: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ResourceSyncStatus {
   /**
    *     Syncing has failed.
@@ -2604,6 +2917,7 @@ export enum ResourceSyncStatus {
 }
 
 /**
+ * @public
  * <p>Detail data for a resource sync attempt activated by a push to a repository.</p>
  */
 export interface ResourceSyncAttempt {
@@ -2638,6 +2952,9 @@ export interface ResourceSyncAttempt {
   events: ResourceSyncEvent[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateSyncStatusOutput {
   /**
    * <p>The details of the last sync that's returned by Proton.</p>
@@ -2655,6 +2972,9 @@ export interface GetTemplateSyncStatusOutput {
   desiredState?: Revision;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositorySyncDefinitionsInput {
   /**
    * <p>The repository name.</p>
@@ -2679,6 +2999,7 @@ export interface ListRepositorySyncDefinitionsInput {
 }
 
 /**
+ * @public
  * <p>A repository sync definition.</p>
  */
 export interface RepositorySyncDefinition {
@@ -2703,6 +3024,9 @@ export interface RepositorySyncDefinition {
   directory: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositorySyncDefinitionsOutput {
   /**
    * <p>A token that indicates the location of the next repository sync definition in the array of repository sync definitions, after the current requested
@@ -2716,6 +3040,9 @@ export interface ListRepositorySyncDefinitionsOutput {
   syncDefinitions: RepositorySyncDefinition[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for the listed tags.</p>
@@ -2734,6 +3061,9 @@ export interface ListTagsForResourceInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>A list of resource tags with detail data.</p>
@@ -2747,12 +3077,18 @@ export interface ListTagsForResourceOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ResourceDeploymentStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface NotifyResourceDeploymentStatusChangeInput {
   /**
    * <p>The provisioned resource Amazon Resource Name (ARN).</p>
@@ -2780,8 +3116,14 @@ export interface NotifyResourceDeploymentStatusChangeInput {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyResourceDeploymentStatusChangeOutput {}
 
+/**
+ * @public
+ */
 export interface CreateRepositoryInput {
   /**
    * <p>The repository provider.</p>
@@ -2813,6 +3155,7 @@ export interface CreateRepositoryInput {
 }
 
 /**
+ * @public
  * <p>Detailed data of a linked repository—a repository that has been registered with Proton.</p>
  */
 export interface Repository {
@@ -2842,6 +3185,9 @@ export interface Repository {
   encryptionKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRepositoryOutput {
   /**
    * <p>The repository link's detail data that's returned by Proton.</p>
@@ -2849,6 +3195,9 @@ export interface CreateRepositoryOutput {
   repository: Repository | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryInput {
   /**
    * <p>The repository provider.</p>
@@ -2861,6 +3210,9 @@ export interface DeleteRepositoryInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRepositoryOutput {
   /**
    * <p>The deleted repository link's detail data that's returned by Proton.</p>
@@ -2868,6 +3220,9 @@ export interface DeleteRepositoryOutput {
   repository?: Repository;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryInput {
   /**
    * <p>The repository provider.</p>
@@ -2880,6 +3235,9 @@ export interface GetRepositoryInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRepositoryOutput {
   /**
    * <p>The repository link's detail data that's returned by Proton.</p>
@@ -2887,6 +3245,9 @@ export interface GetRepositoryOutput {
   repository: Repository | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesInput {
   /**
    * <p>A token that indicates the location of the next repository in the array of repositories, after the list of repositories previously requested.</p>
@@ -2900,6 +3261,7 @@ export interface ListRepositoriesInput {
 }
 
 /**
+ * @public
  * <p>Summary data of a linked repository—a repository that has been registered with Proton.</p>
  */
 export interface RepositorySummary {
@@ -2919,6 +3281,9 @@ export interface RepositorySummary {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesOutput {
   /**
    * <p>A token that indicates the location of the next repository in the array of repositories, after the current requested list of repositories. </p>
@@ -2931,6 +3296,9 @@ export interface ListRepositoriesOutput {
   repositories: RepositorySummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceInstanceOutputsInput {
   /**
    * <p>The name of the service instance whose outputs you want.</p>
@@ -2948,6 +3316,9 @@ export interface ListServiceInstanceOutputsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceInstanceOutputsOutput {
   /**
    * <p>A token that indicates the location of the next output in the array of outputs, after the current requested list of outputs.</p>
@@ -2960,6 +3331,9 @@ export interface ListServiceInstanceOutputsOutput {
   outputs: Output[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceInstanceProvisionedResourcesInput {
   /**
    * <p>The name of the service that <code>serviceInstanceName</code> is associated to.</p>
@@ -2978,6 +3352,9 @@ export interface ListServiceInstanceProvisionedResourcesInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceInstanceProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
@@ -2991,6 +3368,9 @@ export interface ListServiceInstanceProvisionedResourcesOutput {
   provisionedResources: ProvisionedResource[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceInstanceInput {
   /**
    * <p>The name of a service instance that you want to get the detailed data for.</p>
@@ -3003,6 +3383,9 @@ export interface GetServiceInstanceInput {
   serviceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceInstanceOutput {
   /**
    * <p>The detailed data of the requested service instance.</p>
@@ -3010,6 +3393,9 @@ export interface GetServiceInstanceOutput {
   serviceInstance: ServiceInstance | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ListServiceInstancesFilterBy {
   CREATED_AT_AFTER = "createdAtAfter",
   CREATED_AT_BEFORE = "createdAtBefore",
@@ -3024,6 +3410,7 @@ export enum ListServiceInstancesFilterBy {
 }
 
 /**
+ * @public
  * <p>A filtering criterion to scope down the result list of the <a>ListServiceInstances</a> action.</p>
  */
 export interface ListServiceInstancesFilter {
@@ -3034,12 +3421,15 @@ export interface ListServiceInstancesFilter {
 
   /**
    * <p>A value to filter by.</p>
-   *          <p>With the date/time keys (<code>*At{Before,After}</code>), the value is a valid <a href="https://datatracker.ietf.org/doc/html/rfc3339.html">RFC
+   *          <p>With the date/time keys (<code>*At\{Before,After\}</code>), the value is a valid <a href="https://datatracker.ietf.org/doc/html/rfc3339.html">RFC
    *         3339</a> string with no UTC offset and with an optional fractional precision (for example, <code>1985-04-12T23:20:50.52Z</code>).</p>
    */
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListServiceInstancesSortBy {
   CREATED_AT = "createdAt",
   DEPLOYMENT_STATUS = "deploymentStatus",
@@ -3050,11 +3440,17 @@ export enum ListServiceInstancesSortBy {
   TEMPLATE_NAME = "templateName",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface ListServiceInstancesInput {
   /**
    * <p>The name of the service that the service instance belongs to.</p>
@@ -3095,6 +3491,7 @@ export interface ListServiceInstancesInput {
 }
 
 /**
+ * @public
  * <p>Summary data of an Proton service instance resource.</p>
  */
 export interface ServiceInstanceSummary {
@@ -3159,6 +3556,9 @@ export interface ServiceInstanceSummary {
   deploymentStatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceInstancesOutput {
   /**
    * <p>A token that indicates the location of the next service instance in the array of service instances, after the current requested list of service
@@ -3172,6 +3572,9 @@ export interface ListServiceInstancesOutput {
   serviceInstances: ServiceInstanceSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceInstanceInput {
   /**
    * <p>The name of the service instance to update.</p>
@@ -3237,6 +3640,9 @@ export interface UpdateServiceInstanceInput {
   templateMinorVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceInstanceOutput {
   /**
    * <p>The service instance summary data that's returned by Proton.</p>
@@ -3244,6 +3650,9 @@ export interface UpdateServiceInstanceOutput {
   serviceInstance: ServiceInstance | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServicePipelineOutputsInput {
   /**
    * <p>The name of the service whose pipeline's outputs you want.</p>
@@ -3256,6 +3665,9 @@ export interface ListServicePipelineOutputsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicePipelineOutputsOutput {
   /**
    * <p>A token that indicates the location of the next output in the array of outputs, after the current requested list of outputs.</p>
@@ -3268,6 +3680,9 @@ export interface ListServicePipelineOutputsOutput {
   outputs: Output[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServicePipelineProvisionedResourcesInput {
   /**
    * <p>The name of the service whose pipeline's provisioned resources you want.</p>
@@ -3281,6 +3696,9 @@ export interface ListServicePipelineProvisionedResourcesInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicePipelineProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
@@ -3294,6 +3712,9 @@ export interface ListServicePipelineProvisionedResourcesOutput {
   provisionedResources: ProvisionedResource[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServicePipelineInput {
   /**
    * <p>The name of the service to that the pipeline is associated with.</p>
@@ -3355,6 +3776,9 @@ export interface UpdateServicePipelineInput {
   templateMinorVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServicePipelineOutput {
   /**
    * <p>The pipeline details that are returned by Proton.</p>
@@ -3362,6 +3786,9 @@ export interface UpdateServicePipelineOutput {
   pipeline: ServicePipeline | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceInput {
   /**
    * <p>The service name.</p>
@@ -3423,6 +3850,9 @@ export interface CreateServiceInput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ServiceStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -3441,6 +3871,7 @@ export enum ServiceStatus {
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton service resource.</p>
  */
 export interface Service {
@@ -3511,6 +3942,9 @@ export interface Service {
   branchName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceOutput {
   /**
    * <p>The service detail data that's returned by Proton.</p>
@@ -3518,6 +3952,9 @@ export interface CreateServiceOutput {
   service: Service | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceInput {
   /**
    * <p>The name of the service to delete.</p>
@@ -3525,6 +3962,9 @@ export interface DeleteServiceInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceOutput {
   /**
    * <p>The detailed data of the service being deleted.</p>
@@ -3532,6 +3972,9 @@ export interface DeleteServiceOutput {
   service?: Service;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceInput {
   /**
    * <p>The name of the service that you want to get the detailed data for.</p>
@@ -3539,6 +3982,9 @@ export interface GetServiceInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceOutput {
   /**
    * <p>The detailed data of the requested service.</p>
@@ -3546,6 +3992,9 @@ export interface GetServiceOutput {
   service?: Service;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesInput {
   /**
    * <p>A token that indicates the location of the next service in the array of services, after the list of services that was previously requested.</p>
@@ -3559,6 +4008,7 @@ export interface ListServicesInput {
 }
 
 /**
+ * @public
  * <p>Summary data of an Proton service resource.</p>
  */
 export interface ServiceSummary {
@@ -3603,6 +4053,9 @@ export interface ServiceSummary {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesOutput {
   /**
    * <p>A token that indicates the location of the next service in the array of services, after the current requested list of services.</p>
@@ -3615,6 +4068,9 @@ export interface ListServicesOutput {
   services: ServiceSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceInput {
   /**
    * <p>The name of the service to edit.</p>
@@ -3633,6 +4089,9 @@ export interface UpdateServiceInput {
   spec?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceOutput {
   /**
    * <p>The service detail data that's returned by Proton.</p>
@@ -3640,6 +4099,9 @@ export interface UpdateServiceOutput {
   service: Service | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceTemplateInput {
   /**
    * <p>The name of the service template.</p>
@@ -3677,6 +4139,7 @@ export interface CreateServiceTemplateInput {
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton service template resource.</p>
  */
 export interface ServiceTemplate {
@@ -3727,6 +4190,9 @@ export interface ServiceTemplate {
   pipelineProvisioning?: Provisioning | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceTemplateOutput {
   /**
    * <p>The service template detail data that's returned by Proton.</p>
@@ -3734,6 +4200,9 @@ export interface CreateServiceTemplateOutput {
   serviceTemplate: ServiceTemplate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceTemplateInput {
   /**
    * <p>The name of the service template to delete.</p>
@@ -3741,6 +4210,9 @@ export interface DeleteServiceTemplateInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceTemplateOutput {
   /**
    * <p>The detailed data of the service template being deleted.</p>
@@ -3748,6 +4220,9 @@ export interface DeleteServiceTemplateOutput {
   serviceTemplate?: ServiceTemplate;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceTemplateInput {
   /**
    * <p>The name of the service template that you want to get detailed data for.</p>
@@ -3755,6 +4230,9 @@ export interface GetServiceTemplateInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceTemplateOutput {
   /**
    * <p>The detailed data of the requested service template.</p>
@@ -3762,6 +4240,9 @@ export interface GetServiceTemplateOutput {
   serviceTemplate: ServiceTemplate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceTemplatesInput {
   /**
    * <p>A token that indicates the location of the next service template in the array of service templates, after the list of service templates previously
@@ -3776,6 +4257,7 @@ export interface ListServiceTemplatesInput {
 }
 
 /**
+ * @public
  * <p>Summary data of an Proton service template resource.</p>
  */
 export interface ServiceTemplateSummary {
@@ -3821,6 +4303,9 @@ export interface ServiceTemplateSummary {
   pipelineProvisioning?: Provisioning | string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceTemplatesOutput {
   /**
    * <p>A token that indicates the location of the next service template in the array of service templates, after the current requested list of service
@@ -3834,6 +4319,9 @@ export interface ListServiceTemplatesOutput {
   templates: ServiceTemplateSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceTemplateInput {
   /**
    * <p>The name of the service template to update.</p>
@@ -3851,6 +4339,9 @@ export interface UpdateServiceTemplateInput {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceTemplateOutput {
   /**
    * <p>The service template detail data that's returned by Proton.</p>
@@ -3859,6 +4350,7 @@ export interface UpdateServiceTemplateOutput {
 }
 
 /**
+ * @public
  * <p>Compatible environment template data.</p>
  */
 export interface CompatibleEnvironmentTemplateInput {
@@ -3873,10 +4365,16 @@ export interface CompatibleEnvironmentTemplateInput {
   majorVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ServiceTemplateSupportedComponentSourceType {
   DIRECTLY_DEFINED = "DIRECTLY_DEFINED",
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceTemplateVersionInput {
   /**
    * <p>When included, if two identical requests are made with the same client token, Proton returns the service template version that the first request
@@ -3930,6 +4428,7 @@ export interface CreateServiceTemplateVersionInput {
 }
 
 /**
+ * @public
  * <p>Compatible environment template data.</p>
  */
 export interface CompatibleEnvironmentTemplate {
@@ -3945,6 +4444,7 @@ export interface CompatibleEnvironmentTemplate {
 }
 
 /**
+ * @public
  * <p>Detailed data of an Proton service template version resource.</p>
  */
 export interface ServiceTemplateVersion {
@@ -4018,6 +4518,9 @@ export interface ServiceTemplateVersion {
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceTemplateVersionOutput {
   /**
    * <p>The service template version summary of detail data that's returned by Proton.</p>
@@ -4025,6 +4528,9 @@ export interface CreateServiceTemplateVersionOutput {
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceTemplateVersionInput {
   /**
    * <p>The name of the service template.</p>
@@ -4042,6 +4548,9 @@ export interface DeleteServiceTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceTemplateVersionOutput {
   /**
    * <p>The detailed data of the service template version being deleted.</p>
@@ -4049,6 +4558,9 @@ export interface DeleteServiceTemplateVersionOutput {
   serviceTemplateVersion?: ServiceTemplateVersion;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceTemplateVersionInput {
   /**
    * <p>The name of the service template a version of which you want to get detailed data for.</p>
@@ -4066,6 +4578,9 @@ export interface GetServiceTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceTemplateVersionOutput {
   /**
    * <p>The detailed data of the requested service template version.</p>
@@ -4073,6 +4588,9 @@ export interface GetServiceTemplateVersionOutput {
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceTemplateVersionsInput {
   /**
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of a service template, after the list
@@ -4099,6 +4617,7 @@ export interface ListServiceTemplateVersionsInput {
 }
 
 /**
+ * @public
  * <p>Summary data of an Proton service template version resource.</p>
  */
 export interface ServiceTemplateVersionSummary {
@@ -4153,6 +4672,9 @@ export interface ServiceTemplateVersionSummary {
   lastModifiedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceTemplateVersionsOutput {
   /**
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of a service template, after the
@@ -4166,6 +4688,9 @@ export interface ListServiceTemplateVersionsOutput {
   templateVersions: ServiceTemplateVersionSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceTemplateVersionInput {
   /**
    * <p>The name of the service template.</p>
@@ -4212,6 +4737,9 @@ export interface UpdateServiceTemplateVersionInput {
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceTemplateVersionOutput {
   /**
    * <p>The service template version detail data that's returned by Proton.</p>
@@ -4219,6 +4747,9 @@ export interface UpdateServiceTemplateVersionOutput {
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Proton resource to apply customer tags to.</p>
@@ -4231,8 +4762,14 @@ export interface TagResourceInput {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface CreateTemplateSyncConfigInput {
   /**
    * <p>The name of your registered template.</p>
@@ -4267,6 +4804,7 @@ export interface CreateTemplateSyncConfigInput {
 }
 
 /**
+ * @public
  * <p>The detail data for a template sync configuration.</p>
  */
 export interface TemplateSyncConfig {
@@ -4301,6 +4839,9 @@ export interface TemplateSyncConfig {
   subdirectory?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
@@ -4308,6 +4849,9 @@ export interface CreateTemplateSyncConfigOutput {
   templateSyncConfig?: TemplateSyncConfig;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateSyncConfigInput {
   /**
    * <p>The template name.</p>
@@ -4320,6 +4864,9 @@ export interface DeleteTemplateSyncConfigInput {
   templateType: TemplateType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
@@ -4327,6 +4874,9 @@ export interface DeleteTemplateSyncConfigOutput {
   templateSyncConfig?: TemplateSyncConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateSyncConfigInput {
   /**
    * <p>The template name.</p>
@@ -4339,6 +4889,9 @@ export interface GetTemplateSyncConfigInput {
   templateType: TemplateType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
@@ -4346,6 +4899,9 @@ export interface GetTemplateSyncConfigOutput {
   templateSyncConfig?: TemplateSyncConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateSyncConfigInput {
   /**
    * <p>The synced template name.</p>
@@ -4379,6 +4935,9 @@ export interface UpdateTemplateSyncConfigInput {
   subdirectory?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
@@ -4386,6 +4945,9 @@ export interface UpdateTemplateSyncConfigOutput {
   templateSyncConfig?: TemplateSyncConfig;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove customer tags from.</p>
@@ -4398,6 +4960,9 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**

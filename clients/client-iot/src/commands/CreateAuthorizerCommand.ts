@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAuthorizerCommand}.
  */
 export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAuthorizerCommand}.
  */
 export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuthorizer</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
+ * @returns {@link CreateAuthorizerCommandOutput}
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAuthorizerCommandOutput> {
     return deserializeAws_restJson1CreateAuthorizerCommand(output, context);
   }

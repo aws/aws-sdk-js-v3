@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePredictorCommand}.
  */
 export interface DescribePredictorCommandInput extends DescribePredictorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePredictorCommand}.
  */
 export interface DescribePredictorCommandOutput extends DescribePredictorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
  *         are not using a legacy predictor, use <a>DescribeAutoPredictor</a>.</p>
@@ -84,6 +89,8 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePredictorCommandInput - {@link DescribePredictorCommandInput}
+ * @returns {@link DescribePredictorCommandOutput}
  * @see {@link DescribePredictorCommandInput} for command's `input` shape.
  * @see {@link DescribePredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -115,6 +122,9 @@ export class DescribePredictorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class DescribePredictorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePredictorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePredictorCommandOutput> {
     return deserializeAws_json1_1DescribePredictorCommand(output, context);
   }

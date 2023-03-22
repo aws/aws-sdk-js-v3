@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRetainedMessageCommand}.
  */
 export interface GetRetainedMessageCommandInput extends GetRetainedMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRetainedMessageCommand}.
  */
 export interface GetRetainedMessageCommandOutput extends GetRetainedMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a single retained message for the specified topic.</p>
  *          <p>This action returns the message payload of the retained message, which can
  *       incur messaging costs. To list only the topic names of the retained messages, call
@@ -52,6 +57,8 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRetainedMessageCommandInput - {@link GetRetainedMessageCommandInput}
+ * @returns {@link GetRetainedMessageCommandOutput}
  * @see {@link GetRetainedMessageCommandInput} for command's `input` shape.
  * @see {@link GetRetainedMessageCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetRetainedMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRetainedMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetRetainedMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRetainedMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRetainedMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRetainedMessageCommandOutput> {
     return deserializeAws_restJson1GetRetainedMessageCommand(output, context);
   }

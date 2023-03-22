@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link SyncDeploymentJobCommand}.
  */
 export interface SyncDeploymentJobCommandInput extends SyncDeploymentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link SyncDeploymentJobCommand}.
  */
 export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
@@ -51,6 +56,8 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param SyncDeploymentJobCommandInput - {@link SyncDeploymentJobCommandInput}
+ * @returns {@link SyncDeploymentJobCommandOutput}
  * @see {@link SyncDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link SyncDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -98,6 +105,9 @@ export class SyncDeploymentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SyncDeploymentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class SyncDeploymentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SyncDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SyncDeploymentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SyncDeploymentJobCommandOutput> {
     return deserializeAws_restJson1SyncDeploymentJobCommand(output, context);
   }

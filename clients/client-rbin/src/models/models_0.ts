@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { RbinServiceException as __BaseException } from "./RbinServiceException";
 
+/**
+ * @public
+ */
 export enum UnlockDelayUnit {
   DAYS = "DAYS",
 }
 
 /**
+ * @public
  * <p>Information about the retention rule unlock delay. The unlock delay is the period after which
  *       a retention rule can be modified or edited after it has been unlocked by a user with the required
  *       permissions. The retention rule can't be modified or deleted during the unlock delay.</p>
@@ -27,6 +31,7 @@ export interface UnlockDelay {
 }
 
 /**
+ * @public
  * <p>Information about a retention rule lock configuration.</p>
  */
 export interface LockConfiguration {
@@ -37,6 +42,7 @@ export interface LockConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about the resource tags used to identify resources that are retained by the retention
  *       rule.</p>
  */
@@ -52,16 +58,23 @@ export interface ResourceTag {
   ResourceTagValue?: string;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   EBS_SNAPSHOT = "EBS_SNAPSHOT",
   EC2_IMAGE = "EC2_IMAGE",
 }
 
+/**
+ * @public
+ */
 export enum RetentionPeriodUnit {
   DAYS = "DAYS",
 }
 
 /**
+ * @public
  * <p>Information about the retention period for which the retention rule is to retain resources.</p>
  */
 export interface RetentionPeriod {
@@ -79,6 +92,7 @@ export interface RetentionPeriod {
 }
 
 /**
+ * @public
  * <p>Information about the tags to assign to the retention rule.</p>
  */
 export interface Tag {
@@ -93,6 +107,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleRequest {
   /**
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
@@ -134,17 +151,26 @@ export interface CreateRuleRequest {
   LockConfiguration?: LockConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum LockState {
   LOCKED = "locked",
   PENDING_UNLOCK = "pending_unlock",
   UNLOCKED = "unlocked",
 }
 
+/**
+ * @public
+ */
 export enum RuleStatus {
   AVAILABLE = "available",
   PENDING = "pending",
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleResponse {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -218,6 +244,7 @@ export interface CreateRuleResponse {
 }
 
 /**
+ * @public
  * <p>The service could not respond to the request due to an internal problem.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -238,11 +265,15 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ServiceQuotaExceededExceptionReason {
   SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED",
 }
 
 /**
+ * @public
  * <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -268,12 +299,16 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
   INVALID_PARAMETER_VALUE = "INVALID_PARAMETER_VALUE",
 }
 
 /**
+ * @public
  * <p>One or more of the parameters in the request is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -299,11 +334,15 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConflictExceptionReason {
   INVALID_RULE_STATE = "INVALID_RULE_STATE",
 }
 
 /**
+ * @public
  * <p>The specified retention rule lock request can't be completed.</p>
  */
 export class ConflictException extends __BaseException {
@@ -329,6 +368,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleRequest {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -336,13 +378,20 @@ export interface DeleteRuleRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleResponse {}
 
+/**
+ * @public
+ */
 export enum ResourceNotFoundExceptionReason {
   RULE_NOT_FOUND = "RULE_NOT_FOUND",
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -368,6 +417,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetRuleRequest {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -375,6 +427,9 @@ export interface GetRuleRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRuleResponse {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -449,6 +504,9 @@ export interface GetRuleResponse {
   LockEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesRequest {
   /**
    * <p>The maximum number of results to return with a single call.
@@ -484,6 +542,7 @@ export interface ListRulesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a Recycle Bin retention rule.</p>
  */
 export interface RuleSummary {
@@ -531,6 +590,9 @@ export interface RuleSummary {
   LockState?: LockState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesResponse {
   /**
    * <p>Information about the retention rules.</p>
@@ -543,6 +605,9 @@ export interface ListRulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
@@ -550,6 +615,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags assigned to the retention rule.</p>
@@ -557,6 +625,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface LockRuleRequest {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -569,6 +640,9 @@ export interface LockRuleRequest {
   LockConfiguration: LockConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface LockRuleResponse {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -636,6 +710,9 @@ export interface LockRuleResponse {
   LockState?: LockState | string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
@@ -648,8 +725,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UnlockRuleRequest {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -657,6 +740,9 @@ export interface UnlockRuleRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnlockRuleResponse {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -731,6 +817,9 @@ export interface UnlockRuleResponse {
   LockEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
@@ -743,8 +832,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRuleRequest {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -782,6 +877,9 @@ export interface UpdateRuleRequest {
   ResourceTags?: ResourceTag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleResponse {
   /**
    * <p>The unique ID of the retention rule.</p>

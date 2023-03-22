@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProjectEventsCommand}.
  */
 export interface PutProjectEventsCommandInput extends PutProjectEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProjectEventsCommand}.
  */
 export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends performance events to Evidently. These events can be used to evaluate a launch or
  *       an experiment.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProjectEventsCommandInput - {@link PutProjectEventsCommandInput}
+ * @returns {@link PutProjectEventsCommandOutput}
  * @see {@link PutProjectEventsCommandInput} for command's `input` shape.
  * @see {@link PutProjectEventsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -82,6 +89,9 @@ export class PutProjectEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProjectEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutProjectEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutProjectEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutProjectEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProjectEventsCommandOutput> {
     return deserializeAws_restJson1PutProjectEventsCommand(output, context);
   }

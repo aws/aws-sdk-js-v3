@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAuthorizationTokenCommand}.
  */
 export interface GetAuthorizationTokenCommandInput extends GetAuthorizationTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAuthorizationTokenCommand}.
  */
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Generates a temporary authorization token for accessing repositories in the domain.
  *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
@@ -66,6 +71,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
+ * @returns {@link GetAuthorizationTokenCommandOutput}
  * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -112,6 +119,9 @@ export class GetAuthorizationTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAuthorizationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class GetAuthorizationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAuthorizationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAuthorizationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizationTokenCommandOutput> {
     return deserializeAws_restJson1GetAuthorizationTokenCommand(output, context);
   }

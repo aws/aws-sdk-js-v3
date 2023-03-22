@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link JoinDomainCommand}.
  */
 export interface JoinDomainCommandInput extends JoinDomainInput {}
 /**
+ * @public
+ *
  * The output of {@link JoinDomainCommand}.
  */
 export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
  *          file gateways that support the SMB file protocol.</p>
  * @example
@@ -47,6 +52,8 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param JoinDomainCommandInput - {@link JoinDomainCommandInput}
+ * @returns {@link JoinDomainCommandOutput}
  * @see {@link JoinDomainCommandInput} for command's `input` shape.
  * @see {@link JoinDomainCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class JoinDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: JoinDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class JoinDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JoinDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1JoinDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinDomainCommandOutput> {
     return deserializeAws_json1_1JoinDomainCommand(output, context);
   }

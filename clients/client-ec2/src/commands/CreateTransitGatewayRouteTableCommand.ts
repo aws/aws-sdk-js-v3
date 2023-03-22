@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayRouteTableCommand}.
  */
 export interface CreateTransitGatewayRouteTableCommandInput extends CreateTransitGatewayRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayRouteTableCommand}.
  */
 export interface CreateTransitGatewayRouteTableCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTransitGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route table for the specified transit gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateTransitGatewayRouteTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayRouteTableCommandInput - {@link CreateTransitGatewayRouteTableCommandInput}
+ * @returns {@link CreateTransitGatewayRouteTableCommandOutput}
  * @see {@link CreateTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class CreateTransitGatewayRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class CreateTransitGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class CreateTransitGatewayRouteTableCommand extends $Command<
     return serializeAws_ec2CreateTransitGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

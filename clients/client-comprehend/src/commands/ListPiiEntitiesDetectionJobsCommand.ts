@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPiiEntitiesDetectionJobsCommand}.
  */
 export interface ListPiiEntitiesDetectionJobsCommandInput extends ListPiiEntitiesDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPiiEntitiesDetectionJobsCommand}.
  */
 export interface ListPiiEntitiesDetectionJobsCommandOutput
@@ -37,6 +41,7 @@ export interface ListPiiEntitiesDetectionJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the PII entity detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListPiiEntitiesDetectionJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPiiEntitiesDetectionJobsCommandInput - {@link ListPiiEntitiesDetectionJobsCommandInput}
+ * @returns {@link ListPiiEntitiesDetectionJobsCommandOutput}
  * @see {@link ListPiiEntitiesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListPiiEntitiesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPiiEntitiesDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPiiEntitiesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPiiEntitiesDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

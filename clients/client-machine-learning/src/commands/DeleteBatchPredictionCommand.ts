@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBatchPredictionCommand}.
  */
 export interface DeleteBatchPredictionCommandInput extends DeleteBatchPredictionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBatchPredictionCommand}.
  */
 export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
  *             operation to verify that the status of the <code>BatchPrediction</code> changed to DELETED.</p>
@@ -51,6 +56,8 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBatchPredictionCommandInput - {@link DeleteBatchPredictionCommandInput}
+ * @returns {@link DeleteBatchPredictionCommandOutput}
  * @see {@link DeleteBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteBatchPredictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBatchPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteBatchPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBatchPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBatchPredictionCommandOutput> {
     return deserializeAws_json1_1DeleteBatchPredictionCommand(output, context);
   }

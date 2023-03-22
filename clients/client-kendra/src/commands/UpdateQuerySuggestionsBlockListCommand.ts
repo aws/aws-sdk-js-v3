@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQuerySuggestionsBlockListCommand}.
  */
 export interface UpdateQuerySuggestionsBlockListCommandInput extends UpdateQuerySuggestionsBlockListRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQuerySuggestionsBlockListCommand}.
  */
 export interface UpdateQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a block list used for query suggestions for an index.</p>
  *          <p>Updates to a block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to apply any updates to the
@@ -54,6 +59,8 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQuerySuggestionsBlockListCommandInput - {@link UpdateQuerySuggestionsBlockListCommandInput}
+ * @returns {@link UpdateQuerySuggestionsBlockListCommandOutput}
  * @see {@link UpdateQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link UpdateQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -101,6 +108,9 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     return serializeAws_json1_1UpdateQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

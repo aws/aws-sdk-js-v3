@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmTopicRuleDestinationCommand}.
  */
 export interface ConfirmTopicRuleDestinationCommandInput extends ConfirmTopicRuleDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmTopicRuleDestinationCommand}.
  */
 export interface ConfirmTopicRuleDestinationCommandOutput
@@ -37,6 +41,7 @@ export interface ConfirmTopicRuleDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT
  *          sends a confirmation message to the endpoint or base address you specify. The message
  *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
@@ -52,6 +57,8 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmTopicRuleDestinationCommandInput - {@link ConfirmTopicRuleDestinationCommandInput}
+ * @returns {@link ConfirmTopicRuleDestinationCommandOutput}
  * @see {@link ConfirmTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link ConfirmTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +98,9 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ConfirmTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

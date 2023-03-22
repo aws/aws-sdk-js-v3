@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOriginEndpointCommand}.
  */
 export interface DeleteOriginEndpointCommandInput extends DeleteOriginEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOriginEndpointCommand}.
  */
 export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an existing OriginEndpoint.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOriginEndpointCommandInput - {@link DeleteOriginEndpointCommandInput}
+ * @returns {@link DeleteOriginEndpointCommandOutput}
  * @see {@link DeleteOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginEndpointCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteOriginEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOriginEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteOriginEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteOriginEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOriginEndpointCommandOutput> {
     return deserializeAws_restJson1DeleteOriginEndpointCommand(output, context);
   }

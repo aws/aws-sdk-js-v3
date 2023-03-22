@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationGroupCommand}.
  */
 export interface DeleteReplicationGroupCommandInput extends DeleteReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationGroupCommand}.
  */
 export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing replication group.
  *             By default, this operation deletes the entire replication group, including the primary/primaries and all of the read replicas.
  *             If the replication group has only one primary,
@@ -54,6 +59,8 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationGroupCommandInput - {@link DeleteReplicationGroupCommandInput}
+ * @returns {@link DeleteReplicationGroupCommandOutput}
  * @see {@link DeleteReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -131,6 +138,9 @@ export class DeleteReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class DeleteReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationGroupCommandOutput> {
     return deserializeAws_queryDeleteReplicationGroupCommand(output, context);
   }

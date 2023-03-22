@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProvisionedProductCommand}.
  */
 export interface UpdateProvisionedProductCommandInput extends UpdateProvisionedProductInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProvisionedProductCommand}.
  */
 export interface UpdateProvisionedProductCommandOutput extends UpdateProvisionedProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests updates to the configuration of the specified provisioned product.</p>
  *          <p>If there are tags associated with the object, they cannot be updated or added.
  *          Depending on the specific updates requested, this operation can update with no
@@ -50,6 +55,8 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProvisionedProductCommandInput - {@link UpdateProvisionedProductCommandInput}
+ * @returns {@link UpdateProvisionedProductCommandOutput}
  * @see {@link UpdateProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateProvisionedProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateProvisionedProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateProvisionedProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProvisionedProductCommandOutput> {
     return deserializeAws_json1_1UpdateProvisionedProductCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSyncExecutionCommand}.
  */
 export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartSyncExecutionCommand}.
  */
 export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
  * 			  is not available for <code>STANDARD</code> workflows.</p>
  *          <note>
@@ -58,6 +63,8 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSyncExecutionCommandInput - {@link StartSyncExecutionCommandInput}
+ * @returns {@link StartSyncExecutionCommandOutput}
  * @see {@link StartSyncExecutionCommandInput} for command's `input` shape.
  * @see {@link StartSyncExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -99,6 +106,9 @@ export class StartSyncExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSyncExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class StartSyncExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSyncExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StartSyncExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSyncExecutionCommandOutput> {
     return deserializeAws_json1_0StartSyncExecutionCommand(output, context);
   }

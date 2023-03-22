@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetThirdPartyJobDetailsCommand}.
  */
 export interface GetThirdPartyJobDetailsCommandInput extends GetThirdPartyJobDetailsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetThirdPartyJobDetailsCommand}.
  */
 export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDetailsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests the details of a job for a third party action. Used for partner actions
  *             only.</p>
  *         <important>
@@ -53,6 +58,8 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThirdPartyJobDetailsCommandInput - {@link GetThirdPartyJobDetailsCommandInput}
+ * @returns {@link GetThirdPartyJobDetailsCommandOutput}
  * @see {@link GetThirdPartyJobDetailsCommandInput} for command's `input` shape.
  * @see {@link GetThirdPartyJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThirdPartyJobDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetThirdPartyJobDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetThirdPartyJobDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThirdPartyJobDetailsCommandOutput> {
     return deserializeAws_json1_1GetThirdPartyJobDetailsCommand(output, context);
   }

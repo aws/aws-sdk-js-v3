@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLayerVersionPolicyCommand}.
  */
 export interface GetLayerVersionPolicyCommandInput extends GetLayerVersionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLayerVersionPolicyCommand}.
  */
 export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLayerVersionPolicyCommandInput - {@link GetLayerVersionPolicyCommandInput}
+ * @returns {@link GetLayerVersionPolicyCommandOutput}
  * @see {@link GetLayerVersionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetLayerVersionPolicyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetLayerVersionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLayerVersionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetLayerVersionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLayerVersionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLayerVersionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionPolicyCommandOutput> {
     return deserializeAws_restJson1GetLayerVersionPolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDetectorModelAnalysisCommand}.
  */
 export interface StartDetectorModelAnalysisCommandInput extends StartDetectorModelAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDetectorModelAnalysisCommand}.
  */
 export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorModelAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs an analysis of your detector model. For more information,
  *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Troubleshooting a detector model</a>
  *       in the <i>AWS IoT Events Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDetectorModelAnalysisCommandInput - {@link StartDetectorModelAnalysisCommandInput}
+ * @returns {@link StartDetectorModelAnalysisCommandOutput}
  * @see {@link StartDetectorModelAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartDetectorModelAnalysisCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartDetectorModelAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDetectorModelAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartDetectorModelAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDetectorModelAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartDetectorModelAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

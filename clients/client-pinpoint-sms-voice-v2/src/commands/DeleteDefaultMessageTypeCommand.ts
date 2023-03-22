@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDefaultMessageTypeCommand}.
  */
 export interface DeleteDefaultMessageTypeCommandInput extends DeleteDefaultMessageTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDefaultMessageTypeCommand}.
  */
 export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMessageTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing default message type on a configuration set.</p>
  *         <p> A message type is a type of messages that you plan to send. If you send
  *             account-related messages or time-sensitive messages such as one-time passcodes, choose
@@ -55,6 +60,8 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDefaultMessageTypeCommandInput - {@link DeleteDefaultMessageTypeCommandInput}
+ * @returns {@link DeleteDefaultMessageTypeCommandOutput}
  * @see {@link DeleteDefaultMessageTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteDefaultMessageTypeCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDefaultMessageTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteDefaultMessageTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDefaultMessageTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteDefaultMessageTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDefaultMessageTypeCommandOutput> {
     return deserializeAws_json1_0DeleteDefaultMessageTypeCommand(output, context);
   }

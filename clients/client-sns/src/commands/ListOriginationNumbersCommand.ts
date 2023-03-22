@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOriginationNumbersCommand}.
  */
 export interface ListOriginationNumbersCommandInput extends ListOriginationNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOriginationNumbersCommand}.
  */
 export interface ListOriginationNumbersCommandOutput extends ListOriginationNumbersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata.
  *             For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
  *             Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginationNumbersCommandInput - {@link ListOriginationNumbersCommandInput}
+ * @returns {@link ListOriginationNumbersCommandOutput}
  * @see {@link ListOriginationNumbersCommandInput} for command's `input` shape.
  * @see {@link ListOriginationNumbersCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListOriginationNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginationNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListOriginationNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginationNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListOriginationNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginationNumbersCommandOutput> {
     return deserializeAws_queryListOriginationNumbersCommand(output, context);
   }

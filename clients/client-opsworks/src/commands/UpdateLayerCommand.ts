@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLayerCommand}.
  */
 export interface UpdateLayerCommandInput extends UpdateLayerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLayerCommand}.
  */
 export interface UpdateLayerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified layer.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLayerCommandInput - {@link UpdateLayerCommandInput}
+ * @returns {@link UpdateLayerCommandOutput}
  * @see {@link UpdateLayerCommandInput} for command's `input` shape.
  * @see {@link UpdateLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateLayerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateLayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLayerCommandOutput> {
     return deserializeAws_json1_1UpdateLayerCommand(output, context);
   }

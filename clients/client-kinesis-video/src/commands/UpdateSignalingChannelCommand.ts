@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSignalingChannelCommand}.
  */
 export interface UpdateSignalingChannelCommandInput extends UpdateSignalingChannelInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSignalingChannelCommand}.
  */
 export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
  *             time to complete. </p>
  *          <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
@@ -51,6 +56,8 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSignalingChannelCommandInput - {@link UpdateSignalingChannelCommandInput}
+ * @returns {@link UpdateSignalingChannelCommandOutput}
  * @see {@link UpdateSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -112,6 +119,9 @@ export class UpdateSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class UpdateSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSignalingChannelCommandOutput> {
     return deserializeAws_restJson1UpdateSignalingChannelCommand(output, context);
   }

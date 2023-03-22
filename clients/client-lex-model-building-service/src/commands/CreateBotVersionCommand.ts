@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBotVersionCommand}.
  */
 export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBotVersionCommand}.
  */
 export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the bot based on the <code>$LATEST</code>
  *       version. If the <code>$LATEST</code> version of this resource hasn't
  *       changed since you created the last version, Amazon Lex doesn't create a new
@@ -62,6 +67,8 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBotVersionCommandInput - {@link CreateBotVersionCommandInput}
+ * @returns {@link CreateBotVersionCommandOutput}
  * @see {@link CreateBotVersionCommandInput} for command's `input` shape.
  * @see {@link CreateBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -109,6 +116,9 @@ export class CreateBotVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBotVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateBotVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBotVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotVersionCommandOutput> {
     return deserializeAws_restJson1CreateBotVersionCommand(output, context);
   }

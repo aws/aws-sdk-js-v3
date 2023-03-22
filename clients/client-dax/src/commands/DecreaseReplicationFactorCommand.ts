@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DecreaseReplicationFactorCommand}.
  */
 export interface DecreaseReplicationFactorCommandInput extends DecreaseReplicationFactorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DecreaseReplicationFactorCommand}.
  */
 export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more nodes from a DAX cluster.</p>
  *         <note>
  *             <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p>
@@ -49,6 +54,8 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  * const response = await client.send(command);
  * ```
  *
+ * @param DecreaseReplicationFactorCommandInput - {@link DecreaseReplicationFactorCommandInput}
+ * @returns {@link DecreaseReplicationFactorCommandOutput}
  * @see {@link DecreaseReplicationFactorCommandInput} for command's `input` shape.
  * @see {@link DecreaseReplicationFactorCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -91,6 +98,9 @@ export class DecreaseReplicationFactorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecreaseReplicationFactorCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DecreaseReplicationFactorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecreaseReplicationFactorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DecreaseReplicationFactorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

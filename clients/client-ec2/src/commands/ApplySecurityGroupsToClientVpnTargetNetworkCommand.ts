@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
  */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
   extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
  */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
@@ -38,6 +42,7 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing
  * 			security groups with the specified security groups.</p>
  * @example
@@ -50,6 +55,8 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplySecurityGroupsToClientVpnTargetNetworkCommandInput - {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandInput}
+ * @returns {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput}
  * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     return serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

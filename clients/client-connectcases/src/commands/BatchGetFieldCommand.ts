@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetFieldCommand}.
  */
 export interface BatchGetFieldCommandInput extends BatchGetFieldRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetFieldCommand}.
  */
 export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description for the list of fields in the request parameters. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetFieldCommandInput - {@link BatchGetFieldCommandInput}
+ * @returns {@link BatchGetFieldCommandOutput}
  * @see {@link BatchGetFieldCommandInput} for command's `input` shape.
  * @see {@link BatchGetFieldCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +93,9 @@ export class BatchGetFieldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetFieldCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class BatchGetFieldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetFieldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFieldCommandOutput> {
     return deserializeAws_restJson1BatchGetFieldCommand(output, context);
   }

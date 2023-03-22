@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDetectorVersionStatusCommand}.
  */
 export interface UpdateDetectorVersionStatusCommandInput extends UpdateDetectorVersionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDetectorVersionStatusCommand}.
  */
 export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetectorVersionStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the detector version’s status. You can perform the following promotions or
  *             demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorVersionStatusCommandInput - {@link UpdateDetectorVersionStatusCommandInput}
+ * @returns {@link UpdateDetectorVersionStatusCommandOutput}
  * @see {@link UpdateDetectorVersionStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionStatusCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorVersionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorVersionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDetectorVersionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

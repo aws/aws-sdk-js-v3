@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitializeServiceCommand}.
  */
 export interface InitializeServiceCommandInput extends InitializeServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitializeServiceCommand}.
  */
 export interface InitializeServiceCommandOutput extends InitializeServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initialize Application Migration Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param InitializeServiceCommandInput - {@link InitializeServiceCommandInput}
+ * @returns {@link InitializeServiceCommandOutput}
  * @see {@link InitializeServiceCommandInput} for command's `input` shape.
  * @see {@link InitializeServiceCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +82,9 @@ export class InitializeServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitializeServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class InitializeServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitializeServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InitializeServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitializeServiceCommandOutput> {
     return deserializeAws_restJson1InitializeServiceCommand(output, context);
   }

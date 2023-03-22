@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMonitoringScheduleCommand}.
  */
 export interface CreateMonitoringScheduleCommandInput extends CreateMonitoringScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMonitoringScheduleCommand}.
  */
 export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
  *          captured for an Amazon SageMaker Endpoint.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMonitoringScheduleCommandInput - {@link CreateMonitoringScheduleCommandInput}
+ * @returns {@link CreateMonitoringScheduleCommandOutput}
  * @see {@link CreateMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitoringScheduleCommandOutput> {
     return deserializeAws_json1_1CreateMonitoringScheduleCommand(output, context);
   }

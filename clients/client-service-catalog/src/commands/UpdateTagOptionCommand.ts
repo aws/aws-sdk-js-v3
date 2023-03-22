@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTagOptionCommand}.
  */
 export interface UpdateTagOptionCommandInput extends UpdateTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTagOptionCommand}.
  */
 export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTagOptionCommandInput - {@link UpdateTagOptionCommandInput}
+ * @returns {@link UpdateTagOptionCommandOutput}
  * @see {@link UpdateTagOptionCommandInput} for command's `input` shape.
  * @see {@link UpdateTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagOptionCommandOutput> {
     return deserializeAws_json1_1UpdateTagOptionCommand(output, context);
   }

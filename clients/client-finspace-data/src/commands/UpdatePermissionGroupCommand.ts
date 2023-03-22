@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePermissionGroupCommand}.
  */
 export interface UpdatePermissionGroupCommandInput extends UpdatePermissionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePermissionGroupCommand}.
  */
 export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePermissionGroupCommandInput - {@link UpdatePermissionGroupCommandInput}
+ * @returns {@link UpdatePermissionGroupCommandOutput}
  * @see {@link UpdatePermissionGroupCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdatePermissionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePermissionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdatePermissionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePermissionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePermissionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePermissionGroupCommandOutput> {
     return deserializeAws_restJson1UpdatePermissionGroupCommand(output, context);
   }

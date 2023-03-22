@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobRunCommand}.
  */
 export interface DescribeJobRunCommandInput extends DescribeJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobRunCommand}.
  */
 export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a job run. A job run is a unit of work, such as a
  *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobRunCommandInput - {@link DescribeJobRunCommandInput}
+ * @returns {@link DescribeJobRunCommandOutput}
  * @see {@link DescribeJobRunCommandInput} for command's `input` shape.
  * @see {@link DescribeJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobRunCommandOutput> {
     return deserializeAws_restJson1DescribeJobRunCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDynamicThingGroupCommand}.
  */
 export interface DeleteDynamicThingGroupCommandInput extends DeleteDynamicThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDynamicThingGroupCommand}.
  */
 export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dynamic thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDynamicThingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThing
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDynamicThingGroupCommandInput - {@link DeleteDynamicThingGroupCommandInput}
+ * @returns {@link DeleteDynamicThingGroupCommandOutput}
  * @see {@link DeleteDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDynamicThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteDynamicThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDynamicThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteDynamicThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDynamicThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDynamicThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDynamicThingGroupCommandOutput> {
     return deserializeAws_restJson1DeleteDynamicThingGroupCommand(output, context);
   }

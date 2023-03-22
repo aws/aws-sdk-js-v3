@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetDiskCommand, serializeAws_json1_1GetDiskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDiskCommand}.
  */
 export interface GetDiskCommandInput extends GetDiskRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDiskCommand}.
  */
 export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific block storage disk.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDiskCommandInput - {@link GetDiskCommandInput}
+ * @returns {@link GetDiskCommandOutput}
  * @see {@link GetDiskCommandInput} for command's `input` shape.
  * @see {@link GetDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDiskCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDiskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskCommandOutput> {
     return deserializeAws_json1_1GetDiskCommand(output, context);
   }

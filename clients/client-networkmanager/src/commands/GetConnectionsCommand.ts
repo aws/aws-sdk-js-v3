@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectionsCommand}.
  */
 export interface GetConnectionsCommandInput extends GetConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectionsCommand}.
  */
 export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more of your connections in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
+ * @returns {@link GetConnectionsCommandOutput}
  * @see {@link GetConnectionsCommandInput} for command's `input` shape.
  * @see {@link GetConnectionsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionsCommandOutput> {
     return deserializeAws_restJson1GetConnectionsCommand(output, context);
   }

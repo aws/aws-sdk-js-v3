@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBudgetCommand}.
  */
 export interface CreateBudgetCommandInput extends CreateBudgetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBudgetCommand}.
  */
 export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a budget and, if included, notifications and subscribers. </p>
  * 		       <important>
  * 			         <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples">Examples</a> section. </p>
@@ -49,6 +54,8 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBudgetCommandInput - {@link CreateBudgetCommandInput}
+ * @returns {@link CreateBudgetCommandOutput}
  * @see {@link CreateBudgetCommandInput} for command's `input` shape.
  * @see {@link CreateBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateBudgetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBudgetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateBudgetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBudgetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBudgetCommandOutput> {
     return deserializeAws_json1_1CreateBudgetCommand(output, context);
   }

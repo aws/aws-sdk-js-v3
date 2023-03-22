@@ -18,15 +18,20 @@ import { TagRoleRequest, TagRoleRequestFilterSensitiveLog } from "../models/mode
 import { deserializeAws_queryTagRoleCommand, serializeAws_queryTagRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagRoleCommand}.
  */
 export interface TagRoleCommandInput extends TagRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagRoleCommand}.
  */
 export interface TagRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM role. The role can be a regular role or a
  *       service-linked role. If a tag with the same key name already exists, then that tag is
  *       overwritten with the new value.</p>
@@ -82,6 +87,8 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagRoleCommandInput - {@link TagRoleCommandInput}
+ * @returns {@link TagRoleCommandOutput}
  * @see {@link TagRoleCommandInput} for command's `input` shape.
  * @see {@link TagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -142,6 +149,9 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,10 +189,16 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagRoleCommandOutput> {
     return deserializeAws_queryTagRoleCommand(output, context);
   }

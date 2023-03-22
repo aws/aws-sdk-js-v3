@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePhoneNumberSettingsCommand}.
  */
 export interface UpdatePhoneNumberSettingsCommandInput extends UpdatePhoneNumberSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePhoneNumberSettingsCommand}.
  */
 export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the phone number settings for the administrator's AWS account, such as the default
  *             outbound calling name. You can update the default outbound calling name once every seven
  *             days. Outbound calling names can take up to 72 hours to update.</p>
@@ -46,6 +51,8 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePhoneNumberSettingsCommandInput - {@link UpdatePhoneNumberSettingsCommandInput}
+ * @returns {@link UpdatePhoneNumberSettingsCommandOutput}
  * @see {@link UpdatePhoneNumberSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePhoneNumberSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePhoneNumberSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

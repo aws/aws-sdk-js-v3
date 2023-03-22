@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTrafficMirrorFilterRuleCommand}.
  */
 export interface ModifyTrafficMirrorFilterRuleCommandInput extends ModifyTrafficMirrorFilterRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTrafficMirrorFilterRuleCommand}.
  */
 export interface ModifyTrafficMirrorFilterRuleCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Traffic Mirror rule.</p>
  *          <p>
  *             <code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4
@@ -51,6 +56,8 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTrafficMirrorFilterRuleCommandInput - {@link ModifyTrafficMirrorFilterRuleCommandInput}
+ * @returns {@link ModifyTrafficMirrorFilterRuleCommandOutput}
  * @see {@link ModifyTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTrafficMirrorFilterRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTrafficMirrorFilterRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

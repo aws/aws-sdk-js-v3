@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetSendingOptionsCommand}.
  */
 export interface PutConfigurationSetSendingOptionsCommandInput extends PutConfigurationSetSendingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetSendingOptionsCommand}.
  */
 export interface PutConfigurationSetSendingOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable email sending for messages that use a particular configuration set
  *             in a specific Amazon Web Services Region.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetSendingOptionsCommandInput - {@link PutConfigurationSetSendingOptionsCommandInput}
+ * @returns {@link PutConfigurationSetSendingOptionsCommandOutput}
  * @see {@link PutConfigurationSetSendingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetSendingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetSendingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetSendingOptionsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     return serializeAws_restJson1PutConfigurationSetSendingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

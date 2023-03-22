@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdatePhoneNumberCommand}.
  */
 export interface BatchUpdatePhoneNumberCommandInput extends BatchUpdatePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdatePhoneNumberCommand}.
  */
 export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNumberResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpdatePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdatePhoneNumberCommandOutput> {
     return deserializeAws_restJson1BatchUpdatePhoneNumberCommand(output, context);
   }

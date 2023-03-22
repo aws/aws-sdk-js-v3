@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriberCommand}.
  */
 export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriberCommand}.
  */
 export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subscription permission for accounts that are already enabled in
  *          Amazon Security Lake. You can create a subscriber with access to data in the current Amazon Web Services Region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriberCommandInput - {@link CreateSubscriberCommandInput}
+ * @returns {@link CreateSubscriberCommandOutput}
  * @see {@link CreateSubscriberCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubscriberCommandOutput> {
     return deserializeAws_restJson1CreateSubscriberCommand(output, context);
   }

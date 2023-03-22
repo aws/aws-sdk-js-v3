@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWirelessDeviceCommand}.
  */
 export interface DeleteWirelessDeviceCommandInput extends DeleteWirelessDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWirelessDeviceCommand}.
  */
 export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWirelessDeviceCommandInput - {@link DeleteWirelessDeviceCommandInput}
+ * @returns {@link DeleteWirelessDeviceCommandOutput}
  * @see {@link DeleteWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteWirelessDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWirelessDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteWirelessDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWirelessDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWirelessDeviceCommandOutput> {
     return deserializeAws_restJson1DeleteWirelessDeviceCommand(output, context);
   }

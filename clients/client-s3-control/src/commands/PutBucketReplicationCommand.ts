@@ -23,15 +23,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketReplicationCommand}.
  */
 export interface PutBucketReplicationCommandInput extends PutBucketReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketReplicationCommand}.
  */
 export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action creates an Amazon S3 on Outposts bucket's replication configuration. To create
  *             an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html">PutBucketReplication</a>
@@ -123,6 +128,8 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketReplicationCommandInput - {@link PutBucketReplicationCommandInput}
+ * @returns {@link PutBucketReplicationCommandOutput}
  * @see {@link PutBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link PutBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -150,6 +157,9 @@ export class PutBucketReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,10 +201,16 @@ export class PutBucketReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketReplicationCommandOutput> {
     return deserializeAws_restXmlPutBucketReplicationCommand(output, context);
   }

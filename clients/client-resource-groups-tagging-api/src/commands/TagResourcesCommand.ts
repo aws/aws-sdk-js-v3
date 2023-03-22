@@ -30,15 +30,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourcesCommand}.
  */
 export interface TagResourcesCommandInput extends TagResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link TagResourcesCommand}.
  */
 export interface TagResourcesCommandOutput extends TagResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies one or more tags to the specified resources. Note the following:</p>
  *         <ul>
  *             <li>
@@ -99,6 +104,8 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourcesCommandInput - {@link TagResourcesCommandInput}
+ * @returns {@link TagResourcesCommandOutput}
  * @see {@link TagResourcesCommandInput} for command's `input` shape.
  * @see {@link TagResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -152,6 +159,9 @@ export class TagResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class TagResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourcesCommandOutput> {
     return deserializeAws_json1_1TagResourcesCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DetachVpnGatewayCommand}.
  */
 export interface DetachVpnGatewayCommandInput extends DetachVpnGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachVpnGatewayCommand}.
  */
 export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn
  *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
  *             completely detached from a VPC by describing the virtual private gateway (any
@@ -46,6 +51,8 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachVpnGatewayCommandInput - {@link DetachVpnGatewayCommandInput}
+ * @returns {@link DetachVpnGatewayCommandOutput}
  * @see {@link DetachVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link DetachVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DetachVpnGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachVpnGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DetachVpnGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DetachVpnGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachVpnGatewayCommandOutput> {
     return deserializeAws_ec2DetachVpnGatewayCommand(output, context);
   }

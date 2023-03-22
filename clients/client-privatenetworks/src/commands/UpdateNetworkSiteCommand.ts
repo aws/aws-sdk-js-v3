@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNetworkSiteCommand}.
  */
 export interface UpdateNetworkSiteCommandInput extends UpdateNetworkSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNetworkSiteCommand}.
  */
 export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNetworkSiteCommandInput - {@link UpdateNetworkSiteCommandInput}
+ * @returns {@link UpdateNetworkSiteCommandOutput}
  * @see {@link UpdateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateNetworkSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNetworkSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateNetworkSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateNetworkSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkSiteCommandOutput> {
     return deserializeAws_restJson1UpdateNetworkSiteCommand(output, context);
   }

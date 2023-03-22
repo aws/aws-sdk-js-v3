@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommand}.
  */
 export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput
   extends StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommand}.
  */
 export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
@@ -38,6 +42,7 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a bulk association of all qualifying wireless devices with a multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput - {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput}
+ * @returns {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput}
  * @see {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $
     return serializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

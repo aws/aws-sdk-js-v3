@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventBusCommand}.
  */
 export interface CreateEventBusCommandInput extends CreateEventBusRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventBusCommand}.
  */
 export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event bus within your account. This can be a custom event bus which you can
  *       use to receive events from your custom applications and services, or it can be a partner event
  *       bus which can be matched to a partner event source.</p>
@@ -48,6 +53,8 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventBusCommandInput - {@link CreateEventBusCommandInput}
+ * @returns {@link CreateEventBusCommandOutput}
  * @see {@link CreateEventBusCommandInput} for command's `input` shape.
  * @see {@link CreateEventBusCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateEventBusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventBusCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateEventBusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEventBusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventBusCommandOutput> {
     return deserializeAws_json1_1CreateEventBusCommand(output, context);
   }

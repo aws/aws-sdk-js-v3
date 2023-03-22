@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SwitchoverReadReplicaCommand}.
  */
 export interface SwitchoverReadReplicaCommandInput extends SwitchoverReadReplicaMessage {}
 /**
+ * @public
+ *
  * The output of {@link SwitchoverReadReplicaCommand}.
  */
 export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplicaResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new
  *             primary database. Issue this command in the Region that hosts the current standby database.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * const response = await client.send(command);
  * ```
  *
+ * @param SwitchoverReadReplicaCommandInput - {@link SwitchoverReadReplicaCommandInput}
+ * @returns {@link SwitchoverReadReplicaCommandOutput}
  * @see {@link SwitchoverReadReplicaCommandInput} for command's `input` shape.
  * @see {@link SwitchoverReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -77,6 +84,9 @@ export class SwitchoverReadReplicaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SwitchoverReadReplicaCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class SwitchoverReadReplicaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SwitchoverReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySwitchoverReadReplicaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SwitchoverReadReplicaCommandOutput> {
     return deserializeAws_querySwitchoverReadReplicaCommand(output, context);
   }

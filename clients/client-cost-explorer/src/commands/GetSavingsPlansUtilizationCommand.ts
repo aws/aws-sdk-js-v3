@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSavingsPlansUtilizationCommand}.
  */
 export interface GetSavingsPlansUtilizationCommandInput extends GetSavingsPlansUtilizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSavingsPlansUtilizationCommand}.
  */
 export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlansUtilizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
  *       monthly granularity. Management account in an organization have access to member accounts. You
  *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
@@ -53,6 +58,8 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSavingsPlansUtilizationCommandInput - {@link GetSavingsPlansUtilizationCommandInput}
+ * @returns {@link GetSavingsPlansUtilizationCommandOutput}
  * @see {@link GetSavingsPlansUtilizationCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansUtilizationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSavingsPlansUtilizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSavingsPlansUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSavingsPlansUtilizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

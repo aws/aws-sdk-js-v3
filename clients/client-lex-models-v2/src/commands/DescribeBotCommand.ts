@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBotCommand}.
  */
 export interface DescribeBotCommandInput extends DescribeBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBotCommand}.
  */
 export interface DescribeBotCommandOutput extends DescribeBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides metadata information about a bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBotCommandInput - {@link DescribeBotCommandInput}
+ * @returns {@link DescribeBotCommandOutput}
  * @see {@link DescribeBotCommandInput} for command's `input` shape.
  * @see {@link DescribeBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBotCommandOutput> {
     return deserializeAws_restJson1DescribeBotCommand(output, context);
   }

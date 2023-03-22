@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelPackageCommand}.
  */
 export interface UpdateModelPackageCommandInput extends UpdateModelPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelPackageCommand}.
  */
 export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a versioned model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelPackageCommandInput - {@link UpdateModelPackageCommandInput}
+ * @returns {@link UpdateModelPackageCommandOutput}
  * @see {@link UpdateModelPackageCommandInput} for command's `input` shape.
  * @see {@link UpdateModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class UpdateModelPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class UpdateModelPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateModelPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelPackageCommandOutput> {
     return deserializeAws_json1_1UpdateModelPackageCommand(output, context);
   }

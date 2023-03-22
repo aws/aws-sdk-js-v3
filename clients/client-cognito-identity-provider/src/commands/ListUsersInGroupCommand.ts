@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsersInGroupCommand}.
  */
 export interface ListUsersInGroupCommandInput extends ListUsersInGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsersInGroupCommand}.
  */
 export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the users in the specified group.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -52,6 +57,8 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsersInGroupCommandInput - {@link ListUsersInGroupCommandInput}
+ * @returns {@link ListUsersInGroupCommandOutput}
  * @see {@link ListUsersInGroupCommandInput} for command's `input` shape.
  * @see {@link ListUsersInGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListUsersInGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsersInGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListUsersInGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsersInGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUsersInGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersInGroupCommandOutput> {
     return deserializeAws_json1_1ListUsersInGroupCommand(output, context);
   }

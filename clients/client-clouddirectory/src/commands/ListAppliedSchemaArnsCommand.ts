@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppliedSchemaArnsCommand}.
  */
 export interface ListAppliedSchemaArnsCommandInput extends ListAppliedSchemaArnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppliedSchemaArnsCommand}.
  */
 export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArnsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided, lists the minor version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppliedSchemaArnsCommandInput - {@link ListAppliedSchemaArnsCommandInput}
+ * @returns {@link ListAppliedSchemaArnsCommandOutput}
  * @see {@link ListAppliedSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListAppliedSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListAppliedSchemaArnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppliedSchemaArnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListAppliedSchemaArnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppliedSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAppliedSchemaArnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppliedSchemaArnsCommandOutput> {
     return deserializeAws_restJson1ListAppliedSchemaArnsCommand(output, context);
   }

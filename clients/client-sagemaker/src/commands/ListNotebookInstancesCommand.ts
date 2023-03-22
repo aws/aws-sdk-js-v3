@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotebookInstancesCommand}.
  */
 export interface ListNotebookInstancesCommandInput extends ListNotebookInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNotebookInstancesCommand}.
  */
 export interface ListNotebookInstancesCommandOutput extends ListNotebookInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the SageMaker notebook instances in the requester's account in an
  *                 Amazon Web Services Region. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListNotebookInstancesCommandOutput extends ListNotebookInstance
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookInstancesCommandInput - {@link ListNotebookInstancesCommandInput}
+ * @returns {@link ListNotebookInstancesCommandOutput}
  * @see {@link ListNotebookInstancesCommandInput} for command's `input` shape.
  * @see {@link ListNotebookInstancesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class ListNotebookInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListNotebookInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNotebookInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookInstancesCommandOutput> {
     return deserializeAws_json1_1ListNotebookInstancesCommand(output, context);
   }

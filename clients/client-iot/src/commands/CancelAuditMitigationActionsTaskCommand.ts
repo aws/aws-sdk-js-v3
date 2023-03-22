@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelAuditMitigationActionsTaskCommand}.
  */
 export interface CancelAuditMitigationActionsTaskCommandInput extends CancelAuditMitigationActionsTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelAuditMitigationActionsTaskCommand}.
  */
 export interface CancelAuditMitigationActionsTaskCommandOutput
@@ -37,6 +41,7 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a mitigation action task that is in progress. If the task
  *       is not
  *       in progress, an InvalidRequestException occurs.</p>
@@ -51,6 +56,8 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelAuditMitigationActionsTaskCommandInput - {@link CancelAuditMitigationActionsTaskCommandInput}
+ * @returns {@link CancelAuditMitigationActionsTaskCommandOutput}
  * @see {@link CancelAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link CancelAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelAuditMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     return serializeAws_restJson1CancelAuditMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventSourceMappingCommand}.
  */
 export interface GetEventSourceMappingCommandInput extends GetEventSourceMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventSourceMappingCommand}.
  */
 export interface GetEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of
  *         <a>ListEventSourceMappings</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventSourceMappingCommandInput - {@link GetEventSourceMappingCommandInput}
+ * @returns {@link GetEventSourceMappingCommandOutput}
  * @see {@link GetEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link GetEventSourceMappingCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetEventSourceMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventSourceMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetEventSourceMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEventSourceMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventSourceMappingCommandOutput> {
     return deserializeAws_restJson1GetEventSourceMappingCommand(output, context);
   }

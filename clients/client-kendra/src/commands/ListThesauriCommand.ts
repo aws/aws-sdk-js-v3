@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThesauriCommand}.
  */
 export interface ListThesauriCommandInput extends ListThesauriRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThesauriCommand}.
  */
 export interface ListThesauriCommandOutput extends ListThesauriResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the thesauri for an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThesauriCommandInput - {@link ListThesauriCommandInput}
+ * @returns {@link ListThesauriCommandOutput}
  * @see {@link ListThesauriCommandInput} for command's `input` shape.
  * @see {@link ListThesauriCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListThesauriCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThesauriCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListThesauriCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThesauriCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListThesauriCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThesauriCommandOutput> {
     return deserializeAws_json1_1ListThesauriCommand(output, context);
   }

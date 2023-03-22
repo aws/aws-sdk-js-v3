@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMapRunsCommand}.
  */
 export interface ListMapRunsCommandInput extends ListMapRunsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMapRunsCommand}.
  */
 export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Map Runs that were started by a given state machine execution. Use this API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain more information, if needed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMapRunsCommandInput - {@link ListMapRunsCommandInput}
+ * @returns {@link ListMapRunsCommandOutput}
  * @see {@link ListMapRunsCommandInput} for command's `input` shape.
  * @see {@link ListMapRunsCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListMapRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMapRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListMapRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMapRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListMapRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMapRunsCommandOutput> {
     return deserializeAws_json1_0ListMapRunsCommand(output, context);
   }

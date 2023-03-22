@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchDashboardsCommand}.
  */
 export interface SearchDashboardsCommandInput extends SearchDashboardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchDashboardsCommand}.
  */
 export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for dashboards that belong to a user. </p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -49,6 +54,8 @@ export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDashboardsCommandInput - {@link SearchDashboardsCommandInput}
+ * @returns {@link SearchDashboardsCommandOutput}
  * @see {@link SearchDashboardsCommandInput} for command's `input` shape.
  * @see {@link SearchDashboardsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class SearchDashboardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class SearchDashboardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchDashboardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDashboardsCommandOutput> {
     return deserializeAws_restJson1SearchDashboardsCommand(output, context);
   }

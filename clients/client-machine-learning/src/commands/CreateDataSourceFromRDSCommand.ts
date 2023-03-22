@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSourceFromRDSCommand}.
  */
 export interface CreateDataSourceFromRDSCommandInput extends CreateDataSourceFromRDSInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSourceFromRDSCommand}.
  */
 export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFromRDSOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>DataSource</code> object from an <a href="http://aws.amazon.com/rds/"> Amazon Relational Database Service</a> (Amazon RDS). A <code>DataSource</code> references data that can be used to perform <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p>
  *
  *         <p>
@@ -57,6 +62,8 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSourceFromRDSCommandInput - {@link CreateDataSourceFromRDSCommandInput}
+ * @returns {@link CreateDataSourceFromRDSCommandOutput}
  * @see {@link CreateDataSourceFromRDSCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromRDSCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateDataSourceFromRDSCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSourceFromRDSCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateDataSourceFromRDSCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSourceFromRDSCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataSourceFromRDSCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceFromRDSCommandOutput> {
     return deserializeAws_json1_1CreateDataSourceFromRDSCommand(output, context);
   }

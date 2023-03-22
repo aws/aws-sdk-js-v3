@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTaskDefinitionCommand}.
  */
 export interface DescribeTaskDefinitionCommandInput extends DescribeTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTaskDefinitionCommand}.
  */
 export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a task definition. You can specify a <code>family</code> and
  * 				<code>revision</code> to find information about a specific task definition, or you
  * 			can simply specify the family to find the latest <code>ACTIVE</code> revision in that
@@ -53,6 +58,8 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTaskDefinitionCommandInput - {@link DescribeTaskDefinitionCommandInput}
+ * @returns {@link DescribeTaskDefinitionCommandOutput}
  * @see {@link DescribeTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -146,6 +153,9 @@ export class DescribeTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class DescribeTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskDefinitionCommandOutput> {
     return deserializeAws_json1_1DescribeTaskDefinitionCommand(output, context);
   }

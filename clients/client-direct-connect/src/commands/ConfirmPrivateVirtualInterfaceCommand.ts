@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmPrivateVirtualInterfaceCommand}.
  */
 export interface ConfirmPrivateVirtualInterfaceCommandInput extends ConfirmPrivateVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmPrivateVirtualInterfaceCommand}.
  */
 export interface ConfirmPrivateVirtualInterfaceCommandOutput
@@ -37,6 +41,7 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts ownership of a private virtual interface created by another Amazon Web Services account.</p>
  *          <p>After the virtual interface owner makes this call, the virtual interface is
  *       created and attached to the specified virtual private gateway or Direct Connect gateway, and is
@@ -51,6 +56,8 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmPrivateVirtualInterfaceCommandInput - {@link ConfirmPrivateVirtualInterfaceCommandInput}
+ * @returns {@link ConfirmPrivateVirtualInterfaceCommandOutput}
  * @see {@link ConfirmPrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmPrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -80,6 +87,9 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmPrivateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConfirmPrivateVirtualInterfaceCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
     return serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

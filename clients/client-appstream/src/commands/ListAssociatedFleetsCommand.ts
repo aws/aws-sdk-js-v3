@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedFleetsCommand}.
  */
 export interface ListAssociatedFleetsCommandInput extends ListAssociatedFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedFleetsCommand}.
  */
 export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the name of the fleet that is associated with the specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedFleetsCommandInput - {@link ListAssociatedFleetsCommandInput}
+ * @returns {@link ListAssociatedFleetsCommandOutput}
  * @see {@link ListAssociatedFleetsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListAssociatedFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListAssociatedFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssociatedFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedFleetsCommandOutput> {
     return deserializeAws_json1_1ListAssociatedFleetsCommand(output, context);
   }

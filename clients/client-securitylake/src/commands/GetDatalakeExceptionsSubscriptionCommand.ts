@@ -26,10 +26,14 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatalakeExceptionsSubscriptionCommand}.
  */
 export interface GetDatalakeExceptionsSubscriptionCommandInput extends GetDatalakeExceptionsSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatalakeExceptionsSubscriptionCommand}.
  */
 export interface GetDatalakeExceptionsSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of exception notifications for the account in Amazon Security Lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeExceptionsSubscriptionCommandInput - {@link GetDatalakeExceptionsSubscriptionCommandInput}
+ * @returns {@link GetDatalakeExceptionsSubscriptionCommandOutput}
  * @see {@link GetDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetDatalakeExceptionsSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeExceptionsSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class GetDatalakeExceptionsSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class GetDatalakeExceptionsSubscriptionCommand extends $Command<
     return serializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

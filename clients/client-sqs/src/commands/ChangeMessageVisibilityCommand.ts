@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ChangeMessageVisibilityCommand}.
  */
 export interface ChangeMessageVisibilityCommandInput extends ChangeMessageVisibilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangeMessageVisibilityCommand}.
  */
 export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the visibility timeout of a specified message in a queue to a new value. The
  *             default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The
  *             maximum is 12 hours. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -74,6 +79,8 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeMessageVisibilityCommandInput - {@link ChangeMessageVisibilityCommandInput}
+ * @returns {@link ChangeMessageVisibilityCommandOutput}
  * @see {@link ChangeMessageVisibilityCommandInput} for command's `input` shape.
  * @see {@link ChangeMessageVisibilityCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -103,6 +110,9 @@ export class ChangeMessageVisibilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeMessageVisibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ChangeMessageVisibilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeMessageVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryChangeMessageVisibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeMessageVisibilityCommandOutput> {
     return deserializeAws_queryChangeMessageVisibilityCommand(output, context);
   }

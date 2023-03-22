@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePricingRulesCommand}.
  */
 export interface DisassociatePricingRulesCommandInput extends DisassociatePricingRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePricingRulesCommand}.
  */
 export interface DisassociatePricingRulesCommandOutput extends DisassociatePricingRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Disassociates a list of pricing rules from a pricing plan.
  *     </p>
@@ -48,6 +53,8 @@ export interface DisassociatePricingRulesCommandOutput extends DisassociatePrici
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePricingRulesCommandInput - {@link DisassociatePricingRulesCommandInput}
+ * @returns {@link DisassociatePricingRulesCommandOutput}
  * @see {@link DisassociatePricingRulesCommandInput} for command's `input` shape.
  * @see {@link DisassociatePricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -94,6 +101,9 @@ export class DisassociatePricingRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePricingRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DisassociatePricingRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociatePricingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociatePricingRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociatePricingRulesCommandOutput> {
     return deserializeAws_restJson1DisassociatePricingRulesCommand(output, context);
   }

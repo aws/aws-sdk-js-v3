@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoreNetworkPolicyVersionsCommand}.
  */
 export interface ListCoreNetworkPolicyVersionsCommandInput extends ListCoreNetworkPolicyVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoreNetworkPolicyVersionsCommand}.
  */
 export interface ListCoreNetworkPolicyVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of core network policy versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreNetworkPolicyVersionsCommandInput - {@link ListCoreNetworkPolicyVersionsCommandInput}
+ * @returns {@link ListCoreNetworkPolicyVersionsCommandOutput}
  * @see {@link ListCoreNetworkPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreNetworkPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreNetworkPolicyVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreNetworkPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCoreNetworkPolicyVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingsReportStatusCommand}.
  */
 export interface GetFindingsReportStatusCommandInput extends GetFindingsReportStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingsReportStatusCommand}.
  */
 export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of a findings report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsReportStatusCommandInput - {@link GetFindingsReportStatusCommandInput}
+ * @returns {@link GetFindingsReportStatusCommandOutput}
  * @see {@link GetFindingsReportStatusCommandInput} for command's `input` shape.
  * @see {@link GetFindingsReportStatusCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -85,6 +92,9 @@ export class GetFindingsReportStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsReportStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetFindingsReportStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingsReportStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFindingsReportStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsReportStatusCommandOutput> {
     return deserializeAws_restJson1GetFindingsReportStatusCommand(output, context);
   }

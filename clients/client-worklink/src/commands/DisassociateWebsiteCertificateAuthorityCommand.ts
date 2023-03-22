@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWebsiteCertificateAuthorityCommand}.
  */
 export interface DisassociateWebsiteCertificateAuthorityCommandInput
   extends DisassociateWebsiteCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWebsiteCertificateAuthorityCommand}.
  */
 export interface DisassociateWebsiteCertificateAuthorityCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes a certificate authority (CA).</p>
@@ -51,6 +56,8 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWebsiteCertificateAuthorityCommandInput - {@link DisassociateWebsiteCertificateAuthorityCommandInput}
+ * @returns {@link DisassociateWebsiteCertificateAuthorityCommandOutput}
  * @see {@link DisassociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     return serializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

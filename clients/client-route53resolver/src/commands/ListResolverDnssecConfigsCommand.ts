@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverDnssecConfigsCommand}.
  */
 export interface ListResolverDnssecConfigsCommandInput extends ListResolverDnssecConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverDnssecConfigsCommand}.
  */
 export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnssecConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the configurations for DNSSEC validation that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverDnssecConfigsCommandInput - {@link ListResolverDnssecConfigsCommandInput}
+ * @returns {@link ListResolverDnssecConfigsCommandOutput}
  * @see {@link ListResolverDnssecConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverDnssecConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListResolverDnssecConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverDnssecConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListResolverDnssecConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverDnssecConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResolverDnssecConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

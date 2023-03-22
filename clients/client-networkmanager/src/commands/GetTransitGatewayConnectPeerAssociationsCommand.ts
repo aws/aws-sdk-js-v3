@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayConnectPeerAssociationsCommand}.
  */
 export interface GetTransitGatewayConnectPeerAssociationsCommandInput
   extends GetTransitGatewayConnectPeerAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayConnectPeerAssociationsCommand}.
  */
 export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more of your transit gateway Connect peer associations in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayConnectPeerAssociationsCommandInput - {@link GetTransitGatewayConnectPeerAssociationsCommandInput}
+ * @returns {@link GetTransitGatewayConnectPeerAssociationsCommandOutput}
  * @see {@link GetTransitGatewayConnectPeerAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayConnectPeerAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayConnectPeerAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayConnectPeerAssociationsCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
     return serializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

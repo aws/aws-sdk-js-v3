@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDBParameterGroupCommand}.
  */
 export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyDBParameterGroupCommand}.
  */
 export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBParameterGroupCommandInput - {@link CopyDBParameterGroupCommandInput}
+ * @returns {@link CopyDBParameterGroupCommandOutput}
  * @see {@link CopyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -99,6 +106,9 @@ export class CopyDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CopyDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBParameterGroupCommandOutput> {
     return deserializeAws_queryCopyDBParameterGroupCommand(output, context);
   }

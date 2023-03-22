@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateRouteTableCommand}.
  */
 export interface AssociateRouteTableCommandInput extends AssociateRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateRouteTableCommand}.
  */
 export interface AssociateRouteTableCommandOutput extends AssociateRouteTableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway
  *             attached to your VPC with a route table in your VPC. This association causes traffic
  *             from the subnet or gateway to be routed according to the routes in the route table. The
@@ -52,6 +57,8 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateRouteTableCommandInput - {@link AssociateRouteTableCommandInput}
+ * @returns {@link AssociateRouteTableCommandOutput}
  * @see {@link AssociateRouteTableCommandInput} for command's `input` shape.
  * @see {@link AssociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -92,6 +99,9 @@ export class AssociateRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class AssociateRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRouteTableCommandOutput> {
     return deserializeAws_ec2AssociateRouteTableCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExpirationForHITCommand}.
  */
 export interface UpdateExpirationForHITCommandInput extends UpdateExpirationForHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExpirationForHITCommand}.
  */
 export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationForHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>UpdateExpirationForHIT</code> operation allows you update the expiration time of a HIT.
  *             If you update it to a time in the past, the HIT will be immediately expired.
@@ -49,6 +54,8 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExpirationForHITCommandInput - {@link UpdateExpirationForHITCommandInput}
+ * @returns {@link UpdateExpirationForHITCommandOutput}
  * @see {@link UpdateExpirationForHITCommandInput} for command's `input` shape.
  * @see {@link UpdateExpirationForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateExpirationForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExpirationForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateExpirationForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExpirationForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateExpirationForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExpirationForHITCommandOutput> {
     return deserializeAws_json1_1UpdateExpirationForHITCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssistantAssociationsCommand}.
  */
 export interface ListAssistantAssociationsCommandInput extends ListAssistantAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssistantAssociationsCommand}.
  */
 export interface ListAssistantAssociationsCommandOutput extends ListAssistantAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about assistant associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssistantAssociationsCommandInput - {@link ListAssistantAssociationsCommandInput}
+ * @returns {@link ListAssistantAssociationsCommandOutput}
  * @see {@link ListAssistantAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssistantAssociationsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListAssistantAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssistantAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListAssistantAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssistantAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssistantAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBackupJobCommand}.
  */
 export interface StartBackupJobCommandInput extends StartBackupJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StartBackupJobCommand}.
  */
 export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand backup job for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBackupJobCommandInput - {@link StartBackupJobCommandInput}
+ * @returns {@link StartBackupJobCommandOutput}
  * @see {@link StartBackupJobCommandInput} for command's `input` shape.
  * @see {@link StartBackupJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -90,6 +97,9 @@ export class StartBackupJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBackupJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class StartBackupJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartBackupJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBackupJobCommandOutput> {
     return deserializeAws_restJson1StartBackupJobCommand(output, context);
   }

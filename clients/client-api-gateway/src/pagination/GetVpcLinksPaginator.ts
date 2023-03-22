@@ -6,7 +6,7 @@ import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput }
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetVpcLinksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetVpcLinks(
   config: APIGatewayPaginationConfiguration,
   input: GetVpcLinksCommandInput,

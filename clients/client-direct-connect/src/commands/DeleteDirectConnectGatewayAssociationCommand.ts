@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
 export interface DeleteDirectConnectGatewayAssociationCommandInput
   extends DeleteDirectConnectGatewayAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
 export interface DeleteDirectConnectGatewayAssociationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>
  *          <p>We recommend that you specify the <code>associationID</code> to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the <code>virtualGatewayId</code> and <code>directConnectGatewayId</code> to delete an association.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectConnectGatewayAssociationCommandInput - {@link DeleteDirectConnectGatewayAssociationCommandInput}
+ * @returns {@link DeleteDirectConnectGatewayAssociationCommandOutput}
  * @see {@link DeleteDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectConnectGatewayAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
     return serializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

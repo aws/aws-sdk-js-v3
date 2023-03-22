@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAttributeValuesCommand}.
  */
 export interface GetAttributeValuesCommandInput extends GetAttributeValuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAttributeValuesCommand}.
  */
 export interface GetAttributeValuesCommandOutput extends GetAttributeValuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of attribute values. Attributes are similar to the details
  *           in a Price List API offer file. For a list of available attributes, see
  *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a>
@@ -49,6 +54,8 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttributeValuesCommandInput - {@link GetAttributeValuesCommandInput}
+ * @returns {@link GetAttributeValuesCommandOutput}
  * @see {@link GetAttributeValuesCommandInput} for command's `input` shape.
  * @see {@link GetAttributeValuesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -113,6 +120,9 @@ export class GetAttributeValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttributeValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class GetAttributeValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttributeValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAttributeValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeValuesCommandOutput> {
     return deserializeAws_json1_1GetAttributeValuesCommand(output, context);
   }

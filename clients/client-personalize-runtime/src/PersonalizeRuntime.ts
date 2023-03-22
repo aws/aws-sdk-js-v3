@@ -14,10 +14,12 @@ import {
 import { PersonalizeRuntimeClient } from "./PersonalizeRuntimeClient";
 
 /**
+ * @public
  * <p></p>
  */
 export class PersonalizeRuntime extends PersonalizeRuntimeClient {
   /**
+   * @public
    * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
    *       deemed the most likely item to be of interest to the user.</p>
    *          <note>
@@ -55,6 +57,7 @@ export class PersonalizeRuntime extends PersonalizeRuntimeClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
    *       create the solution backing the campaign as follows:</p>
    *          <ul>

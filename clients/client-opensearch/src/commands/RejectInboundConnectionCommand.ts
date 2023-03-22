@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInboundConnectionCommand}.
  */
 export interface RejectInboundConnectionCommandInput extends RejectInboundConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectInboundConnectionCommand}.
  */
 export interface RejectInboundConnectionCommandOutput extends RejectInboundConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster
  *    connection request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInboundConnectionCommandInput - {@link RejectInboundConnectionCommandInput}
+ * @returns {@link RejectInboundConnectionCommandOutput}
  * @see {@link RejectInboundConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectInboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -76,6 +83,9 @@ export class RejectInboundConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInboundConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class RejectInboundConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectInboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RejectInboundConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInboundConnectionCommandOutput> {
     return deserializeAws_restJson1RejectInboundConnectionCommand(output, context);
   }

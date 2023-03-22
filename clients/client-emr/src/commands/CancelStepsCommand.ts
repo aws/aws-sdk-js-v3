@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelStepsCommand}.
  */
 export interface CancelStepsCommandInput extends CancelStepsInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelStepsCommand}.
  */
 export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a pending step or steps in a running cluster. Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in
  *          each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee
  *          that a step will be canceled, even if the request is successfully submitted. When you use
@@ -50,6 +55,8 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelStepsCommandInput - {@link CancelStepsCommandInput}
+ * @returns {@link CancelStepsCommandOutput}
  * @see {@link CancelStepsCommandInput} for command's `input` shape.
  * @see {@link CancelStepsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +87,9 @@ export class CancelStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CancelStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStepsCommandOutput> {
     return deserializeAws_json1_1CancelStepsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMapRunCommand}.
  */
 export interface UpdateMapRunCommandInput extends UpdateMapRunInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMapRunCommand}.
  */
 export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMapRunCommandInput - {@link UpdateMapRunCommandInput}
+ * @returns {@link UpdateMapRunCommandOutput}
  * @see {@link UpdateMapRunCommandInput} for command's `input` shape.
  * @see {@link UpdateMapRunCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateMapRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMapRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateMapRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMapRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateMapRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMapRunCommandOutput> {
     return deserializeAws_json1_0UpdateMapRunCommand(output, context);
   }

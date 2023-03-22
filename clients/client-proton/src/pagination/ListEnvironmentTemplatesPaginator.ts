@@ -10,7 +10,7 @@ import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ProtonClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEnvironmentTemplatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEnvironmentTemplates(
   config: ProtonPaginationConfiguration,
   input: ListEnvironmentTemplatesCommandInput,

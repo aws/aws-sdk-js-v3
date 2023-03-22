@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallPolicyChangeProtectionCommand}.
  */
 export interface UpdateFirewallPolicyChangeProtectionCommandInput extends UpdateFirewallPolicyChangeProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallPolicyChangeProtectionCommand}.
  */
 export interface UpdateFirewallPolicyChangeProtectionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the flag, <code>ChangeProtection</code>, which indicates whether it
  *          is possible to change the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
  *          from changes. This setting helps protect against accidentally changing a firewall that's in use.</p>
@@ -50,6 +55,8 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallPolicyChangeProtectionCommandInput - {@link UpdateFirewallPolicyChangeProtectionCommandInput}
+ * @returns {@link UpdateFirewallPolicyChangeProtectionCommandOutput}
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -105,6 +112,9 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallPolicyChangeProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallPolicyChangeProtectionCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     return serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

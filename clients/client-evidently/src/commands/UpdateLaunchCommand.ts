@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLaunchCommand}.
  */
 export interface UpdateLaunchCommandInput extends UpdateLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLaunchCommand}.
  */
 export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a launch of a given feature. </p>
  *          <p>Don't use this operation to update the tags of an existing launch. Instead, use
  *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -48,6 +53,8 @@ export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLaunchCommandInput - {@link UpdateLaunchCommandInput}
+ * @returns {@link UpdateLaunchCommandOutput}
  * @see {@link UpdateLaunchCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLaunchCommandOutput> {
     return deserializeAws_restJson1UpdateLaunchCommand(output, context);
   }

@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointPolicyStatusCommand}.
  */
 export interface GetAccessPointPolicyStatusCommandInput extends GetAccessPointPolicyStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointPolicyStatusCommand}.
  */
 export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointPolicyStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indicates whether the specified access point currently has a policy that allows public access.
  *          For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3
  *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -49,6 +54,8 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointPolicyStatusCommandInput - {@link GetAccessPointPolicyStatusCommandInput}
+ * @returns {@link GetAccessPointPolicyStatusCommandOutput}
  * @see {@link GetAccessPointPolicyStatusCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetAccessPointPolicyStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointPolicyStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetAccessPointPolicyStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPointPolicyStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetAccessPointPolicyStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

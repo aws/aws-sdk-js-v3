@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSlotTypesCommand}.
  */
 export interface GetSlotTypesCommandInput extends GetSlotTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSlotTypesCommand}.
  */
 export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns slot type information as follows: </p>
  *          <ul>
  *             <li>
@@ -64,6 +69,8 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSlotTypesCommandInput - {@link GetSlotTypesCommandInput}
+ * @returns {@link GetSlotTypesCommandOutput}
  * @see {@link GetSlotTypesCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -141,6 +148,9 @@ export class GetSlotTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSlotTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class GetSlotTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSlotTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSlotTypesCommandOutput> {
     return deserializeAws_restJson1GetSlotTypesCommand(output, context);
   }

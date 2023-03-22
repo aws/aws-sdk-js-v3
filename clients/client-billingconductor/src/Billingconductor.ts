@@ -155,6 +155,7 @@ import {
 } from "./commands/UpdatePricingRuleCommand";
 
 /**
+ * @public
  * <p>Amazon Web Services Billing Conductor is a fully managed service that you can use
  *       to customize a <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions">pro forma</a> version of your billing data each month, to accurately show or chargeback
  *       your end customers. Amazon Web Services Billing Conductor doesn't change the way
@@ -170,6 +171,7 @@ import {
  */
 export class Billingconductor extends BillingconductorClient {
   /**
+   * @public
    * <p>Connects an array of account IDs in a consolidated billing family to a predefined
    *       billing group. The account IDs must be a part of the consolidated billing family during the
    *       current month, and not already associated with another billing group. The maximum number of
@@ -205,6 +207,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>Connects an array of <code>PricingRuleArns</code> to a defined <code>PricingPlan</code>.
    *       The maximum number <code>PricingRuleArn</code> that can be associated in one call is 30. </p>
    */
@@ -238,6 +241,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Associates a batch of resources to a percentage custom line item.
    *     </p>
@@ -274,6 +278,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Disassociates a batch of resources from a percentage custom line item.
    *     </p>
@@ -310,6 +315,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Creates a billing group that resembles a consolidated billing family that Amazon Web Services charges, based off of the predefined pricing plan computation.
    *     </p>
@@ -344,6 +350,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.
    *     </p>
@@ -378,6 +385,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>Creates a pricing plan that is used for computing Amazon Web Services charges for billing groups.
    *     </p>
    */
@@ -411,6 +419,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
    *     </p>
@@ -445,6 +454,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes a billing group.
    *     </p>
@@ -479,6 +489,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes the custom line item identified by the given ARN in the current, or previous billing period.
    *     </p>
@@ -513,6 +524,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a pricing plan. The pricing plan must not be associated with any billing groups to
    *       delete successfully.</p>
    */
@@ -546,6 +558,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p> Deletes the pricing rule that's identified by the input Amazon Resource Name (ARN). </p>
    */
   public deletePricingRule(
@@ -578,6 +591,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified list of account IDs from the given billing group. </p>
    */
   public disassociateAccounts(
@@ -610,6 +624,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Disassociates a list of pricing rules from a pricing plan.
    *     </p>
@@ -644,6 +659,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p> This is a paginated call to list linked accounts that are linked to the payer account for
    *       the specified time period. If no information is provided, the current billing period is used.
    *       The response will optionally include the billing group that's associated with the linked
@@ -679,6 +695,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>A paginated call to retrieve a summary report of actual Amazon Web Services charges and the calculated
    *       Amazon Web Services charges based on the associated pricing plan of a billing group.</p>
    */
@@ -712,6 +729,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>A paginated call to retrieve a list of billing groups for the given billing period. If you don't provide a billing group, the current billing period is used.</p>
    */
   public listBillingGroups(
@@ -744,6 +762,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       A paginated call to get a list of all custom line items (FFLIs) for the given billing period. If you don't provide a billing period, the current billing period is used.
    *     </p>
@@ -778,6 +797,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>A paginated call to get a list of all custom line item versions.</p>
    */
   public listCustomLineItemVersions(
@@ -810,6 +830,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>A paginated call to get pricing plans for the given billing period. If you don't provide a billing period, the current billing period is used.
    *     </p>
    */
@@ -843,6 +864,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       A list of the pricing plans that are associated with a pricing rule.
    *     </p>
@@ -879,6 +901,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Describes a pricing rule that can be associated to a pricing plan, or set of pricing plans.
    *     </p>
@@ -913,6 +936,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Lists the pricing rules that are associated with a pricing plan.
    *     </p>
@@ -949,6 +973,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       List the resources that are associated to a custom line item.
    *     </p>
@@ -985,6 +1010,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       A list the tags for a resource.
    *     </p>
@@ -1019,6 +1045,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p> Associates the specified tags to a resource with the specified <code>resourceArn</code>.
    *       If existing tags on a resource are not specified in the request parameters, they are not
    *       changed. </p>
@@ -1047,6 +1074,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes specified tags from a resource.
    *     </p>
@@ -1081,6 +1109,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>This updates an existing billing group.
    *     </p>
    */
@@ -1114,6 +1143,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Update an existing custom line item in the current or previous billing period.
    *     </p>
@@ -1148,6 +1178,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>This updates an existing pricing plan.
    *     </p>
    */
@@ -1181,6 +1212,7 @@ export class Billingconductor extends BillingconductorClient {
   }
 
   /**
+   * @public
    * <p>
    *       Updates an existing pricing rule.
    *     </p>

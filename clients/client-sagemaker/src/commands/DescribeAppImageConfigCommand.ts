@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppImageConfigCommand}.
  */
 export interface DescribeAppImageConfigCommandInput extends DescribeAppImageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppImageConfigCommand}.
  */
 export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an AppImageConfig.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppImageConfigCommandInput - {@link DescribeAppImageConfigCommandInput}
+ * @returns {@link DescribeAppImageConfigCommandOutput}
  * @see {@link DescribeAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeAppImageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppImageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeAppImageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAppImageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppImageConfigCommandOutput> {
     return deserializeAws_json1_1DescribeAppImageConfigCommand(output, context);
   }

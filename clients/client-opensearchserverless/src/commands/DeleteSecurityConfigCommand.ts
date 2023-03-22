@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecurityConfigCommand}.
  */
 export interface DeleteSecurityConfigCommandInput extends DeleteSecurityConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecurityConfigCommand}.
  */
 export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -52,6 +57,8 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityConfigCommandInput - {@link DeleteSecurityConfigCommandInput}
+ * @returns {@link DeleteSecurityConfigCommandOutput}
  * @see {@link DeleteSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityConfigCommandOutput> {
     return deserializeAws_json1_0DeleteSecurityConfigCommand(output, context);
   }

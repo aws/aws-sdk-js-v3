@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStorageVirtualMachineCommand}.
  */
 export interface CreateStorageVirtualMachineCommandInput extends CreateStorageVirtualMachineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStorageVirtualMachineCommand}.
  */
 export interface CreateStorageVirtualMachineCommandOutput
@@ -37,6 +41,7 @@ export interface CreateStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateStorageVirtualMachineCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStorageVirtualMachineCommandInput - {@link CreateStorageVirtualMachineCommandInput}
+ * @returns {@link CreateStorageVirtualMachineCommandOutput}
  * @see {@link CreateStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link CreateStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateStorageVirtualMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStorageVirtualMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateStorageVirtualMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStorageVirtualMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

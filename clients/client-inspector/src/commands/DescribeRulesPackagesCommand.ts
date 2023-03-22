@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRulesPackagesCommand}.
  */
 export interface DescribeRulesPackagesCommandInput extends DescribeRulesPackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRulesPackagesCommand}.
  */
 export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the rules packages that are specified by the ARNs of the rules
  *          packages.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRulesPackagesCommandInput - {@link DescribeRulesPackagesCommandInput}
+ * @returns {@link DescribeRulesPackagesCommandOutput}
  * @see {@link DescribeRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -104,6 +111,9 @@ export class DescribeRulesPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRulesPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DescribeRulesPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRulesPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRulesPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesPackagesCommandOutput> {
     return deserializeAws_json1_1DescribeRulesPackagesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageAttributeCommand}.
  */
 export interface DescribeImageAttributeCommandInput extends DescribeImageAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageAttributeCommand}.
  */
 export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageAttributeCommandInput - {@link DescribeImageAttributeCommandInput}
+ * @returns {@link DescribeImageAttributeCommandOutput}
  * @see {@link DescribeImageAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeImageAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeImageAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeImageAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageAttributeCommandOutput> {
     return deserializeAws_ec2DescribeImageAttributeCommand(output, context);
   }

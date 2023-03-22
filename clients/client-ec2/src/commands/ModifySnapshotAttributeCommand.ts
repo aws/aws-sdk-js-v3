@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySnapshotAttributeCommand}.
  */
 export interface ModifySnapshotAttributeCommandInput extends ModifySnapshotAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifySnapshotAttributeCommand}.
  */
 export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or removes permission settings for the specified snapshot. You may add or remove
  *       specified Amazon Web Services account IDs from a snapshot's list of create volume permissions, but you cannot
  *       do both in a single operation. If you need to both add and remove account IDs for a snapshot,
@@ -48,6 +53,8 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySnapshotAttributeCommandInput - {@link ModifySnapshotAttributeCommandInput}
+ * @returns {@link ModifySnapshotAttributeCommandOutput}
  * @see {@link ModifySnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -103,6 +110,9 @@ export class ModifySnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ModifySnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySnapshotAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifySnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySnapshotAttributeCommandOutput> {
     return deserializeAws_ec2ModifySnapshotAttributeCommand(output, context);
   }

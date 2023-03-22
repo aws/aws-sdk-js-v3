@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRefreshSchemasStatusCommand}.
  */
 export interface DescribeRefreshSchemasStatusCommandInput extends DescribeRefreshSchemasStatusMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRefreshSchemasStatusCommand}.
  */
 export interface DescribeRefreshSchemasStatusCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeRefreshSchemasStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the status of the RefreshSchemas operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRefreshSchemasStatusCommandInput - {@link DescribeRefreshSchemasStatusCommandInput}
+ * @returns {@link DescribeRefreshSchemasStatusCommandOutput}
  * @see {@link DescribeRefreshSchemasStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeRefreshSchemasStatusCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRefreshSchemasStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRefreshSchemasStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRefreshSchemasStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

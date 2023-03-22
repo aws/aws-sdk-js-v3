@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImageScanCommand}.
  */
 export interface StartImageScanCommandInput extends StartImageScanRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImageScanCommand}.
  */
 export interface StartImageScanCommandOutput extends StartImageScanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an image vulnerability scan. An image scan can only be started once per 24
  *             hours on an individual image. This limit includes if an image was scanned on initial
  *             push. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image scanning</a> in the
@@ -49,6 +54,8 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImageScanCommandInput - {@link StartImageScanCommandInput}
+ * @returns {@link StartImageScanCommandOutput}
  * @see {@link StartImageScanCommandInput} for command's `input` shape.
  * @see {@link StartImageScanCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -97,6 +104,9 @@ export class StartImageScanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImageScanCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class StartImageScanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImageScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartImageScanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImageScanCommandOutput> {
     return deserializeAws_json1_1StartImageScanCommand(output, context);
   }

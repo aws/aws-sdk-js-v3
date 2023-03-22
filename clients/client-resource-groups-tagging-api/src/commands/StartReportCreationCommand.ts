@@ -30,15 +30,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartReportCreationCommand}.
  */
 export interface StartReportCreationCommandInput extends StartReportCreationInput {}
 /**
+ * @public
+ *
  * The output of {@link StartReportCreationCommand}.
  */
 export interface StartReportCreationCommandOutput extends StartReportCreationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a report that lists all tagged resources in the accounts across your
  *             organization and tells whether each resource is compliant with the effective tag policy.
  *             Compliance data is refreshed daily. The report is generated asynchronously.</p>
@@ -58,6 +63,8 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReportCreationCommandInput - {@link StartReportCreationCommandInput}
+ * @returns {@link StartReportCreationCommandOutput}
  * @see {@link StartReportCreationCommandInput} for command's `input` shape.
  * @see {@link StartReportCreationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -137,6 +144,9 @@ export class StartReportCreationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReportCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class StartReportCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReportCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartReportCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReportCreationCommandOutput> {
     return deserializeAws_json1_1StartReportCreationCommand(output, context);
   }

@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsCommandInput
   extends DescribeReservedElasticsearchInstanceOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists available reserved Elasticsearch instance offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedElasticsearchInstanceOfferingsCommandInput - {@link DescribeReservedElasticsearchInstanceOfferingsCommandInput}
+ * @returns {@link DescribeReservedElasticsearchInstanceOfferingsCommandOutput}
  * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedElasticsearchInstanceOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     return serializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationCommand}.
  */
 export interface DeleteConfigurationCommandInput extends DeleteConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationCommand}.
  */
 export interface DeleteConfigurationCommandOutput extends DeleteConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an MSK Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationCommandInput - {@link DeleteConfigurationCommandInput}
+ * @returns {@link DeleteConfigurationCommandOutput}
  * @see {@link DeleteConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationCommandOutput> {
     return deserializeAws_restJson1DeleteConfigurationCommand(output, context);
   }

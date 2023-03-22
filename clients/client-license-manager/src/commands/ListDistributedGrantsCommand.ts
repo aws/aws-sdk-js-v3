@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributedGrantsCommand}.
  */
 export interface ListDistributedGrantsCommandInput extends ListDistributedGrantsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributedGrantsCommand}.
  */
 export interface ListDistributedGrantsCommandOutput extends ListDistributedGrantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the grants distributed for the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributedGrantsCommandInput - {@link ListDistributedGrantsCommandInput}
+ * @returns {@link ListDistributedGrantsCommandOutput}
  * @see {@link ListDistributedGrantsCommandInput} for command's `input` shape.
  * @see {@link ListDistributedGrantsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListDistributedGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributedGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListDistributedGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributedGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDistributedGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDistributedGrantsCommandOutput> {
     return deserializeAws_json1_1ListDistributedGrantsCommand(output, context);
   }

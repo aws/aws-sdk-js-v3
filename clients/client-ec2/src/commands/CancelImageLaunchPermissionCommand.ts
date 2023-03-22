@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelImageLaunchPermissionCommand}.
  */
 export interface CancelImageLaunchPermissionCommandInput extends CancelImageLaunchPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelImageLaunchPermissionCommand}.
  */
 export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLaunchPermissionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
  *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
  *         Cancel having an AMI shared with your Amazon Web Services account</a> in the
@@ -49,6 +54,8 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelImageLaunchPermissionCommandInput - {@link CancelImageLaunchPermissionCommandInput}
+ * @returns {@link CancelImageLaunchPermissionCommandOutput}
  * @see {@link CancelImageLaunchPermissionCommandInput} for command's `input` shape.
  * @see {@link CancelImageLaunchPermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CancelImageLaunchPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelImageLaunchPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CancelImageLaunchPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelImageLaunchPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelImageLaunchPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

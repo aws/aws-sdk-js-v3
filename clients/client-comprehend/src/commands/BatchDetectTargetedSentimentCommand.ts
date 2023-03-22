@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDetectTargetedSentimentCommand}.
  */
 export interface BatchDetectTargetedSentimentCommandInput extends BatchDetectTargetedSentimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDetectTargetedSentimentCommand}.
  */
 export interface BatchDetectTargetedSentimentCommandOutput
@@ -37,6 +41,7 @@ export interface BatchDetectTargetedSentimentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects a batch of documents and returns a sentiment analysis
  *       for each entity identified in the documents.</p>
  *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
@@ -50,6 +55,8 @@ export interface BatchDetectTargetedSentimentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectTargetedSentimentCommandInput - {@link BatchDetectTargetedSentimentCommandInput}
+ * @returns {@link BatchDetectTargetedSentimentCommandOutput}
  * @see {@link BatchDetectTargetedSentimentCommandInput} for command's `input` shape.
  * @see {@link BatchDetectTargetedSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -93,6 +100,9 @@ export class BatchDetectTargetedSentimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectTargetedSentimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class BatchDetectTargetedSentimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectTargetedSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDetectTargetedSentimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

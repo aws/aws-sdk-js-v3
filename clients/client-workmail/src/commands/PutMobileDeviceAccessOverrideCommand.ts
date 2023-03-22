@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutMobileDeviceAccessOverrideCommand}.
  */
 export interface PutMobileDeviceAccessOverrideCommandInput extends PutMobileDeviceAccessOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMobileDeviceAccessOverrideCommand}.
  */
 export interface PutMobileDeviceAccessOverrideCommandOutput
@@ -37,6 +41,7 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a mobile device access override for the given WorkMail organization, user, and device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMobileDeviceAccessOverrideCommandInput - {@link PutMobileDeviceAccessOverrideCommandInput}
+ * @returns {@link PutMobileDeviceAccessOverrideCommandOutput}
  * @see {@link PutMobileDeviceAccessOverrideCommandInput} for command's `input` shape.
  * @see {@link PutMobileDeviceAccessOverrideCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutMobileDeviceAccessOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMobileDeviceAccessOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutMobileDeviceAccessOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMobileDeviceAccessOverrideCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutMobileDeviceAccessOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

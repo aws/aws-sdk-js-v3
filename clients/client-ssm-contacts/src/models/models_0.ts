@@ -3,16 +3,25 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SSMContactsServiceException as __BaseException } from "./SSMContactsServiceException";
 
+/**
+ * @public
+ */
 export enum AcceptCodeValidation {
   ENFORCE = "ENFORCE",
   IGNORE = "IGNORE",
 }
 
+/**
+ * @public
+ */
 export enum AcceptType {
   DELIVERED = "DELIVERED",
   READ = "READ",
 }
 
+/**
+ * @public
+ */
 export interface AcceptPageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement to a contact channel.</p>
@@ -52,9 +61,13 @@ export interface AcceptPageRequest {
   AcceptCodeValidation?: AcceptCodeValidation | string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptPageResult {}
 
 /**
+ * @public
  * <p>You don't have sufficient access to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -76,6 +89,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Unexpected error occurred while
  *          processing the request.</p>
  */
@@ -103,6 +117,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request references a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -135,6 +150,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -173,6 +189,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about which field caused the exception.</p>
  */
 export interface ValidationExceptionField {
@@ -187,6 +204,9 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -195,6 +215,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  */
@@ -227,6 +248,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ActivateContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -239,14 +263,21 @@ export interface ActivateContactChannelRequest {
   ActivationCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ActivateContactChannelResult {}
 
+/**
+ * @public
+ */
 export enum ActivationStatus {
   ACTIVATED = "ACTIVATED",
   NOT_ACTIVATED = "NOT_ACTIVATED",
 }
 
 /**
+ * @public
  * <p>Information about the contact channel that Incident Manager uses to engage the
  *          contact.</p>
  */
@@ -263,6 +294,9 @@ export interface ChannelTargetInfo {
   RetryIntervalInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export enum ChannelType {
   EMAIL = "EMAIL",
   SMS = "SMS",
@@ -270,6 +304,7 @@ export enum ChannelType {
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource causes an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -301,12 +336,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ContactType {
   ESCALATION = "ESCALATION",
   PERSONAL = "PERSONAL",
 }
 
 /**
+ * @public
  * <p>A personal contact or escalation plan that Incident Manager engages during an
  *          incident.</p>
  */
@@ -334,6 +373,7 @@ export interface Contact {
 }
 
 /**
+ * @public
  * <p>The details that Incident Manager uses when trying to engage the contact channel. </p>
  */
 export interface ContactChannelAddress {
@@ -356,6 +396,7 @@ export interface ContactChannelAddress {
 }
 
 /**
+ * @public
  * <p>The method that Incident Manager uses to engage a contact.</p>
  */
 export interface ContactChannel {
@@ -403,6 +444,7 @@ export interface ContactChannel {
 }
 
 /**
+ * @public
  * <p>The contact that Incident Manager is engaging during an incident.</p>
  */
 export interface ContactTargetInfo {
@@ -419,6 +461,7 @@ export interface ContactTargetInfo {
 }
 
 /**
+ * @public
  * <p>The contact or contact channel that's being engaged.</p>
  */
 export interface Target {
@@ -434,6 +477,7 @@ export interface Target {
 }
 
 /**
+ * @public
  * <p>A set amount of time that an escalation plan or engagement plan engages the specified
  *          contacts or contact methods.</p>
  */
@@ -452,6 +496,7 @@ export interface Stage {
 }
 
 /**
+ * @public
  * <p>The stages that an escalation plan or engagement plan engages contacts and contact
  *          methods in.</p>
  */
@@ -464,6 +509,7 @@ export interface Plan {
 }
 
 /**
+ * @public
  * <p>A container of a key-value name pair.</p>
  */
 export interface Tag {
@@ -480,6 +526,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactRequest {
   /**
    * <p>The short name to quickly identify a contact or escalation plan. The contact alias must
@@ -517,6 +566,9 @@ export interface CreateContactRequest {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the created contact or escalation plan.</p>
@@ -525,6 +577,7 @@ export interface CreateContactResult {
 }
 
 /**
+ * @public
  * <p>The operation failed to due an encryption key error.</p>
  */
 export class DataEncryptionException extends __BaseException {
@@ -546,6 +599,7 @@ export class DataEncryptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -589,6 +643,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.</p>
@@ -653,6 +710,9 @@ export interface CreateContactChannelRequest {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactChannelResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -660,6 +720,9 @@ export interface CreateContactChannelResult {
   ContactChannelArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel you're deactivating.</p>
@@ -667,8 +730,14 @@ export interface DeactivateContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateContactChannelResult {}
 
+/**
+ * @public
+ */
 export interface DeleteContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact that you're deleting.</p>
@@ -676,8 +745,14 @@ export interface DeleteContactRequest {
   ContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactResult {}
 
+/**
+ * @public
+ */
 export interface DeleteContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -685,8 +760,14 @@ export interface DeleteContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactChannelResult {}
 
+/**
+ * @public
+ */
 export interface DescribeEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement you want the details of.</p>
@@ -694,6 +775,9 @@ export interface DescribeEngagementRequest {
   EngagementId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngagementResult {
   /**
    * <p>The ARN of the escalation plan or contacts involved in the engagement.</p>
@@ -750,6 +834,9 @@ export interface DescribeEngagementResult {
   StopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePageRequest {
   /**
    * <p>The ID of the engagement to a contact channel.</p>
@@ -757,6 +844,9 @@ export interface DescribePageRequest {
   PageId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePageResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement to a contact channel.</p>
@@ -824,6 +914,7 @@ export interface DescribePageResult {
 }
 
 /**
+ * @public
  * <p>Incident Manager reaching out to a contact or escalation plan to engage contact during an
  *          incident.</p>
  */
@@ -859,6 +950,9 @@ export interface Engagement {
   StopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -866,6 +960,9 @@ export interface GetContactRequest {
   ContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactResult {
   /**
    * <p>The ARN of the contact or escalation plan.</p>
@@ -895,6 +992,9 @@ export interface GetContactResult {
   Plan: Plan | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel you want information about.</p>
@@ -902,6 +1002,9 @@ export interface GetContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactChannelResult {
   /**
    * <p>The ARN of the contact that the channel belongs to.</p>
@@ -935,6 +1038,9 @@ export interface GetContactChannelResult {
   ActivationStatus?: ActivationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetContactPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -942,6 +1048,9 @@ export interface GetContactPolicyRequest {
   ContactArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactPolicyResult {
   /**
    * <p>The ARN of the contact or escalation plan.</p>
@@ -954,6 +1063,9 @@ export interface GetContactPolicyResult {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactChannelsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact. </p>
@@ -971,6 +1083,9 @@ export interface ListContactChannelsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListContactChannelsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -983,6 +1098,9 @@ export interface ListContactChannelsResult {
   ContactChannels: ContactChannel[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListContactsRequest {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1006,6 +1124,9 @@ export interface ListContactsRequest {
   Type?: ContactType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1019,6 +1140,7 @@ export interface ListContactsResult {
 }
 
 /**
+ * @public
  * <p>A range of between two set times</p>
  */
 export interface TimeRange {
@@ -1033,6 +1155,9 @@ export interface TimeRange {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEngagementsRequest {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1055,6 +1180,9 @@ export interface ListEngagementsRequest {
   TimeRangeValue?: TimeRange;
 }
 
+/**
+ * @public
+ */
 export interface ListEngagementsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1068,6 +1196,9 @@ export interface ListEngagementsResult {
   Engagements: Engagement[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPageReceiptsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement to a specific contact channel.</p>
@@ -1085,6 +1216,9 @@ export interface ListPageReceiptsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ReceiptType {
   DELIVERED = "DELIVERED",
   ERROR = "ERROR",
@@ -1094,6 +1228,7 @@ export enum ReceiptType {
 }
 
 /**
+ * @public
  * <p>Records events during an engagement.</p>
  */
 export interface Receipt {
@@ -1120,6 +1255,9 @@ export interface Receipt {
   ReceiptTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPageReceiptsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1132,6 +1270,9 @@ export interface ListPageReceiptsResult {
   Receipts?: Receipt[];
 }
 
+/**
+ * @public
+ */
 export interface ListPagesByContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact you are retrieving engagements for.</p>
@@ -1150,6 +1291,7 @@ export interface ListPagesByContactRequest {
 }
 
 /**
+ * @public
  * <p>Incident Manager engaging a contact's contact channel.</p>
  */
 export interface Page {
@@ -1194,6 +1336,9 @@ export interface Page {
   ReadTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPagesByContactResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1206,6 +1351,9 @@ export interface ListPagesByContactResult {
   Pages: Page[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPagesByEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement.</p>
@@ -1224,6 +1372,9 @@ export interface ListPagesByEngagementRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPagesByEngagementResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1236,6 +1387,9 @@ export interface ListPagesByEngagementResult {
   Pages: Page[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1243,6 +1397,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>The tags related to the contact or escalation plan.</p>
@@ -1250,6 +1407,9 @@ export interface ListTagsForResourceResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutContactPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1262,8 +1422,14 @@ export interface PutContactPolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutContactPolicyResult {}
 
+/**
+ * @public
+ */
 export interface SendActivationCodeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -1271,8 +1437,14 @@ export interface SendActivationCodeRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendActivationCodeResult {}
 
+/**
+ * @public
+ */
 export interface StartEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact being engaged.</p>
@@ -1320,6 +1492,9 @@ export interface StartEngagementRequest {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartEngagementResult {
   /**
    * <p>The ARN of the engagement.</p>
@@ -1327,6 +1502,9 @@ export interface StartEngagementResult {
   EngagementArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement.</p>
@@ -1339,8 +1517,14 @@ export interface StopEngagementRequest {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopEngagementResult {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1353,8 +1537,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1367,8 +1557,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UpdateContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan you're updating.</p>
@@ -1387,8 +1583,14 @@ export interface UpdateContactRequest {
   Plan?: Plan;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactResult {}
 
+/**
+ * @public
+ */
 export interface UpdateContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel you want to update.</p>
@@ -1406,6 +1608,9 @@ export interface UpdateContactChannelRequest {
   DeliveryAddress?: ContactChannelAddress;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactChannelResult {}
 
 /**

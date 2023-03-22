@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobFromSourceControlCommand}.
  */
 export interface UpdateJobFromSourceControlCommandInput extends UpdateJobFromSourceControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobFromSourceControlCommand}.
  */
 export interface UpdateJobFromSourceControlCommandOutput extends UpdateJobFromSourceControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Synchronizes a job from the source control repository. This operation takes the job artifacts that are located in the remote repository and updates the Glue internal stores with these artifacts.</p>
  *          <p>This API supports optional parameters which take in the repository information.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateJobFromSourceControlCommandOutput extends UpdateJobFromSo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobFromSourceControlCommandInput - {@link UpdateJobFromSourceControlCommandInput}
+ * @returns {@link UpdateJobFromSourceControlCommandOutput}
  * @see {@link UpdateJobFromSourceControlCommandInput} for command's `input` shape.
  * @see {@link UpdateJobFromSourceControlCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateJobFromSourceControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobFromSourceControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateJobFromSourceControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobFromSourceControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateJobFromSourceControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

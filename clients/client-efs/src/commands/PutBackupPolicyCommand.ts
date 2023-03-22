@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBackupPolicyCommand}.
  */
 export interface PutBackupPolicyCommandInput extends PutBackupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBackupPolicyCommand}.
  */
 export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBackupPolicyCommandInput - {@link PutBackupPolicyCommandInput}
+ * @returns {@link PutBackupPolicyCommandOutput}
  * @see {@link PutBackupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBackupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutBackupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBackupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class PutBackupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBackupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutBackupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBackupPolicyCommandOutput> {
     return deserializeAws_restJson1PutBackupPolicyCommand(output, context);
   }

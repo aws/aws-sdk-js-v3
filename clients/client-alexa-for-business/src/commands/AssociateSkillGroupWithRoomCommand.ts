@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSkillGroupWithRoomCommand}.
  */
 export interface AssociateSkillGroupWithRoomCommandInput extends AssociateSkillGroupWithRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSkillGroupWithRoomCommand}.
  */
 export interface AssociateSkillGroupWithRoomCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateSkillGroupWithRoomCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a skill group with a given room. This enables all skills in the associated
  *          skill group on all devices in the room.</p>
  * @example
@@ -49,6 +54,8 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSkillGroupWithRoomCommandInput - {@link AssociateSkillGroupWithRoomCommandInput}
+ * @returns {@link AssociateSkillGroupWithRoomCommandOutput}
  * @see {@link AssociateSkillGroupWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillGroupWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSkillGroupWithRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSkillGroupWithRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateSkillGroupWithRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

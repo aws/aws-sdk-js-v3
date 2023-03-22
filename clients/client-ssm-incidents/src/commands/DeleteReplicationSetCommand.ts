@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationSetCommand}.
  */
 export interface DeleteReplicationSetCommandInput extends DeleteReplicationSetInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationSetCommand}.
  */
 export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all Regions in your replication set. Deleting the replication set deletes all
  *             Incident Manager data.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationSetCommandInput - {@link DeleteReplicationSetCommandInput}
+ * @returns {@link DeleteReplicationSetCommandOutput}
  * @see {@link DeleteReplicationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteReplicationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteReplicationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteReplicationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationSetCommandOutput> {
     return deserializeAws_restJson1DeleteReplicationSetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterConfigCommand}.
  */
 export interface UpdateClusterConfigCommandInput extends UpdateClusterConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterConfigCommand}.
  */
 export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to
  *             function during the update. The response output includes an update ID that you can use
  *             to track the status of your cluster update with the <a>DescribeUpdate</a> API
@@ -73,6 +78,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterConfigCommandInput - {@link UpdateClusterConfigCommandInput}
+ * @returns {@link UpdateClusterConfigCommandOutput}
  * @see {@link UpdateClusterConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -121,6 +128,9 @@ export class UpdateClusterConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class UpdateClusterConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateClusterConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterConfigCommandOutput> {
     return deserializeAws_restJson1UpdateClusterConfigCommand(output, context);
   }

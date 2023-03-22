@@ -222,6 +222,7 @@ import {
 import { IoTFleetWiseClient } from "./IoTFleetWiseClient";
 
 /**
+ * @public
  * <p>Amazon Web Services IoT FleetWise is a fully managed service that you can use to collect, model, and transfer
  *             vehicle data to the Amazon Web Services cloud at scale. With Amazon Web Services IoT FleetWise, you can standardize all of
  *             your vehicle data models, independent of the in-vehicle communication architecture, and
@@ -232,6 +233,7 @@ import { IoTFleetWiseClient } from "./IoTFleetWiseClient";
  */
 export class IoTFleetWise extends IoTFleetWiseClient {
   /**
+   * @public
    * <p> Adds, or associates, a vehicle with a fleet. </p>
    */
   public associateVehicleFleet(
@@ -264,6 +266,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Creates a group, or batch, of vehicles. </p>
    *         <note>
    *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
@@ -302,6 +305,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Updates a group, or batch, of vehicles.</p>
    *         <note>
    *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
@@ -340,6 +344,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates an orchestration of data collection rules. The Amazon Web Services IoT FleetWise Edge Agent software
    *             running in vehicles uses campaigns to decide how to collect and transfer data to the
    *             cloud. You create campaigns in the cloud. After you or your team approve campaigns,
@@ -377,6 +382,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates the decoder manifest associated with a model manifest. To create a decoder
    *             manifest, the following must be true:</p>
    *         <ul>
@@ -424,6 +430,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Creates a fleet that represents a group of vehicles.
    *             </p>
    *         <note>
@@ -457,6 +464,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Creates a vehicle model (model manifest) that specifies signals (attributes,
    *             branches, sensors, and actuators). </p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html">Vehicle models</a>
@@ -492,6 +500,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Creates a collection of standardized signals that can be reused to create vehicle
    *             models.</p>
    */
@@ -525,6 +534,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles
    *             created from the same vehicle model consist of the same signals inherited from the
    *             vehicle model.</p>
@@ -565,6 +575,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Deletes a data collection campaign. Deleting a campaign suspends all data collection
    *             and removes it from any vehicles. </p>
    */
@@ -598,6 +609,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Deletes a decoder manifest. You can't delete a decoder manifest if it has vehicles
    *             associated with it. </p>
    *         <note>
@@ -635,6 +647,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Deletes a fleet. Before you delete a fleet, all vehicles must be
    *             dissociated from the fleet. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html">Delete a fleet (AWS
    *                 CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
@@ -667,6 +680,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Deletes a vehicle model (model manifest).</p>
    *         <note>
    *             <p>If the vehicle model is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
@@ -703,6 +717,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Deletes a signal catalog. </p>
    *         <note>
    *             <p>If the signal catalog is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
@@ -739,6 +754,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Deletes a vehicle and removes it from any campaigns.</p>
    *         <note>
    *             <p>If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
@@ -775,6 +791,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from a
    *             fleet doesn't delete the vehicle.</p>
    *         <note>
@@ -812,6 +829,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about a campaign. </p>
    */
   public getCampaign(args: GetCampaignCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignCommandOutput>;
@@ -838,6 +856,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about a created decoder manifest. </p>
    */
   public getDecoderManifest(
@@ -870,6 +889,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about a fleet. </p>
    */
   public getFleet(args: GetFleetCommandInput, options?: __HttpHandlerOptions): Promise<GetFleetCommandOutput>;
@@ -896,6 +916,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the logging options.</p>
    */
   public getLoggingOptions(
@@ -928,6 +949,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about a vehicle model (model manifest). </p>
    */
   public getModelManifest(
@@ -960,6 +982,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about the status of registering your Amazon Web Services account, IAM, and
    *             Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services
    *             Cloud. </p>
@@ -998,6 +1021,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about a signal catalog. </p>
    */
   public getSignalCatalog(
@@ -1030,6 +1054,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about a vehicle. </p>
    */
   public getVehicle(args: GetVehicleCommandInput, options?: __HttpHandlerOptions): Promise<GetVehicleCommandOutput>;
@@ -1056,6 +1081,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information about the status of a vehicle with any associated campaigns.
    *         </p>
    */
@@ -1089,6 +1115,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Creates a decoder manifest using your existing CAN DBC file from your local device.
    *         </p>
    */
@@ -1122,6 +1149,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Creates a signal catalog using your existing VSS formatted content from your local
    *             device. </p>
    */
@@ -1155,6 +1183,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Lists information about created campaigns. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1190,6 +1219,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Lists the network interfaces specified in a decoder manifest. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1225,6 +1255,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Lists decoder manifests. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1260,6 +1291,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> A list of information about signal decoders specified in a decoder manifest. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1295,6 +1327,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves information for each created fleet in an Amazon Web Services account. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1324,6 +1357,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of IDs for all fleets that the vehicle is associated with.</p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1359,6 +1393,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Lists information about nodes specified in a vehicle model (model manifest). </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1394,6 +1429,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a list of vehicle models (model manifests). </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1429,6 +1465,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Lists of information about the signals (nodes) specified in a signal catalog. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1464,6 +1501,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Lists all the created signal catalogs in an Amazon Web Services account. </p>
    *         <p>You can use  to list information about
    *             each signal (node) specified in a signal catalog.</p>
@@ -1501,6 +1539,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags (metadata) you have assigned to the resource.</p>
    */
   public listTagsForResource(
@@ -1533,6 +1572,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a list of summaries of created vehicles. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1565,6 +1605,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a list of summaries of all vehicles associated with a fleet. </p>
    *         <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -1600,6 +1641,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates the logging option.</p>
    */
   public putLoggingOptions(
@@ -1632,6 +1674,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Registers your Amazon Web Services account, IAM, and Amazon Timestream resources so Amazon Web Services IoT FleetWise can
    *             transfer your vehicle data to the Amazon Web Services Cloud. For more information, including
    *             step-by-step procedures, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html">Setting up
@@ -1674,6 +1717,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be
    *             used to manage a resource.</p>
    */
@@ -1701,6 +1745,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p>Removes the given tags (metadata) from the resource.</p>
    */
   public untagResource(
@@ -1733,6 +1778,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Updates a campaign. </p>
    */
   public updateCampaign(
@@ -1765,6 +1811,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Updates a decoder manifest.</p>
    *         <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only
    *                 <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
@@ -1799,6 +1846,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Updates the description of an existing fleet. </p>
    *         <note>
    *             <p>If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
@@ -1829,6 +1877,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Updates a vehicle model (model manifest). If created vehicles are associated with a
    *             vehicle model, it can't be updated.</p>
    */
@@ -1862,6 +1911,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Updates a signal catalog. </p>
    */
   public updateSignalCatalog(
@@ -1894,6 +1944,7 @@ export class IoTFleetWise extends IoTFleetWiseClient {
   }
 
   /**
+   * @public
    * <p> Updates a vehicle. </p>
    */
   public updateVehicle(

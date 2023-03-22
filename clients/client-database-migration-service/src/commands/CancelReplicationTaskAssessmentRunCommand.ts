@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelReplicationTaskAssessmentRunCommand}.
  */
 export interface CancelReplicationTaskAssessmentRunCommandInput extends CancelReplicationTaskAssessmentRunMessage {}
 /**
+ * @public
+ *
  * The output of {@link CancelReplicationTaskAssessmentRunCommand}.
  */
 export interface CancelReplicationTaskAssessmentRunCommandOutput
@@ -41,6 +45,7 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a single premigration assessment run.</p>
  *          <p>This operation prevents any individual assessments from running if they haven't started
  *          running. It also attempts to cancel any individual assessments that are currently
@@ -55,6 +60,8 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelReplicationTaskAssessmentRunCommandInput - {@link CancelReplicationTaskAssessmentRunCommandInput}
+ * @returns {@link CancelReplicationTaskAssessmentRunCommandOutput}
  * @see {@link CancelReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link CancelReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelReplicationTaskAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     return serializeAws_json1_1CancelReplicationTaskAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendTaskHeartbeatCommand}.
  */
 export interface SendTaskHeartbeatCommandInput extends SendTaskHeartbeatInput {}
 /**
+ * @public
+ *
  * The output of {@link SendTaskHeartbeatCommand}.
  */
 export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
  *       pattern to report to Step Functions that the task represented by the specified
  *         <code>taskToken</code> is still making progress. This action resets the
@@ -60,6 +65,8 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTaskHeartbeatCommandInput - {@link SendTaskHeartbeatCommandInput}
+ * @returns {@link SendTaskHeartbeatCommandOutput}
  * @see {@link SendTaskHeartbeatCommandInput} for command's `input` shape.
  * @see {@link SendTaskHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -90,6 +97,9 @@ export class SendTaskHeartbeatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTaskHeartbeatCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SendTaskHeartbeatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTaskHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendTaskHeartbeatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskHeartbeatCommandOutput> {
     return deserializeAws_json1_0SendTaskHeartbeatCommand(output, context);
   }

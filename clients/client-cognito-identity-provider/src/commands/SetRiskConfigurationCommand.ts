@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetRiskConfigurationCommand}.
  */
 export interface SetRiskConfigurationCommandInput extends SetRiskConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetRiskConfigurationCommand}.
  */
 export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures actions on detected risks. To delete the risk configuration for
  *                 <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four
  *             configuration types.</p>
@@ -55,6 +60,8 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  * const response = await client.send(command);
  * ```
  *
+ * @param SetRiskConfigurationCommandInput - {@link SetRiskConfigurationCommandInput}
+ * @returns {@link SetRiskConfigurationCommandOutput}
  * @see {@link SetRiskConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetRiskConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -107,6 +114,9 @@ export class SetRiskConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetRiskConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class SetRiskConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetRiskConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetRiskConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRiskConfigurationCommandOutput> {
     return deserializeAws_json1_1SetRiskConfigurationCommand(output, context);
   }

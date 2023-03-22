@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectDataDeliveryCommand}.
  */
 export interface UpdateProjectDataDeliveryCommandInput extends UpdateProjectDataDeliveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectDataDeliveryCommand}.
  */
 export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDataDeliveryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the data storage options for this project. If you store evaluation events, you an
  *       keep them and analyze them on your own. If you choose not to store evaluation events,
  *       Evidently deletes them after using them to produce metrics and other experiment results that
@@ -50,6 +55,8 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectDataDeliveryCommandInput - {@link UpdateProjectDataDeliveryCommandInput}
+ * @returns {@link UpdateProjectDataDeliveryCommandOutput}
  * @see {@link UpdateProjectDataDeliveryCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectDataDeliveryCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectDataDeliveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectDataDeliveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProjectDataDeliveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFolderCommand}.
  */
 export interface GetFolderCommandInput extends GetFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFolderCommand}.
  */
 export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the metadata of the specified folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFolderCommandInput - {@link GetFolderCommandInput}
+ * @returns {@link GetFolderCommandOutput}
  * @see {@link GetFolderCommandInput} for command's `input` shape.
  * @see {@link GetFolderCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFolderCommandOutput> {
     return deserializeAws_restJson1GetFolderCommand(output, context);
   }

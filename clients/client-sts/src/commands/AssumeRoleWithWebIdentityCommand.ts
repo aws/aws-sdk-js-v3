@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeRoleWithWebIdentityCommand}.
  */
 export interface AssumeRoleWithWebIdentityCommandInput extends AssumeRoleWithWebIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeRoleWithWebIdentityCommand}.
  */
 export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWebIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated in
  *          a mobile or web application with a web identity provider. Example providers include the
  *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
@@ -178,6 +183,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeRoleWithWebIdentityCommandInput - {@link AssumeRoleWithWebIdentityCommandInput}
+ * @returns {@link AssumeRoleWithWebIdentityCommandOutput}
  * @see {@link AssumeRoleWithWebIdentityCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithWebIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -279,6 +286,9 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleWithWebIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -318,10 +328,16 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleWithWebIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAssumeRoleWithWebIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

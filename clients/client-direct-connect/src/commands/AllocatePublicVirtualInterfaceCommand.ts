@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocatePublicVirtualInterfaceCommand}.
  */
 export interface AllocatePublicVirtualInterfaceCommandInput extends AllocatePublicVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocatePublicVirtualInterfaceCommand}.
  */
 export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a public virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>The owner of a connection calls this function to provision a public virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>Virtual interfaces created using this function must be confirmed by the owner using <a>ConfirmPublicVirtualInterface</a>.
@@ -51,6 +56,8 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocatePublicVirtualInterfaceCommandInput - {@link AllocatePublicVirtualInterfaceCommandInput}
+ * @returns {@link AllocatePublicVirtualInterfaceCommandOutput}
  * @see {@link AllocatePublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocatePublicVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocatePublicVirtualInterfaceCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     return serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

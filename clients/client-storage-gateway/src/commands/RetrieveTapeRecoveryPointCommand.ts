@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link RetrieveTapeRecoveryPointCommand}.
  */
 export interface RetrieveTapeRecoveryPointCommandInput extends RetrieveTapeRecoveryPointInput {}
 /**
+ * @public
+ *
  * The output of {@link RetrieveTapeRecoveryPointCommand}.
  */
 export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeRecoveryPointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the recovery point for the specified virtual tape. This operation is only
  *          supported in the tape gateway type.</p>
  *
@@ -57,6 +62,8 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * const response = await client.send(command);
  * ```
  *
+ * @param RetrieveTapeRecoveryPointCommandInput - {@link RetrieveTapeRecoveryPointCommandInput}
+ * @returns {@link RetrieveTapeRecoveryPointCommandOutput}
  * @see {@link RetrieveTapeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link RetrieveTapeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -105,6 +112,9 @@ export class RetrieveTapeRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetrieveTapeRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class RetrieveTapeRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetrieveTapeRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetrieveTapeRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

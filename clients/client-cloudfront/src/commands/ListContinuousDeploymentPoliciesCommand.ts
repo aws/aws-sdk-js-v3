@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListContinuousDeploymentPoliciesCommand}.
  */
 export interface ListContinuousDeploymentPoliciesCommandInput extends ListContinuousDeploymentPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContinuousDeploymentPoliciesCommand}.
  */
 export interface ListContinuousDeploymentPoliciesCommandOutput
@@ -37,6 +41,7 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the continuous deployment policies in your Amazon Web Services account.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -53,6 +58,8 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContinuousDeploymentPoliciesCommandInput - {@link ListContinuousDeploymentPoliciesCommandInput}
+ * @returns {@link ListContinuousDeploymentPoliciesCommandOutput}
  * @see {@link ListContinuousDeploymentPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListContinuousDeploymentPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContinuousDeploymentPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListContinuousDeploymentPoliciesCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command<
     return serializeAws_restXmlListContinuousDeploymentPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

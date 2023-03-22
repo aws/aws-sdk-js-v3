@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInputDeviceTransfersCommand}.
  */
 export interface ListInputDeviceTransfersCommandInput extends ListInputDeviceTransfersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInputDeviceTransfersCommand}.
  */
 export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTransfersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputDeviceTransfersCommandInput - {@link ListInputDeviceTransfersCommandInput}
+ * @returns {@link ListInputDeviceTransfersCommandOutput}
  * @see {@link ListInputDeviceTransfersCommandInput} for command's `input` shape.
  * @see {@link ListInputDeviceTransfersCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListInputDeviceTransfersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputDeviceTransfersCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListInputDeviceTransfersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputDeviceTransfersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInputDeviceTransfersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputDeviceTransfersCommandOutput> {
     return deserializeAws_restJson1ListInputDeviceTransfersCommand(output, context);
   }

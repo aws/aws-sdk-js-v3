@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLogGroupFieldsCommand}.
  */
 export interface GetLogGroupFieldsCommandInput extends GetLogGroupFieldsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLogGroupFieldsCommand}.
  */
 export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the fields that are included in log events in the specified log group.
  *       Includes the percentage of log events that contain each field. The search is limited to a time
  *       period that you specify.</p>
@@ -60,6 +65,8 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLogGroupFieldsCommandInput - {@link GetLogGroupFieldsCommandInput}
+ * @returns {@link GetLogGroupFieldsCommandOutput}
  * @see {@link GetLogGroupFieldsCommandInput} for command's `input` shape.
  * @see {@link GetLogGroupFieldsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetLogGroupFieldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogGroupFieldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetLogGroupFieldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogGroupFieldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLogGroupFieldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogGroupFieldsCommandOutput> {
     return deserializeAws_json1_1GetLogGroupFieldsCommand(output, context);
   }

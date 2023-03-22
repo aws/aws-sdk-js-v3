@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterAVSDeviceCommand}.
  */
 export interface RegisterAVSDeviceCommandInput extends RegisterAVSDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterAVSDeviceCommand}.
  */
 export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)
  *          using Alexa Voice Service (AVS).</p>
  * @example
@@ -47,6 +52,8 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAVSDeviceCommandInput - {@link RegisterAVSDeviceCommandInput}
+ * @returns {@link RegisterAVSDeviceCommandOutput}
  * @see {@link RegisterAVSDeviceCommandInput} for command's `input` shape.
  * @see {@link RegisterAVSDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -82,6 +89,9 @@ export class RegisterAVSDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAVSDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class RegisterAVSDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterAVSDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterAVSDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAVSDeviceCommandOutput> {
     return deserializeAws_json1_1RegisterAVSDeviceCommand(output, context);
   }

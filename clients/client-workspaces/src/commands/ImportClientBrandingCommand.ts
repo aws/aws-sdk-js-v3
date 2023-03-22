@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportClientBrandingCommand}.
  */
 export interface ImportClientBrandingCommandInput extends ImportClientBrandingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportClientBrandingCommand}.
  */
 export interface ImportClientBrandingCommandOutput extends ImportClientBrandingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports client branding. Client branding allows you to customize your WorkSpace's client
  *          login portal. You can tailor your login portal company logo, the support email address,
  *          support link, link to reset password, and a custom message for users trying to sign
@@ -73,6 +78,8 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportClientBrandingCommandInput - {@link ImportClientBrandingCommandInput}
+ * @returns {@link ImportClientBrandingCommandOutput}
  * @see {@link ImportClientBrandingCommandInput} for command's `input` shape.
  * @see {@link ImportClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -108,6 +115,9 @@ export class ImportClientBrandingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportClientBrandingCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class ImportClientBrandingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportClientBrandingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportClientBrandingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportClientBrandingCommandOutput> {
     return deserializeAws_json1_1ImportClientBrandingCommand(output, context);
   }

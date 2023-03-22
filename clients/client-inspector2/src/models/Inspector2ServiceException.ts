@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from Inspector2 service.
  */
 export class Inspector2ServiceException extends __ServiceException {

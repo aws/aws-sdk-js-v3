@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMessagingStreamingConfigurationsCommand}.
  */
 export interface PutMessagingStreamingConfigurationsCommandInput extends PutMessagingStreamingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMessagingStreamingConfigurationsCommand}.
  */
 export interface PutMessagingStreamingConfigurationsCommandOutput
@@ -41,6 +45,7 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see
  *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
  * @example
@@ -53,6 +58,8 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMessagingStreamingConfigurationsCommandInput - {@link PutMessagingStreamingConfigurationsCommandInput}
+ * @returns {@link PutMessagingStreamingConfigurationsCommandOutput}
  * @see {@link PutMessagingStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutMessagingStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -101,6 +108,9 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMessagingStreamingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutMessagingStreamingConfigurationsCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
     return serializeAws_restJson1PutMessagingStreamingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

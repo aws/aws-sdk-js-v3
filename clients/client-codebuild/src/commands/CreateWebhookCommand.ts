@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWebhookCommand}.
  */
 export interface CreateWebhookCommandInput extends CreateWebhookInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateWebhookCommand}.
  */
 export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
  *       Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a
  *       code change is pushed to the repository.</p>
@@ -56,6 +61,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWebhookCommandInput - {@link CreateWebhookCommandInput}
+ * @returns {@link CreateWebhookCommandOutput}
  * @see {@link CreateWebhookCommandInput} for command's `input` shape.
  * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebhookCommandOutput> {
     return deserializeAws_json1_1CreateWebhookCommand(output, context);
   }

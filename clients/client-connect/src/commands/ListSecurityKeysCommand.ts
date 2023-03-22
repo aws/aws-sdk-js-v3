@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityKeysCommand}.
  */
 export interface ListSecurityKeysCommandInput extends ListSecurityKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityKeysCommand}.
  */
 export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all security keys associated with the instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityKeysCommandInput - {@link ListSecurityKeysCommandInput}
+ * @returns {@link ListSecurityKeysCommandOutput}
  * @see {@link ListSecurityKeysCommandInput} for command's `input` shape.
  * @see {@link ListSecurityKeysCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListSecurityKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListSecurityKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSecurityKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityKeysCommandOutput> {
     return deserializeAws_restJson1ListSecurityKeysCommand(output, context);
   }

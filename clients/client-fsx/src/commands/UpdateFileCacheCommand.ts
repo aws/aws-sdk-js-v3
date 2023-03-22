@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFileCacheCommand}.
  */
 export interface UpdateFileCacheCommandInput extends UpdateFileCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFileCacheCommand}.
  */
 export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing Amazon File Cache resource.
  *             You can update multiple properties in a single request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFileCacheCommandInput - {@link UpdateFileCacheCommandInput}
+ * @returns {@link UpdateFileCacheCommandOutput}
  * @see {@link UpdateFileCacheCommandInput} for command's `input` shape.
  * @see {@link UpdateFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateFileCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFileCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateFileCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFileCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileCacheCommandOutput> {
     return deserializeAws_json1_1UpdateFileCacheCommand(output, context);
   }

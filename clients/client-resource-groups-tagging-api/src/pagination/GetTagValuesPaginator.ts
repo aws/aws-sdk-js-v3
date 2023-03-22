@@ -10,7 +10,7 @@ import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClien
 import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceGroupsTaggingAPIClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetTagValuesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetTagValues(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetTagValuesCommandInput,

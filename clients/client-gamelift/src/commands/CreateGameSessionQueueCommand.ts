@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGameSessionQueueCommand}.
  */
 export interface CreateGameSessionQueueCommandInput extends CreateGameSessionQueueInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGameSessionQueueCommand}.
  */
 export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
  *             FleetIQ algorithms to determine the best placement locations and find an available game
  *             server there, then prompts the game server process to start a new game session. </p>
@@ -91,6 +96,8 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGameSessionQueueCommandInput - {@link CreateGameSessionQueueCommandInput}
+ * @returns {@link CreateGameSessionQueueCommandOutput}
  * @see {@link CreateGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link CreateGameSessionQueueCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -137,6 +144,9 @@ export class CreateGameSessionQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGameSessionQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class CreateGameSessionQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGameSessionQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGameSessionQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGameSessionQueueCommandOutput> {
     return deserializeAws_json1_1CreateGameSessionQueueCommand(output, context);
   }

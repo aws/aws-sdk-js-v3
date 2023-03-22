@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryTriggersCommand}.
  */
 export interface GetRepositoryTriggersCommandInput extends GetRepositoryTriggersInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryTriggersCommand}.
  */
 export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about triggers configured for a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryTriggersCommandInput - {@link GetRepositoryTriggersCommandInput}
+ * @returns {@link GetRepositoryTriggersCommandOutput}
  * @see {@link GetRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetRepositoryTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetRepositoryTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRepositoryTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryTriggersCommandOutput> {
     return deserializeAws_json1_1GetRepositoryTriggersCommand(output, context);
   }

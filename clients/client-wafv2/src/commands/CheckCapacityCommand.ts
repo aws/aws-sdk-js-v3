@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CheckCapacityCommand}.
  */
 export interface CheckCapacityCommandInput extends CheckCapacityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckCapacityCommand}.
  */
 export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the web ACL capacity unit (WCU) requirements for a specified scope and set of rules.
  *          You can use this to check the capacity requirements for the rules you want to use in a
  *          <a>RuleGroup</a> or <a>WebACL</a>.
@@ -57,6 +62,8 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckCapacityCommandInput - {@link CheckCapacityCommandInput}
+ * @returns {@link CheckCapacityCommandOutput}
  * @see {@link CheckCapacityCommandInput} for command's `input` shape.
  * @see {@link CheckCapacityCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -140,6 +147,9 @@ export class CheckCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,10 +187,16 @@ export class CheckCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckCapacityCommandOutput> {
     return deserializeAws_json1_1CheckCapacityCommand(output, context);
   }

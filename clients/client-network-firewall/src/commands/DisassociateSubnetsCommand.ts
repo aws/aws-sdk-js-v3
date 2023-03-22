@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSubnetsCommand}.
  */
 export interface DisassociateSubnetsCommandInput extends DisassociateSubnetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSubnetsCommand}.
  */
 export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified subnet associations from the firewall. This removes the
  *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
  *           were providing.
@@ -49,6 +54,8 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSubnetsCommandInput - {@link DisassociateSubnetsCommandInput}
+ * @returns {@link DisassociateSubnetsCommandOutput}
  * @see {@link DisassociateSubnetsCommandInput} for command's `input` shape.
  * @see {@link DisassociateSubnetsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -105,6 +112,9 @@ export class DisassociateSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DisassociateSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DisassociateSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateSubnetsCommandOutput> {
     return deserializeAws_json1_0DisassociateSubnetsCommand(output, context);
   }

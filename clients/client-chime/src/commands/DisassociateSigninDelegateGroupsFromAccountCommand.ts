@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
  */
 export interface DisassociateSigninDelegateGroupsFromAccountCommandInput
   extends DisassociateSigninDelegateGroupsFromAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
  */
 export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSigninDelegateGroupsFromAccountCommandInput - {@link DisassociateSigninDelegateGroupsFromAccountCommandInput}
+ * @returns {@link DisassociateSigninDelegateGroupsFromAccountCommandOutput}
  * @see {@link DisassociateSigninDelegateGroupsFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateSigninDelegateGroupsFromAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSigninDelegateGroupsFromAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateSigninDelegateGroupsFromAccountCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     return serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

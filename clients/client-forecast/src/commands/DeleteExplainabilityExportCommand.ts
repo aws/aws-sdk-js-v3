@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExplainabilityExportCommand}.
  */
 export interface DeleteExplainabilityExportCommandInput extends DeleteExplainabilityExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExplainabilityExportCommand}.
  */
 export interface DeleteExplainabilityExportCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Explainability export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteExplainabilityExportCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExplainabilityExportCommandInput - {@link DeleteExplainabilityExportCommandInput}
+ * @returns {@link DeleteExplainabilityExportCommandOutput}
  * @see {@link DeleteExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link DeleteExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteExplainabilityExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExplainabilityExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteExplainabilityExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExplainabilityExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteExplainabilityExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

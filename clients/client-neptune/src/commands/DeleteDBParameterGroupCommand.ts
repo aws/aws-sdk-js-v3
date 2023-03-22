@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBParameterGroupCommand}.
  */
 export interface DeleteDBParameterGroupCommandInput extends DeleteDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBParameterGroupCommand}.
  */
 export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
  *       associated with any DB instances.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBParameterGroupCommandInput - {@link DeleteDBParameterGroupCommandInput}
+ * @returns {@link DeleteDBParameterGroupCommandOutput}
  * @see {@link DeleteDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBParameterGroupCommandOutput> {
     return deserializeAws_queryDeleteDBParameterGroupCommand(output, context);
   }

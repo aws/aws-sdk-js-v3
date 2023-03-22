@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCollectionCommand}.
  */
 export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCollectionCommand}.
  */
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
+ * @returns {@link CreateCollectionCommandOutput}
  * @see {@link CreateCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCollectionCommandOutput> {
     return deserializeAws_json1_0CreateCollectionCommand(output, context);
   }

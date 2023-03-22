@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCorsPolicyCommand}.
  */
 export interface DeleteCorsPolicyCommandInput extends DeleteCorsPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCorsPolicyCommand}.
  */
 export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is
  *          set for the container.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -50,6 +55,8 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCorsPolicyCommandInput - {@link DeleteCorsPolicyCommandInput}
+ * @returns {@link DeleteCorsPolicyCommandOutput}
  * @see {@link DeleteCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteCorsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCorsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteCorsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCorsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCorsPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteCorsPolicyCommand(output, context);
   }

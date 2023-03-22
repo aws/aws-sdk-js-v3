@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedEndpointsCommand}.
  */
 export interface ListManagedEndpointsCommandInput extends ListManagedEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedEndpointsCommand}.
  */
 export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway
  *          that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with
  *          your virtual cluster.</p>
@@ -48,6 +53,8 @@ export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedEndpointsCommandInput - {@link ListManagedEndpointsCommandInput}
+ * @returns {@link ListManagedEndpointsCommandOutput}
  * @see {@link ListManagedEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListManagedEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListManagedEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListManagedEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListManagedEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedEndpointsCommandOutput> {
     return deserializeAws_restJson1ListManagedEndpointsCommand(output, context);
   }

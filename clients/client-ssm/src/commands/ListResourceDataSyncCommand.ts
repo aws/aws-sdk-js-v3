@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceDataSyncCommand}.
  */
 export interface ListResourceDataSyncCommandInput extends ListResourceDataSyncRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceDataSyncCommand}.
  */
 export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your resource data sync configurations. Includes information about the last time a
  *    sync attempted to start, the last sync status, and the last time a sync successfully
  *    completed.</p>
@@ -54,6 +59,8 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceDataSyncCommandInput - {@link ListResourceDataSyncCommandInput}
+ * @returns {@link ListResourceDataSyncCommandOutput}
  * @see {@link ListResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link ListResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListResourceDataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceDataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListResourceDataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourceDataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceDataSyncCommandOutput> {
     return deserializeAws_json1_1ListResourceDataSyncCommand(output, context);
   }

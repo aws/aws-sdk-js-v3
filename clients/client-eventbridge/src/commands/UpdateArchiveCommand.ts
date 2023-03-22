@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateArchiveCommand}.
  */
 export interface UpdateArchiveCommandInput extends UpdateArchiveRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateArchiveCommand}.
  */
 export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateArchiveCommandInput - {@link UpdateArchiveCommandInput}
+ * @returns {@link UpdateArchiveCommandOutput}
  * @see {@link UpdateArchiveCommandInput} for command's `input` shape.
  * @see {@link UpdateArchiveCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateArchiveCommandOutput> {
     return deserializeAws_json1_1UpdateArchiveCommand(output, context);
   }

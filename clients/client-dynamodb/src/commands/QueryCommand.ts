@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link QueryCommand}.
  */
 export interface QueryCommandInput extends QueryInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryCommand}.
  */
 export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You must provide the name of the partition key attribute and a single value for that
  *             attribute. <code>Query</code> returns all items with that partition key value.
  *             Optionally, you can provide a sort key attribute and use a comparison operator to refine
@@ -93,6 +98,8 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryCommandInput - {@link QueryCommandInput}
+ * @returns {@link QueryCommandOutput}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -164,6 +171,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,10 +211,16 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0QueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
     return deserializeAws_json1_0QueryCommand(output, context);
   }

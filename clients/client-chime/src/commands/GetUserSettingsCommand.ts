@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserSettingsCommand}.
  */
 export interface GetUserSettingsCommandInput extends GetUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserSettingsCommand}.
  */
 export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserSettingsCommandInput - {@link GetUserSettingsCommandInput}
+ * @returns {@link GetUserSettingsCommandOutput}
  * @see {@link GetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link GetUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserSettingsCommandOutput> {
     return deserializeAws_restJson1GetUserSettingsCommand(output, context);
   }

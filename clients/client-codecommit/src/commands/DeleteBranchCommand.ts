@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBranchCommand}.
  */
 export interface DeleteBranchCommandInput extends DeleteBranchInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBranchCommand}.
  */
 export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a branch from a repository, unless that branch is the default branch for the repository. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBranchCommandInput - {@link DeleteBranchCommandInput}
+ * @returns {@link DeleteBranchCommandOutput}
  * @see {@link DeleteBranchCommandInput} for command's `input` shape.
  * @see {@link DeleteBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -108,6 +115,9 @@ export class DeleteBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DeleteBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBranchCommandOutput> {
     return deserializeAws_json1_1DeleteBranchCommand(output, context);
   }

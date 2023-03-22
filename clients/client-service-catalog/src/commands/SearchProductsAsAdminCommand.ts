@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchProductsAsAdminCommand}.
  */
 export interface SearchProductsAsAdminCommandInput extends SearchProductsAsAdminInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchProductsAsAdminCommand}.
  */
 export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdminOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the products for the specified portfolio or all products.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchProductsAsAdminCommandInput - {@link SearchProductsAsAdminCommandInput}
+ * @returns {@link SearchProductsAsAdminCommandOutput}
  * @see {@link SearchProductsAsAdminCommandInput} for command's `input` shape.
  * @see {@link SearchProductsAsAdminCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class SearchProductsAsAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchProductsAsAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class SearchProductsAsAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchProductsAsAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchProductsAsAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProductsAsAdminCommandOutput> {
     return deserializeAws_json1_1SearchProductsAsAdminCommand(output, context);
   }

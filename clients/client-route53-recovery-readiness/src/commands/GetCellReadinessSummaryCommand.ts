@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCellReadinessSummaryCommand}.
  */
 export interface GetCellReadinessSummaryCommandInput extends GetCellReadinessSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCellReadinessSummaryCommand}.
  */
 export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets readiness for a cell. Aggregates the readiness of all the resources that are associated with the cell into a single value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCellReadinessSummaryCommandInput - {@link GetCellReadinessSummaryCommandInput}
+ * @returns {@link GetCellReadinessSummaryCommandOutput}
  * @see {@link GetCellReadinessSummaryCommandInput} for command's `input` shape.
  * @see {@link GetCellReadinessSummaryCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetCellReadinessSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCellReadinessSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetCellReadinessSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCellReadinessSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCellReadinessSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCellReadinessSummaryCommandOutput> {
     return deserializeAws_restJson1GetCellReadinessSummaryCommand(output, context);
   }

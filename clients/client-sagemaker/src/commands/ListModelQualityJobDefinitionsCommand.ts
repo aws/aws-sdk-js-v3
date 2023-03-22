@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelQualityJobDefinitionsCommand}.
  */
 export interface ListModelQualityJobDefinitionsCommandInput extends ListModelQualityJobDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelQualityJobDefinitionsCommand}.
  */
 export interface ListModelQualityJobDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListModelQualityJobDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of model quality monitoring job definitions in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListModelQualityJobDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelQualityJobDefinitionsCommandInput - {@link ListModelQualityJobDefinitionsCommandInput}
+ * @returns {@link ListModelQualityJobDefinitionsCommandOutput}
  * @see {@link ListModelQualityJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListModelQualityJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListModelQualityJobDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelQualityJobDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class ListModelQualityJobDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListModelQualityJobDefinitionsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class ListModelQualityJobDefinitionsCommand extends $Command<
     return serializeAws_json1_1ListModelQualityJobDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

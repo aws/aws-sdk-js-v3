@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSolNetworkPackageCommand}.
  */
 export interface UpdateSolNetworkPackageCommandInput extends UpdateSolNetworkPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSolNetworkPackageCommand}.
  */
 export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the operational state of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  *          <p>A network service descriptor is a .yaml file in a network package that uses the TOSCA standard to describe the network functions you want to deploy and the Amazon Web Services infrastructure you want to deploy the network functions on.</p>
@@ -48,6 +53,8 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSolNetworkPackageCommandInput - {@link UpdateSolNetworkPackageCommandInput}
+ * @returns {@link UpdateSolNetworkPackageCommandOutput}
  * @see {@link UpdateSolNetworkPackageCommandInput} for command's `input` shape.
  * @see {@link UpdateSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateSolNetworkPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSolNetworkPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateSolNetworkPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSolNetworkPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSolNetworkPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSolNetworkPackageCommandOutput> {
     return deserializeAws_restJson1UpdateSolNetworkPackageCommand(output, context);
   }

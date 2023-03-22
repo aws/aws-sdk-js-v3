@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConfigurationSessionCommand}.
  */
 export interface StartConfigurationSessionCommandInput extends StartConfigurationSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConfigurationSessionCommand}.
  */
 export interface StartConfigurationSessionCommandOutput extends StartConfigurationSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a configuration session used to retrieve a deployed configuration. For more
  *          information about this API action and to view example CLI commands that show how to use
  *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
@@ -49,6 +54,8 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConfigurationSessionCommandInput - {@link StartConfigurationSessionCommandInput}
+ * @returns {@link StartConfigurationSessionCommandOutput}
  * @see {@link StartConfigurationSessionCommandInput} for command's `input` shape.
  * @see {@link StartConfigurationSessionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigDataClientResolvedConfig | config} for AppConfigDataClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartConfigurationSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConfigurationSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StartConfigurationSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConfigurationSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartConfigurationSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

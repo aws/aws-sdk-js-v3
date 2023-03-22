@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountCommand}.
  */
 export interface DeleteAccountCommandInput extends DeleteAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountCommand}.
  */
 export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
  *                 <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action
  *             to dodo.</p>
@@ -59,6 +64,8 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountCommandInput - {@link DeleteAccountCommandInput}
+ * @returns {@link DeleteAccountCommandOutput}
  * @see {@link DeleteAccountCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountCommandOutput> {
     return deserializeAws_restJson1DeleteAccountCommand(output, context);
   }

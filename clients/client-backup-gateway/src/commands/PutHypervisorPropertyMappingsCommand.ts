@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutHypervisorPropertyMappingsCommand}.
  */
 export interface PutHypervisorPropertyMappingsCommandInput extends PutHypervisorPropertyMappingsInput {}
 /**
+ * @public
+ *
  * The output of {@link PutHypervisorPropertyMappingsCommand}.
  */
 export interface PutHypervisorPropertyMappingsCommandOutput
@@ -37,6 +41,7 @@ export interface PutHypervisorPropertyMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action sets the property mappings for the specified hypervisor.
  *       A hypervisor property mapping displays the relationship of entity properties
  *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
@@ -50,6 +55,8 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutHypervisorPropertyMappingsCommandInput - {@link PutHypervisorPropertyMappingsCommandInput}
+ * @returns {@link PutHypervisorPropertyMappingsCommandOutput}
  * @see {@link PutHypervisorPropertyMappingsCommandInput} for command's `input` shape.
  * @see {@link PutHypervisorPropertyMappingsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -92,6 +99,9 @@ export class PutHypervisorPropertyMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutHypervisorPropertyMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class PutHypervisorPropertyMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutHypervisorPropertyMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PutHypervisorPropertyMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -78,6 +78,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelJobRunCommandInput
   | CreateApplicationCommandInput
@@ -95,6 +98,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelJobRunCommandOutput
   | CreateApplicationCommandOutput
@@ -112,6 +118,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -119,7 +128,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -228,11 +237,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type EMRServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -243,10 +255,15 @@ type EMRServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of EMRServerlessClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of EMRServerlessClient class constructor that set the region, credentials and other options.
  */
 export interface EMRServerlessClientConfig extends EMRServerlessClientConfigType {}
 
+/**
+ * @public
+ */
 type EMRServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -257,11 +274,14 @@ type EMRServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of EMRServerlessClient class. This is resolved and normalized from the {@link EMRServerlessClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of EMRServerlessClient class. This is resolved and normalized from the {@link EMRServerlessClientConfig | constructor configuration interface}.
  */
 export interface EMRServerlessClientResolvedConfig extends EMRServerlessClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon EMR Serverless is a new deployment option for Amazon EMR. EMR Serverless provides
  *          a serverless runtime environment that simplifies running analytics applications using the
  *          latest open source frameworks such as Apache Spark and Apache Hive. With EMR Serverless,

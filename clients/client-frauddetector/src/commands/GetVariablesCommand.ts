@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVariablesCommand}.
  */
 export interface GetVariablesCommandInput extends GetVariablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVariablesCommand}.
  */
 export interface GetVariablesCommandOutput extends GetVariablesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all of the variables or the specific variable. This is a
  *          paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of
  *          100 records per page. If you provide <code>maxSizePerPage</code> the value must be between
@@ -51,6 +56,8 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVariablesCommandInput - {@link GetVariablesCommandInput}
+ * @returns {@link GetVariablesCommandOutput}
  * @see {@link GetVariablesCommandInput} for command's `input` shape.
  * @see {@link GetVariablesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetVariablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVariablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetVariablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVariablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetVariablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVariablesCommandOutput> {
     return deserializeAws_json1_1GetVariablesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationCommand}.
  */
 export interface DescribeConfigurationCommandInput extends DescribeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationCommand}.
  */
 export interface DescribeConfigurationCommandOutput extends DescribeConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationCommandInput - {@link DescribeConfigurationCommandInput}
+ * @returns {@link DescribeConfigurationCommandOutput}
  * @see {@link DescribeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationCommandOutput> {
     return deserializeAws_restJson1DescribeConfigurationCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRevealConfigurationCommand}.
  */
 export interface UpdateRevealConfigurationCommandInput extends UpdateRevealConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRevealConfigurationCommand}.
  */
 export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRevealConfigurationCommandInput - {@link UpdateRevealConfigurationCommandInput}
+ * @returns {@link UpdateRevealConfigurationCommandOutput}
  * @see {@link UpdateRevealConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRevealConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateRevealConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRevealConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateRevealConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRevealConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRevealConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

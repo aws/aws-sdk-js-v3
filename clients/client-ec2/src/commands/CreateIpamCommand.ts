@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateIpamCommand, serializeAws_ec2CreateIpamCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIpamCommand}.
  */
 export interface CreateIpamCommandInput extends CreateIpamRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIpamCommand}.
  */
 export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use
  *          to automate your IP address management workflows including assigning, tracking,
  *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
@@ -48,6 +53,8 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIpamCommandInput - {@link CreateIpamCommandInput}
+ * @returns {@link CreateIpamCommandOutput}
  * @see {@link CreateIpamCommandInput} for command's `input` shape.
  * @see {@link CreateIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class CreateIpamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIpamCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreateIpamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIpamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateIpamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpamCommandOutput> {
     return deserializeAws_ec2CreateIpamCommand(output, context);
   }

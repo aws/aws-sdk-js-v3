@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAssessmentTargetCommand}.
  */
 export interface UpdateAssessmentTargetCommandInput extends UpdateAssessmentTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAssessmentTargetCommand}.
  */
 export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the assessment target that is specified by the ARN of the assessment
  *          target.</p>
  *          <p>If resourceGroupArn is not specified, all EC2 instances in the current AWS account
@@ -44,6 +49,8 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssessmentTargetCommandInput - {@link UpdateAssessmentTargetCommandInput}
+ * @returns {@link UpdateAssessmentTargetCommandOutput}
  * @see {@link UpdateAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateAssessmentTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssessmentTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateAssessmentTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAssessmentTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAssessmentTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssessmentTargetCommandOutput> {
     return deserializeAws_json1_1UpdateAssessmentTargetCommand(output, context);
   }

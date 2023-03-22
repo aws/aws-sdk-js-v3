@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCallAnalyticsCategoryCommand}.
  */
 export interface GetCallAnalyticsCategoryCommandInput extends GetCallAnalyticsCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCallAnalyticsCategoryCommand}.
  */
 export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsCategoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified Call Analytics category.</p>
  *          <p>To get a list of your Call Analytics categories, use the  operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsC
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCallAnalyticsCategoryCommandInput - {@link GetCallAnalyticsCategoryCommandInput}
+ * @returns {@link GetCallAnalyticsCategoryCommandOutput}
  * @see {@link GetCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link GetCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetCallAnalyticsCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetCallAnalyticsCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCallAnalyticsCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallAnalyticsCategoryCommandOutput> {
     return deserializeAws_json1_1GetCallAnalyticsCategoryCommand(output, context);
   }

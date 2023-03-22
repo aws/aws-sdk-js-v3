@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketBundlesCommand}.
  */
 export interface GetBucketBundlesCommandInput extends GetBucketBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketBundlesCommand}.
  */
 export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p>
  *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
  *       bucket.</p>
@@ -50,6 +55,8 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketBundlesCommandInput - {@link GetBucketBundlesCommandInput}
+ * @returns {@link GetBucketBundlesCommandOutput}
  * @see {@link GetBucketBundlesCommandInput} for command's `input` shape.
  * @see {@link GetBucketBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetBucketBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetBucketBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBucketBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketBundlesCommandOutput> {
     return deserializeAws_json1_1GetBucketBundlesCommand(output, context);
   }

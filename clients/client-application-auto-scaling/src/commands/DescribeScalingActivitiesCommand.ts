@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingActivitiesCommand}.
  */
 export interface DescribeScalingActivitiesCommandInput extends DescribeScalingActivitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingActivitiesCommand}.
  */
 export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingActivitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides descriptive information about the scaling activities in the specified namespace
  *          from the previous six weeks.</p>
  *          <p>You can filter the results using <code>ResourceId</code> and
@@ -54,6 +59,8 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingActivitiesCommandInput - {@link DescribeScalingActivitiesCommandInput}
+ * @returns {@link DescribeScalingActivitiesCommandOutput}
  * @see {@link DescribeScalingActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -122,6 +129,9 @@ export class DescribeScalingActivitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingActivitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class DescribeScalingActivitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScalingActivitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CountOpenWorkflowExecutionsCommand}.
  */
 export interface CountOpenWorkflowExecutionsCommandInput extends CountOpenWorkflowExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link CountOpenWorkflowExecutionsCommand}.
  */
 export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of open workflow executions within the given domain that meet the
  *       specified filtering criteria.</p>
  *          <note>
@@ -92,6 +97,8 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * const response = await client.send(command);
  * ```
  *
+ * @param CountOpenWorkflowExecutionsCommandInput - {@link CountOpenWorkflowExecutionsCommandInput}
+ * @returns {@link CountOpenWorkflowExecutionsCommandOutput}
  * @see {@link CountOpenWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CountOpenWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -121,6 +128,9 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CountOpenWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CountOpenWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CountOpenWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

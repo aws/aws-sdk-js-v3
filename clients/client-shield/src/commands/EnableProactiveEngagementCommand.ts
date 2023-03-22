@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableProactiveEngagementCommand}.
  */
 export interface EnableProactiveEngagementCommandInput extends EnableProactiveEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableProactiveEngagementCommand}.
  */
 export interface EnableProactiveEngagementCommandOutput extends EnableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableProactiveEngagementCommandInput - {@link EnableProactiveEngagementCommandInput}
+ * @returns {@link EnableProactiveEngagementCommandOutput}
  * @see {@link EnableProactiveEngagementCommandInput} for command's `input` shape.
  * @see {@link EnableProactiveEngagementCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -85,6 +92,9 @@ export class EnableProactiveEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableProactiveEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class EnableProactiveEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableProactiveEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableProactiveEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

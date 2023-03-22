@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetRepositoriesCommand}.
  */
 export interface BatchGetRepositoriesCommandInput extends BatchGetRepositoriesInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetRepositoriesCommand}.
  */
 export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more repositories.</p>
  *         <note>
  *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -53,6 +58,8 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetRepositoriesCommandInput - {@link BatchGetRepositoriesCommandInput}
+ * @returns {@link BatchGetRepositoriesCommandOutput}
  * @see {@link BatchGetRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchGetRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -106,6 +113,9 @@ export class BatchGetRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class BatchGetRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetRepositoriesCommandOutput> {
     return deserializeAws_json1_1BatchGetRepositoriesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcPeeringConnectionOptionsCommand}.
  */
 export interface ModifyVpcPeeringConnectionOptionsCommandInput extends ModifyVpcPeeringConnectionOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcPeeringConnectionOptionsCommand}.
  */
 export interface ModifyVpcPeeringConnectionOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -73,6 +78,8 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcPeeringConnectionOptionsCommandInput - {@link ModifyVpcPeeringConnectionOptionsCommandInput}
+ * @returns {@link ModifyVpcPeeringConnectionOptionsCommandOutput}
  * @see {@link ModifyVpcPeeringConnectionOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcPeeringConnectionOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -96,6 +103,9 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcPeeringConnectionOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcPeeringConnectionOptionsCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

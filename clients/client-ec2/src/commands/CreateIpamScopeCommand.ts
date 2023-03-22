@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateIpamScopeCommand, serializeAws_ec2CreateIpamScopeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIpamScopeCommand}.
  */
 export interface CreateIpamScopeCommandInput extends CreateIpamScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIpamScopeCommand}.
  */
 export interface CreateIpamScopeCommandOutput extends CreateIpamScopeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
@@ -44,6 +49,8 @@ export interface CreateIpamScopeCommandOutput extends CreateIpamScopeResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIpamScopeCommandInput - {@link CreateIpamScopeCommandInput}
+ * @returns {@link CreateIpamScopeCommandOutput}
  * @see {@link CreateIpamScopeCommandInput} for command's `input` shape.
  * @see {@link CreateIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -67,6 +74,9 @@ export class CreateIpamScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIpamScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class CreateIpamScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIpamScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateIpamScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpamScopeCommandOutput> {
     return deserializeAws_ec2CreateIpamScopeCommand(output, context);
   }

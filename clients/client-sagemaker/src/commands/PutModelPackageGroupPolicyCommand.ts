@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutModelPackageGroupPolicyCommand}.
  */
 export interface PutModelPackageGroupPolicyCommandInput extends PutModelPackageGroupPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutModelPackageGroupPolicyCommand}.
  */
 export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackageGroupPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a resouce policy to control access to a model group. For information about
  *             resoure policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
  *                 policies and resource-based policies</a> in the <i>Amazon Web Services Identity and Access Management User Guide.</i>.</p>
@@ -48,6 +53,8 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * const response = await client.send(command);
  * ```
  *
+ * @param PutModelPackageGroupPolicyCommandInput - {@link PutModelPackageGroupPolicyCommandInput}
+ * @returns {@link PutModelPackageGroupPolicyCommandOutput}
  * @see {@link PutModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class PutModelPackageGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutModelPackageGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class PutModelPackageGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutModelPackageGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

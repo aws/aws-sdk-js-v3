@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { RDSDataServiceException as __BaseException } from "./RDSDataServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is an error in the call or in a SQL statement.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -41,6 +43,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum TypeHint {
   DATE = "DATE",
   DECIMAL = "DECIMAL",
@@ -51,6 +56,7 @@ export enum TypeHint {
 }
 
 /**
+ * @public
  * <p>There are insufficient privileges to make the call.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -70,6 +76,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -89,6 +96,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service specified by the <code>resourceArn</code> parameter is not
  *             available.</p>
  */
@@ -109,6 +117,7 @@ export class ServiceUnavailableError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The execution of the SQL statement timed out.</p>
  */
 export class StatementTimeoutException extends __BaseException {
@@ -134,6 +143,7 @@ export class StatementTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a request to start a SQL
  *             transaction.</p>
  */
@@ -160,6 +170,7 @@ export interface BeginTransactionRequest {
 }
 
 /**
+ * @public
  * <p>The response elements represent the output of a request to start a SQL
  *             transaction.</p>
  */
@@ -171,6 +182,7 @@ export interface BeginTransactionResponse {
 }
 
 /**
+ * @public
  * <p>Contains the metadata for a column.</p>
  */
 export interface ColumnMetadata {
@@ -246,6 +258,7 @@ export interface ColumnMetadata {
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a commit transaction request.</p>
  */
 export interface CommitTransactionRequest {
@@ -266,6 +279,7 @@ export interface CommitTransactionRequest {
 }
 
 /**
+ * @public
  * <p>The response elements represent the output of a commit transaction request.</p>
  */
 export interface CommitTransactionResponse {
@@ -276,6 +290,7 @@ export interface CommitTransactionResponse {
 }
 
 /**
+ * @public
  * <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -294,12 +309,16 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DecimalReturnType {
   DOUBLE_OR_LONG = "DOUBLE_OR_LONG",
   STRING = "STRING",
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a request to run one or more SQL
  *             statements.</p>
  */
@@ -336,6 +355,7 @@ export interface ExecuteSqlRequest {
 }
 
 /**
+ * @public
  * <p>The metadata of the result set returned by a SQL statement.</p>
  */
 export interface ResultSetMetadata {
@@ -350,17 +370,24 @@ export interface ResultSetMetadata {
   columnMetadata?: ColumnMetadata[];
 }
 
+/**
+ * @public
+ */
 export enum RecordsFormatType {
   JSON = "JSON",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum LongReturnType {
   LONG = "LONG",
   STRING = "STRING",
 }
 
 /**
+ * @public
  * <p>Options that control how the result set is returned.</p>
  */
 export interface ResultSetOptions {
@@ -388,6 +415,7 @@ export interface ResultSetOptions {
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a request to perform a rollback of a
  *             transaction.</p>
  */
@@ -409,6 +437,7 @@ export interface RollbackTransactionRequest {
 }
 
 /**
+ * @public
  * <p>The response elements represent the output of a request to perform a rollback of a
  *             transaction.</p>
  */
@@ -420,6 +449,7 @@ export interface RollbackTransactionResponse {
 }
 
 /**
+ * @public
  * <p>Contains an array.</p>
  */
 export type ArrayValue =
@@ -430,6 +460,9 @@ export type ArrayValue =
   | ArrayValue.StringValuesMember
   | ArrayValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ArrayValue {
   /**
    * <p>An array of Boolean values.</p>
@@ -520,6 +553,7 @@ export namespace ArrayValue {
 }
 
 /**
+ * @public
  * <p>Contains a value.</p>
  */
 export type Field =
@@ -532,6 +566,9 @@ export type Field =
   | Field.StringValueMember
   | Field.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Field {
   /**
    * <p>A NULL value.</p>
@@ -666,6 +703,7 @@ export namespace Field {
 }
 
 /**
+ * @public
  * <p>A parameter used in a SQL statement.</p>
  */
 export interface SqlParameter {
@@ -720,6 +758,7 @@ export interface SqlParameter {
 }
 
 /**
+ * @public
  * <p>The response elements represent the results of an update.</p>
  */
 export interface UpdateResult {
@@ -730,6 +769,7 @@ export interface UpdateResult {
 }
 
 /**
+ * @public
  * <p>Contains the value of a column.</p>
  *
  *         <note>
@@ -750,6 +790,9 @@ export type Value =
   | Value.StructValueMember
   | Value.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Value {
   /**
    * <p>A NULL value.</p>
@@ -965,6 +1008,7 @@ export namespace Value {
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a request to run a SQL statement against
  *             a database.</p>
  */
@@ -1050,6 +1094,7 @@ export interface ExecuteStatementRequest {
 }
 
 /**
+ * @public
  * <p>A structure value returned by a call.</p>
  *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
@@ -1064,6 +1109,7 @@ export interface StructValue {
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a SQL statement over an array of
  *             data.</p>
  */
@@ -1127,6 +1173,7 @@ export interface BatchExecuteStatementRequest {
 }
 
 /**
+ * @public
  * <p>The response elements represent the output of a SQL statement over an array of
  *             data.</p>
  */
@@ -1138,6 +1185,7 @@ export interface BatchExecuteStatementResponse {
 }
 
 /**
+ * @public
  * <p>A record returned by a call.</p>
  *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
@@ -1152,6 +1200,7 @@ export interface _Record {
 }
 
 /**
+ * @public
  * <p>The response elements represent the output of a request to run a SQL statement against
  *             a database.</p>
  */
@@ -1196,6 +1245,7 @@ export interface ExecuteStatementResponse {
 }
 
 /**
+ * @public
  * <p>The result set returned by a SQL statement.</p>
  *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
@@ -1215,6 +1265,7 @@ export interface ResultFrame {
 }
 
 /**
+ * @public
  * <p>The result of a SQL statement.</p>
  *
  *         <note>
@@ -1235,6 +1286,7 @@ export interface SqlStatementResult {
 }
 
 /**
+ * @public
  * <p>The response elements represent the output of a request to run one or more SQL
  *             statements.</p>
  */

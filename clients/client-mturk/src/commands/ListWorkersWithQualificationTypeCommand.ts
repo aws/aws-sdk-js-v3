@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkersWithQualificationTypeCommand}.
  */
 export interface ListWorkersWithQualificationTypeCommandInput extends ListWorkersWithQualificationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkersWithQualificationTypeCommand}.
  */
 export interface ListWorkersWithQualificationTypeCommandOutput
@@ -37,6 +41,7 @@ export interface ListWorkersWithQualificationTypeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListWorkersWithQualificationType</code> operation returns all of the Workers
  *             that have been associated with a given Qualification type.
@@ -51,6 +56,8 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkersWithQualificationTypeCommandInput - {@link ListWorkersWithQualificationTypeCommandInput}
+ * @returns {@link ListWorkersWithQualificationTypeCommandOutput}
  * @see {@link ListWorkersWithQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListWorkersWithQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkersWithQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListWorkersWithQualificationTypeCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     return serializeAws_json1_1ListWorkersWithQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

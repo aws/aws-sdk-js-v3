@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceTreeCommand}.
  */
 export interface DeleteResourceTreeCommandInput extends DeleteResourceTreeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceTreeCommand}.
  */
 export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an entire resource tree. This operation will delete the parent resource and
  *             its child resources.</p>
  *          <p>Child resources are resources that were created from another resource. For example,
@@ -71,6 +76,8 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceTreeCommandInput - {@link DeleteResourceTreeCommandInput}
+ * @returns {@link DeleteResourceTreeCommandOutput}
  * @see {@link DeleteResourceTreeCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceTreeCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -105,6 +112,9 @@ export class DeleteResourceTreeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceTreeCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DeleteResourceTreeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceTreeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResourceTreeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceTreeCommandOutput> {
     return deserializeAws_json1_1DeleteResourceTreeCommand(output, context);
   }

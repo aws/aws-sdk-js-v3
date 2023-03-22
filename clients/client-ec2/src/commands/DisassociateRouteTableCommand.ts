@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRouteTableCommand}.
  */
 export interface DisassociateRouteTableCommandInput extends DisassociateRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRouteTableCommand}.
  */
 export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a subnet or gateway from a route table.</p>
  *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
  * 				Instead, it uses the routes in the VPC's main route table. For more information
@@ -45,6 +50,8 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRouteTableCommandInput - {@link DisassociateRouteTableCommandInput}
+ * @returns {@link DisassociateRouteTableCommandOutput}
  * @see {@link DisassociateRouteTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +86,9 @@ export class DisassociateRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DisassociateRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateRouteTableCommandOutput> {
     return deserializeAws_ec2DisassociateRouteTableCommand(output, context);
   }

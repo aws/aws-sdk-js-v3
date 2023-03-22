@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkResourcesCommand}.
  */
 export interface GetNetworkResourcesCommandInput extends GetNetworkResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkResourcesCommand}.
  */
 export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the network resources for the specified global network.</p>
  *          <p>The results include information from the corresponding Describe call for the resource, minus any sensitive information such as pre-shared keys.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkResourcesCommandInput - {@link GetNetworkResourcesCommandInput}
+ * @returns {@link GetNetworkResourcesCommandOutput}
  * @see {@link GetNetworkResourcesCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourcesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetNetworkResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetNetworkResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetNetworkResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkResourcesCommandOutput> {
     return deserializeAws_restJson1GetNetworkResourcesCommand(output, context);
   }

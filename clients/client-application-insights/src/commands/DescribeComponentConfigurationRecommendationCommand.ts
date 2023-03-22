@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComponentConfigurationRecommendationCommand}.
  */
 export interface DescribeComponentConfigurationRecommendationCommandInput
   extends DescribeComponentConfigurationRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComponentConfigurationRecommendationCommand}.
  */
 export interface DescribeComponentConfigurationRecommendationCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the recommended monitoring configuration of the component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComponentConfigurationRecommendationCommandInput - {@link DescribeComponentConfigurationRecommendationCommandInput}
+ * @returns {@link DescribeComponentConfigurationRecommendationCommandOutput}
  * @see {@link DescribeComponentConfigurationRecommendationCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentConfigurationRecommendationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComponentConfigurationRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeComponentConfigurationRecommendationCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     return serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

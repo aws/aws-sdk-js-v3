@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifySoftwareTokenCommand}.
  */
 export interface VerifySoftwareTokenCommandInput extends VerifySoftwareTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifySoftwareTokenCommand}.
  */
 export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this API to register a user's entered time-based one-time password (TOTP) code and
  *             mark the user's software token MFA status as "verified" if successful. The request takes
  *             an access token or a session string, but not both.</p>
@@ -53,6 +58,8 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifySoftwareTokenCommandInput - {@link VerifySoftwareTokenCommandInput}
+ * @returns {@link VerifySoftwareTokenCommandOutput}
  * @see {@link VerifySoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link VerifySoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -121,6 +128,9 @@ export class VerifySoftwareTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifySoftwareTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class VerifySoftwareTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifySoftwareTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1VerifySoftwareTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifySoftwareTokenCommandOutput> {
     return deserializeAws_json1_1VerifySoftwareTokenCommand(output, context);
   }

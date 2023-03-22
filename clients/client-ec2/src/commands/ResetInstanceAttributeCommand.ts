@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetInstanceAttributeCommand}.
  */
 export interface ResetInstanceAttributeCommandInput extends ResetInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetInstanceAttributeCommand}.
  */
 export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets an attribute of an instance to its default value. To reset the
  *                 <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped
  *             state. To reset the <code>sourceDestCheck</code>, the instance can be either running or
@@ -49,6 +54,8 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetInstanceAttributeCommandInput - {@link ResetInstanceAttributeCommandInput}
+ * @returns {@link ResetInstanceAttributeCommandOutput}
  * @see {@link ResetInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -84,6 +91,9 @@ export class ResetInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ResetInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ResetInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetInstanceAttributeCommandOutput> {
     return deserializeAws_ec2ResetInstanceAttributeCommand(output, context);
   }

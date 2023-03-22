@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBlueGreenDeploymentCommand}.
  */
 export interface DeleteBlueGreenDeploymentCommandInput extends DeleteBlueGreenDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBlueGreenDeploymentCommand}.
  */
 export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a blue/green deployment.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
  *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
@@ -51,6 +56,8 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBlueGreenDeploymentCommandInput - {@link DeleteBlueGreenDeploymentCommandInput}
+ * @returns {@link DeleteBlueGreenDeploymentCommandOutput}
  * @see {@link DeleteBlueGreenDeploymentCommandInput} for command's `input` shape.
  * @see {@link DeleteBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteBlueGreenDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBlueGreenDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteBlueGreenDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBlueGreenDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteBlueGreenDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

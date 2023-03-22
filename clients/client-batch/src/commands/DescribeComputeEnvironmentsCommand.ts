@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComputeEnvironmentsCommand}.
  */
 export interface DescribeComputeEnvironmentsCommandInput extends DescribeComputeEnvironmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComputeEnvironmentsCommand}.
  */
 export interface DescribeComputeEnvironmentsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your compute environments.</p>
  *          <p>If you're using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
  *    operation to determine the <code>ecsClusterArn</code> that you launch your Amazon ECS container instances
@@ -51,6 +56,8 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComputeEnvironmentsCommandInput - {@link DescribeComputeEnvironmentsCommandInput}
+ * @returns {@link DescribeComputeEnvironmentsCommandOutput}
  * @see {@link DescribeComputeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeComputeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -133,6 +140,9 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComputeEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComputeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeComputeEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectTaggingCommand}.
  */
 export interface PutObjectTaggingCommandInput extends PutObjectTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectTaggingCommand}.
  */
 export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>
  *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT
  *          request against the tagging subresource that is associated with the object. You can
@@ -138,6 +143,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectTaggingCommandInput - {@link PutObjectTaggingCommandInput}
+ * @returns {@link PutObjectTaggingCommandOutput}
  * @see {@link PutObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -196,6 +203,9 @@ export class PutObjectTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -242,10 +252,16 @@ export class PutObjectTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectTaggingCommandOutput> {
     return deserializeAws_restXmlPutObjectTaggingCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeSigningProfileCommand}.
  */
 export interface RevokeSigningProfileCommandInput extends RevokeSigningProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeSigningProfileCommand}.
  */
 export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures
  * 			generated using the signing profile after an effective start date are no longer
  * 			valid.</p>
@@ -43,6 +48,8 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSigningProfileCommandInput - {@link RevokeSigningProfileCommandInput}
+ * @returns {@link RevokeSigningProfileCommandOutput}
  * @see {@link RevokeSigningProfileCommandInput} for command's `input` shape.
  * @see {@link RevokeSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -82,6 +89,9 @@ export class RevokeSigningProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSigningProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class RevokeSigningProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RevokeSigningProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSigningProfileCommandOutput> {
     return deserializeAws_restJson1RevokeSigningProfileCommand(output, context);
   }

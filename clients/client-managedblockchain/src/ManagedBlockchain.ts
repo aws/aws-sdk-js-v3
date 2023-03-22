@@ -95,6 +95,7 @@ import {
 import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
 
 /**
+ * @public
  * <p></p>
  *          <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.</p>
  *          <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> don't apply to Ethereum.</p>
@@ -102,6 +103,7 @@ import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
  */
 export class ManagedBlockchain extends ManagedBlockchainClient {
   /**
+   * @public
    * <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor contains information
    *          required for token based access to your Ethereum nodes.</p>
    */
@@ -135,6 +137,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Creates a member within a Managed Blockchain network.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -165,6 +168,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -198,6 +202,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Creates a node on the specified blockchain network.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
@@ -225,6 +230,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -258,6 +264,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
    *          information required for token based access to your Ethereum nodes including, the
    *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
@@ -296,6 +303,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the Amazon Web Services account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last Amazon Web Services account, the network is deleted also.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -326,6 +334,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Deletes a node that your Amazon Web Services account owns. All data on the node is lost and cannot be recovered.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
@@ -353,6 +362,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about an accessor. An accessor object is a container that has the
    *          information required for token based access to your Ethereum nodes.</p>
    */
@@ -380,6 +390,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about a member.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -407,6 +418,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about a network.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
@@ -434,6 +446,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about a node.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
@@ -461,6 +474,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about a proposal.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -488,6 +502,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
    *          information required for token based access to your Ethereum nodes.</p>
    */
@@ -521,6 +536,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all invitations for the current Amazon Web Services account.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -554,6 +570,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the members in a network and properties of their configurations.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -581,6 +598,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the networks in which the current Amazon Web Services account participates.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
@@ -611,6 +629,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the nodes within a network.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
@@ -638,6 +657,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of proposals for the network.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -671,6 +691,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -704,6 +725,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags for the specified resource. Each tag consists of a key and optional value.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
@@ -737,6 +759,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -770,6 +793,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Adds or overwrites the specified tags for the specified Amazon Managed Blockchain resource. Each tag consists of a key and optional value.</p>
    *          <p>When you specify a tag key that already exists, the tag value is overwritten with the new value. Use <code>UntagResource</code> to remove tag keys.</p>
    *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, your request fails and returns an error.</p>
@@ -799,6 +823,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the Amazon Managed Blockchain resource.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
@@ -832,6 +857,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Updates a member configuration with new parameters.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -862,6 +888,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Updates a node configuration with new parameters.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
@@ -889,6 +916,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * @public
    * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same Amazon Web Services account as the principal that calls the action.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */

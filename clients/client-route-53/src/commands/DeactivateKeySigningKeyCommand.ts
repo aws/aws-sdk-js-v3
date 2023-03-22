@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateKeySigningKeyCommand}.
  */
 export interface DeactivateKeySigningKeyCommandInput extends DeactivateKeySigningKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateKeySigningKeyCommand}.
  */
 export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
  * 			This operation changes the KSK status to <code>INACTIVE</code>.</p>
  * @example
@@ -48,6 +53,8 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateKeySigningKeyCommandInput - {@link DeactivateKeySigningKeyCommandInput}
+ * @returns {@link DeactivateKeySigningKeyCommandOutput}
  * @see {@link DeactivateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link DeactivateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -97,6 +104,9 @@ export class DeactivateKeySigningKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateKeySigningKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeactivateKeySigningKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeactivateKeySigningKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateKeySigningKeyCommandOutput> {
     return deserializeAws_restXmlDeactivateKeySigningKeyCommand(output, context);
   }

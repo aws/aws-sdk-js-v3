@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagInstanceProfileCommand}.
  */
 export interface UntagInstanceProfileCommandInput extends UntagInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagInstanceProfileCommand}.
  */
 export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the IAM instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagInstanceProfileCommandInput - {@link UntagInstanceProfileCommandInput}
+ * @returns {@link UntagInstanceProfileCommandOutput}
  * @see {@link UntagInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link UntagInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -81,6 +88,9 @@ export class UntagInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UntagInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagInstanceProfileCommandOutput> {
     return deserializeAws_queryUntagInstanceProfileCommand(output, context);
   }

@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedElasticsearchInstancesCommand}.
  */
 export interface DescribeReservedElasticsearchInstancesCommandInput
   extends DescribeReservedElasticsearchInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedElasticsearchInstancesCommand}.
  */
 export interface DescribeReservedElasticsearchInstancesCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeReservedElasticsearchInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about reserved Elasticsearch instances for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DescribeReservedElasticsearchInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedElasticsearchInstancesCommandInput - {@link DescribeReservedElasticsearchInstancesCommandInput}
+ * @returns {@link DescribeReservedElasticsearchInstancesCommandOutput}
  * @see {@link DescribeReservedElasticsearchInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedElasticsearchInstancesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedElasticsearchInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedElasticsearchInstancesCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     return serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

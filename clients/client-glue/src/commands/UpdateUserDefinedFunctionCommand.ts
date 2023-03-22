@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserDefinedFunctionCommand}.
  */
 export interface UpdateUserDefinedFunctionCommandInput extends UpdateUserDefinedFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserDefinedFunctionCommand}.
  */
 export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing function definition in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserDefinedFunctionCommandInput - {@link UpdateUserDefinedFunctionCommandInput}
+ * @returns {@link UpdateUserDefinedFunctionCommandOutput}
  * @see {@link UpdateUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserDefinedFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserDefinedFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

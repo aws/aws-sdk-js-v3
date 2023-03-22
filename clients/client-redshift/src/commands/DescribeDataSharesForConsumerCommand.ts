@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSharesForConsumerCommand}.
  */
 export interface DescribeDataSharesForConsumerCommandInput extends DescribeDataSharesForConsumerMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSharesForConsumerCommand}.
  */
 export interface DescribeDataSharesForConsumerCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDataSharesForConsumerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of datashares where the account identifier being called is a consumer account identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeDataSharesForConsumerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSharesForConsumerCommandInput - {@link DescribeDataSharesForConsumerCommandInput}
+ * @returns {@link DescribeDataSharesForConsumerCommandOutput}
  * @see {@link DescribeDataSharesForConsumerCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesForConsumerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeDataSharesForConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSharesForConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeDataSharesForConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSharesForConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDataSharesForConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

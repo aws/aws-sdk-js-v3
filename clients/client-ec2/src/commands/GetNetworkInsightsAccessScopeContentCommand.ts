@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkInsightsAccessScopeContentCommand}.
  */
 export interface GetNetworkInsightsAccessScopeContentCommandInput extends GetNetworkInsightsAccessScopeContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkInsightsAccessScopeContentCommand}.
  */
 export interface GetNetworkInsightsAccessScopeContentCommandOutput
@@ -37,6 +41,7 @@ export interface GetNetworkInsightsAccessScopeContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the content for the specified Network Access Scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetNetworkInsightsAccessScopeContentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkInsightsAccessScopeContentCommandInput - {@link GetNetworkInsightsAccessScopeContentCommandInput}
+ * @returns {@link GetNetworkInsightsAccessScopeContentCommandOutput}
  * @see {@link GetNetworkInsightsAccessScopeContentCommandInput} for command's `input` shape.
  * @see {@link GetNetworkInsightsAccessScopeContentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkInsightsAccessScopeContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetNetworkInsightsAccessScopeContentCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command<
     return serializeAws_ec2GetNetworkInsightsAccessScopeContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

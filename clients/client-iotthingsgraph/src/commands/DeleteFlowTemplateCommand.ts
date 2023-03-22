@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlowTemplateCommand}.
  */
 export interface DeleteFlowTemplateCommandInput extends DeleteFlowTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlowTemplateCommand}.
  */
 export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
@@ -49,6 +54,8 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowTemplateCommandInput - {@link DeleteFlowTemplateCommandInput}
+ * @returns {@link DeleteFlowTemplateCommandOutput}
  * @see {@link DeleteFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowTemplateCommandOutput> {
     return deserializeAws_json1_1DeleteFlowTemplateCommand(output, context);
   }

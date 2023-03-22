@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEmailIdentityFeedbackAttributesCommand}.
  */
 export interface PutEmailIdentityFeedbackAttributesCommandInput extends PutEmailIdentityFeedbackAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEmailIdentityFeedbackAttributesCommand}.
  */
 export interface PutEmailIdentityFeedbackAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to enable or disable feedback forwarding for an identity. This setting determines
  *             what happens when an identity is used to send an email that results in a bounce or
  *             complaint event.</p>
@@ -58,6 +63,8 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityFeedbackAttributesCommandInput - {@link PutEmailIdentityFeedbackAttributesCommandInput}
+ * @returns {@link PutEmailIdentityFeedbackAttributesCommandOutput}
  * @see {@link PutEmailIdentityFeedbackAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityFeedbackAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityFeedbackAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityFeedbackAttributesCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     return serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

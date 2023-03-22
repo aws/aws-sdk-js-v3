@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoadBalancerPolicyCommand}.
  */
 export interface DeleteLoadBalancerPolicyCommandInput extends DeleteLoadBalancerPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoadBalancerPolicyCommand}.
  */
 export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoadBalancerPolicyCommandInput - {@link DeleteLoadBalancerPolicyCommandInput}
+ * @returns {@link DeleteLoadBalancerPolicyCommandOutput}
  * @see {@link DeleteLoadBalancerPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoadBalancerPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoadBalancerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLoadBalancerPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoadBalancerPolicyCommandOutput> {
     return deserializeAws_queryDeleteLoadBalancerPolicyCommand(output, context);
   }

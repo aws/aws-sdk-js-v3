@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubnetCidrReservationCommand}.
  */
 export interface DeleteSubnetCidrReservationCommandInput extends DeleteSubnetCidrReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubnetCidrReservationCommand}.
  */
 export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCidrReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet CIDR reservation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubnetCidrReservationCommandInput - {@link DeleteSubnetCidrReservationCommandInput}
+ * @returns {@link DeleteSubnetCidrReservationCommandOutput}
  * @see {@link DeleteSubnetCidrReservationCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubnetCidrReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubnetCidrReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteSubnetCidrReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

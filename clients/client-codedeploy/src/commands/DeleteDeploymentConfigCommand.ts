@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeploymentConfigCommand}.
  */
 export interface DeleteDeploymentConfigCommandInput extends DeleteDeploymentConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeploymentConfigCommand}.
  */
 export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment configuration.</p>
  *         <note>
  *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
@@ -45,6 +50,8 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeploymentConfigCommandInput - {@link DeleteDeploymentConfigCommandInput}
+ * @returns {@link DeleteDeploymentConfigCommandOutput}
  * @see {@link DeleteDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteDeploymentConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteDeploymentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeploymentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentConfigCommandOutput> {
     return deserializeAws_json1_1DeleteDeploymentConfigCommand(output, context);
   }

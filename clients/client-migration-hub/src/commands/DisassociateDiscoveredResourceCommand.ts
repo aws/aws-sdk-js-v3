@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDiscoveredResourceCommand}.
  */
 export interface DisassociateDiscoveredResourceCommandInput extends DisassociateDiscoveredResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDiscoveredResourceCommand}.
  */
 export interface DisassociateDiscoveredResourceCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateDiscoveredResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate an Application Discovery Service discovered resource from a migration
  *          task.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DisassociateDiscoveredResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDiscoveredResourceCommandInput - {@link DisassociateDiscoveredResourceCommandInput}
+ * @returns {@link DisassociateDiscoveredResourceCommandOutput}
  * @see {@link DisassociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateDiscoveredResourceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -106,6 +113,9 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDiscoveredResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateDiscoveredResourceCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     return serializeAws_json1_1DisassociateDiscoveredResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

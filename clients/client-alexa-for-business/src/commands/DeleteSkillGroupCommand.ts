@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSkillGroupCommand}.
  */
 export interface DeleteSkillGroupCommandInput extends DeleteSkillGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSkillGroupCommand}.
  */
 export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a skill group by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSkillGroupCommandInput - {@link DeleteSkillGroupCommandInput}
+ * @returns {@link DeleteSkillGroupCommandOutput}
  * @see {@link DeleteSkillGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSkillGroupCommandOutput> {
     return deserializeAws_json1_1DeleteSkillGroupCommand(output, context);
   }

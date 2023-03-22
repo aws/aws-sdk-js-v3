@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelsCommand}.
  */
 export interface ListModelsCommandInput extends ListModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelsCommand}.
  */
 export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
  *          <p>The <code>ListModels</code> operation is eventually consistent.
  *          Recent calls to <code>CreateModel</code> might
@@ -51,6 +56,8 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelsCommandInput - {@link ListModelsCommandInput}
+ * @returns {@link ListModelsCommandOutput}
  * @see {@link ListModelsCommandInput} for command's `input` shape.
  * @see {@link ListModelsCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelsCommandOutput> {
     return deserializeAws_restJson1ListModelsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUsageCommand}.
  */
 export interface UpdateUsageCommandInput extends UpdateUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUsageCommand}.
  */
 export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUsageCommandInput - {@link UpdateUsageCommandInput}
+ * @returns {@link UpdateUsageCommandOutput}
  * @see {@link UpdateUsageCommandInput} for command's `input` shape.
  * @see {@link UpdateUsageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUsageCommandOutput> {
     return deserializeAws_restJson1UpdateUsageCommand(output, context);
   }

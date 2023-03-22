@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotFleetRequestHistoryCommand}.
  */
 export interface DescribeSpotFleetRequestHistoryCommandInput extends DescribeSpotFleetRequestHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotFleetRequestHistoryCommand}.
  */
 export interface DescribeSpotFleetRequestHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the events for the specified Spot Fleet request during the specified
  *             time.</p>
  *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
@@ -54,6 +59,8 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotFleetRequestHistoryCommandInput - {@link DescribeSpotFleetRequestHistoryCommandInput}
+ * @returns {@link DescribeSpotFleetRequestHistoryCommandOutput}
  * @see {@link DescribeSpotFleetRequestHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetRequestHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -128,6 +135,9 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotFleetRequestHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,6 +177,9 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSpotFleetRequestHistoryCommandInput,
     context: __SerdeContext
@@ -174,6 +187,9 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
     return serializeAws_ec2DescribeSpotFleetRequestHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

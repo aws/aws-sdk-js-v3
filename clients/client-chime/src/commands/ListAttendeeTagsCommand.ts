@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttendeeTagsCommand}.
  */
 export interface ListAttendeeTagsCommandInput extends ListAttendeeTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttendeeTagsCommand}.
  */
 export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags applied to an Amazon Chime SDK attendee resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttendeeTagsCommandInput - {@link ListAttendeeTagsCommandInput}
+ * @returns {@link ListAttendeeTagsCommandOutput}
  * @see {@link ListAttendeeTagsCommandInput} for command's `input` shape.
  * @see {@link ListAttendeeTagsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListAttendeeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttendeeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListAttendeeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttendeeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAttendeeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttendeeTagsCommandOutput> {
     return deserializeAws_restJson1ListAttendeeTagsCommand(output, context);
   }

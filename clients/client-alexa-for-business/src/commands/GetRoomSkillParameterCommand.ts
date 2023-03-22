@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoomSkillParameterCommand}.
  */
 export interface GetRoomSkillParameterCommandInput extends GetRoomSkillParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoomSkillParameterCommand}.
  */
 export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets room skill parameter details by room, skill, and parameter key ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoomSkillParameterCommandInput - {@link GetRoomSkillParameterCommandInput}
+ * @returns {@link GetRoomSkillParameterCommandOutput}
  * @see {@link GetRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link GetRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetRoomSkillParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoomSkillParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetRoomSkillParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoomSkillParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRoomSkillParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomSkillParameterCommandOutput> {
     return deserializeAws_json1_1GetRoomSkillParameterCommand(output, context);
   }

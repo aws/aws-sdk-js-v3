@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIdentityProvidersCommand}.
  */
 export interface ListIdentityProvidersCommandInput extends ListIdentityProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIdentityProvidersCommand}.
  */
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of identity providers for a specific web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
+ * @returns {@link ListIdentityProvidersCommandOutput}
  * @see {@link ListIdentityProvidersCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProvidersCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListIdentityProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListIdentityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIdentityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityProvidersCommandOutput> {
     return deserializeAws_restJson1ListIdentityProvidersCommand(output, context);
   }

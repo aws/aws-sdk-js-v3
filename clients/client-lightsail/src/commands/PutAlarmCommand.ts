@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PutAlarmCommand, serializeAws_json1_1PutAlarmCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAlarmCommand}.
  */
 export interface PutAlarmCommandInput extends PutAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAlarmCommand}.
  */
 export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an alarm, and associates it with the specified metric.</p>
  *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
  *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -53,6 +58,8 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAlarmCommandInput - {@link PutAlarmCommandInput}
+ * @returns {@link PutAlarmCommandOutput}
  * @see {@link PutAlarmCommandInput} for command's `input` shape.
  * @see {@link PutAlarmCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class PutAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class PutAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAlarmCommandOutput> {
     return deserializeAws_json1_1PutAlarmCommand(output, context);
   }

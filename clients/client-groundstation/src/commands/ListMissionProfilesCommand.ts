@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMissionProfilesCommand}.
  */
 export interface ListMissionProfilesCommandInput extends ListMissionProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMissionProfilesCommand}.
  */
 export interface ListMissionProfilesCommandOutput extends ListMissionProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of mission profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMissionProfilesCommandInput - {@link ListMissionProfilesCommandInput}
+ * @returns {@link ListMissionProfilesCommandOutput}
  * @see {@link ListMissionProfilesCommandInput} for command's `input` shape.
  * @see {@link ListMissionProfilesCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListMissionProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMissionProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListMissionProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMissionProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMissionProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMissionProfilesCommandOutput> {
     return deserializeAws_restJson1ListMissionProfilesCommand(output, context);
   }

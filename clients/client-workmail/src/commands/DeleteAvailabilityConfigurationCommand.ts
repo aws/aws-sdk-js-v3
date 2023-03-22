@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAvailabilityConfigurationCommand}.
  */
 export interface DeleteAvailabilityConfigurationCommandInput extends DeleteAvailabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAvailabilityConfigurationCommand}.
  */
 export interface DeleteAvailabilityConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAvailabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteAvailabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAvailabilityConfigurationCommandInput - {@link DeleteAvailabilityConfigurationCommandInput}
+ * @returns {@link DeleteAvailabilityConfigurationCommandOutput}
  * @see {@link DeleteAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAvailabilityConfigurationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
     return serializeAws_json1_1DeleteAvailabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
